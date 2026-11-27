@@ -46,11 +46,21 @@ def interactive_setup():
     
     # 1. Provider selection
     console.print("\n[bold cyan]▶ Step 1/4: Select Primary LLM Provider & Gateway[/bold cyan]")
-    provider_choice = Prompt.ask(
-        "Choose neural backend",
-        choices=["Anthropic Claude (Direct)", "Custom OpenAI / LiteLLM Proxy", "Ollama (Local Sovereign LLM)", "OpenRouter Free / Multi-Model"],
-        default="Anthropic Claude (Direct)"
-    )
+    providers = [
+        "Anthropic Claude (Direct)",
+        "Custom OpenAI / LiteLLM Proxy",
+        "Ollama (Local Sovereign LLM)",
+        "OpenRouter Free / Multi-Model"
+    ]
+    for idx, p in enumerate(providers, 1):
+        console.print(f"  [cyan]{idx}.[/cyan] {p}")
+    raw_provider = Prompt.ask("Choose neural backend (enter number 1-4 or name)", default="1")
+    try:
+        p_idx = int(raw_provider)
+        provider_choice = providers[p_idx - 1] if 1 <= p_idx <= len(providers) else providers[0]
+    except ValueError:
+        provider_choice = raw_provider if raw_provider in providers else providers[0]
+    console.print(f"[green]Selected: {provider_choice}[/green]")
     
     base_url = "https://api.anthropic.com"
     api_key_env = "ANTHROPIC_API_KEY"
@@ -74,7 +84,21 @@ def interactive_setup():
 
     # 3. Security & Autonomy Level
     console.print("\n[bold cyan]▶ Step 3/4: Autonomous Safety Policy & Firewall Guardrails[/bold cyan]")
-    autonomy_level = Prompt.ask("Select Autonomy Level", choices=["L0 (Observe Only)", "L1 (Suggest Only)", "L2 (Act Safe / Ask Risky - Recommended)", "L3 (Full Autonomous Fleet Ops)"], default="L2 (Act Safe / Ask Risky - Recommended)")
+    autonomies = [
+        "L0 (Observe Only)",
+        "L1 (Suggest Only)",
+        "L2 (Act Safe / Ask Risky - Recommended)",
+        "L3 (Full Autonomous Fleet Ops)"
+    ]
+    for idx, a in enumerate(autonomies, 1):
+        console.print(f"  [cyan]{idx}.[/cyan] {a}")
+    raw_auto = Prompt.ask("Select Autonomy Level (enter number 1-4 or name)", default="3")
+    try:
+        a_idx = int(raw_auto)
+        autonomy_level = autonomies[a_idx - 1] if 1 <= a_idx <= len(autonomies) else autonomies[2]
+    except ValueError:
+        autonomy_level = raw_auto if raw_auto in autonomies else autonomies[2]
+    console.print(f"[green]Selected: {autonomy_level}[/green]")
     autonomy_int = 2 if "L2" in autonomy_level else (3 if "L3" in autonomy_level else (1 if "L1" in autonomy_level else 0))
 
     # 4. Telegram Gateway
