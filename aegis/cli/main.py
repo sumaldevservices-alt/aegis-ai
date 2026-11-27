@@ -21,11 +21,11 @@ console = Console()
 BANNER = """[bold cyan]
     _    ____ ____ ___ ____    _    ___ 
    / \\  | ___| ___|_ _/ ___|  / \\  |_ _|
-  / _ \\ |  _| |  _| | \\___ \\ / _ \\  | | 
- / ___ \\| |___| |___| | ___) / ___ \\ | | 
+  / _ \\ |  _| |  _| | \\___ \\ / _ \\ | | 
+ / ___ \\| |___| |___| | ___) / ___ \\| | 
 /_/   \\_\\____|_____|___|____/_/   \\_\\___|
 [/bold cyan]
-[dim bold]Autonomous AI Sysadmin, Fleet Intelligence & Self-Healing Kernel[/dim]
+[dim bold]Autonomous AI Sysadmin, Fleet Intelligence & Self-Healing Kernel[/dim bold]
 """
 
 @app.callback(invoke_without_command=True)
