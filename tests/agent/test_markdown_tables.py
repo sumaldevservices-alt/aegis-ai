@@ -66,7 +66,7 @@ def test_split_handles_code_spans_and_escaped_pipes_together():
 
 
 def test_split_preserves_cells_when_backticks_pair_across_boundaries():
-    # Regression for NousResearch/hermes-agent#151724 (kshitijk4poor).
+    # Regression for NousResearch/aegis-agent#151724 (kshitijk4poor).
     assert split_table_row("| don`t | it`s | 3 |") == ["don`t", "it`s", "3"]
     # A real code span still keeps its spaced pipe (review of #152466).
     assert split_table_row("| pipe | `ls | grep x` |") == ["pipe", "`ls | grep x`"]

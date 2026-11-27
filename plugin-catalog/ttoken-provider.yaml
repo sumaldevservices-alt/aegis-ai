@@ -1,5 +1,5 @@
 name: ttoken-provider
-repo: https://github.com/naufalmaulana0577-ui/hermes-ttoken
+repo: https://github.com/naufalmaulana0577-ui/aegis-ttoken
 sha: ead54b90328b2b123e22bcb324e04e961adc910f
 subdir: model-providers/ttoken
 title: "TTOken"
@@ -7,8 +7,8 @@ description: "TTOken models (DeepSeek, GLM, Qwen) via the OpenAI-compatible gate
 maintainer: naufalmaulana0577-ui
 tier: community
 category: models
-requires_hermes: ">=0.23.0"
-docs_url: https://github.com/naufalmaulana0577-ui/hermes-ttoken#readme
+requires_aegis: ">=0.23.0"
+docs_url: https://github.com/naufalmaulana0577-ui/aegis-ttoken#readme
 version: "1.0.0"
 platforms: []
 capabilities:

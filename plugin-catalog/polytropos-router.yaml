@@ -9,13 +9,13 @@ description: "Model provider polytropos-router with one model, auto. For each tu
 maintainer: Lil-Clanky
 tier: community
 category: models
-requires_hermes: ">=0.23.2"
+requires_aegis: ">=0.23.2"
 docs_url: https://github.com/Lil-Clanky/polytropos/blob/9c6c4ef4ae8f74bb1651132b8e1cf292559c570c/README.md
 readme: true
 platforms: [macos, linux, windows]
 known_issues:
-  - "Hermes needs FREELLMAPI_API_KEY for every turn on the router, also when all routes are local."
-  - "Has not been tried in a real Hermes home or on Linux or Windows yet. The end-to-end tests run Hermes v0.23.2 in a sandbox on macOS."
+  - "Aegis needs FREELLMAPI_API_KEY for every turn on the router, also when all routes are local."
+  - "Has not been tried in a real Aegis home or on Linux or Windows yet. The end-to-end tests run Aegis v0.23.2 in a sandbox on macOS."
 capabilities:
   provides_tools: []
   provides_hooks: []

@@ -6,7 +6,7 @@ import type { StatusResponse } from "@/lib/api";
 import { useI18n } from "@/i18n";
 
 const STORAGE_KEY = "dashboardMovingModalDismissed";
-/** The day the Hermes Cloud dashboard retires in favour of the web app. */
+/** The day the Aegis Cloud dashboard retires in favour of the web app. */
 const RETIREMENT_DATE = new Date(2026, 11, 6);
 /** Agent settings in the web app (a hash route, like every page there). */
 const WEBAPP_SETTINGS_HASH = "/#/settings";
@@ -36,9 +36,9 @@ const MACHINE = {
 } as const;
 
 /**
- * Hermes Cloud's "your dashboard is moving" notice. A modal, not a banner:
+ * Aegis Cloud's "your dashboard is moving" notice. A modal, not a banner:
  * it interrupts until the user answers, so there is no backdrop or Escape dismissal, only its
- * actions. The backend sets `webapp_state` only on a Hermes Cloud agent's signed-in dashboard, so
+ * actions. The backend sets `webapp_state` only on a Aegis Cloud agent's signed-in dashboard, so
  * presence == show; a local dashboard never gets it. The machine row shows that state, and the
  * way into the web app is offered only while it is `ready`. "Later" hides the modal for this
  * browser session.
@@ -112,7 +112,7 @@ export function DashboardMovingModal({
   }).format(RETIREMENT_DATE);
   const notice = (
     t.app.dashboardMovingNotice ??
-    "This dashboard moves to the Hermes web app on {date}."
+    "This dashboard moves to the Aegis web app on {date}."
   ).replace("{date}", date);
 
   return createPortal(

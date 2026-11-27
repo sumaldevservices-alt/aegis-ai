@@ -96,7 +96,7 @@ def test_ipv6_loopback_eaddrnotavail_falls_back_immediately_without_retrying(mon
     (home / "config.yaml").write_text(
         "webapp:\n  enabled: true\n  host: '::1'\n  port: 9119\n", encoding="utf-8"
     )
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     monkeypatch.setattr(run_runtime_listener, "_WEBAPP_ADDRESS_POLL_SECONDS", 0.01)
 
     calls = []
@@ -156,7 +156,7 @@ def test_start_gateway_runtime_api_waits_for_late_webapp_host_and_warns_once(mon
     (home / "config.yaml").write_text(
         "webapp:\n  enabled: true\n  host: 100.64.0.5\n  port: 9119\n", encoding="utf-8"
     )
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     monkeypatch.setattr(run_runtime_listener, "_WEBAPP_ADDRESS_POLL_SECONDS", 0.01)
 
     webapp_calls = []
@@ -281,7 +281,7 @@ def test_operator_stop_during_wait_aborts_without_rebinding_or_private_fallback(
     (home / "config.yaml").write_text(
         "webapp:\n  enabled: true\n  host: 192.0.2.77\n  port: 9119\n", encoding="utf-8"
     )
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     monkeypatch.setattr(run_runtime_listener, "_WEBAPP_ADDRESS_POLL_SECONDS", 5.0)
     monkeypatch.setattr(status, "consume_takeover_marker_for_self", lambda: False)
     monkeypatch.setattr(shutdown_forensics, "snapshot_shutdown_context", lambda sig: None)
@@ -364,7 +364,7 @@ def test_a_stop_during_a_bind_publishes_no_listener(monkeypatch, tmp_path, failu
     (home / "config.yaml").write_text(
         "webapp:\n  enabled: true\n  host: 100.64.0.5\n  port: 9119\n", encoding="utf-8"
     )
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     calls, stopped = [], []
 
     async def start(r, *, host="127.0.0.1", port=0, webapp=None):
@@ -492,14 +492,14 @@ def test_bootstrap_listener_and_runner_aborts_before_keepalive_and_runner_start(
 def test_only_a_supervised_gateway_waits_for_the_address(monkeypatch, tmp_path, idle_exit, webapp_binds, state):
     """A TUI or ``chat -q`` client waits on its own idle-exit gateway with a hard start budget (Ink: 30 s)."""
     from gateway import lifecycle_ledger, run_bootstrap
-    from hermes_cli import nous_auth_keepalive
+    from aegis_cli import nous_auth_keepalive
 
     home = tmp_path / "home"
     home.mkdir()
     (home / "config.yaml").write_text(
         "webapp:\n  enabled: true\n  host: 100.64.0.5\n  port: 9119\n", encoding="utf-8"
     )
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     monkeypatch.setattr(run_runtime_listener, "_WEBAPP_ADDRESS_POLL_SECONDS", 0.01)
     monkeypatch.setattr(lifecycle_ledger, "record_startup", lambda: None)
     monkeypatch.setattr(nous_auth_keepalive, "start_nous_auth_keepalive", lambda: None)

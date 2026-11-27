@@ -3,9 +3,9 @@ import { QueryClientProvider, useQuery } from '@tanstack/react-query'
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as HermesApi from '@/hermes'
+import type * as AegisApi from '@/aegis'
 import { queryClient } from '@/lib/query-client'
-import type { SkillInfo } from '@/types/hermes'
+import type { SkillInfo } from '@/types/aegis'
 
 import { SkillDetail } from './skill-detail'
 import { skillsQueryKey } from './skills-data'
@@ -13,8 +13,8 @@ import { skillsQueryKey } from './skills-data'
 const setSkillLocked = vi.fn()
 const notifyError = vi.fn()
 
-vi.mock('@/hermes', async importOriginal => ({
-  ...(await importOriginal<typeof HermesApi>()),
+vi.mock('@/aegis', async importOriginal => ({
+  ...(await importOriginal<typeof AegisApi>()),
   getSkillContent: async (name: string) => ({ content: `---\nname: ${name}\n---\n\n# body\n`, name, path: '' }),
   setSkillLocked: (name: string, locked: boolean, profile?: unknown) => setSkillLocked(name, locked, profile)
 }))

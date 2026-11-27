@@ -28,7 +28,7 @@ export function useKeychainEncryption(): KeychainEncryption {
   useEffect(() => {
     let cancelled = false
 
-    void window.hermesDesktop
+    void window.aegisDesktop
       ?.getSecretStorageEncryption?.()
       .then(res => {
         if (!cancelled && res) {
@@ -43,7 +43,7 @@ export function useKeychainEncryption(): KeychainEncryption {
   }, [])
 
   const setKeychainEncryption = async (on: boolean) => {
-    const setEncryption = window.hermesDesktop?.setSecretStorageEncryption
+    const setEncryption = window.aegisDesktop?.setSecretStorageEncryption
 
     if (!setEncryption) {
       return
@@ -70,8 +70,8 @@ export function useKeychainEncryption(): KeychainEncryption {
     on: keychainEncryption,
     set: setKeychainEncryption,
     supported:
-      typeof window.hermesDesktop?.getSecretStorageEncryption === 'function' &&
-      typeof window.hermesDesktop?.setSecretStorageEncryption === 'function'
+      typeof window.aegisDesktop?.getSecretStorageEncryption === 'function' &&
+      typeof window.aegisDesktop?.setSecretStorageEncryption === 'function'
   }
 }
 

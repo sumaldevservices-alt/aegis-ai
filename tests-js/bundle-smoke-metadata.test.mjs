@@ -41,7 +41,7 @@ test('identity uses the production bundled variant and exact input tokens, not i
     expect(() => bundleIdentity(bad)).toThrow('commit')
   }
   expect(() => bundleIdentity(commit, 'v1.2.3 ')).toThrow('tag')
-  const hostileEnvironment = { ...process.env, HERMES_DESKTOP_VARIANT: 'store', HERMES_BUILD_COMMIT: 'b'.repeat(40), HERMES_PAYLOAD_TAG: 'v9.9.9', _HERMES_CHANNEL_REQUEST_JSON: '{"invalid":"inherited"}' }
+  const hostileEnvironment = { ...process.env, AEGIS_DESKTOP_VARIANT: 'store', AEGIS_BUILD_COMMIT: 'b'.repeat(40), AEGIS_PAYLOAD_TAG: 'v9.9.9', _AEGIS_CHANNEL_REQUEST_JSON: '{"invalid":"inherited"}' }
   const cli = path.resolve(import.meta.dirname, '../tests/install/e2e-assets/bundle-smoke-metadata.mjs')
   expect(JSON.parse(execFileSync(process.execPath, [cli, 'identity', '--commit', commit], { env: hostileEnvironment, encoding: 'utf8' }))).toEqual(tagless)
 })
@@ -50,7 +50,7 @@ test('channel smoke binds the complete admitted request, not a commit-build iden
   const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'channel-smoke-'))
   const token = randomBytes(8).toString('hex'), sequence = 65537
   const request = { schema: 1, buildId: randomBytes(16).toString('hex'), channel: `smoke-${token}`,
-    repository: 'NousResearch/hermes-agent', publicBase: 'https://releases.example.test', commit,
+    repository: 'NousResearch/aegis-agent', publicBase: 'https://releases.example.test', commit,
     sourceVersion: '1.2.3', sequence, version: `0.0.${sequence}`,
     windowsVersion: `0.${Math.floor(sequence / 65536)}.${sequence % 65536}.0`, bundleEnv: {},
     identity: { token, displayName: 'Smoke Channel', appId: `com.example.preview-${token}`,
@@ -67,11 +67,11 @@ test('channel smoke binds the complete admitted request, not a commit-build iden
     expect(JSON.parse(identity.stdout)).toMatchObject({ appId: request.identity.appId,
       msixIdentity: request.identity.msixAppIdWithOrg, applicationId: request.identity.appNamePascal,
       windowsVersion: request.windowsVersion })
-    const env = { ...process.env, HERMES_DESKTOP_VARIANT: 'bundled', HERMES_BUILD_COMMIT: '',
-      HERMES_PAYLOAD_TAG: '', HERMES_PAYLOAD_VERSION: '', _HERMES_CHANNEL_REQUEST_JSON: JSON.stringify(request) }
+    const env = { ...process.env, AEGIS_DESKTOP_VARIANT: 'bundled', AEGIS_BUILD_COMMIT: '',
+      AEGIS_PAYLOAD_TAG: '', AEGIS_PAYLOAD_VERSION: '', _AEGIS_CHANNEL_REQUEST_JSON: JSON.stringify(request) }
     for (const platform of ['darwin', 'win32']) {
       const stamp = buildStampPayload({ commit, dirty: false }, env, platform,
-        { runtime: { commands: { hermes: 'bin/hermes' } } })
+        { runtime: { commands: { aegis: 'bin/aegis' } } })
       fs.writeFileSync(stampPath, JSON.stringify(stamp))
       const result = run('stamp', ['--platform', platform, '--stamp', stampPath])
       expect(result.status, result.stderr).toBe(0)
@@ -95,7 +95,7 @@ test('channel smoke binds the complete admitted request, not a commit-build iden
         }
         expect(stampAssertions(stamp, { commit, tag: null, channelRequest: request })).toEqual([])
         expect(stampAssertions(stamp, { commit, tag: null }).join(';')).toContain('channelBuild')
-        expect(stampAssertions({ ...stamp, channelBuild: { ...request, bundleEnv: { HERMES_MODEL: 'other' } } },
+        expect(stampAssertions({ ...stamp, channelBuild: { ...request, bundleEnv: { AEGIS_MODEL: 'other' } } },
           { commit, tag: null, channelRequest: request }).join(';')).toContain('channelBuild')
       }
     }
@@ -117,18 +117,18 @@ test.skipIf(process.platform === 'win32')('channel admission validates each dist
   try {
     const log = path.join(temp, 'calls'), python = path.join(temp, 'python')
     const quote = value => `'${value.replaceAll("'", "'\\''")}'`
-    fs.writeFileSync(python, `#!/bin/sh\necho x >> ${quote(log)}\nexec ${quote(process.env.HERMES_PYTHON || 'python')} "$@"\n`,
+    fs.writeFileSync(python, `#!/bin/sh\necho x >> ${quote(log)}\nexec ${quote(process.env.AEGIS_PYTHON || 'python')} "$@"\n`,
       { mode: 0o755 })
     const calls = () => fs.existsSync(log) ? fs.readFileSync(log, 'utf8').split('\n').filter(Boolean).length : 0
     const token = randomBytes(8).toString('hex')
     const request = { schema: 1, buildId: randomBytes(16).toString('hex'), channel: `smoke-${token}`,
-      repository: 'NousResearch/hermes-agent', publicBase: 'https://releases.example.test', commit,
+      repository: 'NousResearch/aegis-agent', publicBase: 'https://releases.example.test', commit,
       sourceVersion: '1.2.3', sequence: 1, version: '0.0.1', windowsVersion: '0.0.1.0', bundleEnv: {},
       identity: { token, displayName: 'Smoke Channel', appId: `com.example.preview-${token}`,
         appNamePascal: `Smoke${token}`, artifactNamePascal: `Artifact${token}`,
         msixAppIdWithOrg: `Example.Smoke${token}`, cliName: `smoke-${token}`, windowsExecutableName: `smoke-${token}` } }
-    const admit = value => channelBuildRequest({ HERMES_PYTHON: python, HERMES_DESKTOP_VARIANT: 'bundled',
-      PATH: process.env.PATH, _HERMES_CHANNEL_REQUEST_JSON: JSON.stringify(value) })
+    const admit = value => channelBuildRequest({ AEGIS_PYTHON: python, AEGIS_DESKTOP_VARIANT: 'bundled',
+      PATH: process.env.PATH, _AEGIS_CHANNEL_REQUEST_JSON: JSON.stringify(value) })
     expect(admit(request)).toEqual(request)
     expect(admit(request)).toEqual(request)
     expect(calls()).toBe(1)
@@ -174,16 +174,16 @@ test('shouldVerifyMacDmg enforces outer DMG checks on all releases/channels and 
   expect(shouldVerifyMacDmg({ tag: '', stamp: {} })).toBe(false)
 
   const commit = 'b'.repeat(40)
-  const runtime = { commands: { hermes: 'bin/hermes' } }
-  expect(buildStampPayload({ commit, dirty: false }, { HERMES_DESKTOP_VARIANT: 'bundled' }, 'darwin', { runtime }).signedDmg).toBe(true)
-  expect(buildStampPayload({ commit, dirty: false }, { HERMES_DESKTOP_VARIANT: 'bundled' }, 'win32', { runtime }).signedDmg).toBeUndefined()
-  expect(buildStampPayload({ commit, dirty: false }, { HERMES_DESKTOP_VARIANT: 'light' }, 'darwin', { runtime }).signedDmg).toBeUndefined()
+  const runtime = { commands: { aegis: 'bin/aegis' } }
+  expect(buildStampPayload({ commit, dirty: false }, { AEGIS_DESKTOP_VARIANT: 'bundled' }, 'darwin', { runtime }).signedDmg).toBe(true)
+  expect(buildStampPayload({ commit, dirty: false }, { AEGIS_DESKTOP_VARIANT: 'bundled' }, 'win32', { runtime }).signedDmg).toBeUndefined()
+  expect(buildStampPayload({ commit, dirty: false }, { AEGIS_DESKTOP_VARIANT: 'light' }, 'darwin', { runtime }).signedDmg).toBeUndefined()
 })
 
 test('verifyMacDmg enforces codesign, team ID, stapler ticket, and spctl primary-signature open policy', () => {
   const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'dmg-smoke-'))
   try {
-    const dmg = path.join(temp, 'HermesBundled-1.2.3-mac-arm64.dmg')
+    const dmg = path.join(temp, 'AegisBundled-1.2.3-mac-arm64.dmg')
     fs.writeFileSync(dmg, 'dmg-fixture')
     const calls = []
     const exec = (cmd, args) => { calls.push([cmd, ...args]) }

@@ -13,7 +13,7 @@ description: |
 maintainer: dyiapanis
 tier: community
 category: tools
-requires_hermes: ">=0.21"
+requires_aegis: ">=0.21"
 docs_url: https://github.com/dyiapanis/tabella#readme
 version: "2.0.8"
 image: https://raw.githubusercontent.com/dyiapanis/tabella/56de1f134d58bfe70abbb2102d5c9f62d1affa9a/docs/banner.jpg

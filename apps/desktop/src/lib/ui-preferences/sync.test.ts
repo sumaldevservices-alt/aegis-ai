@@ -54,9 +54,9 @@ function memoryStore(initial: null | Record<string, string>) {
   return { bridge, external, snapshot, writes }
 }
 
-const DENSITY = 'hermes.desktop.sessionListDensity'
-const MODE = 'hermes-desktop-mode-v1'
-const DRAFT = 'hermes.desktop.composerQueue.v1'
+const DENSITY = 'aegis.desktop.sessionListDensity'
+const MODE = 'aegis-desktop-mode-v1'
+const DRAFT = 'aegis.desktop.composerQueue.v1'
 
 describe('machine UI preferences sync', () => {
   let stop: () => void = () => undefined

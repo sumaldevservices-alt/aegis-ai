@@ -10,7 +10,7 @@ import stat
 import subprocess
 import zipfile
 
-import hermes_yaml
+import aegis_yaml
 import pytest
 
 from scripts.bundles import release_artifacts
@@ -24,7 +24,7 @@ def test_macos_record_binds_filename_version_and_provenance(tmp_path, monkeypatc
     request = channel_request(commit, sequence=6) if channel else None
     tag = None if channel else "v1.2.3"
     version = request["version"] if request else "1.2.3"
-    identity = request["identity"]["appId"] if request else "ai.hermes.test"
+    identity = request["identity"]["appId"] if request else "ai.aegis.test"
     stamp = ({"source": "channel-build", "channelBuild": request, "commit": commit, "tag": None}
              if request else {"commit": commit, "tag": tag, "baseVersion": version})
     root = tmp_path / "release"
@@ -77,8 +77,8 @@ PAYLOAD = "Product.app/Contents/Resources/payload/"
 UNIX = 16  # a ZIP entry's Unix mode is the high word of external_attr
 OWNER_WRITABLE = [
     (PAYLOAD, (stat.S_IFDIR | 0o755) << UNIX, b""),
-    (PAYLOAD + "hermes/__pycache__/cli.cpython-313.pyc", (stat.S_IFREG | 0o644) << UNIX, b"pyc"),
-    (PAYLOAD + "hermes/cli.py", (stat.S_IFREG | 0o644) << UNIX, b"py"),
+    (PAYLOAD + "aegis/__pycache__/cli.cpython-313.pyc", (stat.S_IFREG | 0o644) << UNIX, b"pyc"),
+    (PAYLOAD + "aegis/cli.py", (stat.S_IFREG | 0o644) << UNIX, b"py"),
     (PAYLOAD + "bin/python3", (stat.S_IFLNK | 0o755) << UNIX, b"python3.13"),
     # Only an MS-DOS attribute (archive), as a Windows archiver writes it: no Unix mode.
     (PAYLOAD + "no-unix-mode.txt", 0x20, b"dos"),
@@ -92,7 +92,7 @@ def record_mac_update(tmp_path, monkeypatch, extra=(), size=None):
     package = root / "Product-1.2.3-mac-arm64.zip"
     with zipfile.ZipFile(package, "w") as archive:
         archive.writestr("Product.app/Contents/Info.plist", plistlib.dumps({
-            "CFBundleIdentifier": "ai.hermes.test", "CFBundleShortVersionString": "1.2.3",
+            "CFBundleIdentifier": "ai.aegis.test", "CFBundleShortVersionString": "1.2.3",
         }))
         archive.writestr("Product.app/Contents/Resources/install-stamp.json",
                          json.dumps({"commit": commit, "tag": "v1.2.3", "baseVersion": "1.2.3"}))
@@ -172,7 +172,7 @@ def _write_mac_feed(path, version: str, zip_path, dmg_path, *, dmg_size: int | N
         "path": zip_path.name,
         "sha512": zip_sha,
     }
-    path.write_text(hermes_yaml.safe_dump(feed, sort_keys=False), encoding="utf-8")
+    path.write_text(aegis_yaml.safe_dump(feed, sort_keys=False), encoding="utf-8")
 
 
 def _add_outer_dmg(root, package, *, feed: bool) -> None:
@@ -194,7 +194,7 @@ def test_macos_record_verifies_outer_dmg_signature_blockmap_and_feed_consistency
     out = root / "metadata-macos-arm64.json"
     with zipfile.ZipFile(package, "w") as archive:
         archive.writestr("Product.app/Contents/Info.plist", plistlib.dumps({
-            "CFBundleIdentifier": "ai.hermes.test", "CFBundleShortVersionString": "1.2.3",
+            "CFBundleIdentifier": "ai.aegis.test", "CFBundleShortVersionString": "1.2.3",
         }))
         archive.writestr("Product.app/Contents/Resources/install-stamp.json",
                          json.dumps({"commit": commit, "tag": "v1.2.3", "baseVersion": "1.2.3"}))
@@ -236,7 +236,7 @@ def test_macos_record_verifies_outer_dmg_signature_blockmap_and_feed_consistency
 
     zip_bytes = package.read_bytes()
     zip_sha = base64.b64encode(hashlib.sha512(zip_bytes).digest()).decode("ascii")
-    feed.write_text(hermes_yaml.safe_dump({
+    feed.write_text(aegis_yaml.safe_dump({
         "version": "1.2.3",
         "files": [{"url": package.name, "sha512": zip_sha, "size": len(zip_bytes)}],
         "path": package.name,
@@ -282,7 +282,7 @@ def test_macos_record_matches_commit_claim_dmg_contract_for_new_pre_pr_and_legac
         dmg = root / f"Product-{version}-mac-arm64.dmg"
         with zipfile.ZipFile(package, "w") as archive:
             archive.writestr("Product.app/Contents/Info.plist", plistlib.dumps({
-                "CFBundleIdentifier": "ai.hermes.test", "CFBundleShortVersionString": version,
+                "CFBundleIdentifier": "ai.aegis.test", "CFBundleShortVersionString": version,
             }))
             archive.writestr("Product.app/Contents/Resources/install-stamp.json", json.dumps(stamp))
         dmg.write_bytes(b"commit-dmg-bytes")
@@ -355,7 +355,7 @@ def test_macos_record_refuses_a_root_without_its_outer_dmg(tmp_path, monkeypatch
     (root / "mac" / "Product.app").mkdir(parents=True)
     with zipfile.ZipFile(root / f"Product-{version}-mac-arm64.zip", "w") as archive:
         archive.writestr("Product.app/Contents/Info.plist", plistlib.dumps({
-            "CFBundleIdentifier": request["identity"]["appId"] if request else "ai.hermes.test",
+            "CFBundleIdentifier": request["identity"]["appId"] if request else "ai.aegis.test",
             "CFBundleShortVersionString": version,
         }))
         archive.writestr("Product.app/Contents/Resources/install-stamp.json", json.dumps(stamp))

@@ -78,8 +78,8 @@ def test_tier_probe_carries_the_key_where_model_requests_do(generate_content_end
 def test_dashboard_key_check_carries_the_key_where_model_requests_do(monkeypatch):
     import httpx
 
-    import hermes_cli.web_routers.config_env as mod
-    from hermes_cli.web_models import EnvVarUpdate
+    import aegis_cli.web_routers.config_env as mod
+    from aegis_cli.web_models import EnvVarUpdate
 
     seen: list[dict[str, str]] = []
 

@@ -59,7 +59,7 @@ Requires-Dist: playwright>=1.41.0; extra == "dev"
 
 ## 🔥 What is AEGIS?
 
-**AEGIS** is an elite, production-grade sovereign AI infrastructure platform. Engineered for zero-downtime autonomy, multi-server fleet management, web intelligence, and self-healing systems. Powered by the Claude Agent SDK and Hermes Agent architecture, AEGIS bridges cognitive LLM reasoning with deterministic OS execution.
+**AEGIS** is an elite, production-grade sovereign AI infrastructure platform. Engineered for zero-downtime autonomy, multi-server fleet management, web intelligence, and self-healing systems. Powered by the Claude Agent SDK and Aegis Agent architecture, AEGIS bridges cognitive LLM reasoning with deterministic OS execution.
 
 ---
 

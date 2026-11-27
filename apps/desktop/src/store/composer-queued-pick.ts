@@ -1,11 +1,11 @@
-import { LOCAL_CONNECTION_ID } from '@hermes/shared'
+import { LOCAL_CONNECTION_ID } from '@aegis/shared'
 
 import { connectionScopeSuffix } from '@/lib/connection-scoped'
 import { persistString, storedString } from '@/lib/storage'
 
 import { $connection, composerScopeForOwner, releaseComposerModelSelection } from './session'
 
-const QUEUED_PICK_KEY = 'hermes.desktop.composer.queued-pick'
+const QUEUED_PICK_KEY = 'aegis.desktop.composer.queued-pick'
 
 interface QueuedLaunchPick {
   model: string

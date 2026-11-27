@@ -12,7 +12,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from hermes_cli.release_channels import ChannelError, canonical_json
+from aegis_cli.release_channels import ChannelError, canonical_json
 from scripts.bundles import release_artifacts as artifacts
 from scripts.releases import channel_releases, docker, handoff, lanes as lane_set, r2, sequencer, store
 from tests.scripts.test_release_channels import object_server, publisher
@@ -21,7 +21,7 @@ from tests.scripts.test_release_r2 import r2_server
 from tests.scripts.test_release_sequencer import _sequencer_fixture
 from tests.scripts.test_stable_release import https_origin
 
-STABLE_DMG_KEY = "releases/darwin/stable/HermesBundled-mac-arm64.dmg"
+STABLE_DMG_KEY = "releases/darwin/stable/AegisBundled-mac-arm64.dmg"
 STABLE_PAGE_KEY = "releases/stable/index.html"
 STABLE_APPINSTALLER_KEY = "releases/win32/stable/stable.appinstaller"
 STABLE_MAC_FEED_KEY = "releases/darwin/stable/stable-mac.yml"
@@ -43,7 +43,7 @@ def _stage_stable_release(
     dmg_bytes: bytes | None = None,
     include_dmg: bool = True,
 ) -> tuple[dict, bytes]:
-    import hermes_yaml
+    import aegis_yaml
 
     tag = f"v{version}"
     attempt = f"rc.{attempt_num}-{tag}"
@@ -56,8 +56,8 @@ def _stage_stable_release(
     built = tmp_path / f"built-{version}-{attempt_num}"
     built.mkdir(parents=True, exist_ok=True)
 
-    zip_name = f"HermesBundled-{version}-mac-arm64.zip"
-    dmg_name = f"HermesBundled-{version}-mac-arm64.dmg"
+    zip_name = f"AegisBundled-{version}-mac-arm64.zip"
+    dmg_name = f"AegisBundled-{version}-mac-arm64.dmg"
     zip_data = f"zip payload for {version}".encode()
     dmg_data = dmg_bytes if dmg_bytes is not None else f"dmg payload for {version}".encode()
 
@@ -72,7 +72,7 @@ def _stage_stable_release(
         mac_includes.append(dmg_name)
 
     (built / "arm64-stable-mac.yml").write_text(
-        hermes_yaml.safe_dump(
+        aegis_yaml.safe_dump(
             {
                 "version": version,
                 "files": mac_files,
@@ -91,7 +91,7 @@ def _stage_stable_release(
                 "arch": "arm64",
                 "tag": tag,
                 "commit": commit,
-                "identity": "com.nousresearch.hermes-bundled",
+                "identity": "com.nousresearch.aegis-bundled",
                 "version": version,
                 "teamId": "ABCDEFGHIJ",
                 "filename": zip_name,
@@ -102,7 +102,7 @@ def _stage_stable_release(
     handoff.stage(attempt, commit, "darwin-arm64", built, mac_includes)
 
     for arch in ("x64", "arm64"):
-        msix_name = f"HermesBundled-{version}-win-{arch}.msix"
+        msix_name = f"AegisBundled-{version}-win-{arch}.msix"
         (built / msix_name).write_bytes(f"msix {version} {arch}".encode())
         (built / f"metadata-windows-{arch}.json").write_text(
             json.dumps(
@@ -111,9 +111,9 @@ def _stage_stable_release(
                     "arch": arch,
                     "tag": tag,
                     "commit": commit,
-                    "identity": "NousResearch.HermesBundled",
+                    "identity": "NousResearch.AegisBundled",
                     "publisher": "CN=Test",
-                    "applicationId": "HermesBundled",
+                    "applicationId": "AegisBundled",
                     "version": windows_version,
                     "executableVersion": windows_version,
                 }
@@ -122,11 +122,11 @@ def _stage_stable_release(
         )
         handoff.stage(attempt, commit, f"win32-{arch}", built, [msix_name, f"metadata-windows-{arch}.json"])
 
-    bundle_name = f"HermesBundled-{windows_version}-win.msixbundle"
+    bundle_name = f"AegisBundled-{windows_version}-win.msixbundle"
     with zipfile.ZipFile(built / bundle_name, "w") as archive:
         archive.writestr(
             "AppxMetadata/AppxBundleManifest.xml",
-            f'<Bundle><Identity Name="NousResearch.HermesBundled" Publisher="CN=Test" '
+            f'<Bundle><Identity Name="NousResearch.AegisBundled" Publisher="CN=Test" '
             f'Version="{windows_version}"/><Packages>'
             '<Package Type="application" Architecture="arm64"/>'
             '<Package Type="application" Architecture="x64"/></Packages></Bundle>',
@@ -159,7 +159,7 @@ def _stage_stable_release(
 def test_cache_control_marks_stable_dmg_alias_and_page_no_store():
     assert r2.cache_control_for(STABLE_DMG_KEY) == "no-store"
     assert r2.cache_control_for(STABLE_PAGE_KEY) == "no-store"
-    assert r2.cache_control_for("releases/tag/rc.3-v0.22.0/HermesBundled-0.22.0-mac-arm64.dmg") is None
+    assert r2.cache_control_for("releases/tag/rc.3-v0.22.0/AegisBundled-0.22.0-mac-arm64.dmg") is None
 
 
 def test_stable_promotion_publishes_unversioned_dmg_and_downloads_page(
@@ -171,7 +171,7 @@ def test_stable_promotion_publishes_unversioned_dmg_and_downloads_page(
     monkeypatch.setattr(urllib.request, "urlopen", https_origin.opener)
     manifest, dmg_bytes = _stage_stable_release(tmp_path, r2_server, https_origin, version="1.2.3")
     # Same version and table-shaped, so a page built from a bucket listing would show it.
-    orphan = f"releases/tag/{manifest['archive']}/HermesLight-1.2.3-win-x64.msix"
+    orphan = f"releases/tag/{manifest['archive']}/AegisLight-1.2.3-win-x64.msix"
     r2_server.store[orphan] = (b"unreceipted light msix", '"e"')
     r2_server.requests.clear()
 
@@ -182,37 +182,37 @@ def test_stable_promotion_publishes_unversioned_dmg_and_downloads_page(
     dmg_puts = [
         headers
         for method, path, headers in r2_server.requests
-        if method == "PUT" and path == f"/hermes-releases/{STABLE_DMG_KEY}"
+        if method == "PUT" and path == f"/aegis-releases/{STABLE_DMG_KEY}"
     ]
     assert len(dmg_puts) == 1
     assert dmg_puts[0]["x-amz-copy-source"] == (
-        f"/hermes-releases/releases/tag/{manifest['archive']}/HermesBundled-1.2.3-mac-arm64.dmg"
+        f"/aegis-releases/releases/tag/{manifest['archive']}/AegisBundled-1.2.3-mac-arm64.dmg"
     )
     assert dmg_puts[0]["x-amz-metadata-directive"] == "REPLACE"
     assert dmg_puts[0]["Content-Length"] == "0"
     assert dmg_puts[0]["Cache-Control"] == "no-store"
-    assert dmg_puts[0]["Content-Disposition"] == 'attachment; filename="HermesBundled-mac-arm64.dmg"'
+    assert dmg_puts[0]["Content-Disposition"] == 'attachment; filename="AegisBundled-mac-arm64.dmg"'
     assert dmg_puts[0]["Content-Type"] == "application/x-apple-diskimage"
-    assert not (tmp_path / "promote" / "HermesBundled-1.2.3-mac-arm64.dmg").exists()
+    assert not (tmp_path / "promote" / "AegisBundled-1.2.3-mac-arm64.dmg").exists()
 
     assert STABLE_PAGE_KEY in r2_server.store
     page_puts = [
         headers
         for method, path, headers in r2_server.requests
-        if method == "PUT" and path == f"/hermes-releases/{STABLE_PAGE_KEY}"
+        if method == "PUT" and path == f"/aegis-releases/{STABLE_PAGE_KEY}"
     ]
     assert len(page_puts) == 1
     assert page_puts[0]["Cache-Control"] == "no-store"
     assert page_puts[0]["Content-Type"] == "text/html; charset=utf-8"
 
     page = r2_server.store[STABLE_PAGE_KEY][0].decode("utf-8")
-    assert '<meta name="hermes-build" content="v1.2.3">' in page
-    assert f"{https_origin.base}/releases/tag/{manifest['archive']}/HermesBundled-1.2.3-mac-arm64.dmg" in page
-    assert f"{https_origin.base}/releases/tag/{manifest['archive']}/HermesBundled-1.2.3-win-x64.msix" in page
-    assert f"{https_origin.base}/releases/tag/{manifest['archive']}/HermesBundled-1.2.3-win-arm64.msix" in page
+    assert '<meta name="aegis-build" content="v1.2.3">' in page
+    assert f"{https_origin.base}/releases/tag/{manifest['archive']}/AegisBundled-1.2.3-mac-arm64.dmg" in page
+    assert f"{https_origin.base}/releases/tag/{manifest['archive']}/AegisBundled-1.2.3-win-x64.msix" in page
+    assert f"{https_origin.base}/releases/tag/{manifest['archive']}/AegisBundled-1.2.3-win-arm64.msix" in page
     assert "Attempt builds are not upgrade-safe" not in page
     assert orphan not in page
-    assert "Hermes Light" not in page
+    assert "Aegis Light" not in page
     assert page.count("Passed") == len(SMOKE_RESULTS)
 
     r2_server.requests.clear()
@@ -220,7 +220,7 @@ def test_stable_promotion_publishes_unversioned_dmg_and_downloads_page(
     assert not [
         path
         for method, path, _ in r2_server.requests
-        if method == "PUT" and path in (f"/hermes-releases/{STABLE_DMG_KEY}", f"/hermes-releases/{STABLE_PAGE_KEY}")
+        if method == "PUT" and path in (f"/aegis-releases/{STABLE_DMG_KEY}", f"/aegis-releases/{STABLE_PAGE_KEY}")
     ]
 
 
@@ -281,7 +281,7 @@ def test_stable_promotion_rejects_stale_order_for_dmg_and_page(
     https_origin.store = r2_server.store
     assert r2_server.store[STABLE_DMG_KEY][0] == _older_dmg
     assert r2_server.store[STABLE_PAGE_KEY][0] == newer_page
-    assert not any(method == "PUT" and path == f"/hermes-releases/{STABLE_PAGE_KEY}"
+    assert not any(method == "PUT" and path == f"/aegis-releases/{STABLE_PAGE_KEY}"
                    for method, path, _ in r2_server.requests)
 
     artifacts.promote(newer, tmp_path / "restore-newer", https_origin.base)
@@ -312,7 +312,7 @@ def test_stable_promotion_refuses_a_canary_page_at_the_stable_key(
     """Only a newer stable page is left in place; a page from another channel fails closed."""
     monkeypatch.setattr(urllib.request, "urlopen", https_origin.opener)
     manifest, _ = _stage_stable_release(tmp_path, r2_server, https_origin, version="1.2.3")
-    wrong_channel = b'<meta name="hermes-build" content="canary.20261120T064609Z-v9.9.9">\n'
+    wrong_channel = b'<meta name="aegis-build" content="canary.20261120T064609Z-v9.9.9">\n'
     r2_server.store[STABLE_PAGE_KEY] = (wrong_channel, '"canary-page"')
     r2_server.requests.clear()
     with pytest.raises(ValueError, match="canary"):
@@ -338,7 +338,7 @@ def test_stable_promotion_fails_closed_when_dmg_missing_from_manifest_or_r2(
     manifest, _ = _stage_stable_release(
         tmp_path, r2_server, https_origin, version="1.2.4", attempt_num=1, epoch_offset=10
     )
-    source_dmg_key = f"releases/tag/{manifest['archive']}/HermesBundled-1.2.4-mac-arm64.dmg"
+    source_dmg_key = f"releases/tag/{manifest['archive']}/AegisBundled-1.2.4-mac-arm64.dmg"
     saved = r2_server.store.pop(source_dmg_key)
     r2_server.requests.clear()
     with pytest.raises(r2.R2RequestError):
@@ -522,7 +522,7 @@ def test_store_only_and_partial_desktop_release_leaves_stable_dmg_and_page_untou
         "0.23.5", manifest_digest=manifest_digest, docker_digest=None, lanes=lanes
     )
     r2_server.store[STABLE_DMG_KEY] = (b"previous v0.22.0 dmg bytes", '"prev-dmg"')
-    r2_server.store[STABLE_PAGE_KEY] = (b'<meta name="hermes-build" content="v0.22.0">', '"prev-page"')
+    r2_server.store[STABLE_PAGE_KEY] = (b'<meta name="aegis-build" content="v0.22.0">', '"prev-page"')
     r2_server.store[STABLE_APPINSTALLER_KEY] = (b"<AppInstaller/>", '"prev-app"')
     r2_server.store[STABLE_MAC_FEED_KEY] = (b"version: 0.22.0\n", '"prev-feed"')
     before = dict(r2_server.store)
@@ -551,10 +551,10 @@ def test_r2_pruner_protects_stable_dmg_alias_and_downloads_page(
 
     legs, _ = _inputs("0.22.0")
     stable_feed = merge_mac_feeds(legs, "v0.22.0", archive="rc.3-v0.22.0")
-    live_archive_dmg = "releases/tag/rc.3-v0.22.0/HermesBundled-0.22.0-mac-arm64.dmg"
-    live_archive_zip = "releases/tag/rc.3-v0.22.0/HermesBundled-0.22.0-mac-arm64.zip"
-    expired_canary = "releases/tag/canary.20200101T000000Z-v0.20.0/HermesBundled-0.20.0-mac-arm64.dmg"
-    expired_commit = "releases/tag/commit.20200101T000000Z-v0.20.0/HermesBundled-0.20.0-mac-arm64.dmg"
+    live_archive_dmg = "releases/tag/rc.3-v0.22.0/AegisBundled-0.22.0-mac-arm64.dmg"
+    live_archive_zip = "releases/tag/rc.3-v0.22.0/AegisBundled-0.22.0-mac-arm64.zip"
+    expired_canary = "releases/tag/canary.20200101T000000Z-v0.20.0/AegisBundled-0.20.0-mac-arm64.dmg"
+    expired_commit = "releases/tag/commit.20200101T000000Z-v0.20.0/AegisBundled-0.20.0-mac-arm64.dmg"
 
     protected_keys = {
         STABLE_DMG_KEY,
@@ -647,7 +647,7 @@ def test_stable_promotion_upgrades_existing_dmg_and_page_and_detects_etag_race(
 
     artifacts.promote(v1, tmp_path / "promote-v1", https_origin.base)
     assert r2_server.store[STABLE_DMG_KEY][0] == v1_dmg
-    assert '<meta name="hermes-build" content="v1.2.3">' in r2_server.store[STABLE_PAGE_KEY][0].decode()
+    assert '<meta name="aegis-build" content="v1.2.3">' in r2_server.store[STABLE_PAGE_KEY][0].decode()
 
     r2_server.race_key = STABLE_PAGE_KEY
     with pytest.raises(r2.R2RequestError, match="412"):
@@ -656,7 +656,7 @@ def test_stable_promotion_upgrades_existing_dmg_and_page_and_detects_etag_race(
 
     artifacts.promote(v2, tmp_path / "promote-v2-retry", https_origin.base)
     assert r2_server.store[STABLE_DMG_KEY][0] == v2_dmg
-    assert '<meta name="hermes-build" content="v1.2.4">' in r2_server.store[STABLE_PAGE_KEY][0].decode()
-    assert f"{https_origin.base}/releases/tag/{v2['archive']}/HermesBundled-1.2.4-mac-arm64.dmg" in (
+    assert '<meta name="aegis-build" content="v1.2.4">' in r2_server.store[STABLE_PAGE_KEY][0].decode()
+    assert f"{https_origin.base}/releases/tag/{v2['archive']}/AegisBundled-1.2.4-mac-arm64.dmg" in (
         r2_server.store[STABLE_PAGE_KEY][0].decode()
     )

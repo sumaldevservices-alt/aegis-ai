@@ -17,8 +17,8 @@ from agent.monitoring.gateway_health import GatewayMetric
 from gateway.lifecycle_ledger import get_lifecycle_sentinel_path
 from gateway.memory_status import collect_memory_status
 
-PREVIOUS_EXIT_METRIC = "hermes.gateway.previous_exit"
-MEMORY_PRESSURE_METRIC = "hermes.gateway.memory_pressure"
+PREVIOUS_EXIT_METRIC = "aegis.gateway.previous_exit"
+MEMORY_PRESSURE_METRIC = "aegis.gateway.memory_pressure"
 # Worst-first: the first matching label names the previous exit.  Host-scope OOM-kill activity
 # (any process on the host) is weaker evidence than the gateway's own watchdog verdict.
 _PREVIOUS_EXIT_PRECEDENCE = (
@@ -66,7 +66,7 @@ def build_memory_health_metrics(base: dict[str, str]) -> list[GatewayMetric]:
     status = _memory_status()
     return [
         GatewayMetric(name=PREVIOUS_EXIT_METRIC, value=1,
-                      attributes={**base, "hermes.previous_exit": previous_exit_class(status)}),
+                      attributes={**base, "aegis.previous_exit": previous_exit_class(status)}),
         GatewayMetric(name=MEMORY_PRESSURE_METRIC, value=1,
-                      attributes={**base, "hermes.memory_pressure": status["pressure"]}),
+                      attributes={**base, "aegis.memory_pressure": status["pressure"]}),
     ]

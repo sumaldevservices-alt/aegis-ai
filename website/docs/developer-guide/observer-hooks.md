@@ -3,23 +3,23 @@ title: "Observer Hooks"
 description: "Read-only telemetry contract for plugins: event families, correlation IDs, payload safety"
 ---
 
-# Hermes Observer Hooks
+# Aegis Observer Hooks
 
-Hermes observer hooks are the read-only telemetry contract for plugins that
+Aegis observer hooks are the read-only telemetry contract for plugins that
 need to reconstruct agent execution without changing runtime behavior. This
 contract supports trace, metrics, audit, replay, and export integrations such
 as Langfuse, OpenTelemetry-style collectors, and NeMo Relay.
 
 Observer hooks are intentionally backend-neutral. They expose stable lifecycle
 events, correlation IDs, sanitized payloads, timing, status, and error fields.
-They do not replace Hermes' planner, model providers, memory, tool registry,
+They do not replace Aegis' planner, model providers, memory, tool registry,
 approval UX, CLI, gateway behavior, or execution semantics.
 
 Behavior-changing request or execution wrappers are outside this observer
 contract. Observer hooks should report what happened; they should not replace
 provider requests, tool arguments, or execution callbacks.
 
-Hermes also has a first-party NeMo Relay shared-metrics path. It uses these
+Aegis also has a first-party NeMo Relay shared-metrics path. It uses these
 lifecycle boundaries directly and does not require enabling an observability
 plugin. See [Relay shared metrics](relay-shared-metrics.md).
 
@@ -48,10 +48,10 @@ def on_post_tool_call(**kwargs):
 The plugin manager injects this field into every hook payload:
 
 ```text
-telemetry_schema_version = "hermes.observer.v1"
+telemetry_schema_version = "aegis.observer.v1"
 ```
 
-Hook callbacks are fail-open. Hermes catches callback exceptions, logs a
+Hook callbacks are fail-open. Aegis catches callback exceptions, logs a
 warning, and keeps the agent loop running.
 
 Most observer hook return values are ignored. The exceptions are older
@@ -244,7 +244,7 @@ two hooks, nothing else.
 
 Use these hooks when you need to answer or track a specific prompt of a
 gateway session (a notification someone answers in place); use
-`on_human_input_request` for a surface-neutral "Hermes is waiting on you"
+`on_human_input_request` for a surface-neutral "Aegis is waiting on you"
 signal, which also covers messaging platforms and the CLI's in-process
 prompts but has no answerable id and fires once per `clarify` call. Source:
 `gateway/session_prompt_hooks.py`.
@@ -313,7 +313,7 @@ observability consumers should prefer the sanitized payloads.
 ## Performance
 
 The default uninstrumented path should stay cheap. Expensive request/response
-payload construction is gated behind `has_hook(...)`, so Hermes only builds
+payload construction is gated behind `has_hook(...)`, so Aegis only builds
 sanitized API telemetry payloads when at least one plugin registered the
 relevant hook.
 
@@ -377,12 +377,12 @@ nested agent work or security lifecycle events.
 
 ## Existing Consumers
 
-The official [Langfuse catalog plugin](https://github.com/NousResearch/hermes-official-plugins/tree/main/langfuse) demonstrates direct hook-based
+The official [Langfuse catalog plugin](https://github.com/NousResearch/aegis-official-plugins/tree/main/langfuse) demonstrates direct hook-based
 observability for turns, provider requests, and tool calls.
 
-The native NeMo Relay SDK integration maps Hermes session, turn, LLM, and tool
+The native NeMo Relay SDK integration maps Aegis session, turn, LLM, and tool
 lifecycles to Relay. Relay's discovered user and system configuration, or an
-explicit file selected with `HERMES_NEMO_RELAY_PLUGINS_TOML`, can add
+explicit file selected with `AEGIS_NEMO_RELAY_PLUGINS_TOML`, can add
 [ATOF, ATIF, or OTEL](https://docs.nvidia.com/nemo/relay/configure-plugins/observability/about)
 exporters and execution middleware; see
 [Relay shared metrics](relay-shared-metrics.md).

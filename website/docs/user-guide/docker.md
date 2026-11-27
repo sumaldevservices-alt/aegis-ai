@@ -1,15 +1,15 @@
 ---
 sidebar_position: 7
-title: "Hermes Docker Setup"
-description: "Running Hermes Agent in Docker and using Docker as a terminal backend"
+title: "Aegis Docker Setup"
+description: "Running Aegis Agent in Docker and using Docker as a terminal backend"
 ---
 
-# Hermes Docker Setup
+# Aegis Docker Setup
 
-There are two distinct ways Docker intersects with Hermes Agent:
+There are two distinct ways Docker intersects with Aegis Agent:
 
-1. **Running Hermes IN Docker** — the agent itself runs inside a container (this page's primary focus)
-2. **Docker as a terminal backend** — the agent runs on your host but executes every command inside a single, persistent Docker sandbox container that survives across tool calls, `/new`, and subagents for the life of the Hermes process (see [Configuration → Docker Backend](./configuration.md#docker-backend))
+1. **Running Aegis IN Docker** — the agent itself runs inside a container (this page's primary focus)
+2. **Docker as a terminal backend** — the agent runs on your host but executes every command inside a single, persistent Docker sandbox container that survives across tool calls, `/new`, and subagents for the life of the Aegis process (see [Configuration → Docker Backend](./configuration.md#docker-backend))
 
 This page covers option 1. The container stores all user data (config, API keys, sessions, skills, memories) in a single directory mounted from the host at `/opt/data`. The image itself is stateless and can be upgraded by pulling a new version without losing any configuration.
 
@@ -31,14 +31,14 @@ Python 3.14). Its curated extras are not the native desktop bundle's
 
 ## Quick start
 
-If this is your first time running Hermes Agent, create a data directory on the host and start the container interactively to run the setup wizard:
+If this is your first time running Aegis Agent, create a data directory on the host and start the container interactively to run the setup wizard:
 
 :::caution Avoid browser-based VPS consoles for the install commands
 Some VPS providers (Hetzner Cloud, and several others) offer a browser-based
 console for managing hosts. These consoles transmit special characters
 incorrectly — `:` may arrive as `;`, `@` may be mis-rendered, and non-English
 keyboard layouts fare worse — which silently corrupts `docker run` arguments
-like `-v ~/.hermes:/opt/data`, `-e KEY=value`, and pasted API keys / tokens.
+like `-v ~/.aegis:/opt/data`, `-e KEY=value`, and pasted API keys / tokens.
 
 **Connect over SSH instead** (`ssh root@<host>`) for copy-paste-safe command
 entry. If you must use the browser console, type the commands manually
@@ -47,16 +47,16 @@ result before hitting Enter.
 :::
 
 ```sh
-mkdir -p ~/.hermes
+mkdir -p ~/.aegis
 docker run -it --rm \
-  -v ~/.hermes:/opt/data \
-  nousresearch/hermes-agent setup
+  -v ~/.aegis:/opt/data \
+  nousresearch/aegis-agent setup
 ```
 
-This drops you into the setup wizard, which will prompt you for your API keys and write them to `~/.hermes/.env`. You only need to do this once. It is highly recommended to set up a chat system for the gateway to work with at this point.
+This drops you into the setup wizard, which will prompt you for your API keys and write them to `~/.aegis/.env`. You only need to do this once. It is highly recommended to set up a chat system for the gateway to work with at this point.
 
 :::tip
-Inside the container, run `hermes setup --portal` once — the refresh token persists in the mounted `~/.hermes` volume. See [Nous Portal](../integrations/nous-portal.md).
+Inside the container, run `aegis setup --portal` once — the refresh token persists in the mounted `~/.aegis` volume. See [Nous Portal](../integrations/nous-portal.md).
 :::
 
 ## Running in gateway mode
@@ -65,19 +65,19 @@ Once configured, run the container in the background as a persistent gateway (Te
 
 ```sh
 docker run -d \
-  --name hermes \
+  --name aegis \
   --restart unless-stopped \
-  -v ~/.hermes:/opt/data \
+  -v ~/.aegis:/opt/data \
   -p 8642:8642 \
-  nousresearch/hermes-agent gateway run
+  nousresearch/aegis-agent gateway run
 ```
 
 Port 8642 exposes the gateway's [OpenAI-compatible API server](./features/api-server.md) and health endpoint. It's optional if you only use chat platforms (Telegram, Discord, etc.), but required if you want the dashboard or external tools to reach the gateway.
 
 :::tip Gateway runs supervised
-Inside the official Docker image, `gateway run` is **automatically supervised by s6-overlay**: if the gateway process crashes it's restarted within a couple of seconds without losing the container, and the dashboard (when `HERMES_DASHBOARD=1` is set) is supervised alongside it. The `gateway run` CMD process itself is a `sleep infinity` heartbeat that keeps the container alive while s6 manages the actual gateway process — so `docker stop` still shuts everything down cleanly, but `docker logs` shows the supervised gateway's output.
+Inside the official Docker image, `gateway run` is **automatically supervised by s6-overlay**: if the gateway process crashes it's restarted within a couple of seconds without losing the container, and the dashboard (when `AEGIS_DASHBOARD=1` is set) is supervised alongside it. The `gateway run` CMD process itself is a `sleep infinity` heartbeat that keeps the container alive while s6 manages the actual gateway process — so `docker stop` still shuts everything down cleanly, but `docker logs` shows the supervised gateway's output.
 
-You'll see a one-line breadcrumb in `docker logs` confirming the upgrade. To opt out — and get the historical "gateway is the container's main process, container exit = gateway exit" semantics — pass `--no-supervise` or set `HERMES_GATEWAY_NO_SUPERVISE=1`. The opt-out is useful for CI smoke tests that want the container to exit with the gateway's status code; for production deployments the supervised default is strictly better.
+You'll see a one-line breadcrumb in `docker logs` confirming the upgrade. To opt out — and get the historical "gateway is the container's main process, container exit = gateway exit" semantics — pass `--no-supervise` or set `AEGIS_GATEWAY_NO_SUPERVISE=1`. The opt-out is useful for CI smoke tests that want the container to exit with the gateway's status code; for production deployments the supervised default is strictly better.
 
 This behavior applies to the s6-based image only. Earlier (tini-based) images still run `gateway run` as the foreground main process.
 :::
@@ -101,44 +101,44 @@ Note: the API server is gated on `API_SERVER_ENABLED=true`. To expose it beyond 
 
 ```sh
 docker run -d \
-  --name hermes \
+  --name aegis \
   --restart unless-stopped \
-  -v ~/.hermes:/opt/data \
+  -v ~/.aegis:/opt/data \
   -p 8642:8642 \
   -e API_SERVER_ENABLED=true \
   -e API_SERVER_HOST=0.0.0.0 \
   -e API_SERVER_KEY="$(openssl rand -hex 32)" \
   -e API_SERVER_CORS_ORIGINS='*' \
-  nousresearch/hermes-agent gateway run
+  nousresearch/aegis-agent gateway run
 ```
 
 Opening any port on an internet facing machine is a security risk. You should not do it unless you understand the risks.
 
 ## Running the dashboard
 
-The built-in web dashboard runs as a supervised s6-rc service alongside the gateway in the same container. Set `HERMES_DASHBOARD=1` to bring it up:
+The built-in web dashboard runs as a supervised s6-rc service alongside the gateway in the same container. Set `AEGIS_DASHBOARD=1` to bring it up:
 
 ```sh
 docker run -d \
-  --name hermes \
+  --name aegis \
   --restart unless-stopped \
-  -v ~/.hermes:/opt/data \
+  -v ~/.aegis:/opt/data \
   -p 8642:8642 \
   -p 9119:9119 \
-  -e HERMES_DASHBOARD=1 \
-  nousresearch/hermes-agent gateway run
+  -e AEGIS_DASHBOARD=1 \
+  nousresearch/aegis-agent gateway run
 ```
 
 The dashboard is supervised by s6 — if it crashes, `s6-supervise` restarts it automatically after a short backoff. Dashboard stdout/stderr is forwarded to `docker logs <container>` (no prefix; the gateway's own output now lives in a per-profile s6-log file — see [Where the logs go](#where-the-logs-go) below — so the two streams don't clash).
 
 | Environment variable | Description | Default |
 |---------------------|-------------|---------|
-| `HERMES_DASHBOARD` | Set to `1` (or `true` / `yes`) to enable the supervised dashboard service | *(unset — service is registered but stays down)* |
-| `HERMES_DASHBOARD_HOST` | Bind address for the dashboard HTTP server | `0.0.0.0` |
-| `HERMES_DASHBOARD_PORT` | Port for the dashboard HTTP server | `9119` |
-| `HERMES_DASHBOARD_INSECURE` | **Deprecated / no-op.** Formerly bypassed the auth gate; as of the June 2026 hardening it no longer disables authentication. A non-loopback bind always requires an auth provider | *(ignored — configure a provider instead)* |
+| `AEGIS_DASHBOARD` | Set to `1` (or `true` / `yes`) to enable the supervised dashboard service | *(unset — service is registered but stays down)* |
+| `AEGIS_DASHBOARD_HOST` | Bind address for the dashboard HTTP server | `0.0.0.0` |
+| `AEGIS_DASHBOARD_PORT` | Port for the dashboard HTTP server | `9119` |
+| `AEGIS_DASHBOARD_INSECURE` | **Deprecated / no-op.** Formerly bypassed the auth gate; as of the June 2026 hardening it no longer disables authentication. A non-loopback bind always requires an auth provider | *(ignored — configure a provider instead)* |
 
-The dashboard inside the container defaults to binding `0.0.0.0` — without it, the published `-p 9119:9119` port would not be reachable from the host. To restrict the bind to container loopback (for sidecar / reverse-proxy setups), set `HERMES_DASHBOARD_HOST=127.0.0.1`.
+The dashboard inside the container defaults to binding `0.0.0.0` — without it, the published `-p 9119:9119` port would not be reachable from the host. To restrict the bind to container loopback (for sidecar / reverse-proxy setups), set `AEGIS_DASHBOARD_HOST=127.0.0.1`.
 
 The dashboard's auth gate engages automatically when both of the following are true:
 
@@ -147,9 +147,9 @@ The dashboard's auth gate engages automatically when both of the following are t
 
 There are three bundled ways to satisfy the second condition:
 
-- **Username/password** — the simplest for a self-hosted / on-prem / homelab container on a trusted network or behind a VPN: set `HERMES_DASHBOARD_BASIC_AUTH_USERNAME` + `HERMES_DASHBOARD_BASIC_AUTH_PASSWORD` (and `HERMES_DASHBOARD_BASIC_AUTH_SECRET` for restart-stable sessions). Not suitable for direct public-internet exposure.
-- **OAuth (Nous Portal)** — for hosted/public deploys: the `dashboard_auth/nous` provider activates whenever `HERMES_DASHBOARD_OAUTH_CLIENT_ID` is set.
-- **Self-hosted OIDC** — to authenticate against your own identity provider via standard OpenID Connect: the `dashboard_auth/self_hosted` provider activates when `HERMES_DASHBOARD_OIDC_ISSUER` + `HERMES_DASHBOARD_OIDC_CLIENT_ID` are set.
+- **Username/password** — the simplest for a self-hosted / on-prem / homelab container on a trusted network or behind a VPN: set `AEGIS_DASHBOARD_BASIC_AUTH_USERNAME` + `AEGIS_DASHBOARD_BASIC_AUTH_PASSWORD` (and `AEGIS_DASHBOARD_BASIC_AUTH_SECRET` for restart-stable sessions). Not suitable for direct public-internet exposure.
+- **OAuth (Nous Portal)** — for hosted/public deploys: the `dashboard_auth/nous` provider activates whenever `AEGIS_DASHBOARD_OAUTH_CLIENT_ID` is set.
+- **Self-hosted OIDC** — to authenticate against your own identity provider via standard OpenID Connect: the `dashboard_auth/self_hosted` provider activates when `AEGIS_DASHBOARD_OIDC_ISSUER` + `AEGIS_DASHBOARD_OIDC_CLIENT_ID` are set.
 
 Whichever you choose, the gate redirects callers to a login page before they can reach any protected route. See [Web Dashboard → Authentication](features/web-dashboard.md#authentication-gated-mode) for all three providers.
 
@@ -169,19 +169,19 @@ dashboard:
 
 This allows the proxy's `X-Forwarded-Proto: https` to control secure OAuth
 cookies while leaving forwarding headers from other peers untrusted. Do not
-use `*`, `0.0.0.0/0`, or `::/0`; Hermes rejects those unbounded entries.
+use `*`, `0.0.0.0/0`, or `::/0`; Aegis rejects those unbounded entries.
 
-If no provider is registered and the bind is non-loopback, the dashboard **fails closed at startup** with a specific error pointing at the missing env var. There is no longer an escape hatch that serves the dashboard unauthenticated on a public bind: `HERMES_DASHBOARD_INSECURE=1` is now a deprecated no-op (it logs a warning and is ignored). Configure a provider, or bind `HERMES_DASHBOARD_HOST=127.0.0.1` and reach the dashboard over an SSH tunnel / Tailscale instead.
+If no provider is registered and the bind is non-loopback, the dashboard **fails closed at startup** with a specific error pointing at the missing env var. There is no longer an escape hatch that serves the dashboard unauthenticated on a public bind: `AEGIS_DASHBOARD_INSECURE=1` is now a deprecated no-op (it logs a warning and is ignored). Configure a provider, or bind `AEGIS_DASHBOARD_HOST=127.0.0.1` and reach the dashboard over an SSH tunnel / Tailscale instead.
 
 :::warning Why `--insecure` was removed
-An unauthenticated public dashboard was the entry point for the June 2026 MCP-config persistence campaign: internet scanners reached exposed dashboards (and OpenAI API servers) and drove the agent into planting an SSH-key backdoor. The auth gate is now mandatory on every non-loopback bind. For a trusted-LAN / homelab box, the bundled username/password provider (`HERMES_DASHBOARD_BASIC_AUTH_USERNAME` + `_PASSWORD`) is the zero-infra way to satisfy it.
+An unauthenticated public dashboard was the entry point for the June 2026 MCP-config persistence campaign: internet scanners reached exposed dashboards (and OpenAI API servers) and drove the agent into planting an SSH-key backdoor. The auth gate is now mandatory on every non-loopback bind. For a trusted-LAN / homelab box, the bundled username/password provider (`AEGIS_DASHBOARD_BASIC_AUTH_USERNAME` + `_PASSWORD`) is the zero-infra way to satisfy it.
 :::
 
 Running the dashboard as a separate container **is** supported when that container shares the host PID and network namespace (e.g. `network_mode: host`, as the repo's own `docker-compose.yml` does — see its `dashboard` service). Its gateway-liveness detection requires a shared PID namespace with the gateway process, so the limitation only applies to dashboards run in isolated bridge-network containers without a shared PID namespace.
 
 ## Running the Webapp {#running-the-webapp}
 
-The image ships the [Webapp](./desktop.md) (Hermes Desktop in a browser) prebuilt; the gateway serves it on its own port when the mounted `config.yaml` turns it on (see [Configuration → Webapp](./configuration.md#webapp)):
+The image ships the [Webapp](./desktop.md) (Aegis Desktop in a browser) prebuilt; the gateway serves it on its own port when the mounted `config.yaml` turns it on (see [Configuration → Webapp](./configuration.md#webapp)):
 
 ```yaml
 webapp:
@@ -191,22 +191,22 @@ webapp:
   public_url: "http://localhost:9120"  # the address your browser opens
 ```
 
-Keep `host: 0.0.0.0` in a container. The default, `127.0.0.1`, is the container's own loopback, which neither a published port nor a proxy in another container can reach. `hermes webapp --status` inside the container still reports `Serving at http://127.0.0.1:9120`, because it is serving there.
+Keep `host: 0.0.0.0` in a container. The default, `127.0.0.1`, is the container's own loopback, which neither a published port nor a proxy in another container can reach. `aegis webapp --status` inside the container still reports `Serving at http://127.0.0.1:9120`, because it is serving there.
 
 Publish the port and configure a sign-in provider, as for the dashboard:
 
 ```sh
 docker run -d \
-  --name hermes \
+  --name aegis \
   --restart unless-stopped \
-  -v ~/.hermes:/opt/data \
+  -v ~/.aegis:/opt/data \
   -p 9120:9120 \
-  -e HERMES_DASHBOARD_BASIC_AUTH_USERNAME=admin \
-  -e HERMES_DASHBOARD_BASIC_AUTH_PASSWORD="$(openssl rand -hex 16)" \
-  nousresearch/hermes-agent gateway run
+  -e AEGIS_DASHBOARD_BASIC_AUTH_USERNAME=admin \
+  -e AEGIS_DASHBOARD_BASIC_AUTH_PASSWORD="$(openssl rand -hex 16)" \
+  nousresearch/aegis-agent gateway run
 ```
 
-A non-loopback `host` needs one of the [dashboard's auth providers](#running-the-dashboard), and the listener refuses to start without one. Without `public_url`, links printed by `hermes webapp` inside the container use the container's own address, not the published one.
+A non-loopback `host` needs one of the [dashboard's auth providers](#running-the-dashboard), and the listener refuses to start without one. Without `public_url`, links printed by `aegis webapp` inside the container use the container's own address, not the published one.
 
 ### Behind a tunnel or reverse proxy {#webapp-behind-a-proxy}
 
@@ -217,26 +217,26 @@ webapp:
   enabled: true
   host: 0.0.0.0                              # reachable from the proxy's container
   port: 9120
-  public_url: "https://hermes.example.com"   # the address the browser opens
+  public_url: "https://aegis.example.com"   # the address the browser opens
 dashboard:
   trusted_proxies:
-    - "172.30.0.0/24"                        # a network only the proxy and Hermes are on
+    - "172.30.0.0/24"                        # a network only the proxy and Aegis are on
 ```
 
 - **`host: 0.0.0.0`**: with the default `127.0.0.1` the proxy's connection is refused, which Cloudflare reports as **502 Bad Gateway**.
-- **`public_url`**: the proxy ends TLS and forwards plain HTTP, so without it the Webapp builds its sign-in callback as `http://hermes.example.com/auth/callback`, which does not match the `https://` callback registered with the sign-in provider.
-- **`dashboard.trusted_proxies`**: the Webapp's listener reads the same proxy list as the dashboard, and takes `X-Forwarded-*` headers only from loopback and the addresses on it. With the proxy trusted, its `X-Forwarded-Proto: https` reaches Hermes and the sign-in cookies are set `Secure`. List the proxy's exact IP, or a bounded CIDR for a network only the proxy and Hermes share; Hermes rejects `*`, `0.0.0.0/0` and `::/0`.
+- **`public_url`**: the proxy ends TLS and forwards plain HTTP, so without it the Webapp builds its sign-in callback as `http://aegis.example.com/auth/callback`, which does not match the `https://` callback registered with the sign-in provider.
+- **`dashboard.trusted_proxies`**: the Webapp's listener reads the same proxy list as the dashboard, and takes `X-Forwarded-*` headers only from loopback and the addresses on it. With the proxy trusted, its `X-Forwarded-Proto: https` reaches Aegis and the sign-in cookies are set `Secure`. List the proxy's exact IP, or a bounded CIDR for a network only the proxy and Aegis share; Aegis rejects `*`, `0.0.0.0/0` and `::/0`.
 
-Cloudflare Tunnel needs no published port, because `cloudflared` dials out; it only has to share a network with Hermes. A Compose sketch with a fixed subnet for `trusted_proxies`:
+Cloudflare Tunnel needs no published port, because `cloudflared` dials out; it only has to share a network with Aegis. A Compose sketch with a fixed subnet for `trusted_proxies`:
 
 ```yaml
 services:
-  hermes:
-    image: nousresearch/hermes-agent
+  aegis:
+    image: nousresearch/aegis-agent
     command: gateway run
     restart: unless-stopped
     volumes:
-      - ~/.hermes:/opt/data
+      - ~/.aegis:/opt/data
     networks: [tunnel]
   cloudflared:
     image: cloudflare/cloudflared
@@ -252,62 +252,62 @@ networks:
         - subnet: 172.30.0.0/24
 ```
 
-Give the tunnel's public hostname the service `http://hermes:9120`.
+Give the tunnel's public hostname the service `http://aegis:9120`.
 
 ### Next to the dashboard {#webapp-next-to-the-dashboard}
 
-The dashboard (`HERMES_DASHBOARD=1`, port 9119) and the Webapp (port 9120) can run in one container, each at its own hostname: `dashboard.public_url` is the dashboard's address and `webapp.public_url` the Webapp's, and neither reads the other's. They share their sign-in providers, so the username/password, Nous and OIDC settings above sign in to both.
+The dashboard (`AEGIS_DASHBOARD=1`, port 9119) and the Webapp (port 9120) can run in one container, each at its own hostname: `dashboard.public_url` is the dashboard's address and `webapp.public_url` the Webapp's, and neither reads the other's. They share their sign-in providers, so the username/password, Nous and OIDC settings above sign in to both.
 
-A username and password work on both as they are. Nous sign-in needs one more step: a Nous Portal sign-in client is registered with one callback address, and the Webapp signs in with the same `HERMES_DASHBOARD_OAUTH_CLIENT_ID` (or `dashboard.oauth.client_id`) as the dashboard. One client therefore serves one of the two hostnames.
+A username and password work on both as they are. Nous sign-in needs one more step: a Nous Portal sign-in client is registered with one callback address, and the Webapp signs in with the same `AEGIS_DASHBOARD_OAUTH_CLIENT_ID` (or `dashboard.oauth.client_id`) as the dashboard. One client therefore serves one of the two hostnames.
 
-- **Nous sign-in on the Webapp only:** register the client with the Webapp's callback, `https://<webapp host>/auth/callback`, on the Portal's [Local Dashboards](https://portal.nousresearch.com/local-dashboards) page or with `hermes dashboard register --redirect-uri` (see [Registering a dashboard](features/web-dashboard.md#registering-a-dashboard)). If this install already has a dashboard client, `hermes dashboard register` updates that client in place, which moves the dashboard's callback, and it writes the Webapp's address to `HERMES_DASHBOARD_PUBLIC_URL`.
+- **Nous sign-in on the Webapp only:** register the client with the Webapp's callback, `https://<webapp host>/auth/callback`, on the Portal's [Local Dashboards](https://portal.nousresearch.com/local-dashboards) page or with `aegis dashboard register --redirect-uri` (see [Registering a dashboard](features/web-dashboard.md#registering-a-dashboard)). If this install already has a dashboard client, `aegis dashboard register` updates that client in place, which moves the dashboard's callback, and it writes the Webapp's address to `AEGIS_DASHBOARD_PUBLIC_URL`.
 - **Nous sign-in on both:** native Desktop's **Settings → Web Access** registers a client of the Webapp's own (kept in `webapp/sign-in-registration.json`) and leaves the dashboard's alone, but it works only from the Desktop app on the same machine, so a headless container has no command for it yet. Until there is one, register the Nous client for one hostname and sign in on the other with a username and password. Both login pages offer both providers; Nous sign-in fails on the hostname its client was not registered for.
 
 ## Moving a dashboard backend to the gateway {#moving-a-dashboard-backend-to-the-gateway}
 
-The dashboard (the `dashboard` slot with `HERMES_DASHBOARD=1`, or the `dashboard` service of the repo's Compose files) is a second copy of Hermes beside the gateway: chats started in it run in its own process. The gateway's Webapp can serve the dashboard's address instead, so every chat runs in the gateway. `hermes gateway migrate --backends --apply` does not do this in a container: the slot and the sidecar are declared by the image and the Compose file, which it does not edit, so it exits 6 (also with `--detach`, which starts nothing), changes nothing and says why; an exit 3 means something blocks the move, and it prints no steps until you fix what it names. These are the steps for a container. Run `hermes gateway migrate --backends --dry-run` in the container first to see the backend it found and its address.
+The dashboard (the `dashboard` slot with `AEGIS_DASHBOARD=1`, or the `dashboard` service of the repo's Compose files) is a second copy of Aegis beside the gateway: chats started in it run in its own process. The gateway's Webapp can serve the dashboard's address instead, so every chat runs in the gateway. `aegis gateway migrate --backends --apply` does not do this in a container: the slot and the sidecar are declared by the image and the Compose file, which it does not edit, so it exits 6 (also with `--detach`, which starts nothing), changes nothing and says why; an exit 3 means something blocks the move, and it prints no steps until you fix what it names. These are the steps for a container. Run `aegis gateway migrate --backends --dry-run` in the container first to see the backend it found and its address.
 
-The image ships the Webapp prebuilt, so there is nothing to build. Keep the sign-in variables the dashboard used (`HERMES_DASHBOARD_BASIC_AUTH_*`, `HERMES_DASHBOARD_OAUTH_CLIENT_ID`, `HERMES_DASHBOARD_OIDC_*`) or the `dashboard.*` settings in `config.yaml`: the Webapp signs in with the same providers, and a non-loopback `webapp.host` requires one. See [What clients notice after the move](features/web-dashboard.md#after-the-move).
+The image ships the Webapp prebuilt, so there is nothing to build. Keep the sign-in variables the dashboard used (`AEGIS_DASHBOARD_BASIC_AUTH_*`, `AEGIS_DASHBOARD_OAUTH_CLIENT_ID`, `AEGIS_DASHBOARD_OIDC_*`) or the `dashboard.*` settings in `config.yaml`: the Webapp signs in with the same providers, and a non-loopback `webapp.host` requires one. See [What clients notice after the move](features/web-dashboard.md#after-the-move).
 
-A dashboard reached through a proxy or tunnel at its own `https://` hostname has that address in `HERMES_DASHBOARD_PUBLIC_URL` or `dashboard.public_url`. The Webapp reads neither: it builds its sign-in callback on `webapp.public_url`. So when `webapp.public_url` is unset, copy the address the dashboard actually used into it. The dashboard takes the first of these that is set to an `http://` or `https://` URL (a blank or malformed value is skipped):
+A dashboard reached through a proxy or tunnel at its own `https://` hostname has that address in `AEGIS_DASHBOARD_PUBLIC_URL` or `dashboard.public_url`. The Webapp reads neither: it builds its sign-in callback on `webapp.public_url`. So when `webapp.public_url` is unset, copy the address the dashboard actually used into it. The dashboard takes the first of these that is set to an `http://` or `https://` URL (a blank or malformed value is skipped):
 
-1. `HERMES_DASHBOARD_PUBLIC_URL` in the Hermes home's `.env` (`/opt/data/.env`; it overrides the container's environment),
-2. `HERMES_DASHBOARD_PUBLIC_URL` in the dashboard container's environment (`-e`, or the Compose service's `environment:`),
+1. `AEGIS_DASHBOARD_PUBLIC_URL` in the Aegis home's `.env` (`/opt/data/.env`; it overrides the container's environment),
+2. `AEGIS_DASHBOARD_PUBLIC_URL` in the dashboard container's environment (`-e`, or the Compose service's `environment:`),
 3. `dashboard.public_url` in `config.yaml`.
 
-`dashboard.trusted_proxies` already applies to the Webapp. These commands read each one for the `dashboard` slot, where the dashboard runs in the `hermes` container itself; for the Compose `dashboard` service, read step 2 from its own container, `hermes-dashboard`, instead:
+`dashboard.trusted_proxies` already applies to the Webapp. These commands read each one for the `dashboard` slot, where the dashboard runs in the `aegis` container itself; for the Compose `dashboard` service, read step 2 from its own container, `aegis-dashboard`, instead:
 
 ```sh
-docker exec hermes hermes config get webapp.public_url                   # set already: leave it
-docker exec hermes grep '^HERMES_DASHBOARD_PUBLIC_URL=' /opt/data/.env   # 1
-docker exec hermes printenv HERMES_DASHBOARD_PUBLIC_URL                  # 2 (Compose: docker exec hermes-dashboard printenv ...)
-docker exec hermes hermes config get dashboard.public_url                # 3
-docker exec hermes hermes config set webapp.public_url https://dashboard.example.com   # the first one found
+docker exec aegis aegis config get webapp.public_url                   # set already: leave it
+docker exec aegis grep '^AEGIS_DASHBOARD_PUBLIC_URL=' /opt/data/.env   # 1
+docker exec aegis printenv AEGIS_DASHBOARD_PUBLIC_URL                  # 2 (Compose: docker exec aegis-dashboard printenv ...)
+docker exec aegis aegis config get dashboard.public_url                # 3
+docker exec aegis aegis config set webapp.public_url https://dashboard.example.com   # the first one found
 ```
 
-### The `dashboard` slot (`HERMES_DASHBOARD=1`)
+### The `dashboard` slot (`AEGIS_DASHBOARD=1`)
 
-1. Point the Webapp at the dashboard's address. Use the container's `HERMES_DASHBOARD_HOST` and `HERMES_DASHBOARD_PORT` when you set them; these are their defaults:
+1. Point the Webapp at the dashboard's address. Use the container's `AEGIS_DASHBOARD_HOST` and `AEGIS_DASHBOARD_PORT` when you set them; these are their defaults:
 
    ```sh
-   docker exec hermes hermes config set webapp.enabled true
-   docker exec hermes hermes config set webapp.host 0.0.0.0
-   docker exec hermes hermes config set webapp.port 9119
+   docker exec aegis aegis config set webapp.enabled true
+   docker exec aegis aegis config set webapp.host 0.0.0.0
+   docker exec aegis aegis config set webapp.port 9119
    ```
 
    When the dashboard had a public address and `webapp.public_url` is unset, copy it into `webapp.public_url` as shown above.
 
-2. Recreate the container without `HERMES_DASHBOARD` (a container's environment cannot change on restart). Use your own `docker run` line minus `-e HERMES_DASHBOARD=1`, still publishing the port and passing the sign-in variables. The [Running the dashboard](#running-the-dashboard) example becomes:
+2. Recreate the container without `AEGIS_DASHBOARD` (a container's environment cannot change on restart). Use your own `docker run` line minus `-e AEGIS_DASHBOARD=1`, still publishing the port and passing the sign-in variables. The [Running the dashboard](#running-the-dashboard) example becomes:
 
    ```sh
-   docker rm -f hermes
+   docker rm -f aegis
    docker run -d \
-     --name hermes \
+     --name aegis \
      --restart unless-stopped \
-     -v ~/.hermes:/opt/data \
+     -v ~/.aegis:/opt/data \
      -p 8642:8642 \
      -p 9119:9119 \
-     nousresearch/hermes-agent gateway run
+     nousresearch/aegis-agent gateway run
    ```
 
    As with [Upgrading](#upgrading), the data directory is kept and anything installed into the container's own filesystem is not.
@@ -315,8 +315,8 @@ docker exec hermes hermes config set webapp.public_url https://dashboard.example
 3. Check that the gateway serves the address and that no old backend is left, then open the old address in a browser (the public `https://` one when there is one) and sign in:
 
    ```sh
-   docker exec hermes hermes webapp --status
-   docker exec hermes hermes gateway migrate --backends --dry-run
+   docker exec aegis aegis webapp --status
+   docker exec aegis aegis gateway migrate --backends --dry-run
    ```
 
    A gateway that has just started takes a few seconds to serve the address: if `webapp --status` prints "The gateway is not running", wait 5 seconds and run it again.
@@ -328,14 +328,14 @@ The repo's `docker-compose.yml` runs the dashboard as a second container at `127
 1. Point the Webapp at that address:
 
    ```sh
-   docker compose exec gateway hermes config set webapp.enabled true
-   docker compose exec gateway hermes config set webapp.host 127.0.0.1
-   docker compose exec gateway hermes config set webapp.port 9119
+   docker compose exec gateway aegis config set webapp.enabled true
+   docker compose exec gateway aegis config set webapp.host 127.0.0.1
+   docker compose exec gateway aegis config set webapp.port 9119
    ```
 
-   When the dashboard had a public address and `webapp.public_url` is unset, find it in the order shown above (the Hermes home's `.env`, then `docker exec hermes-dashboard printenv HERMES_DASHBOARD_PUBLIC_URL`, then `dashboard.public_url`) and copy it: `docker compose exec gateway hermes config set webapp.public_url https://dashboard.example.com`.
+   When the dashboard had a public address and `webapp.public_url` is unset, find it in the order shown above (the Aegis home's `.env`, then `docker exec aegis-dashboard printenv AEGIS_DASHBOARD_PUBLIC_URL`, then `dashboard.public_url`) and copy it: `docker compose exec gateway aegis config set webapp.public_url https://dashboard.example.com`.
 
-2. Delete the `dashboard:` service from the Compose file. Move any `HERMES_DASHBOARD_*` sign-in variables it had to the `gateway` service's `environment:`.
+2. Delete the `dashboard:` service from the Compose file. Move any `AEGIS_DASHBOARD_*` sign-in variables it had to the `gateway` service's `environment:`.
 
 3. Remove the dashboard container and restart the gateway so it reads the new settings:
 
@@ -344,7 +344,7 @@ The repo's `docker-compose.yml` runs the dashboard as a second container at `127
    docker compose restart gateway
    ```
 
-4. Check it as for the slot: `docker compose exec gateway hermes webapp --status`, then open the old address (the public one when there is one) and sign in.
+4. Check it as for the slot: `docker compose exec gateway aegis webapp --status`, then open the old address (the public one when there is one) and sign in.
 
 `docker-compose.windows.yml` publishes the dashboard with `ports: - "127.0.0.1:9119:9119"` and binds `0.0.0.0` inside its container. There, set `webapp.host 0.0.0.0` instead, move that `ports:` entry to the `gateway` service, give the gateway a sign-in provider (a `0.0.0.0` Webapp refuses to start without one), and pass `-f docker-compose.windows.yml` to every `docker compose` command above.
 
@@ -354,29 +354,29 @@ To open an interactive chat session against a running data directory:
 
 ```sh
 docker run -it --rm \
-  -v ~/.hermes:/opt/data \
-  nousresearch/hermes-agent
+  -v ~/.aegis:/opt/data \
+  nousresearch/aegis-agent
 ```
 
 Or if you have already opened a terminal in your running container (via Docker Desktop for instance), just run:
 
 ```sh
-/opt/hermes/.venv/bin/hermes
+/opt/aegis/.venv/bin/aegis
 ```
 
 ## Persistent volumes
 
-The `/opt/data` volume is the single source of truth for all Hermes state. It maps to your host's `~/.hermes/` directory and contains:
+The `/opt/data` volume is the single source of truth for all Aegis state. It maps to your host's `~/.aegis/` directory and contains:
 
 | Path | Contents |
 |------|----------|
 | `.env` | API keys and secrets |
-| `config.yaml` | All Hermes configuration |
+| `config.yaml` | All Aegis configuration |
 | `SOUL.md` | Agent personality/identity |
 | `sessions/` | Conversation history |
 | `memories/` | Persistent memory store |
 | `skills/` | Installed skills |
-| `home/` | Per-profile HOME for Hermes tool subprocesses (`git`, `ssh`, `gh`, `npm`, and skill CLIs) |
+| `home/` | Per-profile HOME for Aegis tool subprocesses (`git`, `ssh`, `gh`, `npm`, and skill CLIs) |
 | `cron/` | Scheduled job definitions |
 | `hooks/` | Event hooks |
 | `logs/` | Runtime logs |
@@ -384,77 +384,77 @@ The `/opt/data` volume is the single source of truth for all Hermes state. It ma
 
 ### Filesystem requirements for `state.db` in containers
 
-Hermes keeps sessions in a SQLite database (`/opt/data/state.db`) that is opened in WAL journal mode by default. WAL relies on shared memory (`state.db-shm`) being coherent between every process that has the file open. Bind mounts that cross a VM boundary do not provide that: **virtiofs** (Docker Desktop and Podman on macOS, OrbStack) and **9p / drvfs** (Docker Desktop on Windows) both let concurrent writers silently corrupt a WAL database while the main file still passes `PRAGMA integrity_check`.
+Aegis keeps sessions in a SQLite database (`/opt/data/state.db`) that is opened in WAL journal mode by default. WAL relies on shared memory (`state.db-shm`) being coherent between every process that has the file open. Bind mounts that cross a VM boundary do not provide that: **virtiofs** (Docker Desktop and Podman on macOS, OrbStack) and **9p / drvfs** (Docker Desktop on Windows) both let concurrent writers silently corrupt a WAL database while the main file still passes `PRAGMA integrity_check`.
 
-What Hermes does about it (since v2026.9.14):
+What Aegis does about it (since v2026.9.14):
 
 - A **fresh** database whose directory is on a virtiofs/9p mount is created in rollback (`DELETE`) journal mode and a one-time warning is logged. Nothing to do.
-- An **existing** WAL database on such a mount is never live-downgraded — other Hermes processes may hold it open, and a live switch destroys their uncheckpointed commits. Instead, every process logs a one-time error at startup and `hermes doctor` flags the database. Fix it one of two ways:
-  1. Stop every Hermes process that uses the database, then run a one-time offline conversion with the Python that ships in the image (it has no `sqlite3` shell): `docker exec hermes python3 -c "import sqlite3; print(sqlite3.connect('/opt/data/state.db').execute('PRAGMA journal_mode=DELETE').fetchone()[0])"`. Set `database.journal_mode: delete` in `config.yaml` so a later open does not switch it back to WAL.
-  2. Move the data directory onto a native volume — a named Docker volume (`-v hermes-data:/opt/data`) lives on the VM's own ext4 filesystem and supports WAL normally.
+- An **existing** WAL database on such a mount is never live-downgraded — other Aegis processes may hold it open, and a live switch destroys their uncheckpointed commits. Instead, every process logs a one-time error at startup and `aegis doctor` flags the database. Fix it one of two ways:
+  1. Stop every Aegis process that uses the database, then run a one-time offline conversion with the Python that ships in the image (it has no `sqlite3` shell): `docker exec aegis python3 -c "import sqlite3; print(sqlite3.connect('/opt/data/state.db').execute('PRAGMA journal_mode=DELETE').fetchone()[0])"`. Set `database.journal_mode: delete` in `config.yaml` so a later open does not switch it back to WAL.
+  2. Move the data directory onto a native volume — a named Docker volume (`-v aegis-data:/opt/data`) lives on the VM's own ext4 filesystem and supports WAL normally.
 
-Detection reads `/proc/self/mountinfo` inside the container, so it works regardless of the host operating system. NFS, CIFS/SMB and sshfs mounts are detected separately: a fresh database there starts in rollback (`DELETE`) journal mode unless `database.journal_mode` is set (set `wal` to force WAL), because every WAL shared-memory lock is a network round trip and concurrent connections stall on it. An existing WAL database on one keeps WAL, logs a one-time warning at startup with the `hermes sessions set-journal-mode delete` remedy, and is flagged by `hermes doctor`. Generic FUSE mounts are not classified; on those, set `database.journal_mode: delete` explicitly. Hermes does not offer SQLite's `locking_mode=EXCLUSIVE` as an alternative because the gateway, cron, and worker processes open the database concurrently.
+Detection reads `/proc/self/mountinfo` inside the container, so it works regardless of the host operating system. NFS, CIFS/SMB and sshfs mounts are detected separately: a fresh database there starts in rollback (`DELETE`) journal mode unless `database.journal_mode` is set (set `wal` to force WAL), because every WAL shared-memory lock is a network round trip and concurrent connections stall on it. An existing WAL database on one keeps WAL, logs a one-time warning at startup with the `aegis sessions set-journal-mode delete` remedy, and is flagged by `aegis doctor`. Generic FUSE mounts are not classified; on those, set `database.journal_mode: delete` explicitly. Aegis does not offer SQLite's `locking_mode=EXCLUSIVE` as an alternative because the gateway, cron, and worker processes open the database concurrently.
 
 ### Immutable install tree
 
-In hosted and published Docker images, `/opt/hermes` is the installed application tree. It is root-owned and read-only to the runtime `hermes` user, so agent turns, gateway sessions, dashboard actions, and normal `docker exec hermes hermes ...` commands cannot edit the core source, bundled `.venv`, `node_modules`, or TUI bundle in place.
+In hosted and published Docker images, `/opt/aegis` is the installed application tree. It is root-owned and read-only to the runtime `aegis` user, so agent turns, gateway sessions, dashboard actions, and normal `docker exec aegis aegis ...` commands cannot edit the core source, bundled `.venv`, `node_modules`, or TUI bundle in place.
 
-All mutable Hermes state belongs under `/opt/data`: config, `.env`, profiles, skills, memories, sessions, logs, dashboard uploads, plugins, and other user-managed files. The image also disables runtime `.pyc` writes and Hermes lazy dependency installs into `/opt/hermes`; optional platform dependencies needed by the published image should be baked into the image or installed through a new image build.
+All mutable Aegis state belongs under `/opt/data`: config, `.env`, profiles, skills, memories, sessions, logs, dashboard uploads, plugins, and other user-managed files. The image also disables runtime `.pyc` writes and Aegis lazy dependency installs into `/opt/aegis`; optional platform dependencies needed by the published image should be baked into the image or installed through a new image build.
 
-On hosted/published images, agent self-improvement is scoped to skills, memory, plugins, and config under `/opt/data`. The installed core source under `/opt/hermes` is immutable; core changes are made via PRs to the repo and shipped by updating the image, not by live-editing the running install.
+On hosted/published images, agent self-improvement is scoped to skills, memory, plugins, and config under `/opt/data`. The installed core source under `/opt/aegis` is immutable; core changes are made via PRs to the repo and shipped by updating the image, not by live-editing the running install.
 
-If an operator needs to repair or inspect files outside `/opt/data`, use a root shell intentionally. The `hermes` shim normally drops `docker exec hermes hermes ...` back to the runtime user; set `HERMES_DOCKER_EXEC_AS_ROOT=1` for a one-off root invocation when you explicitly need root semantics.
+If an operator needs to repair or inspect files outside `/opt/data`, use a root shell intentionally. The `aegis` shim normally drops `docker exec aegis aegis ...` back to the runtime user; set `AEGIS_DOCKER_EXEC_AS_ROOT=1` for a one-off root invocation when you explicitly need root semantics.
 
-Skill CLIs that store credentials under `~` must be initialized against the subprocess HOME, not just the data-volume root. For example, the [xurl skill](./skills/bundled/social-media/social-media-xurl.md) stores OAuth state in `~/.xurl`; in the official Docker layout, Hermes tool calls read that as `/opt/data/home/.xurl`, so run manual xurl auth with `HOME=/opt/data/home` and verify with `HOME=/opt/data/home xurl auth status`.
+Skill CLIs that store credentials under `~` must be initialized against the subprocess HOME, not just the data-volume root. For example, the [xurl skill](./skills/bundled/social-media/social-media-xurl.md) stores OAuth state in `~/.xurl`; in the official Docker layout, Aegis tool calls read that as `/opt/data/home/.xurl`, so run manual xurl auth with `HOME=/opt/data/home` and verify with `HOME=/opt/data/home xurl auth status`.
 
 :::warning
-Never run two Hermes **gateway** containers against the same data directory simultaneously — session files and memory stores are not designed for concurrent write access.
+Never run two Aegis **gateway** containers against the same data directory simultaneously — session files and memory stores are not designed for concurrent write access.
 :::
 
 ## Multi-profile support
 
-Hermes supports [multiple profiles](../reference/profile-commands.md) — separate `~/.hermes/` subdirectories that let you run independent agents (different SOUL, skills, memory, sessions, credentials) from a single installation. **Inside the official Docker image, the s6 supervision tree treats each profile as a first-class supervised service**, so the recommended deployment is **one container hosting all profiles**.
+Aegis supports [multiple profiles](../reference/profile-commands.md) — separate `~/.aegis/` subdirectories that let you run independent agents (different SOUL, skills, memory, sessions, credentials) from a single installation. **Inside the official Docker image, the s6 supervision tree treats each profile as a first-class supervised service**, so the recommended deployment is **one container hosting all profiles**.
 
-Each profile created with `hermes profile create <name>` gets:
+Each profile created with `aegis profile create <name>` gets:
 
-- A dedicated s6 service slot at `/run/hermes-service/gateway-<name>/`, registered dynamically by the runtime — no container rebuild required.
+- A dedicated s6 service slot at `/run/aegis-service/gateway-<name>/`, registered dynamically by the runtime — no container rebuild required.
 - Auto-restart on crash, backoff-managed by `s6-supervise`.
-- Per-profile rotated logs at `${HERMES_HOME}/logs/gateways/<name>/current` (10 archives × 1 MB each).
-- State persistence across container restarts: the boot-time reconciler reads `gateway_state.json` from each profile directory and brings the slot back up only for profiles whose last recorded state was `running`. Only a gateway you explicitly stopped (`hermes gateway stop`) stays down across a restart — a container restart, image upgrade, or unexpected exit leaves the recorded state as `running`, so the gateway auto-starts on the next boot.
+- Per-profile rotated logs at `${AEGIS_HOME}/logs/gateways/<name>/current` (10 archives × 1 MB each).
+- State persistence across container restarts: the boot-time reconciler reads `gateway_state.json` from each profile directory and brings the slot back up only for profiles whose last recorded state was `running`. Only a gateway you explicitly stopped (`aegis gateway stop`) stays down across a restart — a container restart, image upgrade, or unexpected exit leaves the recorded state as `running`, so the gateway auto-starts on the next boot.
 
-A profile created from the **host** against a bind-mounted `~/.hermes` gets its directory but no slot (the host process cannot reach the container's `/run/hermes-service`). Inside the container, `hermes -p <name> gateway start` registers the missing slot on demand and starts it — no `docker restart` needed. Only `start` does this, and only for a real profile directory (one carrying `SOUL.md`); `stop`/`restart` on an unregistered profile and a mistyped `-p` name still fail with `✗ no such gateway`.
+A profile created from the **host** against a bind-mounted `~/.aegis` gets its directory but no slot (the host process cannot reach the container's `/run/aegis-service`). Inside the container, `aegis -p <name> gateway start` registers the missing slot on demand and starts it — no `docker restart` needed. Only `start` does this, and only for a real profile directory (one carrying `SOUL.md`); `stop`/`restart` on an unregistered profile and a mistyped `-p` name still fail with `✗ no such gateway`.
 
 The lifecycle commands you'd run on the host work the same way from inside the container:
 
 ```sh
 # Create a profile — registers the gateway-<name> s6 slot.
-docker exec hermes hermes profile create coder
+docker exec aegis aegis profile create coder
 
 # Start / stop / restart — dispatches s6-svc; the gateway lifecycle survives docker restart.
-docker exec hermes hermes -p coder gateway start
-docker exec hermes hermes -p coder gateway stop
-docker exec hermes hermes -p coder gateway restart
+docker exec aegis aegis -p coder gateway start
+docker exec aegis aegis -p coder gateway stop
+docker exec aegis aegis -p coder gateway restart
 
 # Status — reports `Manager: s6 (container supervisor)` inside the container.
-docker exec hermes hermes -p coder gateway status
+docker exec aegis aegis -p coder gateway status
 
 # Remove a profile — tears down the s6 slot too.
-docker exec hermes hermes profile delete coder
+docker exec aegis aegis profile delete coder
 ```
 
-Under the hood, `hermes gateway start/stop/restart` inside the container is intercepted and routed to `s6-svc` against the right service directory; you don't need to learn the s6 commands directly. For raw supervisor state, use `/command/s6-svstat /run/hermes-service/gateway-<name>` (note `/command/` is on PATH only for processes spawned by the supervision tree — when calling from `docker exec`, pass the absolute path).
+Under the hood, `aegis gateway start/stop/restart` inside the container is intercepted and routed to `s6-svc` against the right service directory; you don't need to learn the s6 commands directly. For raw supervisor state, use `/command/s6-svstat /run/aegis-service/gateway-<name>` (note `/command/` is on PATH only for processes spawned by the supervision tree — when calling from `docker exec`, pass the absolute path).
 
 ### Reaching more than one profile from outside the container
 
 Two different surfaces reach a profile's gateway from outside, and they behave differently — don't conflate them:
 
-**Hermes Desktop (and the web dashboard).** The Desktop app's **Remote Gateway** connection talks to a `hermes dashboard` backend (default **port 9119**, enabled by `HERMES_DASHBOARD=1`) — *not* the OpenAI API server. One dashboard backend serves **every** co-located profile: the app's profile switcher sends the target profile with each request and the backend opens that profile's `HERMES_HOME` on disk. So you do **not** need a second port — or a second connection — per profile for Desktop; one `:9119` connection covers them all through the switcher.
+**Aegis Desktop (and the web dashboard).** The Desktop app's **Remote Gateway** connection talks to a `aegis dashboard` backend (default **port 9119**, enabled by `AEGIS_DASHBOARD=1`) — *not* the OpenAI API server. One dashboard backend serves **every** co-located profile: the app's profile switcher sends the target profile with each request and the backend opens that profile's `AEGIS_HOME` on disk. So you do **not** need a second port — or a second connection — per profile for Desktop; one `:9119` connection covers them all through the switcher.
 
 **OpenAI-compatible API clients (Open WebUI, LobeChat, `/v1/...`).** These talk to each profile's **API server**, which binds **port 8642 for every profile** (resolved from `API_SERVER_PORT` / `platforms.api_server.extra.port` — there is no auto-allocation and no `config.yaml`/`gateway.port` key). If you want a client to reach a *specific* second profile, give that profile a distinct `API_SERVER_PORT` in **its own** `.env`, otherwise its gateway tries to bind 8642 too and conflicts with the default profile:
 
 ```sh
 # Create the profile (registers its gateway-<name> s6 slot)
-docker exec hermes hermes profile create work
+docker exec aegis aegis profile create work
 
 # Point its API server at a free port (write to the profile's own .env)
 cat >> /opt/data/profiles/work/.env <<'EOF'
@@ -462,7 +462,7 @@ API_SERVER_ENABLED=true
 API_SERVER_PORT=8643
 EOF
 
-docker exec hermes hermes -p work gateway restart
+docker exec aegis aegis -p work gateway restart
 ```
 
 Keep `API_SERVER_PORT` in each profile's **own** `.env`, never in the container-wide `environment:` block — a global value would force every profile onto the same port and they would collide. With bridge networking, publish the extra port in `docker-compose.yml` (`- "8643:8643"`); with `network_mode: host` it is already reachable on the host. The default profile's 8642 connection is untouched.
@@ -475,10 +475,10 @@ Before the s6 migration, "one container per profile" was the recommended pattern
 |---|---|---|
 | Disk overhead | One image, one bundled venv, one Playwright cache | N images / N caches |
 | Memory overhead | Shared Python interpreter cache, shared node_modules | Duplicated per container |
-| Profile creation | `docker exec ... hermes profile create <name>` (seconds) | New `docker run` invocation + port allocation + bind-mount config |
+| Profile creation | `docker exec ... aegis profile create <name>` (seconds) | New `docker run` invocation + port allocation + bind-mount config |
 | Per-profile crash recovery | `s6-supervise` auto-restart | Docker's `--restart unless-stopped` (slower, kills sibling work) |
 | Logs | Per-profile rotated file via `s6-log`, plus container-boot audit log | `docker logs <name>` per container — no built-in rotation |
-| Backup | One `~/.hermes` directory | N directories to coordinate |
+| Backup | One `~/.aegis` directory | N directories to coordinate |
 
 The default profile (`default`) is always registered on first boot, so a fresh container ships with one supervised gateway out of the box. Additional profiles are pure runtime adds.
 
@@ -495,28 +495,28 @@ In those cases, declare one service per profile with distinct `container_name`, 
 
 ```yaml
 services:
-  hermes-work:
-    image: nousresearch/hermes-agent:latest
-    container_name: hermes-work
+  aegis-work:
+    image: nousresearch/aegis-agent:latest
+    container_name: aegis-work
     restart: unless-stopped
     command: gateway run
     ports:
       - "8642:8642"
     volumes:
-      - ~/.hermes-work:/opt/data
+      - ~/.aegis-work:/opt/data
 
-  hermes-personal:
-    image: nousresearch/hermes-agent:latest
-    container_name: hermes-personal
+  aegis-personal:
+    image: nousresearch/aegis-agent:latest
+    container_name: aegis-personal
     restart: unless-stopped
     command: gateway run
     ports:
       - "8643:8642"
     volumes:
-      - ~/.hermes-personal:/opt/data
+      - ~/.aegis-personal:/opt/data
 ```
 
-The warning from [Persistent volumes](#persistent-volumes) still applies: never point two containers at the same `~/.hermes` directory simultaneously. The s6 supervisor inside each container manages its own profile set; cross-container sharing of a data volume corrupts session files and memory stores.
+The warning from [Persistent volumes](#persistent-volumes) still applies: never point two containers at the same `~/.aegis` directory simultaneously. The s6 supervisor inside each container manages its own profile set; cross-container sharing of a data volume corrupts session files and memory stores.
 
 ## Where the logs go
 
@@ -524,19 +524,19 @@ The s6 container has four distinct log surfaces, and "why isn't my gateway showi
 
 | Source | Where it lands | How to read it |
 |---|---|---|
-| **Per-profile gateway** (`hermes gateway run` and per-profile gateways under s6) | Tee'd to two places: `docker logs <container>` (real time, no extra prefix) **and** `${HERMES_HOME}/logs/gateways/<profile>/current` (rotated, ISO-8601 timestamped, 10 archives × 1 MB each) | `docker logs -f hermes` or `tail -F ~/.hermes/logs/gateways/default/current` on the host |
-| **Dashboard** (when `HERMES_DASHBOARD=1`) | `docker logs <container>` (no prefix) | `docker logs -f hermes` — interleaved with gateway lines |
-| **Boot reconciler** (records which profile gateways were restored on each container start) | `${HERMES_HOME}/logs/container-boot.log` (append-only audit log) | `tail -F ~/.hermes/logs/container-boot.log` |
-| **Generic Hermes logs** (`agent.log`, `errors.log`) | `${HERMES_HOME}/logs/` (profile-aware) | `docker exec hermes hermes logs --follow [--level WARNING] [--session <id>]` |
+| **Per-profile gateway** (`aegis gateway run` and per-profile gateways under s6) | Tee'd to two places: `docker logs <container>` (real time, no extra prefix) **and** `${AEGIS_HOME}/logs/gateways/<profile>/current` (rotated, ISO-8601 timestamped, 10 archives × 1 MB each) | `docker logs -f aegis` or `tail -F ~/.aegis/logs/gateways/default/current` on the host |
+| **Dashboard** (when `AEGIS_DASHBOARD=1`) | `docker logs <container>` (no prefix) | `docker logs -f aegis` — interleaved with gateway lines |
+| **Boot reconciler** (records which profile gateways were restored on each container start) | `${AEGIS_HOME}/logs/container-boot.log` (append-only audit log) | `tail -F ~/.aegis/logs/container-boot.log` |
+| **Generic Aegis logs** (`agent.log`, `errors.log`) | `${AEGIS_HOME}/logs/` (profile-aware) | `docker exec aegis aegis logs --follow [--level WARNING] [--session <id>]` |
 
-For an interactive container with terminal input and output (such as `docker run -it ... --tui` or `bash`), the foreground command owns the terminal. The entrypoint defaults to `S6_LOGGING=2` and `S6_CMD_USE_TERMINAL=1` so supervised gateway and dashboard output does not overwrite that screen. Their console output goes to s6's rotated catch-all log at `/run/uncaught-logs/current` inside the container. The per-profile gateway file logs and normal Hermes logs remain available at the paths above. The catch-all directory is runtime storage, so it does not survive a container restart or removal.
+For an interactive container with terminal input and output (such as `docker run -it ... --tui` or `bash`), the foreground command owns the terminal. The entrypoint defaults to `S6_LOGGING=2` and `S6_CMD_USE_TERMINAL=1` so supervised gateway and dashboard output does not overwrite that screen. Their console output goes to s6's rotated catch-all log at `/run/uncaught-logs/current` inside the container. The per-profile gateway file logs and normal Aegis logs remain available at the paths above. The catch-all directory is runtime storage, so it does not survive a container restart or removal.
 
 Headless containers keep forwarding service output to `docker logs`. Explicit `S6_LOGGING` and `S6_CMD_USE_TERMINAL` settings take precedence over these interactive defaults.
 
 Two practical consequences worth knowing:
 
 - The file copy at `logs/gateways/<profile>/current` is what survives container restarts. `docker logs` only retains output from the current container's lifetime (and is wiped on `docker rm`); the rotated files persist on the bind-mounted volume.
-- The boot reconciler's audit line shape is `<iso-timestamp> profile=<name> prior_state=<state> action=<registered|started>`, so a quick `grep profile=coder ~/.hermes/logs/container-boot.log` reveals when a given profile was last restored and whether s6 auto-started it.
+- The boot reconciler's audit line shape is `<iso-timestamp> profile=<name> prior_state=<state> action=<registered|started>`, so a quick `grep profile=coder ~/.aegis/logs/container-boot.log` reveals when a given profile was last restored and whether s6 auto-started it.
 
 ## Environment variable forwarding
 
@@ -544,16 +544,16 @@ API keys are read from `/opt/data/.env` inside the container. You can also pass 
 
 ```sh
 docker run -it --rm \
-  -v ~/.hermes:/opt/data \
+  -v ~/.aegis:/opt/data \
   -e ANTHROPIC_API_KEY="sk-ant-..." \
   -e OPENAI_API_KEY="sk-..." \
-  nousresearch/hermes-agent
+  nousresearch/aegis-agent
 ```
 
 Direct `-e` flags override values from `.env`. This is useful for CI/CD or secrets-manager integrations where you don't want keys on disk.
 
 :::note Looking for Docker as the **terminal backend**?
-This page covers running Hermes itself inside Docker. If you want Hermes to execute the agent's `terminal` / `execute_code` calls inside a Docker sandbox container (one long-lived container shared across Hermes processes — see issue #20561), that's a separate config block — `terminal.backend: docker` plus `terminal.docker_image`, `terminal.docker_volumes`, `terminal.docker_forward_env`, `terminal.docker_env`, `terminal.docker_run_as_host_user`, `terminal.docker_extra_args`, `terminal.docker_persist_across_processes`, and `terminal.docker_orphan_reaper`. See [Configuration → Docker Backend](configuration.md#docker-backend) for the full set including container-lifecycle rules.
+This page covers running Aegis itself inside Docker. If you want Aegis to execute the agent's `terminal` / `execute_code` calls inside a Docker sandbox container (one long-lived container shared across Aegis processes — see issue #20561), that's a separate config block — `terminal.backend: docker` plus `terminal.docker_image`, `terminal.docker_volumes`, `terminal.docker_forward_env`, `terminal.docker_env`, `terminal.docker_run_as_host_user`, `terminal.docker_extra_args`, `terminal.docker_persist_across_processes`, and `terminal.docker_orphan_reaper`. See [Configuration → Docker Backend](configuration.md#docker-backend) for the full set including container-lifecycle rules.
 :::
 
 ## Docker Compose example
@@ -562,18 +562,18 @@ For persistent deployment with both the gateway and dashboard, a `docker-compose
 
 ```yaml
 services:
-  hermes:
-    image: nousresearch/hermes-agent:latest
-    container_name: hermes
+  aegis:
+    image: nousresearch/aegis-agent:latest
+    container_name: aegis
     restart: unless-stopped
     command: gateway run
     ports:
       - "8642:8642"   # gateway API
-      - "9119:9119"   # dashboard (only reached when HERMES_DASHBOARD=1)
+      - "9119:9119"   # dashboard (only reached when AEGIS_DASHBOARD=1)
     volumes:
-      - ~/.hermes:/opt/data
+      - ~/.aegis:/opt/data
     environment:
-      - HERMES_DASHBOARD=1
+      - AEGIS_DASHBOARD=1
       # Uncomment to forward specific env vars instead of using .env file:
       # - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       # - OPENAI_API_KEY=${OPENAI_API_KEY}
@@ -585,14 +585,14 @@ services:
           cpus: "2.0"
 ```
 
-Start with `docker compose up -d` and view logs with `docker compose logs -f`. The supervised gateway's stdout is also tee'd to `${HERMES_HOME}/logs/gateways/<profile>/current` on the volume — see [Where the logs go](#where-the-logs-go) for the full routing map.
+Start with `docker compose up -d` and view logs with `docker compose logs -f`. The supervised gateway's stdout is also tee'd to `${AEGIS_HOME}/logs/gateways/<profile>/current` on the volume — see [Where the logs go](#where-the-logs-go) for the full routing map.
 
 ## Optional: Linux desktop audio bridge
 
-Voice mode in Docker needs two separate things to work: Hermes must be allowed to probe audio devices inside the container, and the container must be able to reach your host audio server. The setup below covers the host audio plumbing for Linux desktops that expose a PulseAudio-compatible socket, including many PipeWire setups.
+Voice mode in Docker needs two separate things to work: Aegis must be allowed to probe audio devices inside the container, and the container must be able to reach your host audio server. The setup below covers the host audio plumbing for Linux desktops that expose a PulseAudio-compatible socket, including many PipeWire setups.
 
 :::caution
-This is a Linux desktop workaround, not a general Docker Desktop feature. It is useful when you already have host audio working and want CLI voice mode inside the Hermes container. If Hermes still reports `Running inside Docker container -- no audio devices`, use a build that includes Docker audio probing support for `PULSE_SERVER` / `PIPEWIRE_REMOTE`.
+This is a Linux desktop workaround, not a general Docker Desktop feature. It is useful when you already have host audio working and want CLI voice mode inside the Aegis container. If Aegis still reports `Running inside Docker container -- no audio devices`, use a build that includes Docker audio probing support for `PULSE_SERVER` / `PIPEWIRE_REMOTE`.
 :::
 
 First, create an ALSA config next to your Compose file:
@@ -618,7 +618,7 @@ ctl.!default {
 Then build a small derived image with the ALSA PulseAudio plugin installed:
 
 ```dockerfile title="Dockerfile.audio"
-FROM nousresearch/hermes-agent:latest
+FROM nousresearch/aegis-agent:latest
 
 USER root
 RUN apt-get update \
@@ -630,25 +630,25 @@ Use that image in Compose and pass through the host user's PulseAudio socket and
 
 ```yaml
 services:
-  hermes:
+  aegis:
     build:
       context: .
       dockerfile: Dockerfile.audio
-    image: hermes-agent-audio
-    container_name: hermes
+    image: aegis-agent-audio
+    container_name: aegis
     restart: unless-stopped
     command: gateway run
     volumes:
-      - ~/.hermes:/opt/data
-      - /run/user/${HERMES_UID}/pulse:/run/user/${HERMES_UID}/pulse
+      - ~/.aegis:/opt/data
+      - /run/user/${AEGIS_UID}/pulse:/run/user/${AEGIS_UID}/pulse
       # no-tmp: ok — path inside the container
       - ~/.config/pulse/cookie:/tmp/pulse-cookie:ro
       - ./asound.conf:/etc/asound.conf:ro
     environment:
-      - HERMES_UID=${HERMES_UID}
-      - HERMES_GID=${HERMES_GID}
-      - XDG_RUNTIME_DIR=/run/user/${HERMES_UID}
-      - PULSE_SERVER=unix:/run/user/${HERMES_UID}/pulse/native
+      - AEGIS_UID=${AEGIS_UID}
+      - AEGIS_GID=${AEGIS_GID}
+      - XDG_RUNTIME_DIR=/run/user/${AEGIS_UID}
+      - PULSE_SERVER=unix:/run/user/${AEGIS_UID}/pulse/native
       # no-tmp: ok — path inside the container
       - PULSE_COOKIE=/tmp/pulse-cookie
 ```
@@ -656,20 +656,20 @@ services:
 Start it with your host UID/GID so the container process can access the per-user audio socket:
 
 ```sh
-export HERMES_UID="$(id -u)"
-export HERMES_GID="$(id -g)"
+export AEGIS_UID="$(id -u)"
+export AEGIS_GID="$(id -g)"
 docker compose up -d --build
 ```
 
 To verify what PortAudio sees inside the container:
 
 ```sh
-docker exec hermes /opt/hermes/.venv/bin/python -c "import sounddevice as sd; print(sd.query_devices())"
+docker exec aegis /opt/aegis/.venv/bin/python -c "import sounddevice as sd; print(sd.query_devices())"
 ```
 
 ## Resource limits
 
-The Hermes container needs moderate resources. Recommended minimums:
+The Aegis container needs moderate resources. Recommended minimums:
 
 | Resource | Minimum | Recommended |
 |----------|---------|-------------|
@@ -683,11 +683,11 @@ Set limits in Docker:
 
 ```sh
 docker run -d \
-  --name hermes \
+  --name aegis \
   --restart unless-stopped \
   --memory=4g --cpus=2 \
-  -v ~/.hermes:/opt/data \
-  nousresearch/hermes-agent gateway run
+  -v ~/.aegis:/opt/data \
+  nousresearch/aegis-agent gateway run
 ```
 
 ## What the Dockerfile does
@@ -696,19 +696,19 @@ The image uses Debian 13.4 and includes:
 
 
 - A Python 3.14 environment synchronized from the committed `uv.lock`, followed
-  by a no-dependency editable install of Hermes.
+  by a no-dependency editable install of Aegis.
 - The curated extras `all`, `messaging`, `otlp`, `anthropic`, `bedrock`,
   `azure-identity`, and `matrix`. This is not `--all-extras`.
 - Node.js 26 and npm from the digest-pinned Node source image.
-- PM-pinned uv, full Chromium, FFmpeg, and ripgrep in `/opt/hermes/tools`.
+- PM-pinned uv, full Chromium, FFmpeg, and ripgrep in `/opt/aegis/tools`.
 - System Git, OpenSSH, Docker CLI, and Chromium shared libraries.
 - Prebuilt TUI/dashboard assets and baked Photon sidecar dependencies.
 - s6-overlay for supervision and zombie-process cleanup.
 
 Chromium is staged through PM, not `npx playwright install`. The build records
-its resolved executable in `/etc/hermes/chromium-executable-path`, which Hermes
+its resolved executable in `/etc/aegis/chromium-executable-path`, which Aegis
 reads when it launches the browser.
-`PLAYWRIGHT_BROWSERS_PATH` names `/opt/hermes/tools`, outside the data mount.
+`PLAYWRIGHT_BROWSERS_PATH` names `/opt/aegis/tools`, outside the data mount.
 
 Every image, including the unsuffixed (non-`-desktop`) tags, carries the full
 Chromium build rather than Playwright's lighter headless shell: one pinned,
@@ -719,29 +719,29 @@ shell earlier images shipped.
 Opt-in backend SDKs (Edge TTS, Firecrawl, Exa, platform adapters, plugin
 dependencies) install on first use into PM dependency generations under
 `/opt/data/installs`, so they survive container recreation and image updates.
-The image's own `/opt/hermes/.venv` is never modified. On each boot the
+The image's own `/opt/aegis/.venv` is never modified. On each boot the
 container re-resolves the recorded selection against the new image's lock
 before services start; if that fails (for example offline), it boots the
 image's own environment and keeps the recorded extras for the next boot or
 install. Set `security.allow_lazy_installs: false` to refuse on-demand
 installs. The old `lazy-packages` overlay is not used.
 
-Image provenance lives at `/etc/hermes/image-provenance.json`, outside both the
-source and data mounts. The build stamp lives at `/opt/hermes/install-stamp.json`.
+Image provenance lives at `/etc/aegis/image-provenance.json`, outside both the
+source and data mounts. The build stamp lives at `/opt/aegis/install-stamp.json`.
 A local build without a supplied stamp reports an unknown revision rather than
-inventing a commit. `hermes update` refuses image-owned code changes; replace
+inventing a commit. `aegis update` refuses image-owned code changes; replace
 the image to update the application.
 
 The container's `ENTRYPOINT` is a small dispatcher (`docker/entrypoint-dispatch.sh`). When the container owns PID 1 (normal Docker / Podman), it exec's s6-overlay's `/init` and you get the full supervision tree described below. When a platform wraps the image entrypoint under its own PID-1 init (Fly.io Machines, `docker run --init`, some Nomad/Kubernetes setups), `/init` would abort with `s6-overlay-suexec: fatal: can only run as pid 1` — so the dispatcher instead runs the stage2 bootstrap directly and exec's the main wrapper without s6. On that fallback path the requested command still runs, but supervised services (dashboard, per-profile gateways) are unavailable.
 
 On the PID-1 path, `/init`:
-1. Runs `/etc/cont-init.d/01-hermes-setup` (= `docker/stage2-hook.sh`) as root: optional UID/GID remap, fixes volume ownership, seeds `.env` / `config.yaml` / `SOUL.md` on first boot, runs non-interactive config-schema migrations unless `HERMES_SKIP_CONFIG_MIGRATION=1`, syncs bundled skills.
-2. Runs `/etc/cont-init.d/02-reconcile-profiles` (= `hermes_cli.container_boot`): walks `$HERMES_HOME/profiles/<name>/`, recreates the per-profile gateway s6 service slot under `/run/hermes-service/gateway-<profile>/`, and auto-starts only those whose last recorded state was `running` (see [Per-profile gateway supervision](#per-profile-gateway-supervision)).
-3. Starts the static `main-hermes` and `dashboard` s6-rc services.
-4. Exec's the container's CMD as the main program (`/opt/hermes/docker/main-wrapper.sh`), which routes the arguments the user passed to `docker run`:
-   - no args → `hermes` (the default)
+1. Runs `/etc/cont-init.d/01-aegis-setup` (= `docker/stage2-hook.sh`) as root: optional UID/GID remap, fixes volume ownership, seeds `.env` / `config.yaml` / `SOUL.md` on first boot, runs non-interactive config-schema migrations unless `AEGIS_SKIP_CONFIG_MIGRATION=1`, syncs bundled skills.
+2. Runs `/etc/cont-init.d/02-reconcile-profiles` (= `aegis_cli.container_boot`): walks `$AEGIS_HOME/profiles/<name>/`, recreates the per-profile gateway s6 service slot under `/run/aegis-service/gateway-<profile>/`, and auto-starts only those whose last recorded state was `running` (see [Per-profile gateway supervision](#per-profile-gateway-supervision)).
+3. Starts the static `main-aegis` and `dashboard` s6-rc services.
+4. Exec's the container's CMD as the main program (`/opt/aegis/docker/main-wrapper.sh`), which routes the arguments the user passed to `docker run`:
+   - no args → `aegis` (the default)
    - first arg is an executable on PATH (e.g. `sleep`, `bash`) → exec it directly
-   - anything else → `hermes <args>` (subcommand passthrough)
+   - anything else → `aegis <args>` (subcommand passthrough)
    The container exits when this main program exits, with its exit code.
 
 :::warning Breaking change vs. pre-s6 images
@@ -749,67 +749,67 @@ The container ENTRYPOINT is now the `entrypoint-dispatch.sh` dispatcher (which d
 :::
 
 :::warning Privilege model
-Do not override the image entrypoint unless you keep `/init` (or, equivalently, the legacy `docker/entrypoint.sh` shim that forwards to the stage2 hook) in the command chain. s6-overlay's `/init` runs as root so it can chown the volume on first boot, then drops to the `hermes` user via `s6-setuidgid` for every supervised service AND for the main program. Starting `hermes gateway run` as root inside the official image is refused by default because it can leave root-owned files in `/opt/data` and break later dashboard or gateway starts. Set `HERMES_ALLOW_ROOT_GATEWAY=1` only when you intentionally accept that risk.
+Do not override the image entrypoint unless you keep `/init` (or, equivalently, the legacy `docker/entrypoint.sh` shim that forwards to the stage2 hook) in the command chain. s6-overlay's `/init` runs as root so it can chown the volume on first boot, then drops to the `aegis` user via `s6-setuidgid` for every supervised service AND for the main program. Starting `aegis gateway run` as root inside the official image is refused by default because it can leave root-owned files in `/opt/data` and break later dashboard or gateway starts. Set `AEGIS_ALLOW_ROOT_GATEWAY=1` only when you intentionally accept that risk.
 :::
 
 :::warning Overriding `entrypoint:` also removes the zombie reaper
-`/init` is what reaps orphaned grandchildren (headless browsers, MCP servers, `git`/`npm` helpers spawned by tools). A Compose service that overrides `entrypoint:` to call `hermes` directly — for example to run the dashboard as a non-root user — makes the hermes process itself PID 1, and nothing above it ever calls `wait()`: every orphan stays a `<defunct>` entry forever (one deployment reached 284 zombies in under three hours). Hermes prints `[hermes] WARNING: this process is PID 1 with no init above it` at startup in that configuration.
+`/init` is what reaps orphaned grandchildren (headless browsers, MCP servers, `git`/`npm` helpers spawned by tools). A Compose service that overrides `entrypoint:` to call `aegis` directly — for example to run the dashboard as a non-root user — makes the aegis process itself PID 1, and nothing above it ever calls `wait()`: every orphan stays a `<defunct>` entry forever (one deployment reached 284 zombies in under three hours). Aegis prints `[aegis] WARNING: this process is PID 1 with no init above it` at startup in that configuration.
 
 If you must override the entrypoint, add Docker's init as PID 1 so orphans are reaped:
 
 ```yaml
 services:
-  hermes-dashboard:
-    image: nousresearch/hermes-agent:latest
+  aegis-dashboard:
+    image: nousresearch/aegis-agent:latest
     init: true                                      # docker-init becomes PID 1 and reaps orphans
-    entrypoint: ["/opt/hermes/.venv/bin/hermes"]
+    entrypoint: ["/opt/aegis/.venv/bin/aegis"]
     command: ["dashboard", "--host", "0.0.0.0", "--port", "9119", "--no-open", "--skip-build"]
 ```
 
-(`docker run --init …` is the equivalent flag.) This fixes the zombie accumulation only — with `/init` out of the chain, the s6 supervision tree is still gone: the dashboard, `hermes gateway run` and per-profile gateways are unsupervised, exactly as the dispatcher's own non-PID-1 warning says. Keep the default `ENTRYPOINT` whenever you can.
+(`docker run --init …` is the equivalent flag.) This fixes the zombie accumulation only — with `/init` out of the chain, the s6 supervision tree is still gone: the dashboard, `aegis gateway run` and per-profile gateways are unsupervised, exactly as the dispatcher's own non-PID-1 warning says. Keep the default `ENTRYPOINT` whenever you can.
 :::
 
-### `docker exec` automatically drops to the `hermes` user
+### `docker exec` automatically drops to the `aegis` user
 
-`docker exec hermes <cmd>` defaults to running as root inside the container, but the image ships a thin shim at `/opt/hermes/bin/hermes` (earliest on PATH) that detects root callers and transparently re-execs through `s6-setuidgid hermes`. So `docker exec hermes hermes login`, `docker exec hermes hermes profile create …`, `docker exec hermes hermes setup`, etc. all write files owned by UID 10000 — i.e. readable by the supervised gateway — with no extra `--user` flag needed. Non-root callers (the supervised processes themselves, `docker exec --user hermes`, kanban subagents inside the container) hit a short-circuit that exec's the venv binary directly, so there's no overhead on the hot paths.
+`docker exec aegis <cmd>` defaults to running as root inside the container, but the image ships a thin shim at `/opt/aegis/bin/aegis` (earliest on PATH) that detects root callers and transparently re-execs through `s6-setuidgid aegis`. So `docker exec aegis aegis login`, `docker exec aegis aegis profile create …`, `docker exec aegis aegis setup`, etc. all write files owned by UID 10000 — i.e. readable by the supervised gateway — with no extra `--user` flag needed. Non-root callers (the supervised processes themselves, `docker exec --user aegis`, kanban subagents inside the container) hit a short-circuit that exec's the venv binary directly, so there's no overhead on the hot paths.
 
 If you specifically need a `docker exec` that retains root semantics (diagnostic sessions, inspecting root-only state, files outside `/opt/data` that root happens to own), opt out per invocation:
 
 ```sh
-docker exec -e HERMES_DOCKER_EXEC_AS_ROOT=1 hermes <cmd>
+docker exec -e AEGIS_DOCKER_EXEC_AS_ROOT=1 aegis <cmd>
 ```
 
-The shim accepts `1` / `true` / `yes` (case-insensitive). Anything else — including typos like `=0` — falls through to the drop, so silent opt-outs aren't possible. If `s6-setuidgid` isn't available (custom builds that stripped s6-overlay), the shim refuses to run as root and exits 126 instead, surfacing the broken privilege model loudly rather than regressing to the historical footgun where `docker exec hermes login` would write `auth.json` as `root:root` and break the supervised gateway's auth on every chat platform message.
+The shim accepts `1` / `true` / `yes` (case-insensitive). Anything else — including typos like `=0` — falls through to the drop, so silent opt-outs aren't possible. If `s6-setuidgid` isn't available (custom builds that stripped s6-overlay), the shim refuses to run as root and exits 126 instead, surfacing the broken privilege model loudly rather than regressing to the historical footgun where `docker exec aegis login` would write `auth.json` as `root:root` and break the supervised gateway's auth on every chat platform message.
 
 ### Per-profile gateway supervision
 
-Each profile created with `hermes profile create <name>` automatically gets an s6-supervised gateway service registered at `/run/hermes-service/gateway-<name>/`, with state-persistent auto-restart across container restarts. See [Multi-profile support](#multi-profile-support) above for the user-facing workflow and the lifecycle commands.
+Each profile created with `aegis profile create <name>` automatically gets an s6-supervised gateway service registered at `/run/aegis-service/gateway-<name>/`, with state-persistent auto-restart across container restarts. See [Multi-profile support](#multi-profile-support) above for the user-facing workflow and the lifecycle commands.
 
 **Supervision benefits over the pre-s6 image:**
 
 - Gateway crashes are auto-restarted by `s6-supervise` after a ~1s backoff.
-- Dashboard, when enabled with `HERMES_DASHBOARD=1`, is supervised on the same supervision tree and gets the same auto-restart treatment.
-- `docker restart`, image upgrades (`docker compose up -d --force-recreate`), and unexpected exits preserve running gateways: the cont-init reconciler reads `$HERMES_HOME/profiles/<name>/gateway_state.json` and brings the slot back up if the last recorded state was `running`. Only an explicit `hermes gateway stop` records `stopped` and keeps the gateway down across the restart; the container/s6 SIGTERM sent on a restart or upgrade is treated as "still running" and auto-starts.
-- Per-profile gateway logs persist under `$HERMES_HOME/logs/gateways/<profile>/current` (rotated by `s6-log`), and the reconciler's actions are appended to `$HERMES_HOME/logs/container-boot.log` per boot. See [Where the logs go](#where-the-logs-go) for the full routing map.
+- Dashboard, when enabled with `AEGIS_DASHBOARD=1`, is supervised on the same supervision tree and gets the same auto-restart treatment.
+- `docker restart`, image upgrades (`docker compose up -d --force-recreate`), and unexpected exits preserve running gateways: the cont-init reconciler reads `$AEGIS_HOME/profiles/<name>/gateway_state.json` and brings the slot back up if the last recorded state was `running`. Only an explicit `aegis gateway stop` records `stopped` and keeps the gateway down across the restart; the container/s6 SIGTERM sent on a restart or upgrade is treated as "still running" and auto-starts.
+- Per-profile gateway logs persist under `$AEGIS_HOME/logs/gateways/<profile>/current` (rotated by `s6-log`), and the reconciler's actions are appended to `$AEGIS_HOME/logs/container-boot.log` per boot. See [Where the logs go](#where-the-logs-go) for the full routing map.
 
-`hermes status --full` inside the container reports `Manager: s6 (container supervisor)`. Use `/command/s6-svstat /run/hermes-service/gateway-<name>` for the raw supervisor view (note `/command/` is on PATH for supervision-tree processes only; pass the absolute path when calling from `docker exec`).
+`aegis status --full` inside the container reports `Manager: s6 (container supervisor)`. Use `/command/s6-svstat /run/aegis-service/gateway-<name>` for the raw supervisor view (note `/command/` is on PATH for supervision-tree processes only; pass the absolute path when calling from `docker exec`).
 
 ## Upgrading
 
 Pull the latest image and recreate the container. Your data directory is
 preserved, and the container runs non-interactive config-schema migrations
-against the mounted `$HERMES_HOME/config.yaml` before starting the gateway.
-When a migration is needed, Hermes writes timestamped backups next to
+against the mounted `$AEGIS_HOME/config.yaml` before starting the gateway.
+When a migration is needed, Aegis writes timestamped backups next to
 `config.yaml` and `.env` first.
 
 ```sh
-docker pull nousresearch/hermes-agent:latest
-docker rm -f hermes
+docker pull nousresearch/aegis-agent:latest
+docker rm -f aegis
 docker run -d \
-  --name hermes \
+  --name aegis \
   --restart unless-stopped \
-  -v ~/.hermes:/opt/data \
-  nousresearch/hermes-agent gateway run
+  -v ~/.aegis:/opt/data \
+  nousresearch/aegis-agent gateway run
 ```
 
 Or with Docker Compose:
@@ -819,12 +819,12 @@ docker compose pull
 docker compose up -d
 ```
 
-Set `HERMES_SKIP_CONFIG_MIGRATION=1` only if you need to inspect or migrate the
+Set `AEGIS_SKIP_CONFIG_MIGRATION=1` only if you need to inspect or migrate the
 persisted config manually before letting the new image rewrite it.
 
 ## Skills and credential files
 
-When using Docker as the execution environment (not the methods above, but when the agent runs commands inside a Docker sandbox — see [Configuration → Docker Backend](./configuration.md#docker-backend)), Hermes reuses a single long-lived container for all tool calls and automatically bind-mounts the skills directory (`~/.hermes/skills/`) and any credential files declared by skills into that container as read-only volumes. Skill scripts, templates, and references are available inside the sandbox without manual configuration, and because the container persists for the life of the Hermes process, any dependencies you install or files you write stay around for the next tool call.
+When using Docker as the execution environment (not the methods above, but when the agent runs commands inside a Docker sandbox — see [Configuration → Docker Backend](./configuration.md#docker-backend)), Aegis reuses a single long-lived container for all tool calls and automatically bind-mounts the skills directory (`~/.aegis/skills/`) and any credential files declared by skills into that container as read-only volumes. Skill scripts, templates, and references are available inside the sandbox without manual configuration, and because the container persists for the life of the Aegis process, any dependencies you install or files you write stay around for the next tool call.
 
 The same syncing happens for SSH and Modal backends — skills and credential files are uploaded via rsync or the Modal mount API before each command.
 
@@ -834,7 +834,7 @@ The official image ships with a curated set of utilities (see [What the Dockerfi
 
 ### npm or Python tools — use `npx` or `uvx`
 
-For any tool published to npm or PyPI, instruct Hermes to run it via `npx` (npm) or `uvx` (Python) and to remember that command in its persistent memory. If the tool needs a config file or credentials, instruct it to drop those under `/opt/data` (e.g. `/opt/data/<tool>/config.yaml`).
+For any tool published to npm or PyPI, instruct Aegis to run it via `npx` (npm) or `uvx` (Python) and to remember that command in its persistent memory. If the tool needs a config file or credentials, instruct it to drop those under `/opt/data` (e.g. `/opt/data/<tool>/config.yaml`).
 
 Dependencies are fetched on demand and cached for the life of the container. Configuration written under `/opt/data` survives container restarts because it lives on the bind-mounted host directory. The package cache itself is rebuilt after a `docker rm`, but `npx` and `uvx` re-fetch transparently the next time the tool runs.
 
@@ -850,10 +850,10 @@ This is a good fit for tools that are quick to install and used occasionally. Fo
 
 ### Durable installs — build a derived image
 
-When a tool must be available immediately on every container start with no re-install delay, build a new image that inherits from `nousresearch/hermes-agent` and installs the tool in a layer:
+When a tool must be available immediately on every container start with no re-install delay, build a new image that inherits from `nousresearch/aegis-agent` and installs the tool in a layer:
 
 ```dockerfile
-FROM nousresearch/hermes-agent:latest
+FROM nousresearch/aegis-agent:latest
 
 USER root
 RUN apt-get update \
@@ -865,56 +865,56 @@ RUN apt-get update \
 Build it and use it in place of the official image:
 
 ```sh
-docker build -t my-hermes:latest .
+docker build -t my-aegis:latest .
 docker run -d \
-  --name hermes \
+  --name aegis \
   --restart unless-stopped \
-  -v ~/.hermes:/opt/data \
+  -v ~/.aegis:/opt/data \
   -p 8642:8642 \
-  my-hermes:latest gateway run
+  my-aegis:latest gateway run
 ```
 
-The entrypoint script and `/opt/data` semantics are inherited unchanged, so the rest of this page still applies. Remember to rebuild the image when pulling a newer upstream `nousresearch/hermes-agent`.
+The entrypoint script and `/opt/data` semantics are inherited unchanged, so the rest of this page still applies. Remember to rebuild the image when pulling a newer upstream `nousresearch/aegis-agent`.
 
 ### Complex tools or multi-service stacks — run a sidecar container
 
-For tools that bring their own service (a database, a web server, a queue, a headless browser farm) or that are too heavy to live inside the Hermes container, run them as a separate container on a shared Docker network. Hermes reaches the sidecar by container name, the same way it reaches a local inference server (see [Connecting to local inference servers](#connecting-to-local-inference-servers-vllm-ollama-etc)).
+For tools that bring their own service (a database, a web server, a queue, a headless browser farm) or that are too heavy to live inside the Aegis container, run them as a separate container on a shared Docker network. Aegis reaches the sidecar by container name, the same way it reaches a local inference server (see [Connecting to local inference servers](#connecting-to-local-inference-servers-vllm-ollama-etc)).
 
 ```yaml
 services:
-  hermes:
-    image: nousresearch/hermes-agent:latest
-    container_name: hermes
+  aegis:
+    image: nousresearch/aegis-agent:latest
+    container_name: aegis
     restart: unless-stopped
     command: gateway run
     ports:
       - "8642:8642"
     volumes:
-      - ~/.hermes:/opt/data
+      - ~/.aegis:/opt/data
     networks:
-      - hermes-net
+      - aegis-net
 
   my-tool:
     image: example/my-tool:latest
     container_name: my-tool
     restart: unless-stopped
     networks:
-      - hermes-net
+      - aegis-net
 
 networks:
-  hermes-net:
+  aegis-net:
     driver: bridge
 ```
 
-From inside the Hermes container, the sidecar is reachable at `http://my-tool:<port>` (or whatever protocol it serves). This pattern keeps each service's lifecycle, resource limits, and upgrade cadence independent, and avoids bloating the Hermes image with dependencies that are only needed by one tool.
+From inside the Aegis container, the sidecar is reachable at `http://my-tool:<port>` (or whatever protocol it serves). This pattern keeps each service's lifecycle, resource limits, and upgrade cadence independent, and avoids bloating the Aegis image with dependencies that are only needed by one tool.
 
 ### Broadly useful tools — open an issue or pull request
 
-If a tool is likely to be useful to most Hermes Agent users, consider contributing it upstream rather than carrying it in a private derived image. Open an issue or pull request on the [hermes-agent repository](https://github.com/NousResearch/hermes-agent) describing the tool and its use case. Tools that get bundled into the official image benefit every user and avoid the maintenance overhead of a downstream fork.
+If a tool is likely to be useful to most Aegis Agent users, consider contributing it upstream rather than carrying it in a private derived image. Open an issue or pull request on the [aegis-agent repository](https://github.com/NousResearch/aegis-agent) describing the tool and its use case. Tools that get bundled into the official image benefit every user and avoid the maintenance overhead of a downstream fork.
 
 ## Connecting to local inference servers (vLLM, Ollama, etc.)
 
-When running Hermes in Docker and your inference server (vLLM, Ollama, text-generation-inference, etc.) is also running on the host or in another container, networking requires extra attention.
+When running Aegis in Docker and your inference server (vLLM, Ollama, text-generation-inference, etc.) is also running on the host or in another container, networking requires extra attention.
 
 ### Docker Compose (recommended)
 
@@ -933,31 +933,31 @@ services:
     ports:
       - "8000:8000"
     networks:
-      - hermes-net
+      - aegis-net
     deploy:
       resources:
         reservations:
           devices:
             - capabilities: [gpu]
 
-  hermes:
-    image: nousresearch/hermes-agent:latest
-    container_name: hermes
+  aegis:
+    image: nousresearch/aegis-agent:latest
+    container_name: aegis
     restart: unless-stopped
     command: gateway run
     ports:
       - "8642:8642"
     volumes:
-      - ~/.hermes:/opt/data
+      - ~/.aegis:/opt/data
     networks:
-      - hermes-net
+      - aegis-net
 
 networks:
-  hermes-net:
+  aegis-net:
     driver: bridge
 ```
 
-Then in your `~/.hermes/config.yaml`, use the **container name** as the hostname:
+Then in your `~/.aegis/config.yaml`, use the **container name** as the hostname:
 
 ```yaml
 model:
@@ -968,7 +968,7 @@ model:
 ```
 
 :::tip Key points
-- Use the **container name** (`vllm`) as the hostname — not `localhost` or `127.0.0.1`, which refer to the Hermes container itself.
+- Use the **container name** (`vllm`) as the hostname — not `localhost` or `127.0.0.1`, which refer to the Aegis container itself.
 - The `model` value must match the `--served-model-name` you passed to vLLM.
 - Set `api_key` to any non-empty string (vLLM requires the header but doesn't validate it by default).
 - Do **not** include a trailing slash in `base_url`.
@@ -982,10 +982,10 @@ If your inference server runs directly on the host (not in Docker), use `host.do
 
 ```sh
 docker run -d \
-  --name hermes \
-  -v ~/.hermes:/opt/data \
+  --name aegis \
+  -v ~/.aegis:/opt/data \
   -p 8642:8642 \
-  nousresearch/hermes-agent gateway run
+  nousresearch/aegis-agent gateway run
 ```
 
 ```yaml
@@ -1001,10 +1001,10 @@ model:
 
 ```sh
 docker run -d \
-  --name hermes \
+  --name aegis \
   --network host \
-  -v ~/.hermes:/opt/data \
-  nousresearch/hermes-agent gateway run
+  -v ~/.aegis:/opt/data \
+  nousresearch/aegis-agent gateway run
 ```
 
 ```yaml
@@ -1021,15 +1021,15 @@ model:
 
 ### Verifying connectivity
 
-From inside the Hermes container, confirm the inference server is reachable:
+From inside the Aegis container, confirm the inference server is reachable:
 
 ```sh
-docker exec hermes curl -s http://vllm:8000/v1/models
+docker exec aegis curl -s http://vllm:8000/v1/models
 ```
 
 You should see a JSON response listing your served model. If this fails, check:
 
-1. Both containers are on the same Docker network (`docker network inspect hermes-net`)
+1. Both containers are on the same Docker network (`docker network inspect aegis-net`)
 2. The inference server is listening on `0.0.0.0`, not `127.0.0.1`
 3. The port number matches
 
@@ -1049,46 +1049,46 @@ model:
 
 ### Container exits immediately
 
-Check logs: `docker logs hermes`. Common causes:
+Check logs: `docker logs aegis`. Common causes:
 - Missing or invalid `.env` file — run interactively first to complete setup
 - Port conflicts if running with exposed ports
 
 ### "Permission denied" errors
 
-The container's stage2 hook drops privileges to the non-root `hermes` user (UID 10000) via `s6-setuidgid` inside each supervised service. If your host `~/.hermes/` is owned by a different UID, set `HERMES_UID`/`HERMES_GID` — or their `PUID`/`PGID` aliases, for parity with LinuxServer.io and NAS images — to match your host user, or ensure the data directory is writable:
+The container's stage2 hook drops privileges to the non-root `aegis` user (UID 10000) via `s6-setuidgid` inside each supervised service. If your host `~/.aegis/` is owned by a different UID, set `AEGIS_UID`/`AEGIS_GID` — or their `PUID`/`PGID` aliases, for parity with LinuxServer.io and NAS images — to match your host user, or ensure the data directory is writable:
 
 Do not make the whole data tree world-readable. It contains credentials.
 Match the container UID/GID to the bind mount's owner instead.
 
-On a NAS (UGOS, Synology, unRAID) the data directory is typically a **bind mount** owned by a host UID the container cannot `chown`. Set `PUID`/`PGID` (or `HERMES_UID`/`HERMES_GID`) to that host user so the runtime runs as the owner of the mount rather than UID 10000:
+On a NAS (UGOS, Synology, unRAID) the data directory is typically a **bind mount** owned by a host UID the container cannot `chown`. Set `PUID`/`PGID` (or `AEGIS_UID`/`AEGIS_GID`) to that host user so the runtime runs as the owner of the mount rather than UID 10000:
 
 ```sh
 docker run -d \
-  --name hermes \
+  --name aegis \
   -e PUID=1000 -e PGID=10 \
-  -v /volume1/docker/hermes:/opt/data \
-  nousresearch/hermes-agent gateway run
+  -v /volume1/docker/aegis:/opt/data \
+  nousresearch/aegis-agent gateway run
 ```
 
-`docker exec hermes <cmd>` automatically drops to UID 10000 too — see [`docker exec` automatically drops to the `hermes` user](#docker-exec-automatically-drops-to-the-hermes-user) for details and the per-invocation opt-out.
+`docker exec aegis <cmd>` automatically drops to UID 10000 too — see [`docker exec` automatically drops to the `aegis` user](#docker-exec-automatically-drops-to-the-aegis-user) for details and the per-invocation opt-out.
 
 ### Shared data directory keeps resetting to `0700`
 
-Outside a container Hermes locks `HERMES_HOME` (and its `cron/`, `sessions/`, `logs/`, `memories/` subdirectories) to owner-only `0700` on every start. Inside a container it leaves directory modes alone, so a bind mount shared with a sibling container running as a different UID (a web UI, a permissions fixer) keeps whatever mode and ACLs you set on the host. To force a specific directory mode anyway, set `HERMES_HOME_MODE` (octal, e.g. `HERMES_HOME_MODE=0755`); it is applied in containers too.
+Outside a container Aegis locks `AEGIS_HOME` (and its `cron/`, `sessions/`, `logs/`, `memories/` subdirectories) to owner-only `0700` on every start. Inside a container it leaves directory modes alone, so a bind mount shared with a sibling container running as a different UID (a web UI, a permissions fixer) keeps whatever mode and ACLs you set on the host. To force a specific directory mode anyway, set `AEGIS_HOME_MODE` (octal, e.g. `AEGIS_HOME_MODE=0755`); it is applied in containers too.
 
 ### "Permission denied" on every `docker exec` (install dir locked to 0700)
 
-Images built before late August 2026 had a bug where writing a credential file directly under `/opt/hermes` restricted that directory to `0700`, locking the `hermes` user (UID 10000) out of the install tree. Every new `docker exec` then fails with `Permission denied`.
+Images built before late August 2026 had a bug where writing a credential file directly under `/opt/aegis` restricted that directory to `0700`, locking the `aegis` user (UID 10000) out of the install tree. Every new `docker exec` then fails with `Permission denied`.
 
 Pulling a newer image and recreating the container fixes it permanently (the install dir ships as `0755` and current releases no longer restrict it). If you need to recover a running container in place without recreating it:
 
 ```sh
-docker exec -u root hermes chmod 0755 /opt/hermes
+docker exec -u root aegis chmod 0755 /opt/aegis
 ```
 
 ### Zombie (`<defunct>`) processes piling up under PID 1
 
-`ps -eo stat,ppid,comm | awk '$1 ~ /^Z/'` inside the container lists dead children that were never reaped. This happens when hermes itself is PID 1 — almost always because a Compose service overrides `entrypoint:` and so skips `docker/entrypoint-dispatch.sh` → `/init`. Hermes also warns about it at startup (`this process is PID 1 with no init above it`). Restore the default entrypoint, or add `init: true` (Compose) / `docker run --init` so `docker-init` reaps orphans; see [What the Dockerfile does](#what-the-dockerfile-does). Recreating the container clears the existing zombies.
+`ps -eo stat,ppid,comm | awk '$1 ~ /^Z/'` inside the container lists dead children that were never reaped. This happens when aegis itself is PID 1 — almost always because a Compose service overrides `entrypoint:` and so skips `docker/entrypoint-dispatch.sh` → `/init`. Aegis also warns about it at startup (`this process is PID 1 with no init above it`). Restore the default entrypoint, or add `init: true` (Compose) / `docker run --init` so `docker-init` reaps orphans; see [What the Dockerfile does](#what-the-dockerfile-does). Recreating the container clears the existing zombies.
 
 ### Browser tools not working
 
@@ -1096,10 +1096,10 @@ Chromium needs shared memory. Add `--shm-size=1g` to your Docker run command:
 
 ```sh
 docker run -d \
-  --name hermes \
+  --name aegis \
   --shm-size=1g \
-  -v ~/.hermes:/opt/data \
-  nousresearch/hermes-agent gateway run
+  -v ~/.aegis:/opt/data \
+  nousresearch/aegis-agent gateway run
 ```
 
 ### Gateway not reconnecting after network issues
@@ -1107,13 +1107,13 @@ docker run -d \
 The `--restart unless-stopped` flag handles most transient failures. If the gateway is stuck, restart the container:
 
 ```sh
-docker restart hermes
+docker restart aegis
 ```
 
 ### Checking container health
 
 ```sh
-docker logs --tail 50 hermes          # Recent logs
-docker run -it --rm nousresearch/hermes-agent:latest --version   # Verify version
-docker stats hermes                    # Resource usage
+docker logs --tail 50 aegis          # Recent logs
+docker run -it --rm nousresearch/aegis-agent:latest --version   # Verify version
+docker stats aegis                    # Resource usage
 ```

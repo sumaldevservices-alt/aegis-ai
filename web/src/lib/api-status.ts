@@ -27,10 +27,10 @@ export interface StatusResponse {
    * desktop falls back to the embedded-webview flow. */
   auth_flows?: string[];
   /** False when the dashboard is running in a hosted/managed layout where
-   * updates are handled by the outer launcher instead of ``hermes update``. */
-  can_update_hermes?: boolean;
-  /** Set only on a Hermes Cloud agent's dashboard (never a local one), which is moving to the
-   * Hermes web app: `ready` serving, `starting` coming up, `down` stopped or failing,
+   * updates are handled by the outer launcher instead of ``aegis update``. */
+  can_update_aegis?: boolean;
+  /** Set only on a Aegis Cloud agent's dashboard (never a local one), which is moving to the
+   * Aegis web app: `ready` serving, `starting` coming up, `down` stopped or failing,
    * `not_available` not turned on for this agent. */
   webapp_state?: "ready" | "starting" | "down" | "not_available";
   /** The web app's address, once it is `ready`. */
@@ -41,7 +41,7 @@ export interface StatusResponse {
   gateway_exit_reason: string | null;
   /** Why a multi-profile host's gateway came up STANDALONE on a boot guard (unset
    * ``gateway.multiplex_profiles`` refused): the other profiles' bots are silent until
-   * ``hermes gateway migrate --multiplex`` runs. null/absent when it multiplexes or only one
+   * ``aegis gateway migrate --multiplex`` runs. null/absent when it multiplexes or only one
    * profile exists. */
   multiplex_standalone_reason?: string | null;
   /** Every profile installed on this host (multiplex or not). */
@@ -60,12 +60,12 @@ export interface StatusResponse {
   gateway_shared_with?: string[] | null;
   gateway_state: string | null;
   gateway_updated_at: string | null;
-  hermes_home: string;
+  aegis_home: string;
   latest_config_version: number;
   /** NS-656: memory-pressure rollup from the gateway heartbeat +
    * lifecycle ledger. Absent on older gateways. */
   memory?: MemoryPressureStatus;
-  /** NS-656: disk-usage rollup for the HERMES_HOME volume. Absent on
+  /** NS-656: disk-usage rollup for the AEGIS_HOME volume. Absent on
    * older gateways. */
   disk?: DiskPressureStatus;
   release_date: string;
@@ -91,7 +91,7 @@ export interface MemoryPressureStatus {
 }
 
 /** NS-656: coarse disk telemetry served by /api/status. Live statvfs
- * sample of the HERMES_HOME volume — no staleness dimension, so no
+ * sample of the AEGIS_HOME volume — no staleness dimension, so no
  * sampled_at. */
 export interface DiskPressureStatus {
   pressure: "ok" | "elevated" | "critical" | "unknown";

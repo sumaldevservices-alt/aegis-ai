@@ -14,7 +14,7 @@ from tests.gateway.test_session_resume_config_refresh import (
 
 
 async def _chat(tmp_path, monkeypatch, source='gui'):
-    from hermes_cli import projects_db as pdb
+    from aegis_cli import projects_db as pdb
     from tools import project_tools, terminal_tool
     built = []
     monkeypatch.setattr(terminal_tool, '_active_environments', {})
@@ -91,7 +91,7 @@ async def _closed(chat):
 
 @pytest.mark.asyncio
 async def test_the_move_lands_when_the_turn_ends(tmp_path, monkeypatch):
-    from hermes_cli import projects_db as pdb
+    from aegis_cli import projects_db as pdb
     from tools import project_tools, terminal_tool
     chat = await _chat(tmp_path, monkeypatch)
     try:
@@ -197,7 +197,7 @@ async def test_the_users_own_move_replaces_a_pending_one(tmp_path, monkeypatch):
 
 @pytest.mark.asyncio
 async def test_list_after_a_move_names_the_chats_own_project(tmp_path, monkeypatch):
-    from hermes_cli import projects_db as pdb
+    from aegis_cli import projects_db as pdb
     from tools import project_tools
     chat = await _chat(tmp_path, monkeypatch)
     try:
@@ -216,7 +216,7 @@ async def test_list_after_a_move_names_the_chats_own_project(tmp_path, monkeypat
 @pytest.mark.asyncio
 async def test_list_in_a_chat_without_project_tools_keeps_the_shared_pointer(tmp_path, monkeypatch):
     """Preservation: only the surfaces the gateway offers the project tools (Desktop, TUI) scope ``list``."""
-    from hermes_cli import projects_db as pdb
+    from aegis_cli import projects_db as pdb
     from tools import project_tools
     chat = await _chat(tmp_path, monkeypatch, source='cli')
     try:
@@ -278,7 +278,7 @@ async def test_a_missing_folder_says_so(tmp_path, monkeypatch):
 
 @pytest.mark.asyncio
 async def test_a_cli_chat_on_the_gateway_keeps_its_folder(tmp_path, monkeypatch):
-    from hermes_cli import projects_db as pdb
+    from aegis_cli import projects_db as pdb
     chat = await _chat(tmp_path, monkeypatch, source='cli')
     try:
         result = _move(chat, chat.worktree)
@@ -294,7 +294,7 @@ async def test_a_cli_chat_on_the_gateway_keeps_its_folder(tmp_path, monkeypatch)
 
 @pytest.mark.asyncio
 async def test_create_from_a_desktop_chat_leaves_the_chat_and_the_active_project_alone(tmp_path, monkeypatch):
-    from hermes_cli import projects_db as pdb
+    from aegis_cli import projects_db as pdb
     chat = await _chat(tmp_path, monkeypatch)
     try:
         with chat.connect_closing(db_path=chat.db_path) as conn:
@@ -313,7 +313,7 @@ async def test_create_from_a_desktop_chat_leaves_the_chat_and_the_active_project
 
 @pytest.mark.asyncio
 async def test_a_delegated_childs_switch_never_moves_the_parent(tmp_path, monkeypatch):
-    from hermes_cli import projects_db as pdb
+    from aegis_cli import projects_db as pdb
     from tools import project_tools
     from tools.terminal_tool import register_container_alias
     chat = await _chat(tmp_path, monkeypatch)
@@ -337,7 +337,7 @@ async def test_a_messaging_chat_viewed_in_desktop_is_told_it_did_not_move(tmp_pa
     from gateway.config import Platform
     from gateway.session import SessionSource
     from gateway.session_authority import LiveSession
-    from hermes_cli import projects_db as pdb
+    from aegis_cli import projects_db as pdb
     from tools import project_tools
     chat = await _chat(tmp_path, monkeypatch)
     authority = chat.authority

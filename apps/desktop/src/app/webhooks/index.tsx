@@ -29,7 +29,7 @@ import {
   type WebhookRoute,
   type WebhookSignature,
   type WebhooksResponse
-} from '@/hermes'
+} from '@/aegis'
 import { useI18n } from '@/i18n'
 import { AlertTriangle, Globe, Plus, RefreshCw } from '@/lib/icons'
 import { cn } from '@/lib/utils'

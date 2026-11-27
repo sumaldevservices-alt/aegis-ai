@@ -9,7 +9,7 @@ maintainer: CrowdWisdom Trading
 tier: community
 category: tools
 docs_url: https://www.crowdwisdomtrading.com/x402
-requires_hermes: ">=0.21.6"
+requires_aegis: ">=0.21.6"
 readme: true
 platforms: []
 capabilities:

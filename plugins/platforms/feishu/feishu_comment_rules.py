@@ -1,6 +1,6 @@
 """Feishu document comment access-control rules: exact doc > wildcard "*" > top-level > code defaults, each field
-(enabled/policy/allow_from) falling back independently. Config ~/.hermes/feishu_comment_rules.json (mtime-cached,
-hot-reload); pairing store ~/.hermes/feishu_comment_pairing.json."""
+(enabled/policy/allow_from) falling back independently. Config ~/.aegis/feishu_comment_rules.json (mtime-cached,
+hot-reload); pairing store ~/.aegis/feishu_comment_pairing.json."""
 
 from __future__ import annotations
 
@@ -12,24 +12,24 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Dict, Optional
 
-from hermes_constants import get_hermes_home, mkdir_under_hermes_home
+from aegis_constants import get_aegis_home, mkdir_under_aegis_home
 
 logger = logging.getLogger(__name__)
 
-RULES_FILE = get_hermes_home() / "feishu_comment_rules.json"
-PAIRING_FILE = get_hermes_home() / "feishu_comment_pairing.json"
+RULES_FILE = get_aegis_home() / "feishu_comment_rules.json"
+PAIRING_FILE = get_aegis_home() / "feishu_comment_pairing.json"
 _RULES_FILE_AT_IMPORT, _PAIRING_FILE_AT_IMPORT = RULES_FILE, PAIRING_FILE
 
 
 def _rules_file() -> Path:
     """Active profile's rules file at call time: the patched ``RULES_FILE`` when a test changed
-    it, else live profile-scoped HERMES_HOME — the multiplexed gateway serves every profile from
+    it, else live profile-scoped AEGIS_HOME — the multiplexed gateway serves every profile from
     one process, so the import-time constant would apply the launch profile's rules everywhere."""
-    return RULES_FILE if RULES_FILE != _RULES_FILE_AT_IMPORT else get_hermes_home() / "feishu_comment_rules.json"
+    return RULES_FILE if RULES_FILE != _RULES_FILE_AT_IMPORT else get_aegis_home() / "feishu_comment_rules.json"
 
 
 def _pairing_file() -> Path:
-    return PAIRING_FILE if PAIRING_FILE != _PAIRING_FILE_AT_IMPORT else get_hermes_home() / "feishu_comment_pairing.json"
+    return PAIRING_FILE if PAIRING_FILE != _PAIRING_FILE_AT_IMPORT else get_aegis_home() / "feishu_comment_pairing.json"
 
 _VALID_POLICIES = ("allowlist", "pairing")
 
@@ -160,7 +160,7 @@ def _load_pairing_approved() -> set:
 
 def _save_pairing(data: dict) -> None:
     pairing_file = _pairing_file()
-    mkdir_under_hermes_home(pairing_file.parent)  # a dead profile home raises instead of coming back
+    mkdir_under_aegis_home(pairing_file.parent)  # a dead profile home raises instead of coming back
     with open(pairing_file.with_suffix(".tmp"), "w", encoding="utf-8") as f:  # windows-footgun: ok (write/append mode, not a read)
         json.dump(data, f, indent=2, ensure_ascii=False)
     pairing_file.with_suffix(".tmp").replace(pairing_file)
@@ -254,7 +254,7 @@ def _pairing_cmd(args: list) -> int:
 
 def _main() -> int:
     try:
-        __import__("hermes_cli.env_loader", fromlist=["load_hermes_dotenv"]).load_hermes_dotenv()
+        __import__("aegis_cli.env_loader", fromlist=["load_aegis_dotenv"]).load_aegis_dotenv()
     except Exception:
         pass
     usage = f"""Usage: python -m gateway.platforms.feishu_comment_rules <command> [args]

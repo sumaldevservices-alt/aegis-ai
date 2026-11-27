@@ -22,7 +22,7 @@ const qqCard: MessagingPlatform = {
 };
 
 function listing(signature: string, platforms: MessagingPlatform[]): MessagingPlatformsResponse {
-  return { signature, env_path: "~/.hermes/.env", gateway_start_command: "hermes gateway start", platforms, available: [] };
+  return { signature, env_path: "~/.aegis/.env", gateway_start_command: "aegis gateway start", platforms, available: [] };
 }
 
 beforeEach(() => {

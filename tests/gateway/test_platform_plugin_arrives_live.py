@@ -1,6 +1,6 @@
 """A platform whose plugin is not installed yet never holds a gateway back, and arrives without a restart.
 
-Live: a real ``hermes gateway run`` on a disposable root. Another installer (the detached default-plugin
+Live: a real ``aegis gateway run`` on a disposable root. Another installer (the detached default-plugin
 pass) is played by a process holding the unattended-installer lock; Home Assistant (a platform that
 left core) is the platform owed a plugin, configured by ``HASS_TOKEN``. Outbound HTTPS goes to a closed
 port, so an install attempt fails at once and reports why.
@@ -46,8 +46,8 @@ def _gateway(tmp_path: Path, dotenv: str, *, proxy: str = ""):
     repo = Path(__file__).resolve().parents[2]
     env = {k: os.environ[k] for k in ("PATH", "LANG", "TZ") if k in os.environ}
     closed = proxy or _closed_port()
-    env.update(HOME=str(user), HERMES_HOME=str(root), PYTHONPATH=str(repo), PYTHONUNBUFFERED="1",
-               HERMES_GATEWAY_LOCK_DIR=str(tmp_path / "locks"), HTTPS_PROXY=closed, HTTP_PROXY=closed,
+    env.update(HOME=str(user), AEGIS_HOME=str(root), PYTHONPATH=str(repo), PYTHONUNBUFFERED="1",
+               AEGIS_GATEWAY_LOCK_DIR=str(tmp_path / "locks"), HTTPS_PROXY=closed, HTTP_PROXY=closed,
                https_proxy=closed, http_proxy=closed, NO_PROXY="127.0.0.1", no_proxy="127.0.0.1")
     return root, {"root": root, "env": env, "log": tmp_path / "gateway.log"}
 
@@ -83,21 +83,21 @@ def _serves_while_the_install_waits(root: Path, mux: dict, port: int, tmp_path: 
 @pytest.mark.platforms("linux")
 @pytest.mark.spawns_gateway_lookalike
 def test_credentials_set_on_a_running_gateway_for_a_missing_plugin_say_how_it_arrives(tmp_path):
-    """``hermes config set`` of a credential whose platform's plugin is missing, gateway running: the CLI
+    """``aegis config set`` of a credential whose platform's plugin is missing, gateway running: the CLI
     printed only "✓ Set" while nothing served the platform. It now says what the running gateway did
     about it (installing, the install outcome) or, when it did not install it, the command that does."""
     port = _free_port()
     _root, mux = _gateway(tmp_path, f"WEBHOOK_ENABLED=true\nWEBHOOK_PORT={port}\n")
     proc, _desc = start_daemon(mux)
     try:
-        done = subprocess.run([sys.executable, "-m", "hermes_cli.main", "config", "set", "HASS_TOKEN", "t"],
+        done = subprocess.run([sys.executable, "-m", "aegis_cli.main", "config", "set", "HASS_TOKEN", "t"],
                               env=mux["env"], cwd=Path(__file__).resolve().parents[2], capture_output=True,
                               text=True, timeout=120, check=False)
         assert done.returncode == 0, (done.stdout, done.stderr)
         lines = [line for line in done.stdout.splitlines() if line.strip()]
         assert lines[0].startswith("✓ Set HASS_TOKEN"), done.stdout
         said = "\n".join(lines[1:])
-        assert "installing the plugin" in said or "hermes plugins install homeassistant" in said, (done.stdout, tail(mux))
+        assert "installing the plugin" in said or "aegis plugins install homeassistant" in said, (done.stdout, tail(mux))
         assert _accepts(port) and proc.poll() is None, tail(mux)  # nothing else went down meanwhile
     finally:
         stop(proc, expect=None)

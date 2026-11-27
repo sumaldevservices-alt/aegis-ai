@@ -44,7 +44,7 @@ class OnePasswordLoginBackend(LoginBackend):
     # ── auth ────────────────────────────────────────────────────────────────
 
     def _op(self) -> Path:
-        from hermes_cli.profiles_run_elsewhere import run_elsewhere_refusal
+        from aegis_cli.profiles_run_elsewhere import run_elsewhere_refusal
         if (refused := run_elsewhere_refusal()) is not None:  # that backend writes the binary_path named here
             raise RuntimeError(refused)
         op = find_op(str(self.cfg.get("binary_path") or ""))

@@ -1,5 +1,5 @@
-import { Box, NoSelect, ScrollBox, type ScrollBoxHandle, Text, useInput, useStdout } from '@hermes/ink'
-import type { DelegationPauseResponse, DelegationStatusResponse, SubagentInterruptResponse } from '@hermes/shared/gateway-types'
+import { Box, NoSelect, ScrollBox, type ScrollBoxHandle, Text, useInput, useStdout } from '@aegis/ink'
+import type { DelegationPauseResponse, DelegationStatusResponse, SubagentInterruptResponse } from '@aegis/shared/gateway-types'
 import { useStore } from '@nanostores/react'
 import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 

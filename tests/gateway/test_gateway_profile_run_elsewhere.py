@@ -1,6 +1,6 @@
 """The gateway process refuses to run a profile a plugin runs elsewhere.
 
-``hermes gateway run`` (and every service or client start that ends in it) reaches
+``aegis gateway run`` (and every service or client start that ends in it) reaches
 ``gateway.run_bootstrap.start_gateway``, which exits 78 before it reads the profile's config
 when ``<root>/profiles_run_elsewhere/<profile>.json`` exists.
 """
@@ -12,17 +12,17 @@ from pathlib import Path
 
 import pytest
 
-from hermes_cli import profiles_run_elsewhere as pre
+from aegis_cli import profiles_run_elsewhere as pre
 
 
 @pytest.fixture
 def root(tmp_path, monkeypatch):
-    home = tmp_path / ".hermes"
+    home = tmp_path / ".aegis"
     (home / "profiles" / "ops").mkdir(parents=True)
     (home / "config.yaml").write_text("{}\n", encoding="utf-8")
     (home / "profiles" / "ops" / "config.yaml").write_text("{}\n", encoding="utf-8")
     monkeypatch.setattr(Path, "home", lambda: tmp_path)
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     return home
 
 
@@ -32,8 +32,8 @@ def test_start_gateway_exits_78_before_reading_config(root, monkeypatch, capsys,
     from gateway.restart import GATEWAY_FATAL_CONFIG_EXIT_CODE
 
     if profile != "default":
-        monkeypatch.setenv("HERMES_HOME", str(root / "profiles" / profile))
-    monkeypatch.delenv("HERMES_EXEC_ASK", raising=False)
+        monkeypatch.setenv("AEGIS_HOME", str(root / "profiles" / profile))
+    monkeypatch.delenv("AEGIS_EXEC_ASK", raising=False)
     monkeypatch.setattr("gateway.run.load_gateway_config_for_runner",
                         lambda: pytest.fail("config read for a profile a plugin runs elsewhere"))
     pre.mark_profile_run_elsewhere(profile, "sandbox-plugin", root=root)
@@ -43,7 +43,7 @@ def test_start_gateway_exits_78_before_reading_config(root, monkeypatch, capsys,
     assert exited.value.code == GATEWAY_FATAL_CONFIG_EXIT_CODE
     out = capsys.readouterr().out
     assert f"'{profile}'" in out and "sandbox-plugin" in out
-    assert "HERMES_EXEC_ASK" not in os.environ
+    assert "AEGIS_EXEC_ASK" not in os.environ
 
 
 @pytest.mark.parametrize("marked", ["ops", "default"])
@@ -75,7 +75,7 @@ def test_marked_siblings_keep_the_gateway_off_an_external_cron_registry(root, mo
     launch = "default" if marked == "ops" else "ops"
     if launch == "ops":
         (root / "profiles" / "ops" / "config.yaml").write_text("gateway:\n  standalone: true\n", encoding="utf-8")
-        monkeypatch.setenv("HERMES_HOME", str(root / "profiles" / "ops"))
+        monkeypatch.setenv("AEGIS_HOME", str(root / "profiles" / "ops"))
     runner = types.SimpleNamespace(config=types.SimpleNamespace(multiplex_profiles=True), adapters={},
                                    _profile_adapters=None, _primary_profile_name=launch,
                                    _draining=False, _external_drain_active=False)
@@ -95,4 +95,4 @@ def test_an_unmarked_profile_passes_the_refusal(root):
     from gateway import run_bootstrap
 
     pre.mark_profile_run_elsewhere("ops", "sandbox-plugin", root=root)
-    assert run_bootstrap._refuse_profile_run_elsewhere() is None  # HERMES_HOME is the default
+    assert run_bootstrap._refuse_profile_run_elsewhere() is None  # AEGIS_HOME is the default

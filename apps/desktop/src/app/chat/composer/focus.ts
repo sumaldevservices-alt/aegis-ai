@@ -60,15 +60,15 @@ interface AttachImagesDetail {
   target: ComposerTarget
 }
 
-const FOCUS_EVENT = 'hermes:composer-focus'
-const INSERT_EVENT = 'hermes:composer-insert'
-const INSERT_REPLY_EVENT = 'hermes:composer-insert-reply'
-const ATTACH_IMAGES_EVENT = 'hermes:composer-attach-images'
-const INSERT_REFS_EVENT = 'hermes:composer-insert-refs'
-const SUBMIT_EVENT = 'hermes:composer-submit'
-const VOICE_TOGGLE_EVENT = 'hermes:composer-voice-toggle'
-const DICTATION_EVENT = 'hermes:composer-dictation'
-const MODEL_MENU_EVENT = 'hermes:composer-model-menu'
+const FOCUS_EVENT = 'aegis:composer-focus'
+const INSERT_EVENT = 'aegis:composer-insert'
+const INSERT_REPLY_EVENT = 'aegis:composer-insert-reply'
+const ATTACH_IMAGES_EVENT = 'aegis:composer-attach-images'
+const INSERT_REFS_EVENT = 'aegis:composer-insert-refs'
+const SUBMIT_EVENT = 'aegis:composer-submit'
+const VOICE_TOGGLE_EVENT = 'aegis:composer-voice-toggle'
+const DICTATION_EVENT = 'aegis:composer-dictation'
+const MODEL_MENU_EVENT = 'aegis:composer-model-menu'
 
 /** Inline edit composer root — mounted only while a user bubble is being edited. */
 export const EDIT_COMPOSER_ROOT = '[data-slot="aui_edit-composer-root"]'
@@ -479,9 +479,9 @@ interface DraftReplyDetail {
   token: number
 }
 
-const GET_DRAFT_EVENT = 'hermes:composer-get-draft'
-const SET_DRAFT_EVENT = 'hermes:composer-set-draft'
-const DRAFT_REPLY_EVENT = 'hermes:composer-draft-reply'
+const GET_DRAFT_EVENT = 'aegis:composer-get-draft'
+const SET_DRAFT_EVENT = 'aegis:composer-set-draft'
+const DRAFT_REPLY_EVENT = 'aegis:composer-draft-reply'
 const DRAFT_REPLY_TIMEOUT_MS = 50
 
 let draftToken = 0

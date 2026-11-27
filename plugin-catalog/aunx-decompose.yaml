@@ -7,8 +7,8 @@ tier: community
 category: tools
 title: Decompose
 version: "0.3.0"
-requires_hermes: ">=0.19.0"
-docs_url: https://hermes-agent.nousresearch.com/marketplace/aunx-decompose
+requires_aegis: ">=0.19.0"
+docs_url: https://aegis-agent.nousresearch.com/marketplace/aunx-decompose
 readme: true
 capabilities:
   provides_tools: []

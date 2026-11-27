@@ -1,6 +1,6 @@
-import { stripAnsi } from '@hermes/shared/ansi'
-import { compactNumber } from '@hermes/shared/format'
-import type { ToolLabel } from '@hermes/shared/gateway-events'
+import { stripAnsi } from '@aegis/shared/ansi'
+import { compactNumber } from '@aegis/shared/format'
+import type { ToolLabel } from '@aegis/shared/gateway-events'
 
 import {
   LIVE_RENDER_MAX_CHARS,

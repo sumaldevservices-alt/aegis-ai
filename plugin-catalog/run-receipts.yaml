@@ -1,5 +1,5 @@
 name: run-receipts
-repo: https://github.com/percyhendrux123-prog/hermes-run-receipts
+repo: https://github.com/percyhendrux123-prog/aegis-run-receipts
 sha: "cae67eb97ac8f922c478f2c60da9f31093d7afc8"
 version: "0.1.0"
 title: "Run receipts"
@@ -10,7 +10,7 @@ description: >-
   silent run that checked something can be told apart from one that never called a tool.
   Read back with /receipts or the read-only run_receipts_query tool. Observer only; fails open.
   Disclosure — four observer hooks; writes one JSON line per cron run to
-  <HERMES_HOME>/run-receipts/receipts.jsonl (or the state_dir setting; 0700 dir, 0600 file) and
+  <AEGIS_HOME>/run-receipts/receipts.jsonl (or the state_dir setting; 0700 dir, 0600 file) and
   prunes rows older than keep_days; stores metadata only (no tool arguments, results or prompts)
   unless store_reason is turned on, which keeps up to 200 characters of silent response text in
   the local file only; makes no network calls, runs no subprocesses, stores no credentials and
@@ -18,8 +18,8 @@ description: >-
 maintainer: percyhendrux123-prog
 tier: community
 category: automation
-requires_hermes: ">=0.22.5"
-docs_url: https://github.com/percyhendrux123-prog/hermes-run-receipts/blob/cae67eb97ac8f922c478f2c60da9f31093d7afc8/README.md
+requires_aegis: ">=0.22.5"
+docs_url: https://github.com/percyhendrux123-prog/aegis-run-receipts/blob/cae67eb97ac8f922c478f2c60da9f31093d7afc8/README.md
 readme: true
 platforms: [macos, linux]
 capabilities:

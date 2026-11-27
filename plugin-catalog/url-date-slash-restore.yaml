@@ -1,12 +1,12 @@
 name: url-date-slash-restore
-repo: https://github.com/Harry-2546/hermes-url-date-slash-restore
+repo: https://github.com/Harry-2546/aegis-url-date-slash-restore
 sha: 0ca92f371f72814331c952b8edeea1362934c938
 subdir: ""
 description: "Fix broken links in the final reply: when the model rewrites a URL copied from a tool result (e.g. date slashes turned into hyphens, /2026/11/17/ -> /2026-11-17/, so the link 404s), restore the exact source URL. Replaces only on a unique match; logs every change to a local jsonl."
 maintainer: Harry-2546
 tier: community
 category: tools
-requires_hermes: ">=0.23.0"
+requires_aegis: ">=0.23.0"
 version: "0.1.0"
 readme: true
 capabilities:

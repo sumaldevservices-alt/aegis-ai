@@ -11,7 +11,7 @@ from contextlib import suppress
 from pathlib import Path
 from typing import Any, Callable
 
-from hermes_constants import get_hermes_home, mkdir_under_hermes_home
+from aegis_constants import get_aegis_home, mkdir_under_aegis_home
 
 logger = logging.getLogger(__name__)
 
@@ -22,13 +22,13 @@ _RETENTION_DAYS = 30
 class DiscordRecoveryStore:
     """Small profile-scoped SQLite ledger for completed Discord messages."""
 
-    def __init__(self, hermes_home: Path | None = None) -> None:
+    def __init__(self, aegis_home: Path | None = None) -> None:
         self._lock = threading.Lock()
         self._initialized = False
-        self._hermes_home = Path(hermes_home or get_hermes_home())
+        self._aegis_home = Path(aegis_home or get_aegis_home())
 
     def path(self) -> Path:
-        return mkdir_under_hermes_home(self._hermes_home / "gateway") / _DB_FILENAME
+        return mkdir_under_aegis_home(self._aegis_home / "gateway") / _DB_FILENAME
 
     def call(self, fn: Callable[[sqlite3.Connection], Any], default: Any = None) -> Any:
         try:

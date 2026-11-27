@@ -14,7 +14,7 @@ import pytest
 
 from gateway.run import _profile_runtime_scope
 from gateway.session_authority import LiveSession, SessionAuthority
-from hermes_constants import get_hermes_home
+from aegis_constants import get_aegis_home
 from tests.fixtures.storage_seed import seed_session
 from tests.gateway.fixtures.storage_handles import close_storage_handles, storage_handle
 from tests.gateway.test_session_prompt_hooks import OPENED, SETTLED, Recorder, _Peer, register
@@ -23,18 +23,18 @@ from tools.approval_gateway_wait import _ApprovalEntry
 
 
 class _HomeRecorder(Recorder):
-    """Also records the Hermes home the callback ran under."""
+    """Also records the Aegis home the callback ran under."""
 
     def opened(self, **kwargs):
-        super().opened(**kwargs, home=get_hermes_home())
+        super().opened(**kwargs, home=get_aegis_home())
 
     def settled(self, **kwargs):
-        super().settled(**kwargs, home=get_hermes_home())
+        super().settled(**kwargs, home=get_aegis_home())
 
 
 @pytest.fixture()
 def profiles(tmp_path):
-    from hermes_cli.plugins import get_plugin_manager
+    from aegis_cli.plugins import get_plugin_manager
     runner = SimpleNamespace(config=SimpleNamespace(multiplex_profiles=True), _draining=False)
     served = {}
     for name in ("alpha", "beta"):

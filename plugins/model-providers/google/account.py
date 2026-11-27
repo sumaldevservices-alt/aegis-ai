@@ -1,7 +1,7 @@
 """Solstice provider profile: a user's own per-user-quota Gemini subscription, signed in with OAuth.
 
 Pre-release (``hidden=True``): no picker, setup list or accounts tab offers it until the user signs in
-by name (``hermes auth add solstice``); after that it lists like any signed-in provider. Login and
+by name (``aegis auth add solstice``); after that it lists like any signed-in provider. Login and
 token refresh go through the generic PKCE plugin flow with a Nous-portal broker as the token endpoint
 (``auth.py``); inference goes straight to Google on the per-user-quota methods (``transport.py``).
 """
@@ -12,7 +12,7 @@ import logging
 from dataclasses import replace
 from typing import Any
 
-from hermes_cli.auth_oauth_pkce_plugin import OAuthPKCEConfig, pkce_auth_handler, pkce_refresh_credential
+from aegis_cli.auth_oauth_pkce_plugin import OAuthPKCEConfig, pkce_auth_handler, pkce_refresh_credential
 from providers.base import ProviderProfile
 
 from .account_auth import broker_token_request, discover_client
@@ -61,7 +61,7 @@ def current_model_id(model: str | None) -> str | None:
         return None
     if bare not in _RETIRED_LOGGED:
         _RETIRED_LOGGED.add(bare)
-        logger.info("Solstice no longer serves %s; sending %s instead (pick a model with `hermes model`)",
+        logger.info("Solstice no longer serves %s; sending %s instead (pick a model with `aegis model`)",
                     bare, FALLBACK_MODELS[0])
     return FALLBACK_MODELS[0]
 
@@ -140,12 +140,12 @@ class SolsticeProfile(ProviderProfile):
         return {"thinking_config": thinking_config} if thinking_config else {}
 
     def normalize_model_id(self, model: str, *, api_key: str = "") -> str | None:
-        """The default model for a retired id, so a saved one is upgraded where Hermes resolves the model;
+        """The default model for a retired id, so a saved one is upgraded where Aegis resolves the model;
         None (core's generic rules) for every other id."""
         return current_model_id(model)
 
     def get_max_tokens(self, model: str | None) -> int | None:
-        return None  # output caps are the backend's; a Hermes default would truncate long answers
+        return None  # output caps are the backend's; a Aegis default would truncate long answers
 
 
 solstice = SolsticeProfile(

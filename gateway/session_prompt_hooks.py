@@ -144,7 +144,7 @@ def _drain() -> None:
 
 
 def _dispatch(hook_name, authority, payload) -> None:
-    from hermes_cli.config_backend import ConfigBackendUnavailable
+    from aegis_cli.config_backend import ConfigBackendUnavailable
     try:
         scope = contextlib.nullcontext()
         if authority is not None:
@@ -153,7 +153,7 @@ def _dispatch(hook_name, authority, payload) -> None:
         with scope:
             if "params" in payload:  # in the owner's scope: its registered vault values are scrubbed too
                 payload = {**payload, "params": _redacted(payload["params"])}
-            from hermes_cli.lifecycle import invoke_hook
+            from aegis_cli.lifecycle import invoke_hook
             invoke_hook(hook_name, **payload)
     except (Exception, ConfigBackendUnavailable):  # health: allow BLE001 -- observers never break a prompt
         logger.debug("%s dispatch failed", hook_name, exc_info=True)

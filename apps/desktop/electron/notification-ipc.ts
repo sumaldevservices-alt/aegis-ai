@@ -4,7 +4,7 @@ import { createEventDeduper } from './event-dedupe'
 import { resolveNotificationAction } from './notification-actions'
 import { createLinuxNotifications } from './notification-linux'
 import { createNotificationRegistry } from './notification-registry'
-import type { HermesNotification } from './notification-types'
+import type { AegisNotification } from './notification-types'
 
 interface NotificationHost {
   getMainWindow: () => BrowserWindow | null
@@ -42,7 +42,7 @@ export function registerNativeNotifications({
   const notifications = createNotificationRegistry({ releaseOnClose: Boolean(linux) })
   const supported = () => Boolean(linux) || Notification.isSupported()
 
-  ipcMain.handle('hermes:notify', async (event, payload: HermesNotification) => {
+  ipcMain.handle('aegis:notify', async (event, payload: AegisNotification) => {
     // The source renderer owns runtime bindings and plugin callbacks.
     const sourceWindow = BrowserWindow.fromWebContents(event.sender)
     const targetWindow = () => (sourceWindow && !sourceWindow.isDestroyed() ? sourceWindow : getMainWindow())
@@ -62,7 +62,7 @@ export function registerNativeNotifications({
     const icon = typeof payload?.icon === 'string' && payload.icon.trim() ? payload.icon.trim() : undefined
 
     const options = {
-      title: payload?.title || 'Hermes',
+      title: payload?.title || 'Aegis',
       body: payload?.body || '',
       silent: Boolean(payload?.silent),
       ...(icon ? { icon } : {}),
@@ -83,11 +83,11 @@ export function registerNativeNotifications({
       const focusSessionId = payload?.focusSessionId || payload?.sessionId
 
       if (focusSessionId) {
-        window.webContents.send('hermes:focus-session', focusSessionId)
+        window.webContents.send('aegis:focus-session', focusSessionId)
       }
 
       if (payload?.activate || payload?.notifyId) {
-        window.webContents.send('hermes:notification-activate', {
+        window.webContents.send('aegis:notification-activate', {
           activate: payload?.activate,
           notifyId: window === sourceWindow ? payload?.notifyId : undefined,
           tag: payload?.tag
@@ -113,13 +113,13 @@ export function registerNativeNotifications({
           return
         }
 
-        window.webContents.send('hermes:notification-action', { sessionId: payload.sessionId, actionId: action.id })
+        window.webContents.send('aegis:notification-action', { sessionId: payload.sessionId, actionId: action.id })
 
         return
       }
 
       focusWindow(window)
-      window.webContents.send('hermes:notification-activate', {
+      window.webContents.send('aegis:notification-activate', {
         actionId: action.id,
         activate: action.activate || payload?.activate,
         notifyId: window === sourceWindow ? payload?.notifyId : undefined,
@@ -142,9 +142,9 @@ export function registerNativeNotifications({
 
     return delivery
   })
-  // Read-only, so the renderer can tell ahead of time whether `hermes:notify` could show anything.
+  // Read-only, so the renderer can tell ahead of time whether `aegis:notify` could show anything.
   // Linux asks the session bus for a notification service each time it is asked.
-  ipcMain.handle('hermes:notify:supported', () => (linux ? linux.available() : supported()))
+  ipcMain.handle('aegis:notify:supported', () => (linux ? linux.available() : supported()))
 
   return { dispose: () => linux?.dispose() }
 }

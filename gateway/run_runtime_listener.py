@@ -118,8 +118,8 @@ async def start_gateway_runtime_api(runner, *, address_wait: float = WEBAPP_ADDR
         STARTING, bind_origin, browser_session_token, dial_origin, listener_plan,
         register_control_verbs,
     )
-    from hermes_constants import get_hermes_home
-    home = get_hermes_home()
+    from aegis_constants import get_aegis_home
+    home = get_aegis_home()
     # The bootstrap registered these before its control socket answered; a runner started without it
     # (an embedded gateway) gets them here, before the listener's slow start.
     register_control_verbs(runner, home)

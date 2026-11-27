@@ -114,8 +114,8 @@ export async function selectSavePath(options: any, deps: SaveTextFileDeps): Prom
   return result.canceled || !result.filePath ? null : result.filePath
 }
 
-/** `hermes:selectSavePath` (path only) and `hermes:saveTextFileAs` (dialog + main-process write). */
+/** `aegis:selectSavePath` (path only) and `aegis:saveTextFileAs` (dialog + main-process write). */
 export function registerSaveDialogIpc(ipcMain: IpcMainLike, deps: SaveTextFileDeps): void {
-  ipcMain.handle('hermes:selectSavePath', (_event, options = {}) => selectSavePath(options, deps))
-  ipcMain.handle('hermes:saveTextFileAs', (_event, request) => saveTextFileAs(request || {}, deps))
+  ipcMain.handle('aegis:selectSavePath', (_event, options = {}) => selectSavePath(options, deps))
+  ipcMain.handle('aegis:saveTextFileAs', (_event, request) => saveTextFileAs(request || {}, deps))
 }

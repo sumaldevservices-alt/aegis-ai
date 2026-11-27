@@ -45,7 +45,7 @@ function AgentRow({ agent, copy, onPick, preselected }: AgentRowProps) {
   )
 }
 
-/** Creating a cloud agent from here waits on NousResearch/hermes-portal#2160; until then the row
+/** Creating a cloud agent from here waits on NousResearch/aegis-portal#2160; until then the row
  *  opens the portal, where one click does it. */
 function NewAgentRow({ copy, onOpenPortal }: { copy: Copy; onOpenPortal: () => void }) {
   return (

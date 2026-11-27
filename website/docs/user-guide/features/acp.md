@@ -1,17 +1,17 @@
 ---
 sidebar_position: 11
 title: "ACP Host Integration"
-description: "Use Hermes Agent inside ACP-compatible editors and collaboration platforms"
+description: "Use Aegis Agent inside ACP-compatible editors and collaboration platforms"
 ---
 
 # ACP Host Integration
 
 Python dependency commands on this page use a
 [PM-prepared source checkout](../../reference/package-management.md#developer-workflow).
-After a dependency change, reactivate the checkout and restart Hermes.
+After a dependency change, reactivate the checkout and restart Aegis.
 
-Hermes Agent can run as an ACP server, letting ACP-compatible hosts talk to
-Hermes over stdio. Editors can render:
+Aegis Agent can run as an ACP server, letting ACP-compatible hosts talk to
+Aegis over stdio. Editors can render:
 
 - chat messages
 - tool activity
@@ -21,13 +21,13 @@ Hermes over stdio. Editors can render:
 - streamed thinking / response chunks
 
 Other hosts can use the same protocol to route collaboration events into
-Hermes. ACP is a good fit when you want Hermes to keep its existing identity,
+Aegis. ACP is a good fit when you want Aegis to keep its existing identity,
 provider setup, memory, skills, and tools while another application owns the
 conversation transport.
 
-## What Hermes exposes in ACP mode
+## What Aegis exposes in ACP mode
 
-Hermes runs with a curated `hermes-acp` toolset designed for editor workflows. It includes:
+Aegis runs with a curated `aegis-acp` toolset designed for editor workflows. It includes:
 
 - file tools: `read_file`, `write_file`, `patch`, `search_files`
 - terminal tools: `terminal`, `process`
@@ -42,11 +42,11 @@ It intentionally excludes things that do not fit typical editor UX, such as mess
 The toolset resolves the same way as on the messaging gateway for the same
 platform config. That includes the extras the gateway adds on top of the
 list, such as enabled plugin toolsets, so ACP sessions get those too.
-`platform_toolsets.acp` replaces the `hermes-acp` default, and
+`platform_toolsets.acp` replaces the `aegis-acp` default, and
 `agent.disabled_toolsets` removes toolsets from every ACP session. MCP
 servers from `mcp_servers` follow the same rules too. By default ACP gets
 every enabled server. If you list server names in `platform_toolsets.acp`,
-only those servers are included, and `no_mcp` drops them all. `hermes tools`
+only those servers are included, and `no_mcp` drops them all. `aegis tools`
 has no ACP entry, so edit `config.yaml` directly:
 
 ```yaml
@@ -81,41 +81,41 @@ changing the server configuration. Commands and paths run on the gateway host.
 
 ## Installation
 
-Install Hermes normally, then add the ACP extra from the install checkout:
+Install Aegis normally, then add the ACP extra from the install checkout:
 
 ```bash
-cd ~/.hermes/hermes-agent && python -c "import pm; pm.sync_venv(['acp'], explicit=True)"
+cd ~/.aegis/aegis-agent && python -c "import pm; pm.sync_venv(['acp'], explicit=True)"
 ```
 
 This installs the `agent-client-protocol` dependency and enables:
 
-- `hermes acp`
-- `hermes-acp`
+- `aegis acp`
+- `aegis-acp`
 - `python -m acp_adapter`
 
 ## Launching the ACP server
 
-Any of the following starts Hermes in ACP mode:
+Any of the following starts Aegis in ACP mode:
 
 ```bash
-hermes acp
+aegis acp
 ```
 
 ```bash
-hermes-acp
+aegis-acp
 ```
 
 ```bash
 python -m acp_adapter
 ```
 
-Hermes logs to stderr so stdout remains reserved for ACP JSON-RPC traffic.
+Aegis logs to stderr so stdout remains reserved for ACP JSON-RPC traffic.
 
 For non-interactive checks:
 
 ```bash
-hermes acp --version
-hermes acp --check
+aegis acp --version
+aegis acp --check
 ```
 
 ### Browser tools (optional)
@@ -125,16 +125,16 @@ Browser tools (`browser_exec` and the CDP tools `browser_cdp`,
 the Python wheel. Install it with:
 
 ```bash
-hermes acp --setup-browser           # interactive (prompts before ~400 MB download)
-hermes acp --setup-browser --yes     # accept the download non-interactively
+aegis acp --setup-browser           # interactive (prompts before ~400 MB download)
+aegis acp --setup-browser --yes     # accept the download non-interactively
 ```
 
-This is the standalone command. The terminal-auth flow (`hermes acp --setup`) also offers the browser bootstrap as a follow-up question after model selection, so most users never need to run `--setup-browser` directly.
+This is the standalone command. The terminal-auth flow (`aegis acp --setup`) also offers the browser bootstrap as a follow-up question after model selection, so most users never need to run `--setup-browser` directly.
 
 What it does:
 
-- Installs Hermes' pinned Chromium (the `chromium` package) through the package manager; no Node.js or npm involved
-- Hermes launches that Chromium itself when `browser_exec` first needs a browser
+- Installs Aegis' pinned Chromium (the `chromium` package) through the package manager; no Node.js or npm involved
+- Aegis launches that Chromium itself when `browser_exec` first needs a browser
 
 The bootstrap is idempotent — re-running it is fast and skips work that's already done.
 
@@ -147,24 +147,24 @@ for people and agents. Its `buzz-acp` harness connects Buzz channels to any ACP
 agent over stdio:
 
 ```text
-Buzz relay <-- WebSocket --> buzz-acp <-- ACP over stdio --> Hermes Agent
+Buzz relay <-- WebSocket --> buzz-acp <-- ACP over stdio --> Aegis Agent
 ```
 
-This is a transport integration, not a second Hermes installation. The
-subprocess launched by `buzz-acp` uses the same Hermes configuration,
-credentials, memory, skills, and state as `hermes` on that host.
+This is a transport integration, not a second Aegis installation. The
+subprocess launched by `buzz-acp` uses the same Aegis configuration,
+credentials, memory, skills, and state as `aegis` on that host.
 
 (This is distinct from [Buzz Desktop's managed runtime](#buzz-desktop), which
-spawns Hermes locally as a preset harness. The relay bridge is for joining Buzz
+spawns Aegis locally as a preset harness. The relay bridge is for joining Buzz
 *channels* as an agent identity, typically on a server.)
 
 Prerequisites:
 
-- Complete the ACP installation and `hermes acp --check` above.
+- Complete the ACP installation and `aegis acp --check` above.
 - Build `buzz-acp` and the `buzz` CLI from the
   [Buzz repository](https://github.com/block/buzz)
   (`cargo build --release -p buzz-acp`).
-- Mint a dedicated Nostr keypair for Hermes (`buzz-admin generate-key`) and
+- Mint a dedicated Nostr keypair for Aegis (`buzz-admin generate-key`) and
   register it as a relay member (`buzz-admin add-member`). Every agent needs
   its own identity — do not reuse a human keypair.
 - Add that identity to the intended Buzz channels.
@@ -175,7 +175,7 @@ Start a bridge with:
 export BUZZ_RELAY_URL="wss://community.example.com"
 export BUZZ_PRIVATE_KEY="..."
 export BUZZ_API_TOKEN="..."
-export BUZZ_ACP_AGENT_COMMAND="hermes"
+export BUZZ_ACP_AGENT_COMMAND="aegis"
 export BUZZ_ACP_AGENT_ARGS="acp"
 
 buzz-acp
@@ -185,16 +185,16 @@ buzz-acp
 Do not commit or paste the private key or API token.
 
 For a persistent server deployment, run `buzz-acp` under a service manager as
-the same operating-system user that owns the intended Hermes home. Setup,
+the same operating-system user that owns the intended Aegis home. Setup,
 key generation, channel discovery, and per-agent options are documented in the
 [buzz-acp README](https://github.com/block/buzz/tree/main/crates/buzz-acp).
 
-The bridge discovers every Buzz channel where the Hermes identity is a member
+The bridge discovers every Buzz channel where the Aegis identity is a member
 and automatically subscribes when it is added to another channel. Buzz channel
-membership therefore remains the access boundary; Hermes does not need a
+membership therefore remains the access boundary; Aegis does not need a
 separate channel list in its own configuration.
 
-To expose Hermes ACP activity in the owner's Buzz Desktop, add:
+To expose Aegis ACP activity in the owner's Buzz Desktop, add:
 
 ```bash
 export BUZZ_ACP_RELAY_OBSERVER="true"
@@ -212,7 +212,7 @@ is present to show approval dialogs — see
 as privileged automation: use a dedicated operating-system account, restrict
 which Buzz users can prompt the agent (`buzz-acp` supports an owner-only
 respond gate via `BUZZ_ACP_AGENT_OWNER`), and grant membership only in channels
-where Hermes is expected to work.
+where Aegis is expected to work.
 
 ### VS Code
 
@@ -221,16 +221,16 @@ Install the [ACP Client](https://marketplace.visualstudio.com/items?itemName=for
 To connect:
 
 1. Open the ACP Client panel from the Activity Bar.
-2. Select **Hermes Agent** from the built-in agent list.
+2. Select **Aegis Agent** from the built-in agent list.
 3. Connect and start chatting.
 
-If you want to define Hermes manually, add it through VS Code settings under `acp.agents`:
+If you want to define Aegis manually, add it through VS Code settings under `acp.agents`:
 
 ```json
 {
   "acp.agents": {
-    "Hermes Agent": {
-      "command": "hermes",
+    "Aegis Agent": {
+      "command": "aegis",
       "args": ["acp"]
     }
   }
@@ -239,7 +239,7 @@ If you want to define Hermes manually, add it through VS Code settings under `ac
 
 ### Zed
 
-Configure Hermes as a custom agent server in Zed settings:
+Configure Aegis as a custom agent server in Zed settings:
 
 1. Open the Agent Panel.
 2. Add a custom agent server with the following configuration:
@@ -247,71 +247,71 @@ Configure Hermes as a custom agent server in Zed settings:
 ```json
 {
   "agent_servers": {
-    "hermes-agent": {
+    "aegis-agent": {
       "type": "custom",
-      "command": "hermes",
+      "command": "aegis",
       "args": ["acp"]
     }
   }
 }
 ```
 
-3. Start a new Hermes external-agent thread.
+3. Start a new Aegis external-agent thread.
 
 Prerequisites:
 
-- Configure Hermes provider credentials first with `hermes model`, or set them in `~/.hermes/.env` / `~/.hermes/config.yaml`.
+- Configure Aegis provider credentials first with `aegis model`, or set them in `~/.aegis/.env` / `~/.aegis/config.yaml`.
 
 ### JetBrains
 
-Use an ACP-compatible plugin and point it at `hermes acp` or `hermes-acp`.
+Use an ACP-compatible plugin and point it at `aegis acp` or `aegis-acp`.
 
 ### Buzz Desktop
 
-[Buzz](https://github.com/block/buzz) ships Hermes Agent as a preset runtime.
-With Hermes installed the normal way, Buzz discovers it automatically —
-open **Settings → Runtimes** and Hermes appears under your runtimes.
+[Buzz](https://github.com/block/buzz) ships Aegis Agent as a preset runtime.
+With Aegis installed the normal way, Buzz discovers it automatically —
+open **Settings → Runtimes** and Aegis appears under your runtimes.
 
 If discovery fails (older installs), make sure the ACP launcher resolves on a
 login-shell PATH:
 
 ```bash
-command -v hermes-acp || command -v hermes
+command -v aegis-acp || command -v aegis
 ```
 
-Recent installs write both `hermes` and `hermes-acp` launchers into
-`~/.local/bin`; running `hermes update` adds the `hermes-acp` launcher to
+Recent installs write both `aegis` and `aegis-acp` launchers into
+`~/.local/bin`; running `aegis update` adds the `aegis-acp` launcher to
 older installs. As a manual fallback, configure Buzz's agent command as
-`hermes` with args `["acp"]`.
+`aegis` with args `["acp"]`.
 
 #### Model picker
 
-Buzz Desktop (v0.5.1+) renders Hermes' full model menu in the agent's runtime
-settings. The list comes from Hermes itself over ACP: it shows every model
-from providers you have authenticated in Hermes (the same inventory behind
-`hermes model` and the `/model` command), so a model missing from the menu
-means its provider has no credentials configured on the Hermes side.
+Buzz Desktop (v0.5.1+) renders Aegis' full model menu in the agent's runtime
+settings. The list comes from Aegis itself over ACP: it shows every model
+from providers you have authenticated in Aegis (the same inventory behind
+`aegis model` and the `/model` command), so a model missing from the menu
+means its provider has no credentials configured on the Aegis side.
 
 Entry IDs take the form `provider:model` (e.g. `openrouter:z-ai/glm-5.1`), or
 `custom:<name>:<model>` for custom OpenAI-compatible endpoints defined in
 `config.yaml`. Picking a model applies to that agent's session; it does not
-change your Hermes-wide default — use `hermes model` for that.
+change your Aegis-wide default — use `aegis model` for that.
 
 #### Keep Buzz agents owner-only
 
 Buzz creates every agent with **Who can talk to this agent** set to `Owner only`.
-Leave it there when the runtime is Hermes.
+Leave it there when the runtime is Aegis.
 
-Two behaviors combine on this path. The `hermes-acp` toolset includes `terminal`
-and `execute_code`, and Buzz's ACP bridge answers Hermes' permission requests
-itself with `allow_once` rather than surfacing them. A Hermes agent in Buzz
+Two behaviors combine on this path. The `aegis-acp` toolset includes `terminal`
+and `execute_code`, and Buzz's ACP bridge answers Aegis' permission requests
+itself with `allow_once` rather than surfacing them. A Aegis agent in Buzz
 therefore runs shell commands on the host without prompting. I asked one to run
 `rm -rf` against a scratch directory and it deleted it, no prompt anywhere.
 
 Selecting `Anyone` hands that same shell access to every author who can reach
 the channel. Buzz does not warn when you pick it.
 
-`approvals.mode: manual` does not help: Hermes raises the permission request,
+`approvals.mode: manual` does not help: Aegis raises the permission request,
 but Buzz auto-approves it and the command still runs. To take the shell away,
 narrow the toolset instead: set `platform_toolsets.acp` to a list without
 `terminal` and `code_execution`, or add them to `agent.disabled_toolsets`.
@@ -324,14 +324,14 @@ command from everyone else.
 
 ## Configuration and credentials
 
-ACP mode uses the same Hermes configuration as the CLI:
+ACP mode uses the same Aegis configuration as the CLI:
 
-- `~/.hermes/.env`
-- `~/.hermes/config.yaml`
-- `~/.hermes/skills/`
-- `~/.hermes/state.db`
+- `~/.aegis/.env`
+- `~/.aegis/config.yaml`
+- `~/.aegis/skills/`
+- `~/.aegis/state.db`
 
-Provider resolution uses Hermes' normal runtime resolver, so ACP inherits the currently configured provider and credentials. Hermes also advertises a terminal auth method (`--setup`) for first-run ACP clients; this opens Hermes' interactive model/provider setup.
+Provider resolution uses Aegis' normal runtime resolver, so ACP inherits the currently configured provider and credentials. Aegis also advertises a terminal auth method (`--setup`) for first-run ACP clients; this opens Aegis' interactive model/provider setup.
 
 ### Service-tier picker
 
@@ -340,7 +340,7 @@ model route: **Normal**, **Fast**, **Auto**, **Cold**, and **Ultrafast** when it
 model and account eligibility checks permit it. The gateway supplies the choices
 and validates each selection; unsupported routes do not show the picker.
 
-The selection applies to that session's next turn, not to every Hermes session,
+The selection applies to that session's next turn, not to every Aegis session,
 and does not write `config.yaml`. Reloading the editor preserves the selection
 while the same gateway session remains alive. Changes from another attached
 client update the ACP picker as well. See [the `/fast` reference](../../reference/slash-commands.md)
@@ -348,18 +348,18 @@ for the bounded Auto and Cold modes.
 
 ## Host integration
 
-Older ACP hosts may still set this variable on the Hermes subprocess they
+Older ACP hosts may still set this variable on the Aegis subprocess they
 spawn. It is not user configuration — do not set it by hand in `.env` or
 `config.yaml`.
 
 | Variable | Value | Effect |
 |----------|-------|--------|
-| `HERMES_ACP_SKIP_CONFIGURED_MCP` | `1` | **No effect.** Hermes no longer reads it. `hermes acp` / `hermes-acp` runs as a viewer of the gateway daemon and never starts the `config.yaml` MCP servers itself, so there is no ACP-side startup to skip. |
+| `AEGIS_ACP_SKIP_CONFIGURED_MCP` | `1` | **No effect.** Aegis no longer reads it. `aegis acp` / `aegis-acp` runs as a viewer of the gateway daemon and never starts the `config.yaml` MCP servers itself, so there is no ACP-side startup to skip. |
 
 The ACP process does no MCP discovery. The gateway daemon starts the
 `mcp_servers` from its own profile's `config.yaml` once at gateway boot, and ACP
 sessions get those servers through the `platform_toolsets.acp` rules
-[above](#what-hermes-exposes-in-acp-mode). Setting the variable on the ACP
+[above](#what-aegis-exposes-in-acp-mode). Setting the variable on the ACP
 subprocess or on the gateway does not change that. Use `platform_toolsets.acp`
 or `no_mcp` to keep configured servers out of ACP sessions.
 
@@ -380,7 +380,7 @@ Each session stores:
 - current conversation history
 - cancel event
 
-Conversations are persisted to Hermes' session database and can be listed, loaded,
+Conversations are persisted to Aegis' session database and can be listed, loaded,
 resumed, or forked after the ACP server restarts. Opening a new session without a
 prompt keeps it in memory only: model-discovery probes do not create empty history
 rows. A nonempty fork is persisted immediately, and existing session metadata can
@@ -388,12 +388,12 @@ still be updated even when its current history is empty.
 
 Existing empty rows from older versions are not automatically deleted. An open ACP
 row does not prove its client has disconnected. After closing the relevant editor
-sessions, inspect unwanted rows with `hermes sessions show <id>` and remove only
-confirmed unwanted sessions with `hermes sessions delete <id>`.
+sessions, inspect unwanted rows with `aegis sessions show <id>` and remove only
+confirmed unwanted sessions with `aegis sessions delete <id>`.
 
 ## Working directory behavior
 
-ACP sessions bind the editor's cwd to the Hermes task ID so file and terminal tools run relative to the editor workspace, not the server process cwd.
+ACP sessions bind the editor's cwd to the Aegis task ID so file and terminal tools run relative to the editor workspace, not the server process cwd.
 
 ## Approvals
 
@@ -420,12 +420,12 @@ ACP exposes a third tier between *allow once* and *allow always*: **Allow for se
 |---|---|---|---|
 | `allow_once` | Allow once | This one tool call | No |
 | `allow_session` | Allow for session | All matching calls in this ACP session | No — cleared when the session ends |
-| `allow_always` | Allow always | All future sessions | Yes (written to the Hermes permanent allowlist) |
+| `allow_always` | Allow always | All future sessions | Yes (written to the Aegis permanent allowlist) |
 | `deny` | Deny | This one tool call | No |
 
 `allow_session` is the right default for an editor workflow where you trust an agent for the duration of a task but don't want to grant a long-lived allowlist entry. The safety trade-off is straightforward: the broader the scope, the less the editor will interrupt you, and the more damage a misbehaving agent (or prompt injection) can do before you notice. Start with `allow_once` for unfamiliar commands; promote to `allow_session` once you've seen the agent run the same pattern correctly a few times; reserve `allow_always` for truly idempotent commands you trust forever (e.g. `git status`).
 
-The ACP bridge maps these options onto Hermes' internal approval semantics — `allow_always` writes a permanent allowlist entry the same way the CLI does, while `allow_session` only affects the in-process approval cache for the current ACP session.
+The ACP bridge maps these options onto Aegis' internal approval semantics — `allow_always` writes a permanent allowlist entry the same way the CLI does, while `allow_session` only affects the in-process approval cache for the current ACP session.
 
 ## Troubleshooting
 
@@ -433,30 +433,30 @@ The ACP bridge maps these options onto Hermes' internal approval semantics — `
 
 Check:
 
-- For manual/local development, verify the host command points to `hermes acp`.
-- Hermes is installed and on your PATH.
-- The ACP extra is installed (`cd ~/.hermes/hermes-agent && python -c "import pm; pm.sync_venv(['acp'], explicit=True)"`).
+- For manual/local development, verify the host command points to `aegis acp`.
+- Aegis is installed and on your PATH.
+- The ACP extra is installed (`cd ~/.aegis/aegis-agent && python -c "import pm; pm.sync_venv(['acp'], explicit=True)"`).
 
 ### ACP starts but immediately errors
 
 Try these checks:
 
 ```bash
-hermes acp --version
-hermes acp --check
-hermes doctor
-hermes status
+aegis acp --version
+aegis acp --check
+aegis doctor
+aegis status
 ```
 
 ### Missing credentials
 
-ACP mode uses Hermes' existing provider setup. Configure credentials with:
+ACP mode uses Aegis' existing provider setup. Configure credentials with:
 
 ```bash
-hermes model
+aegis model
 ```
 
-or by editing `~/.hermes/.env`. The terminal auth flow (`hermes acp --setup`) can also trigger the interactive provider/model setup.
+or by editing `~/.aegis/.env`. The terminal auth flow (`aegis acp --setup`) can also trigger the interactive provider/model setup.
 
 ## See also
 

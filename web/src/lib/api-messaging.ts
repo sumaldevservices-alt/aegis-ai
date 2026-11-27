@@ -60,7 +60,7 @@ export interface MessagingPlatformUpdate {
   clear_env?: string[];
 }
 
-/** A curated-catalog messaging platform the profile does not have yet (hermes_cli/catalog_platform_listing.py). */
+/** A curated-catalog messaging platform the profile does not have yet (aegis_cli/catalog_platform_listing.py). */
 export interface CatalogMessagingPlatform {
   name: string;
   title: string;

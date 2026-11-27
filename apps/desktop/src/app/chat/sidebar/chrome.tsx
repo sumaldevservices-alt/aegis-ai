@@ -1,4 +1,4 @@
-import { compactNumber } from '@hermes/shared'
+import { compactNumber } from '@aegis/shared'
 import { useStore } from '@nanostores/react'
 import type * as React from 'react'
 

@@ -8,9 +8,9 @@ import { test, type TestContext } from 'vitest'
 import { provisionCliLinks, removeBundleCliLinks, shouldProvisionBundledCliLinks } from './cli-provision'
 
 function fixture(): { root: string; binDir: string; source: string } {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'hermes-cli-links-'))
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-cli-links-'))
   const binDir = path.join(root, 'bin')
-  const source = path.join(root, 'new', 'agent-payload', 'bin', 'hermes')
+  const source = path.join(root, 'new', 'agent-payload', 'bin', 'aegis')
 
   fs.mkdirSync(path.dirname(source), { recursive: true })
   fs.mkdirSync(binDir)
@@ -24,10 +24,10 @@ test.runIf(process.platform !== 'win32')(
   (): void => {
     const { root, binDir, source }: ReturnType<typeof fixture> = fixture()
     const payload: string = path.dirname(path.dirname(source))
-    const target: string = path.join(binDir, 'hermes')
+    const target: string = path.join(binDir, 'aegis')
 
     try {
-      provisionCliLinks({ hermes: source }, binDir, (): void => {})
+      provisionCliLinks({ aegis: source }, binDir, (): void => {})
       fs.symlinkSync(path.join(root, 'other/agent-payload/bin/other'), path.join(binDir, 'other'))
       fs.symlinkSync(source, path.join(binDir, 'personal-alias'))
       fs.writeFileSync(path.join(binDir, 'custom'), 'keep')
@@ -46,10 +46,10 @@ test.runIf(process.platform !== 'win32')(
 test('repairs owned dangling CLI links without changing foreign or live entries', context => {
   const { root, binDir, source } = fixture()
   const messages: string[] = []
-  const target = path.join(binDir, 'hermes')
+  const target = path.join(binDir, 'aegis')
 
   try {
-    const oldSource = path.join(root, 'old', 'agent-payload', 'bin', 'hermes')
+    const oldSource = path.join(root, 'old', 'agent-payload', 'bin', 'aegis')
 
     try {
       fs.symlinkSync(oldSource, target)
@@ -61,30 +61,30 @@ test('repairs owned dangling CLI links without changing foreign or live entries'
       throw error
     }
 
-    provisionCliLinks({ hermes: source }, binDir, message => messages.push(message))
+    provisionCliLinks({ aegis: source }, binDir, message => messages.push(message))
     assert.equal(fs.readlinkSync(target), source)
     assert.equal(fs.readFileSync(source, 'utf8'), 'payload command\n')
-    assert.deepEqual(fs.readdirSync(binDir), ['hermes'])
+    assert.deepEqual(fs.readdirSync(binDir), ['aegis'])
 
-    const foreign = path.join(root, 'removed-other-tool', 'hermes')
+    const foreign = path.join(root, 'removed-other-tool', 'aegis')
     const otherName = path.join(root, 'old', 'agent-payload', 'bin', 'other')
 
-    for (const destination of [source, foreign, otherName, 'agent-payload/bin/hermes']) {
+    for (const destination of [source, foreign, otherName, 'agent-payload/bin/aegis']) {
       fs.unlinkSync(target)
       fs.symlinkSync(destination, target)
       const original = fs.readlinkSync(target)
 
-      provisionCliLinks({ hermes: source }, binDir, message => messages.push(message))
+      provisionCliLinks({ aegis: source }, binDir, message => messages.push(message))
       assert.equal(fs.readlinkSync(target), original)
-      assert.deepEqual(fs.readdirSync(binDir), ['hermes'])
+      assert.deepEqual(fs.readdirSync(binDir), ['aegis'])
     }
 
     fs.unlinkSync(target)
     fs.writeFileSync(target, 'user command\n')
-    provisionCliLinks({ hermes: source }, binDir, message => messages.push(message))
+    provisionCliLinks({ aegis: source }, binDir, message => messages.push(message))
     assert.equal(fs.readFileSync(target, 'utf8'), 'user command\n')
     fs.unlinkSync(target)
-    provisionCliLinks({ hermes: source }, binDir, message => messages.push(message))
+    provisionCliLinks({ aegis: source }, binDir, message => messages.push(message))
     assert.equal(fs.readlinkSync(target), source)
     assert.equal(messages.filter(message => message.includes('linked 1')).length, 2)
   } finally {
@@ -96,7 +96,7 @@ test('qualified CLI paths expose their filenames, not shared canonical command k
   const { root, binDir, source }: ReturnType<typeof fixture> = fixture()
 
   try {
-    const plain: string = path.join(binDir, 'hermes')
+    const plain: string = path.join(binDir, 'aegis')
     fs.writeFileSync(plain, 'stable command')
 
     try {
@@ -110,18 +110,18 @@ test('qualified CLI paths expose their filenames, not shared canonical command k
       throw error
     }
 
-    for (const name of ['hermes-canary', 'hermes-abcdef1', 'hermes-1234567']) {
+    for (const name of ['aegis-canary', 'aegis-abcdef1', 'aegis-1234567']) {
       const cli: string = path.join(path.dirname(source), name)
       const acp: string = `${cli}-acp`
       fs.writeFileSync(cli, name)
       fs.writeFileSync(acp, `${name}-acp`)
-      provisionCliLinks({ hermes: cli, 'hermes-acp': acp }, binDir, (): void => {})
+      provisionCliLinks({ aegis: cli, 'aegis-acp': acp }, binDir, (): void => {})
       assert.equal(fs.readlinkSync(path.join(binDir, name)), cli)
       assert.equal(fs.readlinkSync(path.join(binDir, `${name}-acp`)), acp)
     }
 
     assert.equal(fs.readFileSync(plain, 'utf8'), 'stable command')
-    assert.equal(fs.existsSync(path.join(binDir, 'hermes-acp')), false)
+    assert.equal(fs.existsSync(path.join(binDir, 'aegis-acp')), false)
   } finally {
     fs.rmSync(root, { recursive: true, force: true })
   }
@@ -130,29 +130,29 @@ test('qualified CLI paths expose their filenames, not shared canonical command k
 test.runIf(process.platform !== 'win32')(
   'a live link into an older build beside the payload moves forward; another install keeps its link',
   (): void => {
-    const root: string = fs.mkdtempSync(path.join(os.tmpdir(), 'hermes-cli-links-'))
+    const root: string = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-cli-links-'))
     const binDir: string = path.join(root, 'bin')
 
     const command = (store: string, build: string): string =>
-      path.join(root, store, build, 'agent-payload', 'bin', 'hermes')
+      path.join(root, store, build, 'agent-payload', 'bin', 'aegis')
 
     const current: string = command('bundles', 'build-2')
 
     try {
-      for (const destination of [current, command('bundles', 'build-1'), command('opt', 'Hermes')]) {
+      for (const destination of [current, command('bundles', 'build-1'), command('opt', 'Aegis')]) {
         fs.mkdirSync(path.dirname(destination), { recursive: true })
         fs.writeFileSync(destination, destination)
       }
 
       fs.mkdirSync(binDir)
-      fs.symlinkSync(command('bundles', 'build-1'), path.join(binDir, 'hermes'))
-      provisionCliLinks({ hermes: current }, binDir, (): void => {})
-      assert.equal(fs.readlinkSync(path.join(binDir, 'hermes')), current)
+      fs.symlinkSync(command('bundles', 'build-1'), path.join(binDir, 'aegis'))
+      provisionCliLinks({ aegis: current }, binDir, (): void => {})
+      assert.equal(fs.readlinkSync(path.join(binDir, 'aegis')), current)
 
-      fs.unlinkSync(path.join(binDir, 'hermes'))
-      fs.symlinkSync(command('opt', 'Hermes'), path.join(binDir, 'hermes'))
-      provisionCliLinks({ hermes: current }, binDir, (): void => {})
-      assert.equal(fs.readlinkSync(path.join(binDir, 'hermes')), command('opt', 'Hermes'))
+      fs.unlinkSync(path.join(binDir, 'aegis'))
+      fs.symlinkSync(command('opt', 'Aegis'), path.join(binDir, 'aegis'))
+      provisionCliLinks({ aegis: current }, binDir, (): void => {})
+      assert.equal(fs.readlinkSync(path.join(binDir, 'aegis')), command('opt', 'Aegis'))
     } finally {
       fs.rmSync(root, { recursive: true, force: true })
     }
@@ -161,9 +161,9 @@ test.runIf(process.platform !== 'win32')(
 
 test('a failed link swap preserves its source and target, then provisions later commands', context => {
   const { root, binDir, source } = fixture()
-  const target = path.join(binDir, 'hermes')
-  const oldSource = path.join(root, 'old', 'agent-payload', 'bin', 'hermes')
-  const acpSource = path.join(path.dirname(source), 'hermes-acp')
+  const target = path.join(binDir, 'aegis')
+  const oldSource = path.join(root, 'old', 'agent-payload', 'bin', 'aegis')
+  const acpSource = path.join(path.dirname(source), 'aegis-acp')
   const messages: string[] = []
   let swaps = 0
 
@@ -179,7 +179,7 @@ test('a failed link swap preserves its source and target, then provisions later 
     }
 
     fs.writeFileSync(acpSource, 'ACP command\n')
-    provisionCliLinks({ hermes: source, 'hermes-acp': acpSource }, binDir, message => messages.push(message), {
+    provisionCliLinks({ aegis: source, 'aegis-acp': acpSource }, binDir, message => messages.push(message), {
       ...fs,
       renameSync: (from, to) => {
         swaps += 1
@@ -191,9 +191,9 @@ test('a failed link swap preserves its source and target, then provisions later 
     assert.equal(swaps, 1)
     assert.equal(fs.readlinkSync(target), oldSource)
     assert.equal(fs.readFileSync(source, 'utf8'), 'payload command\n')
-    assert.equal(fs.readlinkSync(path.join(binDir, 'hermes-acp')), acpSource)
-    assert.deepEqual(fs.readdirSync(binDir).sort(), ['hermes', 'hermes-acp'])
-    assert.ok(messages.some(message => message.includes('hermes') && message.includes('ENOENT')))
+    assert.equal(fs.readlinkSync(path.join(binDir, 'aegis-acp')), acpSource)
+    assert.deepEqual(fs.readdirSync(binDir).sort(), ['aegis', 'aegis-acp'])
+    assert.ok(messages.some(message => message.includes('aegis') && message.includes('ENOENT')))
     assert.ok(messages.some(message => message.includes('linked 1')))
   } finally {
     fs.rmSync(root, { recursive: true, force: true })
@@ -208,9 +208,9 @@ const writable = (): void => undefined
 
 test('skips CLI links into a translocated or read-only macOS payload', (): void => {
   for (const [payloadRoot, access, location] of [
-    ['/Volumes/Hermes Agent/Hermes Agent.app/Contents/Resources/agent-payload', readOnly, 'read-only-volume'],
+    ['/Volumes/Aegis Agent/Aegis Agent.app/Contents/Resources/agent-payload', readOnly, 'read-only-volume'],
     [
-      '/private/var/folders/aa/bb/T/AppTranslocation/1111/d/Hermes Agent.app/Contents/Resources/agent-payload',
+      '/private/var/folders/aa/bb/T/AppTranslocation/1111/d/Aegis Agent.app/Contents/Resources/agent-payload',
       writable,
       'app-translocation'
     ]
@@ -236,7 +236,7 @@ test('links a payload the move prompt flags or a root-owned one, keeps Linux as 
   // The prompt offers a move from Downloads, but links into it stay valid until the user moves the app.
   assert.equal(
     shouldProvisionBundledCliLinks(
-      '/Users/alice/Downloads/Hermes Agent.app/Contents/Resources/agent-payload',
+      '/Users/alice/Downloads/Aegis Agent.app/Contents/Resources/agent-payload',
       log,
       'darwin',
       writable
@@ -245,7 +245,7 @@ test('links a payload the move prompt flags or a root-owned one, keeps Linux as 
   )
   assert.equal(
     shouldProvisionBundledCliLinks(
-      '/Applications/Hermes Agent.app/Contents/Resources/agent-payload',
+      '/Applications/Aegis Agent.app/Contents/Resources/agent-payload',
       log,
       'darwin',
       permissionDenied
@@ -253,9 +253,9 @@ test('links a payload the move prompt flags or a root-owned one, keeps Linux as 
     true
   )
   assert.equal(
-    shouldProvisionBundledCliLinks('/tmp/.mount_hermes/resources/agent-payload', log, 'linux', readOnly),
+    shouldProvisionBundledCliLinks('/tmp/.mount_aegis/resources/agent-payload', log, 'linux', readOnly),
     true
   )
-  assert.equal(shouldProvisionBundledCliLinks('C:\\Hermes\\resources\\agent-payload', log, 'win32', writable), false)
+  assert.equal(shouldProvisionBundledCliLinks('C:\\Aegis\\resources\\agent-payload', log, 'win32', writable), false)
   assert.deepEqual(logs, [])
 })

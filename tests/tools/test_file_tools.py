@@ -356,19 +356,19 @@ class TestSearchHints:
 class TestSensitivePathCheck:
     """Verify that _check_sensitive_path blocks writes to protected locations."""
 
-    def test_hermes_config_blocked_for_write_file(self, tmp_path, monkeypatch):
-        monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+    def test_aegis_config_blocked_for_write_file(self, tmp_path, monkeypatch):
+        monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
         fake_config = tmp_path / "config.yaml"
 
         from tools.file_tools import write_file_tool
         result = json.loads(write_file_tool(str(fake_config), "approvals:\n  mode: off\n"))
         assert "error" in result
-        assert "Hermes config" in result["error"]
+        assert "Aegis config" in result["error"]
 
 
 
     def test_system_path_still_blocked(self, monkeypatch):
-        monkeypatch.setattr("tools.file_tools_write_guards._get_hermes_config_resolved", lambda: "/some/other/path")
+        monkeypatch.setattr("tools.file_tools_write_guards._get_aegis_config_resolved", lambda: "/some/other/path")
 
         from tools.file_tools import write_file_tool
         result = json.loads(write_file_tool("/etc/passwd", "evil"))
@@ -391,7 +391,7 @@ class TestSensitivePathCheck:
 
     @patch("tools.file_tools._get_file_ops")
     def test_normal_file_not_blocked(self, mock_get, monkeypatch):
-        monkeypatch.setattr("tools.file_tools_write_guards._get_hermes_config_resolved", lambda: "/home/user/.hermes/config.yaml")
+        monkeypatch.setattr("tools.file_tools_write_guards._get_aegis_config_resolved", lambda: "/home/user/.aegis/config.yaml")
         mock_ops = MagicMock()
         result_obj = MagicMock()
         result_obj.to_dict.return_value = {"status": "ok", "path": "/tmp/other.txt", "bytes": 5}
@@ -906,8 +906,8 @@ class TestSSHConfigWriteGate:
         assert not ssh_config.exists()
 
     def test_single_query_session_denies_with_the_q_mode_message(self, ssh_config, monkeypatch):
-        monkeypatch.setenv("HERMES_SINGLE_QUERY_SESSION", "1")
-        monkeypatch.setenv("HERMES_INTERACTIVE", "1")  # `hermes chat -q` exports it too
+        monkeypatch.setenv("AEGIS_SINGLE_QUERY_SESSION", "1")
+        monkeypatch.setenv("AEGIS_INTERACTIVE", "1")  # `aegis chat -q` exports it too
         from tools.file_tools import write_file_tool
 
         result = json.loads(write_file_tool(str(ssh_config), "Host x\n  ProxyCommand evil\n"))
@@ -957,14 +957,14 @@ class TestSecretFileReadRedaction:
             }
 
     @pytest.fixture
-    def hermes_home(self, tmp_path, monkeypatch):
-        """A Hermes home with no ``.hermes`` segment, like ``%LOCALAPPDATA%\\hermes``."""
+    def aegis_home(self, tmp_path, monkeypatch):
+        """A Aegis home with no ``.aegis`` segment, like ``%LOCALAPPDATA%\\aegis``."""
         from agent import file_safety
 
-        home = tmp_path / "hermes"
+        home = tmp_path / "aegis"
         home.mkdir()
-        monkeypatch.setattr(file_safety, "_hermes_home_path", lambda: home)
-        monkeypatch.setattr(file_safety, "_hermes_root_path", lambda: home)
+        monkeypatch.setattr(file_safety, "_aegis_home_path", lambda: home)
+        monkeypatch.setattr(file_safety, "_aegis_root_path", lambda: home)
         return home
 
     @staticmethod
@@ -977,7 +977,7 @@ class TestSecretFileReadRedaction:
         return ops
 
     @patch("tools.file_tools._get_file_ops")
-    def test_read_file_of_hermes_config_masks_opaque_token(self, mock_get, hermes_home):
+    def test_read_file_of_aegis_config_masks_opaque_token(self, mock_get, aegis_home):
         # read_file renders line-numbered content ("5|      ADS_API_TOKEN: …"); the gutter is
         # part of the text the redactor sees, so the fixture must carry it (a gutter-free
         # fixture would pass even though the real read leaks).
@@ -986,7 +986,7 @@ class TestSecretFileReadRedaction:
         mock_get.return_value = self._read_ops(body)
 
         from tools.file_tools import read_file_tool
-        out = json.loads(read_file_tool(str(hermes_home / "config.yaml"), task_id="secret-read"))
+        out = json.loads(read_file_tool(str(aegis_home / "config.yaml"), task_id="secret-read"))
 
         assert self.SYNTH not in out["content"]
         assert "«redacted" in out["content"]
@@ -994,12 +994,12 @@ class TestSecretFileReadRedaction:
 
         # A project's own config.yaml is NOT secret-bearing: source dumps are never mangled.
         mock_get.return_value = self._read_ops(f"4|      ADS_API_TOKEN: {self.SYNTH}\n")
-        out = json.loads(read_file_tool(str(hermes_home.parent / "proj-config.yaml"), task_id="plain-read"))
+        out = json.loads(read_file_tool(str(aegis_home.parent / "proj-config.yaml"), task_id="plain-read"))
         assert self.SYNTH in out["content"]
 
     @patch("tools.file_tools._get_file_ops")
-    def test_search_in_hermes_home_masks_opaque_token(self, mock_get, hermes_home):
-        config = hermes_home / "config.yaml"
+    def test_search_in_aegis_home_masks_opaque_token(self, mock_get, aegis_home):
+        config = aegis_home / "config.yaml"
         ops = MagicMock()
         ops.search.return_value = self._SearchResult(
             [self._Match(str(config), f"      ADS_API_TOKEN: {self.SYNTH}")])
@@ -1007,7 +1007,7 @@ class TestSecretFileReadRedaction:
         mock_get.return_value = ops
 
         from tools.file_tools import search_tool
-        raw = search_tool(pattern="ADS_API_TOKEN", path=str(hermes_home),
+        raw = search_tool(pattern="ADS_API_TOKEN", path=str(aegis_home),
                           task_id="secret-search")
 
         assert self.SYNTH not in raw

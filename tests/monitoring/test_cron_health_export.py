@@ -47,17 +47,17 @@ def test_cron_store_writability_is_exported(monkeypatch, tmp_path):
     store_health.note_unwritable(OSError(errno.ENOSPC, "full"), "x", "advance",
                                  [{"id": "job", "next_run_at": "2026-06-22T12:00:00+00:00"}])
     degraded = build_cron_health_snapshot()
-    assert (_metric(degraded, "hermes.cron.store.writable").value,
-            _metric(degraded, "hermes.cron.store.skipped_runs").value) == (0, 1)
+    assert (_metric(degraded, "aegis.cron.store.writable").value,
+            _metric(degraded, "aegis.cron.store.skipped_runs").value) == (0, 1)
     store_health._degraded.clear()
-    assert _metric(build_cron_health_snapshot(), "hermes.cron.store.writable").value == 1
+    assert _metric(build_cron_health_snapshot(), "aegis.cron.store.writable").value == 1
     # A secondary profile's store (not the exporter's scope) must not read as healthy.
     from cron.scheduler_ownership import register_ticked_homes
     register_ticked_homes([tmp_path / "other"])
     store_health.note_unwritable(OSError(errno.ENOSPC, "full"), "x", "scan", cron_dir=tmp_path / "other" / "cron")
-    assert _metric(build_cron_health_snapshot(), "hermes.cron.store.writable").value == 0
+    assert _metric(build_cron_health_snapshot(), "aegis.cron.store.writable").value == 0
     register_ticked_homes([])  # the profile left this gateway: its store no longer counts
-    assert _metric(build_cron_health_snapshot(), "hermes.cron.store.writable").value == 1
+    assert _metric(build_cron_health_snapshot(), "aegis.cron.store.writable").value == 1
 
 @pytest.mark.parametrize("message", ["oauth refresh failed", "tokenizer crashed", "HTTP 4015"])
 def test_error_classification_avoids_auth_substring_false_positives(message):
@@ -105,18 +105,18 @@ def test_registered_observable_metric_names_cover_snapshot_metrics(monkeypatch):
             self.attributes = {}
 
     gateway_snapshot = type("S", (), {"metrics": [
-        _M("hermes.gateway.up"), _M("hermes.gateway.active_agents"),
-        _M("hermes.gateway.busy"), _M("hermes.gateway.drainable"),
-        _M("hermes.gateway.restart_requested"),
-        _M("hermes.platform.up"), _M("hermes.platform.degraded"),
+        _M("aegis.gateway.up"), _M("aegis.gateway.active_agents"),
+        _M("aegis.gateway.busy"), _M("aegis.gateway.drainable"),
+        _M("aegis.gateway.restart_requested"),
+        _M("aegis.platform.up"), _M("aegis.platform.degraded"),
     ]})()
     cron_snapshot = type("S", (), {"metrics": [
-        _M("hermes.cron.scheduler.heartbeat_age_seconds"),
-        _M("hermes.cron.scheduler.last_success_age_seconds"),
-        _M("hermes.cron.scheduler.catch_up_occurrences"),
-        _M("hermes.cron.jobs.enabled"), _M("hermes.cron.jobs.running"),
-        _M("hermes.cron.jobs.overdue"),
-        _M("hermes.cron.store.writable"), _M("hermes.cron.store.skipped_runs"),
+        _M("aegis.cron.scheduler.heartbeat_age_seconds"),
+        _M("aegis.cron.scheduler.last_success_age_seconds"),
+        _M("aegis.cron.scheduler.catch_up_occurrences"),
+        _M("aegis.cron.jobs.enabled"), _M("aegis.cron.jobs.running"),
+        _M("aegis.cron.jobs.overdue"),
+        _M("aegis.cron.store.writable"), _M("aegis.cron.store.skipped_runs"),
     ]})()
     monkeypatch.setattr(gateway_health_export, "_read_gateway_snapshot", lambda config: gateway_snapshot)
     monkeypatch.setattr(gateway_health_export, "_read_cron_snapshot", lambda: cron_snapshot)
@@ -126,6 +126,6 @@ def test_registered_observable_metric_names_cover_snapshot_metrics(monkeypatch):
     registered = set(gateway_health_export._OBSERVABLE_METRIC_NAMES)
 
     # The memory-health reader runs for real here (sandboxed home: no ledger files yet).
-    assert {"hermes.gateway.previous_exit", "hermes.gateway.memory_pressure"} <= snapshot_names
+    assert {"aegis.gateway.previous_exit", "aegis.gateway.memory_pressure"} <= snapshot_names
     missing = snapshot_names - registered
     assert not missing, f"gauges emitted but NOT registered in metric_names (will be silently dropped): {sorted(missing)}"

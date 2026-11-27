@@ -18,8 +18,8 @@ from providers.base import ProviderProfile
 
 
 class _FakeClient:
-    HERMES_SKIP_TRANSPORT_WRAP = True
-    HERMES_SKIP_ASYNC_WRAP = True
+    AEGIS_SKIP_TRANSPORT_WRAP = True
+    AEGIS_SKIP_ASYNC_WRAP = True
     api_key = "k"
     base_url = "acp://seam-test"
 
@@ -108,8 +108,8 @@ def test_skip_flags_replace_the_isinstance_checks_for_in_and_out_of_tree_clients
             self.sync_client = sync_client
 
     class _SyncWithAsyncAdapter:
-        HERMES_SKIP_TRANSPORT_WRAP = True
-        HERMES_ASYNC_CLIENT = _WrappedAsync
+        AEGIS_SKIP_TRANSPORT_WRAP = True
+        AEGIS_ASYNC_CLIENT = _WrappedAsync
 
     client = _FakeClient()  # never imported by auxiliary_client
     assert _maybe_wrap_anthropic(client, "m", "k", "acp://seam-test") is client

@@ -138,7 +138,7 @@ export interface Translations {
     sharedMetricsOff?: string;
     sharedMetricsDetails?: string;
     sharedMetricsSaveFailed?: string;
-    /** Hermes Cloud "dashboard is moving" modal — optional, English fallback. */
+    /** Aegis Cloud "dashboard is moving" modal — optional, English fallback. */
     dashboardMovingMeta?: string;
     dashboardMovingNotice?: string;
     dashboardMovingTitle?: string;
@@ -197,11 +197,11 @@ export interface Translations {
     starting: string;
     startedInBackground: string;
     stopped: string;
-    updateHermes: string;
-    updateHermesConfirmMessage?: string;
-    updateHermesConfirmNow?: string;
-    updateHermesConfirmTitle?: string;
-    updatingHermes: string;
+    updateAegis: string;
+    updateAegisConfirmMessage?: string;
+    updateAegisConfirmNow?: string;
+    updateAegisConfirmTitle?: string;
+    updatingAegis: string;
     waitingForOutput: string;
   };
 
@@ -672,7 +672,7 @@ export interface Translations {
     fontMono?: string;
   };
 
-  // ── Achievements plugin (plugins/hermes-achievements) ──
+  // ── Achievements plugin (plugins/aegis-achievements) ──
   achievements: {
     hero: {
       kicker: string;

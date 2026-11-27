@@ -8,29 +8,29 @@ docs_url: https://github.com/AtlasOmnia/sidecar-libreoffice/tree/ea7a4a41e5a8e91
 sha: ea7a4a41e5a8e91b37e104d1e18285dfa083f7d4
 version: "0.5.1"
 description: >-
-  Sidecar for LibreOffice by Atlas Omnia — your Hermes agent reads and edits the Calc,
+  Sidecar for LibreOffice by Atlas Omnia — your Aegis agent reads and edits the Calc,
   Writer and Impress documents you already have open. 55 tools target documents by
-  document_id; supported edits are one named undo step and Hermes can undo its own changes.
+  document_id; supported edits are one named undo step and Aegis can undo its own changes.
   Click Open Sidecar in LibreOffice's sidebar to chat in the separate Sidecar window.
   The browser renders only the chat UI; document work stays in LibreOffice through Python-UNO.
   On macOS it is an app window in Chrome, Edge, Brave or Chromium when installed, otherwise
   a default-browser tab; Windows 0.5.1 uses a default-browser tab. Optional Follow LibreOffice
   is macOS app-mode only and off by default, separately from chat.
-  Setup: Hermes installs only the plugin. Download sidecar-libreoffice.oxt from
+  Setup: Aegis installs only the plugin. Download sidecar-libreoffice.oxt from
   https://github.com/AtlasOmnia/sidecar-libreoffice/releases/tag/v0.5.1
   (SHA-256 d25ae7834e313adf90c4ef2f47d23d8b6e5699c8802959cecc73a103a0f1a9a1),
   or build that tag, and add it in LibreOffice's Extension Manager (Tools > Extensions).
   Check that 0.5.1 is enabled, then choose Restart Now or fully quit and reopen LibreOffice.
   Pair using Tools > Copy Sidecar pairing token and save it as LIBREOFFICE_LIVE_BRIDGE_TOKEN
-  through Hermes. Chat is off by default (chat_port: 0); enabling it needs chat_port: 8661,
-  plugins.isolation: in_process and the Hermes API server with API_SERVER_KEY.
+  through Aegis. Chat is off by default (chat_port: 0); enabling it needs chat_port: 8661,
+  plugins.isolation: in_process and the Aegis API server with API_SERVER_KEY.
   Disclosure — the extension runs a token-checked plain-HTTP listener on 127.0.0.1:8660
   inside LibreOffice while LibreOffice runs. Its pairing token is owner-only in the
-  LibreOffice profile (user/hermes-bridge/token; protected DACL on Windows); Hermes stores
+  LibreOffice profile (user/aegis-bridge/token; protected DACL on Windows); Aegis stores
   a copy in its profile's secret store. With chat enabled, the plugin listens on
   127.0.0.1:8661 inside the gateway until unload or process exit, serves bundled hash-checked
-  static chat files and a page API, and forwards chats to the loopback Hermes API server
-  (api_server_port defaults to 8642). API_SERVER_KEY is read through Hermes's profile-scoped
+  static chat files and a page API, and forwards chats to the loopback Aegis API server
+  (api_server_port defaults to 8642). API_SERVER_KEY is read through Aegis's profile-scoped
   secret lookup, kept in memory, never sent to LibreOffice or the browser or logged.
   The extension and the chat endpoint authenticate each other by an HMAC challenge-response
   keyed by the pairing token; a 0.5.x extension never sends the token to the chat port, but
@@ -39,7 +39,7 @@ description: >-
   bootstrap HTML files in the user cache, not process arguments. Codes expire after 30 seconds; files are deleted
   within 30 seconds best effort, with startup/quit sweeps. The browser keeps its session
   token only in script memory. On eligible macOS launches, window position/state is sent
-  locally to the plugin even with Follow off; HERMES_LO_SIDECAR_NO_FOLLOW=1 disables that
+  locally to the plugin even with Follow off; AEGIS_LO_SIDECAR_NO_FOLLOW=1 disables that
   transport. Only on a click on Open Sidecar the extension starts a browser: on macOS
   Chrome, Edge, Brave or Chromium in app mode with its own profile under
   ~/Library/Caches/Sidecar for LibreOffice (about 60 MB once used), asked to quit when
@@ -49,18 +49,18 @@ description: >-
   The plugin starts no process.
   Neither component makes third-party network calls, has telemetry or self-updates;
   the browser's own vendor calls and LibreOffice document external links are outside
-  their control. Document content read by Hermes goes to its configured model.
+  their control. Document content read by Aegis goes to its configured model.
   calc_get_overview lists the titles and file locations of every open LibreOffice document.
-  Chat's tool fence is a pre_tool_call hook, not a Hermes-enforced per-run limit;
+  Chat's tool fence is a pre_tool_call hook, not a Aegis-enforced per-run limit;
   external-agent runtimes bypass it and are unsupported. Unresolved runs can continue
-  with full Hermes tools after disable/reload removes the hook. Read the pinned README
+  with full Aegis tools after disable/reload removes the hook. Read the pinned README
   and SECURITY.md and the known issues before enabling chat. Not affiliated with or
   endorsed by The Document Foundation, Microsoft or Nous Research; LibreOffice is a
   trademark of The Document Foundation.
 maintainer: AtlasOmnia
 tier: community
 category: tools
-requires_hermes: ">=0.23.1"
+requires_aegis: ">=0.23.1"
 readme: true
 platforms: [macos, windows]  # macOS Chrome native/bounded real-gateway; Windows Firefox tab with fake Runs API. Linux CI units only; Linux UI unsupported.
 known_issues:
@@ -69,10 +69,10 @@ known_issues:
     wait for every Sidecar run to be confirmed finished or stopped, then close all
     Sidecar windows. If any run's outcome is unresolved, stop the gateway serving
     this profile completely before updating; closing a page or pressing Stop alone
-    does not prove settlement. Current Hermes can reload plugins during an update,
+    does not prove settlement. Current Aegis can reload plugins during an update,
     so a restart only afterward does not prevent the disclosed unload-fence gap.
-    Run hermes plugins update atlas-sidecar-libreoffice, then start or restart the
-    gateway serving this profile; quit and reopen Hermes Desktop if used. Add the
+    Run aegis plugins update atlas-sidecar-libreoffice, then start or restart the
+    gateway serving this profile; quit and reopen Aegis Desktop if used. Add the
     0.5.1 .oxt in Extension Manager, confirm it is enabled, then choose Restart Now
     or fully quit and reopen LibreOffice. The released extension identifier is
     unchanged; pairing, ports, API key and chat settings are retained. Chat that
@@ -83,7 +83,7 @@ known_issues:
     New extension plus 0.4.1 plugin clearly reported that the plugin is older and opened
     no browser; no crash occurred. Old extension plus 0.5.1 plugin retained its native
     panel and replied. Both 0.5.1 opened Sidecar, completed one turn, stopped a hanging
-    turn and closed the browser on normal Quit. A disposable Hermes local-source reinstall
+    turn and closed the browser on normal Quit. A disposable Aegis local-source reinstall
     from 0.4.1 to 0.5.1 retained configured ports/settings and the stored pairing token.
     This was not a public-catalog update or a real-model run. Previous 0.5.0 mixed-pair
     evidence is historical; its extension replacement used an early integration build,
@@ -113,7 +113,7 @@ known_issues:
     the document-tool fence. Undo, document close during a reply, drag during an active reply
     and Stop during a document tool were not exercised; process exit status was unavailable.
     This is not full G9 signoff. Separately, the owner-reported 0.5.0 Mac run on 2026-11-21
-    used Hermes 0.23.1 and a configured model for a Calc write/readback, Stop and quit after
+    used Aegis 0.23.1 and a configured model for a Calc write/readback, Stop and quit after
     Extension Manager replacement of 0.4.0; it is one historical chat, not a 0.5.1 test or
     complete scenario matrix. No Windows gateway/model run is claimed.
   - >-
@@ -135,9 +135,9 @@ known_issues:
     No window-management permission is requested. Settings off stops page polling/movement,
     not the extension's local bounds transport.
   - >-
-    Chat must use a Hermes-managed model/tool loop. External agents such as codex_app_server
-    run tools outside Hermes hooks: keep chat_port: 0 with them. A dedicated profile limits
-    Hermes tools only, not external built-ins; explicitly configure its model, disable MCP
+    Chat must use a Aegis-managed model/tool loop. External agents such as codex_app_server
+    run tools outside Aegis hooks: keep chat_port: 0 with them. A dedicated profile limits
+    Aegis tools only, not external built-ins; explicitly configure its model, disable MCP
     and other toolsets and verify before enabling forwarding. The hook permits the 55 document
     tools plus read-only skill_view, skills_list, tool_search and tool_describe. Dispatch
     without session identity is unfenced; SECURITY.md describes the older non-default API
@@ -147,10 +147,10 @@ known_issues:
   - >-
     Accepted unload limitation: disable/reload removes the pre_tool_call hook when the callback
     returns, possibly before the 10-second stop budget ends. A run not confirmed stopped can
-    continue with full Hermes tools. Unload closes the listener, ends sessions/codes and asks
+    continue with full Aegis tools. Unload closes the listener, ends sessions/codes and asks
     known run IDs to stop; an unanswered creation has no ID, and a late ID gets only a
     best-effort stop outside the fence. Unresolved runs are not drained. Fixing this needs a
-    Hermes-side per-run restriction. Gateway shutdown/restart is different: Hermes drains then
+    Aegis-side per-run restriction. Gateway shutdown/restart is different: Aegis drains then
     interrupts API runs, which end with the process, without first unloading the plugin.
     In a gateway serving several profiles the first profile to bind a chat port keeps it,
     and another profile's unload does not close it: turn chat on in one profile only.

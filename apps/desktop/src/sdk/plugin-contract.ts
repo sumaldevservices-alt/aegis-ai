@@ -3,7 +3,7 @@
 export type { ClearProfileBackendInput, SetProfileBackendInput } from './profile-backend'
 
 export type {
-  HermesPlugin,
+  AegisPlugin,
   PetMessageTone,
   PetSayOptions,
   PluginAppActionId,

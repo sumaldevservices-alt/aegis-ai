@@ -17,11 +17,11 @@ import type { UiPreferencesBridge } from './sync'
 // config) is not the user's choice and must never reach the machine's store
 // ahead of the client that holds the real one (#145536 review), against the
 // real native writer on a real file.
-const TRANSLUCENCY = 'hermes.desktop.translucency.v2'
-const AUTO_SPEAK = 'hermes.desktop.autoSpeakReplies'
-const THEME = 'hermes-desktop-theme-v2'
-const KEYBINDS = 'hermes.desktop.keybinds'
-const HAPTICS_MUTED = 'hermes.desktop.hapticsMuted'
+const TRANSLUCENCY = 'aegis.desktop.translucency.v2'
+const AUTO_SPEAK = 'aegis.desktop.autoSpeakReplies'
+const THEME = 'aegis-desktop-theme-v2'
+const KEYBINDS = 'aegis.desktop.keybinds'
+const HAPTICS_MUTED = 'aegis.desktop.hapticsMuted'
 
 // Every store that writes its value the moment its module evaluates.
 const LOAD_WRITERS = [
@@ -40,7 +40,7 @@ const dirs: string[] = []
 const tick = (ms = 400) => new Promise(resolve => setTimeout(resolve, ms))
 
 function storeFile(): string {
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'hermes-ui-defaults-'))
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-ui-defaults-'))
   dirs.push(dir)
 
   return path.join(dir, 'ui-preferences.json')

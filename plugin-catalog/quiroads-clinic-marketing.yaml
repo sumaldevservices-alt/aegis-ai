@@ -7,8 +7,8 @@ description: "For people who market health clinics: audit who owns and controls 
 maintainer: QuiroAds
 tier: community
 category: tools
-docs_url: https://github.com/quiroads/clinic-marketing-skills#hermes-agent
-requires_hermes: ">=0.22.0"
+docs_url: https://github.com/quiroads/clinic-marketing-skills#aegis-agent
+requires_aegis: ">=0.22.0"
 readme: true
 platforms: []
 capabilities:

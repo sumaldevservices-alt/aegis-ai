@@ -64,9 +64,9 @@ repair a pointer.
 
 Promotion replaces the stable downloads page at `releases/stable/index.html` and
 the unversioned stable macOS Apple Silicon installer at
-`releases/darwin/stable/HermesBundled-mac-arm64.dmg` (server-side R2 `CopyObject`
+`releases/darwin/stable/AegisBundled-mac-arm64.dmg` (server-side R2 `CopyObject`
 from the accepted attempt archive, served with `Cache-Control: no-store` and
-`Content-Disposition: attachment; filename="HermesBundled-mac-arm64.dmg"`) on
+`Content-Disposition: attachment; filename="AegisBundled-mac-arm64.dmg"`) on
 the R2 public origin, alongside `releases/darwin/stable/stable-mac.yml` and
 `releases/win32/stable/stable.appinstaller`. Canary tag builds own
 `releases/canary/index.html`, and a commit build owns only its claim archive's
@@ -191,13 +191,13 @@ What a release publishes follows what it built:
   manifest with exactly the targets it built, and submits the Store bundle when
   `windows-store` is on. A Store-only release has no package rows, only the Store
   bundle file, and moves no channel. The protected R2 stable head, the App Installer and macOS
-  feeds, the unversioned stable macOS DMG (`releases/darwin/stable/HermesBundled-mac-arm64.dmg`),
+  feeds, the unversioned stable macOS DMG (`releases/darwin/stable/AegisBundled-mac-arm64.dmg`),
   the APT channel, downloads page (`releases/stable/index.html`),
   `releases/stable/release-candidates.json` and the signed-package baseline stay
   on the previous full release. Source checkouts of the official repository on
   `stable`, their default channel, do not stay: that channel is GitHub's latest
   published `vX.Y.Z` release (`_resolve_stable` in
-  `hermes_cli/source_releases.py`) and reads no R2 pointer, so every published
+  `aegis_cli/source_releases.py`) and reads no R2 pointer, so every published
   release moves them, whatever its lanes.
 - **Finished.** A release that advances the desktop channel is finished when
   the protected R2 head names it. One that only moves Docker is finished when
@@ -398,8 +398,8 @@ Only Stable Release's `publish-canary` job publishes a canary. A direct dispatch
 any other workflow as a canary publisher. The canary Docker aliases (`:canary`,
 `:canary-desktop`) move only after `publish-canary` succeeds, so they follow the
 claim's green policy and lanes like every other canary channel. The canary's
-Termux packages go to `hermes-canary` under a pool prefix named by its tag, just
-as a stable attempt's go to `hermes-stable` under its attempt ref.
+Termux packages go to `aegis-canary` under a pool prefix named by its tag, just
+as a stable attempt's go to `aegis-stable` under its attempt ref.
 
 Pull requests and pushes to `main` run no E2E suite. Each daily `Canary Release`
 dispatches `Stable Release` with the canary claim tag, running full CI with
@@ -414,10 +414,10 @@ remains available for manual dry-run preview/replay).
 ## Canary and one-off desktop identities
 
 `release.py --canary` builds the separate canary application. Its package
-identity and CLI command (`hermes-canary`) differ from stable; the existing
+identity and CLI command (`aegis-canary`) differ from stable; the existing
 canary feed updates that application only. One-off builds use
 `release.py --build-commit REV --remote REMOTE` (add `--publish` to dispatch).
-Their application identity and CLI command (`hermes-<7-character-sha>`) include
+Their application identity and CLI command (`aegis-<7-character-sha>`) include
 the pinned commit. Two different commit builds do not replace each other.
 A commit build runs the Stable Release pipeline itself (see
 [Commit builds](#commit-builds)).
@@ -431,7 +431,7 @@ subscription is published for them, and both the GUI and bundled CLI refuse
 update requests. They direct the recipient to ask the developer for a new
 build. Source checkouts are separate: an official-repository checkout follows
 `stable` and a fork or mirror follows `main`, until
-`hermes update --set-channel` picks another channel.
+`aegis update --set-channel` picks another channel.
 
 ### Commit builds
 
@@ -524,14 +524,14 @@ python scripts/release.py --channel pm-preview --build-commit my-branch --remote
 python scripts/release.py --channels --remote origin
 ```
 
-By default a preview channel installs as its own side-by-side app (`Hermes
+By default a preview channel installs as its own side-by-side app (`Aegis
 NAME`, its own package ID). To test an exact commit as the regular app instead,
 create the channel with `--branding stable`: it copies the published stable
 channel's name, icon and package ID, so the build installs over the official
 app, shares its desktop settings, and later updates follow the channel. Branding is fixed when the channel is
 created; repeat the flag on every dispatch of that channel and use a new channel
 name to change it. `--branding` needs `--channel`, since a plain one-off commit
-build always carries its `Hermes Agent <sha>` identity.
+build always carries its `Aegis Agent <sha>` identity.
 
 ```sh
 python scripts/release.py --channel my-commit --branding stable --build-commit SHA --remote origin --publish
@@ -606,7 +606,7 @@ claim tag object's immutable tagger timestamp (`year.hourOfYear.secondOfHour.0`)
 independently of the SemVer payload tag.
 Missing baseline
 artifacts are a blocker, not permission to fabricate or skip acceptance.
-See [the bundled update contract](https://github.com/NousResearch/hermes-agent/blob/main/tests/install/BUNDLED_UPDATES.md).
+See [the bundled update contract](https://github.com/NousResearch/aegis-agent/blob/main/tests/install/BUNDLED_UPDATES.md).
 
 ## Explicit exclusions and policy
 

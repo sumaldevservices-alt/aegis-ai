@@ -2,7 +2,7 @@
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { HermesConnection } from '@/global'
+import type { AegisConnection } from '@/global'
 import {
   $realProfilePromptClaim,
   $realProfilePromptDismissed,
@@ -20,13 +20,13 @@ const mocks = vi.hoisted(() => ({
   save: vi.fn()
 }))
 
-vi.mock('@/hermes', () => ({
-  saveHermesConfigRecord: (config: Record<string, unknown>, profile?: unknown) => mocks.save(config, profile)
+vi.mock('@/aegis', () => ({
+  saveAegisConfigRecord: (config: Record<string, unknown>, profile?: unknown) => mocks.save(config, profile)
 }))
 
 const promptCopy = {
   title: 'Stay signed in to your sites',
-  body: 'Let Hermes browse with a snapshot of your default browser profile.',
+  body: 'Let Aegis browse with a snapshot of your default browser profile.',
   bulletSnapshot: 'Cookies and logins are copied into a managed snapshot.',
   bulletLiveProfile: 'Your live browser profile is never opened directly.',
   bulletLocal: 'Nothing leaves this computer.',
@@ -59,12 +59,12 @@ vi.mock('@/store/notifications', () => ({
 }))
 
 vi.mock('../../hooks/use-config-record', () => ({
-  hermesConfigCacheWriter: () => (config: Record<string, unknown>) => mocks.cache(config),
-  useHermesConfigRecord: () => ({ data: mocks.loadedConfig })
+  aegisConfigCacheWriter: () => (config: Record<string, unknown>) => mocks.cache(config),
+  useAegisConfigRecord: () => ({ data: mocks.loadedConfig })
 }))
 
-const localConnection = { mode: 'local' } as HermesConnection
-const remoteConnection = { mode: 'remote', remoteKind: 'ssh' } as HermesConnection
+const localConnection = { mode: 'local' } as AegisConnection
+const remoteConnection = { mode: 'remote', remoteKind: 'ssh' } as AegisConnection
 
 const openGate = {
   claim: 'tab-1',
@@ -84,14 +84,14 @@ describe('shouldOfferRealProfilePrompt', () => {
   it('never offers it for a remote backend (#119398)', () => {
     for (const remoteKind of ['ssh', 'url', 'cloud'] as const) {
       expect(
-        shouldOfferRealProfilePrompt({ ...openGate, connection: { mode: 'remote', remoteKind } as HermesConnection })
+        shouldOfferRealProfilePrompt({ ...openGate, connection: { mode: 'remote', remoteKind } as AegisConnection })
       ).toBe(false)
     }
   })
 
   it('fails closed while the connection is unresolved', () => {
     expect(shouldOfferRealProfilePrompt({ ...openGate, connection: null })).toBe(false)
-    expect(shouldOfferRealProfilePrompt({ ...openGate, connection: {} as HermesConnection })).toBe(false)
+    expect(shouldOfferRealProfilePrompt({ ...openGate, connection: {} as AegisConnection })).toBe(false)
   })
 
   it('keeps the existing gates', () => {

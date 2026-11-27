@@ -295,7 +295,7 @@ class GatewaySessionWatchersMixin(GatewayAutoResumeMixin):
     def _session_stall_timeout_seconds(self) -> float:
         """Return configured stall timeout (seconds); 0 disables the watchdog."""
         from gateway.run import _float_env
-        return _float_env("HERMES_SESSION_STALL_TIMEOUT", 300)
+        return _float_env("AEGIS_SESSION_STALL_TIMEOUT", 300)
 
     def _session_activity_for_stall(self, session_key: str) -> Optional[dict]:
         """Stall-progress snapshot from ``AIAgent.get_activity_summary()`` only; no other clocks.
@@ -434,7 +434,7 @@ class GatewaySessionWatchersMixin(GatewayAutoResumeMixin):
     async def _model_catalog_refresh_watcher(self) -> None:
         """Refresh the /model picker's remote catalogs every TTL window. The picker itself only
         refreshes on a cold/stale open, so if nobody opens ``/model`` the cache never updates."""
-        from hermes_cli.model_catalog import refresh_catalogs, refresh_interval_seconds
+        from aegis_cli.model_catalog import refresh_catalogs, refresh_interval_seconds
         await asyncio.sleep(30)  # let startup settle
         while self._running:
             try:

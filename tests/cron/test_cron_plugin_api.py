@@ -11,14 +11,14 @@ from zoneinfo import ZoneInfo
 
 import pytest
 
-import hermes_yaml as yaml
+import aegis_yaml as yaml
 from agent.secret_scope import current_secret_scope, get_secret, reset_secret_scope, set_secret_scope
 from cron import jobs
 from cron.execution_identity import enter_cron_execution, exit_cron_execution
 from cron.plugin_api import AmbiguousJobReference, delivery_platforms, ensure_named_job
 from cron.scheduler import CronSchedulerRegistrationError
-from hermes_cli.plugin_validate import validate_plugin_dir
-from hermes_constants import get_hermes_home
+from aegis_cli.plugin_validate import validate_plugin_dir
+from aegis_constants import get_aegis_home
 
 TELEGRAM_CHAT = "-100111222"
 DISCORD_CHAT = "987654321"
@@ -43,7 +43,7 @@ def home_channels(monkeypatch):
 def caller_scope():
     """The caller's own secret scope, holding a Telegram home channel."""
     mapping = {"TELEGRAM_HOME_CHANNEL": TELEGRAM_CHAT, "REVIEW_SLOT": "caller"}
-    token = set_secret_scope(mapping, profile_home=str(get_hermes_home()))
+    token = set_secret_scope(mapping, profile_home=str(get_aegis_home()))
     try:
         yield mapping
     finally:
@@ -162,11 +162,11 @@ def test_failed_first_registration_keeps_the_job_and_the_next_call_registers_it(
 def test_home_targets_that_store_and_restores_the_active_one(tmp_path, registered):
     other = tmp_path / "other-profile"
     other.mkdir()
-    active_home, active_store = get_hermes_home(), jobs.get_cron_output_dir()
+    active_home, active_store = get_aegis_home(), jobs.get_cron_output_dir()
 
     job = ensure_named_job("follow-up", prompt="check in", schedule="every 1h", home=other)
 
-    assert (get_hermes_home(), jobs.get_cron_output_dir()) == (active_home, active_store)
+    assert (get_aegis_home(), jobs.get_cron_output_dir()) == (active_home, active_store)
     assert _all_jobs() == []
     with jobs.use_cron_store(other):
         assert [j["id"] for j in _all_jobs()] == [job["id"]]
@@ -174,7 +174,7 @@ def test_home_targets_that_store_and_restores_the_active_one(tmp_path, registere
 
     with pytest.raises(AmbiguousJobReference):
         ensure_named_job("follow-up", prompt="check in", schedule="every 1h", home=other)
-    assert (get_hermes_home(), jobs.get_cron_output_dir()) == (active_home, active_store)
+    assert (get_aegis_home(), jobs.get_cron_output_dir()) == (active_home, active_store)
 
 
 def test_names_cron_cannot_store_verbatim_are_refused_before_anything_is_written(registered):
@@ -220,7 +220,7 @@ def test_provider_registers_under_that_profiles_secrets(target, caller_scope, mo
 
 
 def test_home_schedules_in_that_profiles_time_zone_not_the_processes(target, monkeypatch, registered):
-    monkeypatch.setenv("HERMES_TIMEZONE", "America/New_York")
+    monkeypatch.setenv("AEGIS_TIMEZONE", "America/New_York")
     (target / "config.yaml").write_text("timezone: Asia/Tokyo\n", encoding="utf-8")
 
     def local_hour(job, zone):
@@ -247,7 +247,7 @@ def test_a_tilde_home_is_the_directory_it_expands_to(tmp_path, monkeypatch, regi
         assert [j["id"] for j in _all_jobs()] == [job["id"]]
 
 
-def test_home_is_read_the_way_hermes_reads_a_home_path(tmp_path, monkeypatch, registered):
+def test_home_is_read_the_way_aegis_reads_a_home_path(tmp_path, monkeypatch, registered):
     monkeypatch.setenv("SEAM_PROFILE_DIR", "other-profile")
     literal, named = tmp_path / "$SEAM_PROFILE_DIR", tmp_path / "other-profile"
     literal.mkdir()
@@ -300,7 +300,7 @@ def test_unknown_job_and_no_cron_run_answer_none():
 
 def test_a_hosted_activity_cannot_target_another_profile(target, registered):
     from agent.runtime_scope import bind_state
-    from hermes_scope import Principal, Scope, ScopeSwitchRefused
+    from aegis_scope import Principal, Scope, ScopeSwitchRefused
 
     with bind_state(Scope("acme", "agent-7", Principal("u1"), owner=Principal("u1"), can_administer=True)):
         with pytest.raises(ScopeSwitchRefused):
@@ -403,8 +403,8 @@ def register(ctx):
 
 @pytest.mark.platforms("any")  # the host is a child process
 def test_a_hook_in_a_plugin_host_reads_firing_delivery_platforms_through_ctx(tmp_path, monkeypatch):
-    from hermes_cli.plugins import PluginManager
-    from tests.hermes_cli.test_plugin_host import _home_with_plugins
+    from aegis_cli.plugins import PluginManager
+    from tests.aegis_cli.test_plugin_host import _home_with_plugins
 
     _home_with_plugins(tmp_path / "plugins", monkeypatch, {"hostedcron": HOSTED_HOOK_PLUGIN}, isolation="host")
     job = jobs.create_job(
@@ -489,7 +489,7 @@ def test_plugin_importing_the_module_gets_no_private_import_warning(tmp_path):
 
 
 def test_ctx_cron_delivery_platforms_in_process(home_channels):
-    from hermes_cli.plugins import PluginContext, PluginManager, PluginManifest
+    from aegis_cli.plugins import PluginContext, PluginManager, PluginManifest
 
     ctx = PluginContext(PluginManifest(name="demo"), PluginManager())
     job = jobs.create_job(prompt="p", schedule="every 1h", name="run", deliver="telegram")

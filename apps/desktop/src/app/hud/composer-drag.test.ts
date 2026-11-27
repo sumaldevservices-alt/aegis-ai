@@ -7,8 +7,8 @@ import { useHudComposerDrag } from './composer-drag'
 /** Matches LONG_PRESS_MS in composer-drag.ts. */
 const LONG_PRESS_MS = 140
 
-const desktopWindow = window as unknown as { hermesDesktop?: Window['hermesDesktop'] }
-const initialHermesDesktop = desktopWindow.hermesDesktop
+const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
+const initialAegisDesktop = desktopWindow.aegisDesktop
 
 const beginMove = vi.fn()
 const endMove = vi.fn()
@@ -38,19 +38,19 @@ beforeEach(() => {
   moveBy.mockClear()
   setWorkspaceTransfer.mockClear()
   setWindowSize(620, 320)
-  desktopWindow.hermesDesktop = {
+  desktopWindow.aegisDesktop = {
     hud: { beginMove, endMove, moveBy, setWorkspaceTransfer }
-  } as unknown as Window['hermesDesktop']
+  } as unknown as Window['aegisDesktop']
 })
 
 afterEach(() => {
   vi.useRealTimers()
   document.body.innerHTML = ''
 
-  if (initialHermesDesktop) {
-    desktopWindow.hermesDesktop = initialHermesDesktop
+  if (initialAegisDesktop) {
+    desktopWindow.aegisDesktop = initialAegisDesktop
   } else {
-    delete desktopWindow.hermesDesktop
+    delete desktopWindow.aegisDesktop
   }
 })
 

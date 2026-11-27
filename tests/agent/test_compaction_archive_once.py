@@ -23,7 +23,7 @@ from agent.prepared_compaction import PreparedCompaction
 
 @pytest.fixture
 def home(tmp_path, monkeypatch):
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
     monkeypatch.setenv("TERMINAL_ENV", "local")
     return tmp_path
 
@@ -156,7 +156,7 @@ def test_an_unstored_handoff_in_the_protected_head_keeps_its_archives_listed():
     from tools.tool_result_storage import ARCHIVE_LIST_HEADING, pruned_archive_refs
     c = _compressor()
     old = {"role": "user", COMPRESSED_SUMMARY_METADATA_KEY: True, "content": c._with_summary_prefix("old")
-           + f"\n\n{ARCHIVE_LIST_HEADING}\n- ~/.hermes/cache/pruned/old.txt"}
+           + f"\n\n{ARCHIVE_LIST_HEADING}\n- ~/.aegis/cache/pruned/old.txt"}
     rows = [old, {"role": "assistant", "content": "work"}, {"role": "user", "content": "continue"}]
     scan = _HandoffScan(turns_to_summarize=[], summary_indices={0}, tail_start=2,
                         previous_summary_before=None, has_user_turn_before=True)
@@ -166,6 +166,6 @@ def test_an_unstored_handoff_in_the_protected_head_keeps_its_archives_listed():
 
 def test_stripping_removes_only_generated_list_blocks_not_a_quoted_heading():
     from tools.tool_result_storage import ARCHIVE_LIST_HEADING, strip_archive_list
-    block = f"\n\n{ARCHIVE_LIST_HEADING}\n- ~/.hermes/cache/pruned/a.txt\n- ~/.hermes/cache/pruned/b.json"
+    block = f"\n\n{ARCHIVE_LIST_HEADING}\n- ~/.aegis/cache/pruned/a.txt\n- ~/.aegis/cache/pruned/b.json"
     quoted = f'## User said\n"why does {ARCHIVE_LIST_HEADING} keep growing?"\n## Recovery\nread_file the paths'
     assert strip_archive_list(quoted + block + block) == quoted

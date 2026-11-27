@@ -1,4 +1,4 @@
-import type { ModelOptionsResult } from '@hermes/shared'
+import type { ModelOptionsResult } from '@aegis/shared'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { invalidateProfileScopedQueries, keepWarmNousRow, queryClient } from './query-client'
@@ -14,8 +14,8 @@ describe('invalidateProfileScopedQueries', () => {
 
   it('invalidates profile-scoped caches and leaves account/global caches intact', () => {
     const profileScoped = [
-      ['hermes-config-record'],
-      ['hermes-config-schema'],
+      ['aegis-config-record'],
+      ['aegis-config-schema'],
       ['skills-list'],
       ['toolsets-list'],
       ['model-options', 'global'],

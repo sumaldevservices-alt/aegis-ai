@@ -1,4 +1,4 @@
-"""``turn_origin()`` names a Hermes producer only where that producer said so.
+"""``turn_origin()`` names a Aegis producer only where that producer said so.
 
 Execution trust (``internal``) is not an origin: a Bot Chat delivery, a restart's resume of a
 person's interrupted turn and a late /steer drained after a wake all run ``internal`` or under a
@@ -19,7 +19,7 @@ from tests.waiting import async_wait_until
 
 PERSON = {'id': 'uid:1000', 'name': 'Mark', 'is_bot': False}
 BOT = {'id': 'bot:cto', 'name': 'cto', 'is_bot': True}
-PEER_DM_TRANSPORT = 'api-peer-dm'  # the actor ``hermes peer dm`` is admitted as (``api_server_bot_chat``)
+PEER_DM_TRANSPORT = 'api-peer-dm'  # the actor ``aegis peer dm`` is admitted as (``api_server_bot_chat``)
 
 
 @pytest_asyncio.fixture
@@ -31,9 +31,9 @@ async def bot_chat(tmp_path, monkeypatch):
     from gateway.session_authority import initialize_session_authority
     from gateway.session_local import create_local_session
     from gateway.session_local_title import title_new_session
-    from hermes_cli.plugin_session import turn_origin
+    from aegis_cli.plugin_session import turn_origin
 
-    monkeypatch.setenv('HERMES_HOME', str(tmp_path))
+    monkeypatch.setenv('AEGIS_HOME', str(tmp_path))
     monkeypatch.setattr(run, '_load_gateway_config', lambda *_a: {'platform_toolsets': {'cli': []}})
     runner = GatewayRunner(GatewayConfig(sessions_dir=tmp_path / 'sessions'))
     authority = await initialize_session_authority(runner, profile_id='default', instance_id='owner')
@@ -142,7 +142,7 @@ class _SteeredAgent:
         self.tools = []
 
     def run_conversation(self, message, conversation_history=None, task_id=None, **_kw):
-        from hermes_cli.plugin_session import turn_origin
+        from aegis_cli.plugin_session import turn_origin
         type(self).calls.append((message.rsplit("] ", 1)[-1], turn_origin()))
         result = {"final_response": "ok", "messages": [], "api_calls": 1}
         if len(type(self).calls) == 1:
@@ -168,7 +168,7 @@ def _wake():
 async def test_a_follow_up_after_a_wake_reads_its_own_origin(monkeypatch, tmp_path, queued):
     """The late /steer runs as the next turn: the person's text, not the wake's. A message queued
     behind the wake (/queue) reads its own event either way."""
-    from hermes_cli.plugin_session import turn_origin
+    from aegis_cli.plugin_session import turn_origin
     _SteeredAgent.calls, _SteeredAgent.first = [], {"pending_steer": "typed after last tool"}
     _install_fake_agent(monkeypatch, tmp_path, _SteeredAgent)
     adapter = HookRecordingAdapter()
@@ -219,7 +219,7 @@ async def test_a_restart_resume_of_an_interrupted_turn_reads_no_origin(named):
     the adapter hands on reads ``None``. The ``named`` case shows the same path keeps an origin a
     producer did set."""
     from gateway.session_context import clear_session_vars, set_session_vars
-    from hermes_cli.plugin_session import turn_origin
+    from aegis_cli.plugin_session import turn_origin
     adapter = HookRecordingAdapter()
     runner = _make_runner(adapter)
     seen = []

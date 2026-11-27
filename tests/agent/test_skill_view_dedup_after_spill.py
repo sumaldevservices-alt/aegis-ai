@@ -49,9 +49,9 @@ def _response(tool_calls=None):
 
 @pytest.fixture
 def home(tmp_path, monkeypatch):
-    home = tmp_path / ".hermes"
+    home = tmp_path / ".aegis"
     (home / "skills").mkdir(parents=True)
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     reset_skill_view_dedup()
     yield home
     reset_skill_view_dedup()

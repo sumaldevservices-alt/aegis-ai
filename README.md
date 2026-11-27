@@ -16,7 +16,7 @@
 
 ## 🔥 What is AEGIS?
 
-**AEGIS** is an elite, production-grade sovereign AI infrastructure platform and multi-agent swarm architecture inspired by Nous Research's Hermes Agent. Engineered for zero-downtime autonomy, multi-server fleet management, web intelligence, and self-healing systems, AEGIS bridges cognitive LLM reasoning with deterministic OS execution.
+**AEGIS** is an elite, production-grade sovereign AI infrastructure platform and multi-agent swarm architecture inspired by Nous Research's Aegis Agent. Engineered for zero-downtime autonomy, multi-server fleet management, web intelligence, and self-healing systems, AEGIS bridges cognitive LLM reasoning with deterministic OS execution.
 
 ---
 

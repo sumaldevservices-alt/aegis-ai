@@ -28,9 +28,9 @@ def deny_config(monkeypatch):
 @pytest.fixture
 def clean_env(monkeypatch):
     """Non-interactive, non-gateway, non-cron, non-yolo baseline."""
-    for var in ("HERMES_YOLO_MODE", "HERMES_GATEWAY_SESSION",
-                "HERMES_CRON_SESSION", "HERMES_INTERACTIVE",
-                "HERMES_EXEC_ASK"):
+    for var in ("AEGIS_YOLO_MODE", "AEGIS_GATEWAY_SESSION",
+                "AEGIS_CRON_SESSION", "AEGIS_INTERACTIVE",
+                "AEGIS_EXEC_ASK"):
         monkeypatch.delenv(var, raising=False)
     monkeypatch.setattr(mod, "_YOLO_MODE_FROZEN", False)
 
@@ -237,7 +237,7 @@ class TestDenyOrdering:
         deny_config(["*chmod*"], mode="off")
         monkeypatch.setattr(mod, "_YOLO_MODE_FROZEN", True)
 
-        result = guard("chmod 600 /tmp/hermes-approval-deny-test", env_type)
+        result = guard("chmod 600 /tmp/aegis-approval-deny-test", env_type)
 
         assert result["approved"] is False
         assert result.get("user_deny") is True

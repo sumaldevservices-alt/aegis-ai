@@ -1,4 +1,4 @@
-import { hermesApi } from '@/api/client'
+import { aegisApi } from '@/api/client'
 import { $profileRemoteOverrides } from '@/store/profile-remote-override'
 
 import {
@@ -41,7 +41,7 @@ export function launcherPluginFor(profile: null | string | undefined): null | st
 
 export async function readLauncherStatus(profile: string, plugin: string): Promise<LauncherStatus | null> {
   try {
-    const status = await hermesApi<LauncherStatus>({
+    const status = await aegisApi<LauncherStatus>({
       path: `/api/plugins/${encodeURIComponent(plugin)}/status`,
       profile,
       timeoutMs: LAUNCHER_STATUS_TIMEOUT_MS

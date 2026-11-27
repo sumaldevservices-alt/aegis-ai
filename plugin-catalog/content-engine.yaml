@@ -7,7 +7,7 @@ description: "One long video in, a week of content out. Paste a YouTube URL, get
 maintainer: PXMichael
 category: tools
 tier: community
-requires_hermes: ">=0.19"
+requires_aegis: ">=0.19"
 docs_url: https://github.com/PXMichael/content-engine/blob/17c4ac97e874f2cad3cbe7a934472d0a3cfcdb71/README.md
 platforms: []
 readme: true

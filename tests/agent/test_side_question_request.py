@@ -257,9 +257,9 @@ def _usage_rows(db, session_id: str) -> list[dict]:
 
 
 def test_side_call_writes_only_one_usage_row(provider, issued, tmp_path):
-    from hermes_constants import get_hermes_home
+    from aegis_constants import get_aegis_home
 
-    memories = Path(get_hermes_home()) / "memories"
+    memories = Path(get_aegis_home()) / "memories"
     memories.mkdir(parents=True, exist_ok=True)
     (memories / "MEMORY.md").write_text("user likes tea\n", encoding="utf-8")
     db = storage_handle(tmp_path)
@@ -320,25 +320,25 @@ def test_side_call_leaves_the_parent_sessions_terminal_environment_alive(provide
 
 def test_side_call_runs_under_the_turns_profile_and_secret_scope(provider, issued, tmp_path):
     """The plugin (of the turn's profile) redeems from its own thread, where no profile is bound;
-    the request still resolves the parent turn's HERMES_HOME and secret scope."""
+    the request still resolves the parent turn's AEGIS_HOME and secret scope."""
     from agent.secret_scope import current_secret_scope_home, reset_secret_scope, set_secret_scope
-    from hermes_constants import get_hermes_home, reset_hermes_home_override, set_hermes_home_override
+    from aegis_constants import get_aegis_home, reset_aegis_home_override, set_aegis_home_override
 
     profile_home = tmp_path / "profiles" / "work"
     profile_home.mkdir(parents=True)
     parent = _make_parent()
-    home_token = set_hermes_home_override(profile_home)
+    home_token = set_aegis_home_override(profile_home)
     scope_token = set_secret_scope({"OPENROUTER_API_KEY": "sk-work"}, profile_home=str(profile_home))
     try:
         _run_parent_turn(parent, provider, tool_round=False)
     finally:
         reset_secret_scope(scope_token)
-        reset_hermes_home_override(home_token)
+        reset_aegis_home_override(home_token)
 
     seen: dict = {}
 
     def _reply():
-        seen.update(home=str(get_hermes_home()), secret_home=current_secret_scope_home())
+        seen.update(home=str(get_aegis_home()), secret_home=current_secret_scope_home())
         return _response("Ask: why 42?", usage=_usage())
 
     provider.replies.append(_reply)
@@ -359,15 +359,15 @@ def test_side_call_fires_no_post_llm_call(provider, issued):
     parent = _make_parent()
     _run_parent_turn(parent, provider, tool_round=False)
     fired: list = []
-    real_invoke = __import__("hermes_cli.plugins", fromlist=["invoke_hook"]).invoke_hook
+    real_invoke = __import__("aegis_cli.plugins", fromlist=["invoke_hook"]).invoke_hook
 
     def _spy(name, **kwargs):
         fired.append(name)
         return real_invoke(name, **kwargs)
 
     provider.replies.append(_response("Ask: why 42?", usage=_usage()))
-    with patch("hermes_cli.plugins.invoke_hook", side_effect=_spy), \
-            patch("hermes_cli.lifecycle.invoke_hook", side_effect=_spy, create=True):
+    with patch("aegis_cli.plugins.invoke_hook", side_effect=_spy), \
+            patch("aegis_cli.lifecycle.invoke_hook", side_effect=_spy, create=True):
         assert redeem_side_question(issued[-1], SIDE_PROMPT, plugin_id="next-prompt") == "Ask: why 42?"
     assert "post_llm_call" not in fired and "transform_llm_output" not in fired
 
@@ -387,7 +387,7 @@ def test_moa_runtime_is_refused(provider, issued):
 def test_agent_as_provider_is_refused(provider, issued):
     parent = _make_parent()
     _run_parent_turn(parent, provider, tool_round=False)
-    provider.client.SUPPORTS_HERMES_TOOL_CALLS = False  # an agent CLI shim runs its own tools
+    provider.client.SUPPORTS_AEGIS_TOOL_CALLS = False  # an agent CLI shim runs its own tools
     sent = len(provider.requests)
     assert redeem_side_question(issued[-1], SIDE_PROMPT, plugin_id="next-prompt") is None
     assert len(provider.requests) == sent
@@ -492,7 +492,7 @@ def test_timeout_counts_the_fork_build(provider, issued, monkeypatch):
 @pytest.mark.parametrize('fails', [False, True], ids=['success', 'error'])
 def test_text_only_fork_origin_is_bound_for_auxiliary_hooks(provider, issued, monkeypatch, fails):
     from agent import auxiliary_hooks
-    from hermes_cli.plugins import PluginContext, PluginManager, PluginManifest
+    from aegis_cli.plugins import PluginContext, PluginManager, PluginManifest
 
     ctx = PluginContext(PluginManifest(name='next-prompt'), PluginManager())
     monkeypatch.setattr(ctx, '_granted_in_own_home', lambda capability: capability == 'llm.side_question')

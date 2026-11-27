@@ -203,7 +203,7 @@ async def test_in_chat_restart_skips_home_shutdown_even_with_active_session():
     assert len(adapter.sent_calls) == 1
     chat_id, message, metadata = adapter.sent_calls[0]
     assert chat_id == source.chat_id
-    assert "Hermes is restarting" in message
+    assert "Aegis is restarting" in message
     assert metadata["telegram_reply_to_message_id"] == "restart-command"
 
 
@@ -301,7 +301,7 @@ async def test_signal_initiated_shutdown_persists_running_not_stopped(tmp_path, 
     """Unexpected SIGTERM (container restart / OOM / kill) must persist
     gateway_state=running — NOT stopped, and NOT leave the mid-shutdown
     'draining' marker — so container_boot auto-starts on next boot (#42675)."""
-    monkeypatch.setattr(gateway_run, "_hermes_home", tmp_path)
+    monkeypatch.setattr(gateway_run, "_aegis_home", tmp_path)
     runner, adapter = make_restart_runner()
     adapter.disconnect = AsyncMock()
     runner._signal_initiated_shutdown = True  # set by handler on unmarked signal
@@ -413,7 +413,7 @@ async def test_shutdown_mcp_servers_nonblocking_completes_fast_path():
 # A real stop in a disposable process, so the watchdog's real os._exit ends only that process. The
 # watchdog stop() arms is started only once the stop has unwound, on a short leash: its expiry then
 # follows whatever the stop did, on any runner. The child is outside pytest's fences, so it gets a
-# seeded home, an empty managed dir (without PYTEST_CURRENT_TEST nothing else skips /etc/hermes) and
+# seeded home, an empty managed dir (without PYTEST_CURRENT_TEST nothing else skips /etc/aegis) and
 # loads no .env (a checkout .env overrides the shell when the home has none), and it bounds itself: on
 # a Windows venv the parent's timeout reaches only the launcher shim.
 _STOP_WATCHDOG_CHILD = '''
@@ -424,8 +424,8 @@ deadline.start()
 repo_root, ending = sys.argv[1:3]
 sys.path.insert(0, repo_root)
 
-import hermes_cli.env_loader as env_loader
-env_loader.load_hermes_dotenv = lambda **_kwargs: []
+import aegis_cli.env_loader as env_loader
+env_loader.load_aegis_dotenv = lambda **_kwargs: []
 
 from unittest.mock import AsyncMock
 
@@ -485,7 +485,7 @@ def _run_stop_child(tmp_path, ending):
     env = {key: value for key, value in os.environ.items() if key != "PYTEST_CURRENT_TEST"}  # arms it
     managed = tmp_path / "managed"
     managed.mkdir()
-    env.update(HERMES_HOME=str(home), HERMES_MANAGED_DIR=str(managed), HERMES_GATEWAY_LOCK_DIR=str(tmp_path / "locks"),
+    env.update(AEGIS_HOME=str(home), AEGIS_MANAGED_DIR=str(managed), AEGIS_GATEWAY_LOCK_DIR=str(tmp_path / "locks"),
                PYTHONIOENCODING="utf-8")
     return subprocess.run([sys.executable, str(child), repo_root, ending], cwd=tmp_path, env=env,
                           stdin=subprocess.DEVNULL, capture_output=True, encoding="utf-8", errors="replace",
@@ -546,9 +546,9 @@ async def test_start_gateway_turns_a_failed_stop_into_an_exit_verdict(monkeypatc
 
     from gateway import run_bootstrap, run_runtime, run_shutdown
     from gateway.config import GatewayConfig
-    from hermes_constants import get_hermes_home
+    from aegis_constants import get_aegis_home
 
-    get_hermes_home().chmod(0o700)
+    get_aegis_home().chmod(0o700)
     stopped, threads = threading.Event(), []
 
     def start_owned_threads(runner):

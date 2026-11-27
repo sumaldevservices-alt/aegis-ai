@@ -8,7 +8,7 @@ maintainer: youssbim
 tier: community
 category: tools
 docs_url: https://docs.getwigoo.com/mcp
-requires_hermes: ">=0.21.6"
+requires_aegis: ">=0.21.6"
 readme: true
 platforms: []
 capabilities:

@@ -70,8 +70,8 @@ def _setup(monkeypatch, tmp_path):
     from agent.prompt_cache_lifecycle import tier
     from agent.usage_pricing import PricingEntry
 
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
-    for key in ("HERMES_SESSION_SOURCE", "HERMES_SESSION_SOURCE_EXPLICIT", "HERMES_SINGLE_QUERY_SESSION"):
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
+    for key in ("AEGIS_SESSION_SOURCE", "AEGIS_SESSION_SOURCE_EXPLICIT", "AEGIS_SINGLE_QUERY_SESSION"):
         monkeypatch.delenv(key, raising=False)
     entry = PricingEntry(**{k: Decimal(str(v)) for k, v in vars(_OPUS).items()}, source="official_docs_snapshot")
     monkeypatch.setattr("agent.usage_pricing.get_pricing_entry", lambda *a, **k: entry)
@@ -102,7 +102,7 @@ def _chat(client=None, **over):
 def _request(ttl="1h"):
     mark = {"type": "ephemeral", "ttl": ttl} if ttl == "1h" else {"type": "ephemeral"}
     return {"model": "claude-opus-4-7", "max_tokens": 8192, "stream": True,
-            "system": [{"type": "text", "text": "You are Hermes. " * 400, "cache_control": mark}],
+            "system": [{"type": "text", "text": "You are Aegis. " * 400, "cache_control": mark}],
             "messages": [{"role": "user", "content": [{"type": "text", "text": "hi", "cache_control": mark}]}]}
 
 

@@ -8,8 +8,8 @@ description: "Search and read your Audionotes voice notes, meeting transcripts a
 maintainer: Audionotes
 tier: community
 category: tools
-docs_url: https://github.com/1811LabsYT/audionotes-claude-plugin#hermes-agent
-requires_hermes: ">=0.21.6"
+docs_url: https://github.com/1811LabsYT/audionotes-claude-plugin#aegis-agent
+requires_aegis: ">=0.21.6"
 readme: true
 platforms: []
 capabilities:

@@ -1,7 +1,7 @@
 """Dependency-environment layout: where a project's venv generations live, which one
 is selected, and the interpreter inside any venv. Shared by PM and pre-import launchers.
 
-Only stdlib and hermes_constants: environment selection must work before
+Only stdlib and aegis_constants: environment selection must work before
 any dependency from that environment has been imported.
 """
 from __future__ import annotations
@@ -14,7 +14,7 @@ import re
 import shlex
 from pathlib import Path
 
-from hermes_constants import get_default_hermes_root, project_venv_dir
+from aegis_constants import get_default_aegis_root, project_venv_dir
 
 
 def install_key(project_root: Path) -> str:
@@ -24,10 +24,10 @@ def install_key(project_root: Path) -> str:
 
 def dependency_home_root() -> Path:
     """Scope dependency state like a process launched in the active home."""
-    from hermes_constants import get_default_hermes_root, get_hermes_home_override
+    from aegis_constants import get_default_aegis_root, get_aegis_home_override
 
-    override = get_hermes_home_override()
-    return get_default_hermes_root(home=override) if override else get_default_hermes_root()
+    override = get_aegis_home_override()
+    return get_default_aegis_root(home=override) if override else get_default_aegis_root()
 
 
 def installs_root() -> Path:
@@ -35,9 +35,9 @@ def installs_root() -> Path:
 
 
 def named_install_state_dir() -> Path | None:
-    """The state folder a launcher named for this process (``HERMES_INSTALL_STATE_DIR``), else ``None``.
+    """The state folder a launcher named for this process (``AEGIS_INSTALL_STATE_DIR``), else ``None``.
 
-    A launcher names one when it starts Hermes on an interpreter it prepared, where the install's own
+    A launcher names one when it starts Aegis on an interpreter it prepared, where the install's own
     state cannot be used: a sandbox that may read the selected environment and nothing else of
     ``installs/<key>`` still sees that folder, cannot read or lock it, and would end at start on it.
     Such a process and its children keep their locks and markers in the named folder. Start-up reads
@@ -47,7 +47,7 @@ def named_install_state_dir() -> Path | None:
     absolute path names nothing; no ``.env`` or secret source can set it (``LAUNCH_ONLY_ENV_KEYS``).
     """
     # health: allow HX002 -- a launcher's fact about one process tree, read at start before any config loads
-    value = os.environ.get("HERMES_INSTALL_STATE_DIR", "").strip()
+    value = os.environ.get("AEGIS_INSTALL_STATE_DIR", "").strip()
     return Path(value) if value and Path(value).is_absolute() else None
 
 
@@ -67,9 +67,9 @@ def refuse_dependency_change() -> None:
 
     raise InstallError(
         "venv",
-        "this Hermes runs on the Python environment its launcher chose (HERMES_INSTALL_STATE_DIR is set), "
+        "this Aegis runs on the Python environment its launcher chose (AEGIS_INSTALL_STATE_DIR is set), "
         "and an environment built from here would never be used",
-        "run the command from Hermes started outside that launcher",
+        "run the command from Aegis started outside that launcher",
     )
 
 
@@ -78,23 +78,23 @@ def owning_home_root(project_root: Path) -> Path | None:
 
     Dependency state is scoped per data root (``<root>/installs/<install_key>``), but a source
     checkout -- its launchers, product builds and install stamp -- exists once. A launch under
-    another root (a test's temporary ``HERMES_HOME``, a per-task home, a CI service home) borrows
+    another root (a test's temporary ``AEGIS_HOME``, a per-task home, a CI service home) borrows
     it: the root that installed it already holds committed state for it, under the root the
-    checkout sits in (``<root>/hermes-agent``) or else the platform default root. ``None`` when
+    checkout sits in (``<root>/aegis-agent``) or else the platform default root. ``None`` when
     the active root's state is that state (the owner itself, or one of its profiles), and when no
     such root has state for this checkout -- a fresh install, or a custom root that owns its own
     tree -- so those keep today's behaviour (#123238).
 
     A borrowing launch's own sync leaves ``facts.json`` under the borrower too, so state alone
-    cannot name the owner. The checkout's ``hermes`` launcher can: only the owner publishes it,
+    cannot name the owner. The checkout's ``aegis`` launcher can: only the owner publishes it,
     and it execs the owner's store Python. With no live launcher to ask, the root the checkout
     sits in outranks the platform default.
     """
-    from hermes_constants import _get_platform_default_hermes_home
+    from aegis_constants import _get_platform_default_aegis_home
 
     root = Path(project_root).resolve()
     key = install_key(root)
-    candidates = [candidate for candidate in dict.fromkeys((root.parent, _get_platform_default_hermes_home()))
+    candidates = [candidate for candidate in dict.fromkeys((root.parent, _get_platform_default_aegis_home()))
                   if (candidate / "installs" / key / "facts.json").is_file()]
     if not candidates:
         return None
@@ -109,10 +109,10 @@ def owning_home_root(project_root: Path) -> Path | None:
 
 def _launcher_bound_root(project_root: Path, candidates: list[Path]) -> Path | None:
     """The candidate whose ``tools/`` holds the live interpreter the checkout's launcher execs."""
-    from hermes_cli._launchers import _launcher_python
+    from aegis_cli._launchers import _launcher_python
 
-    local = project_root / ".hermes" / "bin"
-    for name in (("hermes.exe", "hermes.cmd") if os.name == "nt" else ("hermes",)):
+    local = project_root / ".aegis" / "bin"
+    for name in (("aegis.exe", "aegis.cmd") if os.name == "nt" else ("aegis",)):
         python = _launcher_python(local / name)
         if python is None or not python.is_file():
             continue
@@ -141,13 +141,13 @@ def runtime_facts_path(project_root: Path) -> Path:
     return install_state_dir(project_root) / "facts.json"
 
 
-# The files that decide the dependency set. `scripts/run-in-hermes-env` re-syncs
+# The files that decide the dependency set. `scripts/run-in-aegis-env` re-syncs
 # when any of them differs in mtime from its stamp under activation_inputs_dir.
 ACTIVATION_INPUTS = ("uv.lock", "pyproject.toml", "setup.py", "pm/lock.json")
 
 
 def activation_inputs_dir(project_root: Path) -> Path:
-    """Beside facts.json, so the runner finds it from ``$__HERMES_ACTIVATED``."""
+    """Beside facts.json, so the runner finds it from ``$__AEGIS_ACTIVATED``."""
     return install_state_dir(project_root) / "inputs"
 
 
@@ -202,7 +202,7 @@ def _payload_manifest(root: Path) -> tuple[dict, Path] | None:
         runtime = manifest.get("runtime", {})
         commands = runtime.get("commands", {}) if isinstance(runtime, dict) else None
         well_formed = (isinstance(commands, dict)
-                       and isinstance(commands.get("hermes", ""), str)
+                       and isinstance(commands.get("aegis", ""), str)
                        and all(isinstance(manifest.get(key, ""), str) for key in ("venv", "store")))
         if well_formed and (path.parent / manifest["repo"]).resolve() == root:
             return manifest, path.parent
@@ -226,15 +226,15 @@ def payload_venv(project_root: Path) -> Path | None:
     return _payload_path(payload[1], venv, "environment") if venv else None
 
 
-def _payload_hermes_command(root: Path) -> Path | None:
+def _payload_aegis_command(root: Path) -> Path | None:
     payload = _payload_manifest(root)
-    command = payload[0].get("runtime", {}).get("commands", {}).get("hermes") if payload else None
+    command = payload[0].get("runtime", {}).get("commands", {}).get("aegis") if payload else None
     return _payload_path(payload[1], command, "launcher") if command else None
 
 
 def payload_command_dir(project_root: Path) -> Path | None:
     """The directory holding a sealed payload's own launchers (``<payload>/bin``), or ``None``."""
-    command = _payload_hermes_command(Path(project_root).resolve())
+    command = _payload_aegis_command(Path(project_root).resolve())
     return command.parent if command else None
 
 
@@ -242,10 +242,10 @@ def cli_command_name(project_root: Path) -> str:
     """The name a person types to run this install's CLI.
 
     A desktop channel build publishes its launcher under a qualified name
-    (``hermes-canary``) so it never shadows another install's ``hermes``.
+    (``aegis-canary``) so it never shadows another install's ``aegis``.
     """
-    command = _payload_hermes_command(Path(project_root).resolve())
-    return command.name.removesuffix(".exe") if command else "hermes"
+    command = _payload_aegis_command(Path(project_root).resolve())
+    return command.name.removesuffix(".exe") if command else "aegis"
 
 
 def base_venv(project_root: Path) -> Path:
@@ -255,14 +255,14 @@ def base_venv(project_root: Path) -> Path:
 def store_root(project_root: Path, *, honor_runtime_override: bool = True) -> Path:
     """Resolve a payload-relative or stamped store before PM imports.
 
-    ``HERMES_RUNTIME_DIR`` exists so a running process can point PM at a
+    ``AEGIS_RUNTIME_DIR`` exists so a running process can point PM at a
     non-default runtime location. Publication paths must pass
     ``honor_runtime_override=False``: a persisted artifact (an installed
     launcher) has to bind the store of the tree it serves, never a runtime
     directory inherited through the environment.
     """
     if honor_runtime_override:
-        override = os.environ.get("HERMES_RUNTIME_DIR")
+        override = os.environ.get("AEGIS_RUNTIME_DIR")
         if override:
             return Path(override).resolve()
     root = Path(project_root).resolve()
@@ -281,7 +281,7 @@ def store_root(project_root: Path, *, honor_runtime_override: bool = True) -> Pa
                 return _unstamped_store(root)
             value = data.get("runtimeDir") if isinstance(data, dict) else None
             return Path(value).resolve() if value else _unstamped_store(root)
-    return get_default_hermes_root() / "tools"
+    return get_default_aegis_root() / "tools"
 
 
 def _unstamped_store(project_root: Path) -> Path:
@@ -292,7 +292,7 @@ def _unstamped_store(project_root: Path) -> Path:
     with the home. The checkout's own launchers exec the owner's interpreter, so a borrowing
     launch resolves the same one (#123238).
     """
-    return (owning_home_root(project_root) or get_default_hermes_root()) / "tools"
+    return (owning_home_root(project_root) or get_default_aegis_root()) / "tools"
 
 
 def flush_before_selecting() -> None:
@@ -483,7 +483,7 @@ def running_from_selected_environment(project_root: Path) -> bool:
 
 
 class NoCommittedEnvironment(RuntimeError):
-    """PM's store Python with no committed generation: no retry fixes it, only `hermes pm repair`."""
+    """PM's store Python with no committed generation: no retry fixes it, only `aegis pm repair`."""
 
 
 def _require_own_dependencies(project_root: Path) -> None:
@@ -511,7 +511,7 @@ def activate_dependencies(project_root: Path) -> None:
     state = install_state_dir(project_root)
     # A folder a launcher named holds no selection of this process: nothing in it is read or replayed.
     if named_install_state_dir() is None and state.is_dir():
-        from hermes_cli.runtime_state import runtime_lock, recover_publication, lease_generation
+        from aegis_cli.runtime_state import runtime_lock, recover_publication, lease_generation
         # The lock's holder may be another profile's backend running a full dependency rebuild;
         # this process only reads the committed selection, so it proceeds without waiting rather
         # than leaving the backend unbound (see runtime_lock).
@@ -553,11 +553,11 @@ def activate_dependencies(project_root: Path) -> None:
                    *[entry for entry in sys.path if Path(entry).resolve() != selected.resolve()]]
     os.environ["PYTHONPATH"] = os.pathsep.join([str(project_root.resolve()), str(selected)])
     os.environ.pop("VIRTUAL_ENV", None)
-    # The venv's own `hermes`/`hermes-acp` console scripts are editable installs bound to
+    # The venv's own `aegis`/`aegis-acp` console scripts are editable installs bound to
     # the build-time source snapshot, not this checkout (#124627): a child that resolves
-    # `hermes` off PATH must hit the checkout's own launcher first, never the venv's copy.
+    # `aegis` off PATH must hit the checkout's own launcher first, never the venv's copy.
     # A sealed payload's launchers live in <payload>/bin instead.
-    directories = [payload_command_dir(project_root) or project_root.resolve() / ".hermes" / "bin"]
+    directories = [payload_command_dir(project_root) or project_root.resolve() / ".aegis" / "bin"]
     # A sealed payload's Windows venv redirectors never go on PATH: a shipped venv's still
     # names the build machine, and a generation built since names PM's writable Python copy,
     # which cannot start the package's executables (see venv_command).
@@ -570,8 +570,8 @@ def activate_dependencies(project_root: Path) -> None:
 
 
 # PATH as this process inherited it, kept before the first startup step that writes PATH: this
-# module's activate_dependencies() (Hermes's own command dirs), pm.install.activate() (tool dirs) or
-# a PATH line in a Hermes .env file (hermes_cli.env_loader).
+# module's activate_dependencies() (Aegis's own command dirs), pm.install.activate() (tool dirs) or
+# a PATH line in a Aegis .env file (aegis_cli.env_loader).
 _inherited_path: str | None = None
 
 
@@ -583,7 +583,7 @@ def remember_inherited_path() -> None:
 
 
 def inherited_path() -> str:
-    """PATH as this process inherited it, before startup put Hermes's own directories first: the
+    """PATH as this process inherited it, before startup put Aegis's own directories first: the
     PATH a new terminal starts from. PATH itself when startup never changed it."""
     return os.environ.get("PATH", "") if _inherited_path is None else _inherited_path
 
@@ -597,7 +597,7 @@ def activation_environment(project_root: Path) -> dict[str, str]:
     environment = committed_venv(project_root)
     env.pop("PYTHONHOME", None)
     env.pop("VIRTUAL_ENV", None)
-    # Nothing committed: the child's own hermes_bootstrap decides (a bare store Python refuses),
+    # Nothing committed: the child's own aegis_bootstrap decides (a bare store Python refuses),
     # rather than inheriting the pre-PM in-tree venv from here.
     env["PYTHONPATH"] = os.pathsep.join([str(project_root.resolve()),
                                          *([str(site_packages(environment))] if environment else [])])
@@ -606,14 +606,14 @@ def activation_environment(project_root: Path) -> dict[str, str]:
     # an activated shell and which checkout/profile that shell came from. Its
     # directory also holds activation_inputs_dir, the input-mtime stamps
     # `scripts/_activation.sh` compares against to decide staleness.
-    env["__HERMES_ACTIVATED"] = str(runtime_facts_path(project_root))
+    env["__AEGIS_ACTIVATED"] = str(runtime_facts_path(project_root))
     # The suite's interpreter (pm.testenv): an isolated side environment, so it
     # never appears on PYTHONPATH/PATH above. scripts/run_tests.sh reads it.
     from pm.testenv import testenv_python
 
     test_python = testenv_python(project_root)
     if test_python is not None:
-        env["__HERMES_TEST_PYTHON"] = str(test_python)
+        env["__AEGIS_TEST_PYTHON"] = str(test_python)
     return env
 
 

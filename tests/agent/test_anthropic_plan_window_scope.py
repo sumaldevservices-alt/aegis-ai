@@ -40,16 +40,16 @@ def _plan_429(claim: str, reset: float, retry_after: float | None = None) -> ant
 
 
 def _isolated_home(tmp_path, monkeypatch):
-    root = tmp_path / "hermes-root"
+    root = tmp_path / "aegis-root"
     root.mkdir()
     (tmp_path / "fakehome").mkdir()
     monkeypatch.setenv("HOME", str(tmp_path / "fakehome"))
     monkeypatch.setenv("CLAUDE_CONFIG_DIR", str(tmp_path / "fakehome"))
     for var in ("ANTHROPIC_TOKEN", "ANTHROPIC_API_KEY", "CLAUDE_CODE_OAUTH_TOKEN"):
         monkeypatch.delenv(var, raising=False)
-    monkeypatch.setenv("HERMES_HOME", str(root))
-    import hermes_constants
-    monkeypatch.setattr(hermes_constants, "_default_hermes_root_memo", None, raising=False)
+    monkeypatch.setenv("AEGIS_HOME", str(root))
+    import aegis_constants
+    monkeypatch.setattr(aegis_constants, "_default_aegis_root_memo", None, raising=False)
     return root
 
 
@@ -161,8 +161,8 @@ def test_spent_window_holds_env_tokens_and_is_reported_as_a_cooldown(tmp_path, m
     from agent.agent_runtime_helpers import extract_api_error_context
     from agent.anthropic_credentials import resolve_anthropic_token
     from agent.credential_pool import load_pool
-    from hermes_cli.auth import AuthError, is_rate_limited_auth_error
-    from hermes_cli.runtime_provider import _anthropic_token_or_raise
+    from aegis_cli.auth import AuthError, is_rate_limited_auth_error
+    from aegis_cli.runtime_provider import _anthropic_token_or_raise
 
     _isolated_home(tmp_path, monkeypatch)
     monkeypatch.setenv("ANTHROPIC_API_KEY", SPENT)
@@ -187,8 +187,8 @@ def test_spent_window_holds_env_tokens_and_is_reported_as_a_cooldown(tmp_path, m
 @pytest.mark.parametrize("status", [401, 402])
 def test_an_auth_or_billing_bench_is_not_reported_as_a_rate_limit(pool, status):
     """Only a 429 bench is a cooldown; a fully benched pool after a 401/402 keeps the sign-in diagnostic."""
-    from hermes_cli.auth import AuthError, is_rate_limited_auth_error
-    from hermes_cli.runtime_provider import _anthropic_token_or_raise
+    from aegis_cli.auth import AuthError, is_rate_limited_auth_error
+    from aegis_cli.runtime_provider import _anthropic_token_or_raise
 
     for key in (SPENT, SPARE):
         pool.mark_exhausted_and_rotate(status_code=status, api_key_hint=key, model=FABLE)

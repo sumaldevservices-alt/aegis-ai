@@ -32,14 +32,14 @@ class _BoundCronExecution:
 
 
 _CURRENT: ContextVar[Optional[_BoundCronExecution]] = ContextVar(
-    "hermes_cron_execution", default=None,
+    "aegis_cron_execution", default=None,
 )
 
 
 def enter_cron_execution(job: Mapping[str, Any], execution_id: str, record: Mapping[str, Any]) -> Token:
     """Bind this fire's identity from *record*, the ledger row of the running transition."""
     from cron.scheduler_delivery import _snapshot_delivery_job
-    from hermes_cli.profiles import current_profile_name
+    from aegis_cli.profiles import current_profile_name
 
     execution = CronExecution(
         job_id=str(job["id"]),

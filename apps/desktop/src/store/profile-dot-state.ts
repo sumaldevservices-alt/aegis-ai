@@ -36,11 +36,11 @@
  *    independently scoped).
  */
 
-import { backendScopeKey, LOCAL_CONNECTION_ID } from '@hermes/shared'
+import { backendScopeKey, LOCAL_CONNECTION_ID } from '@aegis/shared'
 import { computed } from 'nanostores'
 
 import { stableRecord } from '@/lib/stable-array'
-import type { SessionInfo } from '@/types/hermes'
+import type { SessionInfo } from '@/types/aegis'
 
 import { $activeConnectionId } from './connections'
 import { $fleetRoster } from './fleet-roster'

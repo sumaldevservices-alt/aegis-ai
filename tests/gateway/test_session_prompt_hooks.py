@@ -63,7 +63,7 @@ def register(manager, hook, callback):
 
 @pytest.fixture()
 def plugin():
-    from hermes_cli.plugins import get_plugin_manager
+    from aegis_cli.plugins import get_plugin_manager
     manager, recorder = get_plugin_manager(), Recorder()
     register(manager, OPENED, recorder.opened)
     register(manager, SETTLED, recorder.settled)
@@ -303,7 +303,7 @@ def test_window_requests_and_unasked_prompts_never_fire(plugin):
 # -- failure isolation, locks, redaction -------------------------------------------------------------------
 
 def test_a_raising_plugin_changes_nothing_about_the_prompt(owner, plugin):
-    from hermes_cli.plugins import get_plugin_manager
+    from aegis_cli.plugins import get_plugin_manager
     from gateway.session_server_requests import open_requests, resolve
 
     def boom(**_kwargs):
@@ -333,7 +333,7 @@ def test_plugin_code_runs_off_the_prompt_path_and_outside_every_lock(owner, plug
     """A plugin that blocks does not hold up the registration (made under ``event_stream.lock``): it
     returns while the callback still waits, and the callback can take both locks itself."""
     from gateway import session_server_requests
-    from hermes_cli.plugins import get_plugin_manager
+    from aegis_cli.plugins import get_plugin_manager
     released, seen = threading.Event(), []
 
     def slow(**kwargs):
@@ -370,7 +370,7 @@ def test_params_are_force_redacted_and_a_copy(plugin, monkeypatch):
 
 
 def test_a_plugin_declaring_both_hooks_validates(tmp_path):
-    from hermes_cli.plugin_dev import doctor_plugin
+    from aegis_cli.plugin_dev import doctor_plugin
     root = tmp_path / "prompt-watch"
     root.mkdir()
     (root / "plugin.yaml").write_text(

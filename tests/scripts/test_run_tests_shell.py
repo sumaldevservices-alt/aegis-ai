@@ -26,7 +26,7 @@ def test_shell_runner_executes_tests_and_propagates_failure(tmp_path):
     result = subprocess.run(
         ["bash", str(root / "scripts/run_tests.sh"), "-j", "1", str(case)],
         cwd=tmp_path, capture_output=True, text=True, timeout=180,
-        env={**os.environ, "HERMES_PYTHON": sys.executable, "HERMES_TEST_FILE_RETRIES": "0",
+        env={**os.environ, "AEGIS_PYTHON": sys.executable, "AEGIS_TEST_FILE_RETRIES": "0",
              # Git for Windows' bash uppercases these names; vswhere discovery and cmd.exe need them.
              "PATHEXT": ".COM;.EXE;.BAT;.CMD", "PROGRAMFILES(X86)": "Program Files (x86)",
              "COMSPEC": "cmd.exe", "SYSTEMDRIVE": "C:"},
@@ -41,9 +41,9 @@ def test_shell_runner_executes_tests_and_propagates_failure(tmp_path):
 def test_shell_runner_forwards_the_upgrade_suite_ref_knobs(tmp_path):
     """tests/e2e/core/upgrade reads its start, install and object-store refs inside the runner's
     `env -i`; a dropped one silently runs the default refs instead (#150040)."""
-    knobs = {"HERMES_E2E_UPGRADE_BASE": "v0.23.0", "HERMES_E2E_N1_REF": "v0.22.7",
-             "HERMES_E2E_INSTALL_REF": "0123abcd", "HERMES_E2E_GIT_OBJECTS": str(tmp_path / "objects"),
-             "HERMES_E2E_KEEP_ROOT": "1"}
+    knobs = {"AEGIS_E2E_UPGRADE_BASE": "v0.23.0", "AEGIS_E2E_N1_REF": "v0.22.7",
+             "AEGIS_E2E_INSTALL_REF": "0123abcd", "AEGIS_E2E_GIT_OBJECTS": str(tmp_path / "objects"),
+             "AEGIS_E2E_KEEP_ROOT": "1"}
     case = tmp_path / "test_upgrade_knobs_canary.py"
     case.write_text(
         "import os\n"
@@ -56,7 +56,7 @@ def test_shell_runner_forwards_the_upgrade_suite_ref_knobs(tmp_path):
     result = subprocess.run(
         ["bash", str(root / "scripts/run_tests.sh"), "-j", "1", str(case)],
         cwd=tmp_path, capture_output=True, text=True, timeout=180,
-        env={**os.environ, "HERMES_PYTHON": sys.executable, "HERMES_TEST_FILE_RETRIES": "0", **knobs},
+        env={**os.environ, "AEGIS_PYTHON": sys.executable, "AEGIS_TEST_FILE_RETRIES": "0", **knobs},
         check=False,
     )
     assert result.returncode == 0, result.stdout + result.stderr

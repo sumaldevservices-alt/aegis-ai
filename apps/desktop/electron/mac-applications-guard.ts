@@ -107,8 +107,8 @@ export function isAutomatedDesktopLaunch(env: NodeJS.ProcessEnv, argv: readonly 
   if (
     isTruthyEnv(env.CI) ||
     isTruthyEnv(env.GITHUB_ACTIONS) ||
-    isTruthyEnv(env.HERMES_DESKTOP_SKIP_QUIT_CONFIRM) ||
-    Boolean(env.HERMES_DESKTOP_USER_DATA_DIR?.trim())
+    isTruthyEnv(env.AEGIS_DESKTOP_SKIP_QUIT_CONFIRM) ||
+    Boolean(env.AEGIS_DESKTOP_USER_DATA_DIR?.trim())
   ) {
     return true
   }

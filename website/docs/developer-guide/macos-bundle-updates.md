@@ -24,7 +24,7 @@ Existing tagged clients retain their native feed URLs. The generic
 register channels. The builder writes the legacy URL into `app-update.yml`;
 `updates.desktop_feed_base_url` can supply an explicit bucket-base URL.
 
-- Stable: `releases/darwin/stable/stable-mac.yml` (and the unversioned Apple Silicon DMG alias at `releases/darwin/stable/HermesBundled-mac-arm64.dmg`, updated during stable desktop promotion with `Cache-Control: no-store`)
+- Stable: `releases/darwin/stable/stable-mac.yml` (and the unversioned Apple Silicon DMG alias at `releases/darwin/stable/AegisBundled-mac-arm64.dmg`, updated during stable desktop promotion with `Cache-Control: no-store`)
 - Canary: `releases/darwin/canary/canary-mac.yml`
 - Light: the same paths with `light/` between `darwin/` and the channel.
 - Artifacts: `releases/tag/TAG/FILENAME`, shared by download links and feeds.
@@ -54,7 +54,7 @@ An unreadable feed prevents pruning.
 ## Client lifecycle
 
 Checks never download automatically. Apply rechecks the release, downloads it,
-and waits for Squirrel.Mac to accept the signed app. Only then does Hermes stop
+and waits for Squirrel.Mac to accept the signed app. Only then does Aegis stop
 its app-owned backends and request installation/relaunch. Unrelated quits do
 not trigger installation. Downloads and native-verification failures leave
 backends running. Concurrent checks cannot replace an apply operation's target.
@@ -90,7 +90,7 @@ conditional publication, and retention. They are not proof of a signed install
 or actual app replacement.
 
 Native macOS packaged-update drivers are part of the existing
-[install/update family](https://github.com/NousResearch/hermes-agent/blob/main/tests/install/BUNDLED_UPDATES.md). The stable gate
+[install/update family](https://github.com/NousResearch/aegis-agent/blob/main/tests/install/BUNDLED_UPDATES.md). The stable gate
 requires signed-package transitions on both architectures. Each acceptance
 claim needs a successful native run for the exact old/new package pair.
 Workflow definitions and historical helper results do not establish acceptance

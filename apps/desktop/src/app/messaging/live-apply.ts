@@ -1,4 +1,4 @@
-import type { MessagingPlatformUpdateResponse } from '@/hermes'
+import type { MessagingPlatformUpdateResponse } from '@/aegis'
 
 /** Whether the running gateway applied a save itself. A backend that sends `live` answers for every
  *  profile; an older one only knows `hot_served` (multiplexed named profiles). */

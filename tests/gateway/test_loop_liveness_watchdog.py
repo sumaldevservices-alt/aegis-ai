@@ -26,7 +26,7 @@ from gateway.shutdown_watchdog import (
 def _no_real_log_drain(monkeypatch):
     """A real drain stops the process-wide log listener (right before os._exit, wrong mid-suite):
     every kill in this file reaches it, so stub it unless a test installs its own recorder."""
-    monkeypatch.setattr("hermes_logging.drain_log_queue", lambda timeout=1.0: None)
+    monkeypatch.setattr("aegis_logging.drain_log_queue", lambda timeout=1.0: None)
 
 
 def test_loop_liveness_watchdog_stop_during_dump_disarms_hard_exit():
@@ -63,7 +63,7 @@ def test_loop_liveness_watchdog_stop_during_dump_disarms_hard_exit():
 
 def test_loop_liveness_death_leaves_its_stacks_in_the_dump_file(tmp_path, monkeypatch):
     # A console-less launcher discards stderr; the file is the only copy that survives (#120356).
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
     exit_codes, ref, handle_ready = [], {}, threading.Event()
 
     def exit_and_stop(code: int) -> None:  # a patched exit returns, so stop the loop like a real one
@@ -87,7 +87,7 @@ def test_loop_liveness_death_leaves_its_stacks_in_the_dump_file(tmp_path, monkey
 
 def test_loop_liveness_dump_names_the_monitored_loop_thread(tmp_path, monkeypatch):
     """The dump must say WHICH thread runs the loop, and lead with that thread's own stack."""
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
     exit_codes, ref, handle_ready = [], {}, threading.Event()
     starter_ident = threading.get_ident()
 
@@ -120,7 +120,7 @@ def test_loop_liveness_dump_names_the_monitored_loop_thread(tmp_path, monkeypatc
 
 def test_loop_liveness_dump_identifies_a_loop_on_another_thread(tmp_path, monkeypatch):
     """A real loop on a non-caller thread is named, with its frozen frame ahead of the rest."""
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
     state: dict[str, object] = {}
     frozen, release, fired = threading.Event(), threading.Event(), threading.Event()
 
@@ -397,7 +397,7 @@ def test_load_gateway_config_bridges_loop_watchdog_keys(tmp_path, monkeypatch):
         "  loop_watchdog_max_strikes: 12\n",
         encoding="utf-8",
     )
-    monkeypatch.setattr("gateway.config.get_hermes_home", lambda: tmp_path)
+    monkeypatch.setattr("gateway.config.get_aegis_home", lambda: tmp_path)
 
     cfg = load_gateway_config()
     assert cfg.loop_watchdog is False
@@ -504,14 +504,14 @@ def _fire_liveness_watchdog(tmp_path, monkeypatch, sample_memory, *, join_timeou
     sentinel claimed for this process; return the exit codes it asked for."""
     from gateway.lifecycle_ledger import record_startup
 
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
     psi_root = tmp_path / "pressure"
     psi_root.mkdir()
     (psi_root / "memory").write_text(_PSI_MEMORY, encoding="utf-8")
     (psi_root / "io").write_text(_PSI_IO, encoding="utf-8")
     monkeypatch.setattr("gateway.lifecycle_ledger._PSI_ROOT", psi_root)
     monkeypatch.setattr("gateway.shutdown_watchdog.sample_memory", sample_memory)
-    monkeypatch.setattr("hermes_logging.drain_log_queue", drain)
+    monkeypatch.setattr("aegis_logging.drain_log_queue", drain)
     record_startup(tmp_path)
     exit_codes, ref, handle_ready = [], {}, threading.Event()
 
@@ -834,7 +834,7 @@ def test_shutdown_watchdog_drains_through_the_shared_bounded_drain(monkeypatch):
     import gateway.shutdown_watchdog as watchdog
 
     calls: list[str] = []
-    monkeypatch.setattr("hermes_logging.drain_log_queue", lambda timeout: calls.append(f"drain:{timeout}"))
+    monkeypatch.setattr("aegis_logging.drain_log_queue", lambda timeout: calls.append(f"drain:{timeout}"))
     monkeypatch.setattr(watchdog, "_mark_exited_quietly", lambda *a, **k: calls.append("mark"))
     monkeypatch.setattr(watchdog, "_write_watchdog_dump", lambda *a, **k: None)
     monkeypatch.setattr("gateway.status.remove_pid_file", lambda *a, **k: None)

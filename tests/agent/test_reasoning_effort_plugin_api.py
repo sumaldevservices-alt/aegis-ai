@@ -1,7 +1,7 @@
 """The Gemini reasoning helpers published for provider plugins behave as the plugin guide documents.
 
 ``gemini_thinking_config``, ``clamp_effort`` and ``bare_gemini_model_id`` are listed in
-``hermes_cli/data/plugin_api.json``: a provider plugin on the native Gemini wire maps its reasoning config
+``aegis_cli/data/plugin_api.json``: a provider plugin on the native Gemini wire maps its reasoning config
 with them, so its efforts must follow the same per-model rules as the built-in ``gemini`` provider.
 """
 
@@ -113,7 +113,7 @@ def test_importing_the_helpers_loads_no_http_stack():
 
 
 def test_helpers_are_on_the_published_plugin_api():
-    data = json.loads((_ROOT / "hermes_cli" / "data" / "plugin_api.json").read_text(encoding="utf-8"))
+    data = json.loads((_ROOT / "aegis_cli" / "data" / "plugin_api.json").read_text(encoding="utf-8"))
     published = {entry for group in data["groups"] for entry in group.get("entries", [])}
 
     for name in ("gemini_thinking_config", "clamp_effort", "bare_gemini_model_id"):

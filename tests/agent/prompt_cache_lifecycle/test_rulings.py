@@ -63,8 +63,8 @@ class _InertTimer:
 def _setup(monkeypatch, tmp_path):
     from agent.usage_pricing import PricingEntry
 
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
-    for key in ("HERMES_SESSION_SOURCE", "HERMES_SESSION_SOURCE_EXPLICIT", "HERMES_SINGLE_QUERY_SESSION"):
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
+    for key in ("AEGIS_SESSION_SOURCE", "AEGIS_SESSION_SOURCE_EXPLICIT", "AEGIS_SINGLE_QUERY_SESSION"):
         monkeypatch.delenv(key, raising=False)
     entry = PricingEntry(**{k: Decimal(str(v)) for k, v in vars(_OPUS).items()}, source="official_docs_snapshot")
     monkeypatch.setattr("agent.usage_pricing.get_pricing_entry", lambda *a, **k: entry)
@@ -135,8 +135,8 @@ def test_ruling_1_a_marked_request_is_claude_rules_on_any_wire_and_an_unmarked_o
     assert (event.route_class, window.tier, window.confidence) == ("anthropic_spec", "1h", "declared")
     assert window.guaranteed_until == 4_600.0  # the 1h it asked for is trusted: warm/compact/offload act on it
 
-    from hermes_constants import get_hermes_home
-    (get_hermes_home() / "config.yaml").write_text(
+    from aegis_constants import get_aegis_home
+    (get_aegis_home() / "config.yaml").write_text(
         f"prompt_caching:\n  route_ttl_ceilings:\n    {route['provider']}: 5m\n", encoding="utf-8")
     event = record_cache_response(agent, CanonicalUsage(input_tokens=50, cache_write_tokens=119_950),
                                   model=agent.model, provider=agent.provider, base_url=agent.base_url,

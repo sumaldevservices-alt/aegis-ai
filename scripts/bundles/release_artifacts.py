@@ -31,7 +31,7 @@ if TYPE_CHECKING:
 
 def release_version(tag: str) -> str:
     """The version a stable or canary tag publishes; packages are named after it."""
-    from hermes_cli.update_channel import release_version as version_for
+    from aegis_cli.update_channel import release_version as version_for
 
     version = version_for(tag)
     if version is None:
@@ -44,7 +44,7 @@ def release_channel(tag: str) -> str:
 
     The tag decides, never a caller flag, so a stable candidate can never write a canary feed or
     the reverse (scripts/termux/deb_version.py and scripts/releases/r2.py key on it the same way)."""
-    from hermes_cli.update_channel import is_canary_tag, is_commit_tag
+    from aegis_cli.update_channel import is_canary_tag, is_commit_tag
 
     if is_commit_tag(tag):
         raise ValueError(f"Commit builds publish to no release channel: {tag!r}")
@@ -149,7 +149,7 @@ def stamp_matches(stamp: dict, tag: str, commit: str, *, channel_request: dict |
                 or stamp.get("commit") != channel_request["commit"] or stamp.get("tag")):
             raise ValueError("Built package provenance does not match the channel request")
         return
-    from hermes_cli.update_channel import is_commit_tag, tag_core
+    from aegis_cli.update_channel import is_commit_tag, tag_core
 
     if legacy_commit_build:
         if not is_commit_tag(tag):
@@ -233,7 +233,7 @@ def _packaged_windows_executable_version(
     if not executable_relpath:
         raise ValueError("MSIX application manifest has no Executable attribute")
     target = PureWindowsPath(executable_relpath).as_posix().lstrip("/")
-    # MakeAppx percent-encodes part names: "Hermes Agent.exe" is stored as Hermes%20Agent.exe.
+    # MakeAppx percent-encodes part names: "Aegis Agent.exe" is stored as Aegis%20Agent.exe.
     entry = single(
         name for name in archive.namelist()
         if unquote(name.replace("\\", "/")).lstrip("/").casefold() == target.casefold()
@@ -288,7 +288,7 @@ def _record_macos(
         )))
     stamp_matches(stamp, tag, commit, channel_request=channel_request,
                   legacy_commit_build=legacy_commit_build)
-    from hermes_cli.update_channel import is_commit_tag
+    from aegis_cli.update_channel import is_commit_tag
 
     is_commit = channel_request is None and is_commit_tag(tag)
     if not is_commit or (not legacy_commit_build and stamp.get("signedDmg") is True):
@@ -313,7 +313,7 @@ def _record_macos(
 
 
 def _record_termux(root: Path, tag: str, commit: str, *, legacy_commit_build: bool) -> dict:
-    from hermes_cli.update_channel import is_commit_tag, tag_core
+    from aegis_cli.update_channel import is_commit_tag, tag_core
 
     package = single((root / "deb").glob("*.deb"))
     fields = subprocess.check_output(
@@ -345,7 +345,7 @@ def record(platform: str, arch: str, root: Path, tag: str, commit: str, out: Pat
            *, channel_request: dict | None = None, executable_version_probe=None,
            legacy_commit_build: bool = False) -> None:
     """Read identities from the built packages, never from the workflow matrix."""
-    from hermes_cli.update_channel import is_commit_tag, tag_core
+    from aegis_cli.update_channel import is_commit_tag, tag_core
 
     if legacy_commit_build and (channel_request is not None or not is_commit_tag(tag)):
         raise ValueError("Legacy commit build mode is only allowed for commit claims")
@@ -588,7 +588,7 @@ def publish_canary_appinstaller(root: Path, *, tag: str, variant: str, bundle: P
                                identity: str, publisher: str, version: str, public_base: str) -> None:
     """Native SDK work is complete; verify its identity before writing a feed."""
     from scripts.releases.r2 import put
-    from hermes_cli.update_channel import is_canary_tag
+    from aegis_cli.update_channel import is_canary_tag
 
     if not is_canary_tag(tag):
         raise ValueError("Only canary feeds publish directly; stable requires accepted candidates")
@@ -613,7 +613,7 @@ def publish_canary_appinstaller(root: Path, *, tag: str, variant: str, bundle: P
 
 
 STABLE_DARWIN_DMG_CONTENT_TYPE = "application/x-apple-diskimage"
-STABLE_DARWIN_DMG_DISPOSITION = 'attachment; filename="HermesBundled-mac-arm64.dmg"'
+STABLE_DARWIN_DMG_DISPOSITION = 'attachment; filename="AegisBundled-mac-arm64.dmg"'
 
 
 def _stable_darwin_dmg_item(manifest: dict, public_base: str) -> tuple[str, dict]:
@@ -649,7 +649,7 @@ def _check_stable_dmg_state(
     expected_size: int,
     expected_sha256: str,
 ) -> bool:
-    from hermes_cli.update_channel import is_canary_tag, is_commit_tag
+    from aegis_cli.update_channel import is_canary_tag, is_commit_tag
     from scripts.releases import semver
 
     if existing is None:
@@ -690,7 +690,7 @@ def _check_stable_page_state(
     key fails closed. Feed order is checked before promotion, so a newer stable page can only come
     from render-builds-table's `complete` step rendering a newer release while this older advance
     was pending; refusing would wedge the sequencer, which advances oldest first."""
-    from hermes_cli.update_channel import published_canary_timestamp
+    from aegis_cli.update_channel import published_canary_timestamp
     from scripts.releases.downloads_page import recorded_build, supersedes
 
     if existing is None:
@@ -879,7 +879,7 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--out", type=Path)
     parser.add_argument("--tag", default=os.environ.get("RELEASE_TAG"))
-    parser.add_argument("--archive", default=os.environ.get("HERMES_ARCHIVE_TAG"),
+    parser.add_argument("--archive", default=os.environ.get("AEGIS_ARCHIVE_TAG"),
                         help="Attempt ref the release archive is keyed under when the payload tag is plain vX.Y.Z")
     # A stable run dispatches from the default branch, so GITHUB_SHA is not the admitted claim commit.
     parser.add_argument("--commit", default=os.environ.get("RELEASE_COMMIT") or os.environ.get("GITHUB_SHA"))

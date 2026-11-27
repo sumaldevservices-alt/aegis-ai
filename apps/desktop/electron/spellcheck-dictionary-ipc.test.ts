@@ -17,7 +17,7 @@ function rig() {
 
   registerSpellcheckDictionaryIpc({ handle }, { fromId: () => undefined })
 
-  const handler = handle.mock.calls.find(([channel]) => channel === 'hermes:spellcheck:dictionary')![1]
+  const handler = handle.mock.calls.find(([channel]) => channel === 'aegis:spellcheck:dictionary')![1]
   const call = (payload: unknown) => handler(event, payload)
 
   return { call, session }
@@ -25,7 +25,7 @@ function rig() {
 
 describe('normalizeDictionaryWord', () => {
   it('accepts one word of letters, marks, digits, apostrophes and hyphens', () => {
-    expect(normalizeDictionaryWord('Hermes')).toBe('Hermes')
+    expect(normalizeDictionaryWord('Aegis')).toBe('Aegis')
     expect(normalizeDictionaryWord('  naïve  ')).toBe('naïve')
     expect(normalizeDictionaryWord("don't")).toBe("don't")
     expect(normalizeDictionaryWord('re-run')).toBe('re-run')
@@ -43,9 +43,9 @@ describe('normalizeDictionaryWord', () => {
       '1234',
       '--',
       '<script>',
-      '-Hermes',
-      "'Hermes'",
-      'Hermes-',
+      '-Aegis',
+      "'Aegis'",
+      'Aegis-',
       'a/b',
       'x'.repeat(65),
       42,
@@ -58,23 +58,23 @@ describe('normalizeDictionaryWord', () => {
   })
 })
 
-describe('hermes:spellcheck:dictionary', () => {
+describe('aegis:spellcheck:dictionary', () => {
   it("adds and removes a word on the sender's own session", async () => {
     const { call, session } = rig()
 
-    expect(await call({ op: 'add', word: ' Hermes ' })).toBe(true)
-    expect(session.addWordToSpellCheckerDictionary).toHaveBeenCalledWith('Hermes')
+    expect(await call({ op: 'add', word: ' Aegis ' })).toBe(true)
+    expect(session.addWordToSpellCheckerDictionary).toHaveBeenCalledWith('Aegis')
 
-    expect(await call({ op: 'remove', word: 'Hermes' })).toBe(true)
-    expect(session.removeWordFromSpellCheckerDictionary).toHaveBeenCalledWith('Hermes')
+    expect(await call({ op: 'remove', word: 'Aegis' })).toBe(true)
+    expect(session.removeWordFromSpellCheckerDictionary).toHaveBeenCalledWith('Aegis')
   })
 
   it('refuses an invalid word or an unknown op without touching the dictionary', async () => {
     const { call, session } = rig()
 
     expect(await call({ op: 'add', word: 'two words' })).toBe(false)
-    expect(await call({ op: 'list', word: 'Hermes' })).toBe(false)
-    expect(await call({ op: 'constructor', word: 'Hermes' })).toBe(false)
+    expect(await call({ op: 'list', word: 'Aegis' })).toBe(false)
+    expect(await call({ op: 'constructor', word: 'Aegis' })).toBe(false)
     expect(await call(undefined)).toBe(false)
 
     expect(session.addWordToSpellCheckerDictionary).not.toHaveBeenCalled()
@@ -86,6 +86,6 @@ describe('hermes:spellcheck:dictionary', () => {
 
     session.addWordToSpellCheckerDictionary.mockReturnValue(false)
 
-    expect(await call({ op: 'add', word: 'Hermes' })).toBe(false)
+    expect(await call({ op: 'add', word: 'Aegis' })).toBe(false)
   })
 })

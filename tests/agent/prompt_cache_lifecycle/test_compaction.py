@@ -20,7 +20,7 @@ _ONE_HOUR_WRITE = {"input_tokens": 5, "output_tokens": 1, "cache_creation_input_
 
 @pytest.fixture(autouse=True)
 def _interactive(monkeypatch):
-    for key in ("HERMES_SESSION_SOURCE", "HERMES_SESSION_SOURCE_EXPLICIT", "HERMES_SINGLE_QUERY_SESSION"):
+    for key in ("AEGIS_SESSION_SOURCE", "AEGIS_SESSION_SOURCE_EXPLICIT", "AEGIS_SINGLE_QUERY_SESSION"):
         monkeypatch.delenv(key, raising=False)
 
 
@@ -89,7 +89,7 @@ def test_a_5m_window_compacts_when_its_keep_alives_end_and_the_claim_keeps_the_t
     """Nous Portal keeps 1h like Anthropic; a ``{nous: 5m}`` ceiling (or a 5m tier) compacts too once its
     keep-alives stop covering the pause. Claiming that compaction does not move an ``auto`` chat to 1h:
     the next message does, once its 5m entry is gone."""
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
     nous = {"provider": "nous", "base_url": "https://inference-api.nousresearch.com/v1"}
     agent = _spend_budget(_idle_chat(monkeypatch, **nous))
     assert cache_expiry_compaction_due(agent, now=_SENT + 54 * 60) == (True, "due")

@@ -18,7 +18,7 @@ import httpx
 
 from agent.bounded_response import read_streaming_error_body
 from agent.reasoning_effort import bare_gemini_model_id
-from hermes_cli.version_info import hermes_user_agent
+from aegis_cli.version_info import aegis_user_agent
 
 from . import interactions as wire
 from .account import INFERENCE_BASE_URL, current_model_id
@@ -51,7 +51,7 @@ def single_request(request: dict[str, Any], cap: int) -> dict[str, Any]:
 class SolsticeClient(GeminiNativeClient):
     """One stateless Interactions request per call, on ``interactions:createPerUserQuota``."""
 
-    MISSING_KEY_ERROR = "Solstice needs a signed-in account. Run `hermes auth add solstice`."
+    MISSING_KEY_ERROR = "Solstice needs a signed-in account. Run `aegis auth add solstice`."
 
     def __init__(self, *, base_url: Any = None, timeout: Any = None, **kwargs: Any) -> None:
         # No base means this endpoint, never the generic Gemini default (a different API surface).
@@ -108,7 +108,7 @@ class SolsticeClient(GeminiNativeClient):
         # Bearer, content type and User-Agent only: no API key, user-project or DPoP header, nor Google's client tag.
         extra = {k: v for k, v in self._default_headers.items() if k.lower() not in _DROPPED_DEFAULT_HEADERS}
         return {**extra, "Content-Type": "application/json", "Accept": "application/json", **self._auth_headers(),
-                "User-Agent": hermes_user_agent("hermes-agent")}
+                "User-Agent": aegis_user_agent("aegis-agent")}
 
     def _http_error(self, response: Any, body_text: Any = None) -> GeminiAPIError:
         # The Interactions mapper (snake_case error codes), without the API-key remedies (free tier,

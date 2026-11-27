@@ -7,7 +7,7 @@ import http.client
 import secrets
 import uuid
 
-from hermes_cli.release_channels import (
+from aegis_cli.release_channels import (
     ChannelError, ChannelNotFound, ChannelReader, artifact_key, build_prefix,
     canonical_json, channel_key, decode_json, package_versions, public_base as validate_public_base,
     validate_name, validate_record, validate_repository, validate_request, validate_manifest, require_sha256,
@@ -94,10 +94,10 @@ class R2ChannelStore:
 
 def preview_identity(name: str, token: str) -> dict:
     validate_name(name)
-    pascal = f"HermesChannel{token}"
-    return {"token": token, "displayName": f"Hermes {name}",
-            "appId": f"ai.hermes.channel.h{token}", "appNamePascal": pascal,
-            "artifactNamePascal": pascal, "cliName": f"hermes-{name}",
+    pascal = f"AegisChannel{token}"
+    return {"token": token, "displayName": f"Aegis {name}",
+            "appId": f"ai.aegis.channel.h{token}", "appNamePascal": pascal,
+            "artifactNamePascal": pascal, "cliName": f"aegis-{name}",
             "windowsExecutableName": pascal, "msixAppIdWithOrg": f"NousResearch.{pascal}"}
 
 
@@ -382,7 +382,7 @@ class ChannelPublisher:
     def _require_newer_versions(self, record: dict, request: dict, policy: str) -> None:
         from scripts.releases.semver import compare
         from scripts.releases.stable import windows_version
-        from hermes_cli.update_channel import published_canary_timestamp as canary_timestamp
+        from aegis_cli.update_channel import published_canary_timestamp as canary_timestamp
         previous_head = record["head"]
         previous = self.store.get(previous_head["manifestKey"])
         if previous is None or hashlib.sha256(previous[0]).hexdigest() != previous_head["sha256"]:

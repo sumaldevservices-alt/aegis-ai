@@ -23,11 +23,11 @@ export function ExternalOpenFailedDialog() {
   const [failure, setFailure] = useState<ExternalOpenFailedPayload | null>(null)
 
   useEffect(() => {
-    if (!window.hermesDesktop?.onExternalOpenFailed) {
+    if (!window.aegisDesktop?.onExternalOpenFailed) {
       return
     }
 
-    return window.hermesDesktop.onExternalOpenFailed(setFailure)
+    return window.aegisDesktop.onExternalOpenFailed(setFailure)
   }, [])
 
   if (isHudWindow() || isBrowserWindow()) {

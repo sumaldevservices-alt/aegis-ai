@@ -18,7 +18,7 @@ from tests.ci import workflow_steps
 WORKFLOWS = Path(__file__).resolve().parents[2] / ".github/workflows"
 CANARY_COMMIT = "0123456789abcdef0123456789abcdef01234567"
 MAIN_TIP = "fedcba9876543210fedcba9876543210fedcba98"
-UPSTREAM = "NousResearch/hermes-agent"
+UPSTREAM = "NousResearch/aegis-agent"
 RUN_ID = 4242
 
 

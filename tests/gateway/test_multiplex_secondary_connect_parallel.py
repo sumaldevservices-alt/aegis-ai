@@ -7,7 +7,7 @@ reached ``ready``. These tests prove:
 
 1. Secondary-profile connects overlap concurrently (deterministic barrier proof,
    no flaky wall-clock sleeps) while keeping each task's ContextVar profile
-   scope (``get_hermes_home()`` and ``get_secret()``) isolated.
+   scope (``get_aegis_home()`` and ``get_secret()``) isolated.
 2. Multiple platforms within a single secondary profile also connect
    concurrently.
 3. All pre-connect and lifecycle safety invariants remain preserved: duplicate
@@ -35,7 +35,7 @@ from gateway.config import GatewayConfig, Platform, PlatformConfig
 from gateway.platforms.base import BasePlatformAdapter
 from gateway.run import GatewayRunner, MultiplexConfigError
 from gateway.status import flush_runtime_status, read_runtime_status
-from hermes_constants import get_hermes_home
+from aegis_constants import get_aegis_home
 
 _BARRIER_TIMEOUT_SECS = 2.5
 
@@ -96,12 +96,12 @@ class _FakeAsyncAdapter(BasePlatformAdapter):
 
 
 def _make_runner(tmp_path: Path, monkeypatch, *, multiplex: bool = True) -> tuple[GatewayRunner, Path]:
-    home = tmp_path / ".hermes"
+    home = tmp_path / ".aegis"
     (home / "profiles").mkdir(parents=True, exist_ok=True)
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     monkeypatch.setattr(Path, "home", lambda: tmp_path)
-    monkeypatch.setattr("hermes_cli.profiles.get_active_profile_name", lambda: "default")
-    monkeypatch.setattr("hermes_cli.plugins.discover_plugins", lambda: None)
+    monkeypatch.setattr("aegis_cli.profiles.get_active_profile_name", lambda: "default")
+    monkeypatch.setattr("aegis_cli.plugins.discover_plugins", lambda: None)
     monkeypatch.setattr("gateway.run_startup.recover_left_core_in", lambda *a, **kw: None)
     set_multiplex_active(multiplex)
 
@@ -145,7 +145,7 @@ async def _drain_background_tasks(runner: GatewayRunner) -> None:
 @pytest.mark.asyncio
 async def test_secondary_profiles_connect_concurrently_with_isolated_scopes(tmp_path, monkeypatch):
     """Three secondary profiles must reach connect() together (barrier proof) while each
-    task observes only its own HERMES_HOME and secret scope across the await boundary."""
+    task observes only its own AEGIS_HOME and secret scope across the await boundary."""
     runner, home = _make_runner(tmp_path, monkeypatch)
     profiles = {
         "alpha": _mkprofile(home, "alpha", "TELEGRAM_BOT_TOKEN=tok-alpha\n"),
@@ -167,8 +167,8 @@ async def test_secondary_profiles_connect_concurrently_with_isolated_scopes(tmp_
         try:
             await asyncio.wait_for(all_entered.wait(), timeout=_BARRIER_TIMEOUT_SECS)
             # Re-check ContextVar scope AFTER awaiting the shared barrier.
-            observed_scopes[adapter._hermes_profile_name] = (
-                Path(get_hermes_home()).resolve(),
+            observed_scopes[adapter._aegis_profile_name] = (
+                Path(get_aegis_home()).resolve(),
                 get_secret("TELEGRAM_BOT_TOKEN"),
             )
             return True
@@ -244,7 +244,7 @@ async def test_duplicate_credential_refused_before_concurrent_connect(tmp_path, 
     created: dict[str, _FakeAsyncAdapter] = {}
 
     async def barrier_connect(adapter: _FakeAsyncAdapter, *, is_reconnect: bool = False) -> bool:
-        entered_profiles.append(adapter._hermes_profile_name)
+        entered_profiles.append(adapter._aegis_profile_name)
         if len(entered_profiles) == 2:
             both_unique_entered.set()
         await asyncio.wait_for(both_unique_entered.wait(), timeout=_BARRIER_TIMEOUT_SECS)
@@ -252,7 +252,7 @@ async def test_duplicate_credential_refused_before_concurrent_connect(tmp_path, 
 
     def make_adapter(platform, cfg):
         adapter = _FakeAsyncAdapter(platform, cfg, barrier_connect)
-        created[Path(get_hermes_home()).name] = adapter
+        created[Path(get_aegis_home()).name] = adapter
         return adapter
 
     runner._create_adapter = make_adapter
@@ -289,7 +289,7 @@ async def test_whatsapp_secondaries_connect_one_per_wave_in_profile_order(tmp_pa
         (session / "creds.json").write_text("{}", encoding="utf-8")
 
     def load_cfg():
-        name = Path(get_hermes_home()).name
+        name = Path(get_aegis_home()).name
         cfg = GatewayConfig(multiplex_profiles=True)
         cfg.platforms = {Platform.WHATSAPP: PlatformConfig(enabled=True)}
         if name == "beta":
@@ -313,7 +313,7 @@ async def test_whatsapp_secondaries_connect_one_per_wave_in_profile_order(tmp_pa
 
     def make_adapter(platform, cfg):
         adapter = _FakeAsyncAdapter(platform, cfg, connect)
-        adapter.profile = Path(get_hermes_home()).name
+        adapter.profile = Path(get_aegis_home()).name
         return adapter
 
     runner._create_adapter = make_adapter
@@ -339,7 +339,7 @@ async def test_duplicate_listener_refused_before_concurrent_connect(tmp_path, mo
     _mkprofile(home, "beta", "")
 
     def load_cfg():
-        name = Path(get_hermes_home()).name
+        name = Path(get_aegis_home()).name
         cfg = GatewayConfig(multiplex_profiles=True)
         cfg.platforms = {photon: PlatformConfig(enabled=True, token=f"secret-{name}")}
         return cfg
@@ -352,7 +352,7 @@ async def test_duplicate_listener_refused_before_concurrent_connect(tmp_path, mo
         return True
 
     def make_adapter(platform, cfg):
-        name = Path(get_hermes_home()).name
+        name = Path(get_aegis_home()).name
         adapter = _FakeAsyncAdapter(
             platform,
             cfg,
@@ -399,7 +399,7 @@ async def test_multiplex_config_error_raises_and_releases_staged_claims(tmp_path
     connect_calls = []
 
     async def unexpected_connect(adapter: _FakeAsyncAdapter, *, is_reconnect: bool = False) -> bool:
-        connect_calls.append(adapter._hermes_profile_name)
+        connect_calls.append(adapter._aegis_profile_name)
         return True
 
     runner._create_adapter = lambda platform, cfg: _FakeAsyncAdapter(platform, cfg, unexpected_connect)
@@ -418,7 +418,7 @@ async def test_multiplex_config_error_raises_and_releases_staged_claims(tmp_path
 async def test_transient_profile_failure_omitted_while_siblings_connect_concurrently(tmp_path, monkeypatch):
     """A transient failure loading one profile omits it from _served_profile_signatures and
     _profile_configs while healthy siblings still connect concurrently."""
-    from hermes_cli import env_loader
+    from aegis_cli import env_loader
 
     runner, home = _make_runner(tmp_path, monkeypatch)
     _mkprofile(home, "alpha", "TELEGRAM_BOT_TOKEN=tok-alpha\n")
@@ -487,7 +487,7 @@ async def test_connect_failure_and_exception_do_not_block_siblings(tmp_path, mon
             all_entered.set()
         try:
             await asyncio.wait_for(all_entered.wait(), timeout=_BARRIER_TIMEOUT_SECS)
-            name = adapter._hermes_profile_name
+            name = adapter._aegis_profile_name
             if name == "alpha":
                 return False
             if name == "beta":
@@ -498,7 +498,7 @@ async def test_connect_failure_and_exception_do_not_block_siblings(tmp_path, mon
 
     def make_adapter(platform, cfg):
         adapter = _FakeAsyncAdapter(platform, cfg, mixed_connect)
-        created[Path(get_hermes_home()).name] = adapter
+        created[Path(get_aegis_home()).name] = adapter
         return adapter
 
     runner._create_adapter = make_adapter
@@ -788,7 +788,7 @@ async def test_cancellation_during_prepare_releases_staged_claims_without_discon
 
     def make_adapter(platform, cfg):
         adapter = _FakeAsyncAdapter(platform, cfg, AsyncMock(return_value=True))
-        created[Path(get_hermes_home()).name] = adapter
+        created[Path(get_aegis_home()).name] = adapter
         return adapter
 
     runner._create_adapter = make_adapter
@@ -824,7 +824,7 @@ async def test_cancellation_before_gather_workers_releases_all_claims_without_di
 
     def make_adapter(platform, cfg):
         adapter = _FakeAsyncAdapter(platform, cfg, AsyncMock(return_value=True))
-        created[Path(get_hermes_home()).name] = adapter
+        created[Path(get_aegis_home()).name] = adapter
         return adapter
 
     runner._create_adapter = make_adapter
@@ -874,11 +874,11 @@ async def test_cancellation_during_handshake_disconnects_untracked_and_preserves
 
     class _ScopedAdapter(_FakeAsyncAdapter):
         async def disconnect(self) -> None:
-            disconnect_scopes[self._hermes_profile_name] = Path(get_hermes_home()).resolve()
+            disconnect_scopes[self._aegis_profile_name] = Path(get_aegis_home()).resolve()
             await super().disconnect()
 
     async def handshake(adapter: _FakeAsyncAdapter, *, is_reconnect: bool = False) -> bool:
-        name = adapter._hermes_profile_name
+        name = adapter._aegis_profile_name
         if name == "alpha":
             alpha_done.set()
             return True  # already tracked before cancellation
@@ -905,7 +905,7 @@ async def test_cancellation_during_handshake_disconnects_untracked_and_preserves
 
     def make_adapter(platform, cfg):
         adapter = _ScopedAdapter(platform, cfg, handshake)
-        created[Path(get_hermes_home()).name] = adapter
+        created[Path(get_aegis_home()).name] = adapter
         return adapter
 
     runner._create_adapter = make_adapter
@@ -944,7 +944,7 @@ async def test_provisional_claim_released_on_permanent_failure_lets_sibling_conn
         _mkprofile(home, name)
 
     def load_cfg():
-        name = Path(get_hermes_home()).name
+        name = Path(get_aegis_home()).name
         cfg = GatewayConfig(multiplex_profiles=True)
         cfg.platforms = {photon: PlatformConfig(enabled=True, token=f"key-{name}")}
         return cfg
@@ -952,7 +952,7 @@ async def test_provisional_claim_released_on_permanent_failure_lets_sibling_conn
     monkeypatch.setattr("gateway.config.load_gateway_config", load_cfg)
 
     async def perm_handshake(adapter: _FakeAsyncAdapter, *, is_reconnect: bool = False) -> bool:
-        if adapter._hermes_profile_name == "alpha":
+        if adapter._aegis_profile_name == "alpha":
             adapter._set_fatal_error("MISSING_CREDENTIALS", "missing project ID", retryable=False)
             return False
         return True
@@ -976,13 +976,13 @@ async def test_provisional_claim_released_on_permanent_failure_lets_sibling_conn
     created_retry: dict[str, _FakeAsyncAdapter] = {}
 
     async def retry_handshake(adapter: _FakeAsyncAdapter, *, is_reconnect: bool = False) -> bool:
-        return adapter._hermes_profile_name != "alpha"
+        return adapter._aegis_profile_name != "alpha"
 
     def make_retry_adapter(p, c):
         adapter = _FakeAsyncAdapter(
             p, c, retry_handshake, sidecar_bind="127.0.0.1", sidecar_port=8789, project_secret=c.token,
         )
-        created_retry[Path(get_hermes_home()).name] = adapter
+        created_retry[Path(get_aegis_home()).name] = adapter
         return adapter
 
     retry_runner._create_adapter = make_retry_adapter

@@ -1,5 +1,5 @@
-import type { BillingBlock } from '@hermes/shared/billing'
-import type { UsageLimit } from '@hermes/shared/plan-usage'
+import type { BillingBlock } from '@aegis/shared/billing'
+import type { UsageLimit } from '@aegis/shared/plan-usage'
 
 import { t } from '../i18n/runtime.js'
 

@@ -3,7 +3,7 @@
 A frozen asyncio loop takes every asyncio-based recovery path down with it, and launchd/systemd
 KeepAlive only restarts a *dead* process. Hence: (1) an OS-thread shutdown watchdog that dumps
 stacks and ``os._exit``s past ``restart_drain_timeout + grace``; (2) a heartbeat file at
-``<HERMES_HOME>/state/gateway.heartbeat`` so supervisors can tell "process alive" from "loop
+``<AEGIS_HOME>/state/gateway.heartbeat`` so supervisors can tell "process alive" from "loop
 frozen"; (3) a lifetime thread watchdog that hard-exits when the loop is too frozen to run its
 own callbacks; (4) a self-rescheduling floor timer that keeps the selector timeout finite."""
 
@@ -27,7 +27,7 @@ from typing import Any, Callable, Dict, Iterator, Optional
 from gateway.lifecycle_ledger import sample_memory, sample_oom_kills, sample_pressure_stall
 from gateway.memory_status import PRESSURE_CRITICAL, _mb, classify_pressure
 from gateway.restart import GATEWAY_SERVICE_RESTART_EXIT_CODE
-from hermes_constants import get_hermes_home, get_process_hermes_home
+from aegis_constants import get_aegis_home, get_process_aegis_home
 from utils import atomic_json_write
 
 logger = logging.getLogger(__name__)
@@ -255,7 +255,7 @@ def _drain_log_queue_quietly() -> None:
     """Bounded flush of the async file-log queue so queued lines land before ``os._exit`` skips
     atexit.  Never raises."""
     with contextlib.suppress(Exception):
-        from hermes_logging import drain_log_queue
+        from aegis_logging import drain_log_queue
         drain_log_queue(timeout=_LOG_DRAIN_S)
 
 
@@ -274,14 +274,14 @@ def _hard_exit(exit_code: int) -> None:
 def _mark_exited_quietly(exit_code: int, reason: str, *, host_memory_pressure: Optional[str] = None) -> None:
     """Best-effort terminal stamp on BOTH lifecycle records before ``os._exit`` skips teardown:
     the lifecycle ledger (so the next boot names the watchdog, not SIGKILL/OOM) and
-    ``gateway_state.json`` (so ``hermes gateway status`` and every other reader of that file stop
+    ``gateway_state.json`` (so ``aegis gateway status`` and every other reader of that file stop
     seeing ``running`` for a process the watchdog killed — #113372). The runtime-status write goes
     LAST: it is the record housekeeping refreshes, so nothing may overwrite it after we stamp it."""
     with contextlib.suppress(Exception):
         from gateway.lifecycle_ledger import mark_exited
         mark_exited(exit_code, reason=reason, host_memory_pressure=host_memory_pressure)
     with contextlib.suppress(Exception):  # os._exit skips atexit: stamp the exit-metrics marker now
-        from hermes_cli.observability.shared_metrics_process import stamp_exit
+        from aegis_cli.observability.shared_metrics_process import stamp_exit
         stamp_exit("watchdog")
     with contextlib.suppress(Exception):
         from gateway.status import write_runtime_status
@@ -292,13 +292,13 @@ def _mark_exited_quietly(exit_code: int, reason: str, *, host_memory_pressure: O
             gateway_state="degraded", exit_reason=reason, wait_timeout=0.25, **restart)
 
 
-def _process_hermes_home() -> Path:
-    """HERMES_HOME for process-level identity files (ignore profile overrides)."""
-    return get_process_hermes_home() if os.environ.get("HERMES_HOME", "").strip() else get_hermes_home()
+def _process_aegis_home() -> Path:
+    """AEGIS_HOME for process-level identity files (ignore profile overrides)."""
+    return get_process_aegis_home() if os.environ.get("AEGIS_HOME", "").strip() else get_aegis_home()
 
 
 def _home(home: Optional[Path]) -> Path:
-    return home if home is not None else _process_hermes_home()
+    return home if home is not None else _process_aegis_home()
 
 
 def get_loop_heartbeat_path(home: Optional[Path] = None) -> Path:
@@ -306,7 +306,7 @@ def get_loop_heartbeat_path(home: Optional[Path] = None) -> Path:
 
 
 def get_loop_tick_socket_path(home: Optional[Path] = None, pid: Optional[int] = None) -> Path:
-    """``<HERMES_HOME>/state/gateway.loop-tick.<pid>.sock`` — PID-suffixed so a stale node from a
+    """``<AEGIS_HOME>/state/gateway.loop-tick.<pid>.sock`` — PID-suffixed so a stale node from a
     dead process is never mistaken for this gateway's witness. Served by the loop itself
     (``_tick_socket_handler``), so an answer proves the loop dispatches; the heartbeat cannot.
 

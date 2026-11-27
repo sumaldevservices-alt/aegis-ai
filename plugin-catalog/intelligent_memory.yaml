@@ -1,13 +1,13 @@
 name: intelligent_memory
-repo: https://github.com/hoysama/hermes-intelligent-memory
+repo: https://github.com/hoysama/aegis-intelligent-memory
 sha: 3100c82311cf6d218e2660ee9e8adf88a496ba24
 description: Local-first Arabic/English intelligent memory with canonical facts, verbatim
-  source quotes, governance audit, bounded lexical recall, and selective Hermes cloud
+  source quotes, governance audit, bounded lexical recall, and selective Aegis cloud
   enrichment.
 maintainer: hoysama
 tier: community
 category: memory
-docs_url: https://github.com/hoysama/hermes-intelligent-memory#readme
+docs_url: https://github.com/hoysama/aegis-intelligent-memory#readme
 version: "0.3.0"
 capabilities:
   provides_tools:

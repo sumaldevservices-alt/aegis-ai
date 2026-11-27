@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Canonical test runner for hermes-agent. Run this instead of calling
+# Canonical test runner for aegis-agent. Run this instead of calling
 # `pytest` directly to guarantee your local run matches CI behavior.
 #
 # What this script enforces:
@@ -11,7 +11,7 @@
 #   * Env vars blanked (conftest.py also does this, but this
 #     is belt-and-suspenders for anyone running pytest outside our
 #     conftest path — e.g. on a single file)
-#   * The checkout's test environment (via scripts/run-in-hermes-env when needed)
+#   * The checkout's test environment (via scripts/run-in-aegis-env when needed)
 #
 # Usage:
 #   scripts/run_tests.sh                            # full suite
@@ -40,16 +40,16 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 # ── Locate python ───────────────────────────────────────────────────────────
 # The suite runs under the checkout's isolated test environment (pm.testenv),
 # and only there: unless the inherited environment is current for this
-# checkout, this script re-executes itself under scripts/run-in-hermes-env,
+# checkout, this script re-executes itself under scripts/run-in-aegis-env,
 # which syncs and applies it. That holds however the script is launched
 # (`scripts/run_tests.sh`, `bash scripts/run_tests.sh`, from CI or a shell), so
 # a branch switch or lock edit never runs the suite against the previous
 # dependency set.
 #
-# Without an activation, an explicit HERMES_PYTHON that has pytest is honored:
+# Without an activation, an explicit AEGIS_PYTHON that has pytest is honored:
 # the Nix devShell's editable venv and CI's minimal installer lanes provide
-# one on purpose. The import check matters: a wrapped `hermes` binary exports
-# HERMES_PYTHON pointing at a release venv without pytest.
+# one on purpose. The import check matters: a wrapped `aegis` binary exports
+# AEGIS_PYTHON pointing at a release venv without pytest.
 _has_pytest() { [ -n "$1" ] && [ -x "$1" ] && "$1" -c 'import pytest' 2>/dev/null; }
 # shellcheck source=scripts/_activation.sh
 . "$SCRIPT_DIR/_activation.sh"
@@ -60,14 +60,14 @@ _has_pytest() { [ -n "$1" ] && [ -x "$1" ] && "$1" -c 'import pytest' 2>/dev/nul
 # records this checkout's pins (_store_has_pins). The check runs unlocked
 # before `pm install` takes the store's install lock, so it keeps runs that
 # START on different pins apart; it does not cover the window in between, where
-# the account's own `hermes update` (or a run on other pins) can re-point
+# the account's own `aegis update` (or a run on other pins) can re-point
 # facts.json and this run's `pm install` then re-stages its pins over them.
-# Only this runner's own provisioning gets HERMES_RUNTIME_DIR: the pytest
+# Only this runner's own provisioning gets AEGIS_RUNTIME_DIR: the pytest
 # children below start from `env -i` without it, so tests that exercise setup,
 # install or update resolve their own stores. Their PATH still holds the
 # account store's tool dirs, so a test writing through a PATH tool
 # (`pip install`, `npm -g`) would write into the account store. An explicit
-# HERMES_RUNTIME_DIR, a custom HERMES_HOME, a home that already holds a store,
+# AEGIS_RUNTIME_DIR, a custom AEGIS_HOME, a home that already holds a store,
 # or an account without a usable store keep today's per-home layout, unless
 # what they name is the account's store (_avoid_account_stores).
 # Prints the OS account's home when HOME is faked (it is not that home).
@@ -81,32 +81,32 @@ _account_home() {
 # Prints the account home, then the pinned Python minor.
 _account_tool_store() {
   local account py_minor
-  [ -z "${HERMES_RUNTIME_DIR:-}" ] || return 1
-  case "${HERMES_HOME:-}" in "" | "$HOME/.hermes" | "$HOME/.hermes/"*) ;; *) return 1 ;; esac
-  [ ! -f "$HOME/.hermes/tools/facts.json" ] || return 1
+  [ -z "${AEGIS_RUNTIME_DIR:-}" ] || return 1
+  case "${AEGIS_HOME:-}" in "" | "$HOME/.aegis" | "$HOME/.aegis/"*) ;; *) return 1 ;; esac
+  [ ! -f "$HOME/.aegis/tools/facts.json" ] || return 1
   account="$(_account_home)" || return 1
-  [ -f "$account/.hermes/tools/facts.json" ] && [ -w "$account/.hermes/tools" ] || return 1
-  py_minor="$(_store_has_pins "$account/.hermes/tools")" || return 1
+  [ -f "$account/.aegis/tools/facts.json" ] && [ -w "$account/.aegis/tools" ] || return 1
+  py_minor="$(_store_has_pins "$account/.aegis/tools")" || return 1
   printf '%s\n%s\n' "$account" "$py_minor"
 }
 # The pin rule covers a faked-HOME run that names the account's store itself.
-# An explicit HERMES_RUNTIME_DIR (the recipe lanes used before this runner
-# shared by itself) or an inherited HERMES_HOME (an agent's shell exports one)
+# An explicit AEGIS_RUNTIME_DIR (the recipe lanes used before this runner
+# shared by itself) or an inherited AEGIS_HOME (an agent's shell exports one)
 # makes pm resolve that store with no check, and `pm install` then re-stages
-# this checkout's pins over the ones the account's own Hermes runs on: its
+# this checkout's pins over the ones the account's own Aegis runs on: its
 # tools read as not installed and a running browser loses its directory.
 # Such a run provisions the faked home's own store instead, and is refused when
 # that store is a link into the account's, or when no interpreter can tell
 # which store pm would pick: setup fetches its own Python and would provision
 # whatever that turns out to be.
 # Prints the account's stores: its default home's, and the one
-# HERMES_DATA_DIR_SUFFIX selects (hermes_constants._platform_default_hermes_home).
+# AEGIS_DATA_DIR_SUFFIX selects (aegis_constants._platform_default_aegis_home).
 _account_stores() {
   local account suffix
   account="$(_account_home)" || return 0
-  for suffix in "" ${HERMES_DATA_DIR_SUFFIX:+"$HERMES_DATA_DIR_SUFFIX"}; do
-    if [ -f "$account/.hermes$suffix/tools/facts.json" ]; then
-      printf '%s\n' "$account/.hermes$suffix/tools"
+  for suffix in "" ${AEGIS_DATA_DIR_SUFFIX:+"$AEGIS_DATA_DIR_SUFFIX"}; do
+    if [ -f "$account/.aegis$suffix/tools/facts.json" ]; then
+      printf '%s\n' "$account/.aegis$suffix/tools"
     fi
   done
 }
@@ -119,7 +119,7 @@ _which_store() {
   return 1
 }
 # Prints PATH as pm's Path.resolve() reads it in the checkout, where setup reads
-# it (setup-hermes.sh cd's there first): every symlink followed, dangling ones
+# it (setup-aegis.sh cd's there first): every symlink followed, dangling ones
 # too, a `..` taken after the link it follows, a missing part kept as written.
 # `-ef` alone stats the literal path, so `<store>/missing/..` would not match
 # <store>. Status 1 past 40 links (the kernel's limit; Path.resolve() keeps
@@ -149,19 +149,19 @@ _resolved_path() {
   done
   printf '%s\n' "${resolved:-/}"
 }
-# Prints the store this run's `pm install` writes: HERMES_RUNTIME_DIR as pm
-# takes it, else pm's own resolver (stamps, HERMES_HOME, profiles), run by the
+# Prints the store this run's `pm install` writes: AEGIS_RUNTIME_DIR as pm
+# takes it, else pm's own resolver (stamps, AEGIS_HOME, profiles), run by the
 # bootstrap interpreter found beside STORE; says why on stderr when it cannot.
 _pm_store() (
-  if [ -n "${HERMES_RUNTIME_DIR:-}" ]; then
-    _resolved_path "$HERMES_RUNTIME_DIR" && exit
-    echo "error: faked HOME: HERMES_RUNTIME_DIR cannot be resolved (more than 40 symlinks, or a link readlink cannot read)" >&2
+  if [ -n "${AEGIS_RUNTIME_DIR:-}" ]; then
+    _resolved_path "$AEGIS_RUNTIME_DIR" && exit
+    echo "error: faked HOME: AEGIS_RUNTIME_DIR cannot be resolved (more than 40 symlinks, or a link readlink cannot read)" >&2
     exit 1
   fi
-  # Asked and resolved from the checkout, as setup asks: a relative HERMES_HOME
+  # Asked and resolved from the checkout, as setup asks: a relative AEGIS_HOME
   # names a store there, not in the caller's directory.
   cd "$REPO_ROOT" || exit 1
-  if ! python="$(HERMES_RUNTIME_DIR="$1" hermes_bootstrap_python "$REPO_ROOT")"; then
+  if ! python="$(AEGIS_RUNTIME_DIR="$1" aegis_bootstrap_python "$REPO_ROOT")"; then
     echo "error: faked HOME: no bootstrap Python to ask pm which tool store this run provisions" >&2
     exit 1
   fi
@@ -173,7 +173,7 @@ try:
 except Exception as error:
     sys.exit(f"error: faked HOME: pm cannot resolve the tool store this run provisions: {error}")' "$REPO_ROOT"
 )
-# Points HERMES_RUNTIME_DIR away from an account store that this run's
+# Points AEGIS_RUNTIME_DIR away from an account store that this run's
 # `pm install` would write other pins into; status 1 when it cannot.
 _avoid_account_stores() {
   local stores target named fallback
@@ -181,35 +181,35 @@ _avoid_account_stores() {
   [ -n "$stores" ] || return 0
   # Both print one newline after the path; the x keeps a path's own from $(...).
   if ! target="$(_pm_store "${stores%%$'\n'*}" && printf x)"; then
-    echo "error: faked HOME: cannot check whether that is the account's tool store (${stores//$'\n'/, }); set HERMES_RUNTIME_DIR to a store of this home's own" >&2
+    echo "error: faked HOME: cannot check whether that is the account's tool store (${stores//$'\n'/, }); set AEGIS_RUNTIME_DIR to a store of this home's own" >&2
     return 1
   fi
   target="${target%$'\nx'}"
-  # setup-hermes.sh stages its bootstrap uv into $HOME/.hermes/tools before pm
+  # setup-aegis.sh stages its bootstrap uv into $HOME/.aegis/tools before pm
   # runs; when that is the account's store, point it at the one pm provisions.
-  if [ -z "${HERMES_RUNTIME_DIR:-}" ] && _which_store "$HOME/.hermes/tools" "$stores" >/dev/null; then
-    export HERMES_RUNTIME_DIR="$target"
+  if [ -z "${AEGIS_RUNTIME_DIR:-}" ] && _which_store "$HOME/.aegis/tools" "$stores" >/dev/null; then
+    export AEGIS_RUNTIME_DIR="$target"
   fi
   named="$(_which_store "$target" "$stores")" || return 0
   ! _store_has_pins "$named" >/dev/null || return 0
-  # The suffix is appended literally (hermes_constants), `..` included.
-  if ! fallback="$(_resolved_path "$HOME/.hermes${HERMES_DATA_DIR_SUFFIX:-}/tools" && printf x)"; then
-    echo "error: faked HOME: $HOME/.hermes${HERMES_DATA_DIR_SUFFIX:-}/tools cannot be resolved (more than 40 symlinks, or a link readlink cannot read)" >&2
+  # The suffix is appended literally (aegis_constants), `..` included.
+  if ! fallback="$(_resolved_path "$HOME/.aegis${AEGIS_DATA_DIR_SUFFIX:-}/tools" && printf x)"; then
+    echo "error: faked HOME: $HOME/.aegis${AEGIS_DATA_DIR_SUFFIX:-}/tools cannot be resolved (more than 40 symlinks, or a link readlink cannot read)" >&2
     return 1
   fi
   fallback="${fallback%$'\nx'}"
   if _which_store "$fallback" "$stores" >/dev/null; then
-    echo "error: faked HOME: $fallback is the account's tool store $named, which records other pins; set HERMES_RUNTIME_DIR to a store of this home's own" >&2
+    echo "error: faked HOME: $fallback is the account's tool store $named, which records other pins; set AEGIS_RUNTIME_DIR to a store of this home's own" >&2
     return 1
   fi
-  export HERMES_RUNTIME_DIR="$fallback"
-  echo "▶ faked HOME: the account's tool store records other pins; provisioning $HERMES_RUNTIME_DIR instead"
+  export AEGIS_RUNTIME_DIR="$fallback"
+  echo "▶ faked HOME: the account's tool store records other pins; provisioning $AEGIS_RUNTIME_DIR instead"
 }
 # Read-only check that the store already records this checkout's pins
 # (scripts/tool_store_pins.py says why and what counts); prints the Python minor.
 _store_has_pins() {
   local python
-  python="$(HERMES_RUNTIME_DIR="$1" hermes_bootstrap_python "$REPO_ROOT")" || return 1
+  python="$(AEGIS_RUNTIME_DIR="$1" aegis_bootstrap_python "$REPO_ROOT")" || return 1
   PYTHONHOME= "$python" -I -B "$REPO_ROOT/scripts/tool_store_pins.py" "$REPO_ROOT" "$1" 2>/dev/null
 }
 # Picks the tool store the setup below provisions; status 1 refuses the run.
@@ -219,32 +219,32 @@ _choose_tool_store() {
   local shared account
   shared="$(_account_tool_store)" || { _avoid_account_stores; return; }
   account="${shared%%$'\n'*}"
-  export HERMES_RUNTIME_DIR="$account/.hermes/tools"
-  # setup-hermes.sh's uv-managed bootstrap interpreter is the same kind of
+  export AEGIS_RUNTIME_DIR="$account/.aegis/tools"
+  # setup-aegis.sh's uv-managed bootstrap interpreter is the same kind of
   # cache, but only reused: a missing pinned minor would download into it.
   if [ -z "${UV_PYTHON_INSTALL_DIR:-}" ] && [ -w "$account/.local/share/uv/python" ] \
       && compgen -G "$account/.local/share/uv/python/cpython-${shared#*$'\n'}[.-]*" >/dev/null; then
     export UV_PYTHON_INSTALL_DIR="$account/.local/share/uv/python"
   fi
-  echo "▶ faked HOME: using the account's tool store $HERMES_RUNTIME_DIR"
+  echo "▶ faked HOME: using the account's tool store $AEGIS_RUNTIME_DIR"
 }
-if [ -z "${__HERMES_ACTIVATED:-}" ] && _has_pytest "${HERMES_PYTHON:-}"; then
-  PYTHON="$HERMES_PYTHON"
-  echo "▶ not activated — using HERMES_PYTHON: $PYTHON"
+if [ -z "${__AEGIS_ACTIVATED:-}" ] && _has_pytest "${AEGIS_PYTHON:-}"; then
+  PYTHON="$AEGIS_PYTHON"
+  echo "▶ not activated — using AEGIS_PYTHON: $PYTHON"
 else
-  if ! hermes_activation_current "$REPO_ROOT"; then
-    if [ -n "${__HERMES_TESTS_REEXEC:-}" ]; then
-      echo "error: run-in-hermes-env did not produce a current environment for $REPO_ROOT" >&2
+  if ! aegis_activation_current "$REPO_ROOT"; then
+    if [ -n "${__AEGIS_TESTS_REEXEC:-}" ]; then
+      echo "error: run-in-aegis-env did not produce a current environment for $REPO_ROOT" >&2
       exit 1
     fi
     _choose_tool_store || exit 1
-    echo "▶ environment missing or stale for $REPO_ROOT — re-running under run-in-hermes-env" >&2
-    export __HERMES_TESTS_REEXEC=1
-    exec "$SCRIPT_DIR/run-in-hermes-env" "$BASH" "${BASH_SOURCE[0]}" "$@"
+    echo "▶ environment missing or stale for $REPO_ROOT — re-running under run-in-aegis-env" >&2
+    export __AEGIS_TESTS_REEXEC=1
+    exec "$SCRIPT_DIR/run-in-aegis-env" "$BASH" "${BASH_SOURCE[0]}" "$@"
   fi
-  PYTHON="${__HERMES_TEST_PYTHON:-}"
+  PYTHON="${__AEGIS_TEST_PYTHON:-}"
   if ! _has_pytest "$PYTHON"; then
-    echo "error: activation provided no test interpreter with pytest (__HERMES_TEST_PYTHON=${PYTHON:-unset})" >&2
+    echo "error: activation provided no test interpreter with pytest (__AEGIS_TEST_PYTHON=${PYTHON:-unset})" >&2
     exit 1
   fi
 fi
@@ -253,8 +253,8 @@ fi
 # ── Live-gateway plugin (computed before we drop env) ───────────────────────
 EXTRA_PYTHONPATH=""
 EXTRA_PYTEST_PLUGINS=""
-if [ -f "$HOME/.hermes/pytest_live_guard.py" ]; then
-  EXTRA_PYTHONPATH="$HOME/.hermes"
+if [ -f "$HOME/.aegis/pytest_live_guard.py" ]; then
+  EXTRA_PYTHONPATH="$HOME/.aegis"
   EXTRA_PYTEST_PLUGINS="pytest_live_guard"
 fi
 
@@ -311,54 +311,54 @@ _pf86="$(awk 'BEGIN { for (name in ENVIRON) if (tolower(name) == "programfiles(x
 # The runner's own documented environment knobs must survive the hermetic
 # `env -i` below, or they are silent no-ops for anyone invoking this script:
 #
-#   * HERMES_TEST_WORKERS / PATHS / FILE_TIMEOUT / FILE_RETRIES / SLICE are
+#   * AEGIS_TEST_WORKERS / PATHS / FILE_TIMEOUT / FILE_RETRIES / SLICE are
 #     read by run_tests_parallel.py at argparse-default time — inside the
 #     stripped environment.
-#   * HERMES_TEST_IMAGE is read by tests/docker/conftest.py to skip its
+#   * AEGIS_TEST_IMAGE is read by tests/docker/conftest.py to skip its
 #     session-scoped `docker build`. CI's docker.yml sets it to the image
 #     the build step just loaded; stripping it made every per-file pytest
 #     subprocess rebuild the 5GB image from a cold builder cache instead
 #     (~4 min per worker per run, and the rebuilt image lacked the
-#     HERMES_GIT_SHA build-arg the workflow bakes in).
-#   * HERMES_E2E_REQUIRE_TUI turns a missing Ink TUI build into a failure in
+#     AEGIS_GIT_SHA build-arg the workflow bakes in).
+#   * AEGIS_E2E_REQUIRE_TUI turns a missing Ink TUI build into a failure in
 #     tests/e2e/core/terminal instead of a skip (set by the e2e CI job).
 #   * CI / GITHUB_ACTIONS tell suites they run on a disposable runner (e.g.
 #     tests/e2e/core/upgrade runs the real updater unsandboxed only there).
-#   * HERMES_E2E_WINDOWS_INSTALL opts tests/e2e/core/windows_update into running
-#     the real install.ps1 (it writes HKCU PATH); HERMES_E2E_MACHINE_ROOT,
-#     HERMES_E2E_PROFILES_ROOT and HERMES_E2E_ARTIFACTS place its fake machines,
+#   * AEGIS_E2E_WINDOWS_INSTALL opts tests/e2e/core/windows_update into running
+#     the real install.ps1 (it writes HKCU PATH); AEGIS_E2E_MACHINE_ROOT,
+#     AEGIS_E2E_PROFILES_ROOT and AEGIS_E2E_ARTIFACTS place its fake machines,
 #     their user profiles and the transcripts CI uploads.
-#   * HERMES_E2E_STRICT_ACCEPTANCE makes tests/e2e/core/_pending_fixes.py's
+#   * AEGIS_E2E_STRICT_ACCEPTANCE makes tests/e2e/core/_pending_fixes.py's
 #     known gaps hard failures in an acceptance run (workflow dispatch input).
-#   * HERMES_E2E_UPGRADE_BASE (older name HERMES_E2E_N1_REF) picks the release
+#   * AEGIS_E2E_UPGRADE_BASE (older name AEGIS_E2E_N1_REF) picks the release
 #     tests/e2e/core/upgrade starts from: a tag, a commit, or an updater
 #     generation (by-path, handoff, pre-handoff); unset, the newest release.
-#     HERMES_E2E_INSTALL_REF installs a patched commit in its place (proving a
-#     leg red), HERMES_E2E_GIT_OBJECTS names an extra object store for its
-#     smart-HTTP origin, HERMES_E2E_KEEP_ROOT keeps its sandbox roots.
-#   * HERMES_TEST_SSH_HOST / _USER / _PORT / _KEY and HERMES_TEST_DOCKER_IMAGE
+#     AEGIS_E2E_INSTALL_REF installs a patched commit in its place (proving a
+#     leg red), AEGIS_E2E_GIT_OBJECTS names an extra object store for its
+#     smart-HTTP origin, AEGIS_E2E_KEEP_ROOT keeps its sandbox roots.
+#   * AEGIS_TEST_SSH_HOST / _USER / _PORT / _KEY and AEGIS_TEST_DOCKER_IMAGE
 #     arm the real-backend tests (tests/tools/test_ssh_environment.py,
 #     tests/tools/test_docker_backend_real.py); remote-backends.yml points them at
 #     a throwaway sshd container and a small public image. The key is a
 #     per-run throwaway, never a credential.
 #
 # These are test-infrastructure knobs, not credentials — same class as the
-# HERMES_RUN_SLOW_PET_TESTS / HERMES_E2E_BROWSER / HERMES_RUN_E2E opt-ins
+# AEGIS_RUN_SLOW_PET_TESTS / AEGIS_E2E_BROWSER / AEGIS_RUN_E2E opt-ins
 # forwarded below.
 # SSL_CERT_FILE/DIR are trust-store locations: the pinned interpreter's
 # OpenSSL has no compiled-in bundle path on NixOS, so network tests (PM
 # downloads, channel reads) need the host's pointer to verify TLS.
-# Keep this an explicit allowlist (no HERMES_TEST_* glob) so the "no
+# Keep this an explicit allowlist (no AEGIS_TEST_* glob) so the "no
 # credential can leak" property stays auditable at a glance.
 TEST_ENV=()
-for _test_var in HERMES_TEST_IMAGE HERMES_TEST_WORKERS HERMES_TEST_PATHS \
-  HERMES_TEST_FILE_TIMEOUT HERMES_TEST_FILE_RETRIES HERMES_TEST_SLICE HERMES_TEST_FORKSERVER \
-  SSL_CERT_FILE SSL_CERT_DIR HERMES_GATEWAY_LOCK_DIR HERMES_E2E_REQUIRE_TUI CI GITHUB_ACTIONS \
-  HERMES_E2E_WINDOWS_INSTALL HERMES_E2E_MACHINE_ROOT HERMES_E2E_PROFILES_ROOT HERMES_E2E_ARTIFACTS \
-  HERMES_E2E_STRICT_ACCEPTANCE HERMES_E2E_UPGRADE_BASE HERMES_E2E_N1_REF \
-  HERMES_E2E_INSTALL_REF HERMES_E2E_GIT_OBJECTS HERMES_E2E_KEEP_ROOT \
-  HERMES_TEST_SSH_HOST HERMES_TEST_SSH_USER HERMES_TEST_SSH_PORT \
-  HERMES_TEST_SSH_KEY HERMES_TEST_DOCKER_IMAGE; do
+for _test_var in AEGIS_TEST_IMAGE AEGIS_TEST_WORKERS AEGIS_TEST_PATHS \
+  AEGIS_TEST_FILE_TIMEOUT AEGIS_TEST_FILE_RETRIES AEGIS_TEST_SLICE AEGIS_TEST_FORKSERVER \
+  SSL_CERT_FILE SSL_CERT_DIR AEGIS_GATEWAY_LOCK_DIR AEGIS_E2E_REQUIRE_TUI CI GITHUB_ACTIONS \
+  AEGIS_E2E_WINDOWS_INSTALL AEGIS_E2E_MACHINE_ROOT AEGIS_E2E_PROFILES_ROOT AEGIS_E2E_ARTIFACTS \
+  AEGIS_E2E_STRICT_ACCEPTANCE AEGIS_E2E_UPGRADE_BASE AEGIS_E2E_N1_REF \
+  AEGIS_E2E_INSTALL_REF AEGIS_E2E_GIT_OBJECTS AEGIS_E2E_KEEP_ROOT \
+  AEGIS_TEST_SSH_HOST AEGIS_TEST_SSH_USER AEGIS_TEST_SSH_PORT \
+  AEGIS_TEST_SSH_KEY AEGIS_TEST_DOCKER_IMAGE; do
   if [ -n "${!_test_var:-}" ]; then
     TEST_ENV+=("$_test_var=${!_test_var}")
   fi
@@ -367,7 +367,7 @@ done
 # ── Run in hermetic env ──────────────────────────────────────────────────────
 # env -i: start with empty environment, opt-in only what we need.
 # No credential var can leak — you'd have to explicitly add it here.
-# Never forward HERMES_RUNTIME_DIR or UV_PYTHON_INSTALL_DIR: under a faked HOME
+# Never forward AEGIS_RUNTIME_DIR or UV_PYTHON_INSTALL_DIR: under a faked HOME
 # they point at the account's shared stores (see _account_tool_store).
 echo "▶ running per-file parallel test suite via run_tests_parallel.py"
 echo "  (TZ=UTC LANG=C.UTF-8 PYTHONHASHSEED=0; clean env)"
@@ -393,9 +393,9 @@ exec env -i \
   LC_ALL=C.UTF-8 \
   PYTHONHASHSEED=0 \
   PYTHONUTF8=1 \
-  ${HERMES_RUN_SLOW_PET_TESTS:+HERMES_RUN_SLOW_PET_TESTS="$HERMES_RUN_SLOW_PET_TESTS"} \
-  ${HERMES_E2E_BROWSER:+HERMES_E2E_BROWSER="$HERMES_E2E_BROWSER"} \
-  ${HERMES_RUN_E2E:+HERMES_RUN_E2E="$HERMES_RUN_E2E"} \
+  ${AEGIS_RUN_SLOW_PET_TESTS:+AEGIS_RUN_SLOW_PET_TESTS="$AEGIS_RUN_SLOW_PET_TESTS"} \
+  ${AEGIS_E2E_BROWSER:+AEGIS_E2E_BROWSER="$AEGIS_E2E_BROWSER"} \
+  ${AEGIS_RUN_E2E:+AEGIS_RUN_E2E="$AEGIS_RUN_E2E"} \
   ${EXTRA_PYTHONPATH:+PYTHONPATH="$EXTRA_PYTHONPATH"} \
   ${EXTRA_PYTEST_PLUGINS:+PYTEST_PLUGINS="$EXTRA_PYTEST_PLUGINS"} \
   "$PYTHON" "$SCRIPT_DIR/run_tests_parallel.py" "$@"

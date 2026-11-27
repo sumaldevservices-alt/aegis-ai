@@ -32,7 +32,7 @@ afterEach(() => {
   stopLauncherWatchesForTests()
   resetBackendTransitionsForTests()
   vi.useRealTimers()
-  delete (window as { hermesDesktop?: unknown }).hermesDesktop
+  delete (window as { aegisDesktop?: unknown }).aegisDesktop
   $profileRemoteOverrides.set({})
   $activeGatewayProfile.set('default')
   $gatewayState.set('idle')
@@ -72,7 +72,7 @@ describe('the reconnect when a restarted backend is ready', () => {
     launcher = 'restarting'
     reconnect = vi.fn(async () => undefined)
     offReconnect = registerGatewayReconnect(reconnect)
-    ;(window as { hermesDesktop?: unknown }).hermesDesktop = { api: vi.fn(async () => ({ state: launcher })) }
+    ;(window as { aegisDesktop?: unknown }).aegisDesktop = { api: vi.fn(async () => ({ state: launcher })) }
   })
 
   afterEach(() => offReconnect())

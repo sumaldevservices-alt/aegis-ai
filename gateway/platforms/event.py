@@ -43,7 +43,7 @@ def clean_attachment_filename(name: object) -> str:
     return base
 
 
-# The producers ``MessageEvent.turn_origin`` can name: each one only Hermes itself runs.
+# The producers ``MessageEvent.turn_origin`` can name: each one only Aegis itself runs.
 # "process_notification": a background process's completion, watch match or liveness tick.
 # "delegation_result": an async delegation's result re-entering its parent session.
 TURN_ORIGINS = frozenset({"process_notification", "delegation_result"})
@@ -152,12 +152,12 @@ class MessageEvent:
     _admitted_before_drain: bool = field(default=False, init=False, repr=False, compare=False)
     # Run-owned final presentation snapshot; never deserialized from ingress metadata.
     _notification_reply_muted: Optional[bool] = field(default=None, init=False, repr=False, compare=False)
-    # The producer of this turn's input when Hermes produced it itself (``TURN_ORIGINS``), set by that
+    # The producer of this turn's input when Aegis produced it itself (``TURN_ORIGINS``), set by that
     # producer (``set_turn_origin``) and carried by its committed admission; never ingress metadata.
     _turn_origin: Optional[str] = field(default=None, init=False, repr=False, compare=False)
 
     def set_turn_origin(self, origin: Any) -> None:
-        """Name the Hermes producer of this event's input; any value outside ``TURN_ORIGINS`` is none."""
+        """Name the Aegis producer of this event's input; any value outside ``TURN_ORIGINS`` is none."""
         self._turn_origin = origin if origin in TURN_ORIGINS else None
 
     def turn_origin(self) -> Optional[str]:
@@ -172,7 +172,7 @@ class MessageEvent:
 
     def clear_turn_origin(self) -> None:
         """A person's input joined this turn (an accepted steer or redirect): it no longer runs only
-        what a Hermes producer started, so ``turn_origin`` is ``None`` from now on, for this event and
+        what a Aegis producer started, so ``turn_origin`` is ``None`` from now on, for this event and
         every event it was rewritten from. Execution trust and what the model sees are untouched."""
         event: Optional[MessageEvent] = self
         while event is not None:

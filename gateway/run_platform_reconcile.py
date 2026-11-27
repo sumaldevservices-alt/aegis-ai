@@ -4,7 +4,7 @@ served profile's platform configuration changes, instead of waiting for a gatewa
 Every served profile is covered, the launch (primary) profile of a single-profile gateway included:
 its ``.env`` / ``config.yaml`` signature is watched by ``_profile_reconcile_watcher``; a plugin that
 registers a platform mid-run fires the ``on_plugin_loaded`` subscription (``run_plugin_rewire``); the
-``reconcile-platforms`` control verb (dashboard/Desktop save, ``hermes config set``) runs it at once and
+``reconcile-platforms`` control verb (dashboard/Desktop save, ``aegis config set``) runs it at once and
 answers each platform's live state, so a caller can say "applied" or "restart needed" truthfully.
 
 A platform whose plugin is not installed yet arrives the same way: when the profile's credential layer
@@ -89,7 +89,7 @@ def platform_build_print(platform: Any, platform_config: Any, home: Optional[Pat
     """The :class:`BuildPrint` of building ``platform`` from ``platform_config`` with ``home``'s ``.env``
     (None: config only). Blocking (reads ``.env``, may resolve a deferred plugin entry): run off-loop."""
     from gateway.platform_registry import platform_registry
-    from hermes_cli.plugins import settled_plugin_registrations
+    from aegis_cli.plugins import settled_plugin_registrations
     # Read between sweeps: mid force-reload (another plugin installed or enabled) every plugin platform is
     # briefly unregistered, which read as "changed" and restarted live adapters nothing touched.
     with settled_plugin_registrations():
@@ -102,7 +102,7 @@ def platform_build_print(platform: Any, platform_config: Any, home: Optional[Pat
     if home is None:
         return BuildPrint(config)
     from agent.secret_scope import load_env_file
-    from hermes_cli.profile_channels import platform_env_prefixes
+    from aegis_cli.profile_channels import platform_env_prefixes
     skip = _runner_read_env(entry)
     prefixes = platform_env_prefixes(platform.value)
     owned = {k: v for k, v in load_env_file(Path(home) / ".env").items()
@@ -208,7 +208,7 @@ def _read_dotenv(home: Path) -> dict:
 
 
 def _credential_print(home: Path) -> str:
-    """Digest of ``home``'s ``.env``: the layer a platform's credentials arrive in (``hermes config set``,
+    """Digest of ``home``'s ``.env``: the layer a platform's credentials arrive in (``aegis config set``,
     the dashboard / Desktop save, an edit). Only its change re-runs the plugin recovery, so other config
     writes never re-attempt an install that keeps failing."""
     try:
@@ -475,8 +475,8 @@ class GatewayPlatformReconcileMixin:
         return {*(self._profile_adapters.get(profile_name) or {}), *queued}
 
     def _primary_platform_home(self) -> Path:
-        from hermes_constants import get_default_hermes_root, get_process_hermes_home
-        return Path(get_default_hermes_root() if self._multiplex_on() else get_process_hermes_home())
+        from aegis_constants import get_default_aegis_root, get_process_aegis_home
+        return Path(get_default_aegis_root() if self._multiplex_on() else get_process_aegis_home())
 
     def _primary_platform_wanted(self, platform, platform_config) -> bool:
         """Boot's and the reconcile's one filter: enabled, and under multiplex only with a credential in
@@ -523,14 +523,14 @@ class GatewayPlatformReconcileMixin:
         plugin recovery for it (a platform whose credentials just arrived gets its catalog plugin, loaded
         in this process), so the reconcile below starts it. Returns the installed plugin names."""
         from gateway.run_startup import recover_left_core_in
-        from hermes_constants import get_process_hermes_home, hermes_home_key
+        from aegis_constants import get_process_aegis_home, aegis_home_key
         credentials = _credential_print(home)
         if credentials == self._primary_credential_print:
             return []
         self._primary_installing = True
         try:
             # The launch home's secret sources were hydrated at boot (as recover_left_core_at_gateway_start).
-            launch = hermes_home_key(home) == hermes_home_key(get_process_hermes_home())
+            launch = aegis_home_key(home) == aegis_home_key(get_process_aegis_home())
             installed = recover_left_core_in(home, hydrate_secrets=not launch)
         finally:
             self._primary_installing = False
@@ -586,7 +586,7 @@ class GatewayPlatformReconcileMixin:
         ``.env`` never named is not the ``.env``'s to remove. Returns the undo for a reconcile that
         cannot go on (its config is unreadable): the environment and the last read, as they were."""
         import os
-        from hermes_constants import is_launch_only_env_key
+        from aegis_constants import is_launch_only_env_key
         current = _read_dotenv(home)
         previous = self._primary_dotenv
         before = {}
@@ -762,7 +762,7 @@ class GatewayPlatformReconcileMixin:
         """Wait until no in-flight turn is answered by ``adapter`` (the bot that received it, whatever
         profile it routed to), bounded by ``agent.restart_drain_timeout``: a retired adapter delivers the
         reply it owes. A turn with no known source counts when it runs on the same platform."""
-        from hermes_cli.gateway import _get_restart_drain_timeout
+        from aegis_cli.gateway import _get_restart_drain_timeout
         deadline = time.monotonic() + await asyncio.to_thread(_get_restart_drain_timeout)
 
         def _answers(key: str) -> bool:
@@ -836,15 +836,15 @@ def reconcile_platforms_verb(runner: Any, loop: asyncio.AbstractEventLoop):
         return answer
 
     def _handler(params: Optional[dict] = None) -> dict:
-        from hermes_constants import get_process_hermes_home, hermes_home_key
-        requested = Path(str((params or {}).get("home") or get_process_hermes_home())).expanduser()
-        key = hermes_home_key(requested)
+        from aegis_constants import get_process_aegis_home, aegis_home_key
+        requested = Path(str((params or {}).get("home") or get_process_aegis_home())).expanduser()
+        key = aegis_home_key(requested)
         primary_home = runner._primary_platform_home()
-        if key in (hermes_home_key(primary_home), hermes_home_key(get_process_hermes_home())):
+        if key in (aegis_home_key(primary_home), aegis_home_key(get_process_aegis_home())):
             name = None
         else:
             served = (getattr(runner, "_served_profile_homes", None) or {}).items()
-            name = next((str(n) for n, h in served if hermes_home_key(h) == key), None)
+            name = next((str(n) for n, h in served if aegis_home_key(h) == key), None)
             if name is None:
                 return {"applied": False, "error": "home is not served by this gateway", "home": str(requested)}
         future = asyncio.run_coroutine_threadsafe(runner.answer_platform_reconcile(name), loop)

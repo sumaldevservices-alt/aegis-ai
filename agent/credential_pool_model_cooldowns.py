@@ -61,7 +61,7 @@ def usage_allowance_spent(error_context: Optional[dict[str, Any]]) -> bool:
 
 
 # A Codex ChatGPT-account model entitlement 400 is a plan property, not a window: bench the
-# (credential, model) pair until an explicit ``hermes auth reset`` clears model_cooldowns (#71970).
+# (credential, model) pair until an explicit ``aegis auth reset`` clears model_cooldowns (#71970).
 MODEL_ENTITLEMENT_BENCH_SECONDS = 365 * 24 * 60 * 60
 # A usage-window plan limit: this model is refused until the allowance resets; every other model
 # (a Free or non-Large one) stays usable on the same credential.

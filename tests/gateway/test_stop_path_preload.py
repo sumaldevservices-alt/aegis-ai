@@ -22,13 +22,13 @@ import asyncio, json, os, signal, sys, threading, time
 from pathlib import Path
 repo, stop = Path(sys.argv[1]), sys.argv[2]
 sys.path.insert(0, str(repo))
-import hermes_cli.env_loader as env_loader
-env_loader.load_hermes_dotenv = lambda **_kwargs: []
+import aegis_cli.env_loader as env_loader
+env_loader.load_aegis_dotenv = lambda **_kwargs: []
 from gateway import restart_when_idle, run_api, run_bootstrap, run_runtime
 from gateway.config import GatewayConfig
 from gateway.run_shutdown import GatewayShutdownMixin
 from gateway.status import write_planned_stop_marker
-from hermes_constants import get_hermes_home
+from aegis_constants import get_aegis_home
 from tests.waiting import async_wait_until
 
 late = []
@@ -74,7 +74,7 @@ run_runtime.wait_gateway_runtime = serve_until_stop
 # The dashboard mounts in the background after READY and imports for as long as that takes under
 # load; it is not part of a stop, so it stays unmounted here.
 run_api.warm_gateway_dashboard = lambda runner: None
-get_hermes_home().chmod(0o700)
+get_aegis_home().chmod(0o700)
 try:
     verdict = asyncio.run(asyncio.wait_for(run_bootstrap.start_gateway(GatewayConfig()), 120))
 except SystemExit as exc:  # a failed stop ends here; report it so the test fails on it
@@ -94,9 +94,9 @@ async def test_boot_runs_the_preload_before_the_runner_starts(monkeypatch):
 
     from gateway import run_bootstrap, run_runtime
     from gateway.config import GatewayConfig
-    from hermes_constants import get_hermes_home
+    from aegis_constants import get_aegis_home
 
-    get_hermes_home().chmod(0o700)
+    get_aegis_home().chmod(0o700)
     order, stopped = [], threading.Event()
     real_start = run_bootstrap._start_gateway_run_runner
 
@@ -138,8 +138,8 @@ def test_a_stop_imports_no_repo_module_boot_did_not_load(tmp_path, stop):
     (home / "config.yaml").write_text("terminal:\n  backend: local\n", encoding="utf-8")
     (tmp_path / "managed").mkdir()
     env = {key: value for key, value in os.environ.items() if key != "PYTEST_CURRENT_TEST"}
-    env.update(HERMES_HOME=str(home), HERMES_MANAGED_DIR=str(tmp_path / "managed"),
-               HERMES_GATEWAY_LOCK_DIR=str(tmp_path / "locks"))
+    env.update(AEGIS_HOME=str(home), AEGIS_MANAGED_DIR=str(tmp_path / "managed"),
+               AEGIS_GATEWAY_LOCK_DIR=str(tmp_path / "locks"))
     child = tmp_path / "child.py"
     child.write_text(_CHILD, encoding="utf-8")
     proc = subprocess.run([sys.executable, str(child), str(REPO), stop], cwd=tmp_path, env=env, stdin=subprocess.DEVNULL,

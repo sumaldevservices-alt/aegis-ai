@@ -1,7 +1,7 @@
 """Local wire-contract probe: which thinking blocks a real AIAgent replays to an
 Anthropic-compatible relay. Synthetic SSE fixtures; NOT live-provider proof.
 
-Run with the repo interpreter in an isolated HOME/HERMES_HOME:
+Run with the repo interpreter in an isolated HOME/AEGIS_HOME:
     python evals/anthropic_proxy_thinking_replay.py <out.json>
 """
 import json
@@ -99,5 +99,5 @@ def main():
 
 if __name__ == "__main__":
     with tempfile.TemporaryDirectory(prefix="proxy-thinking-") as home:
-        os.environ.update(HOME=home, HERMES_HOME=home, HERMES_DISABLE_PLUGINS="1")
+        os.environ.update(HOME=home, AEGIS_HOME=home, AEGIS_DISABLE_PLUGINS="1")
         main()

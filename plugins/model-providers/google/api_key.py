@@ -15,10 +15,10 @@ logger = logging.getLogger(__name__)
 
 _GEMINI_FREE_TIER_NOTICE = (
     "", "❌ This Google API key is on the free tier (<= 250 requests/day for gemini-2.5-flash).",
-    "   Hermes typically makes 3-10 API calls per user turn (tool iterations + auxiliary tasks),",
+    "   Aegis typically makes 3-10 API calls per user turn (tool iterations + auxiliary tasks),",
     "   so the free tier is exhausted after a handful of messages and cannot sustain",
     "   an agent session.", "",
-    "   To use Gemini with Hermes, enable billing on your Google Cloud project and regenerate",
+    "   To use Gemini with Aegis, enable billing on your Google Cloud project and regenerate",
     "   the key in a billing-enabled project: https://aistudio.google.com/apikey", "",
     "   Alternatives with workable free usage: DeepSeek, OpenRouter (free models), Groq, Nous.", "",
     "Not saving Gemini as the default provider.")
@@ -94,7 +94,7 @@ def _keepalive_http_client(base_url: str) -> Any:
     try:
         from agent.process_bootstrap import build_keepalive_http_client
         from agent.ssl_verify import resolve_httpx_verify
-        from hermes_cli.config_providers import get_custom_provider_tls_settings
+        from aegis_cli.config_providers import get_custom_provider_tls_settings
 
         tls = get_custom_provider_tls_settings(base_url)
         verify = resolve_httpx_verify(ca_bundle=tls.get("ssl_ca_cert"), ssl_verify=tls.get("ssl_verify"), base_url=base_url)

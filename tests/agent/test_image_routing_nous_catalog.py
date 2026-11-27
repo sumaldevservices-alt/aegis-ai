@@ -13,9 +13,9 @@ import threading
 
 import pytest
 
-import hermes_cli.models as models_mod
+import aegis_cli.models as models_mod
 from agent.image_routing import _lookup_supports_vision, decide_image_input_mode
-from hermes_cli import models_reasoning_caps
+from aegis_cli import models_reasoning_caps
 
 
 SEES = "vendor/sees-images-0101"

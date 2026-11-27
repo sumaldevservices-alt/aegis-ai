@@ -58,7 +58,7 @@ def test_liveness_watchdog_exits_past_blocked_side_effects(tmp_path, blocked):
         threading.Event().wait()
         """
     )
-    env = {**os.environ, "HERMES_HOME": str(tmp_path)}
+    env = {**os.environ, "AEGIS_HOME": str(tmp_path)}
     with subprocess.Popen(
         [sys.executable, "-c", child, blocked],
         stdout=subprocess.PIPE,

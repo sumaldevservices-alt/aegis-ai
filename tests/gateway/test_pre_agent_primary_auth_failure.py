@@ -11,7 +11,7 @@ from unittest.mock import patch
 
 from gateway.session import Platform, SessionSource
 from gateway.turn_context import TurnContext
-from hermes_cli.auth import AuthError
+from aegis_cli.auth import AuthError
 from tests.gateway.test_pre_agent_fallback_notice import _RecordingAgent, _runner_with_real_runtime_resolution
 
 _FALLBACK = {"provider": "anthropic", "model": "claude-sonnet-5", "api_key": "k", "base_url": "u"}
@@ -36,11 +36,11 @@ def _run(runner, ctx, *extra):
     from gateway.run_turn_runner import TurnRunner
 
     patches = [
-        patch("hermes_cli.runtime_provider.resolve_runtime_provider", side_effect=_primary_auth_fails),
-        patch("hermes_cli.runtime_provider._get_model_config", return_value={"provider": "nous", "default": "hermes-5"}),
+        patch("aegis_cli.runtime_provider.resolve_runtime_provider", side_effect=_primary_auth_fails),
+        patch("aegis_cli.runtime_provider._get_model_config", return_value={"provider": "nous", "default": "aegis-5"}),
         patch("gateway.run._load_gateway_config",
               return_value={"fallback_providers": [{"provider": "anthropic", "model": "claude-sonnet-5"}]}),
-        patch("gateway.run._resolve_gateway_model", return_value="hermes-5"),
+        patch("gateway.run._resolve_gateway_model", return_value="aegis-5"),
         patch("gateway.run._get_channel_override", return_value=None),
         patch("gateway.run._credential_pool_for_provider", return_value=None),
         *extra,

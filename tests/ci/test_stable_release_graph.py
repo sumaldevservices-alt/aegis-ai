@@ -365,7 +365,7 @@ def test_claim_custody_and_final_payload_identity_reach_every_privileged_phase()
     desktop = workflow("desktop-bundled-release.yml")
     assert "release-epoch" in desktop["jobs"]["validate"]["outputs"]
     for termux_job in ("termux-deb-release", "termux-deb-commit", "termux-deb"):
-        assert "HERMES_RELEASE_EPOCH" not in desktop["jobs"][termux_job]["env"]
+        assert "AEGIS_RELEASE_EPOCH" not in desktop["jobs"][termux_job]["env"]
     # B3: each build group stages its own receipt before its smoke, and the
     # receipt URL and digest cross the call boundary as workflow outputs.
     assert "manifest-url" not in desktop["on"]["workflow_call"]["outputs"]
@@ -444,7 +444,7 @@ def test_release_gates_extract_consumer_facing_versions():
         step["run"] for step in nix["flake-check"]["steps"]
         if step.get("name") == "Verify release package runtime identity"
     )
-    assert '"$package/bin/hermes" --version' in nix_check
+    assert '"$package/bin/aegis" --version' in nix_check
     assert "actual != expected" in nix_check
     # A path: flake has no git metadata; without ?rev= the stamp has no commit
     # and the packaged CLI reports "unknown".
@@ -645,11 +645,11 @@ def test_sandbox_image_ignores_canary_completions_of_stable_release():
     build_if = workflow("sandbox-image.yml")["jobs"]["build"]["if"]
     base = {
         "event_name": "workflow_run",
-        "repository": "NousResearch/hermes-agent",
+        "repository": "NousResearch/aegis-agent",
         "event": {
             "workflow_run": {
                 "conclusion": "success",
-                "head_repository": {"full_name": "NousResearch/hermes-agent"},
+                "head_repository": {"full_name": "NousResearch/aegis-agent"},
                 "display_title": "Stable release rc.1-v0.23.3",
             }
         },

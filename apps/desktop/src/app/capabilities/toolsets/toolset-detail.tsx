@@ -1,10 +1,10 @@
-import { compactNumber } from '@hermes/shared'
+import { compactNumber } from '@aegis/shared'
 import { useNavigate } from 'react-router'
 
 import { Button } from '@/components/ui/button'
-import { type ProfileScope, profileScopeKey } from '@/hermes'
+import { type ProfileScope, profileScopeKey } from '@/aegis'
 import { useI18n } from '@/i18n'
-import type { ToolsetInfo } from '@/types/hermes'
+import type { ToolsetInfo } from '@/types/aegis'
 
 import { ToolChip } from '../../master-detail'
 import { PanelPill } from '../../overlays/panel'

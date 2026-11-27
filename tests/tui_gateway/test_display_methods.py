@@ -8,12 +8,12 @@ import threading
 
 import pytest
 
-from hermes_cli.dashboard_auth import ws_tickets
+from aegis_cli.dashboard_auth import ws_tickets
 from tests.bot_desktop_lease import reset_lease
 
 
 def test_install_worker_keeps_the_requested_profile_scope(tmp_path, monkeypatch):
-    from hermes_constants import get_hermes_home
+    from aegis_constants import get_aegis_home
     from tools.bot_desktop import install, runtime
     from tui_gateway import server
 
@@ -26,7 +26,7 @@ def test_install_worker_keeps_the_requested_profile_scope(tmp_path, monkeypatch)
     done = threading.Event()
 
     def fake_install(*, ask_password, on_line, timeout_seconds=900.0, claimed=False):
-        seen["home"] = str(get_hermes_home())
+        seen["home"] = str(get_aegis_home())
         done.set()
         return 0
 
@@ -91,7 +91,7 @@ def test_a_viewer_opened_from_a_browser_tab_signs_out_with_that_tab(monkeypatch,
     so /api/display/ws closes the viewer when that browser signs out; a native client's carries none."""
     import asyncio
 
-    from hermes_cli import browser_credential, web_server, web_session_sockets
+    from aegis_cli import browser_credential, web_server, web_session_sockets
     from tools.bot_desktop import runtime
     from tui_gateway import server
 
@@ -322,16 +322,16 @@ def test_switch_sandbox_image_decides_only_a_pending_switch(monkeypatch, tmp_pat
     otherwise the decision is made through the same module the CLI offer uses and the fresh
     status rides back."""
     from tui_gateway import server
-    from hermes_cli import sandbox_image_switch as sw
+    from aegis_cli import sandbox_image_switch as sw
     from tools.bot_desktop import runtime
 
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
     monkeypatch.setattr(sw, "pending", lambda: None)
     resp = _call(server, "display.switchSandboxImage", {"approve": True})
     assert "error" in resp and "pending" in resp["error"]["message"]
 
     decided = []
-    switch = sw.PendingSwitch("old/base:1", "nousresearch/hermes-sandbox:desktop", ["hermes-a"])
+    switch = sw.PendingSwitch("old/base:1", "nousresearch/aegis-sandbox:desktop", ["aegis-a"])
     monkeypatch.setattr(sw, "pending", lambda: switch)
     monkeypatch.setattr(sw, "decide", lambda s, approve: decided.append((s, approve)) or s.target_image)
     monkeypatch.setattr(runtime, "status", lambda profile=None: runtime.DesktopStatus(
@@ -339,5 +339,5 @@ def test_switch_sandbox_image_decides_only_a_pending_switch(monkeypatch, tmp_pat
         socket=None, geometry="1280x800", install_command=None, browser=None))
     resp = _call(server, "display.switchSandboxImage", {"approve": False})
     assert decided == [(switch, False)]
-    assert resp["result"]["docker_image"] == "nousresearch/hermes-sandbox:desktop"
+    assert resp["result"]["docker_image"] == "nousresearch/aegis-sandbox:desktop"
     assert resp["result"]["running"] is False and "lease" in resp["result"]

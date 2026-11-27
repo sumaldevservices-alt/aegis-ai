@@ -490,7 +490,7 @@ def http_request(
     if headers is None:
         headers = {}
     headers = dict(headers)  # copy
-    headers.setdefault("User-Agent", "hermes-comfyui-skill/5.0")
+    headers.setdefault("User-Agent", "aegis-comfyui-skill/5.0")
 
     if files or form is not None:
         # Multipart upload — needs `requests`. The stdlib fallback lacks

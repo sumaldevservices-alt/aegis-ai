@@ -13,7 +13,7 @@ import contextvars
 from dataclasses import dataclass
 from typing import Any, Optional
 
-from hermes_cli.auth_constants import MODEL_RATE_LIMITED_CODE
+from aegis_cli.auth_constants import MODEL_RATE_LIMITED_CODE
 
 # Private runtime-dict key stamped by the resolution-time fallback walker.
 RUNTIME_KEY = "_primary_auth_failure"
@@ -40,7 +40,7 @@ def primary_auth_failure_from_exc(exc: Any, provider: Any, backup: Any = "") -> 
 
     A quota/rate-limit cap, a retryable refusal and an entitlement (credits/subscription) code
     leave the login valid: telling the user to sign in again would send them the wrong way."""
-    from hermes_cli.auth import _ENTITLEMENT_ERROR_CODES, AuthError, is_rate_limited_auth_error
+    from aegis_cli.auth import _ENTITLEMENT_ERROR_CODES, AuthError, is_rate_limited_auth_error
 
     if not isinstance(exc, AuthError) or is_rate_limited_auth_error(exc) or exc.retryable is True:
         return None
@@ -125,7 +125,7 @@ def primary_auth_lead(failure: PrimaryAuthFailure, *, backup: str, failure_reaso
     why = redact_sensitive_text(failure.error, force=True)
     return (
         f"⚠️ {primary} needs you to sign in again: run `{failure.relogin}`. Its login failed "
-        f"({why}), so Hermes switched to the backup provider ({backup or 'backup'}), and the "
+        f"({why}), so Aegis switched to the backup provider ({backup or 'backup'}), and the "
         f"backup {problem}. Re-authenticating {primary} fixes this; topping up the backup only "
         "keeps the fallback running."
     )

@@ -1,6 +1,6 @@
-"""A launcher can name the folder a process keeps its install state in (``HERMES_INSTALL_STATE_DIR``).
+"""A launcher can name the folder a process keeps its install state in (``AEGIS_INSTALL_STATE_DIR``).
 
-It does so when it starts Hermes on an interpreter it prepared, somewhere the install's own state cannot be
+It does so when it starts Aegis on an interpreter it prepared, somewhere the install's own state cannot be
 used: a sandbox that may read the selected environment and nothing else of ``installs/<key>``. There the state
 folder is still seen, cannot be read or locked, and start-up ends on it.
 """
@@ -45,8 +45,8 @@ def test_a_process_with_a_named_state_folder_starts_on_the_interpreter_it_was_gi
 
     root = tmp_path / "repo"
     root.mkdir()
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path / "home"))
-    monkeypatch.delenv("HERMES_INSTALL_STATE_DIR", raising=False)
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path / "home"))
+    monkeypatch.delenv("AEGIS_INSTALL_STATE_DIR", raising=False)
     own = environments.install_state_dir(root)
     _committed_environment(own, "committed", "the install's")
     named = tmp_path / "named"
@@ -56,7 +56,7 @@ def test_a_process_with_a_named_state_folder_starts_on_the_interpreter_it_was_gi
     code = ("import importlib.util, sys; from pathlib import Path; from pm.environments import activate_dependencies; "
             "activate_dependencies(Path(sys.argv[1])); print(importlib.util.find_spec('probe_package') is None)")
     process = subprocess.run([sys.executable, "-c", code, str(root)], text=True, capture_output=True, timeout=60,
-                             env={**os.environ, "HERMES_INSTALL_STATE_DIR": str(named)}, check=False)
+                             env={**os.environ, "AEGIS_INSTALL_STATE_DIR": str(named)}, check=False)
 
     assert process.returncode == 0, process.stderr
     assert process.stdout.splitlines() == ["True"]
@@ -67,14 +67,14 @@ def test_a_process_with_a_named_state_folder_starts_on_the_interpreter_it_was_gi
 def test_a_process_with_a_named_state_folder_does_not_repair_the_install(tmp_path, monkeypatch):
     """The install's own state records an environment that is gone, which a process of that install repairs at
     start. A process given another state folder leaves the repair, and the install's state, alone."""
-    from hermes_cli import _early_recovery
+    from aegis_cli import _early_recovery
     from pm import environments, recovery
 
     root = tmp_path / "repo"
     root.mkdir()
     (root / "pyproject.toml").write_text("[project]\nname = 'x'\n", encoding="utf-8")
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path / "home"))
-    monkeypatch.delenv("HERMES_INSTALL_STATE_DIR", raising=False)
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path / "home"))
+    monkeypatch.delenv("AEGIS_INSTALL_STATE_DIR", raising=False)
     own = environments.install_state_dir(root)
     own.mkdir(parents=True)
     (own / "facts.json").write_text(json.dumps({"schema": 1, "packages": {
@@ -84,7 +84,7 @@ def test_a_process_with_a_named_state_folder_does_not_repair_the_install(tmp_pat
     monkeypatch.setattr(recovery, "repair_dependencies", repaired.append)
     named = tmp_path / "named"
     named.mkdir()
-    monkeypatch.setenv("HERMES_INSTALL_STATE_DIR", str(named))
+    monkeypatch.setenv("AEGIS_INSTALL_STATE_DIR", str(named))
 
     assert _early_recovery.recover_if_needed(root, ["chat"]) is False
     assert repaired == []
@@ -94,16 +94,16 @@ def test_a_process_with_a_named_state_folder_does_not_repair_the_install(tmp_pat
 def test_a_process_with_a_named_state_folder_is_not_restarted_and_completes_no_source_update(tmp_path, monkeypatch):
     """A self-managed install whose dependencies are out of date is synced at start and the process restarted on
     the install's interpreter. A process given another state folder keeps the interpreter it was started with."""
-    import hermes_constants
+    import aegis_constants
     import pm
     import pm.client
-    from hermes_cli import _launchers, update_custody, venv_sync
+    from aegis_cli import _launchers, update_custody, venv_sync
 
-    monkeypatch.setattr(hermes_constants, "_get_platform_default_hermes_home", lambda: tmp_path / ".hermes")
-    monkeypatch.delenv("HERMES_HOME", raising=False)
-    monkeypatch.delenv("HERMES_DISABLE_LAZY_INSTALLS", raising=False)
-    monkeypatch.delenv("HERMES_RUNTIME_DIR", raising=False)
-    root = tmp_path / ".hermes" / "hermes-agent"
+    monkeypatch.setattr(aegis_constants, "_get_platform_default_aegis_home", lambda: tmp_path / ".aegis")
+    monkeypatch.delenv("AEGIS_HOME", raising=False)
+    monkeypatch.delenv("AEGIS_DISABLE_LAZY_INSTALLS", raising=False)
+    monkeypatch.delenv("AEGIS_RUNTIME_DIR", raising=False)
+    root = tmp_path / ".aegis" / "aegis-agent"
     (root / ".git").mkdir(parents=True)
     (root / "pyproject.toml").write_text("[project]\nname='example'\n", encoding="utf-8")
     (root / "install-stamp.json").write_text(json.dumps({"updateMechanism": "self", "commit": "abc"}), encoding="utf-8")
@@ -117,7 +117,7 @@ def test_a_process_with_a_named_state_folder_is_not_restarted_and_completes_no_s
                         or subprocess.CompletedProcess(command, 0))
     named = tmp_path / "named"
     named.mkdir()
-    monkeypatch.setenv("HERMES_INSTALL_STATE_DIR", str(named))
+    monkeypatch.setenv("AEGIS_INSTALL_STATE_DIR", str(named))
 
     assert venv_sync.prepare_launch(root, []) is None
     assert synced == [] and spawned == []
@@ -128,7 +128,7 @@ def test_a_process_with_a_named_state_folder_leaves_an_unfinished_update_to_the_
     """An update that stopped half way leaves a marker in the checkout, and the next process of the install
     repairs its dependencies. A process given another state folder is not that process: it repairs nothing and
     leaves the marker as it is."""
-    from hermes_cli import _early_recovery
+    from aegis_cli import _early_recovery
     from pm import recovery
 
     root = tmp_path / "repo"
@@ -136,12 +136,12 @@ def test_a_process_with_a_named_state_folder_leaves_an_unfinished_update_to_the_
     (root / "pyproject.toml").write_text("[project]\nname = 'x'\n", encoding="utf-8")
     marker = root / ".update-incomplete"
     marker.write_text('{"attempts": 0}', encoding="utf-8")
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path / "home"))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path / "home"))
     repaired = []
     monkeypatch.setattr(recovery, "repair_dependencies", repaired.append)
     named = tmp_path / "named"
     named.mkdir()
-    monkeypatch.setenv("HERMES_INSTALL_STATE_DIR", str(named))
+    monkeypatch.setenv("AEGIS_INSTALL_STATE_DIR", str(named))
 
     assert _early_recovery.recover_if_needed(root, ["chat"]) is False
     assert repaired == []
@@ -169,7 +169,7 @@ def test_a_journal_placed_in_the_named_folder_is_not_replayed_at_start(tmp_path,
     code = ("import sys; from pathlib import Path; from pm.environments import activate_dependencies; "
             "activate_dependencies(Path(sys.argv[1]))")
     process = subprocess.run([sys.executable, "-c", code, str(root)], text=True, capture_output=True, timeout=60,
-                             env={**os.environ, "HERMES_HOME": str(home), "HERMES_INSTALL_STATE_DIR": str(named)},
+                             env={**os.environ, "AEGIS_HOME": str(home), "AEGIS_INSTALL_STATE_DIR": str(named)},
                              check=False)
 
     assert process.returncode == 0, process.stderr
@@ -195,8 +195,8 @@ def test_a_sealed_install_with_a_named_state_folder_still_runs_on_the_environmen
     code = ("import sys; from pathlib import Path; from pm.environments import activate_dependencies; "
             "activate_dependencies(Path(sys.argv[1])); import probe_package; print(probe_package.version)")
     process = subprocess.run([sys.executable, "-c", code, str(root)], text=True, capture_output=True, timeout=60,
-                             env={**os.environ, "HERMES_HOME": str(tmp_path / "home"),
-                                  "HERMES_INSTALL_STATE_DIR": str(named)}, check=False)
+                             env={**os.environ, "AEGIS_HOME": str(tmp_path / "home"),
+                                  "AEGIS_INSTALL_STATE_DIR": str(named)}, check=False)
 
     assert process.returncode == 0, process.stderr
     assert process.stdout.splitlines() == ["shipped"]
@@ -205,44 +205,44 @@ def test_a_sealed_install_with_a_named_state_folder_still_runs_on_the_environmen
 def test_an_env_file_cannot_move_the_named_state_folder(tmp_path, monkeypatch):
     """The launcher's value holds for the life of the process. A ``.env`` the process can write, read after
     start-up took its first lock, would send every later lock and marker somewhere else."""
-    from hermes_cli.env_loader import load_hermes_dotenv
+    from aegis_cli.env_loader import load_aegis_dotenv
 
     home = tmp_path / "home"
     home.mkdir()
-    (home / ".env").write_text(f"HERMES_INSTALL_STATE_DIR={tmp_path / 'elsewhere'}\nNAMED_STATE_CONTROL=loaded\n",
+    (home / ".env").write_text(f"AEGIS_INSTALL_STATE_DIR={tmp_path / 'elsewhere'}\nNAMED_STATE_CONTROL=loaded\n",
                                encoding="utf-8")
     named = tmp_path / "named"
-    monkeypatch.setenv("HERMES_HOME", str(home))
-    monkeypatch.setenv("HERMES_INSTALL_STATE_DIR", str(named))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
+    monkeypatch.setenv("AEGIS_INSTALL_STATE_DIR", str(named))
     monkeypatch.setenv("NAMED_STATE_CONTROL", "before")
 
-    load_hermes_dotenv(hermes_home=home)
+    load_aegis_dotenv(aegis_home=home)
 
     assert os.environ["NAMED_STATE_CONTROL"] == "loaded"  # control: the file was read, and it overrides
-    assert os.environ["HERMES_INSTALL_STATE_DIR"] == str(named)
+    assert os.environ["AEGIS_INSTALL_STATE_DIR"] == str(named)
 
 
 def test_a_worker_for_another_profile_keeps_the_folder_an_env_file_also_names(tmp_path, monkeypatch):
     """A worker started for another profile is not handed what the launch profile's ``.env`` defines. The named
     folder is the launcher's, so a line in that file does not take it from the worker."""
-    from hermes_cli.env_loader import load_hermes_dotenv
-    from hermes_cli.kanban_worker_env import worker_client_env
+    from aegis_cli.env_loader import load_aegis_dotenv
+    from aegis_cli.kanban_worker_env import worker_client_env
 
     home = tmp_path / "home"
     other = home / "profiles" / "other"
     other.mkdir(parents=True)
-    (home / ".env").write_text(f"HERMES_INSTALL_STATE_DIR={tmp_path / 'elsewhere'}\n", encoding="utf-8")
+    (home / ".env").write_text(f"AEGIS_INSTALL_STATE_DIR={tmp_path / 'elsewhere'}\n", encoding="utf-8")
     named = tmp_path / "named"
-    monkeypatch.setenv("HERMES_HOME", str(home))
-    monkeypatch.setenv("HERMES_INSTALL_STATE_DIR", str(named))
-    load_hermes_dotenv(hermes_home=home)
+    monkeypatch.setenv("AEGIS_HOME", str(home))
+    monkeypatch.setenv("AEGIS_INSTALL_STATE_DIR", str(named))
+    load_aegis_dotenv(aegis_home=home)
 
-    assert worker_client_env(dict(os.environ), other).get("HERMES_INSTALL_STATE_DIR") == str(named)
+    assert worker_client_env(dict(os.environ), other).get("AEGIS_INSTALL_STATE_DIR") == str(named)
 
 
 @pytest.mark.parametrize("request_", [{"extras": ["voice"], "explicit": True}, {"repair": True}])
 def test_a_dependency_change_is_refused_before_anything_is_built(tmp_path, monkeypatch, request_):
-    """`hermes pm install --extra` in such a process would build an environment in the named folder, report it
+    """`aegis pm install --extra` in such a process would build an environment in the named folder, report it
     installed, and no process would ever select it. The command says so instead, before it builds."""
     import pm.client
     import pm.install
@@ -253,20 +253,20 @@ def test_a_dependency_change_is_refused_before_anything_is_built(tmp_path, monke
     monkeypatch.setattr(pm.client, "is_runtime", lambda: False)
     named = tmp_path / "named"
     named.mkdir()
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path / "home"))
-    monkeypatch.setenv("HERMES_INSTALL_STATE_DIR", str(named))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path / "home"))
+    monkeypatch.setenv("AEGIS_INSTALL_STATE_DIR", str(named))
 
     for entry in (pm.client.sync_venv, pm.install.sync_venv):
-        with pytest.raises(InstallError, match="HERMES_INSTALL_STATE_DIR"):
+        with pytest.raises(InstallError, match="AEGIS_INSTALL_STATE_DIR"):
             entry(request_.get("extras"), explicit=request_.get("explicit", False), repair=request_.get("repair", False))
     assert started == []
     assert _entries(named) == [] and not (tmp_path / "home" / "installs").exists()
 
 
 def test_a_repair_command_is_refused_and_leaves_the_installs_markers_alone(tmp_path, monkeypatch):
-    """`hermes pm repair` counts a failed attempt in the marker an update left; three of them stop the install's
+    """`aegis pm repair` counts a failed attempt in the marker an update left; three of them stop the install's
     own repair at start. A process with a named state folder refuses the command without touching the marker."""
-    from hermes_cli import _early_recovery
+    from aegis_cli import _early_recovery
     from pm.package import InstallError
 
     root = tmp_path / "repo"
@@ -276,10 +276,10 @@ def test_a_repair_command_is_refused_and_leaves_the_installs_markers_alone(tmp_p
     marker.write_text('{"attempts": 0}', encoding="utf-8")
     named = tmp_path / "named"
     named.mkdir()
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path / "home"))
-    monkeypatch.setenv("HERMES_INSTALL_STATE_DIR", str(named))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path / "home"))
+    monkeypatch.setenv("AEGIS_INSTALL_STATE_DIR", str(named))
 
-    with pytest.raises(InstallError, match="HERMES_INSTALL_STATE_DIR"):
+    with pytest.raises(InstallError, match="AEGIS_INSTALL_STATE_DIR"):
         _early_recovery.recover_if_needed(root, ["pm", "repair"], explicit=True)
     assert marker.read_text(encoding="utf-8") == '{"attempts": 0}'
     assert _entries(named) == []
@@ -287,7 +287,7 @@ def test_a_repair_command_is_refused_and_leaves_the_installs_markers_alone(tmp_p
 
 def test_a_kanban_worker_keeps_the_named_state_folder(tmp_path):
     """The worker client is started from an allowlisted environment, inside the same sandbox as its parent."""
-    from hermes_cli.kanban_worker_env import worker_client_env
+    from aegis_cli.kanban_worker_env import worker_client_env
 
-    env = {"PATH": "/bin", "HERMES_INSTALL_STATE_DIR": str(tmp_path / "named")}
+    env = {"PATH": "/bin", "AEGIS_INSTALL_STATE_DIR": str(tmp_path / "named")}
     assert worker_client_env(env, tmp_path / "assignee") == env

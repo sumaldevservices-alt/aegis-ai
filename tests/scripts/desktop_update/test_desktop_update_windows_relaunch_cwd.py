@@ -33,13 +33,13 @@ def test_relaunched_desktop_does_not_hold_its_app_folder(tmp_path: Path) -> None
     # arguments blocks on its settings dialog. A console exe (cmd.exe) waiting on its own
     # console is not enough: created through WMI it intermittently exits within seconds,
     # before its cwd can be read.
-    relaunch = app_dir / 'Hermes.exe'
+    relaunch = app_dir / 'Aegis.exe'
     shutil.copy2(Path(os.environ.get('SystemRoot', r'C:\Windows')) / 'System32' / 'wscript.exe', relaunch)
 
     result = subprocess.run(
         ['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', str(SCRIPT),
-         '-InstallRoot', str(home / 'hermes-agent'), '-NoUi', '-SelfTestMarker', '-RelaunchExe', str(relaunch)],
-        cwd=home, env={**os.environ, 'HERMES_HOME': str(home), 'HERMES_RUNTIME_DIR': str(home / 'empty-store'),
+         '-InstallRoot', str(home / 'aegis-agent'), '-NoUi', '-SelfTestMarker', '-RelaunchExe', str(relaunch)],
+        cwd=home, env={**os.environ, 'AEGIS_HOME': str(home), 'AEGIS_RUNTIME_DIR': str(home / 'empty-store'),
                        'USERPROFILE': str(profile)},
         capture_output=True, text=True, timeout=180, check=False,
     )

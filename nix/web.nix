@@ -1,6 +1,6 @@
 # Dashboard compilation consumes prepared icons; no npm lifecycle preparation.
-{ hermesNpmLib, generatedIcons, ... }:
-hermesNpmLib.buildPnpmPackage {
+{ aegisNpmLib, generatedIcons, ... }:
+aegisNpmLib.buildPnpmPackage {
   dirs = [
     "web"
     "apps/shared"

@@ -8,10 +8,10 @@ from urllib.parse import quote
 
 from scripts.releases import r2, semver, stable, versioning
 
-DEFAULT_REPO = "NousResearch/hermes-agent"
+DEFAULT_REPO = "NousResearch/aegis-agent"
 
 _ASSET_RE = re.compile(
-    r"^(?P<app>HermesBundled|HermesLight)-(?P<version>[^-]+)"
+    r"^(?P<app>AegisBundled|AegisLight)-(?P<version>[^-]+)"
     r"-(?P<os>mac|win|linux)-(?P<arch>x64|arm64)\.(?P<ext>dmg|msix|AppImage)$"
 )
 
@@ -43,21 +43,21 @@ _PAGE_STYLE = (
     "th{font-weight:600}a{color:#0a58ca}code{font-size:.95em;white-space:pre-wrap;overflow-wrap:anywhere}"
 )
 
-_BUILD_META_RE = re.compile(r'<meta name="hermes-build" content="([^"]*)"')
+_BUILD_META_RE = re.compile(r'<meta name="aegis-build" content="([^"]*)"')
 
 _COMMIT_CLAIM_ASSETS = (
-    ("Windows", "Universal (x64 + arm64)", "MSIXBUNDLE", r"^HermesBundled-[^-]+-win\.msixbundle$"),
-    ("Windows", "x86 (64-bit)", "MSIX", r"^HermesBundled-[^-]+-win-x64\.msix$"),
-    ("Windows", "ARM (arm64 / aarch64)", "MSIX", r"^HermesBundled-[^-]+-win-arm64\.msix$"),
-    ("macOS", "Apple Silicon (M-series)", "DMG", r"^HermesBundled-[^-]+-mac-arm64\.dmg$"),
-    ("macOS", "Apple Silicon (M-series)", "ZIP", r"^HermesBundled-[^-]+-mac-arm64\.zip$"),
+    ("Windows", "Universal (x64 + arm64)", "MSIXBUNDLE", r"^AegisBundled-[^-]+-win\.msixbundle$"),
+    ("Windows", "x86 (64-bit)", "MSIX", r"^AegisBundled-[^-]+-win-x64\.msix$"),
+    ("Windows", "ARM (arm64 / aarch64)", "MSIX", r"^AegisBundled-[^-]+-win-arm64\.msix$"),
+    ("macOS", "Apple Silicon (M-series)", "DMG", r"^AegisBundled-[^-]+-mac-arm64\.dmg$"),
+    ("macOS", "Apple Silicon (M-series)", "ZIP", r"^AegisBundled-[^-]+-mac-arm64\.zip$"),
     ("Termux (Android)", "ARM64 (aarch64)", ".deb", r"^.*\.deb$"),
 )
 
 
 def parse_assets(names: list[str]) -> dict[str, dict[tuple[str, str], tuple[str, str]]]:
     """{app: {(os, arch): (full_key, ext)}} for table-shaped assets only."""
-    out: dict[str, dict[tuple[str, str], tuple[str, str]]] = {"HermesBundled": {}, "HermesLight": {}}
+    out: dict[str, dict[tuple[str, str], tuple[str, str]]] = {"AegisBundled": {}, "AegisLight": {}}
     for name in names:
         base = name.rsplit("/", 1)[-1]
         match = _ASSET_RE.match(base)
@@ -69,7 +69,7 @@ def parse_assets(names: list[str]) -> dict[str, dict[tuple[str, str], tuple[str,
 def table_rows(assets_by_app: dict) -> list[tuple[str, list[tuple[str, str, str, str]]]]:
     """[(section title, [(os label, arch label, kind label, object key), ...]), ...]."""
     sections: list[tuple[str, list[tuple[str, str, str, str]]]] = []
-    for app, title in (("HermesBundled", "Hermes Desktop"), ("HermesLight", "Hermes Light (remote-only client)")):
+    for app, title in (("AegisBundled", "Aegis Desktop"), ("AegisLight", "Aegis Light (remote-only client)")):
         rows = []
         for key in _ROW_ORDER:
             entry = assets_by_app.get(app, {}).get(key)
@@ -119,7 +119,7 @@ def _page(title: str, build: str, body: list[str]) -> str:
     return (
         '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-        f'<meta name="hermes-build" content="{html.escape(build, quote=True)}">\n'
+        f'<meta name="aegis-build" content="{html.escape(build, quote=True)}">\n'
         f"<title>{html.escape(title)}</title>\n<style>{_PAGE_STYLE}</style>\n</head>\n<body>\n"
         + "\n".join(body)
         + "\n</body>\n</html>\n"
@@ -166,7 +166,7 @@ def render_page(tag: str, assets_by_app: dict, base_url: str,
                 bundle_env: dict[str, str | None] | None = None,
                 commit_files: list[str] | None = None) -> str:
     """The tag/channel page: the release-body download table as HTML."""
-    from hermes_cli.update_channel import is_commit_tag
+    from aegis_cli.update_channel import is_commit_tag
 
     commit_page = is_commit_tag(tag)
     if commit_page:
@@ -174,7 +174,7 @@ def render_page(tag: str, assets_by_app: dict, base_url: str,
             raise ValueError("A commit build page needs its exact source commit")
         commit_url = f"https://github.com/{quote(repo, safe='/')}/commit/{commit}"
         body = [
-            "<h1>Hermes Desktop commit build</h1>",
+            "<h1>Aegis Desktop commit build</h1>",
             f"<p>Commit build <code>{html.escape(tag)}</code> of {_link(commit_url)}<code>{commit}</code></a>. "
             "It updates nothing: no release, channel, feed or Store listing. Only objects this build "
             "actually staged in the bucket are listed.</p>",
@@ -184,7 +184,7 @@ def render_page(tag: str, assets_by_app: dict, base_url: str,
             raise ValueError("Only a commit build page lists bundle defaults")
         tag_url = f"https://github.com/{quote(repo, safe='/')}/releases/tag/{quote(tag, safe='')}"
         body = [
-            f"<h1>Hermes Desktop {r2.channel_for_tag(tag)} builds</h1>",
+            f"<h1>Aegis Desktop {r2.channel_for_tag(tag)} builds</h1>",
             f"<p>Release {_link(tag_url)}<code>{html.escape(tag)}</code></a>. Only objects this release "
             "actually staged in the bucket are listed.</p>",
         ]
@@ -232,7 +232,7 @@ def render_page(tag: str, assets_by_app: dict, base_url: str,
         ))
     body.extend(smoke_html(smoke_results))
     body.extend(_bundle_env_html(bundle_env))
-    title = "Hermes Desktop commit build" if commit_page else f"Hermes Desktop {r2.channel_for_tag(tag)} builds"
+    title = "Aegis Desktop commit build" if commit_page else f"Aegis Desktop {r2.channel_for_tag(tag)} builds"
     return _page(title, tag, body)
 
 
@@ -243,7 +243,7 @@ def render_channel_page_from_manifest(
     repo: str = DEFAULT_REPO,
 ) -> str:
     """Render a channel downloads page purely from receipt-backed candidate manifest files."""
-    from hermes_cli.update_channel import release_version
+    from aegis_cli.update_channel import release_version
 
     tag = manifest["tag"]
     archive = manifest["archive"]
@@ -271,7 +271,7 @@ def supersedes(existing_page: str | None, tag: str) -> bool:
     recorded = recorded_build(existing_page)
     if not recorded:
         return True
-    from hermes_cli.update_channel import canary_timestamp, published_canary_timestamp
+    from aegis_cli.update_channel import canary_timestamp, published_canary_timestamp
 
     recorded_stamp = published_canary_timestamp(recorded)
     tag_stamp = canary_timestamp(tag)

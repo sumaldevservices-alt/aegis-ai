@@ -23,8 +23,8 @@ _VAULT_REDACTION_LOCK = threading.Lock()
 
 
 def _vault_scope() -> str:
-    from hermes_constants import get_hermes_home
-    return str(get_hermes_home())
+    from aegis_constants import get_aegis_home
+    return str(get_aegis_home())
 
 
 def register_vault_redaction_value(value) -> None:

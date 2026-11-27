@@ -1,6 +1,6 @@
 name: doorman
 title: Doorman
-repo: https://github.com/TwoRobotsinaTrenchcoat/Hermes-Doorman
+repo: https://github.com/TwoRobotsinaTrenchcoat/Aegis-Doorman
 sha: 63e952acea779e16d4e73aa584318f3c72d2fd8c
 description: >-
   Wake-on-LAN doorman for sleeping inference backends. When an API request targets a
@@ -19,8 +19,8 @@ description: >-
 maintainer: TwoRobotsinaTrenchcoat
 tier: community
 category: automation
-requires_hermes: ">=0.22"
-docs_url: https://github.com/TwoRobotsinaTrenchcoat/Hermes-Doorman#readme
+requires_aegis: ">=0.22"
+docs_url: https://github.com/TwoRobotsinaTrenchcoat/Aegis-Doorman#readme
 version: "0.2.3"
 platforms: []
 capabilities:

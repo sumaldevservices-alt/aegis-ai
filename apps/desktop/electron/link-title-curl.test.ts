@@ -18,7 +18,7 @@ const BIG5_TITLE = Buffer.from([
 ])
 
 const TRAILER = Buffer.from(
-  '\nhermes-content-type:text/html; charset=big5\nhermes-url-effective:https://example.test/final'
+  '\naegis-content-type:text/html; charset=big5\naegis-url-effective:https://example.test/final'
 )
 
 describe('parseCurlTitleResponse', () => {
@@ -44,8 +44,8 @@ describe('parseCurlTitleResponse', () => {
     const body = Buffer.concat([
       Buffer.from('<title>Moved</title>'),
       Buffer.from(
-        '\nhermes-content-type:text/html\nhermes-url-effective:http://origin.test/a\n' +
-          'hermes-url-redirect:https://origin.test/b\nhermes-http-code:302'
+        '\naegis-content-type:text/html\naegis-url-effective:http://origin.test/a\n' +
+          'aegis-url-redirect:https://origin.test/b\naegis-http-code:302'
       )
     ])
 
@@ -61,7 +61,7 @@ describe('parseCurlTitleResponse', () => {
     const body = Buffer.concat([
       Buffer.from('<title>ok</title>'),
       Buffer.from(
-        '\nhermes-content-type:text/html\nhermes-url-effective:https://a.test/\nhermes-http-code:not-a-number'
+        '\naegis-content-type:text/html\naegis-url-effective:https://a.test/\naegis-http-code:not-a-number'
       )
     ])
 

@@ -292,12 +292,12 @@ def test_commit_claim_staging_runs_on_fresh_controller_only_jobs_without_builder
 def _built_packages(staged: Path, target: str) -> None:
     """What a commit build leg uploads for ``target``: the packages its stager may stage."""
     if target == "termux":
-        names = ["deb/hermes-agent_0.33.0_aarch64.deb"]
+        names = ["deb/aegis-agent_0.33.0_aarch64.deb"]
     elif target.startswith("darwin-"):
         arch = target.split("-")[1]
-        names = [f"HermesBundled-0.33.0-mac-{arch}.{ext}" for ext in ("dmg", "zip", "dmg.blockmap", "zip.blockmap")]
+        names = [f"AegisBundled-0.33.0-mac-{arch}.{ext}" for ext in ("dmg", "zip", "dmg.blockmap", "zip.blockmap")]
     else:
-        names = [f"HermesBundled-0.33.0-win-{target.split('-')[1]}.msix"]
+        names = [f"AegisBundled-0.33.0-win-{target.split('-')[1]}.msix"]
     for name in names:
         (staged / name).parent.mkdir(parents=True, exist_ok=True)
         (staged / name).write_bytes(b"package-fixture")
@@ -321,7 +321,7 @@ def test_claim_staging_runs_the_controller_recorder_on_the_built_artifacts(
     _built_packages(staged, target)
     if target == "darwin-arm64":
         ditto = extra_bin / "ditto"
-        ditto.write_text("#!/usr/bin/env bash\nset -e\n[ \"$1\" = -x ] && [ \"$2\" = -k ] && mkdir -p \"$4/Hermes.app\"\n", encoding="utf-8")
+        ditto.write_text("#!/usr/bin/env bash\nset -e\n[ \"$1\" = -x ] && [ \"$2\" = -k ] && mkdir -p \"$4/Aegis.app\"\n", encoding="utf-8")
         ditto.chmod(0o755)
     receipts = tmp_path / "receipts.jsonl"
     context = {
@@ -374,15 +374,15 @@ def test_claim_staging_reads_the_unreviewed_packages_without_the_r2_secrets(targ
 # recorder would trust, a metadata file or a package the recorder never reads (Store, another
 # arch, a second DMG, a stray blockmap, any of them hidden), a nested package, or a symlinked
 # deb directory.
-_PLANTED = {"win32-x64": ("version-info-x64.json", "nested/HermesBundled-0.33.0-win-x64.msix",
-                          "Store-HermesBundled-0.33.0-win-x64.msix", "HermesBundled-0.33.0-win-arm64.msix"),
+_PLANTED = {"win32-x64": ("version-info-x64.json", "nested/AegisBundled-0.33.0-win-x64.msix",
+                          "Store-AegisBundled-0.33.0-win-x64.msix", "AegisBundled-0.33.0-win-arm64.msix"),
             "win32-arm64": ("version-info-arm64.json", "metadata-windows-arm64.json",
                             ".Other-0.33.0-win-arm64.msix"),
-            "darwin-arm64": ("metadata-macos-arm64.json", "nested/HermesBundled-0.33.0-mac-arm64.zip",
-                             "Other-0.33.0-mac-arm64.dmg", "HermesBundled-0.33.0-mac-x64.dmg", "evil.blockmap",
+            "darwin-arm64": ("metadata-macos-arm64.json", "nested/AegisBundled-0.33.0-mac-arm64.zip",
+                             "Other-0.33.0-mac-arm64.dmg", "AegisBundled-0.33.0-mac-x64.dmg", "evil.blockmap",
                              ".Other-0.33.0-mac-arm64.dmg", ".evil.blockmap",
-                             "HermesBundled-0.33.0-mac-arm64.dmg.blockmap.blockmap"),
-            "termux": ("metadata-termux-aarch64.json", "deb/nested/hermes-agent_0.33.0_aarch64.deb", "<deb symlink>",
+                             "AegisBundled-0.33.0-mac-arm64.dmg.blockmap.blockmap"),
+            "termux": ("metadata-termux-aarch64.json", "deb/nested/aegis-agent_0.33.0_aarch64.deb", "<deb symlink>",
                        "deb/.other_0.33.0_aarch64.deb")}
 
 
@@ -539,9 +539,9 @@ def test_build_termux_deb_action_never_saves_caches_or_pushes_ghcr_in_commit_mod
     }
     wh_env = {
         **wheelhouse_step.get("env", {}), **base_env,
-        "HERMES_PAYLOAD_TAG": COMMIT_TAG,
-        "HERMES_BUILD_COMMIT": head_sha,
-        "HERMES_RELEASE_COMMIT": head_sha,
+        "AEGIS_PAYLOAD_TAG": COMMIT_TAG,
+        "AEGIS_BUILD_COMMIT": head_sha,
+        "AEGIS_RELEASE_COMMIT": head_sha,
         "LEGACY_COMMIT_BUILD": "true" if legacy_script else "false",
     }
     workflow_steps.outputs({**wheelhouse_step, "env": wh_env}, wh_ctx, cwd=repo)
@@ -624,11 +624,11 @@ def test_commit_policy_runs_bundles_and_smoke_only_and_never_touches_release_or_
     assert evaluate(stable_wf["concurrency"]["group"], {"tag": "v0.33.0"}, {}) == "stable-release"
 
     pub_wf = _workflow("stable-release-publication.yml")
-    commit_wf_run = {"event_name": "workflow_run", "repository": "NousResearch/hermes-agent",
+    commit_wf_run = {"event_name": "workflow_run", "repository": "NousResearch/aegis-agent",
                      "event": {"workflow_run": {
                          "conclusion": "success",
                          "display_title": f"Commit release {COMMIT_TAG}",
-                         "head_repository": {"full_name": "NousResearch/hermes-agent"},
+                         "head_repository": {"full_name": "NousResearch/aegis-agent"},
                      }}}
     assert not gate(pub_wf["jobs"]["reconcile"]["if"], {}, {}, github=commit_wf_run)
     sandbox_wf = _workflow("sandbox-image.yml")

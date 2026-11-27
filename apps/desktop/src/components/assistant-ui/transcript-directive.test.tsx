@@ -126,7 +126,7 @@ describe('TranscriptDirectiveLeaf', () => {
       )
     })
 
-    window.addEventListener('hermes:composer-insert', onInsert)
+    window.addEventListener('aegis:composer-insert', onInsert)
 
     try {
       render(
@@ -144,7 +144,7 @@ describe('TranscriptDirectiveLeaf', () => {
 
       expect(targets).toEqual(['tile:sess-b', 'main'])
     } finally {
-      window.removeEventListener('hermes:composer-insert', onInsert)
+      window.removeEventListener('aegis:composer-insert', onInsert)
       dispose()
       setActiveSessionId(null)
       $selectedStoredSessionId.set(null)

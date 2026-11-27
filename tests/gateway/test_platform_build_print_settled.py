@@ -19,7 +19,7 @@ def _plugin(home, name, body):
 
 
 def test_a_build_print_taken_during_another_plugins_reload_matches_the_settled_one(tmp_path, monkeypatch):
-    from hermes_cli import plugins
+    from aegis_cli import plugins
 
     home = tmp_path / "home"
     _plugin(home, "aa-slow", "import builtins\n\ndef register(ctx):\n    gate = getattr(builtins, '_hot_gate', None)\n"
@@ -27,7 +27,7 @@ def test_a_build_print_taken_during_another_plugins_reload_matches_the_settled_o
     _plugin(home, "zz-chat", "def register(ctx):\n    ctx.register_platform(name='zzchat', label='ZZ Chat', "
                              "adapter_factory=lambda cfg: None, check_fn=lambda: True)\n")
     (home / "config.yaml").write_text("plugins:\n  enabled: [aa-slow, zz-chat]\n  disabled: []\n", encoding="utf-8")
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     config = PlatformConfig(enabled=True)
     plugins._reset_plugin_managers_for_tests()
     entered, release = threading.Event(), threading.Event()

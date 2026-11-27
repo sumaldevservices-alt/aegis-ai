@@ -7,12 +7,12 @@ description: "Send a packet (structured Markdown brief plus verbatim original fi
 maintainer: evgolsh
 tier: community
 category: tools
-requires_hermes: ">=0.22.0"
+requires_aegis: ">=0.22.0"
 docs_url: https://github.com/evgolsh/threadpacket/blob/dec4d62b3d973110ba132d79089d6a6f56fb1101/plugin/README.md
 version: "0.4.4"
 platforms: []
 known_issues:
-  - "Sign in once after installing: add mcp_servers.threadpacket (url: https://threadpacket.com/mcp, auth: oauth, trust: untrusted) to config.yaml and run `hermes mcp login threadpacket` (keep trust: untrusted because config.yaml replaces the package entry)"
+  - "Sign in once after installing: add mcp_servers.threadpacket (url: https://threadpacket.com/mcp, auth: oauth, trust: untrusted) to config.yaml and run `aegis mcp login threadpacket` (keep trust: untrusted because config.yaml replaces the package entry)"
 capabilities:
   provides_tools: []
   provides_hooks: []

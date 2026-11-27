@@ -10,12 +10,12 @@ both through the production code into ``tests/fixtures/prompt_surface/``, which 
 * ``tests/ci/test_prompt_surface.py`` fails when the committed render is stale, so every change
   to the surface lands as a reviewable diff of real prompt text and tool schemas;
 * ``.github/workflows/repo-guards.yml`` posts the per-surface summary on the PR;
-* a repository ruleset requires a hermes-agent-core approval for that directory.
+* a repository ruleset requires a aegis-agent-core approval for that directory.
 
     python scripts/ci/prompt_surface.py render            # regenerate the committed snapshot
     python scripts/ci/prompt_surface.py diff BASE HEAD --output FILE   # Markdown summary
 
-``render`` runs in a throwaway ``HERMES_HOME`` (stock config, bundled skills synced) with the clock,
+``render`` runs in a throwaway ``AEGIS_HOME`` (stock config, bundled skills synced) with the clock,
 host OS, network, tool availability and machine paths pinned, so a laptop and the CI runner produce
 the same bytes. ``diff`` is stdlib-only: the PR job runs it on two snapshot directories.
 """
@@ -47,7 +47,7 @@ MODELS = {
     "claude": "anthropic/claude-sonnet-4.5",
     "gpt": "openai/gpt-5",
     "gemini": "google/gemini-2.5-pro",
-    "hermes": "nousresearch/hermes-4-405b",
+    "aegis": "nousresearch/aegis-4-405b",
 }
 # (surface, platform, model family, cwd is a code workspace). Model names gate guidance blocks
 # and the patch dialect, so the matrix runs on cli; one row per other surface catches its hint
@@ -56,7 +56,7 @@ SURFACES = (
     ("cli.claude", "cli", "claude", False),
     ("cli.gpt", "cli", "gpt", False),
     ("cli.gemini", "cli", "gemini", False),
-    ("cli.hermes", "cli", "hermes", False),
+    ("cli.aegis", "cli", "aegis", False),
     ("cli-code.claude", "cli", "claude", True),
     ("desktop.claude", "desktop", "claude", False),
     ("telegram.claude", "telegram", "claude", False),
@@ -85,8 +85,8 @@ def _pin_environment() -> None:
     import psutil
     sys.platform = "linux"  # skills index ``platforms:`` gate
 
-    import hermes_time
-    hermes_time.now = lambda: FIXED_NOW  # type: ignore[assignment]
+    import aegis_time
+    aegis_time.now = lambda: FIXED_NOW  # type: ignore[assignment]
     # Every registered tool counts as available, as on a fully configured install: check_fns
     # read credentials, binaries and the tool store, which vary by host and would hide schemas.
     import tools.registry as registry_module
@@ -122,13 +122,13 @@ class _ImportFailures(logging.Handler):
 def _scrub(text: str, home: Path) -> str:
     import platform as _platform
     for raw, token in sorted({
-        str(home / ".hermes"): "<HERMES_HOME>",
+        str(home / ".aegis"): "<AEGIS_HOME>",
         str(home): "<HOME>",
         f"{_platform.system()} ({_platform.release()})": "<HOST_OS>",
     }.items(), key=lambda kv: -len(kv[0])):
         text = text.replace(raw, token)
     # A scrubbed path's tail uses the host separator; render it POSIX so every host matches.
-    return re.sub(r"<(?:HERMES_HOME|HOME)>[^\s\"'`]*", lambda m: m.group(0).replace("\\", "/"), text)
+    return re.sub(r"<(?:AEGIS_HOME|HOME)>[^\s\"'`]*", lambda m: m.group(0).replace("\\", "/"), text)
 
 
 def _scrub_obj(obj, home: Path):
@@ -147,13 +147,13 @@ def _enabled_toolsets(platform: str) -> list[str]:
     if platform in TUI_GATEWAY_PLATFORMS:
         from tui_gateway.server import _load_enabled_toolsets
         return list(_load_enabled_toolsets(platform) or [])
-    from hermes_cli.config import load_config
-    from hermes_cli.tools_config import _get_platform_tools
+    from aegis_cli.config import load_config
+    from aegis_cli.tools_config import _get_platform_tools
     return sorted(_get_platform_tools(load_config(), platform))
 
 
 def _render_surface(home: Path, platform: str, model: str, code: bool) -> tuple[dict[str, str], dict]:
-    from hermes_cli.config import load_config, save_config
+    from aegis_cli.config import load_config, save_config
     from agent.system_prompt import build_system_prompt_parts
     from run_agent import AIAgent
 
@@ -229,13 +229,13 @@ def render(out: Path) -> int:
         home.mkdir()
         staging = Path(tmp) / "out"
         env = {
-            "PATH": os.environ.get("PATH", ""), "HOME": str(home), "HERMES_HOME": str(home / ".hermes"),
+            "PATH": os.environ.get("PATH", ""), "HOME": str(home), "AEGIS_HOME": str(home / ".aegis"),
             "TZ": "UTC", "LANG": "C.UTF-8", "PYTHONHASHSEED": "0", "PYTHONPATH": str(ROOT),
             "TMPDIR": tmp, "PYTHONDONTWRITEBYTECODE": "1",
             # Windows resolves ``Path.home()`` from USERPROFILE, never HOME.
             "USERPROFILE": str(home),
         }
-        for key in ("HERMES_RUNTIME_DIR", "SYSTEMROOT"):
+        for key in ("AEGIS_RUNTIME_DIR", "SYSTEMROOT"):
             if os.environ.get(key):
                 env[key] = os.environ[key]
         proc = subprocess.run(

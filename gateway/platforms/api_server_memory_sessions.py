@@ -57,9 +57,9 @@ class ApiServerMemorySessions:
     def _owner_home() -> tuple[str, Optional[Path]]:
         """(registry key, profile home to re-enter on eviction) for the CURRENT scope. Callers run
         inside ``_profile_scope`` (or a single-profile gateway), so the ambient home is the owner's."""
-        from hermes_constants import get_hermes_home, hermes_home_key
-        home = Path(get_hermes_home())
-        return hermes_home_key(home), home
+        from aegis_constants import get_aegis_home, aegis_home_key
+        home = Path(get_aegis_home())
+        return aegis_home_key(home), home
 
     # -- check-out / check-in ----------------------------------------------------------------
 

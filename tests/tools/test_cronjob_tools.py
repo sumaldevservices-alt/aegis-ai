@@ -145,11 +145,11 @@ class TestScanCronSkillAssembled:
     def test_descriptive_attack_command_prose_allowed(self):
         """Security postmortems and runbooks routinely describe attack
         commands in prose — that's not a payload, it's documentation.
-        Real example: the `hermes-agent-dev` skill contains a postmortem
-        section saying 'the attacker could just cat ~/.hermes/.env'.
+        Real example: the `aegis-agent-dev` skill contains a postmortem
+        section saying 'the attacker could just cat ~/.aegis/.env'.
         """
         assert _scan_cron_skill_assembled(
-            "the attacker could just cat ~/.hermes/.env to steal credentials"
+            "the attacker could just cat ~/.aegis/.env to steal credentials"
         )[1] == ""
         assert _scan_cron_skill_assembled(
             "this rule writes to authorized_keys for persistence"
@@ -172,9 +172,9 @@ class TestScanCronSkillAssembled:
 class TestCronjobRequirements:
 
     def test_accepts_interactive_mode(self, monkeypatch):
-        monkeypatch.setenv("HERMES_INTERACTIVE", "1")
-        monkeypatch.delenv("HERMES_GATEWAY_SESSION", raising=False)
-        monkeypatch.delenv("HERMES_EXEC_ASK", raising=False)
+        monkeypatch.setenv("AEGIS_INTERACTIVE", "1")
+        monkeypatch.delenv("AEGIS_GATEWAY_SESSION", raising=False)
+        monkeypatch.delenv("AEGIS_EXEC_ASK", raising=False)
 
         assert check_cronjob_requirements() is True
 
@@ -182,22 +182,22 @@ class TestCronjobRequirements:
     def test_accepts_external_cron_worker_with_presence_vars_stripped(self, monkeypatch):
         """``_launch_external_cron_worker`` strips the presence trio from the worker env; the
         cron session marker alone must keep ``cron.allow_agent_scheduling: true`` effective."""
-        for v in ("HERMES_INTERACTIVE", "HERMES_GATEWAY_SESSION", "HERMES_EXEC_ASK"):
+        for v in ("AEGIS_INTERACTIVE", "AEGIS_GATEWAY_SESSION", "AEGIS_EXEC_ASK"):
             monkeypatch.delenv(v, raising=False)
-        monkeypatch.setenv("HERMES_CRON_SESSION", "1")
+        monkeypatch.setenv("AEGIS_CRON_SESSION", "1")
 
         assert check_cronjob_requirements() is True
 
     @pytest.mark.parametrize(
         "var_name",
-        ["HERMES_INTERACTIVE", "HERMES_GATEWAY_SESSION", "HERMES_EXEC_ASK"],
+        ["AEGIS_INTERACTIVE", "AEGIS_GATEWAY_SESSION", "AEGIS_EXEC_ASK"],
     )
     @pytest.mark.parametrize("false_like_value", ["0", "false", "no", "off"])
     def test_rejects_false_like_any_session_env(
         self, monkeypatch, var_name, false_like_value
     ):
         """All three session env vars share the same truthy semantics."""
-        for v in ("HERMES_INTERACTIVE", "HERMES_GATEWAY_SESSION", "HERMES_EXEC_ASK"):
+        for v in ("AEGIS_INTERACTIVE", "AEGIS_GATEWAY_SESSION", "AEGIS_EXEC_ASK"):
             monkeypatch.delenv(v, raising=False)
         monkeypatch.setenv(var_name, false_like_value)
         assert check_cronjob_requirements() is False
@@ -302,7 +302,7 @@ class TestUnifiedCronjobTool:
 
     @staticmethod
     def _patch_named_legit(monkeypatch):
-        import hermes_cli.runtime_provider as rp
+        import aegis_cli.runtime_provider as rp
         monkeypatch.setattr(rp, "has_named_custom_provider", lambda n: True)
         monkeypatch.setattr(
             rp, "_get_named_custom_provider",
@@ -413,7 +413,7 @@ class TestUnifiedCronjobTool:
 
 
 class TestAgentCannotSetModelPin:
-    """Per-job inference pins are user-owned (dashboard / `hermes cron`
+    """Per-job inference pins are user-owned (dashboard / `aegis cron`
     --model / hand-edited jobs). The agent-facing tool schema must not expose
     model/provider/base_url, and the registered handler must ignore them even
     if a model hallucinates the old parameters."""
@@ -591,10 +591,10 @@ class TestLocalDeliveryNotice:
         monkeypatch.setattr("cron.jobs.OUTPUT_DIR", tmp_path / "cron" / "output")
         # Default: no session origin (the TUI/CLI condition).
         for var in (
-            "HERMES_SESSION_PLATFORM",
-            "HERMES_SESSION_CHAT_ID",
-            "HERMES_SESSION_THREAD_ID",
-            "HERMES_SESSION_CHAT_NAME",
+            "AEGIS_SESSION_PLATFORM",
+            "AEGIS_SESSION_CHAT_ID",
+            "AEGIS_SESSION_THREAD_ID",
+            "AEGIS_SESSION_CHAT_NAME",
         ):
             monkeypatch.delenv(var, raising=False)
         from gateway.session_context import clear_session_vars, set_session_vars
@@ -637,7 +637,7 @@ class TestValidateCronBaseUrl:
 
     @staticmethod
     def _patch_named_legit(monkeypatch):
-        import hermes_cli.runtime_provider as rp
+        import aegis_cli.runtime_provider as rp
         monkeypatch.setattr(rp, "has_named_custom_provider", lambda n: True)
         monkeypatch.setattr(
             rp, "_get_named_custom_provider",
@@ -658,7 +658,7 @@ class TestValidateCronBaseUrl:
     def test_stored_key_only_goes_to_the_configured_origin(self, monkeypatch):
         # The stored key is bound to the configured origin, not to its hostname: another
         # scheme, port or subdomain is a different endpoint the operator never configured.
-        from hermes_cli.auth import PROVIDER_REGISTRY
+        from aegis_cli.auth import PROVIDER_REGISTRY
         reg, known = next((k, p.inference_base_url) for k, p in PROVIDER_REGISTRY.items()
                           if str(getattr(p, "inference_base_url", "")).startswith("https://"))
 
@@ -677,8 +677,8 @@ class TestValidateCronBaseUrl:
     def test_bare_custom_sends_a_stored_key_only_to_a_configured_origin(self, monkeypatch):
         # Whatever key the real resolver would attach to a bare-custom base_url, the guard lets
         # the job through only at the origin the operator configured. No key: still pure BYOK.
-        from hermes_cli.config import get_config_path
-        from hermes_cli.runtime_provider import resolve_runtime_provider
+        from aegis_cli.config import get_config_path
+        from aegis_cli.runtime_provider import resolve_runtime_provider
 
         configured, stored = "https://api.acmellm.example/v1", "sk-stored-acmellm-key"
         monkeypatch.setenv("ACMELLM_API_KEY", stored)
@@ -748,7 +748,7 @@ class TestGithubCurlNotExempt:
 
     def test_gh_cli_and_unauthenticated_github_curl_allowed(self):
         assert _scan_cron_prompt("Run `gh api /rate_limit` and report the remaining quota.") == ""
-        assert _scan_cron_prompt("curl -s https://api.github.com/repos/NousResearch/hermes-agent") == ""
+        assert _scan_cron_prompt("curl -s https://api.github.com/repos/NousResearch/aegis-agent") == ""
 
     def test_private_key_reads_detected(self):
         # Coverage gap found during adversarial testing: the scanner had no
@@ -796,7 +796,7 @@ class TestScheduleKnobToolSurface:
     def test_list_and_slash_list_show_the_pinned_zone(self):
         """``cronjob list`` (the agent's view) and ``/cron list`` (chat/TUI) must say which zone
         a pinned schedule is read in; ``0 9 * * 1-5`` alone reads as the user's 09:00."""
-        from hermes_cli.cli_cron_lines import cron_list_lines
+        from aegis_cli.cli_cron_lines import cron_list_lines
 
         cronjob(action="create", prompt="pinned", schedule="0 9 * * 1-5", name="pinned",
                 timezone="America/New_York")

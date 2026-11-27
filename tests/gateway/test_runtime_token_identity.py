@@ -24,17 +24,17 @@ async def test_authenticated_token_can_create_without_identityless_permissions(t
     from gateway.run_runtime_listener import start_gateway_runtime_api
     from gateway.runtime_ownership import process_ownership
     from gateway.session_controls import AuthorityConnection
-    from hermes_constants import get_hermes_home
-    from hermes_cli import web_server as web
+    from aegis_constants import get_aegis_home
+    from aegis_cli import web_server as web
 
     # Session creation persists a restorable model policy, even without a turn.
-    (get_hermes_home() / 'config.yaml').write_text(json.dumps({
+    (get_aegis_home() / 'config.yaml').write_text(json.dumps({
         'model': {'provider': 'custom', 'default': 'local-wire-stub',
                   'base_url': 'http://127.0.0.1:1/v1'},
         'platform_toolsets': {'cli': []},
         'auxiliary': {'title_generation': {'enabled': False}},
     }))
-    process_ownership.reserve([get_hermes_home()])
+    process_ownership.reserve([get_aegis_home()])
     runner = GatewayRunner(GatewayConfig())
     try:
         await initialize_gateway_runtime(runner)
@@ -73,7 +73,7 @@ async def test_authenticated_token_can_create_without_identityless_permissions(t
 def test_ordinary_daemon_keeps_control_auth_and_loop_witness(tmp_path, layout):
     from gateway.control_socket import identify_gateway, resolve_client_socket_path
     from gateway.shutdown_watchdog import get_loop_tick_socket_path
-    from hermes_cli.gateway import probe_gateway_loop_liveness
+    from aegis_cli.gateway import probe_gateway_loop_liveness
 
     async def create(origin, token):
         url = origin.replace('http:', 'ws:') + '/api/ws'
@@ -113,8 +113,8 @@ def test_ordinary_daemon_keeps_control_auth_and_loop_witness(tmp_path, layout):
         root = Path(__file__).resolve().parents[2]
         token = secrets.token_urlsafe(32)
         env = {key: os.environ[key] for key in ('PATH', 'LANG', 'TZ') if key in os.environ}
-        env.update(HOME=str(user), USERPROFILE=str(user), HERMES_HOME=str(home),
-                   PYTHONPATH=str(root), PYTHONUNBUFFERED='1', HERMES_DASHBOARD_SESSION_TOKEN=token)
+        env.update(HOME=str(user), USERPROFILE=str(user), AEGIS_HOME=str(home),
+                   PYTHONPATH=str(root), PYTHONUNBUFFERED='1', AEGIS_DASHBOARD_SESSION_TOKEN=token)
         if layout == 'long-temp':
             temp = tmp_path / ('t' * 120)
             temp.mkdir()

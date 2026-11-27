@@ -96,8 +96,8 @@ def test_a_request_the_shared_builder_would_store_still_goes_out_stateless_at_on
 
 
 @pytest.mark.parametrize("stream", [False, True])
-def test_headers_are_bearer_and_hermes_user_agent_only(stream):
-    from hermes_cli.version_info import hermes_user_agent
+def test_headers_are_bearer_and_aegis_user_agent_only(stream):
+    from aegis_cli.version_info import aegis_user_agent
 
     seen, handler = _recorder()
     _call(_client(handler, default_headers={"X-Goog-User-Project": "p", "x-goog-api-key": "AIza-x", "DPoP": "proof"}),
@@ -105,8 +105,8 @@ def test_headers_are_bearer_and_hermes_user_agent_only(stream):
 
     request = seen[0]
     assert request.headers["authorization"] == f"Bearer {TOKEN}"
-    assert request.headers["user-agent"] == hermes_user_agent("hermes-agent")
-    assert request.headers["user-agent"].startswith("hermes-agent/")
+    assert request.headers["user-agent"] == aegis_user_agent("aegis-agent")
+    assert request.headers["user-agent"].startswith("aegis-agent/")
     assert request.headers["content-type"] == "application/json"
     for prohibited in ("x-goog-api-key", "x-goog-user-project", "dpop"):
         assert prohibited not in request.headers

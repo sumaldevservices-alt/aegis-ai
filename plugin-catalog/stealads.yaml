@@ -8,7 +8,7 @@ maintainer: Matt Berman
 tier: community
 category: tools
 docs_url: https://stealads.ai/integrations
-requires_hermes: ">=0.21.6"
+requires_aegis: ">=0.21.6"
 readme: true
 platforms: []
 capabilities:

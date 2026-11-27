@@ -57,13 +57,13 @@ export function useRemoteProbe({ enabled, url, revision, onResult, onReset }: Re
     setProbeStatus('idle')
     callbacks.current.onReset()
 
-    if (!enabled || !/^https?:\/\//i.test(url) || !window.hermesDesktop?.probeConnectionConfig) {
+    if (!enabled || !/^https?:\/\//i.test(url) || !window.aegisDesktop?.probeConnectionConfig) {
       return cancel
     }
 
     setProbeStatus('probing')
     timer = window.setTimeout(() => {
-      void window.hermesDesktop
+      void window.aegisDesktop
         .probeConnectionConfig(url)
         .then(result => {
           if (seq === targetSeq.current) {

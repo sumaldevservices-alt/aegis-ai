@@ -18,7 +18,7 @@ async def test_desktop_project_switch_in_a_local_viewer_turn_moves_the_session(t
     from gateway.session_contract import SessionRef
     from gateway.session_mutation_policy import apply_pending_workspace
     from gateway.session_policy import policy_scope, restore_policy
-    from hermes_cli import projects_db as pdb
+    from aegis_cli import projects_db as pdb
     from tools import project_tools, terminal_tool
     built = []
     monkeypatch.setattr(terminal_tool, '_active_environments', {})

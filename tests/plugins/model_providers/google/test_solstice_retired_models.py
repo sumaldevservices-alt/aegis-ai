@@ -85,7 +85,7 @@ def test_a_retired_model_goes_out_as_the_default_model_even_without_the_profiles
 
 @pytest.mark.parametrize("model", _SPELLINGS)
 def test_the_profiles_model_normalization_upgrades_a_retired_model(model):
-    from hermes_cli.model_normalize import normalize_model_for_provider
+    from aegis_cli.model_normalize import normalize_model_for_provider
 
     assert _profile().normalize_model_id(model) == _default()
     assert normalize_model_for_provider(model, "solstice") == _default()

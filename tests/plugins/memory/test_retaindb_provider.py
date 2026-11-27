@@ -60,12 +60,12 @@ def test_prefetch_does_not_spawn_when_previous_batch_is_alive(monkeypatch):
     assert not created
 
 
-def test_upload_file_rejects_hermes_credential_store(tmp_path, monkeypatch):
-    hermes_home = tmp_path / "hermes_home"
-    hermes_home.mkdir()
-    auth_json = hermes_home / "auth.json"
+def test_upload_file_rejects_aegis_credential_store(tmp_path, monkeypatch):
+    aegis_home = tmp_path / "aegis_home"
+    aegis_home.mkdir()
+    auth_json = aegis_home / "auth.json"
     auth_json.write_text('{"OPENAI_API_KEY":"sk-test-secret"}', encoding="utf-8")
-    monkeypatch.setattr(fs, "_hermes_home_path", lambda: hermes_home)
+    monkeypatch.setattr(fs, "_aegis_home_path", lambda: aegis_home)
 
     provider = RetainDBMemoryProvider()
     provider._client = MagicMock()
@@ -94,8 +94,8 @@ def test_upload_file_allows_regular_file(tmp_path):
 
 
 def _capture_initialized_client(monkeypatch, tmp_path):
-    """Patch _Client/_WriteQueue/get_hermes_home; return a dict capturing args."""
-    import hermes_constants
+    """Patch _Client/_WriteQueue/get_aegis_home; return a dict capturing args."""
+    import aegis_constants
 
     import plugins.memory.retaindb as retaindb_module
 
@@ -110,7 +110,7 @@ def _capture_initialized_client(monkeypatch, tmp_path):
 
     monkeypatch.setattr(retaindb_module, "_Client", _FakeClient)
     monkeypatch.setattr(retaindb_module, "_WriteQueue", lambda *a, **k: MagicMock())
-    monkeypatch.setattr(hermes_constants, "get_hermes_home", lambda: tmp_path)
+    monkeypatch.setattr(aegis_constants, "get_aegis_home", lambda: tmp_path)
     return retaindb_module, captured
 
 
@@ -129,7 +129,7 @@ memory:
 """,
         encoding="utf-8",
     )
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
     _retaindb_module, captured = _capture_initialized_client(monkeypatch, tmp_path)
 
     RetainDBMemoryProvider().initialize("sess-1")

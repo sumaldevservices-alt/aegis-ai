@@ -150,7 +150,7 @@ function pendingMovePrompt(): {
 } {
   let answer: (response: number) => void = () => undefined
   let markShown: () => void = () => undefined
-  const exe = '/Volumes/Hermes Agent/Hermes Agent.app/Contents/MacOS/Hermes Agent'
+  const exe = '/Volumes/Aegis Agent/Aegis Agent.app/Contents/MacOS/Aegis Agent'
 
   // The guard reaches showMessageBox synchronously, so this must exist before it starts.
   const shown = new Promise<void>(resolve => {
@@ -159,7 +159,7 @@ function pendingMovePrompt(): {
 
   const result = guardMacApplicationsLaunch({
     app: {
-      getPath: ((name: string) => (name === 'exe' ? exe : '/nonexistent/hermes-user-data')) as never,
+      getPath: ((name: string) => (name === 'exe' ? exe : '/nonexistent/aegis-user-data')) as never,
       getVersion: () => '0.24.0',
       isInApplicationsFolder: () => false,
       moveToApplicationsFolder: () => false
@@ -173,7 +173,7 @@ function pendingMovePrompt(): {
         })
       }) as never
     },
-    appName: 'Hermes Agent',
+    appName: 'Aegis Agent',
     isPackaged: true,
     installStamp: { payload: 'bundled', updateMechanism: 'electron-updater' },
     platform: 'darwin',
@@ -200,7 +200,7 @@ test('a second launch opens no window behind the Applications move prompt, and o
     handleSecondInstance(argv, {
       mainWindow: null,
       launchGuard,
-      deepLinkSchemes: ['hermes'],
+      deepLinkSchemes: ['aegis'],
       handleDeepLink: url => void links.push(url),
       createWindow: () => void created.push('window'),
       focusWindow: () => undefined,
@@ -208,20 +208,20 @@ test('a second launch opens no window behind the Applications move prompt, and o
     })
 
   await prompt.shown
-  secondLaunch(['Hermes Agent'])
-  secondLaunch(['Hermes Agent', 'hermes://session/abc', '--close-preview'])
+  secondLaunch(['Aegis Agent'])
+  secondLaunch(['Aegis Agent', 'aegis://session/abc', '--close-preview'])
   assert.deepEqual(created, [])
   // Links still go to handleDeepLink, which queues them until the renderer is ready.
-  assert.deepEqual(links, ['hermes://close-preview', 'hermes://session/abc'])
+  assert.deepEqual(links, ['aegis://close-preview', 'aegis://session/abc'])
   assert.equal(logs.length, 2)
 
   prompt.answer(1)
   launchGuard = await prompt.result
   assert.equal(launchGuard.action, 'continue')
-  secondLaunch(['Hermes Agent'])
+  secondLaunch(['Aegis Agent'])
   assert.deepEqual(created, ['window'])
 
   launchGuard = { action: 'relaunching', location: 'read-only-volume' }
-  secondLaunch(['Hermes Agent'])
+  secondLaunch(['Aegis Agent'])
   assert.deepEqual(created, ['window'])
 })

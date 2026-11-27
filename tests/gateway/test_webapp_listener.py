@@ -39,28 +39,28 @@ def test_an_enabled_webapp_binds_its_configured_address(tmp_path):
 
 def test_an_enabled_webapp_binds_its_environment_expanded_port(tmp_path, monkeypatch):
     home = _home(tmp_path, "webapp:\n  enabled: true\n  port: ${WEBAPP_PORT}\n")
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     monkeypatch.setenv("WEBAPP_PORT", "9555")
     assert webapp.webapp_settings(home).bind == ("127.0.0.1", 9555)
 
 
 @pytest.mark.parametrize("template", ["${WEBAPP_PORT}", "${env:WEBAPP_PORT}"])
 def test_an_enabled_webapp_expands_port_from_dotenv_end_to_end(tmp_path, monkeypatch, template):
-    from hermes_cli.env_loader import load_hermes_dotenv
+    from aegis_cli.env_loader import load_aegis_dotenv
 
     home = _home(tmp_path, f"webapp:\n  enabled: true\n  port: {template}\n")
     (home / ".env").write_text("WEBAPP_PORT=9555\n", encoding="utf-8")
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     monkeypatch.setenv("WEBAPP_PORT", "")
     os.environ.pop("WEBAPP_PORT", None)
-    load_hermes_dotenv(hermes_home=home, load_external_secrets=False)
+    load_aegis_dotenv(aegis_home=home, load_external_secrets=False)
     settings = webapp.webapp_settings(home)
     assert (settings.enabled, settings.bind, settings.reason) == (True, ("127.0.0.1", 9555), None)
 
 
 def test_an_unexpanded_port_env_var_keeps_the_webapp_off(tmp_path, monkeypatch):
     home = _home(tmp_path, "webapp:\n  enabled: true\n  port: ${WEBAPP_PORT}\n")
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     monkeypatch.delenv("WEBAPP_PORT", raising=False)
     settings = webapp.webapp_settings(home)
     assert (settings.enabled, settings.bind) == (False, ("127.0.0.1", 0))
@@ -130,7 +130,7 @@ def test_invalid_or_non_ascii_ports_keep_the_webapp_off(tmp_path, raw_port):
     "webapp:\n  enabled: true\n  host: ''\n",
     "webapp:\n  enabled: 'true'\n",
     "webapp:\n  enabled: true\n  host: 127.0.0.2\n",
-    "webapp:\n  enabled: true\n  host: hermes.example.net\n",
+    "webapp:\n  enabled: true\n  host: aegis.example.net\n",
 ])
 def test_a_malformed_webapp_block_keeps_the_listener_private(tmp_path, block):
     settings = webapp.webapp_settings(_home(tmp_path, block))
@@ -189,7 +189,7 @@ def _start_runtime_api(monkeypatch, tmp_path, config, *, busy=False, refuse=None
     (a list) records what each Webapp verb answers while the Webapp's listener starts."""
     from gateway import run_api, run_runtime_listener
     home = _home(tmp_path, config)
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     calls = []
 
     async def start(runner, *, host="127.0.0.1", port=0, webapp=None):
@@ -239,7 +239,7 @@ def test_the_gateway_registers_the_webapp_verbs_before_its_control_socket_answer
     from that moment too (``starting`` until the listener settles), not only once the listener is up."""
     from gateway import control_socket, run_bootstrap
     home = _home(tmp_path)
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     seen = {}
 
     async def start(server):
@@ -318,7 +318,7 @@ def test_where_one_use_links_cannot_be_checked_the_launcher_gets_one_to_open_by_
     page, fragment = result["url"].split("#", 1)
     assert page == "http://127.0.0.1:9555/webapp/launch"
     assert (result["private"], result["expires_in_seconds"]) == (True, 60)
-    assert "s" * 43 not in result["url"] and "hermes-session" not in result["url"]
+    assert "s" * 43 not in result["url"] and "aegis-session" not in result["url"]
     [ticket] = parse_qs(fragment)["ticket"]
     _expires, _token, peer_checked = web.app.state.webapp_window_tickets[ticket]
     assert peer_checked is False
@@ -343,7 +343,7 @@ def _lan_webapp(monkeypatch, tmp_path, *, registered=None, address=LAN, public_u
     """A gateway serving the Webapp on every interface (``webapp.host: 0.0.0.0``) behind the sign-in
     gate, this machine's LAN address being *address*, after Web Access Start registered Nous sign-in
     for the callback *registered* (None: never)."""
-    from hermes_cli import webapp_access
+    from aegis_cli import webapp_access
 
     config = "webapp:\n  enabled: true\n  host: 0.0.0.0\n  port: 9555\n"
     runner, _, home = _start_runtime_api(monkeypatch, tmp_path, config)
@@ -390,7 +390,7 @@ def test_the_webapps_own_public_url_wins_over_a_lan_registration(monkeypatch, tm
 
 @pytest.mark.parametrize(("public_url", "params", "opened"), [
     ("https://webapp.example.net", {}, "https://webapp.example.net/"),
-    ("https://example.net:8443/hermes", {"profile": "work"}, "https://example.net:8443/hermes/?profile=work"),
+    ("https://example.net:8443/aegis", {"profile": "work"}, "https://example.net:8443/aegis/?profile=work"),
 ])
 def test_behind_its_own_public_url_the_launcher_opens_that_url_to_sign_in(monkeypatch, tmp_path, public_url,
                                                                           params, opened):

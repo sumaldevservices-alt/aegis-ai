@@ -2,10 +2,10 @@
  * Prune renderer-stored session references whose sessions no longer exist on
  * the backend.
  *
- * Pins (`hermes.desktop.pinnedSessions`), composer drafts
- * (`hermes:composer-drafts:v4`, mirrored to v3), queued prompts
- * (`hermes.desktop.composerQueue.v1`) and interrupted sends
- * (`hermes:composer-outbox:v1:*`) are keyed by session id and re-asserted
+ * Pins (`aegis.desktop.pinnedSessions`), composer drafts
+ * (`aegis:composer-drafts:v4`, mirrored to v3), queued prompts
+ * (`aegis.desktop.composerQueue.v1`) and interrupted sends
+ * (`aegis:composer-outbox:v1:*`) are keyed by session id and re-asserted
  * or probed at boot. When a session is removed from state.db (retention purge,
  * manual delete, another surface pruning it), those keys go stale: nothing
  * ever drops them, so every boot re-requests the dead ids and the gateway
@@ -20,7 +20,7 @@
  * the id is deferred to a later pass instead of being dropped.
  */
 
-import { getSession } from '@/hermes'
+import { getSession } from '@/aegis'
 import { mapPool } from '@/lib/pool'
 import { clearSessionDraft, isFreshDraftScope, stashedDraftScopes } from '@/store/composer'
 import { dropInterruptedSends, interruptedSendScopes } from '@/store/composer-outbox'
@@ -206,7 +206,7 @@ async function sweepOnce(requireLoaded = true): Promise<void> {
     return
   }
 
-  if (typeof window === 'undefined' || !window.hermesDesktop) {
+  if (typeof window === 'undefined' || !window.aegisDesktop) {
     return
   }
 

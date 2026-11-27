@@ -78,14 +78,14 @@ def test_prefixed_listed_model_gets_its_own_unset_default(model):
 
 @pytest.mark.parametrize("model", ["gemini/gemini-4-carbon", "google/gemini-4-carbon", "GEMINI/gemini-4-carbon"])
 def test_setup_effort_picker_offers_carbons_levels_for_a_prefixed_id(model):
-    from hermes_cli.main_provider_setup import _main_model_reasoning_efforts
+    from aegis_cli.main_provider_setup import _main_model_reasoning_efforts
 
     assert _main_model_reasoning_efforts(model, "solstice") == ["low", "medium", "high"]
 
 
 def test_models_prefix_is_not_a_listed_model_for_the_setup_picker_either():
     """Same rule as the client, which sends ``models/...`` as typed: not the listed model's table."""
-    from hermes_cli.main_provider_setup import _main_model_reasoning_efforts
-    from hermes_constants import VALID_REASONING_EFFORTS
+    from aegis_cli.main_provider_setup import _main_model_reasoning_efforts
+    from aegis_constants import VALID_REASONING_EFFORTS
 
     assert _main_model_reasoning_efforts("models/gemini-4-carbon", "solstice") == list(VALID_REASONING_EFFORTS)

@@ -132,7 +132,7 @@ export function provisionCliLinks(
       }
 
       // Rename a staged link, never the payload command itself.
-      const staged = `${target}.hermes-provision-${randomUUID()}`
+      const staged = `${target}.aegis-provision-${randomUUID()}`
 
       io.symlinkSync(source, staged)
 

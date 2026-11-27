@@ -54,7 +54,7 @@ def selection_projection(data: bytes | None) -> bytes | None:
     ``plugins`` section and ``memory.provider``. Every other key (a dashboard prompt's answer, a
     model switch) leaves it unchanged, so such an edit never refuses a publication. A document that
     does not parse as a mapping projects to its bytes: any change to it counts."""
-    from hermes_yaml import safe_load
+    from aegis_yaml import safe_load
     from ruamel.yaml.error import YAMLError
 
     if data is None:
@@ -96,7 +96,7 @@ def validate_manifest(source: Path) -> dict:
 
 def _admitted(source: Path, *, new: bool) -> bool:
     """Refuse a change that newly enables or stages a plugin which does not fit; one enabled
-    before it whose ``hermes-agent`` requirement misses this Hermes sits out (False), as the
+    before it whose ``aegis-agent`` requirement misses this Aegis sits out (False), as the
     build leaves it out, rather than refusing every other plugin's change."""
     from pm.plugin_declarations import read_python_declaration, manifest_version_error
     from pm.workspace import core_requirement_error
@@ -116,7 +116,7 @@ class PluginSelection:
         self.selection = selection
         self.home = Path(selection["home"]).resolve()
         if not self.home.is_relative_to(dependency_home_root().resolve()):
-            raise ValueError("config path is outside Hermes state")
+            raise ValueError("config path is outside Aegis state")
         self.path = self.home / "config.yaml"
         self.previous = read_bytes_or_none(self.path)  # config-reader: ok — pm publication: byte-level compare-and-swap rewrite of the local file
         expected = selection.get("expected_config")
@@ -129,7 +129,7 @@ class PluginSelection:
 
     def _render(self, previous: bytes | None) -> bytes:
         """*previous* with this selection written into its ``plugins`` section, every other key as it is."""
-        from hermes_yaml import roundtrip_yaml
+        from aegis_yaml import roundtrip_yaml
         from pm.plugin_eviction import settle_record
 
         yaml = roundtrip_yaml()
@@ -166,12 +166,12 @@ class PluginSelection:
 
 def _warn_acl_not_inherited(target: Path) -> None:
     """Best effort stays best effort, but not silent: the plugin keeps the staging folder's DACL,
-    which a non-elevated Hermes may be unable to read. The worker's stderr reaches the user."""
+    which a non-elevated Aegis may be unable to read. The worker's stderr reaches the user."""
     import sys
 
     from pm import receipt
 
-    message = (f"Could not give {target} the Windows permissions of {target.parent}; a Hermes running "
+    message = (f"Could not give {target} the Windows permissions of {target.parent}; a Aegis running "
                f"without elevation may be unable to read this plugin. To repair, from an elevated prompt "
                f'run: icacls "{target}" /reset /t')
     print(f"⚠ {message}", file=sys.stderr, flush=True)
@@ -218,7 +218,7 @@ class StagedPlugin:
     def publish(self, project: Path) -> None:
         import os
         import uuid
-        from hermes_cli.auth import _file_lock
+        from aegis_cli.auth import _file_lock
         from pm.store import tree_digest
 
         if selection_snapshot() != self.configs:

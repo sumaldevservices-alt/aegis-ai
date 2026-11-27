@@ -18,8 +18,8 @@ import pytest
 # The real resolver goes into the mocked module: server._launch_home() calls it for the launch
 # state.db, and a MagicMock's return value is os.fspath()-able as the RELATIVE path
 # "MagicMock/<name>/<id>", so the store landed in the cwd (the repo checkout). The real one
-# follows the test's isolated HERMES_HOME.
-from hermes_constants import get_process_hermes_home as _real_get_process_hermes_home
+# follows the test's isolated AEGIS_HOME.
+from aegis_constants import get_process_aegis_home as _real_get_process_aegis_home
 
 
 @pytest.fixture()
@@ -29,13 +29,13 @@ def server():
     with patch.dict(
         "sys.modules",
         {
-            "hermes_constants": MagicMock(
-                get_hermes_home=MagicMock(return_value="/tmp/hermes_test_review_summary"),
-                get_process_hermes_home=_real_get_process_hermes_home,
+            "aegis_constants": MagicMock(
+                get_aegis_home=MagicMock(return_value="/tmp/aegis_test_review_summary"),
+                get_process_aegis_home=_real_get_process_aegis_home,
             ),
-            "hermes_cli.env_loader": MagicMock(),
-            "hermes_cli.banner": MagicMock(),
-            "hermes_state": MagicMock(),
+            "aegis_cli.env_loader": MagicMock(),
+            "aegis_cli.banner": MagicMock(),
+            "aegis_state": MagicMock(),
         },
     ):
         import importlib
@@ -93,7 +93,7 @@ def test_init_session_attaches_background_review_callback(server, monkeypatch):
     captured_emits.clear()
 
     # Invoke the callback the way AIAgent._spawn_background_review would.
-    cb("💾 Self-improvement review: Skill 'hermes-release' patched")
+    cb("💾 Self-improvement review: Skill 'aegis-release' patched")
 
     # Exactly one review.summary event should have been emitted, bound to
     # the session id we passed in, carrying the full message text.
@@ -102,7 +102,7 @@ def test_init_session_attaches_background_review_callback(server, monkeypatch):
     _event, sid, payload = matched[0]
     assert sid == "sid-abc"
     assert payload == {
-        "text": "💾 Self-improvement review: Skill 'hermes-release' patched"
+        "text": "💾 Self-improvement review: Skill 'aegis-release' patched"
     }
 
 

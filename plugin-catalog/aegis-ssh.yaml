@@ -1,0 +1,15 @@
+name: aegis-ssh
+repo: https://github.com/Adolanium/aegis-ssh
+sha: 5d3c64781bca1090a8051ce31927c512c4265d2d
+description: Manage SSH connections and remote workspaces in Aegis Desktop.
+maintainer: Adolanium
+tier: community
+category: desktop
+docs_url: https://github.com/Adolanium/aegis-ssh#readme
+image: https://raw.githubusercontent.com/Adolanium/aegis-ssh/5d3c64781bca1090a8051ce31927c512c4265d2d/assets/catalog-banner.png
+capabilities:
+  provides_tools: []
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []
+subdir: catalog

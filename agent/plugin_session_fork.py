@@ -497,7 +497,7 @@ def _run_bound_job(job: _ForkJob) -> None:
     from agent.side_question import trim_snapshot_for_fork
     from agent.side_question_request import _agent_provider_refusal, runtime_key
     from agent.thread_scoped_output import thread_scoped_silence
-    from hermes_cli.plugins import clear_thread_tool_whitelist, set_thread_tool_whitelist
+    from aegis_cli.plugins import clear_thread_tool_whitelist, set_thread_tool_whitelist
 
     capture, started = job.capture, time.monotonic()
     parent = capture.parent_ref()

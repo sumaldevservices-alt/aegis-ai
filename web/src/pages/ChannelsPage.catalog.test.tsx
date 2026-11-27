@@ -17,8 +17,8 @@ let container: HTMLDivElement;
 
 function row(overrides: Partial<CatalogMessagingPlatform>): CatalogMessagingPlatform {
   return {
-    name: "qqbot", title: "QQ Bot", badge: "official", summary: "Chat with Hermes in QQ Bot.",
-    disclosure: "", blocked: "", blocked_reason: "", install_command: "hermes plugins install qqbot",
+    name: "qqbot", title: "QQ Bot", badge: "official", summary: "Chat with Aegis in QQ Bot.",
+    disclosure: "", blocked: "", blocked_reason: "", install_command: "aegis plugins install qqbot",
     ...overrides,
   };
 }
@@ -35,7 +35,7 @@ const qqbotCard: MessagingPlatform = {
 
 async function render(available: CatalogMessagingPlatform[]) {
   getMessagingPlatforms.mockResolvedValue({
-    env_path: "~/.hermes/.env", gateway_start_command: "hermes gateway start", platforms: [], available,
+    env_path: "~/.aegis/.env", gateway_start_command: "aegis gateway start", platforms: [], available,
   });
   await act(async () => { root.render(<ChannelsPage />); });
 }
@@ -74,7 +74,7 @@ it("lists an available platform with its badge, summary and disclosure", async (
   expect(container.textContent).toContain("Available to install");
   expect(el.textContent).toContain("QQ Bot");
   expect(el.textContent).toContain("Official");
-  expect(el.textContent).toContain("Chat with Hermes in QQ Bot.");
+  expect(el.textContent).toContain("Chat with Aegis in QQ Bot.");
   expect(el.textContent).toContain("Disclosure: Messages pass through Tencent servers.");
 });
 
@@ -84,7 +84,7 @@ it("installs an official platform directly and opens the new card's credential f
     ok: true, plugin_name: "qqbot", platforms: ["qqbot"], warnings: [],
   });
   getMessagingPlatforms.mockResolvedValue({
-    env_path: "~/.hermes/.env", gateway_start_command: "hermes gateway start",
+    env_path: "~/.aegis/.env", gateway_start_command: "aegis gateway start",
     platforms: [qqbotCard], available: [],
   });
 
@@ -101,7 +101,7 @@ it("keeps a form the user opened while the install ran instead of replacing it",
     env_vars: [{ ...qqbotCard.env_vars[0], key: "DISCORD_BOT_TOKEN", prompt: "Discord token" }],
   };
   getMessagingPlatforms.mockResolvedValue({
-    env_path: "~/.hermes/.env", gateway_start_command: "hermes gateway start",
+    env_path: "~/.aegis/.env", gateway_start_command: "aegis gateway start",
     platforms: [discordCard], available: [row({})],
   });
   await act(async () => { root.render(<ChannelsPage />); });
@@ -113,7 +113,7 @@ it("keeps a form the user opened while the install ran instead of replacing it",
   expect(document.getElementById("channel-config-title")?.textContent).toBe("Configure Discord");
 
   getMessagingPlatforms.mockResolvedValue({
-    env_path: "~/.hermes/.env", gateway_start_command: "hermes gateway start",
+    env_path: "~/.aegis/.env", gateway_start_command: "aegis gateway start",
     platforms: [discordCard, qqbotCard], available: [],
   });
   await act(async () => { finishInstall({ ok: true, plugin_name: "qqbot", platforms: ["qqbot"], warnings: [] }); });
@@ -125,7 +125,7 @@ it("keeps a form the user opened while the install ran instead of replacing it",
 it("installs on one click and keeps a refusal on the row with the command", async () => {
   await render([row({ name: "xchat", title: "X Chat", badge: "verified" })]);
   installMessagingCatalogPlatform.mockResolvedValue({
-    ok: false, error: "Clone failed", install_command: "hermes plugins install xchat",
+    ok: false, error: "Clone failed", install_command: "aegis plugins install xchat",
   });
 
   expect(rowEl("xchat").textContent).toContain("Verified");
@@ -133,18 +133,18 @@ it("installs on one click and keeps a refusal on the row with the command", asyn
   expect(installMessagingCatalogPlatform).toHaveBeenCalledWith("xchat");
   expect(document.querySelector('[role="dialog"]')).toBeNull();
   expect(rowEl("xchat").textContent).toContain("Clone failed");
-  expect(rowEl("xchat").textContent).toContain("Run: hermes plugins install xchat");
+  expect(rowEl("xchat").textContent).toContain("Run: aegis plugins install xchat");
 });
 
 it("shows the command instead of an Install button when lazy installs are off", async () => {
   await render([row({
     blocked: "lazy_installs_off",
     blocked_reason: "security.allow_lazy_installs is off.",
-    install_command: "hermes -p work plugins install qqbot",
+    install_command: "aegis -p work plugins install qqbot",
   })]);
 
   const el = rowEl("qqbot");
   expect(button(el, "Install")).toBeUndefined();
   expect(el.textContent).toContain("Automatic plugin installs are off (security.allow_lazy_installs).");
-  expect(el.textContent).toContain("Run: hermes -p work plugins install qqbot");
+  expect(el.textContent).toContain("Run: aegis -p work plugins install qqbot");
 });

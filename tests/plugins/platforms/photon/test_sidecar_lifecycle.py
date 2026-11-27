@@ -100,7 +100,7 @@ async def test_start_sidecar_spawns_with_stdin_pipe(
     spawned: dict[str, Any] = {}
     hidden_flags = 0x08000000
     monkeypatch.setattr(
-        "hermes_cli._subprocess_compat.windows_hide_flags",
+        "aegis_cli._subprocess_compat.windows_hide_flags",
         lambda: hidden_flags,
     )
 
@@ -223,7 +223,7 @@ async def test_spectrum_patch_runs_off_the_event_loop(
 
 def _import_photon_for_another_profile(monkeypatch: pytest.MonkeyPatch, name: str):
     """Import the plugin package a second time under its own module name, as the plugin loader does for
-    every served profile after the first (``hermes_plugins.<slug>__home_<digest>``)."""
+    every served profile after the first (``aegis_plugins.<slug>__home_<digest>``)."""
     plugin_dir = Path(photon_adapter.__file__).parent
     spec = importlib.util.spec_from_file_location(name, plugin_dir / "__init__.py",
                                                   submodule_search_locations=[str(plugin_dir)])

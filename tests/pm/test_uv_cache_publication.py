@@ -4,14 +4,14 @@ from pathlib import Path
 
 import pytest
 
-import hermes_constants
+import aegis_constants
 from pm import packages, paths
 
 
 @pytest.fixture
 def seed_paths(tmp_path, monkeypatch):
     machine = tmp_path / "machine"
-    monkeypatch.setattr(hermes_constants, "get_default_hermes_root", lambda: machine)
+    monkeypatch.setattr(aegis_constants, "get_default_aegis_root", lambda: machine)
     payload = tmp_path / "payload"
     store = payload / "tools"
     store.mkdir(parents=True)

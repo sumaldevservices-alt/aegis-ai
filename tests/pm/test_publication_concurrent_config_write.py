@@ -15,10 +15,10 @@ _REPO = Path(__file__).resolve().parents[2]
 
 def _write_key_from_another_process(home: Path, key: str, value: str) -> None:
     code = ("import sys, json\n"
-            "from hermes_cli.config_backend import write_config_key\n"
+            "from aegis_cli.config_backend import write_config_key\n"
             "write_config_key(sys.argv[1], sys.argv[2], json.loads(sys.argv[3]))\n")
     subprocess.run([sys.executable, "-c", code, str(home / "config.yaml"), key, value],
-                   cwd=_REPO, env={"HERMES_HOME": str(home), "HOME": str(home.parent), "PATH": "/usr/bin:/bin",
+                   cwd=_REPO, env={"AEGIS_HOME": str(home), "HOME": str(home.parent), "PATH": "/usr/bin:/bin",
                                    "PYTHONPATH": str(_REPO)}, check=True, timeout=120)
 
 
@@ -28,7 +28,7 @@ def prepared(tmp_path, monkeypatch):
 
     home = tmp_path / "home"
     home.mkdir()
-    monkeypatch.setenv("HERMES_HOME", str(home))
+    monkeypatch.setenv("AEGIS_HOME", str(home))
     repo = tmp_path / "repo"
     repo.mkdir()
     monkeypatch.setattr(paths, "repo_root", lambda: repo)
@@ -39,8 +39,8 @@ def prepared(tmp_path, monkeypatch):
 def test_an_unrelated_key_written_meanwhile_neither_refuses_nor_is_lost(prepared):
     """The default install of a platform plugin enabled it while the user answered the dashboard's metrics
     prompt: the whole-file compare refused the enable, leaving the plugin installed but disabled."""
-    from hermes_cli.runtime_state import finish_publication, runtime_lock
-    from hermes_yaml import safe_load
+    from aegis_cli.runtime_state import finish_publication, runtime_lock
+    from aegis_yaml import safe_load
     from pm.publication import PluginSelection
 
     home, repo = prepared
@@ -57,7 +57,7 @@ def test_an_unrelated_key_written_meanwhile_neither_refuses_nor_is_lost(prepared
 
 
 def test_a_plugin_selection_written_meanwhile_still_refuses_and_survives(prepared):
-    from hermes_cli.runtime_state import runtime_lock
+    from aegis_cli.runtime_state import runtime_lock
     from pm.publication import PluginSelection, SelectionChanged
 
     home, repo = prepared

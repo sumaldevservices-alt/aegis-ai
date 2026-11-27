@@ -108,7 +108,7 @@ def test_streamed_runs_do_not_request_uv_debug_output(tmp_path, monkeypatch):
     import io
     from pm import environment
 
-    monkeypatch.setenv("HERMES_VERBOSE", "1")
+    monkeypatch.setenv("AEGIS_VERBOSE", "1")
 
     seen: list[list[str]] = []
     kwargs_seen: list[dict] = []

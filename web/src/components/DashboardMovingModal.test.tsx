@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-// The Hermes Cloud "dashboard is moving" modal: shown only when the backend names a web app,
+// The Aegis Cloud "dashboard is moving" modal: shown only when the backend names a web app,
 // dismissed only by its own actions, and "Later" lasts the browser session.
 
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
@@ -57,12 +57,12 @@ describe("DashboardMovingModal", () => {
     expect(modal()).toBeNull();
   });
 
-  it("opens as a modal dialog with the retirement date on Hermes Cloud", async () => {
+  it("opens as a modal dialog with the retirement date on Aegis Cloud", async () => {
     await render(<DashboardMovingModal status={cloud} />);
     expect(modal()?.getAttribute("aria-modal")).toBe("true");
     expect(modal()?.textContent).toContain("Your dashboard is moving");
     expect(modal()?.textContent).toContain(
-      "This dashboard moves to the Hermes web app on December 6.",
+      "This dashboard moves to the Aegis web app on December 6.",
     );
     expect(document.activeElement).toBe(button("Open in web app"));
     expect(stateLabel()).toBe("Ready");

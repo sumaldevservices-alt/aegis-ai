@@ -1,18 +1,18 @@
 ---
 sidebar_label: "Catalog submission"
 title: "Submitting to the Plugin Catalog"
-description: "The full admission guidelines for the Hermes plugin catalog: what to check before you submit, the rules every entry follows, and what reviewers look at"
+description: "The full admission guidelines for the Aegis plugin catalog: what to check before you submit, the rules every entry follows, and what reviewers look at"
 ---
 
 # Submitting to the Plugin Catalog
 
 The [plugin catalog](../../user-guide/features/plugin-catalog.md) is a human-reviewed
-directory of Hermes plugins. Being listed is the trust signal: users install a
+directory of Aegis plugins. Being listed is the trust signal: users install a
 catalog plugin by name, at the exact commit a maintainer read. This page holds
 the complete guidelines for getting a plugin in and keeping it there.
 
 The canonical copy of the admission rules is
-[`plugin-catalog/README.md`](https://github.com/NousResearch/hermes-agent/blob/main/plugin-catalog/README.md)
+[`plugin-catalog/README.md`](https://github.com/NousResearch/aegis-agent/blob/main/plugin-catalog/README.md)
 in the repository. The [rules section](#admission-rules) below mirrors it word
 for word, and a test fails the build if the two drift apart.
 
@@ -21,26 +21,26 @@ for word, and a test fails the build if the two drift apart.
 - **A public repository.** The `repo` URL is an `https://` URL anyone can clone
   (GitHub or GitLab).
 - **A loadable plugin at the commit you pin.** The tree has a `plugin.yaml`
-  manifest plus at least one entrypoint Hermes loads: `__init__.py` (Python),
+  manifest plus at least one entrypoint Aegis loads: `__init__.py` (Python),
   `desktop/plugin.js` (Desktop), `plugin.json` (portable Agent Plugin) or
   `dashboard/manifest.json` (web dashboard). If the plugin lives in a monorepo,
   point `subdir` at its directory. The
   [plugin developer guide](./index.md) covers the layout.
-- **Public surfaces only.** Extend Hermes through hooks, middleware, the
+- **Public surfaces only.** Extend Aegis through hooks, middleware, the
   `ctx.register_*` APIs, provider plugins and the
-  [Desktop plugin SDK](../desktop-plugin-sdk.md). Never patch Hermes
+  [Desktop plugin SDK](../desktop-plugin-sdk.md). Never patch Aegis
   code or Desktop markup at runtime. If the hook you need is missing, see
   [Asking for a hook](#asking-for-a-hook).
 - **Validation passes locally.** Run the same check catalog CI runs, against a
   checkout at the commit you are about to pin:
 
   ```bash
-  hermes plugins validate /path/to/your-plugin --install-deps
+  aegis plugins validate /path/to/your-plugin --install-deps
   ```
 
-  It checks the manifest and `requires_hermes`, that the plugin loads, that the
+  It checks the manifest and `requires_aegis`, that the plugin loads, that the
   `capabilities` you declare match what it registers, `config_schema` and
-  `requires_env`, Python dependencies against Hermes's core constraints, the
+  `requires_env`, Python dependencies against Aegis's core constraints, the
   install security scan, and the `desktop surface` and `no core override`
   rules. Fix every failure before opening the PR, and read the warnings, since
   a reviewer will.
@@ -48,21 +48,21 @@ for word, and a test fails the build if the two drift apart.
 ## Opening the PR
 
 1. Add **one** file, `plugin-catalog/<name>.yaml`, to
-   [`NousResearch/hermes-agent`](https://github.com/NousResearch/hermes-agent).
+   [`NousResearch/aegis-agent`](https://github.com/NousResearch/aegis-agent).
    The fields are documented in the README's
-   [entry schema](https://github.com/NousResearch/hermes-agent/blob/main/plugin-catalog/README.md#entry-schema)
+   [entry schema](https://github.com/NousResearch/aegis-agent/blob/main/plugin-catalog/README.md#entry-schema)
    and in [What's in an entry](../../user-guide/features/plugin-catalog.md#whats-in-an-entry).
    Pin `sha` to a full 40-character commit, and quote `version`.
-2. In the PR description, say what the plugin does, which Hermes surfaces it
+2. In the PR description, say what the plugin does, which Aegis surfaces it
    uses, and everything rule 13 asks you to disclose. Add screenshots for
    anything with a UI.
 3. Wait for the catalog CI job to go green. It clones your repo at the pinned
-   commit and runs `hermes plugins validate`.
+   commit and runs `aegis plugins validate`.
 4. A maintainer reviews the pinned tree and merges, asks for changes, or
    declines. Rule 3 and rule 9 problems are declines rather than bug-fix
    requests: the plugin has to change its design before it can be listed.
 
-Your plugin's [Marketplace](https://hermes-agent.nousresearch.com/marketplace) page at `/marketplace/<name>` is built from
+Your plugin's [Marketplace](https://aegis-agent.nousresearch.com/marketplace) page at `/marketplace/<name>` is built from
 the same file. The README at the pinned commit renders there by default, and
 `screenshots:` fills the gallery. There is no separate listing to maintain.
 
@@ -70,7 +70,7 @@ the same file. The README at the pinned commit renders there by default, and
 
 <!-- admission-rules:start (mirrored in website/docs/developer-guide/plugins/catalog-submission.md; tests/website/test_catalog_rules_mirror.py keeps them identical) -->
 1. **Human-merged gate.** Entries are added *only* via a PR to the
-   `hermes-agent` repository, reviewed and merged by a maintainer. There is
+   `aegis-agent` repository, reviewed and merged by a maintainer. There is
    no self-serve registry, no automated ingestion.
 2. **Exact SHA pins are mandatory.** Every entry pins a full 40-character
    commit SHA. Branches, tags, and short SHAs are rejected by the loader.
@@ -80,7 +80,7 @@ the same file. The README at the pinned commit renders there by default, and
    remote `plugin.js` loaders). The exact SHA pin *is* the trust model; a
    self-updater lets an installed copy move to a commit nobody reviewed.
    Updates reach users only through a SHA-bump PR here plus
-   `hermes plugins update <name>`. Keep the updater in the standalone
+   `aegis plugins update <name>`. Keep the updater in the standalone
    distribution if you want one; strip it from the catalog build. Downloading
    a separate third-party tool pinned by checksum is not a self-updater; a
    maintainer allows such a file by repo, pinned sha and file hash in
@@ -91,7 +91,7 @@ the same file. The README at the pinned commit renders there by default, and
 5. **Owner-or-major-contributor submissions, or a maintainer-curated sweep.**
    An entry may be submitted by the plugin repository's owner or a major
    contributor to it; drive-by submissions of third-party repos are declined.
-   Hermes maintainers may also add entries in batches from a reviewed sweep
+   Aegis maintainers may also add entries in batches from a reviewed sweep
    of community plugins (every pin validated and scanned at the pinned
    commit, self-updater and credential-store checks run, English-first UI).
    Authors of swept-in entries keep control: a PR from the owner adjusting
@@ -101,7 +101,7 @@ the same file. The README at the pinned commit renders there by default, and
    (tools, hooks, middleware, env vars) must match what the plugin actually
    registers at the pinned commit. Validation fails the entry otherwise —
    undeclared capability creep is treated as a security issue.
-7. **The install scanner runs at admission.** `hermes plugins validate` includes
+7. **The install scanner runs at admission.** `aegis plugins validate` includes
    the `security scan` check: `dangerous` fails the entry; `caution` findings
    appear as warnings in the CI log and the reviewer reads them before merging.
    In exchange, installs at the pinned SHA accept `caution` without a prompt
@@ -113,35 +113,35 @@ the same file. The README at the pinned commit renders there by default, and
    `Object.defineProperty(...prototype`), which reviewers check by hand (the
    lint does not); a bundled library setting fields on classes it declares
    itself (three.js and the like) is fine,
-   no `eval`/`new Function`, no `import()` of anything but `@hermes/plugin-sdk`
+   no `eval`/`new Function`, no `import()` of anything but `@aegis/plugin-sdk`
    / `react` (app bundle chunks, blob or http URLs included), no script-tag
    injection, no reaching into the app's internal stores or its own markup
    (querying `data-slot` / `data-tour` / `data-sidebar` / `data-testid`
    elements from `document`, or a `document.body` MutationObserver, to restyle,
-   hide, click or rewrite core UI). `hermes plugins validate` refuses these at
+   hide, click or rewrite core UI). `aegis plugins validate` refuses these at
    admission (`desktop surface` check) and warns, for the reviewer, on raw
-   `window.hermesDesktop` bridge calls and on the app's markup selected any
+   `window.aegisDesktop` bridge calls and on the app's markup selected any
    other way (`[data-slot]`, `[data-tree-*]` in CSS text or `closest()`); a
    plugin that needs a capability the SDK lacks asks for an SDK hook instead
    of patching around it.
-9. **No runtime overrides of Hermes core.** A listed plugin extends Hermes only
+9. **No runtime overrides of Aegis core.** A listed plugin extends Aegis only
    through public surfaces: hooks, middleware, provider profiles and the
    other `register_*` APIs, and Desktop SDK slots and routes. It must not
    replace, wrap or rebind core functions, methods, module attributes or
    private dicts in place (`AIAgent.<method> = ...`, `setattr(server, ...)`,
    `sys.modules[...]`, writes into a core module's tables). Two plugins
    patching the same seam silently break each other, and every core release
-   can break both. `hermes plugins validate` refuses these at admission (`no
+   can break both. `aegis plugins validate` refuses these at admission (`no
    core override` check), and warns (without failing) on each import of an
    undocumented core module and each call to a private method of a core
    object it is handed (`db._execute_write(...)`), by file and line. If the hook you need does not
    exist, open an issue describing it: we would rather add the seam than list
    a patch.
-10. **Dependency security policy is the plugin's.** Hermes's 3-day
-   `exclude-newer` release-age check covers Hermes's own dependencies only, at
-   the time Hermes locks them; a plugin's `python_dependencies` /
+10. **Dependency security policy is the plugin's.** Aegis's 3-day
+   `exclude-newer` release-age check covers Aegis's own dependencies only, at
+   the time Aegis locks them; a plugin's `python_dependencies` /
    `pyproject.toml` install under the plugin's policy (no age check), inside
-   Hermes's core constraints: Hermes's exact pins cannot move. Reviewers read the
+   Aegis's core constraints: Aegis's exact pins cannot move. Reviewers read the
    dependency list at the pinned SHA: bare floors (`>=X` with no upper bound)
    and floors on the newest release get a request for the oldest
    API-compatible floor plus an upper bound, and authors are strongly
@@ -149,26 +149,26 @@ the same file. The README at the pinned commit renders there by default, and
    their CI) — see the developer guide's *Dependency security policy*. A
    recent floor alone is not grounds to hold an entry.
 
-11. **Credentials come through Hermes, never from files.** A plugin gets
-   secrets only through Hermes's routes. Its declared `requires_env` and
+11. **Credentials come through Aegis, never from files.** A plugin gets
+   secrets only through Aegis's routes. Its declared `requires_env` and
    `config_schema` secrets are read with `agent.secret_scope.get_secret(NAME)`,
    which honours the active profile (a bare `os.environ` read can pick up another
    profile's key under multiplexing). A subscription sign-in (Codex / ChatGPT
    today) is used only through `credentialed_provider_request` with
-   `requires_auth`, so Hermes attaches the token and the plugin never holds it. An
+   `requires_auth`, so Aegis attaches the token and the plugin never holds it. An
    OAuth client for a third-party API (the user's own Google Cloud client, for
    example) is declared under `oauth:` in `plugin.yaml`, signed in with
-   `hermes auth add <plugin>:<id>` and used through the same helper; Hermes
+   `aegis auth add <plugin>:<id>` and used through the same helper; Aegis
    stores and refreshes that token too. Its `authorize_url`, `token_url` and
-   `hosts` are `https` only, and its `hosts` belong to the API the scopes are for. A plugin never reads `.env` files, Hermes's `auth.json`, another tool's login (a
+   `hosts` are `https` only, and its `hosts` belong to the API the scopes are for. A plugin never reads `.env` files, Aegis's `auth.json`, another tool's login (a
    vendor CLI's token file, a browser profile, a keychain) or any other
    credential store directly, and never refreshes, rotates or writes OAuth tokens
-   or presents itself as another vendor's client. If Hermes has no route for a
-   credential a plugin needs, ask for one in a Hermes issue or PR; the plugin
+   or presents itself as another vendor's client. If Aegis has no route for a
+   credential a plugin needs, ask for one in a Aegis issue or PR; the plugin
    does not work around it.
 12. **Approvals and unattended runs are respected.** A plugin never routes around
-   Hermes's approval system: no auto-approving, no disabling guards, and no
-   spawning Hermes or shell children that inherit YOLO or non-interactive mode
+   Aegis's approval system: no auto-approving, no disabling guards, and no
+   spawning Aegis or shell children that inherit YOLO or non-interactive mode
    to run commands nobody approved. Anything that waits for a person (a prompt,
    an OAuth browser flow) fails cleanly or times out under cron, the messaging
    gateway and other unattended runs instead of hanging the agent.
@@ -178,20 +178,20 @@ the same file. The README at the pinned commit renders there by default, and
    long-running background processes, stored credentials. Telemetry and usage
    reporting are opt-in. Reviewers summarise these as disclosure lines on the
    entry PR; undisclosed behaviour found in review is a request for changes.
-14. **Compatibility metadata is truthful.** `requires_hermes` is a SemVer floor
+14. **Compatibility metadata is truthful.** `requires_aegis` is a SemVer floor
    (`">=0.21.5"`), never a CalVer date, and never newer than the current release.
-   The entry's `requires_hermes` is enforced: an install by catalog name refuses
-   on a Hermes it rejects, and `hermes plugins update` keeps an installed plugin
-   at its current pin until Hermes is updated. Declare the same floor in
-   `plugin.yaml` as well, because older Hermes versions enforce only that one
+   The entry's `requires_aegis` is enforced: an install by catalog name refuses
+   on a Aegis it rejects, and `aegis plugins update` keeps an installed plugin
+   at its current pin until Aegis is updated. Declare the same floor in
+   `plugin.yaml` as well, because older Aegis versions enforce only that one
    (the loader skips the plugin when it does not match). A portable package
-   (`plugin.json`) has no `requires_hermes` field, so the catalog entry's
-   `requires_hermes` is its only floor: set one when the package needs a recent
-   Hermes (a server declaration key an older release ignores). `version` matches the
-   pinned code, and Python dependencies resolve under Hermes's core constraints
-   (`hermes plugins validate --install-deps` is what CI runs).
+   (`plugin.json`) has no `requires_aegis` field, so the catalog entry's
+   `requires_aegis` is its only floor: set one when the package needs a recent
+   Aegis (a server declaration key an older release ignores). `version` matches the
+   pinned code, and Python dependencies resolve under Aegis's core constraints
+   (`aegis plugins validate --install-deps` is what CI runs).
 15. **No skins or forks of bundled plugins.** A change to a bundled plugin is a
-   PR against `hermes-agent`, not a competing listing, and vendor-lookalike skins
+   PR against `aegis-agent`, not a competing listing, and vendor-lookalike skins
    are not listed under Nous branding.
 16. **One listing per plugin lineage.** A fork of a listed community plugin is
    listed only when it is materially different from the original: a different
@@ -223,10 +223,10 @@ the same file. The README at the pinned commit renders there by default, and
    `browser_vault` login backend (`ctx.register_login_backend`) is listed only at
    `tier: verified`, submitted from the password-manager vendor's own repository
    by that vendor, or at `tier: official` when Nous maintains it. Community-tier,
-   fork and third-party listings of a login backend are declined. Hermes enforces
+   fork and third-party listings of a login backend are declined. Aegis enforces
    the same rule when the plugin loads: a login backend is accepted only from a
-   plugin bundled with Hermes or installed from this catalog at `verified` or
-   `official` tier and at the reviewed pin, as recorded in Hermes's own install
+   plugin bundled with Aegis or installed from this catalog at `verified` or
+   `official` tier and at the reviewed pin, as recorded in Aegis's own install
    record (never a file inside the plugin). Local-directory, Git URL, `--ref`,
    `--allow-removed`, project and pip installs are refused, and no setting
    relaxes it.
@@ -255,8 +255,8 @@ the same PR so the label users see matches the code, and re-pin any `image` /
 `screenshots` URLs that embed the old sha.
 
 Installed plugins compare their recorded sha against the live pin:
-`hermes plugins list --json` reports `update_available`, the Desktop Plugins tab
-shows an **Update to 1.4.0** button, and `hermes plugins update <name>` checks
+`aegis plugins list --json` reports `update_available`, the Desktop Plugins tab
+shows an **Update to 1.4.0** button, and `aegis plugins update <name>` checks
 out exactly the new pin.
 
 If a maintainer swept your plugin into the catalog and you want the entry
@@ -276,7 +276,7 @@ changed or removed, open a PR on its file. Owners keep control of their entries.
   installed. Keep the pinned commit reachable; to come back, resubmit with a
   live repository and pin.
 - **Removal** adds the plugin to
-  [`removed.yaml`](https://github.com/NousResearch/hermes-agent/blob/main/plugin-catalog/README.md#removedyaml--the-blocklist),
+  [`removed.yaml`](https://github.com/NousResearch/aegis-agent/blob/main/plugin-catalog/README.md#removedyaml--the-blocklist),
   which is reserved for security and policy incidents. Installers refuse
   anything on that list, and installed copies stop updating and cannot be
   enabled.
@@ -284,7 +284,7 @@ changed or removed, open a PR on its file. Owners keep control of their entries.
 ## Asking for a hook
 
 If your plugin needs something the plugin surface doesn't offer, open an issue
-on [hermes-agent](https://github.com/NousResearch/hermes-agent/issues)
+on [aegis-agent](https://github.com/NousResearch/aegis-agent/issues)
 describing what you need and why. We would much rather add a proper seam than
 list a patch, and a plugin that will use the hook is exactly the concrete
 consumer a new hook needs.

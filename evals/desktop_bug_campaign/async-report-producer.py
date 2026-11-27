@@ -13,9 +13,9 @@ output = Path(sys.argv[1])
 with tempfile.TemporaryDirectory(prefix="async-report-producer-") as temporary:
     home = Path(temporary)
     for key in list(os.environ):
-        if key.startswith("HERMES_") or key.endswith(("_API_KEY", "_TOKEN")):
+        if key.startswith("AEGIS_") or key.endswith(("_API_KEY", "_TOKEN")):
             os.environ.pop(key, None)
-    os.environ.update(HOME=str(home), HERMES_HOME=str(home / ".hermes"))
+    os.environ.update(HOME=str(home), AEGIS_HOME=str(home / ".aegis"))
     from cron.jobs import create_job, save_job_output
     from gateway.config import PlatformConfig
     from gateway.platforms.api_server import APIServerAdapter

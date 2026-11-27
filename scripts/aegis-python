@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Run Python in this checkout's environment: `scripts/aegis-python ARGS...`.
+#
+# A GitHub Actions job runs the interpreter setup-pm exported as AEGIS_PYTHON,
+# so a recipe never re-runs setup on a runner. Anywhere else AEGIS_PYTHON may
+# be inherited from a wrapped `aegis` (a release venv without the dev tools),
+# so scripts/run-in-aegis-env applies (and if stale, syncs) the environment
+# `source ./activate` gives a shell.
+set -euo pipefail
+
+if [ "${GITHUB_ACTIONS:-}" = true ] && [ -z "${__AEGIS_ACTIVATED:-}" ] && [ -n "${AEGIS_PYTHON:-}" ] \
+    && [ -x "$AEGIS_PYTHON" ]; then
+    exec "$AEGIS_PYTHON" "$@"
+fi
+exec "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-in-aegis-env" python "$@"

@@ -19,7 +19,7 @@ import {
 const tempDirs: string[] = []
 
 function makeTempUserData(): string {
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'hermes-mac-apps-guard-'))
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-mac-apps-guard-'))
 
   tempDirs.push(dir)
 
@@ -32,7 +32,7 @@ function makeDeps(overrides: Partial<MacApplicationsGuardDeps> = {}) {
 
   const getPath = vi.fn((name: string) => {
     if (name === 'exe') {
-      return '/Volumes/Hermes Agent/Hermes Agent.app/Contents/MacOS/Hermes Agent'
+      return '/Volumes/Aegis Agent/Aegis Agent.app/Contents/MacOS/Aegis Agent'
     }
 
     if (name === 'userData') {
@@ -60,12 +60,12 @@ function makeDeps(overrides: Partial<MacApplicationsGuardDeps> = {}) {
   const deps: MacApplicationsGuardDeps = {
     app,
     dialog,
-    appName: 'Hermes Agent',
+    appName: 'Aegis Agent',
     isPackaged: true,
     installStamp: { payload: 'bundled', updateMechanism: 'electron-updater' },
     platform: 'darwin',
     env: {},
-    argv: ['/Volumes/Hermes Agent/Hermes Agent.app/Contents/MacOS/Hermes Agent'],
+    argv: ['/Volumes/Aegis Agent/Aegis Agent.app/Contents/MacOS/Aegis Agent'],
     homeDir: '/Users/alice',
     access,
     exists: () => false,
@@ -116,7 +116,7 @@ describe('classifyMacBundleLocation', () => {
 
   it('detects App Translocation and read-only volumes while ignoring EACCES', () => {
     expect(
-      classifyMacBundleLocation('/private/var/folders/x/T/AppTranslocation/9A8B/d/Hermes Agent.app', {
+      classifyMacBundleLocation('/private/var/folders/x/T/AppTranslocation/9A8B/d/Aegis Agent.app', {
         homeDir: '/Users/alice',
         access: writable
       })
@@ -127,7 +127,7 @@ describe('classifyMacBundleLocation', () => {
     }
 
     expect(
-      classifyMacBundleLocation('/Volumes/Hermes Agent/Hermes Agent.app', {
+      classifyMacBundleLocation('/Volumes/Aegis Agent/Aegis Agent.app', {
         homeDir: '/Users/alice',
         access: erofs
       })
@@ -140,7 +140,7 @@ describe('classifyMacBundleLocation', () => {
     }
 
     expect(
-      classifyMacBundleLocation('/Volumes/Hermes Agent/Hermes Agent.app', {
+      classifyMacBundleLocation('/Volumes/Aegis Agent/Aegis Agent.app', {
         homeDir: '/Users/alice',
         access: erofsBundleOnly
       })
@@ -151,7 +151,7 @@ describe('classifyMacBundleLocation', () => {
     }
 
     expect(
-      classifyMacBundleLocation('/opt/hermes/Hermes Agent.app', {
+      classifyMacBundleLocation('/opt/aegis/Aegis Agent.app', {
         homeDir: '/Users/alice',
         access: eacces
       })
@@ -160,31 +160,31 @@ describe('classifyMacBundleLocation', () => {
 
   it('detects Downloads and Desktop folders without matching sibling prefixes or CI runner temp dirs', () => {
     expect(
-      classifyMacBundleLocation('/Users/alice/Downloads/Hermes Agent.app', {
+      classifyMacBundleLocation('/Users/alice/Downloads/Aegis Agent.app', {
         homeDir: '/Users/alice',
         access: writable
       })
     ).toBe('downloads-folder')
     expect(
-      classifyMacBundleLocation('/Users/alice/Downloads/unzipped/Hermes Agent.app', {
+      classifyMacBundleLocation('/Users/alice/Downloads/unzipped/Aegis Agent.app', {
         homeDir: '/Users/alice',
         access: writable
       })
     ).toBe('downloads-folder')
     expect(
-      classifyMacBundleLocation('/Users/alice/Desktop/Hermes Agent.app', {
+      classifyMacBundleLocation('/Users/alice/Desktop/Aegis Agent.app', {
         homeDir: '/Users/alice',
         access: writable
       })
     ).toBe('desktop-folder')
     expect(
-      classifyMacBundleLocation('/Users/alice/Downloads-keep/Hermes Agent.app', {
+      classifyMacBundleLocation('/Users/alice/Downloads-keep/Aegis Agent.app', {
         homeDir: '/Users/alice',
         access: writable
       })
     ).toBeNull()
     expect(
-      classifyMacBundleLocation('/Users/runner/work/_temp/hermes-bundled-e2e/apps/Hermes.app', {
+      classifyMacBundleLocation('/Users/runner/work/_temp/aegis-bundled-e2e/apps/Aegis.app', {
         homeDir: '/Users/runner',
         access: writable
       })
@@ -212,7 +212,7 @@ describe('guardMacApplicationsLaunch', () => {
 
     const inApps = makeDeps()
     inApps.app.getPath = vi.fn((name: string) =>
-      name === 'exe' ? '/Applications/Hermes Agent.app/Contents/MacOS/Hermes Agent' : inApps.userDataDir
+      name === 'exe' ? '/Applications/Aegis Agent.app/Contents/MacOS/Aegis Agent' : inApps.userDataDir
     ) as unknown as MacApplicationsGuardDeps['app']['getPath']
     inApps.app.isInApplicationsFolder.mockReturnValue(true)
 
@@ -226,11 +226,11 @@ describe('guardMacApplicationsLaunch', () => {
   it.each([
     ['CI=true', { env: { CI: 'true' } }],
     ['GITHUB_ACTIONS=true', { env: { GITHUB_ACTIONS: 'true' } }],
-    ['HERMES_DESKTOP_SKIP_QUIT_CONFIRM=1', { env: { HERMES_DESKTOP_SKIP_QUIT_CONFIRM: '1' } }],
-    ['HERMES_DESKTOP_USER_DATA_DIR', { env: { HERMES_DESKTOP_USER_DATA_DIR: '/tmp/smoke-ud' } }],
+    ['AEGIS_DESKTOP_SKIP_QUIT_CONFIRM=1', { env: { AEGIS_DESKTOP_SKIP_QUIT_CONFIRM: '1' } }],
+    ['AEGIS_DESKTOP_USER_DATA_DIR', { env: { AEGIS_DESKTOP_USER_DATA_DIR: '/tmp/smoke-ud' } }],
     [
       'Playwright --remote-debugging-port',
-      { argv: ['/Volumes/Hermes/Hermes.app/Contents/MacOS/Hermes', '--remote-debugging-port=0'] }
+      { argv: ['/Volumes/Aegis/Aegis.app/Contents/MacOS/Aegis', '--remote-debugging-port=0'] }
     ]
   ])('never prompts in automated or smoke environments (%s)', async (_label, overrides) => {
     const { deps, dialog, app } = makeDeps(overrides)
@@ -244,14 +244,14 @@ describe('guardMacApplicationsLaunch', () => {
   it('never prompts when ShipIt relaunches the macOS E2E upgrade app in a writable temp dir with empty env', async () => {
     const { deps, app, dialog } = makeDeps({
       env: {},
-      argv: ['/Users/runner/work/_temp/hermes-bundled-e2e/apps/Hermes.app/Contents/MacOS/Hermes Agent'],
+      argv: ['/Users/runner/work/_temp/aegis-bundled-e2e/apps/Aegis.app/Contents/MacOS/Aegis Agent'],
       homeDir: '/Users/runner',
       access: () => undefined
     })
 
     app.getPath = vi.fn((name: string) =>
       name === 'exe'
-        ? '/Users/runner/work/_temp/hermes-bundled-e2e/apps/Hermes.app/Contents/MacOS/Hermes Agent'
+        ? '/Users/runner/work/_temp/aegis-bundled-e2e/apps/Aegis.app/Contents/MacOS/Aegis Agent'
         : makeTempUserData()
     ) as unknown as MacApplicationsGuardDeps['app']['getPath']
 
@@ -266,7 +266,7 @@ describe('guardMacApplicationsLaunch', () => {
   it.each([
     [
       'mounted DMG',
-      '/Volumes/Hermes Agent/Hermes Agent.app/Contents/MacOS/Hermes Agent',
+      '/Volumes/Aegis Agent/Aegis Agent.app/Contents/MacOS/Aegis Agent',
       () => {
         throw Object.assign(new Error('read-only file system'), { code: 'EROFS' })
       },
@@ -274,19 +274,19 @@ describe('guardMacApplicationsLaunch', () => {
     ],
     [
       'App Translocation',
-      '/private/var/folders/aa/bb/T/AppTranslocation/1111-2222/d/Hermes Agent.app/Contents/MacOS/Hermes Agent',
+      '/private/var/folders/aa/bb/T/AppTranslocation/1111-2222/d/Aegis Agent.app/Contents/MacOS/Aegis Agent',
       () => undefined,
       'app-translocation'
     ],
     [
       'Downloads folder',
-      '/Users/alice/Downloads/Hermes Agent.app/Contents/MacOS/Hermes Agent',
+      '/Users/alice/Downloads/Aegis Agent.app/Contents/MacOS/Aegis Agent',
       () => undefined,
       'downloads-folder'
     ],
     [
       'Desktop folder',
-      '/Users/alice/Desktop/Hermes Agent.app/Contents/MacOS/Hermes Agent',
+      '/Users/alice/Desktop/Aegis Agent.app/Contents/MacOS/Aegis Agent',
       () => undefined,
       'desktop-folder'
     ]
@@ -335,9 +335,9 @@ describe('guardMacApplicationsLaunch', () => {
     'promises automatic updates after the move only for a build with %s',
     async (_label, updateMechanism, promised) => {
       for (const exe of [
-        '/Volumes/Hermes Agent/Hermes Agent.app/Contents/MacOS/Hermes Agent',
-        '/private/var/folders/aa/bb/T/AppTranslocation/1111/d/Hermes Agent.app/Contents/MacOS/Hermes Agent',
-        '/Users/alice/Downloads/Hermes Agent.app/Contents/MacOS/Hermes Agent'
+        '/Volumes/Aegis Agent/Aegis Agent.app/Contents/MacOS/Aegis Agent',
+        '/private/var/folders/aa/bb/T/AppTranslocation/1111/d/Aegis Agent.app/Contents/MacOS/Aegis Agent',
+        '/Users/alice/Downloads/Aegis Agent.app/Contents/MacOS/Aegis Agent'
       ]) {
         const { deps, app, dialog, userDataDir } = makeDeps({
           installStamp: { payload: 'bundled', updateMechanism },
@@ -371,7 +371,7 @@ describe('guardMacApplicationsLaunch', () => {
     app.moveToApplicationsFolder.mockImplementation(() => app.isInApplicationsFolder())
     app.getPath = vi.fn((name: string) =>
       name === 'exe'
-        ? '/private/var/folders/aa/bb/T/AppTranslocation/DEAD-BEEF/d/Hermes Agent.app/Contents/MacOS/Hermes Agent'
+        ? '/private/var/folders/aa/bb/T/AppTranslocation/DEAD-BEEF/d/Aegis Agent.app/Contents/MacOS/Aegis Agent'
         : userDataDir
     ) as unknown as MacApplicationsGuardDeps['app']['getPath']
 
@@ -408,7 +408,7 @@ describe('guardMacApplicationsLaunch', () => {
   it('remembers dismissal across launches including fresh App Translocation UUIDs', async () => {
     const { deps, app, dialog, userDataDir } = makeDeps({ access: () => undefined })
 
-    let exe = '/private/var/folders/aa/bb/T/AppTranslocation/UUID-FIRST/d/Hermes Agent.app/Contents/MacOS/Hermes Agent'
+    let exe = '/private/var/folders/aa/bb/T/AppTranslocation/UUID-FIRST/d/Aegis Agent.app/Contents/MacOS/Aegis Agent'
 
     app.getPath = vi.fn((name: string) =>
       name === 'exe' ? exe : userDataDir
@@ -426,7 +426,7 @@ describe('guardMacApplicationsLaunch', () => {
       dismissed: true
     })
 
-    exe = '/private/var/folders/aa/bb/T/AppTranslocation/UUID-SECOND/d/Hermes Agent.app/Contents/MacOS/Hermes Agent'
+    exe = '/private/var/folders/aa/bb/T/AppTranslocation/UUID-SECOND/d/Aegis Agent.app/Contents/MacOS/Aegis Agent'
 
     await expect(guardMacApplicationsLaunch(deps)).resolves.toEqual({
       action: 'continue',
@@ -453,7 +453,7 @@ describe('guardMacApplicationsLaunch', () => {
     expect(conflictCase.dialog.showMessageBox).toHaveBeenCalledTimes(2)
     expect(conflictCase.dialog.showMessageBox).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        message: 'Another copy of Hermes Agent is already running in Applications',
+        message: 'Another copy of Aegis Agent is already running in Applications',
         buttons: ['Continue']
       })
     )
@@ -490,7 +490,7 @@ describe('guardMacApplicationsLaunch', () => {
     expect(errorCase.dialog.showMessageBox).toHaveBeenCalledTimes(2)
     expect(errorCase.dialog.showMessageBox).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        message: 'Hermes Agent could not move itself to Applications',
+        message: 'Aegis Agent could not move itself to Applications',
         detail: expect.stringContaining('ENOSPC: no space left on device')
       })
     )
@@ -500,8 +500,8 @@ describe('guardMacApplicationsLaunch', () => {
   it('refuses silent downgrade when /Applications holds a newer version, and allows equal or newer versions', async () => {
     const downgrade = makeDeps(
       installedCopies({
-        '/Volumes/Hermes Agent/Hermes Agent.app': '0.22.0',
-        '/Applications/Hermes Agent.app': '0.24.0'
+        '/Volumes/Aegis Agent/Aegis Agent.app': '0.22.0',
+        '/Applications/Aegis Agent.app': '0.24.0'
       })
     )
 
@@ -514,7 +514,7 @@ describe('guardMacApplicationsLaunch', () => {
     expect(downgrade.dialog.showMessageBox).toHaveBeenCalledTimes(2)
     expect(downgrade.dialog.showMessageBox).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        message: 'A newer version of Hermes Agent is already in Applications',
+        message: 'A newer version of Aegis Agent is already in Applications',
         detail: expect.stringContaining('0.22.0')
       })
     )
@@ -523,8 +523,8 @@ describe('guardMacApplicationsLaunch', () => {
 
     const canary = makeDeps(
       installedCopies({
-        '/Volumes/Hermes Agent/Hermes Agent.app': '0.24.0+canary.20261120T090000Z',
-        '/Applications/Hermes Agent.app': '0.24.0+canary.20261124T090000Z'
+        '/Volumes/Aegis Agent/Aegis Agent.app': '0.24.0+canary.20261120T090000Z',
+        '/Applications/Aegis Agent.app': '0.24.0+canary.20261124T090000Z'
       })
     )
 
@@ -538,15 +538,15 @@ describe('guardMacApplicationsLaunch', () => {
       ['0.24.0', '0.24.0'],
       ['0.25.0', '0.24.0']
     ] as const) {
-      const translocated = '/private/var/folders/aa/bb/T/AppTranslocation/DITTO-COPY/d/Hermes Agent.app'
+      const translocated = '/private/var/folders/aa/bb/T/AppTranslocation/DITTO-COPY/d/Aegis Agent.app'
 
       const allowed = makeDeps({
         access: () => undefined,
-        ...installedCopies({ [translocated]: runningVersion, '/Applications/Hermes Agent.app': existingVersion })
+        ...installedCopies({ [translocated]: runningVersion, '/Applications/Aegis Agent.app': existingVersion })
       })
 
       allowed.app.getPath = vi.fn((name: string) =>
-        name === 'exe' ? `${translocated}/Contents/MacOS/Hermes Agent` : allowed.userDataDir
+        name === 'exe' ? `${translocated}/Contents/MacOS/Aegis Agent` : allowed.userDataDir
       ) as unknown as MacApplicationsGuardDeps['app']['getPath']
 
       const decision = captureExistsDecision(allowed.app)
@@ -567,10 +567,10 @@ describe('guardMacApplicationsLaunch', () => {
     async (_label, installedVersion, reason) => {
       const { deps, app, dialog } = makeDeps({
         ...installedCopies({
-          '/Volumes/Hermes Agent/Hermes Agent.app': '0.24.0',
-          '/Applications/Hermes Agent.app': installedVersion
+          '/Volumes/Aegis Agent/Aegis Agent.app': '0.24.0',
+          '/Applications/Aegis Agent.app': installedVersion
         }),
-        writable: target => target !== '/Applications/Hermes Agent.app'
+        writable: target => target !== '/Applications/Aegis Agent.app'
       })
 
       await expect(guardMacApplicationsLaunch(deps)).resolves.toEqual({
@@ -587,12 +587,12 @@ describe('guardMacApplicationsLaunch', () => {
     ['/Applications is not writable (a standard account)', {}, (target: string) => target !== '/Applications'],
     [
       'the installed copy is not writable (another account owns it)',
-      { '/Applications/Hermes Agent.app': '0.20.0' },
-      (target: string) => target !== '/Applications/Hermes Agent.app'
+      { '/Applications/Aegis Agent.app': '0.20.0' },
+      (target: string) => target !== '/Applications/Aegis Agent.app'
     ]
   ] as const)('sends the move to Finder when %s', async (_label, installed, writable) => {
     const { deps, app, dialog, userDataDir } = makeDeps({
-      ...installedCopies({ '/Volumes/Hermes Agent/Hermes Agent.app': '0.24.0', ...installed }),
+      ...installedCopies({ '/Volumes/Aegis Agent/Aegis Agent.app': '0.24.0', ...installed }),
       writable
     })
 
@@ -609,7 +609,7 @@ describe('guardMacApplicationsLaunch', () => {
     expect(dialog.showMessageBox).toHaveBeenCalledTimes(2)
     expect(dialog.showMessageBox).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        message: 'Moving Hermes Agent to Applications needs an administrator password',
+        message: 'Moving Aegis Agent to Applications needs an administrator password',
         detail: expect.stringContaining('Finder')
       })
     )
@@ -617,7 +617,7 @@ describe('guardMacApplicationsLaunch', () => {
   })
 
   it('moves when only a copy that is not there reads as unwritable', async () => {
-    const { deps, app } = makeDeps({ writable: target => target !== '/Applications/Hermes Agent.app' })
+    const { deps, app } = makeDeps({ writable: target => target !== '/Applications/Aegis Agent.app' })
 
     app.moveToApplicationsFolder.mockReturnValue(true)
 
@@ -629,7 +629,7 @@ describe('guardMacApplicationsLaunch', () => {
 
   it.each([
     ['the Finder notice', { writable: (target: string) => target !== '/Applications' }, false],
-    ['the newer-copy notice', installedCopies({ '/Applications/Hermes Agent.app': '0.30.0' }), false],
+    ['the newer-copy notice', installedCopies({ '/Applications/Aegis Agent.app': '0.30.0' }), false],
     ['the running-copy notice', {}, true]
   ] as const)('does not report a move failure when %s fails to open', async (_label, overrides, running) => {
     const { deps, app, dialog, logs } = makeDeps(overrides)
@@ -655,18 +655,18 @@ describe('guardMacApplicationsLaunch', () => {
   })
 
   it.each([
-    ['a newer copy only in ~/Applications', { '/Users/alice/Applications/Hermes Agent.app': '0.30.0' }],
+    ['a newer copy only in ~/Applications', { '/Users/alice/Applications/Aegis Agent.app': '0.30.0' }],
     [
       'a newer ~/Applications copy beside an older /Applications one',
-      { '/Applications/Hermes Agent.app': '0.20.0', '/Users/alice/Applications/Hermes Agent.app': '0.30.0' }
+      { '/Applications/Aegis Agent.app': '0.20.0', '/Users/alice/Applications/Aegis Agent.app': '0.30.0' }
     ],
     [
       'an unreadable ~/Applications copy beside an older /Applications one',
-      { '/Applications/Hermes Agent.app': '0.20.0', '/Users/alice/Applications/Hermes Agent.app': null }
+      { '/Applications/Aegis Agent.app': '0.20.0', '/Users/alice/Applications/Aegis Agent.app': null }
     ]
   ] as const)('moves with %s, since Electron only ever replaces /Applications', async (_label, installed) => {
     const { deps, app } = makeDeps(
-      installedCopies({ '/Volumes/Hermes Agent/Hermes Agent.app': '0.24.0', ...installed })
+      installedCopies({ '/Volumes/Aegis Agent/Aegis Agent.app': '0.24.0', ...installed })
     )
 
     const decision = captureExistsDecision(app)
@@ -680,8 +680,8 @@ describe('guardMacApplicationsLaunch', () => {
 
   it('checks again from conflictHandler when a copy appears after the first check', async () => {
     const copies = installedCopies({
-      '/Volumes/Hermes Agent/Hermes Agent.app': '0.24.0',
-      '/Applications/Hermes Agent.app': '0.30.0'
+      '/Volumes/Aegis Agent/Aegis Agent.app': '0.24.0',
+      '/Applications/Aegis Agent.app': '0.30.0'
     })
 
     let checks = 0
@@ -693,12 +693,12 @@ describe('guardMacApplicationsLaunch', () => {
   })
 
   it.each([
-    ['an unreadable Info.plist', { '/Applications/Hermes Agent.app': null }],
-    ['a version it cannot compare', { '/Applications/Hermes Agent.app': 'banana' }],
-    ['a two-part version', { '/Applications/Hermes Agent.app': '0.23' }]
+    ['an unreadable Info.plist', { '/Applications/Aegis Agent.app': null }],
+    ['a version it cannot compare', { '/Applications/Aegis Agent.app': 'banana' }],
+    ['a two-part version', { '/Applications/Aegis Agent.app': '0.23' }]
   ] as const)('refuses to replace an installed copy with %s', async (_label, installed) => {
     const { deps, app, dialog, logs, userDataDir } = makeDeps(
-      installedCopies({ '/Volumes/Hermes Agent/Hermes Agent.app': '0.24.0', ...installed })
+      installedCopies({ '/Volumes/Aegis Agent/Aegis Agent.app': '0.24.0', ...installed })
     )
 
     await expect(guardMacApplicationsLaunch(deps)).resolves.toEqual({
@@ -709,7 +709,7 @@ describe('guardMacApplicationsLaunch', () => {
     expect(app.moveToApplicationsFolder).not.toHaveBeenCalled()
     expect(dialog.showMessageBox).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        message: 'Hermes Agent is already in Applications',
+        message: 'Aegis Agent is already in Applications',
         detail: expect.stringContaining('could not be confirmed')
       })
     )
@@ -724,7 +724,7 @@ describe('guardMacApplicationsLaunch', () => {
 
     fs.writeFileSync(blocked, '', 'utf8')
     app.getPath = vi.fn((name: string) =>
-      name === 'exe' ? '/Volumes/Hermes Agent/Hermes Agent.app/Contents/MacOS/Hermes Agent' : path.join(blocked, 'ud')
+      name === 'exe' ? '/Volumes/Aegis Agent/Aegis Agent.app/Contents/MacOS/Aegis Agent' : path.join(blocked, 'ud')
     ) as unknown as MacApplicationsGuardDeps['app']['getPath']
     dialog.showMessageBox.mockResolvedValueOnce({ response: 1, checkboxChecked: true })
 
@@ -792,7 +792,7 @@ describe('bundle version parsing and comparison', () => {
     expect(parseBundleShortVersionFromPlist('<plist><dict></dict></plist>')).toBeNull()
 
     const root = makeTempUserData()
-    const bundleDir = path.join(root, 'Hermes Agent.app')
+    const bundleDir = path.join(root, 'Aegis Agent.app')
 
     fs.mkdirSync(path.join(bundleDir, 'Contents'), { recursive: true })
     fs.writeFileSync(path.join(bundleDir, 'Contents', 'Info.plist'), xml, 'utf8')

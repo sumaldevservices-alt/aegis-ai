@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { HermesConnection } from '@/global'
-import { getSession } from '@/hermes'
+import type { AegisConnection } from '@/global'
+import { getSession } from '@/aegis'
 import { createClientSessionState } from '@/lib/chat-runtime'
 import { clearSessionDraft, stashSessionDraft } from '@/store/composer'
 import { $gatewaySwitching } from '@/store/gateway-switch'
@@ -27,12 +27,12 @@ import {
   WRONG_BACKEND_TILE_ERROR
 } from './session-tile'
 
-vi.mock('@/hermes', async importOriginal => ({
+vi.mock('@/aegis', async importOriginal => ({
   ...(await importOriginal<Record<string, unknown>>()),
   getSession: vi.fn()
 }))
 
-function localConnection(): HermesConnection {
+function localConnection(): AegisConnection {
   return {
     baseUrl: 'http://127.0.0.1:9119',
     isFullscreen: false,
@@ -230,7 +230,7 @@ describe('startUnrestoredTileTitleBackfill retires dead tiles (#125678)', () => 
 
     await vi.waitFor(() => expect($sessionTiles.get()).toEqual([]))
     expect(get.mock.calls.map(call => call[1])).toEqual(['default', 'writer'])
-    expect(window.localStorage.getItem('hermes.desktop.sessionTiles.v2') ?? '').not.toContain('dead-chat')
+    expect(window.localStorage.getItem('aegis.desktop.sessionTiles.v2') ?? '').not.toContain('dead-chat')
     reopenLastClosedTile()
     expect($sessionTiles.get()).toEqual([])
   })

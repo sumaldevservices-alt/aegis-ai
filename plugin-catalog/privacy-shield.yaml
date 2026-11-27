@@ -1,18 +1,18 @@
 # Catalog entry for privacy-shield (subdir of the MOTHR/security-suite monorepo).
 # Owner submission (Rule 5): submitted by MOTHR, owner of the plugin repo.
-# Validated with `hermes plugins validate` + `hermes plugins doctor --ci`
+# Validated with `aegis plugins validate` + `aegis plugins doctor --ci`
 # at this exact commit against a fresh clone.
 name: privacy-shield
-repo: https://github.com/MOTHR/hermes-security-suite
+repo: https://github.com/MOTHR/aegis-security-suite
 sha: 04d8b490666a7740635ddb2826874d6e3c80dfde
 subdir: "privacy-shield"
 description: "Privacy-Shield — tokenizes personal data (PII) in LLM output before sending it to cloud providers, with encrypted AES-256-GCM mapping and whitelisted restore. Modes: off / audit / restore. Configurable via Desktop-Controls or YAML."
 maintainer: MOTHR
 tier: community
 category: general
-docs_url: https://github.com/MOTHR/hermes-security-suite#readme
+docs_url: https://github.com/MOTHR/aegis-security-suite#readme
 version: "1.9.7"
-requires_hermes: ">=0.21.5"
+requires_aegis: ">=0.21.5"
 readme: true
 platforms: []
 known_issues:

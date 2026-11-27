@@ -20,12 +20,12 @@ description: >-
   explicit consent. Results go into the session context and reach the user's model
   provider. The tool list
   comes from the server at run time, so the pinned commit does not cover it. The
-  package marks the server untrusted, so Hermes asks before get_upload_url. No
+  package marks the server untrusted, so Aegis asks before get_upload_url. No
   telemetry, no stored credentials, no self-update.
 maintainer: "jade-interfaze <jade@interfaze.ai>"
 tier: community
 category: web
-requires_hermes: ">=0.22.6"
+requires_aegis: ">=0.22.6"
 version: "0.1.3"
 docs_url: https://github.com/InterfazeAI/interfaze-agent-plugin/blob/d9b038029e13c04c2895cbde98d1528557551789/README.md
 image: https://raw.githubusercontent.com/InterfazeAI/interfaze-agent-plugin/d9b038029e13c04c2895cbde98d1528557551789/assets/banner.png

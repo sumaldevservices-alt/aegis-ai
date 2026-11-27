@@ -38,17 +38,17 @@ class _CapturedTicker:
 def isolated_profiles(tmp_path, monkeypatch):
     """A scratch HOME so profile enumeration can never read or write the live install."""
     fake_home = tmp_path / "fakehome"
-    hermes_home = fake_home / ".hermes"
-    (hermes_home / "profiles" / "secondary").mkdir(parents=True)
+    aegis_home = fake_home / ".aegis"
+    (aegis_home / "profiles" / "secondary").mkdir(parents=True)
     # A dir is only a profile once it carries an identity marker.
-    (hermes_home / "profiles" / "secondary" / "config.yaml").write_text("{}\n")
+    (aegis_home / "profiles" / "secondary" / "config.yaml").write_text("{}\n")
     monkeypatch.setenv("HOME", str(fake_home))
     monkeypatch.setenv("USERPROFILE", str(fake_home))
-    monkeypatch.setenv("HERMES_HOME", str(hermes_home))
-    from hermes_cli import profiles as profiles_mod
+    monkeypatch.setenv("AEGIS_HOME", str(aegis_home))
+    from aegis_cli import profiles as profiles_mod
 
     assert str(profiles_mod._get_profiles_root()).startswith(str(tmp_path))
-    return hermes_home
+    return aegis_home
 
 
 def test_secondary_profile_is_ticked_with_multiplex_profiles_off(

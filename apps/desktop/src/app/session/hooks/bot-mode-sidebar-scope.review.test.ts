@@ -26,12 +26,12 @@ import { makeSessionInfo } from '@/test/session-info'
 
 import { botModeFetchScope, useSidebarDisplayScope } from './bot-mode-fetch-scope'
 
-vi.mock('@/hermes', async importOriginal => ({
+vi.mock('@/aegis', async importOriginal => ({
   ...(await importOriginal()),
   getLatestSessionMessages: vi.fn()
 }))
 
-const { getLatestSessionMessages } = await import('@/hermes')
+const { getLatestSessionMessages } = await import('@/aegis')
 
 const selectBot = (connectionId: string, profile: string, targetProfile = profile) => {
   $workspaceMode.set('bots')

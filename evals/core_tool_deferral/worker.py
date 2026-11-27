@@ -27,25 +27,25 @@ if not os.environ.get("OPENROUTER_API_KEY"):
     print("ABORT: OPENROUTER_API_KEY missing", file=sys.stderr)
     sys.exit(3)
 
-# --- hermetic env BEFORE any hermes import -------------------------------
+# --- hermetic env BEFORE any aegis import -------------------------------
 for var in list(os.environ):
     if var.endswith(("_API_KEY", "_TOKEN")) and var != "OPENROUTER_API_KEY":
         os.environ.pop(var, None)
 os.environ.pop("FAL_KEY", None)
-os.environ.pop("HERMES_PROFILE", None)
+os.environ.pop("AEGIS_PROFILE", None)
 
 from sandbox import isolate_host
 
 tmp_root = tempfile.mkdtemp(prefix=f"ab-{ARM}-{TASK_ID}-")
-hermes_home = os.path.join(tmp_root, ".hermes")
+aegis_home = os.path.join(tmp_root, ".aegis")
 workspace = os.path.join(tmp_root, "ws")
-os.makedirs(hermes_home)
+os.makedirs(aegis_home)
 os.makedirs(workspace)
-isolate_host(tmp_root, hermes_home)
-with open(os.path.join(hermes_home, "config.yaml"), "w", encoding="utf-8") as f:
+isolate_host(tmp_root, aegis_home)
+with open(os.path.join(aegis_home, "config.yaml"), "w", encoding="utf-8") as f:
     f.write(f"model:\n  provider: openrouter\n  model: {MODEL}\n")
 
-os.environ["HERMES_HOME"] = hermes_home
+os.environ["AEGIS_HOME"] = aegis_home
 os.environ["TERMINAL_CWD"] = workspace
 os.chdir(workspace)
 sys.path.insert(0, HARNESS)
@@ -239,7 +239,7 @@ agent = AIAgent(
     connection_callback=connection_cb,
 )
 
-PREAMBLE = ("You are running inside the Hermes desktop app on the user's machine. "
+PREAMBLE = ("You are running inside the Aegis desktop app on the user's machine. "
             f"Your working directory (the workspace) is: {workspace}\n\nTask: ")
 
 t0 = time.time()
@@ -332,7 +332,7 @@ except Exception:
     pass
 
 ctx = {
-    "workspace": workspace, "hermes_home": hermes_home,
+    "workspace": workspace, "aegis_home": aegis_home,
     "events": EVENTS, "callback_log": CALLBACK_LOG,
     "tool_counts": tool_counts, "messages_tool_args": tool_args,
     "messages": messages, "final_answer": final_answer,

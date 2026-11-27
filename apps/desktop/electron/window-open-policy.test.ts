@@ -15,7 +15,7 @@ describe('createWindowOpenHandler', () => {
       throw new Error('log failed')
     })
 
-    expect(handler({ url: 'https://github.com/NousResearch/hermes-agent' })).toEqual({ action: 'deny' })
+    expect(handler({ url: 'https://github.com/NousResearch/aegis-agent' })).toEqual({ action: 'deny' })
   })
 })
 

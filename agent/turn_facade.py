@@ -15,7 +15,7 @@ from agent.lazy_forward import forward as _forward
 
 # Same logger name as the origin module so log records / caplog filters are unchanged.
 logger = logging.getLogger("run_agent")
-_FORK_ORIGIN: ContextVar[str] = ContextVar("hermes_detached_fork_origin", default="")
+_FORK_ORIGIN: ContextVar[str] = ContextVar("aegis_detached_fork_origin", default="")
 
 
 def detached_fork_origin() -> str:
@@ -53,7 +53,7 @@ class TurnFacadeMixin:
         """Forwarder — see ``agent.conversation_loop.run_conversation``."""
         # An agent built before a plugin began running its profile elsewhere (a cached gateway or
         # dashboard session agent) runs no further turn on this host: same refusal as ``__init__``.
-        from hermes_cli.profiles_run_elsewhere import require_home_runs_here
+        from aegis_cli.profiles_run_elsewhere import require_home_runs_here
         require_home_runs_here()
         # A review shares this session_id for cache parity: fence review startup or interrupt
         # an admitted request and await its exit before opening live-turn instrumentation.
@@ -78,7 +78,7 @@ class TurnFacadeMixin:
         from agent.subagent_lifecycle import bind_subagent_parent
         from agent.interrupt_scope import track_in_interrupt_scope
         from agent.turn_facade_lease import admit_durable_turn_lease, carry_unadmitted_user_message
-        from hermes_cli.observability.relay_shared_metrics import finish_task_run, start_task_run
+        from aegis_cli.observability.relay_shared_metrics import finish_task_run, start_task_run
 
         effective_task_id = task_id or str(uuid.uuid4())
         session_id = str(getattr(self, "session_id", None) or "")

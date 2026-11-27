@@ -1,6 +1,6 @@
 """A requested graceful restart waits for the gateway to go idle, serving normally meanwhile.
 
-SIGUSR1, ``/restart``, ``hermes gateway restart`` and the updater's ``pause-for-update`` used to put
+SIGUSR1, ``/restart``, ``aegis gateway restart`` and the updater's ``pause-for-update`` used to put
 the gateway in ``draining`` at once: every new turn, continuation, process/watch notice and
 background-delegation completion was refused ``runtime_draining`` for up to
 ``agent.restart_after_turn_timeout``, and at that cap ``stop()`` interrupted whatever was still live
@@ -20,7 +20,7 @@ import logging
 import os
 import time
 
-from hermes_constants import get_hermes_home
+from aegis_constants import get_aegis_home
 
 logger = logging.getLogger("gateway.run")
 
@@ -184,7 +184,7 @@ def request_restart(runner, *, detached: bool, via_service: bool) -> bool:
                 runner._scale_to_zero_status(runner._serving_state(), "restart failure: status restore failed")
             if chat_restart:  # nor is its notice; best-effort, after the recovery (a read-only home)
                 try:
-                    (get_hermes_home() / ".restart_notify.json").unlink(missing_ok=True)
+                    (get_aegis_home() / ".restart_notify.json").unlink(missing_ok=True)
                 except OSError:
                     logger.warning("Could not remove the failed /restart's notice", exc_info=True)
 

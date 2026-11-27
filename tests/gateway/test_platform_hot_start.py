@@ -1,7 +1,7 @@
 """A running gateway starts, restarts and stops ONE platform adapter when the profile's platform config
 changes, without a gateway restart, single-profile gateways included (no multiplexer involved).
 
-Live: a real ``hermes gateway run`` on a disposable root; the webhook adapter binds a real loopback-
+Live: a real ``aegis gateway run`` on a disposable root; the webhook adapter binds a real loopback-
 reachable port, so "started" is a socket that accepts and "stopped" is one that refuses.
 """
 import asyncio
@@ -48,7 +48,7 @@ def test_single_profile_gateway_starts_restarts_and_stops_a_platform_live(tmp_pa
     (root / "config.yaml").write_text("gateway:\n  multiplex_profiles: false\n", encoding="utf-8")
     repo = Path(__file__).resolve().parents[2]
     env = {k: os.environ[k] for k in ("PATH", "LANG", "TZ") if k in os.environ}
-    env.update(HOME=str(user), HERMES_HOME=str(root), PYTHONPATH=str(repo), PYTHONUNBUFFERED="1")
+    env.update(HOME=str(user), AEGIS_HOME=str(root), PYTHONPATH=str(repo), PYTHONUNBUFFERED="1")
     mux = {"root": root, "env": env, "log": tmp_path / "gateway.log"}
     proc, _desc = start_daemon(mux)
     try:
@@ -88,7 +88,7 @@ def test_a_platform_configured_by_the_launch_environment_survives_a_reconcile(tm
     port = _free_port()
     repo = Path(__file__).resolve().parents[2]
     env = {k: os.environ[k] for k in ("PATH", "LANG", "TZ") if k in os.environ}
-    env.update(HOME=str(user), HERMES_HOME=str(root), PYTHONPATH=str(repo), PYTHONUNBUFFERED="1",
+    env.update(HOME=str(user), AEGIS_HOME=str(root), PYTHONPATH=str(repo), PYTHONUNBUFFERED="1",
                WEBHOOK_ENABLED="true", WEBHOOK_PORT=str(port))
     mux = {"root": root, "env": env, "log": tmp_path / "gateway.log"}
     proc, _desc = start_daemon(mux)
@@ -125,8 +125,8 @@ def test_named_profile_restart_with_the_same_token_comes_back_up_live(tmp_path):
     repo = Path(__file__).resolve().parents[2]
     env = {k: os.environ[k] for k in ("PATH", "LANG", "TZ") if k in os.environ}
     closed = _closed_port()
-    env.update(HOME=str(user), HERMES_HOME=str(root), PYTHONPATH=str(repo), PYTHONUNBUFFERED="1",
-               HERMES_GATEWAY_LOCK_DIR=str(tmp_path / "locks"), HTTPS_PROXY=closed, HTTP_PROXY=closed,
+    env.update(HOME=str(user), AEGIS_HOME=str(root), PYTHONPATH=str(repo), PYTHONUNBUFFERED="1",
+               AEGIS_GATEWAY_LOCK_DIR=str(tmp_path / "locks"), HTTPS_PROXY=closed, HTTP_PROXY=closed,
                https_proxy=closed, http_proxy=closed, NO_PROXY="127.0.0.1", no_proxy="127.0.0.1")
     mux = {"root": root, "env": env, "log": tmp_path / "gateway.log"}
     proc, _desc = start_daemon(mux)
@@ -159,8 +159,8 @@ def test_a_named_profile_rescan_leaves_its_restart_for_the_next_answer(tmp_path)
     dotenv.write_text("LINE_CHANNEL_ACCESS_TOKEN=same-token\nLINE_CHANNEL_SECRET=first\n", encoding="utf-8")
     env = {k: os.environ[k] for k in ("PATH", "LANG", "TZ") if k in os.environ}
     closed = _closed_port()
-    env.update(HOME=str(user), HERMES_HOME=str(root), PYTHONPATH=str(Path(__file__).resolve().parents[2]),
-               PYTHONUNBUFFERED="1", HERMES_GATEWAY_LOCK_DIR=str(tmp_path / "locks"), HTTPS_PROXY=closed,
+    env.update(HOME=str(user), AEGIS_HOME=str(root), PYTHONPATH=str(Path(__file__).resolve().parents[2]),
+               PYTHONUNBUFFERED="1", AEGIS_GATEWAY_LOCK_DIR=str(tmp_path / "locks"), HTTPS_PROXY=closed,
                HTTP_PROXY=closed, https_proxy=closed, http_proxy=closed, NO_PROXY="127.0.0.1", no_proxy="127.0.0.1")
     mux = {"root": root, "env": env, "log": tmp_path / "gateway.log"}
     proc, _desc = start_daemon(mux)
@@ -226,7 +226,7 @@ class _RunnerState:
 
 
 def test_disabled_platform_finishes_its_in_flight_turn_before_it_goes_down(monkeypatch):
-    import hermes_cli.gateway as gateway_cli
+    import aegis_cli.gateway as gateway_cli
     monkeypatch.setattr(gateway_cli, "_get_restart_drain_timeout", lambda: 30.0)
     runner = _runner(types.SimpleNamespace())
 
@@ -245,7 +245,7 @@ def test_disabled_platform_finishes_its_in_flight_turn_before_it_goes_down(monke
 
 def test_drain_waits_for_a_turn_this_bot_received_for_another_profile(monkeypatch):
     """A routed turn runs in another profile's namespace, yet this bot answers it: retiring waits."""
-    import hermes_cli.gateway as gateway_cli
+    import aegis_cli.gateway as gateway_cli
     monkeypatch.setattr(gateway_cli, "_get_restart_drain_timeout", lambda: 30.0)
     bot = types.SimpleNamespace()
     runner = _runner(bot)
@@ -296,7 +296,7 @@ def test_only_adapters_a_build_attempt_owns_are_stopped():
 def test_secondary_restart_is_not_refused_as_a_duplicate_of_itself(monkeypatch):
     """A settings-only restart keeps the same token: the retired adapter's claim must leave the rescan's
     ``claimed`` map, or the rebuild is parked as a duplicate of the adapter it replaces."""
-    import hermes_cli.gateway as gateway_cli
+    import aegis_cli.gateway as gateway_cli
     monkeypatch.setattr(gateway_cli, "_get_restart_drain_timeout", lambda: 0.0)
     adapter = types.SimpleNamespace()
     runner = _runner(adapter)
@@ -422,7 +422,7 @@ class _FileDrivenPrimary:
         (self.named / ".env").write_text("", encoding="utf-8")
         self.named_built = {}
         runner, homes = self.runner, [("default", self.home), ("b", self.named)]
-        monkeypatch.setattr("hermes_cli.profiles.profiles_to_serve", lambda *a, **k: list(homes))
+        monkeypatch.setattr("aegis_cli.profiles.profiles_to_serve", lambda *a, **k: list(homes))
         runner._primary_profile_name = "default"
         runner._multiplex_on = lambda: True
         runner._profile_adapters, runner._profile_failed_platforms = {"b": {}}, {}
@@ -870,7 +870,7 @@ def test_an_unreadable_config_keeps_the_running_platforms_until_it_is_fixed(tmp_
     config.write_text(_webhook_yaml(first), encoding="utf-8")
     repo = Path(__file__).resolve().parents[2]
     env = {k: os.environ[k] for k in ("PATH", "LANG", "TZ") if k in os.environ}
-    env.update(HOME=str(user), HERMES_HOME=str(root), PYTHONPATH=str(repo), PYTHONUNBUFFERED="1")
+    env.update(HOME=str(user), AEGIS_HOME=str(root), PYTHONPATH=str(repo), PYTHONUNBUFFERED="1")
     mux = {"root": root, "env": env, "log": tmp_path / "gateway.log"}
     proc, _desc = start_daemon(mux)
     try:
@@ -913,8 +913,8 @@ def test_an_unreadable_named_profile_config_keeps_its_platforms(tmp_path):
     repo = Path(__file__).resolve().parents[2]
     env = {k: os.environ[k] for k in ("PATH", "LANG", "TZ") if k in os.environ}
     closed = _closed_port()
-    env.update(HOME=str(user), HERMES_HOME=str(root), PYTHONPATH=str(repo), PYTHONUNBUFFERED="1",
-               HERMES_GATEWAY_LOCK_DIR=str(tmp_path / "locks"), HTTPS_PROXY=closed, HTTP_PROXY=closed,
+    env.update(HOME=str(user), AEGIS_HOME=str(root), PYTHONPATH=str(repo), PYTHONUNBUFFERED="1",
+               AEGIS_GATEWAY_LOCK_DIR=str(tmp_path / "locks"), HTTPS_PROXY=closed, HTTP_PROXY=closed,
                https_proxy=closed, http_proxy=closed, NO_PROXY="127.0.0.1", no_proxy="127.0.0.1")
     mux = {"root": root, "env": env, "log": tmp_path / "gateway.log"}
     proc, _desc = start_daemon(mux)
@@ -939,7 +939,7 @@ def test_a_home_channel_change_is_live_without_a_reconnect(tmp_path, monkeypatch
     rebuild, yet the running gateway must deliver to the new destination, not keep the old one."""
     from gateway.config import load_gateway_config
     from gateway.run import GatewayRunner
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
     config = tmp_path / "config.yaml"
     config.write_text(_webhook_yaml(_free_port()), encoding="utf-8")
     runner = GatewayRunner(load_gateway_config())

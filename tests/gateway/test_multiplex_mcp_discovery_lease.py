@@ -11,10 +11,10 @@ from types import SimpleNamespace
 
 import pytest
 
-import hermes_startup_watchdog as sw
+import aegis_startup_watchdog as sw
 from gateway.config import GatewayConfig
-from hermes_constants import get_hermes_home
-from hermes_startup_watchdog import StartupWatchdogHandle, arm_startup_watchdog, disarm_startup_watchdog
+from aegis_constants import get_aegis_home
+from aegis_startup_watchdog import StartupWatchdogHandle, arm_startup_watchdog, disarm_startup_watchdog
 from tools import mcp_tool as _mcp_core
 
 
@@ -27,7 +27,7 @@ def _expected_per_profile_lease_s() -> float:
 
 @pytest.fixture(autouse=True)
 def _isolate_watchdog(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path))
     monkeypatch.delenv(sw.ENV_STARTUP_WATCHDOG, raising=False)
     monkeypatch.delenv(sw.ENV_STARTUP_WATCHDOG_TIMEOUT_S, raising=False)
     sw._reset_for_tests()
@@ -58,10 +58,10 @@ async def test_multiplex_mcp_discovery_reports_per_profile_startup_lease(
         events.append(("lease", expected_s, phase))
 
     def fake_discover() -> list[str]:
-        events.append(("discover", get_hermes_home().name))
+        events.append(("discover", get_aegis_home().name))
         return []
 
-    monkeypatch.setattr("hermes_cli.profiles.profiles_to_serve", lambda multiplex: homes)
+    monkeypatch.setattr("aegis_cli.profiles.profiles_to_serve", lambda multiplex: homes)
     monkeypatch.setattr(sw, "report_startup_progress", fake_report)
     monkeypatch.setattr(_mcp_discovery, "discover_mcp_tools", fake_discover)
 
@@ -91,7 +91,7 @@ async def test_multiplex_mcp_discovery_logs_start_and_finish_with_elapsed(
     for _name, home in homes:
         home.mkdir()
 
-    monkeypatch.setattr("hermes_cli.profiles.profiles_to_serve", lambda multiplex: homes)
+    monkeypatch.setattr("aegis_cli.profiles.profiles_to_serve", lambda multiplex: homes)
     monkeypatch.setattr(_mcp_discovery, "discover_mcp_tools", list)
 
     with caplog.at_level(logging.INFO, logger="gateway.run"):
@@ -127,13 +127,13 @@ async def test_multiplex_mcp_discovery_failure_warns_and_continues_subsequent_pr
         leases.append((expected_s, phase))
 
     def fake_discover() -> list[str]:
-        name = get_hermes_home().name
+        name = get_aegis_home().name
         if name == "broken":
             raise RuntimeError("mcp server unreachable")
         discovered.append(name)
         return []
 
-    monkeypatch.setattr("hermes_cli.profiles.profiles_to_serve", lambda multiplex: homes)
+    monkeypatch.setattr("aegis_cli.profiles.profiles_to_serve", lambda multiplex: homes)
     monkeypatch.setattr(sw, "report_startup_progress", fake_report)
     monkeypatch.setattr(_mcp_discovery, "discover_mcp_tools", fake_discover)
 
@@ -274,7 +274,7 @@ async def test_multiplex_mcp_discovery_keeps_armed_watchdog_alive_across_slow_pr
     monkeypatch.setattr(StartupWatchdogHandle, "_exit", staticmethod(on_exit))
     monkeypatch.setattr(StartupWatchdogHandle, "_process_cpu_seconds", staticmethod(lambda: 0.0))
     monkeypatch.setattr(sw, "_MAX_CPU_EXTENSIONS", 0)
-    monkeypatch.setattr("hermes_cli.profiles.profiles_to_serve", lambda multiplex: homes)
+    monkeypatch.setattr("aegis_cli.profiles.profiles_to_serve", lambda multiplex: homes)
 
     expected_lease = _expected_per_profile_lease_s()
     timeout_s = min(sw.DEFAULT_STARTUP_WATCHDOG_TIMEOUT_S, expected_lease / 2.0)
@@ -325,7 +325,7 @@ async def test_multiplex_mcp_discovery_empty_config_runs_cleanly_without_stackin
         lock_calls += 1
         raise AssertionError("discovery lock should not be acquired when mcp_servers is empty")
 
-    monkeypatch.setattr("hermes_cli.profiles.profiles_to_serve", lambda multiplex: homes)
+    monkeypatch.setattr("aegis_cli.profiles.profiles_to_serve", lambda multiplex: homes)
     monkeypatch.setattr(_mcp_config, "_portable_mcp_servers", lambda *_args, **_kwargs: None)
     monkeypatch.setattr(_mcp_discovery, "_acquire_discovery_lock_with_retry", fail_if_locked)
 

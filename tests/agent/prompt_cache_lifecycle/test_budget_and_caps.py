@@ -68,7 +68,7 @@ class _InertTimer:
 def _setup(monkeypatch):
     from agent.usage_pricing import PricingEntry
 
-    for key in ("HERMES_SESSION_SOURCE", "HERMES_SESSION_SOURCE_EXPLICIT", "HERMES_SINGLE_QUERY_SESSION"):
+    for key in ("AEGIS_SESSION_SOURCE", "AEGIS_SESSION_SOURCE_EXPLICIT", "AEGIS_SINGLE_QUERY_SESSION"):
         monkeypatch.delenv(key, raising=False)
     entry = PricingEntry(**{k: Decimal(str(v)) for k, v in vars(_OPUS).items()}, source="official_docs_snapshot")
     monkeypatch.setattr("agent.usage_pricing.get_pricing_entry", lambda *a, **k: entry)

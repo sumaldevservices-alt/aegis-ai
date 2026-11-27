@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
-# Run a Hermes instance in an isolated sandbox — separate HERMES_HOME,
+# Run a Aegis instance in an isolated sandbox — separate AEGIS_HOME,
 # separate Electron userData, and a distinct Desktop app name so it doesn't compete
 # with your main desktop instance's single-instance lock.
 #
 # By default the sandbox is throwaway: a temp dir is created and removed on
 # exit. Use --persistent to keep the sandbox across restarts (stored under
-# .hermes-sandbox/ in the worktree git root).
+# .aegis-sandbox/ in the worktree git root).
 #
 # Usage:
-#   scripts/dev-sandbox.sh python -m hermes_cli.main
-#   scripts/dev-sandbox.sh hermes desktop
+#   scripts/dev-sandbox.sh python -m aegis_cli.main
+#   scripts/dev-sandbox.sh aegis desktop
 #   scripts/dev-sandbox.sh electron .
 #   scripts/dev-sandbox.sh -- pnpm run dev   # from apps/desktop/
-#   scripts/dev-sandbox.sh --persistent hermes desktop
+#   scripts/dev-sandbox.sh --persistent aegis desktop
 #   scripts/dev-sandbox.sh --persistent -- pnpm run dev
 #
-# Seed the sandbox HERMES_HOME from an existing directory (e.g. your main
-# ~/.hermes) so config, sessions, skills, etc. are pre-populated:
-#   scripts/dev-sandbox.sh --from ~/.hermes hermes desktop
+# Seed the sandbox AEGIS_HOME from an existing directory (e.g. your main
+# ~/.aegis) so config, sessions, skills, etc. are pre-populated:
+#   scripts/dev-sandbox.sh --from ~/.aegis aegis desktop
 #
-# Override the app name (default: HermesSandbox):
-#   HERMES_DEV_SANDBOX_NAME=Staging scripts/dev-sandbox.sh hermes desktop
+# Override the app name (default: AegisSandbox):
+#   AEGIS_DEV_SANDBOX_NAME=Staging scripts/dev-sandbox.sh aegis desktop
 #
-# Override the persistent sandbox dir name (default: .hermes-sandbox):
-#   HERMES_DEV_SANDBOX_DIR=.staging-sandbox scripts/dev-sandbox.sh --persistent hermes desktop
+# Override the persistent sandbox dir name (default: .aegis-sandbox):
+#   AEGIS_DEV_SANDBOX_DIR=.staging-sandbox scripts/dev-sandbox.sh --persistent aegis desktop
 
 set -euo pipefail
 
@@ -31,40 +31,40 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ENTRYPOINT="$(basename "$0")"
 # The minimal entrypoint is an alias, but its existing data and app identity stay separate.
 if [ "$ENTRYPOINT" = dev-minimal-sandbox.sh ]; then
-  DEFAULT_DIR=.hermes-minimal-sandbox
-  APP_PREFIX=HermesMinimalSandbox
-  TEMP_PREFIX=hermes-minimal-sandbox
+  DEFAULT_DIR=.aegis-minimal-sandbox
+  APP_PREFIX=AegisMinimalSandbox
+  TEMP_PREFIX=aegis-minimal-sandbox
 else
-  DEFAULT_DIR=.hermes-sandbox
-  APP_PREFIX=HermesSandbox
-  TEMP_PREFIX=hermes-sandbox
+  DEFAULT_DIR=.aegis-sandbox
+  APP_PREFIX=AegisSandbox
+  TEMP_PREFIX=aegis-sandbox
 fi
 
 print_help() {
   cat <<EOF
 Usage: $ENTRYPOINT [--persistent] [--from DIR] [--] <command...>
 
-Run a Hermes instance in an isolated sandbox.
+Run a Aegis instance in an isolated sandbox.
 
 Options:
   --persistent    Keep the sandbox dir across restarts (under the worktree
                   git root, in $DEFAULT_DIR/). Without this flag the
                   sandbox is a temp dir that is removed on exit.
-  --from DIR      Copy DIR into the sandbox HERMES_HOME as the starting
+  --from DIR      Copy DIR into the sandbox AEGIS_HOME as the starting
                   point (config, sessions, skills, etc.).
-                  Ignored if the sandbox HERMES_HOME already has content
+                  Ignored if the sandbox AEGIS_HOME already has content
                   (e.g. reusing a --persistent sandbox) to avoid clobbering.
   --delete        Delete the existing persistent sandbox in $DEFAULT_DIR.
   -h, --help      Show this help message.
 
 Environment:
-  HERMES_DEV_SANDBOX_NAME  Override the app name (default prefix: $APP_PREFIX)
-  HERMES_DEV_SANDBOX_DIR   Override the persistent dir name (default: $DEFAULT_DIR)
+  AEGIS_DEV_SANDBOX_NAME  Override the app name (default prefix: $APP_PREFIX)
+  AEGIS_DEV_SANDBOX_DIR   Override the persistent dir name (default: $DEFAULT_DIR)
 
 Examples:
-  $ENTRYPOINT hermes desktop
-  $ENTRYPOINT --persistent hermes desktop
-  $ENTRYPOINT --from ~/.hermes hermes desktop
+  $ENTRYPOINT aegis desktop
+  $ENTRYPOINT --persistent aegis desktop
+  $ENTRYPOINT --from ~/.aegis aegis desktop
   $ENTRYPOINT -- pnpm run dev
 EOF
 }
@@ -128,7 +128,7 @@ if [ "$#" -eq 0 ]; then
 fi
 
 
-SANDBOX_DIR_NAME="${HERMES_DEV_SANDBOX_DIR:-$DEFAULT_DIR}"
+SANDBOX_DIR_NAME="${AEGIS_DEV_SANDBOX_DIR:-$DEFAULT_DIR}"
 GIT_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || echo "$SCRIPT_DIR/..")"
 GIT_ROOT="$(cd "$GIT_ROOT" && pwd)"
 PERSISTENT_SANDBOX_ROOT="$GIT_ROOT/$SANDBOX_DIR_NAME"
@@ -161,7 +161,7 @@ WORKTREE_HASH="$(printf '%s' "$WORKTREE_ROOT" | cksum | cut -d' ' -f1)"
 WORKTREE_NAME="$(basename "$WORKTREE_ROOT")"
 DEFAULT_SANDBOX_NAME="${APP_PREFIX}-${WORKTREE_NAME}-${WORKTREE_HASH}"
 
-SANDBOX_NAME="${HERMES_DEV_SANDBOX_NAME:-$DEFAULT_SANDBOX_NAME}"
+SANDBOX_NAME="${AEGIS_DEV_SANDBOX_NAME:-$DEFAULT_SANDBOX_NAME}"
 
 if [ "$PERSISTENT" = true ]; then
   SANDBOX_ROOT="$PERSISTENT_SANDBOX_ROOT"
@@ -169,26 +169,26 @@ else
   SANDBOX_ROOT="$(mktemp -d -t "${TEMP_PREFIX}.XXXXXX")"
 fi
 
-export HERMES_HOME="$SANDBOX_ROOT/hermes-home"
-export HERMES_DESKTOP_USER_DATA_DIR="$SANDBOX_ROOT/user-data"
-export HERMES_DESKTOP_APP_NAME="$SANDBOX_NAME"
+export AEGIS_HOME="$SANDBOX_ROOT/aegis-home"
+export AEGIS_DESKTOP_USER_DATA_DIR="$SANDBOX_ROOT/user-data"
+export AEGIS_DESKTOP_APP_NAME="$SANDBOX_NAME"
 
-mkdir -p "$HERMES_HOME" "$HERMES_DESKTOP_USER_DATA_DIR"
+mkdir -p "$AEGIS_HOME" "$AEGIS_DESKTOP_USER_DATA_DIR"
 
 if [ -n "$SEED_DIR" ]; then
-  # Only seed when the sandbox HERMES_HOME is empty — avoids clobbering an
+  # Only seed when the sandbox AEGIS_HOME is empty — avoids clobbering an
   # existing persistent sandbox on re-run.
-  if [ -z "$(ls -A "$HERMES_HOME" 2>/dev/null)" ]; then
-    echo "[sandbox] seeding HERMES_HOME from $SEED_DIR" >&2
-    cp -a "$SEED_DIR/." "$HERMES_HOME/"
+  if [ -z "$(ls -A "$AEGIS_HOME" 2>/dev/null)" ]; then
+    echo "[sandbox] seeding AEGIS_HOME from $SEED_DIR" >&2
+    cp -a "$SEED_DIR/." "$AEGIS_HOME/"
   else
-    echo "[sandbox] --from ignored: $HERMES_HOME already has content" >&2
+    echo "[sandbox] --from ignored: $AEGIS_HOME already has content" >&2
   fi
 fi
 
-echo "[sandbox] HERMES_HOME=$HERMES_HOME" >&2
-echo "[sandbox] userData=$HERMES_DESKTOP_USER_DATA_DIR" >&2
-echo "[sandbox] appName=$HERMES_DESKTOP_APP_NAME" >&2
+echo "[sandbox] AEGIS_HOME=$AEGIS_HOME" >&2
+echo "[sandbox] userData=$AEGIS_DESKTOP_USER_DATA_DIR" >&2
+echo "[sandbox] appName=$AEGIS_DESKTOP_APP_NAME" >&2
 if [ "$PERSISTENT" = true ]; then
   echo "[sandbox] persistent: $SANDBOX_ROOT" >&2
 else

@@ -27,8 +27,8 @@ _BOOT = "6f1c0d6e-2a7b-4c1e-9d3f-1b2a3c4d5e6f"
 # Kernel formats: /proc/vmstat is "key value" per line, memory.events likewise.
 _VMSTAT = "nr_free_pages 123456\npgfault 99\noom_kill {n}\nunevictable_pgs_culled 0\n"
 _EVENTS = "low 0\nhigh 0\nmax 12\noom 3\noom_kill {n}\noom_group_kill 0\n"
-_CGROUP_V2 = "0::/system.slice/hermes-gateway.service\n"
-_CGROUP_V1 = "12:memory:/system.slice/hermes-gateway.service\n11:cpu,cpuacct:/system.slice\n"
+_CGROUP_V2 = "0::/system.slice/aegis-gateway.service\n"
+_CGROUP_V1 = "12:memory:/system.slice/aegis-gateway.service\n11:cpu,cpuacct:/system.slice\n"
 
 
 class _Kernel:
@@ -39,7 +39,7 @@ class _Kernel:
         self.vmstat = root / "proc" / "vmstat"
         self.self_cgroup = root / "proc" / "self" / "cgroup"
         self.cgroup_root = root / "sys" / "fs" / "cgroup"
-        self.events = self.cgroup_root / "system.slice" / "hermes-gateway.service" / "memory.events"
+        self.events = self.cgroup_root / "system.slice" / "aegis-gateway.service" / "memory.events"
         self.self_cgroup.parent.mkdir(parents=True)
         self.events.parent.mkdir(parents=True)
         self.boot_id: str | None = _BOOT
@@ -48,7 +48,7 @@ class _Kernel:
         real_path = cgroup_cleanup.Path
         monkeypatch.setattr(cgroup_cleanup, "Path",
                             lambda p: self.self_cgroup if p == "/proc/self/cgroup" else real_path(p))
-        monkeypatch.setattr("hermes_cli.process_identity._live_boot_id", lambda: self.boot_id)
+        monkeypatch.setattr("aegis_cli.process_identity._live_boot_id", lambda: self.boot_id)
 
     def set(self, *, host: int | None, cgroup: int | None, cgroup_line: str = _CGROUP_V2) -> None:
         if host is not None:
@@ -300,10 +300,10 @@ def test_a_heartbeat_older_than_the_lifes_claim_makes_no_oom_claim(tmp_path: Pat
 def test_non_utf8_cgroup_path_still_records_the_unclean_exit(tmp_path: Path, kernel: _Kernel) -> None:
     kernel.set(host=7, cgroup=2)
     _died_with_heartbeat(tmp_path, sample_oom_kills())
-    kernel.self_cgroup.write_bytes(b"0::/system.slice/hermes-\xff.service\n")
+    kernel.self_cgroup.write_bytes(b"0::/system.slice/aegis-\xff.service\n")
     lifecycle_ledger._cgroup_v2_events_path.cache_clear()
 
-    assert cgroup_cleanup._own_cgroup_path() == "/system.slice/hermes-\udcff.service"
+    assert cgroup_cleanup._own_cgroup_path() == "/system.slice/aegis-\udcff.service"
     evidence = record_startup(home=tmp_path)
 
     assert evidence is not None

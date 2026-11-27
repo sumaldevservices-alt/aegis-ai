@@ -19,7 +19,7 @@ from tools.file_tools import _get_file_ops, search_tool
 
 @pytest.fixture
 def proj(tmp_path, monkeypatch):
-    monkeypatch.setenv("HERMES_HOME", str(tmp_path / ".hermes"))
+    monkeypatch.setenv("AEGIS_HOME", str(tmp_path / ".aegis"))
     d = tmp_path / "proj"
     d.mkdir()
     (d / "one.py").write_text("hit\n")
@@ -145,7 +145,7 @@ def test_a_partial_search_still_lists_a_readable_filename_with_a_space(proj, mon
     ops = ShellFileOperations(LocalEnvironment(cwd=str(proj)), cwd=str(proj))
     if not ops._has_command("rg" if lane.startswith("rg") else "grep"):
         pytest.skip("search engine not installed")
-    monkeypatch.setenv("HERMES_NATIVE_FILE_READ", "1" if lane == "rg-native" else "0")
+    monkeypatch.setenv("AEGIS_NATIVE_FILE_READ", "1" if lane == "rg-native" else "0")
     if lane == "grep":
         real = ops._has_command
         monkeypatch.setattr(ops, "_has_command", lambda cmd: False if cmd == "rg" else real(cmd))
@@ -168,7 +168,7 @@ def test_a_filename_ending_in_a_space_reads_back_the_file_that_matched(proj, mon
     ops = ShellFileOperations(LocalEnvironment(cwd=str(proj)), cwd=str(proj))
     if not ops._has_command("rg" if lane.startswith("rg") else "grep"):
         pytest.skip("search engine not installed")
-    monkeypatch.setenv("HERMES_NATIVE_FILE_READ", "1" if lane == "rg-native" else "0")
+    monkeypatch.setenv("AEGIS_NATIVE_FILE_READ", "1" if lane == "rg-native" else "0")
     if lane == "grep":
         real = ops._has_command
         monkeypatch.setattr(ops, "_has_command", lambda cmd: False if cmd == "rg" else real(cmd))

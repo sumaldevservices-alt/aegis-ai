@@ -18,7 +18,7 @@ import pytest
 from _pytest.mark.expression import Expression
 
 import tests.e2e.core.windows_update.test_crash_cells as crash
-from hermes_cli import update_lock
+from aegis_cli import update_lock
 
 _REPO = Path(__file__).resolve().parents[2]
 _SUITE = "tests/e2e/core/windows_update"
@@ -26,7 +26,7 @@ _SUITE = "tests/e2e/core/windows_update"
 
 def _workflow_selection() -> str:
     """The ``-m`` expression the Windows install + update E2E workflow runs its suite with."""
-    yaml = pytest.importorskip("hermes_yaml")
+    yaml = pytest.importorskip("aegis_yaml")
     wf = yaml.safe_load((_REPO / ".github/workflows/windows-install-update-e2e.yml").read_text(encoding="utf-8-sig"))
     step = next(s for s in wf["jobs"]["install-update"]["steps"] if s.get("name") == "Run Windows install + update E2E")
     argv = shlex.split(step["run"].replace("\\\n", " "))
@@ -159,7 +159,7 @@ class _Journey:
     (crash.PY_FINAL_FLUSH_FAILED, None, False),  # 120 and no receipt of this run
 ])
 def test_orphan_cell_accepts_exit_120_only_with_a_success_receipt(tmp_path, monkeypatch, rc, receipt, completed):
-    monkeypatch.delenv("HERMES_E2E_STRICT_ACCEPTANCE", raising=False)
+    monkeypatch.delenv("AEGIS_E2E_STRICT_ACCEPTANCE", raising=False)
     target = "a" * 40
     tree = {"head": target, "dirty": "", "diff_rc": 0, "diff_err": "", "target_file": True}
     ok = subprocess.CompletedProcess([], 0, stdout="", stderr="")
@@ -178,7 +178,7 @@ def test_orphan_cell_accepts_exit_120_only_with_a_success_receipt(tmp_path, monk
 def test_orphan_receipt_is_the_newest_one_written_after_the_baseline(tmp_path):
     receipts = tmp_path / "logs" / "update_receipts"
     receipts.mkdir(parents=True)
-    machine = type("M", (), {"hermes_home": tmp_path})()
+    machine = type("M", (), {"aegis_home": tmp_path})()
     (receipts / "update_20261004_000000_1_a.json").write_text('{"outcome": "success"}', encoding="utf-8")
     before = crash._receipts(machine)
     assert crash._new_receipt_outcome(machine, before) is None  # an earlier run's success is not this run's
@@ -195,7 +195,7 @@ def test_orphan_marker_wrapper_expires_once_its_fix_is_in_the_tree():
     # The halves already on this branch must still carry their footprint: a renamed judge would
     # otherwise read as "not landed" forever and keep the excuse alive.
     landed = {rel for rel, _ in crash.ORPHAN_MARKER_FIX} - {m.split(":")[0] for m in missing}
-    assert "hermes_cli/update_lock.py" in landed, f"the Python delegate judge lost its footprint: {missing}"
+    assert "aegis_cli/update_lock.py" in landed, f"the Python delegate judge lost its footprint: {missing}"
 
 
 def test_orphan_marker_fix_footprint_is_read_from_the_tree(tmp_path):
@@ -208,12 +208,12 @@ def test_orphan_marker_fix_footprint_is_read_from_the_tree(tmp_path):
         "scripts/desktop-update/windows.ps1: " + crash.ORPHAN_MARKER_FIX[2][1]]
 
 
-_GAP_FAILURE = "orphaned_update: .hermes-update-in-progress read DEAD 3s after the script died"
+_GAP_FAILURE = "orphaned_update: .aegis-update-in-progress read DEAD 3s after the script died"
 
 
 @pytest.mark.parametrize("fix_in_tree", [False, True])
 def test_orphan_gap_is_excused_only_while_its_fix_is_absent(monkeypatch, fix_in_tree):
-    monkeypatch.delenv("HERMES_E2E_STRICT_ACCEPTANCE", raising=False)
+    monkeypatch.delenv("AEGIS_E2E_STRICT_ACCEPTANCE", raising=False)
     monkeypatch.setattr(crash, "orphan_marker_fix_missing", lambda: [] if fix_in_tree else ["a half"])
     expected = AssertionError if fix_in_tree else pytest.xfail.Exception
     with pytest.raises(expected, match="read DEAD"):
@@ -232,7 +232,7 @@ def test_orphan_marker_guard_fires_once_the_fix_lands(monkeypatch):
 def test_workflow_requires_the_crash_journey_manifest(tmp_path, monkeypatch):
     from tests.ci import workflow_steps
 
-    yaml = pytest.importorskip("hermes_yaml")
+    yaml = pytest.importorskip("aegis_yaml")
     wf = yaml.safe_load((_REPO / ".github/workflows/windows-install-update-e2e.yml").read_text(encoding="utf-8-sig"))
     steps = wf["jobs"]["install-update"]["steps"]
     names = [s.get("name") for s in steps]
@@ -244,16 +244,16 @@ def test_workflow_requires_the_crash_journey_manifest(tmp_path, monkeypatch):
     shards = json.loads(workflow_steps.outputs(plan, {"inputs": {}}, _REPO)["shards"])
     assert Path(crash.__file__).name in shards, f"no job runs the crash journey: {shards}"
     workflow_steps.required(check, {"inputs": {}, "matrix": {"shard": Path(crash.__file__).name}})
-    assert check["env"]["HERMES_E2E_ARTIFACTS"] == run["env"]["HERMES_E2E_ARTIFACTS"]
+    assert check["env"]["AEGIS_E2E_ARTIFACTS"] == run["env"]["AEGIS_E2E_ARTIFACTS"]
     assert f"'{crash.CELLS_RAN_MANIFEST}'" in check["run"] and "throw" in check["run"]
 
     j = crash.Journey(_Machine(tmp_path))
     j.step("install", lambda: "ok")
     j.step("mid_fetch", lambda: (_ for _ in ()).throw(RuntimeError("boom")))
-    monkeypatch.delenv("HERMES_E2E_ARTIFACTS", raising=False)
+    monkeypatch.delenv("AEGIS_E2E_ARTIFACTS", raising=False)
     crash._record_cells_ran(j)
     assert not list(tmp_path.rglob(crash.CELLS_RAN_MANIFEST))
-    monkeypatch.setenv("HERMES_E2E_ARTIFACTS", str(tmp_path / "artifacts"))
+    monkeypatch.setenv("AEGIS_E2E_ARTIFACTS", str(tmp_path / "artifacts"))
     crash._record_cells_ran(j)
     assert (tmp_path / "artifacts" / crash.CELLS_RAN_MANIFEST).read_text(encoding="utf-8") == (
         "install: ok\nmid_fetch: failed\n")
@@ -281,9 +281,9 @@ class _SharedMachine:
     """The crash journey's one machine: a checkout HEAD, a marker and an index.lock on disk."""
 
     def __init__(self, root: Path) -> None:
-        self.logs, self.hermes_home, self.install_dir = root, root / "home", root / "install"
+        self.logs, self.aegis_home, self.install_dir = root, root / "home", root / "install"
         (self.install_dir / ".git").mkdir(parents=True)
-        self.hermes_home.mkdir()
+        self.aegis_home.mkdir()
         self.head, self.timings, self.killed = "pre", [], 0
 
     def evidence(self) -> str:
@@ -313,20 +313,20 @@ def test_a_cell_never_starts_on_the_machine_a_broken_cell_left(tmp_path, monkeyp
 
     def sees(name):
         def run():
-            seen[name] = (m.head, (m.hermes_home / crash.MARKER).exists(),
+            seen[name] = (m.head, (m.aegis_home / crash.MARKER).exists(),
                           (m.install_dir / ".git" / "index.lock").exists())
             return _cell_result(m, name, f"{name}-target")
         return run
 
     def breaks():  # follow-up failed: torn tree, marker and lock left behind
         m.head = "torn"
-        (m.hermes_home / crash.MARKER).write_text("1", encoding="utf-8")
+        (m.aegis_home / crash.MARKER).write_text("1", encoding="utf-8")
         (m.install_dir / ".git" / "index.lock").write_text("", encoding="utf-8")
         return {"label": "b", "target": "b-target", "follow_up": SimpleNamespace(returncode=1)}
 
     def raises():
         m.head = "half"
-        (m.hermes_home / crash.MARKER).write_text("1", encoding="utf-8")
+        (m.aegis_home / crash.MARKER).write_text("1", encoding="utf-8")
         raise AssertionError("kill point not reached")
 
     j = crash.Journey(m)

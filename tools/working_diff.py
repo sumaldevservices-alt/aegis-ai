@@ -14,13 +14,13 @@ import subprocess
 from contextlib import suppress
 from typing import Dict, List
 
-from hermes_cli._subprocess_compat import (
+from aegis_cli._subprocess_compat import (
     FILTER_DISCOVERY_FAILED,
     harden_git_argv,
     noninteractive_repo_git_env,
     selected_git_env,
 )
-from hermes_platform.resolver.git import resolve_usable_git
+from aegis_platform.resolver.git import resolve_usable_git
 
 _GIT_TIMEOUT = 15
 # Return code of a git call that was not spawned because the repository's filter drivers could not

@@ -6,8 +6,8 @@ import pytest
 
 from cron import jobs, scheduler
 from cron.scheduler_worktree_maintenance import run_sweep
-from hermes_cli import worktree_ops, worktree_registry
-from hermes_platform.resolver import git as git_resolver
+from aegis_cli import worktree_ops, worktree_registry
+from aegis_platform.resolver import git as git_resolver
 
 
 @pytest.fixture
@@ -19,7 +19,7 @@ def stub_git_log(tmp_path, monkeypatch):
     trap_git.write_text(f"#!/bin/sh\nprintf '%s\\n' \"$*\" >> '{spawn_log}'\nexit 1\n", encoding="utf-8")
     trap_git.chmod(0o755)
     # The trap stands in for /usr/bin/git without the Command Line Tools; the resolver's own
-    # darwin/xcode-select verdict is covered in tests/hermes_platform/test_resolver_git.py.
+    # darwin/xcode-select verdict is covered in tests/aegis_platform/test_resolver_git.py.
     real_check = git_resolver.is_usable_git_executable
     trap = os.path.realpath(trap_git)
     monkeypatch.setattr(

@@ -1,4 +1,4 @@
-import { JsonRpcGatewayError } from '@hermes/shared'
+import { JsonRpcGatewayError } from '@aegis/shared'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { $workspaceMode } from '@/components/pane-shell/workspace-scope'
@@ -89,14 +89,14 @@ beforeEach(() => {
     setEnabled: vi.fn(async () => undefined),
     takeRendererCrashes: vi.fn(async () => null)
   }
-  ;(window as unknown as { hermesDesktop: unknown }).hermesDesktop = { desktopMetrics: bridge }
+  ;(window as unknown as { aegisDesktop: unknown }).aegisDesktop = { desktopMetrics: bridge }
 })
 
 afterEach(() => {
   resetDesktopMetricsForTests()
   vi.unstubAllGlobals()
   vi.useRealTimers()
-  delete (window as unknown as { hermesDesktop?: unknown }).hermesDesktop
+  delete (window as unknown as { aegisDesktop?: unknown }).aegisDesktop
 })
 
 function exerciseEverything() {

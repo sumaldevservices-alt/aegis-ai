@@ -6,7 +6,7 @@ from __future__ import annotations
 
 
 class TestElementTokenAttachment:
-    """Surface 6 (NousResearch/hermes-agent#47072): trycua/cua#1961 added
+    """Surface 6 (NousResearch/aegis-agent#47072): trycua/cua#1961 added
     an opaque `element_token` alongside `element_index` so the wrapper
     can carry per-snapshot handles instead of relying on raw indices that
     silently re-resolve when the snapshot is superseded.

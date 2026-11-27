@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { $changeEventsAvailable, $pairingChangeTick, $platformsChangeTick } from '@/store/live-sync'
 import { $settingsScopeOverride } from '@/store/settings-scope'
-import type { MessagingPlatformInfo } from '@/types/hermes'
+import type { MessagingPlatformInfo } from '@/types/aegis'
 
 import { MessagingView } from './index'
 
@@ -29,7 +29,7 @@ const applyTelegramOnboarding = vi.fn()
 const notify = vi.fn()
 const installMessagingCatalogPlatform = vi.fn()
 
-vi.mock('@/hermes', () => ({
+vi.mock('@/aegis', () => ({
   approvePairing: (platformId: string, requestId: string, profile?: null | string) =>
     approvePairing(platformId, requestId, profile),
   getMessagingPlatforms: (profile?: null | string) => getMessagingPlatforms(profile),
@@ -315,7 +315,7 @@ describe('MessagingView setup-guide link', () => {
   })
 
   it('opens a real docs URL through the validated external opener', async () => {
-    const docsUrl = 'https://hermes-agent.nousresearch.com/docs/user-guide/messaging/teams'
+    const docsUrl = 'https://aegis-agent.nousresearch.com/docs/user-guide/messaging/teams'
     getMessagingPlatforms.mockResolvedValue({ platforms: [platform({ docs_url: docsUrl })] })
 
     await renderMessaging()
@@ -605,16 +605,16 @@ describe('MessagingView Telegram quick setup', () => {
       expires_at: new Date(Date.now() + 600_000).toISOString(),
       pairing_id: 'pair-1',
       qr_payload: 'tg://pair',
-      suggested_username: 'hermes_bot'
+      suggested_username: 'aegis_bot'
     })
     getTelegramOnboardingStatus.mockResolvedValue({
-      bot_username: 'hermes_bot',
+      bot_username: 'aegis_bot',
       expires_at: new Date(Date.now() + 600_000).toISOString(),
       owner_user_id: '8792111505',
       status: 'ready'
     })
     applyTelegramOnboarding.mockResolvedValue({
-      bot_username: 'hermes_bot',
+      bot_username: 'aegis_bot',
       needs_restart: false,
       ok: true,
       platform: 'telegram',
@@ -641,13 +641,13 @@ describe('MessagingView Telegram quick setup', () => {
       await waitFor(() => expect(watchGatewayRestartOutcome).toHaveBeenCalled())
       expect(notify).toHaveBeenCalledWith({
         kind: 'success',
-        message: 'Connected: @hermes_bot · Telegram saved; gateway restarting…',
+        message: 'Connected: @aegis_bot · Telegram saved; gateway restarting…',
         title: 'Telegram setup saved'
       })
       // The pairing UI is gone, but the card still names the bot that was just connected.
       expect(screen.queryByRole('button', { name: /Save and restart/ })).toBeNull()
       expect(screen.getByText('Connected')).toBeTruthy()
-      expect(screen.getByText('@hermes_bot')).toBeTruthy()
+      expect(screen.getByText('@aegis_bot')).toBeTruthy()
     } finally {
       $settingsScopeOverride.set(null)
     }
@@ -660,7 +660,7 @@ describe('MessagingView catalog platforms', () => {
     blocked: '',
     blocked_reason: '',
     disclosure: 'Messages travel between QQ servers and your gateway.',
-    install_command: 'hermes plugins install qqbot',
+    install_command: 'aegis plugins install qqbot',
     name: 'qqbot',
     summary: 'QQ Bot messaging platform.',
     title: 'qqbot'
@@ -787,7 +787,7 @@ describe('MessagingView catalog platforms', () => {
     await renderMessaging()
     fireEvent.click(await screen.findByRole('button', { name: /qqbot.*Official/i }))
     expect(await screen.findByText(/security\.allow_lazy_installs/)).toBeTruthy()
-    expect(screen.getByText('hermes plugins install qqbot')).toBeTruthy()
+    expect(screen.getByText('aegis plugins install qqbot')).toBeTruthy()
     expect(screen.queryByRole('button', { name: /^Install$/ })).toBeNull()
   })
 })

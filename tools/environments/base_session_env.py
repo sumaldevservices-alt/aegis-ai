@@ -11,30 +11,30 @@ from typing import Iterable
 
 # Bridged per-session vars (gateway.session_context._VAR_MAP) are injected fresh onto every
 # command's process env and must NEVER persist in the shared bash snapshot: one long-lived
-# backend serves many sessions, so a snapshot carrying the FIRST session's HERMES_SESSION_ID
+# backend serves many sessions, so a snapshot carrying the FIRST session's AEGIS_SESSION_ID
 # would make every LATER session source a foreign identity. Every bridged name starts with
-# one of these prefixes (or is HERMES_UI_SESSION_ID); unit tests use this regex as the
+# one of these prefixes (or is AEGIS_UI_SESSION_ID); unit tests use this regex as the
 # Python-side contract for the exclusion set.
 # Per-session variables that the gateway bridges freshly onto every command's process environment (via
 # tools/environments/local._inject_session_context_env, reading gateway.session_context._VAR_MAP). They must
 # NEVER be persisted into the shared bash session snapshot: a single long-lived backend serves many
 # concurrent sessions (the messaging gateway, TUI, desktop/web dashboard all collapse the terminal to one
-# "default" environment), so ``export -p`` dumping the FIRST session's HERMES_SESSION_ID into the snapshot
+# "default" environment), so ``export -p`` dumping the FIRST session's AEGIS_SESSION_ID into the snapshot
 # makes every LATER session ``source`` that stale value and see a FOREIGN session's identity — overriding
-# the correct per-command Popen env (issue: cross-session HERMES_SESSION_ID leak via the shared snapshot).
+# the correct per-command Popen env (issue: cross-session AEGIS_SESSION_ID leak via the shared snapshot).
 # Stripping them from the snapshot is safe because they are re-injected on every command; a snapshot should
-# only carry the user's own shell state (PATH, functions, exports they set), not Hermes' per-turn session
+# only carry the user's own shell state (PATH, functions, exports they set), not Aegis' per-turn session
 # identity. Used by unit tests as the Python-side contract for the exclusion set; the dump path unsets by
 # name/prefix instead of grepping declare lines (see below / issue #71296).
 _SNAPSHOT_EXCLUDED_ENV_REGEX = (
-    "^declare -x (HERMES_SESSION_|HERMES_UI_SESSION_ID|HERMES_CRON_AUTO_DELIVER_|"
-    "HERMES_CRON_SESSION|HERMES_DELEGATED_CHILD_CONTEXT|"
-    "HERMES_RPC_|HERMES_KERNEL_DIR)")
+    "^declare -x (AEGIS_SESSION_|AEGIS_UI_SESSION_ID|AEGIS_CRON_AUTO_DELIVER_|"
+    "AEGIS_CRON_SESSION|AEGIS_DELEGATED_CHILD_CONTEXT|"
+    "AEGIS_RPC_|AEGIS_KERNEL_DIR)")
 _SHELL_ENV_NAME_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 
 # mktemp template suffix + the shell variable holding the allocated temp path.
 _SNAP_TMP_SUFFIX = ".tmp.XXXXXXXXXX"
-_SNAP_TMP = '"$__hermes_snap_tmp"'
+_SNAP_TMP = '"$__aegis_snap_tmp"'
 
 # A backend with an in-memory secret channel (``LocalEnvironment``) gets ``_secret_fd_token`` in
 # the scripts it runs and swaps in the channel's fd number at spawn; the dump writes each secret
@@ -58,30 +58,30 @@ _CANDIDATE_NAME_GLOBS = (
 
 
 def _secret_fd_token(session_id: str) -> str:
-    return f"__HERMES_SFD_{session_id}__"
+    return f"__AEGIS_SFD_{session_id}__"
 
 
 def _secret_gen_token(session_id: str) -> str:
     """Placeholder the backend swaps for a fresh dump generation id at each spawn."""
-    return f"__HERMES_SGEN_{session_id}__"
+    return f"__AEGIS_SGEN_{session_id}__"
 
 
 def _secret_src_token(session_id: str) -> str:
     """Placeholder the backend swaps for the fd of the snapshot it opened for this command."""
-    return f"__HERMES_SSRC_{session_id}__"
+    return f"__AEGIS_SSRC_{session_id}__"
 
 
 def _secret_restore_token(session_id: str) -> str:
     """Placeholder the backend swaps for the fd of the pipe carrying that snapshot's secrets."""
-    return f"__HERMES_SRST_{session_id}__"
+    return f"__AEGIS_SRST_{session_id}__"
 
 
 def _cwd_marker(session_id: str) -> str:
-    return f"__HERMES_CWD_{session_id}__"
+    return f"__AEGIS_CWD_{session_id}__"
 
 
 def _cwd_fallback_marker(session_id: str) -> str:
-    return f"__HERMES_CWDFB_{session_id}__"
+    return f"__AEGIS_CWDFB_{session_id}__"
 
 
 def _cd_with_fallback(quoted_cwd: str, fallback_marker: str) -> str:
@@ -93,16 +93,16 @@ def _cd_with_fallback(quoted_cwd: str, fallback_marker: str) -> str:
     if not fallback_marker:
         return f"builtin cd -- {quoted_cwd} || exit 126"
     return (
-        f"builtin cd -- {quoted_cwd} 2>/dev/null || {{ __hermes_d={quoted_cwd}\n"
-        'while [ -n "$__hermes_d" ] && ! builtin cd -- "$__hermes_d" 2>/dev/null; do\n'
-        '  case $__hermes_d in /*/*|[!/]*/*) __hermes_d=${__hermes_d%/*};; /?*) __hermes_d=/;; *) __hermes_d=;; esac\n'
+        f"builtin cd -- {quoted_cwd} 2>/dev/null || {{ __aegis_d={quoted_cwd}\n"
+        'while [ -n "$__aegis_d" ] && ! builtin cd -- "$__aegis_d" 2>/dev/null; do\n'
+        '  case $__aegis_d in /*/*|[!/]*/*) __aegis_d=${__aegis_d%/*};; /?*) __aegis_d=/;; *) __aegis_d=;; esac\n'
         'done\n'
-        '[ -n "$__hermes_d" ] || builtin cd -- "$HOME" 2>/dev/null || builtin cd / || exit 126\n'
+        '[ -n "$__aegis_d" ] || builtin cd -- "$HOME" 2>/dev/null || builtin cd / || exit 126\n'
         f"printf '\\n{fallback_marker}%s{fallback_marker}\\n' \"$(pwd -P)\"; }}")
 
 
 def _pipe_marker(session_id: str) -> str:
-    return f"__HERMES_PIPE_{session_id}__"
+    return f"__AEGIS_PIPE_{session_id}__"
 
 
 def _pipe_marker_printf(marker: str) -> str:
@@ -112,7 +112,7 @@ def _pipe_marker_printf(marker: str) -> str:
     passed. The array holds each segment's own status and is captured before anything
     else runs.
     """
-    return f"printf '\\n{marker}%s{marker}\\n' \"${{__hermes_ps[*]-}}\""
+    return f"printf '\\n{marker}%s{marker}\\n' \"${{__aegis_ps[*]-}}\""
 
 
 def _eval_capturing_pipestatus(escaped: str) -> str:
@@ -124,7 +124,7 @@ def _eval_capturing_pipestatus(escaped: str) -> str:
     continued by a trailing backslash. The restore sits on the left of ``&&`` so its
     non-zero status fires neither a user's ``ERR`` trap a second time nor ``set -e``.
     """
-    return f"eval '{escaped}\n\n__hermes_rc=$? __hermes_ps=(\"${{PIPESTATUS[@]}}\"); (exit $__hermes_rc) && :'"
+    return f"eval '{escaped}\n\n__aegis_rc=$? __aegis_ps=(\"${{PIPESTATUS[@]}}\"); (exit $__aegis_rc) && :'"
 
 
 def _can_capture_pipestatus(command: str) -> bool:
@@ -153,7 +153,7 @@ def _secret_handoff_snippet(secret_fd: str, secret_names: Iterable[str], generat
     ``export -p`` after them never puts the value in the file on disk. Each record is
     ``NAME=<declare -p NAME>\\0`` (bash's own re-readable declaration, so arrays and the
     readonly/integer/case attributes survive), one empty record closes the set, before the file is
-    published. The file's first line is ``__hermes_sgen=<generation>``: the backend opens the file
+    published. The file's first line is ``__aegis_sgen=<generation>``: the backend opens the file
     the next command will source, reads that line and hands the shell the open file plus that
     dump's declarations only, so the two always come from the same dump.
     A secret is a name the profile's ``.env``/secret sources define or the session ever held
@@ -170,17 +170,17 @@ def _secret_handoff_snippet(secret_fd: str, secret_names: Iterable[str], generat
     candidates = "|".join((*map(_any_case, _CANDIDATE_NAME_GLOBS), *names))
     return (
         "builtin set +e; builtin trap '' PIPE; builtin shopt -s extglob; "
-        "__hermes_ifs=${IFS-}; IFS=$'\\n'; __hermes_bad=; "
-        f"builtin printf '__hermes_sgen=%s\\n' {generation}; "
-        f"__hermes_c=$(builtin compgen -A export -X '!@({candidates})'); builtin shopt -s nocasematch; "
-        "for __hermes_v in $__hermes_c; do "
-        f'case "$__hermes_v" in {secret}) ;; {url}) '
-        'case "${!__hermes_v-}" in *://*:*@*) ;; *) continue ;; esac ;; *) continue ;; esac; '
-        "{ builtin printf '%s=' \"$__hermes_v\" && builtin declare -p \"$__hermes_v\" && builtin printf '\\0'; } "
-        f">&{secret_fd} 2>/dev/null || __hermes_bad=1; "
-        'builtin export -n "$__hermes_v"; builtin unset "$__hermes_v" 2>/dev/null; done; '
-        f"[ -z \"$__hermes_bad\" ] && builtin printf '\\0' >&{secret_fd} 2>/dev/null; "
-        "IFS=$__hermes_ifs; builtin unset __hermes_v __hermes_c __hermes_ifs __hermes_bad; ")
+        "__aegis_ifs=${IFS-}; IFS=$'\\n'; __aegis_bad=; "
+        f"builtin printf '__aegis_sgen=%s\\n' {generation}; "
+        f"__aegis_c=$(builtin compgen -A export -X '!@({candidates})'); builtin shopt -s nocasematch; "
+        "for __aegis_v in $__aegis_c; do "
+        f'case "$__aegis_v" in {secret}) ;; {url}) '
+        'case "${!__aegis_v-}" in *://*:*@*) ;; *) continue ;; esac ;; *) continue ;; esac; '
+        "{ builtin printf '%s=' \"$__aegis_v\" && builtin declare -p \"$__aegis_v\" && builtin printf '\\0'; } "
+        f">&{secret_fd} 2>/dev/null || __aegis_bad=1; "
+        'builtin export -n "$__aegis_v"; builtin unset "$__aegis_v" 2>/dev/null; done; '
+        f"[ -z \"$__aegis_bad\" ] && builtin printf '\\0' >&{secret_fd} 2>/dev/null; "
+        "IFS=$__aegis_ifs; builtin unset __aegis_v __aegis_c __aegis_ifs __aegis_bad; ")
 
 
 def _secret_restore_lines(restore_fd: str) -> str:
@@ -191,8 +191,8 @@ def _secret_restore_lines(restore_fd: str) -> str:
     ``read`` returns 1 at the EOF it always reaches (the set holds no NUL), so ``|| :`` keeps an
     inherited ``errexit`` from ending the command before it runs."""
     return (
-        f"IFS= builtin read -r -d '' __hermes_d <&{restore_fd} || :; builtin eval \"${{__hermes_d-}}\"; "
-        "builtin unset __hermes_d __hermes_sgen")
+        f"IFS= builtin read -r -d '' __aegis_d <&{restore_fd} || :; builtin eval \"${{__aegis_d-}}\"; "
+        "builtin unset __aegis_d __aegis_sgen")
 
 
 def _export_dump_excluding_session_vars(
@@ -207,7 +207,7 @@ def _export_dump_excluding_session_vars(
     shell-variable expansion, and a redirect on a pipeline segment would expand it inside that
     segment's subshell, inconsistently with the parent that expands the follow-up ``mv``.
 
-    ``curl … | bash #`` smuggled into a Matrix room/display name via ``HERMES_SESSION_CHAT_NAME``) land in
+    ``curl … | bash #`` smuggled into a Matrix room/display name via ``AEGIS_SESSION_CHAT_NAME``) land in
     the snapshot and execute on the next ``source`` (issue #71296). Unsetting first means ``export -p``
     never emits those vars — including any continuation lines. With *secret_fd* the secret exports
     leave through that fd instead (``_secret_handoff_snippet``, #62336).
@@ -219,20 +219,20 @@ def _export_dump_excluding_session_vars(
     extra_unset = "".join(f" {shlex.quote(name)}" for name in sorted(safe_names))
     handoff = _secret_handoff_snippet(secret_fd, secret_names, secret_gen) if secret_fd else ""
     return (
-        "{ ( unset ${!HERMES_SESSION_*} ${!HERMES_CRON_AUTO_DELIVER_*} "
-        # AI_AGENT / HERMES_AGENT are per-command attribution markers re-exported
+        "{ ( unset ${!AEGIS_SESSION_*} ${!AEGIS_CRON_AUTO_DELIVER_*} "
+        # AI_AGENT / AEGIS_AGENT are per-command attribution markers re-exported
         # by every wrapper with ${VAR:-default} semantics; persisting them would
         # let the FIRST command's value override a later outer-harness value.
-        "AI_AGENT HERMES_AGENT "
+        "AI_AGENT AEGIS_AGENT "
         # Scope markers stamped onto a delegate_task child's / cron run's subprocess
         # env; a snapshot taken inside that window would re-assert them on every
         # later ``source`` and fence the PARENT session's kanban CLI (#90782).
-        "HERMES_DELEGATED_CHILD_CONTEXT HERMES_CRON_SESSION "
+        "AEGIS_DELEGATED_CHILD_CONTEXT AEGIS_CRON_SESSION "
         # Remote code-execution channel vars (RPC token, kernel/rpc dirs): a
         # leaked token in the snapshot would re-export into every later command
         # on the backend and outlive the private dir it protects.
-        "${!HERMES_RPC_*} HERMES_KERNEL_DIR "
-        f"HERMES_UI_SESSION_ID{extra_unset} 2>/dev/null; "
+        "${!AEGIS_RPC_*} AEGIS_KERNEL_DIR "
+        f"AEGIS_UI_SESSION_ID{extra_unset} 2>/dev/null; "
         # Shell-option mirrors are read-only, so bash 3.2's ``declare -rx SHELLOPTS=…`` line fails
         # on ``source`` and an inherited errexit then ends every later command; options are not
         # environment the next command needs, so they stay out of the snapshot.
@@ -257,10 +257,10 @@ def _snapshot_bootstrap_script(
     ``cd ~``) so ``pwd -P`` reports terminal.cwd, not the profile's directory."""
     return (
         "umask 077\n"
-        f"__hermes_snap_tmp=$(mktemp {snap_tmp_template}) || exit 1\n"
+        f"__aegis_snap_tmp=$(mktemp {snap_tmp_template}) || exit 1\n"
         f"{_export_dump_excluding_session_vars(_SNAP_TMP, excluded_names, secret_fd=secret_fd, secret_names=secret_names, secret_gen=secret_gen)}\n"
-        "__hermes_fns=$(declare -F | awk '{print $3}' | grep -vE '^_[^_]') || true\n"
-        f"[ -n \"$__hermes_fns\" ] && declare -f $__hermes_fns >> {_SNAP_TMP} 2>/dev/null || true\n"
+        "__aegis_fns=$(declare -F | awk '{print $3}' | grep -vE '^_[^_]') || true\n"
+        f"[ -n \"$__aegis_fns\" ] && declare -f $__aegis_fns >> {_SNAP_TMP} 2>/dev/null || true\n"
         f"alias -p >> {_SNAP_TMP}\n"
         f"echo 'shopt -s expand_aliases' >> {_SNAP_TMP}\n"
         f"echo 'set +e' >> {_SNAP_TMP}\n"
@@ -278,7 +278,7 @@ def _passthrough_save_restore(names: Iterable[str]) -> tuple[list[str], list[str
     save: list[str] = []
     restore: list[str] = []
     for name in names:
-        marker = f"_HERMES_RUNTIME_PASSTHROUGH_{name}"
+        marker = f"_AEGIS_RUNTIME_PASSTHROUGH_{name}"
         present, value = f"{marker}_PRESENT", f"{marker}_VALUE"
         save += [f"{present}=${{{name}+x}}", f"{value}=${{{name}-}}"]
         restore += [
@@ -297,7 +297,7 @@ def _wrap_command_script(
     ``persist_env=False`` skips the re-dump, so every command starts from the login-time
     snapshot and exports from one command never reach the next (the CWD marker still runs).
     ``source`` stdout goes to /dev/null because macOS bash 3.2 / some Homebrew builds echo
-    ``declare -x`` lines when sourcing. AI_AGENT/HERMES_AGENT advertise the harness to remote
+    ``declare -x`` lines when sourcing. AI_AGENT/AEGIS_AGENT advertise the harness to remote
     backends (whose env is not inherited); ``${VAR:-default}`` never clobbers an outer harness.
     GIT_PAGER/PAGER=cat stop pager-happy tools hanging a PTY-backed command. The env re-dump
     uses the same mktemp+mv atomic publish as the bootstrap and chains ``mv`` on the dump
@@ -319,32 +319,32 @@ def _wrap_command_script(
         parts += [f"source /dev/fd/{secret_src} >/dev/null 2>&1 || true", _secret_restore_lines(secret_restore)]
     elif snapshot_ready and seeds:
         parts.append(
-            f"for __hermes_s in {quoted_snap} {' '.join(seeds)}; do "
-            'if [ -f "$__hermes_s" ]; then source "$__hermes_s" >/dev/null 2>&1 || true; break; fi; done')
+            f"for __aegis_s in {quoted_snap} {' '.join(seeds)}; do "
+            'if [ -f "$__aegis_s" ]; then source "$__aegis_s" >/dev/null 2>&1 || true; break; fi; done')
     elif snapshot_ready:
         parts.append(f"source {quoted_snap} >/dev/null 2>&1 || true")
     parts += restore
     run = _eval_capturing_pipestatus(escaped) if capture else f"eval '{escaped}'"
     parts += [
-        'export AI_AGENT="${AI_AGENT:-hermes-agent}" HERMES_AGENT="${HERMES_AGENT:-true}"',
+        'export AI_AGENT="${AI_AGENT:-aegis-agent}" AEGIS_AGENT="${AEGIS_AGENT:-true}"',
         'export GIT_PAGER="${GIT_PAGER:-cat}" PAGER="${PAGER:-cat}"',
         # ``--`` keeps hyphen-prefixed directory names from being parsed as options.
         _cd_with_fallback(quoted_cwd, cwd_fallback_marker),
         f"{run} {secret_fd}>&-{f' {secret_src}>&- {secret_restore}<&-' if snapshot_ready and secret_src else ''}"
         if secret_fd else run,
-        "__hermes_ec=$?",
+        "__aegis_ec=$?",
         "umask 077"]
     if snapshot_ready and persist_env:
         dump = _export_dump_excluding_session_vars(
             _SNAP_TMP, passthrough_names, secret_fd=secret_fd, secret_names=secret_names, secret_gen=secret_gen)
         parts.append(
-            f"__hermes_snap_tmp=$(mktemp {snap_tmp_template}) && "
+            f"__aegis_snap_tmp=$(mktemp {snap_tmp_template}) && "
             f"{{ {dump} "
             f"&& mv -f {_SNAP_TMP} {quoted_snap}; }} "
             f"2>/dev/null || rm -f {_SNAP_TMP} 2>/dev/null || true")
     if capture:
         parts.append(_pipe_marker_printf(pipe_marker))
-    parts += [_cwd_marker_printf(cwd_marker), "exit $__hermes_ec"]
+    parts += [_cwd_marker_printf(cwd_marker), "exit $__aegis_ec"]
     return "\n".join(parts)
 
 

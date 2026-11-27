@@ -13,7 +13,7 @@ import {
   listSidebarSessions,
   resetSidebarBatchCapability,
   setApiRequestProfile
-} from '@/hermes'
+} from '@/aegis'
 
 describe('single-profile list reads carry that profile as the request scope', () => {
   let api: ReturnType<typeof vi.fn>
@@ -29,13 +29,13 @@ describe('single-profile list reads carry that profile as the request scope', ()
       sessions: [],
       total: 0
     })
-    Object.defineProperty(window, 'hermesDesktop', { configurable: true, value: { api } })
+    Object.defineProperty(window, 'aegisDesktop', { configurable: true, value: { api } })
     setApiRequestProfile('default')
   })
 
   afterEach(() => {
     setApiRequestProfile(null)
-    Reflect.deleteProperty(window, 'hermesDesktop')
+    Reflect.deleteProperty(window, 'aegisDesktop')
   })
 
   it('sidebar batch for a bot profile is requested as that profile', async () => {

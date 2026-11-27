@@ -1,6 +1,6 @@
 """Cron calls for plugins: schedule one named job, and read where cron delivers a job's output.
 
-Published as a whole module (``hermes_cli/data/plugin_api.json``), so a dashboard route or a
+Published as a whole module (``aegis_cli/data/plugin_api.json``), so a dashboard route or a
 standalone process without a ``ctx`` can use it too. Each function uses the scheduler's own job
 and delivery logic. Guide: plugins/index.md § Schedule a job once and read where cron
 delivers it.
@@ -37,7 +37,7 @@ def _home_scope(home: _Optional[str | _Path]):
 
     ``home`` is bound whole (home, secrets and terminal policy, as core binds a profile) with its
     cron store. A profile other than this process's own also runs under multiplex semantics, as a
-    cron fire for it does, so a process-wide setting (``HERMES_TIMEZONE``) never speaks for it."""
+    cron fire for it does, so a process-wide setting (``AEGIS_TIMEZONE``) never speaks for it."""
     if home is None:
         yield
         return
@@ -53,12 +53,12 @@ def _home_scope(home: _Optional[str | _Path]):
 
 
 def _expanded(home: _Optional[str | _Path]) -> _Optional[_Path]:
-    """*home* read the way Hermes reads a home path (``~`` and environment variables expanded), so
+    """*home* read the way Aegis reads a home path (``~`` and environment variables expanded), so
     the existence check, the profile bind and the cron store all name one directory."""
     if home is None:
         return None
-    from hermes_constants import _expand_hermes_home
-    return _expand_hermes_home(str(home))
+    from aegis_constants import _expand_aegis_home
+    return _expand_aegis_home(str(home))
 
 
 def ensure_named_job(
@@ -76,7 +76,7 @@ def ensure_named_job(
     Every job counts, disabled ones included. Two or more with that name raise
     ``AmbiguousJobReference`` and create nothing. An existing enabled job has its trigger registered
     with the active scheduler provider again and is returned as stored, in the shape a new job has:
-    its prompt and schedule are not updated. A new job is created and registered the way ``hermes cron add`` does it. A
+    its prompt and schedule are not updated. A new job is created and registered the way ``aegis cron add`` does it. A
     registration that fails, for a new job or an existing one, raises that command's
     ``CronSchedulerRegistrationError`` (a ``RuntimeError`` with the saved job as ``.job``).
 
@@ -99,7 +99,7 @@ def ensure_named_job(
             f"job name must be non-empty with no leading or trailing whitespace, got {name!r}")
     home = _expanded(home)
     if home is not None and not home.is_dir():
-        raise FileNotFoundError(f"Hermes home does not exist: {home}")
+        raise FileNotFoundError(f"Aegis home does not exist: {home}")
     with _home_scope(home):
         matches = [job for job in map(_normalize_job_record, load_jobs()) if job.get("name") == name]
         if len(matches) > 1:

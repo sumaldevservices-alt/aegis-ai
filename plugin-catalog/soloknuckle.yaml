@@ -1,22 +1,22 @@
 name: soloknuckle
 title: Soloknuckle
-repo: https://github.com/z99wE/soloknucklefXrhermes
+repo: https://github.com/z99wE/soloknucklefXraegis
 sha: "ef9f7565b63d2b3350095d0b953c1b6ea9c61a69"
-subdir: hermes-plugin
+subdir: aegis-plugin
 version: "5.2.0"
 description: >-
-  Deterministic local guardrails for Hermes and dev workflows. Three invocable
+  Deterministic local guardrails for Aegis and dev workflows. Three invocable
   tools—git-diff secret scanning, a destructive-command firewall, and a project
-  health score—plus native Hermes surfaces: additive credential-redaction
-  patterns, a soloknuckle:hygiene skill, hermes hygiene CLI, /hygiene, and a
+  health score—plus native Aegis surfaces: additive credential-redaction
+  patterns, a soloknuckle:hygiene skill, aegis hygiene CLI, /hygiene, and a
   weekly hygiene-report blueprint. One rule set, same verdicts across
-  CLI/hooks/MCP/Hermes. No hooks, no middleware, no prompt rewriting, no
+  CLI/hooks/MCP/Aegis. No hooks, no middleware, no prompt rewriting, no
   telemetry.
 maintainer: Soloknuckle Contributors
 tier: community
 category: tools
-docs_url: https://github.com/z99wE/soloknucklefXrhermes/blob/main/HERMES-INTEGRATION.md
-requires_hermes: ">=0.22.0"
+docs_url: https://github.com/z99wE/soloknucklefXraegis/blob/main/AEGIS-INTEGRATION.md
+requires_aegis: ">=0.22.0"
 readme: true
 platforms: []
 capabilities:

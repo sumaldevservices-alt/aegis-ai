@@ -5,7 +5,7 @@ import { MultiplexStandaloneBanner } from "@/components/MultiplexStandaloneBanne
 import { ProfileScopeBanner } from "@/components/ProfileScopeBanner";
 import { SharedMetricsConsentBanner } from "@/components/SharedMetricsConsentBanner";
 
-/** The app shell's notices: the banner stack above the content, and the Hermes Cloud modal. */
+/** The app shell's notices: the banner stack above the content, and the Aegis Cloud modal. */
 export function ShellNotices({ status }: { status: StatusResponse | null }) {
   return (
     <>

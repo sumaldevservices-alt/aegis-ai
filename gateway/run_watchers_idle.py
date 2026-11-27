@@ -72,7 +72,7 @@ def idle_admitted(agent: Any, history: list) -> bool:
         _codex_native_auto_compaction, idle_compaction_admission, idle_reference_timestamp,
     )
 
-    # A Codex app-server thread compacts itself unless ``codex_app_server_auto: hermes``; the gateway's
+    # A Codex app-server thread compacts itself unless ``codex_app_server_auto: aegis``; the gateway's
     # compaction path would force it, as ``/compress`` does.
     if _codex_native_auto_compaction(agent):
         return False

@@ -34,8 +34,8 @@ from ._routes import (
 
 __all__ = ["SQLiteRoutingRepository"]
 
-# caplog tests pin the "hermes_state" logger name.
-logger = logging.getLogger("hermes_state")
+# caplog tests pin the "aegis_state" logger name.
+logger = logging.getLogger("aegis_state")
 
 
 class SQLiteRoutingRepository:

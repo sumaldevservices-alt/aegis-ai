@@ -32,7 +32,7 @@ import {
   type PollView,
   type Refusal,
 } from "@/lib/backend-migration";
-import { HERMES_BASE_PATH, getManagementProfile } from "@/lib/api";
+import { AEGIS_BASE_PATH, getManagementProfile } from "@/lib/api";
 
 const POLL_MS = 1500;
 
@@ -45,8 +45,8 @@ function initialView(r: BackendMigrationPlanResponse | null | undefined): PollVi
 }
 
 /**
- * System page card for `hermes gateway migrate --backends`: shown only when an older Hermes server
- * (hermes dashboard / serve) serves the managed profile's home, or the last move needs reporting.
+ * System page card for `aegis gateway migrate --backends`: shown only when an older Aegis server
+ * (aegis dashboard / serve) serves the managed profile's home, or the last move needs reporting.
  * Hidden otherwise. One plan read per page load (the server answers repeated loads from one scan).
  */
 export function BackendMigrationCard({ initial }: { initial?: BackendMigrationPlanResponse | null }) {
@@ -191,7 +191,7 @@ export function BackendMigrationCard({ initial }: { initial?: BackendMigrationPl
         <div className="flex items-start gap-2">
           <ArrowRightLeft className="mt-0.5 h-4 w-4 shrink-0" />
           <div className="flex flex-col gap-1">
-            <span className="font-medium">Move to a single Hermes</span>
+            <span className="font-medium">Move to a single Aegis</span>
             {p && foundBackend(p) && <span>{findingSentence(p)}</span>}
           </div>
         </div>
@@ -211,7 +211,7 @@ export function BackendMigrationCard({ initial }: { initial?: BackendMigrationPl
         open={confirm !== null}
         onCancel={() => setConfirm(null)}
         onConfirm={() => void move(confirm?.force ?? false)}
-        title="Move to a single Hermes?"
+        title="Move to a single Aegis?"
         description={confirmText(p, confirm?.force ?? false)}
         confirmLabel="Move now"
       />
@@ -226,7 +226,7 @@ function confirmText(p: BackendMigrationPlan | null | undefined, force: boolean)
     ? " Running chats are stopped, and messaging and the gateway are unavailable for a few seconds."
     : "";
   return (
-    `This page stops working while Hermes takes over ${p?.old_address ?? "this address"}; ` +
+    `This page stops working while Aegis takes over ${p?.old_address ?? "this address"}; ` +
     "afterwards you sign in again at this same address." + forced + stops +
     " If anything goes wrong, everything is put back."
   );
@@ -337,7 +337,7 @@ function Progress({ view, profile, commands, onCheckAgain, onTryAgain }: {
     case "switching":
       return (
         <div className="flex flex-col gap-2">
-          <Line spin>Switching over: this address is unavailable until Hermes answers on it again…</Line>
+          <Line spin>Switching over: this address is unavailable until Aegis answers on it again…</Line>
           <span className="text-muted-foreground">
             A move that waits for running work, or puts everything back, can take several minutes. On this computer,
             see where it stands with <Cmd>{status}</Cmd>
@@ -349,10 +349,10 @@ function Progress({ view, profile, commands, onCheckAgain, onTryAgain }: {
         <div className="flex flex-col gap-2" data-slot="backend-migration-signin">
           <span>
             This address restarted, so your sign-in ended. Sign in again at this same address to see how the move
-            ended: if it worked, you will see the new Hermes web app.
+            ended: if it worked, you will see the new Aegis web app.
           </span>
           <div>
-            <Button size="sm" className="uppercase" onClick={() => window.location.assign(`${HERMES_BASE_PATH}/`)}>
+            <Button size="sm" className="uppercase" onClick={() => window.location.assign(`${AEGIS_BASE_PATH}/`)}>
               Sign in again
             </Button>
           </div>
@@ -384,7 +384,7 @@ function Progress({ view, profile, commands, onCheckAgain, onTryAgain }: {
     case "done":
       return (
         <div className="text-success" data-slot="backend-migration-done">
-          Done. Hermes now answers {view.address ? `at ${view.address}` : "at the same address"}. Sign in again at this
+          Done. Aegis now answers {view.address ? `at ${view.address}` : "at the same address"}. Sign in again at this
           same address. To undo it, run{" "}
           <Cmd>{migrateCommand(profile, "--restore", commands)}</Cmd> on this computer.
         </div>
@@ -424,7 +424,7 @@ function Progress({ view, profile, commands, onCheckAgain, onTryAgain }: {
 
 /** Engine steps to follow by hand: the save-both-files warning first when a step replaces or removes
  *  config.yaml or .env, then the steps in order (prose as words, commands as code). *profile*: qualify the
- *  `hermes` commands (null: shown as the server gave them). */
+ *  `aegis` commands (null: shown as the server gave them). */
 function EngineSteps({ steps, profile }: { steps: string[]; profile: string | null }) {
   if (steps.length === 0) return null;
   return (

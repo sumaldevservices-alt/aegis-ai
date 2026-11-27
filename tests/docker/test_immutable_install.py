@@ -2,11 +2,11 @@
 
 Build the real image and verify at runtime:
 
-  1. /opt/hermes is not writable by the hermes user (immutable install tree)
-  2. A stale "docker" stamp in $HERMES_HOME is healed (removed) on boot
+  1. /opt/aegis is not writable by the aegis user (immutable install tree)
+  2. A stale "docker" stamp in $AEGIS_HOME is healed (removed) on boot
 
 The hosted write-policy env (PYTHONDONTWRITEBYTECODE,
-HERMES_WRITE_SAFE_ROOT, ...) is covered by
+AEGIS_WRITE_SAFE_ROOT, ...) is covered by
 test_immutable_install_permissions.py.
 """
 from __future__ import annotations
@@ -22,28 +22,28 @@ from tests.docker.conftest import (
 
 
 @pytest.mark.parametrize("uid", [10000, 23456])
-def test_install_tree_not_writable_by_hermes(
+def test_install_tree_not_writable_by_aegis(
     built_image: str, container_name: str, uid: int,
 ) -> None:
-    """The hermes user must not be able to modify /opt/hermes.
+    """The aegis user must not be able to modify /opt/aegis.
 
     The install tree (source, venv, TUI bundle, node_modules) must remain
     root-owned and non-writable so an agent session cannot self-modify
     the installation and brick the gateway.
     """
-    start_container(built_image, container_name, f"HERMES_UID={uid}", f"HERMES_GID={uid}")
+    start_container(built_image, container_name, f"AEGIS_UID={uid}", f"AEGIS_GID={uid}")
     identity = docker_exec(container_name, "id", "-u")
     assert identity.returncode == 0 and identity.stdout.strip() == str(uid)
 
-    probe = docker_exec(container_name, "/opt/hermes/.venv/bin/python", "-c", """
+    probe = docker_exec(container_name, "/opt/aegis/.venv/bin/python", "-c", """
 import os
 from pathlib import Path
-from hermes_cli.config import detect_install_method
+from aegis_cli.config import detect_install_method
 assert os.geteuid() != 0
-code = Path('/opt/hermes/.install_method')
+code = Path('/opt/aegis/.install_method')
 home = Path('/opt/data/.install_method')
 assert code.read_text().strip() == 'docker'
-assert detect_install_method(Path('/opt/hermes')) == 'docker'
+assert detect_install_method(Path('/opt/aegis')) == 'docker'
 assert not home.exists() or home.read_text().strip() != 'docker'
 try:
     with code.open('a'):
@@ -54,16 +54,16 @@ else:
     raise AssertionError('runtime user can alter installation method')
 assert code.read_text().strip() == 'docker'
 for relative in ('pm-runtime/pm-runtime.json', 'tools/facts.json', 'manifest.json'):
-    path = Path('/opt/hermes') / relative
+    path = Path('/opt/aegis') / relative
     assert path.stat().st_uid == 0, path
     assert path.read_bytes(), path
     assert not os.access(path, os.W_OK), path
     assert path.stat().st_mode & 0o022 == 0, path
 for relative in ('.venv/.lock', 'pm-runtime/.lock'):
-    path = Path('/opt/hermes') / relative
+    path = Path('/opt/aegis') / relative
     assert not path.exists() or not os.access(path, os.W_OK), path
 # uv creates its cache lock files 0666 whatever the umask; the seed copies modes.
-for parent, dirs, files in os.walk('/opt/hermes/uv-cache'):
+for parent, dirs, files in os.walk('/opt/aegis/uv-cache'):
     for name in dirs + files:
         path = Path(parent) / name
         assert path.is_symlink() or path.lstat().st_mode & 0o002 == 0, path
@@ -72,25 +72,25 @@ for parent, dirs, files in os.walk('/opt/hermes/uv-cache'):
 
     r = docker_exec_sh(
         container_name,
-        # Try to create a file under /opt/hermes as the hermes user
-        "touch /opt/hermes/test_write 2>&1 && "
+        # Try to create a file under /opt/aegis as the aegis user
+        "touch /opt/aegis/test_write 2>&1 && "
         "echo WRITE_SUCCEEDED || echo WRITE_FAILED",
         timeout=10,
     )
     assert "WRITE_FAILED" in r.stdout, (
-        f"hermes user can write to /opt/hermes (install tree not immutable): "
+        f"aegis user can write to /opt/aegis (install tree not immutable): "
         f"{r.stdout}"
     )
 
     # Also check a key subdirectory
     r = docker_exec_sh(
         container_name,
-        "touch /opt/hermes/.venv/test_write 2>&1 && "
+        "touch /opt/aegis/.venv/test_write 2>&1 && "
         "echo WRITE_SUCCEEDED || echo WRITE_FAILED",
         timeout=10,
     )
     assert "WRITE_FAILED" in r.stdout, (
-        f"hermes user can write to /opt/hermes/.venv: {r.stdout}"
+        f"aegis user can write to /opt/aegis/.venv: {r.stdout}"
     )
 
 
@@ -101,7 +101,7 @@ for parent, dirs, files in os.walk('/opt/hermes/uv-cache'):
 def test_stale_docker_stamp_in_home_is_healed_on_boot(
     built_image: str, container_name: str,
 ) -> None:
-    """A stale 'docker' stamp left in $HERMES_HOME by an older image
+    """A stale 'docker' stamp left in $AEGIS_HOME by an older image
     must be removed on boot so shared homes self-heal."""
     # Start container, write a stale stamp
     start_container(built_image, container_name)
@@ -127,6 +127,6 @@ def test_stale_docker_stamp_in_home_is_healed_on_boot(
         timeout=10,
     )
     assert "HEALED" in r.stdout or r.stdout.strip() != "docker", (
-        f"stale 'docker' stamp in $HERMES_HOME was not healed on boot: "
+        f"stale 'docker' stamp in $AEGIS_HOME was not healed on boot: "
         f"{r.stdout}"
     )
