@@ -11,6 +11,9 @@ from aegis.tools.shell import run_shell
 from aegis.persistence.db import db
 from aegis.fleet.runner import fleet_runner
 from aegis.evolution.evolver import evolution_engine
+from aegis.memory.store import memory_store
+from aegis.plugins.loader import plugin_manager
+from aegis.scheduler.cron import scheduler
 
 app = typer.Typer(help="AEGIS: The AI sysadmin that never sleeps")
 console = Console()
@@ -253,6 +256,45 @@ def models():
         if role_name != "fallback":
             table.add_row(role_name, role_cfg["provider"], role_cfg["model"], role_cfg["effort"])
             
+    console.print(table)
+
+@app.command()
+def browse(url: str):
+    """Fetch and extract web page content using Obscura-inspired headless browser engine."""
+    console.print(f"[bold cyan]Fetching URL via browser engine:[/bold cyan] {url}")
+    with console.status("[bold cyan]Rendering and extracting DOM content...[/bold cyan]", spinner="dots"):
+        import asyncio
+        from aegis.tools.browser import browser_tool
+        res = asyncio.run(browser_tool.fetch_page(url))
+    if res["success"]:
+        console.print(f"[green]Successfully fetched {res['url']} (Status: {res['status_code']})[/green]")
+        console.print(res["content"][:1000])
+    else:
+        console.print(f"[red]Failed to fetch URL:[/red] {res.get('error')}")
+
+@app.command()
+def memory(query: str):
+    """Search FTS5 memory store for facts, history, and notes."""
+    facts = memory_store.search_facts(query)
+    table = Table(title=f"AEGIS Memory Search: '{query}'", border_style="cyan")
+    table.add_column("Category", style="cyan")
+    table.add_column("Content", style="green")
+    table.add_column("Updated", style="dim")
+    for f in facts:
+        table.add_row(f["category"], f["content"], f["updated_at"])
+    console.print(table)
+
+@app.command()
+def schedule():
+    """List active scheduled maintenance and proactive monitoring jobs."""
+    jobs = scheduler.list_jobs()
+    table = Table(title="AEGIS Active Cron & Monitoring Jobs", border_style="cyan")
+    table.add_column("ID", style="dim")
+    table.add_column("Job Name", style="cyan")
+    table.add_column("Schedule (Cron)", style="yellow")
+    table.add_column("Status", style="green")
+    for j in jobs:
+        table.add_row(str(j["id"]), j["name"], j["cron"], j["status"])
     console.print(table)
 
 if __name__ == "__main__":
