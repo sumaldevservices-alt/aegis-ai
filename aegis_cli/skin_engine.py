@@ -58,7 +58,7 @@ def _wings(*glyphs) -> list[list[str]]:
 
 # Branding shared by every Aegis-named built-in (mono/daylight override help_header).
 _AEGIS_BRANDING: dict[str, str] = _branding(
-    "Aegis", "☤", "Goodbye! ☤", prompt="❯", help_header="(^_^)? Available Commands")
+    "Aegis", "⚡", "Goodbye! ⚡", prompt="❯", help_header="(^_^)? Available Commands")
 
 _BUILTIN_SKINS: dict[str, dict[str, Any]] = {
     "default": {
@@ -491,7 +491,7 @@ def get_active_help_header(fallback: str = "(^_^)? Available Commands") -> str:
     return _active_branding("help_header", fallback)
 
 
-def get_active_goodbye(fallback: str = "Goodbye! ☤") -> str:
+def get_active_goodbye(fallback: str = "Goodbye! ⚡") -> str:
     return _active_branding("goodbye", fallback)
 
 

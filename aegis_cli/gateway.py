@@ -4496,7 +4496,7 @@ def run_gateway(verbose: int = 0, quiet: bool = False, replace: bool = False, fo
         redact_detached_stdio()
     from gateway.run import start_gateway
     print("┌─────────────────────────────────────────────────────────┐")
-    print("│           ☤ Aegis Gateway Starting...                 │")
+    print("│           ⚡ Aegis Gateway Starting...                 │")
     print("├─────────────────────────────────────────────────────────┤")
     print("│  Messaging platforms + cron scheduler                    │")
     print("│  Press Ctrl+C to stop                                   │")

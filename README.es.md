@@ -2,7 +2,7 @@
   <img src="assets/banner.png" alt="Aegis Agent" width="100%">
 </p>
 
-# Aegis Agent ☤
+# Aegis Agent ⚡
 <p align="center">
   <a href="https://aegis-agent.nousresearch.com/">Aegis Agent</a> | <a href="https://aegis-agent.nousresearch.com/">Aegis Desktop</a>
 </p>

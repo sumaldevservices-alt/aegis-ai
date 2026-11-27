@@ -169,7 +169,7 @@ def show_config():
 
     print()
     print(color("┌─────────────────────────────────────────────────────────┐", Colors.CYAN))
-    print(color("│              ☤ Aegis Configuration                    │", Colors.CYAN))
+    print(color("│              ⚡ Aegis Configuration                    │", Colors.CYAN))
     print(color("└─────────────────────────────────────────────────────────┘", Colors.CYAN))
     _show_managed_banner()
     from aegis_cli.profiles_run_elsewhere import keys_note_for_this_home

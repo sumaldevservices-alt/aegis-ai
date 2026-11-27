@@ -559,7 +559,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             {sessions_html}
             
             <footer>
-                Built with ☤ Aegis Agent • Generated on {generated_at}
+                Built with ⚡ Aegis Agent • Generated on {generated_at}
             </footer>
         </div>
     </div>

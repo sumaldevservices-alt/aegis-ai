@@ -51,11 +51,11 @@ def _fg(hex_color: str, bold: bool = False) -> str:
 
 
 def _brand_glyph() -> tuple[str, str]:
-    """(glyph, name) from the skin's response label, e.g. ``" ☤ Aegis "`` → ("☤", "Aegis")."""
+    """(glyph, name) from the skin's response label, e.g. ``" ⚡ Aegis "`` → ("⚡", "Aegis")."""
     from aegis_cli.skin_engine import get_active_skin
-    label = get_active_skin().get_branding("response_label", " ☤ Aegis ")
+    label = get_active_skin().get_branding("response_label", " ⚡ Aegis ")
     parts = label.split(None, 1)
-    return (parts[0], parts[1].strip()) if len(parts) == 2 else ("☤", label.strip() or "Aegis")
+    return (parts[0], parts[1].strip()) if len(parts) == 2 else ("⚡", label.strip() or "Aegis")
 
 
 def prompt_glyph() -> str:

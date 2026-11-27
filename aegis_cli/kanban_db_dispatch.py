@@ -990,7 +990,7 @@ _PROTOCOL_VIOLATION_ERROR = (
 
 
 # Rich panel/rule chrome around the rendered response, and the CLI's own preamble lines.
-_LOG_CHROME = re.compile(r"[─━═╭╮╰╯│┃┌┐└┘]+|☤\s*Aegis")
+_LOG_CHROME = re.compile(r"[─━═╭╮╰╯│┃┌┐└┘]+|⚡\s*Aegis")
 
 
 def _exit_summary_marker() -> str:
