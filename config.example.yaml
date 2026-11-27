@@ -1,0 +1,57 @@
+# AEGIS Configuration Example
+
+version: "1.0"
+server:
+  host: "127.0.0.1"
+  port: 8443
+  ssl_cert: null
+  ssl_key: null
+
+providers:
+  default:
+    base_url: "https://api.anthropic.com"
+    api_key_env: "ANTHROPIC_API_KEY"
+  custom1:
+    base_url: "https://my-proxy.example.com"
+    auth_token_env: "MY_TOKEN"
+  gateway:
+    base_url: "http://localhost:4000"
+    api_key_env: "LITELLM_KEY"
+
+roles:
+  planner:
+    provider: "default"
+    model: "claude-3-5-opus-20241022"
+    effort: "max"
+  executor:
+    provider: "default"
+    model: "claude-3-5-sonnet-20241022"
+    effort: "high"
+  fast:
+    provider: "default"
+    model: "claude-3-5-haiku-20241022"
+    effort: "low"
+  critic:
+    provider: "default"
+    model: "claude-3-5-opus-20241022"
+    effort: "high"
+  fallback: ["custom1", "gateway"]
+
+autonomy:
+  level: 2 # L0: observe, L1: suggest, L2: act safe/ask risky, L3: full auto
+  require_approval_for:
+    - "HIGH"
+    - "MEDIUM"
+
+telegram:
+  enabled: false
+  token_env: "TELEGRAM_BOT_TOKEN"
+  allowed_users: []
+
+security:
+  jwt_secret_env: "AEGIS_JWT_SECRET"
+  totp_issuer: "AEGIS"
+  lockout_protection: true
+
+inventory:
+  hosts_file: "~/.aegis/inventory.yaml"

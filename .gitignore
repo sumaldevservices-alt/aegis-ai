@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.aegis_sys_env/
+aegis_env/
+venv/
+.env
+*.key
+*.enc
+.DS_Store
