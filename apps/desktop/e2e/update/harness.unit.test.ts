@@ -21,7 +21,7 @@ test.skipIf(process.platform !== 'linux')(
     } as InstallFacts
 
     fs.mkdirSync(releaseDir(facts), { recursive: true })
-    const exe = path.join(releaseDir(facts), 'Aegis')
+    const exe = path.join(releaseDir(facts), 'Aegis AI Enterprise Autonomous Platform')
     fs.copyFileSync(process.execPath, exe)
     const app = spawn(exe, ['-e', 'setTimeout(() => {}, 60_000)'], { env: {}, stdio: 'ignore' })
 
@@ -48,7 +48,7 @@ test.skipIf(process.platform !== 'linux')(
       checkout: path.join(root, 'checkout')
     } as InstallFacts
     fs.mkdirSync(releaseDir(facts), { recursive: true })
-    const exe = path.join(releaseDir(facts), 'Aegis')
+    const exe = path.join(releaseDir(facts), 'Aegis AI Enterprise Autonomous Platform')
     const handlerExe = path.join(releaseDir(facts), 'chrome_crashpad_handler')
     fs.copyFileSync(process.execPath, exe)
     fs.copyFileSync(process.execPath, handlerExe)

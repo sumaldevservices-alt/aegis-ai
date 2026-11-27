@@ -13,7 +13,7 @@ class StuckSocket extends EventTarget {
   }
 }
 
-const connectErrorMessage = 'Could not connect to Aegis gateway'
+const connectErrorMessage = 'Could not connect to Aegis AI Enterprise Autonomous Platform gateway'
 
 const rejection = (pending: Promise<void>): Promise<Error> =>
   pending.then(

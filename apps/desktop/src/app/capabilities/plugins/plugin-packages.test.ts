@@ -82,8 +82,8 @@ describe('mergePluginPackages', () => {
       [
         desktop({
           id: 'aegis-talk',
-          name: 'Aegis Talk',
-          description: 'GPT-Live subscription or explicit API voice, with Aegis task delegation.',
+          name: 'Aegis AI Enterprise Autonomous Platform Talk',
+          description: 'GPT-Live subscription or explicit API voice, with Aegis AI Enterprise Autonomous Platform task delegation.',
           packageName: 'aegis-talk',
           file: '/Users/me/.aegis/desktop-plugins/aegis-talk/plugin.js'
         })
@@ -94,7 +94,7 @@ describe('mergePluginPackages', () => {
     expect(rows).toHaveLength(1)
     expect(rows[0]).toMatchObject({
       key: 'aegis-talk',
-      name: 'Aegis Talk',
+      name: 'Aegis AI Enterprise Autonomous Platform Talk',
       kind: 'both',
       desktopMissing: false,
       agentMissingInProfile: false
@@ -108,7 +108,7 @@ describe('mergePluginPackages', () => {
       [
         desktop({
           id: 'aegis-talk',
-          name: 'Aegis Talk',
+          name: 'Aegis AI Enterprise Autonomous Platform Talk',
           file: '/Users/me/.aegis/desktop-plugins/aegis-talk/plugin.js'
         })
       ],

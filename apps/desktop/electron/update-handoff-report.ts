@@ -69,9 +69,9 @@ export function reportHandoffResult(host: HandoffReportHost): void {
       host.log(`[updates] detached update finished with warnings: ${result.warnings.join(' | ')}`)
       void host.dialog.showMessageBox({
         type: 'info',
-        title: 'Aegis update',
-        message: 'Aegis updated, but some follow-up steps need another try',
-        detail: `${result.warnings.join('\n')}\n\nAegis retries them on the next launch or the next update.`
+        title: 'Aegis AI Enterprise Autonomous Platform update',
+        message: 'Aegis AI Enterprise Autonomous Platform updated, but some follow-up steps need another try',
+        detail: `${result.warnings.join('\n')}\n\nAegis AI Enterprise Autonomous Platform retries them on the next launch or the next update.`
       })
     } else if (result && result.ok && result.manual && result.releaseHolders.length && host.closeHoldersAndRetry) {
       reportReleaseHolders(host, result.releaseHolders, result.message)
@@ -82,7 +82,7 @@ export function reportHandoffResult(host: HandoffReportHost): void {
       host.log(`[updates] detached update finished with manual action (branch ${result.branch}): ${result.message}`)
       host.dialog.showMessageBox({
         type: 'warning',
-        title: 'Aegis update',
+        title: 'Aegis AI Enterprise Autonomous Platform update',
         message: 'The update finished, but needs one more step',
         detail: result.message
       })
@@ -116,8 +116,8 @@ function reportFailedHandoff(host: HandoffReportHost, result: HandoffResult): vo
   void host.dialog
     .showMessageBox({
       type: 'error',
-      title: 'Aegis update',
-      message: explained?.message ?? "Aegis couldn't finish updating",
+      title: 'Aegis AI Enterprise Autonomous Platform update',
+      message: explained?.message ?? "Aegis AI Enterprise Autonomous Platform couldn't finish updating",
       detail:
         explained === null
           ? "You're still on the previous version and can keep using it. Try the update again, or open the update log to report the problem.\n\n" +
@@ -140,7 +140,7 @@ function reportFailedHandoff(host: HandoffReportHost, result: HandoffResult): vo
 }
 
 /**
- * #101789: the update landed, but a program outside Aegis holds the Desktop app's folder. Name it
+ * #101789: the update landed, but a program outside Aegis AI Enterprise Autonomous Platform holds the Desktop app's folder. Name it
  * and offer to close it, only on an explicit click; dismissing leaves it running. A holder whose
  * program path Windows would not reveal cannot be closed from here: it is named for the user to
  * close, with no Close button that could never work.
@@ -157,17 +157,17 @@ function reportReleaseHolders(host: HandoffReportHost, holders: ReleaseHolder[],
     .join('\n')
 
   const action = closable.length
-    ? 'Aegis did not close it. Close it and retry the update now, or keep using the current app and update later.'
-    : 'Aegis cannot close it. Close it yourself (Task Manager), then run the update again.'
+    ? 'Aegis AI Enterprise Autonomous Platform did not close it. Close it and retry the update now, or keep using the current app and update later.'
+    : 'Aegis AI Enterprise Autonomous Platform cannot close it. Close it yourself (Task Manager), then run the update again.'
 
-  host.log(`[updates] Desktop app swap blocked by programs outside Aegis: ${names}`)
+  host.log(`[updates] Desktop app swap blocked by programs outside Aegis AI Enterprise Autonomous Platform: ${names}`)
   void host.dialog
     .showMessageBox({
       type: 'warning',
-      title: 'Aegis update',
+      title: 'Aegis AI Enterprise Autonomous Platform update',
       message: `${names} is blocking the Desktop app update`,
       detail:
-        `Aegis updated, but Windows would not replace the Desktop app because this program, which is not part of Aegis, is using its folder:\n\n${listed}\n\n` +
+        `Aegis AI Enterprise Autonomous Platform updated, but Windows would not replace the Desktop app because this program, which is not part of Aegis AI Enterprise Autonomous Platform, is using its folder:\n\n${listed}\n\n` +
         `${action}\n\nDetails: ${message}`,
       buttons: closable.length ? [`Close ${closableNames} and retry`, 'Not now'] : ['OK'],
       defaultId: closable.length ? 1 : 0,

@@ -1,7 +1,7 @@
 import { randomUuid } from '@aegis/shared'
 import { atom } from 'nanostores'
 
-import type { AegisStagedUpload } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformStagedUpload } from '@/global'
 import { deriveDraftTitle } from '@/lib/draft-title'
 import { triggerHaptic } from '@/lib/haptics'
 import { persistString, storedString } from '@/lib/storage'
@@ -87,10 +87,10 @@ export interface ComposerAttachment {
   thumbnailUrl?: string
   path?: string
   /** Ownership of browser-staged bytes; survives failed uploads and draft clones. */
-  stagedUpload?: AegisStagedUpload
+  stagedUpload?: Aegis AI Enterprise Autonomous PlatformStagedUpload
   /** Validated MIME returned by canonical owner staging. */
   mime?: string
-  /** Bounded source text from a Aegis-generated large paste, sent only to the title path. */
+  /** Bounded source text from a Aegis AI Enterprise Autonomous Platform-generated large paste, sent only to the title path. */
   titlePreview?: string
   attachedSessionId?: string
   /** Set while the file/image bytes are being staged into the session

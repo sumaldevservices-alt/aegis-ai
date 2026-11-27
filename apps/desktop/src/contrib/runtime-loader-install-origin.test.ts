@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisReadDirResult } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformReadDirResult } from '@/global'
 
 import { $pluginRecords, enableCatalogDesktopPlugin, publishPlugin } from './plugins-store'
 import { discoverRuntimePlugins } from './runtime-loader'
@@ -10,7 +10,7 @@ import { routeBlobImportsToDataUrls } from './runtime-loader.test-helpers'
 // (electron/desktop-plugins-root.ts INSTALL_ORIGIN). The loader puts that entry on the plugin's
 // record, which is what the catalog card matches; the folder stays standalone (no package).
 const root = '/local/.aegis/desktop-plugins'
-const readDir = vi.fn<(path: string) => Promise<AegisReadDirResult>>()
+const readDir = vi.fn<(path: string) => Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>>()
 const readFileText = vi.fn<(path: string) => Promise<{ text: string }>>()
 
 const ORIGIN = {

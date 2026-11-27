@@ -175,7 +175,7 @@ export function Harness({
     queryClient: queryClient.current,
     updateSessionState,
     hydrateFromStoredSession: async () => undefined,
-    refreshAegisConfig: async () => undefined,
+    refreshAegis AI Enterprise Autonomous PlatformConfig: async () => undefined,
     refreshSessions
   })
 

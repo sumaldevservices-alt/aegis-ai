@@ -474,7 +474,7 @@ it.each(rebuiltRuntimeCases)(
           finalizeInterimAssistantMessage: vi.fn(),
           hydrateFromStoredSession: vi.fn(async () => undefined),
           queryClient: new QueryClient(),
-          refreshAegisConfig: vi.fn(async () => undefined),
+          refreshAegis AI Enterprise Autonomous PlatformConfig: vi.fn(async () => undefined),
           scheduleSessionsRefresh: vi.fn(),
           sessionInterrupted: () => false,
           upsertToolCall: vi.fn()

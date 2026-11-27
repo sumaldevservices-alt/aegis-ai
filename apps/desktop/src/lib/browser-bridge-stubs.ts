@@ -8,7 +8,7 @@ function readyBootProgress(): DesktopBootProgress {
   return {
     error: null,
     fakeMode: false,
-    message: 'Aegis browser-hosted desktop is ready',
+    message: 'Aegis AI Enterprise Autonomous Platform browser-hosted desktop is ready',
     phase: 'runtime.ready',
     progress: 100,
     running: false,

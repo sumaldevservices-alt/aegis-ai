@@ -40,7 +40,7 @@ function makeRepo() {
   tempDirs.push(dir)
   execFileSync('git', ['init', '-q'], { cwd: dir })
   execFileSync('git', ['config', 'user.email', 'aegis-test@example.com'], { cwd: dir })
-  execFileSync('git', ['config', 'user.name', 'Aegis Test'], { cwd: dir })
+  execFileSync('git', ['config', 'user.name', 'Aegis AI Enterprise Autonomous Platform Test'], { cwd: dir })
   fs.writeFileSync(path.join(dir, 'tracked.txt'), 'tracked\n')
   execFileSync('git', ['add', 'tracked.txt'], { cwd: dir })
   execFileSync('git', ['commit', '-qm', 'initial'], { cwd: dir })
@@ -81,7 +81,7 @@ test('gitFor accepts a Windows no-console host tuple with restricted characters'
       windowsGitHost: () => ({
         isWindows: true,
         pythonBin: String.raw`C:\Tools\python-3.14+build\python.exe`,
-        scriptPath: String.raw`C:\Aegis\aegis-no-console-git.py`
+        scriptPath: String.raw`C:\Aegis AI Enterprise Autonomous Platform\aegis-no-console-git.py`
       })
     }
   })

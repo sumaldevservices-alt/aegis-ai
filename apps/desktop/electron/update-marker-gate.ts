@@ -489,16 +489,16 @@ export function liveMarkerProbe({
 /** Boot-progress text while a dead marker's checkout is still held. */
 export function heldWaitMessage(state: HeldState): string {
   if (state.verdict === 'busy' || state.verdict === 'error') {
-    return 'Aegis could not verify update ownership yet — startup is paused while it retries. Details are in logs/update.log.'
+    return 'Aegis AI Enterprise Autonomous Platform could not verify update ownership yet — startup is paused while it retries. Details are in logs/update.log.'
   }
 
   if (state.livePid !== null) {
-    return `An update is still finishing (process ${state.livePid}) — Aegis will start automatically when it completes…`
+    return `An update is still finishing (process ${state.livePid}) — Aegis AI Enterprise Autonomous Platform will start automatically when it completes…`
   }
 
   const who = state.ownerPid ? `the update (process ${state.ownerPid}) exited, but a process` : 'a process'
 
-  return `An update is still finishing: ${who} it started still holds the Aegis install. Aegis will start when it lets go.`
+  return `An update is still finishing: ${who} it started still holds the Aegis AI Enterprise Autonomous Platform install. Aegis AI Enterprise Autonomous Platform will start when it lets go.`
 }
 
 /** The log line for a confirmed "Start anyway" (R8 D3). */

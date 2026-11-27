@@ -15,9 +15,9 @@ import type { ConfigSettings as ConfigSettingsType } from './config-settings'
 // writable one; narrow the import back so tests can drive it.
 const scopeProfileMock = $settingsRequestProfile as unknown as { set: (value: string) => void }
 
-const getAegisConfigRecord = vi.fn()
-const getAegisConfigSchema = vi.fn()
-const saveAegisConfig = vi.fn()
+const getAegis AI Enterprise Autonomous PlatformConfigRecord = vi.fn()
+const getAegis AI Enterprise Autonomous PlatformConfigSchema = vi.fn()
+const saveAegis AI Enterprise Autonomous PlatformConfig = vi.fn()
 const getElevenLabsVoices = vi.fn()
 
 // Keep the real read-origin helpers (WeakMap peek/bind) live: the shared
@@ -28,9 +28,9 @@ vi.mock('@/aegis', async () => ({
   // real one is a pure string fold, mirrored here for the string scopes this
   // suite passes.
   profileScopeKey: (scope?: unknown) => (typeof scope === 'string' && scope.trim()) || 'default',
-  getAegisConfigRecord: (profile?: string) => getAegisConfigRecord(profile),
-  getAegisConfigSchema: () => getAegisConfigSchema(),
-  saveAegisConfig: (config: unknown, profile?: string) => saveAegisConfig(config, profile),
+  getAegis AI Enterprise Autonomous PlatformConfigRecord: (profile?: string) => getAegis AI Enterprise Autonomous PlatformConfigRecord(profile),
+  getAegis AI Enterprise Autonomous PlatformConfigSchema: () => getAegis AI Enterprise Autonomous PlatformConfigSchema(),
+  saveAegis AI Enterprise Autonomous PlatformConfig: (config: unknown, profile?: string) => saveAegis AI Enterprise Autonomous PlatformConfig(config, profile),
   getElevenLabsVoices: () => getElevenLabsVoices(),
   setApiRequestProfile: () => {}
 }))
@@ -73,8 +73,8 @@ beforeAll(async () => {
 beforeEach(() => {
   scopeProfileMock.set('default')
   getElevenLabsVoices.mockResolvedValue({ available: false })
-  getAegisConfigSchema.mockResolvedValue({ fields: {} })
-  saveAegisConfig.mockResolvedValue({ ok: true })
+  getAegis AI Enterprise Autonomous PlatformConfigSchema.mockResolvedValue({ fields: {} })
+  saveAegis AI Enterprise Autonomous PlatformConfig.mockResolvedValue({ ok: true })
 })
 
 afterEach(() => {
@@ -99,7 +99,7 @@ function renderConfigSettings(activeSectionId = 'safety') {
 
 describe('ConfigSettings autosave', () => {
   it('sends a later revert instead of diffing it away against the stale page-load baseline', async () => {
-    getAegisConfigRecord.mockResolvedValue({ checkpoints: { enabled: false }, other: 'untouched' })
+    getAegis AI Enterprise Autonomous PlatformConfigRecord.mockResolvedValue({ checkpoints: { enabled: false }, other: 'untouched' })
 
     vi.useFakeTimers({ shouldAdvanceTime: true })
 
@@ -112,19 +112,19 @@ describe('ConfigSettings autosave', () => {
       toggle.click()
       await vi.advanceTimersByTimeAsync(700)
 
-      await vi.waitFor(() => expect(saveAegisConfig).toHaveBeenCalledTimes(1))
-      expect(saveAegisConfig.mock.calls[0][0]).toEqual({ checkpoints: { enabled: true } })
+      await vi.waitFor(() => expect(saveAegis AI Enterprise Autonomous PlatformConfig).toHaveBeenCalledTimes(1))
+      expect(saveAegis AI Enterprise Autonomous PlatformConfig.mock.calls[0][0]).toEqual({ checkpoints: { enabled: true } })
 
       // Revert: flip it back to its original value and let autosave fire again.
       toggle.click()
       await vi.advanceTimersByTimeAsync(700)
 
-      await vi.waitFor(() => expect(saveAegisConfig).toHaveBeenCalledTimes(2))
+      await vi.waitFor(() => expect(saveAegis AI Enterprise Autonomous PlatformConfig).toHaveBeenCalledTimes(2))
       // Must still explicitly send the reverted value — diffing against the
       // never-advanced page-load baseline would produce an empty patch here
       // (the field is back to its original value) and leave disk stuck at
       // `enabled: true` from the first save.
-      expect(saveAegisConfig.mock.calls[1][0]).toEqual({ checkpoints: { enabled: false } })
+      expect(saveAegis AI Enterprise Autonomous PlatformConfig.mock.calls[1][0]).toEqual({ checkpoints: { enabled: false } })
     } finally {
       vi.useRealTimers()
     }
@@ -136,19 +136,19 @@ describe('ConfigSettings autosave', () => {
     // the write — a read scoped to B with a write that falls back to the
     // ambient (launch) profile is exactly the silent cross-profile write.
     scopeProfileMock.set('nash')
-    getAegisConfigRecord.mockResolvedValue({ checkpoints: { enabled: false } })
+    getAegis AI Enterprise Autonomous PlatformConfigRecord.mockResolvedValue({ checkpoints: { enabled: false } })
 
     vi.useFakeTimers({ shouldAdvanceTime: true })
 
     try {
       renderConfigSettings()
 
-      await vi.waitFor(() => expect(getAegisConfigRecord).toHaveBeenCalledWith('nash'))
+      await vi.waitFor(() => expect(getAegis AI Enterprise Autonomous PlatformConfigRecord).toHaveBeenCalledWith('nash'))
 
       ;(await screen.findByRole('switch')).click()
       await vi.advanceTimersByTimeAsync(700)
 
-      await vi.waitFor(() => expect(saveAegisConfig).toHaveBeenCalledWith({ checkpoints: { enabled: true } }, 'nash'))
+      await vi.waitFor(() => expect(saveAegis AI Enterprise Autonomous PlatformConfig).toHaveBeenCalledWith({ checkpoints: { enabled: true } }, 'nash'))
     } finally {
       vi.useRealTimers()
     }
@@ -156,8 +156,8 @@ describe('ConfigSettings autosave', () => {
 
   it("Settings → Voice shows and drives Desktop read-aloud, apart from the profile's voice.auto_tts", async () => {
     await setAutoSpeakReplies(true)
-    getAegisConfigRecord.mockResolvedValue({ voice: { auto_tts: false } })
-    getAegisConfigSchema.mockResolvedValue({ fields: { 'voice.auto_tts': { type: 'boolean' } } })
+    getAegis AI Enterprise Autonomous PlatformConfigRecord.mockResolvedValue({ voice: { auto_tts: false } })
+    getAegis AI Enterprise Autonomous PlatformConfigSchema.mockResolvedValue({ fields: { 'voice.auto_tts': { type: 'boolean' } } })
 
     renderConfigSettings('voice')
 
@@ -170,7 +170,7 @@ describe('ConfigSettings autosave', () => {
 
     // The profile setting (possibly another profile's) never moves the Desktop switch.
     ;(await screen.findByRole('switch', { name: 'Read Responses Aloud' })).click()
-    await vi.waitFor(() => expect(saveAegisConfig).toHaveBeenCalled())
+    await vi.waitFor(() => expect(saveAegis AI Enterprise Autonomous PlatformConfig).toHaveBeenCalled())
     expect($autoSpeakReplies.get()).toBe(false)
   })
 })

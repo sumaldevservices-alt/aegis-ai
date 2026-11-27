@@ -15,10 +15,10 @@ test('explicit clears beat inherited homes and prevent Windows registry fallback
   try {
     const entry = join(root, 'entry.mjs')
     writeFileSync(entry, `
-      import {resolveDesktopAegisHome} from ${JSON.stringify(paths)};
+      import {resolveDesktopAegis AI Enterprise Autonomous PlatformHome} from ${JSON.stringify(paths)};
       import {execFileSync} from 'node:child_process';
       let registryReads = 0;
-      const home = resolveDesktopAegisHome({
+      const home = resolveDesktopAegis AI Enterprise Autonomous PlatformHome({
         home: 'C:/Users/test', platform: 'win32', env: process.env,
         readWindowsHome: () => { registryReads++; return 'C:/old-aegis'; }
       });

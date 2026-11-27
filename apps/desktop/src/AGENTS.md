@@ -62,7 +62,7 @@ user-activated extensions. If you tighten `desktop-slash-commands.ts`, keep
 
 ## Bot Mode (`src/plugins/aegis-bots/`) — one bot = ONE canonical forever-chat, identified by NAME
 
-Each bot is a Aegis **profile** with a persistent identity. This invariant regressed repeatedly,
+Each bot is a Aegis AI Enterprise Autonomous Platform **profile** with a persistent identity. This invariant regressed repeatedly,
 cost users conversation history each time, and is not open for re-litigation in a routine PR.
 
 The chat's only identity is **(profile, session titled exactly "Bot Chat")**; the state DB's

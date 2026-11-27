@@ -2,7 +2,7 @@ import { isGatewayReauthRequired } from '@aegis/shared'
 import { useStore } from '@nanostores/react'
 import { useCallback, useEffect, useRef } from 'react'
 
-import type { AegisGateway } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import { resolveDesktopGatewayWsUrl } from '@/lib/gateway-ws-url'
 import { RECONNECT_ATTEMPT_TIMEOUT_MS, withTimeout } from '@/lib/with-timeout'
 import {
@@ -31,15 +31,15 @@ export function useGatewayRequest() {
   // null on mount, and if the connection state doesn't happen to flip
   // afterwards it never re-renders to pick the instance up. Anything that needs
   // the gateway as a render-time VALUE (props, memo deps) must use this.
-  const gateway = useStore($gateway) as AegisGateway | null
-  const gatewayRef = useRef<AegisGateway | null>(null)
+  const gateway = useStore($gateway) as Aegis AI Enterprise Autonomous PlatformGateway | null
+  const gatewayRef = useRef<Aegis AI Enterprise Autonomous PlatformGateway | null>(null)
 
   const connectionRef = useRef<Awaited<ReturnType<NonNullable<typeof window.aegisDesktop>['getConnection']>> | null>(
     null
   )
 
   const gatewayStateRef = useRef(gatewayState)
-  const reconnectingRef = useRef<Promise<AegisGateway | null> | null>(null)
+  const reconnectingRef = useRef<Promise<Aegis AI Enterprise Autonomous PlatformGateway | null> | null>(null)
   // Holds the reauth error from the most recent failed reconnect so
   // requestGateway can surface the gateway's "session expired, sign in again"
   // message instead of the opaque "connection closed" that triggered the retry.
@@ -55,7 +55,7 @@ export function useGatewayRequest() {
   useEffect(
     () =>
       $gateway.subscribe(gateway => {
-        gatewayRef.current = gateway as AegisGateway | null
+        gatewayRef.current = gateway as Aegis AI Enterprise Autonomous PlatformGateway | null
       }),
     []
   )
@@ -72,7 +72,7 @@ export function useGatewayRequest() {
     // gatewayStateRef mirrors $gatewayState through a render + effect, so it
     // still reads 'open' for a beat after a socket drop rejected the caller's
     // in-flight request. Trusting it alone skipped the reconnect and re-sent
-    // on the dead socket ("Aegis gateway is not connected", #121680). Ask the
+    // on the dead socket ("Aegis AI Enterprise Autonomous Platform gateway is not connected", #121680). Ask the
     // socket itself.
     if (gatewayStateRef.current === 'open' && existing.connectionState === 'open') {
       return existing
@@ -114,7 +114,7 @@ export function useGatewayRequest() {
         const conn = await withTimeout(
           desktop.getConnection(),
           RECONNECT_ATTEMPT_TIMEOUT_MS,
-          'Timed out reconnecting to Aegis backend'
+          'Timed out reconnecting to Aegis AI Enterprise Autonomous Platform backend'
         )
 
         if (!ownsForeground()) {
@@ -167,7 +167,7 @@ export function useGatewayRequest() {
       const gateway = gatewayRef.current ?? activeGateway()
 
       if (!gateway) {
-        throw new Error('Aegis gateway unavailable')
+        throw new Error('Aegis AI Enterprise Autonomous Platform gateway unavailable')
       }
 
       // Bind retries to the dispatch owner, not whichever source is focused

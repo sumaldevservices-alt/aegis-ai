@@ -1,7 +1,7 @@
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisReadDirResult } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformReadDirResult } from '@/global'
 import { $connection } from '@/store/session'
 import { notifyWorkspaceChanged } from '@/store/workspace-events'
 
@@ -9,7 +9,7 @@ import { clearProjectDirCache, readProjectDir } from './ipc'
 import { $showIgnoredRoots } from './prefs'
 import { resetProjectTreeState, useProjectTree } from './use-project-tree'
 
-const readDir = vi.fn<(path: string) => Promise<AegisReadDirResult>>()
+const readDir = vi.fn<(path: string) => Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>>()
 
 beforeEach(() => {
   $connection.set(null)
@@ -27,7 +27,7 @@ afterEach(() => {
   delete (window as unknown as { aegisDesktop?: unknown }).aegisDesktop
 })
 
-function ok(entries: { name: string; path: string; isDirectory: boolean }[]): AegisReadDirResult {
+function ok(entries: { name: string; path: string; isDirectory: boolean }[]): Aegis AI Enterprise Autonomous PlatformReadDirResult {
   return { entries }
 }
 
@@ -73,11 +73,11 @@ describe('useProjectTree', () => {
   })
 
   it('does not fall back after a failed root read from a superseded connection', async () => {
-    let resolveRootFromA: ((result: AegisReadDirResult) => void) | undefined
+    let resolveRootFromA: ((result: Aegis AI Enterprise Autonomous PlatformReadDirResult) => void) | undefined
     const sanitizeWorkspaceCwd = vi.fn(async () => ({ cwd: '/fallback', sanitized: true }))
     readDir.mockImplementationOnce(
       () =>
-        new Promise<AegisReadDirResult>(resolve => {
+        new Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>(resolve => {
           resolveRootFromA = resolve
         })
     )
@@ -247,10 +247,10 @@ describe('useProjectTree', () => {
   it('dedupes concurrent loadChildren calls for the same id', async () => {
     readDir.mockResolvedValueOnce(ok([{ name: 'src', path: '/p/src', isDirectory: true }]))
 
-    let resolveChildren: ((value: AegisReadDirResult) => void) | undefined
+    let resolveChildren: ((value: Aegis AI Enterprise Autonomous PlatformReadDirResult) => void) | undefined
     readDir.mockImplementationOnce(
       () =>
-        new Promise<AegisReadDirResult>(resolve => {
+        new Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>(resolve => {
           resolveChildren = resolve
         })
     )
@@ -276,9 +276,9 @@ describe('useProjectTree', () => {
     async ({ read, refresh }) => {
       const src = { name: 'src', path: '/p/src', isDirectory: true }
       const fresh = { name: 'fresh.txt', path: '/p/fresh.txt', isDirectory: false }
-      let resolveOld!: (value: AegisReadDirResult) => void
+      let resolveOld!: (value: Aegis AI Enterprise Autonomous PlatformReadDirResult) => void
 
-      const oldRead = new Promise<AegisReadDirResult>(resolve => {
+      const oldRead = new Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>(resolve => {
         resolveOld = resolve
       })
 
@@ -334,14 +334,14 @@ describe('useProjectTree', () => {
 
   it('keeps a refreshed folder read in flight when its predecessor finishes', async () => {
     const src = { name: 'src', path: '/p/src', isDirectory: true }
-    let finishOld!: (value: AegisReadDirResult) => void
-    let finishNew!: (value: AegisReadDirResult) => void
+    let finishOld!: (value: Aegis AI Enterprise Autonomous PlatformReadDirResult) => void
+    let finishNew!: (value: Aegis AI Enterprise Autonomous PlatformReadDirResult) => void
 
-    const oldRead = new Promise<AegisReadDirResult>(resolve => {
+    const oldRead = new Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>(resolve => {
       finishOld = resolve
     })
 
-    const newRead = new Promise<AegisReadDirResult>(resolve => {
+    const newRead = new Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>(resolve => {
       finishNew = resolve
     })
 
@@ -393,11 +393,11 @@ describe('useProjectTree', () => {
   })
 
   it('discards a stale live refresh after the active registered connection changes', async () => {
-    let resolveRefreshFromA: ((result: AegisReadDirResult) => void) | undefined
+    let resolveRefreshFromA: ((result: Aegis AI Enterprise Autonomous PlatformReadDirResult) => void) | undefined
     readDir.mockResolvedValueOnce(ok([{ name: 'from-a', path: '/shared/from-a', isDirectory: false }]))
     readDir.mockImplementationOnce(
       () =>
-        new Promise<AegisReadDirResult>(resolve => {
+        new Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>(resolve => {
           resolveRefreshFromA = resolve
         })
     )
@@ -436,11 +436,11 @@ describe('useProjectTree', () => {
   })
 
   it('discards a stale child read after the active registered connection changes', async () => {
-    let resolveChildFromA: ((result: AegisReadDirResult) => void) | undefined
+    let resolveChildFromA: ((result: Aegis AI Enterprise Autonomous PlatformReadDirResult) => void) | undefined
     readDir.mockResolvedValueOnce(ok([{ name: 'src', path: '/shared/src', isDirectory: true }]))
     readDir.mockImplementationOnce(
       () =>
-        new Promise<AegisReadDirResult>(resolve => {
+        new Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>(resolve => {
           resolveChildFromA = resolve
         })
     )
@@ -479,10 +479,10 @@ describe('useProjectTree', () => {
   })
 
   it('discards a stale root read after the active registered connection changes', async () => {
-    let resolveFirst: ((result: AegisReadDirResult) => void) | undefined
+    let resolveFirst: ((result: Aegis AI Enterprise Autonomous PlatformReadDirResult) => void) | undefined
     readDir.mockImplementationOnce(
       () =>
-        new Promise<AegisReadDirResult>(resolve => {
+        new Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>(resolve => {
           resolveFirst = resolve
         })
     )
@@ -581,11 +581,11 @@ describe('useProjectTree', () => {
 
     await waitFor(() => expect(result.current.rootError).toBe('ENOENT'))
 
-    let releaseProbe: ((value: AegisReadDirResult) => void) | undefined
+    let releaseProbe: ((value: Aegis AI Enterprise Autonomous PlatformReadDirResult) => void) | undefined
 
     readDir.mockImplementationOnce(
       () =>
-        new Promise<AegisReadDirResult>(resolve => {
+        new Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>(resolve => {
           releaseProbe = resolve
         })
     )
@@ -611,11 +611,11 @@ describe('useProjectTree', () => {
 
     await waitFor(() => expect(result.current.data.length).toBe(1))
 
-    let releaseRefresh: ((value: AegisReadDirResult) => void) | undefined
+    let releaseRefresh: ((value: Aegis AI Enterprise Autonomous PlatformReadDirResult) => void) | undefined
 
     readDir.mockImplementationOnce(
       () =>
-        new Promise<AegisReadDirResult>(resolve => {
+        new Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>(resolve => {
           releaseRefresh = resolve
         })
     )
@@ -640,11 +640,11 @@ describe('useProjectTree', () => {
 
     await waitFor(() => expect(result.current.data.map(node => node.name)).toEqual(['from-a']))
 
-    let releaseFromB: ((value: AegisReadDirResult) => void) | undefined
+    let releaseFromB: ((value: Aegis AI Enterprise Autonomous PlatformReadDirResult) => void) | undefined
 
     readDir.mockImplementationOnce(
       () =>
-        new Promise<AegisReadDirResult>(resolve => {
+        new Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>(resolve => {
           releaseFromB = resolve
         })
     )
@@ -737,7 +737,7 @@ describe('useProjectTree', () => {
   it('drops a child listing that was read before the preference flipped', async () => {
     const gitRoot = vi.fn(async () => '/p')
     const readFileDataUrl = vi.fn(async () => `data:text/plain;base64,${btoa('*.log\n')}`)
-    let releaseChild: ((value: AegisReadDirResult) => void) | undefined
+    let releaseChild: ((value: Aegis AI Enterprise Autonomous PlatformReadDirResult) => void) | undefined
 
     readDir.mockImplementation(async path => {
       if (path === '/p') {
@@ -748,7 +748,7 @@ describe('useProjectTree', () => {
       }
 
       if (path === '/p/src') {
-        return new Promise<AegisReadDirResult>(resolve => {
+        return new Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>(resolve => {
           releaseChild = resolve
         })
       }

@@ -7,18 +7,18 @@ import { expandWindowsEnvRefs, parseRegQueryValue, readWindowsUserEnvVar } from 
 // ── parseRegQueryValue ─────────────────────────────────────────────────────
 
 test('parseRegQueryValue extracts a REG_SZ value', () => {
-  const out = ['', 'HKEY_CURRENT_USER\\Environment', '    AEGIS_HOME    REG_SZ    F:\\Aegis\\data', ''].join('\r\n')
-  assert.equal(parseRegQueryValue(out, 'AEGIS_HOME'), 'F:\\Aegis\\data')
+  const out = ['', 'HKEY_CURRENT_USER\\Environment', '    AEGIS_HOME    REG_SZ    F:\\Aegis AI Enterprise Autonomous Platform\\data', ''].join('\r\n')
+  assert.equal(parseRegQueryValue(out, 'AEGIS_HOME'), 'F:\\Aegis AI Enterprise Autonomous Platform\\data')
 })
 
 test('parseRegQueryValue matches the name case-insensitively', () => {
-  const out = 'HKEY_CURRENT_USER\\Environment\r\n    Aegis_Home    REG_EXPAND_SZ    %USERPROFILE%\\h\r\n'
+  const out = 'HKEY_CURRENT_USER\\Environment\r\n    Aegis AI Enterprise Autonomous Platform_Home    REG_EXPAND_SZ    %USERPROFILE%\\h\r\n'
   assert.equal(parseRegQueryValue(out, 'AEGIS_HOME'), '%USERPROFILE%\\h')
 })
 
 test('parseRegQueryValue preserves spaces inside the value', () => {
-  const out = '    AEGIS_HOME    REG_SZ    C:\\Program Files\\Aegis\r\n'
-  assert.equal(parseRegQueryValue(out, 'AEGIS_HOME'), 'C:\\Program Files\\Aegis')
+  const out = '    AEGIS_HOME    REG_SZ    C:\\Program Files\\Aegis AI Enterprise Autonomous Platform\r\n'
+  assert.equal(parseRegQueryValue(out, 'AEGIS_HOME'), 'C:\\Program Files\\Aegis AI Enterprise Autonomous Platform')
 })
 
 test('parseRegQueryValue returns null when the value line is absent', () => {
@@ -35,7 +35,7 @@ test('expandWindowsEnvRefs expands %VAR% case-insensitively', () => {
 })
 
 test('expandWindowsEnvRefs leaves literal paths and unknown refs intact', () => {
-  assert.equal(expandWindowsEnvRefs('F:\\Aegis\\data', {}), 'F:\\Aegis\\data')
+  assert.equal(expandWindowsEnvRefs('F:\\Aegis AI Enterprise Autonomous Platform\\data', {}), 'F:\\Aegis AI Enterprise Autonomous Platform\\data')
   assert.equal(expandWindowsEnvRefs('%NOPE%\\x', {}), '%NOPE%\\x')
 })
 
@@ -60,7 +60,7 @@ test('readWindowsUserEnvVar queries HKCU\\Environment and expands the value', ()
   const exec = (cmd, args) => {
     calls.push([cmd, args])
 
-    return 'HKEY_CURRENT_USER\\Environment\r\n    AEGIS_HOME    REG_EXPAND_SZ    %DRIVE%\\Aegis\r\n'
+    return 'HKEY_CURRENT_USER\\Environment\r\n    AEGIS_HOME    REG_EXPAND_SZ    %DRIVE%\\Aegis AI Enterprise Autonomous Platform\r\n'
   }
 
   const value = readWindowsUserEnvVar('AEGIS_HOME', {
@@ -69,7 +69,7 @@ test('readWindowsUserEnvVar queries HKCU\\Environment and expands the value', ()
     exec
   })
 
-  assert.equal(value, 'F:\\Aegis')
+  assert.equal(value, 'F:\\Aegis AI Enterprise Autonomous Platform')
   assert.deepEqual(calls, [['reg', ['query', 'HKCU\\Environment', '/v', 'AEGIS_HOME']]])
 })
 

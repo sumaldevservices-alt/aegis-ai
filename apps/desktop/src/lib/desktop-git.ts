@@ -1,12 +1,12 @@
 import { aegisApiAs } from '@/api/client'
 import type {
-  AegisGitBaseBranch,
-  AegisGitBranch,
-  AegisGitWorktree,
-  AegisRepoPullRequests,
-  AegisRepoStatus,
-  AegisReviewList,
-  AegisReviewShipInfo
+  Aegis AI Enterprise Autonomous PlatformGitBaseBranch,
+  Aegis AI Enterprise Autonomous PlatformGitBranch,
+  Aegis AI Enterprise Autonomous PlatformGitWorktree,
+  Aegis AI Enterprise Autonomous PlatformRepoPullRequests,
+  Aegis AI Enterprise Autonomous PlatformRepoStatus,
+  Aegis AI Enterprise Autonomous PlatformReviewList,
+  Aegis AI Enterprise Autonomous PlatformReviewShipInfo
 } from '@/global'
 import { aegisApi } from '@/aegis'
 
@@ -30,7 +30,7 @@ export interface GitOwnerRoute {
 
 const windowApi: GitApi = <T>(path: string, body?: Record<string, unknown>) => {
   if (!window.aegisDesktop) {
-    throw new Error('Aegis Desktop bridge is unavailable')
+    throw new Error('Aegis AI Enterprise Autonomous Platform Desktop bridge is unavailable')
   }
 
   return aegisApi<T>(
@@ -60,7 +60,7 @@ function remoteGitVia(api: GitApi): GitBridge {
 
   return {
     worktreeList: async repoPath =>
-      (await gitGet<{ worktrees: AegisGitWorktree[] }>('worktrees', { path: repoPath })).worktrees,
+      (await gitGet<{ worktrees: Aegis AI Enterprise Autonomous PlatformGitWorktree[] }>('worktrees', { path: repoPath })).worktrees,
 
     worktreeAdd: (repoPath, options) => gitPost('worktree/add', { path: repoPath, ...options }),
 
@@ -70,19 +70,19 @@ function remoteGitVia(api: GitApi): GitBridge {
     branchSwitch: (repoPath, branch) => gitPost('branch/switch', { branch, path: repoPath }),
 
     branchList: async repoPath =>
-      (await gitGet<{ branches: AegisGitBranch[] }>('branches', { path: repoPath })).branches,
+      (await gitGet<{ branches: Aegis AI Enterprise Autonomous PlatformGitBranch[] }>('branches', { path: repoPath })).branches,
 
     baseBranchList: async repoPath =>
-      (await gitGet<{ branches: AegisGitBaseBranch[] }>('base-branches', { path: repoPath })).branches,
+      (await gitGet<{ branches: Aegis AI Enterprise Autonomous PlatformGitBaseBranch[] }>('base-branches', { path: repoPath })).branches,
 
-    repoStatus: repoPath => gitGet<AegisRepoStatus | null>('status', { path: repoPath }),
+    repoStatus: repoPath => gitGet<Aegis AI Enterprise Autonomous PlatformRepoStatus | null>('status', { path: repoPath }),
 
     fileDiff: async (repoPath, filePath) =>
       (await gitGet<{ diff: string }>('file-diff', { file: filePath, path: repoPath })).diff,
 
     review: {
       list: (repoPath, scope, baseRef) =>
-        gitGet<AegisReviewList>('review/list', { base: baseRef, path: repoPath, scope }),
+        gitGet<Aegis AI Enterprise Autonomous PlatformReviewList>('review/list', { base: baseRef, path: repoPath, scope }),
 
       diff: async (repoPath, filePath, scope, baseRef, staged) =>
         (
@@ -110,10 +110,10 @@ function remoteGitVia(api: GitApi): GitBridge {
 
       push: repoPath => gitPost('review/push', { path: repoPath }),
 
-      shipInfo: repoPath => gitGet<AegisReviewShipInfo>('review/ship-info', { path: repoPath }),
+      shipInfo: repoPath => gitGet<Aegis AI Enterprise Autonomous PlatformReviewShipInfo>('review/ship-info', { path: repoPath }),
 
       prList: (repoPath, branches, numbers) =>
-        gitPost<AegisRepoPullRequests>('review/pr-list', { branches, numbers: numbers ?? [], path: repoPath }),
+        gitPost<Aegis AI Enterprise Autonomous PlatformRepoPullRequests>('review/pr-list', { branches, numbers: numbers ?? [], path: repoPath }),
 
       createPr: repoPath => gitPost('review/create-pr', { path: repoPath })
     },

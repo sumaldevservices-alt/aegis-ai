@@ -28,13 +28,13 @@ function request(sequence: number = 65536, token: string = 'ab12cd34ef56ab78'): 
     windowsVersion: `0.${Math.floor(sequence / 65536)}.${sequence % 65536}.0`,
     identity: {
       token,
-      displayName: 'Aegis no-registry-needed',
+      displayName: 'Aegis AI Enterprise Autonomous Platform no-registry-needed',
       appId: `com.nousresearch.aegis-channel-${token}`,
-      appNamePascal: `AegisChannel${token}`,
-      artifactNamePascal: `AegisChannel${token}`,
+      appNamePascal: `Aegis AI Enterprise Autonomous PlatformChannel${token}`,
+      artifactNamePascal: `Aegis AI Enterprise Autonomous PlatformChannel${token}`,
       cliName: 'aegis-no-registry-needed',
       windowsExecutableName: 'aegis-no-registry-needed',
-      msixAppIdWithOrg: `NousResearch.AegisChannel${token}`
+      msixAppIdWithOrg: `NousResearch.Aegis AI Enterprise Autonomous PlatformChannel${token}`
     },
     bundleEnv: { AEGIS_PREVIEW_FULL_CONNECTORS: '1' },
     publicBase: 'https://builds.example.test'
@@ -464,7 +464,7 @@ test('actual MSIX manifest writer consumes the channel quad across rollover inst
       assert.equal(row.semver, build.version)
       assert.match(row.xml, new RegExp(`Version="${build.windowsVersion.replaceAll('.', '\\.')}"`))
       assert.equal((row.xml.match(/Category="windows.appExecutionAlias"/g) || []).length, 2)
-      assert.match(row.xml, /AegisChannelab12cd34ef56ab78Cli1/)
+      assert.match(row.xml, /Aegis AI Enterprise Autonomous PlatformChannelab12cd34ef56ab78Cli1/)
 
       const recordScript: string = `
 import json, pathlib, sys, zipfile, xml.etree.ElementTree as ET

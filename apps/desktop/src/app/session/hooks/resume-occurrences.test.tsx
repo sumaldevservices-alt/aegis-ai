@@ -92,7 +92,7 @@ function mount(snapshot: SessionResumeResult) {
       ...cache,
       queryClient,
       hydrateFromStoredSession: noop,
-      refreshAegisConfig: noop,
+      refreshAegis AI Enterprise Autonomous PlatformConfig: noop,
       refreshSessions: noop
     })
 

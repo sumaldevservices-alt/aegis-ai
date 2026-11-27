@@ -4,7 +4,7 @@ import path from 'node:path'
 
 import { afterEach, test, vi } from 'vitest'
 
-import { platformDefaultAegisHome, resolveDesktopAegisHome, resolveDesktopUserData } from './data-paths'
+import { platformDefaultAegis AI Enterprise Autonomous PlatformHome, resolveDesktopAegis AI Enterprise Autonomous PlatformHome, resolveDesktopUserData } from './data-paths'
 import { controlSocketPath } from './ssh-connection'
 
 afterEach((): void => {
@@ -15,7 +15,7 @@ test.skipIf(process.platform === 'win32')('local SSH sockets use the suffixed de
   vi.stubEnv('AEGIS_DATA_DIR_SUFFIX', 'magic-test')
   const socket: string = controlSocketPath('user', 'host', 22)
 
-  assert.equal(path.dirname(socket), path.join(platformDefaultAegisHome(os.homedir()), 'desktop-ssh'))
+  assert.equal(path.dirname(socket), path.join(platformDefaultAegis AI Enterprise Autonomous PlatformHome(os.homedir()), 'desktop-ssh'))
 })
 
 test('default data roots append the suffix literally on each platform', (): void => {
@@ -23,16 +23,16 @@ test('default data roots append the suffix literally on each platform', (): void
     const paths: typeof path = platform === 'win32' ? path.win32 : path.posix
     const home: string = platform === 'win32' ? 'C:\\Users\\test' : '/home/test'
     const local: string = paths.join(home, 'AppData', 'Local')
-    const userData: string = paths.join(home, 'app-data', 'Aegis')
+    const userData: string = paths.join(home, 'app-data', 'Aegis AI Enterprise Autonomous Platform')
     const base: string = platform === 'win32' ? paths.join(local, 'aegis') : paths.join(home, '.aegis')
 
     for (const suffix of ['', '-asdfasdf', 'magic-test', ' spaced ']) {
       const env: NodeJS.ProcessEnv = { LOCALAPPDATA: local, AEGIS_DATA_DIR_SUFFIX: suffix }
 
-      assert.equal(platformDefaultAegisHome(home, env, platform), base + suffix)
+      assert.equal(platformDefaultAegis AI Enterprise Autonomous PlatformHome(home, env, platform), base + suffix)
       assert.equal(resolveDesktopUserData(userData, env), userData + suffix)
       assert.equal(
-        resolveDesktopAegisHome({ home, env, platform, directoryExists: (): boolean => false }),
+        resolveDesktopAegis AI Enterprise Autonomous PlatformHome({ home, env, platform, directoryExists: (): boolean => false }),
         base + suffix
       )
     }
@@ -49,16 +49,16 @@ test('explicit homes and userData retain precedence, and suffixed Windows homes 
   }
 
   assert.equal(resolveDesktopUserData('/default/electron', env), path.resolve(env.AEGIS_DESKTOP_USER_DATA_DIR!))
-  assert.equal(resolveDesktopAegisHome({ home, env, platform: 'linux' }), env.AEGIS_HOME)
+  assert.equal(resolveDesktopAegis AI Enterprise Autonomous PlatformHome({ home, env, platform: 'linux' }), env.AEGIS_HOME)
   delete env.AEGIS_HOME
-  assert.equal(resolveDesktopAegisHome({ home, env, platform: 'linux' }), '/explicit/electron/aegis-home')
+  assert.equal(resolveDesktopAegis AI Enterprise Autonomous PlatformHome({ home, env, platform: 'linux' }), '/explicit/electron/aegis-home')
 
   const windowsHome: string = 'C:\\Users\\test'
   const windowsEnv: NodeJS.ProcessEnv = { AEGIS_DATA_DIR_SUFFIX: 'magic-test' }
   const expected: string = path.win32.join(windowsHome, 'AppData', 'Local', 'aegismagic-test')
 
   assert.equal(
-    resolveDesktopAegisHome({
+    resolveDesktopAegis AI Enterprise Autonomous PlatformHome({
       home: windowsHome,
       env: windowsEnv,
       platform: 'win32',
@@ -67,7 +67,7 @@ test('explicit homes and userData retain precedence, and suffixed Windows homes 
     expected
   )
   assert.equal(
-    resolveDesktopAegisHome({
+    resolveDesktopAegis AI Enterprise Autonomous PlatformHome({
       home: windowsHome,
       env: windowsEnv,
       platform: 'win32',

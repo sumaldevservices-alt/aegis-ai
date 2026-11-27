@@ -6,7 +6,7 @@ import { backupPaletteEntries, backupSettingsHrefForLegacy } from './backup-pale
 
 const host = vi.hoisted(() => ({ cloud: false }))
 
-vi.mock('@/lib/aegis-cloud-host', () => ({ servedByAegisCloud: () => host.cloud }))
+vi.mock('@/lib/aegis-cloud-host', () => ({ servedByAegis AI Enterprise Autonomous PlatformCloud: () => host.cloud }))
 
 afterEach(() => {
   host.cloud = false
@@ -16,11 +16,11 @@ describe('Backup & Transfer entry points', () => {
   it('lists exactly one ⌘K row per task', () => {
     expect(backupPaletteEntries(en).map(entry => [entry.id, entry.label])).toEqual([
       ['backup-agent', 'Back up this agent'],
-      ['transfer-to-cloud', 'Transfer to Aegis Cloud']
+      ['transfer-to-cloud', 'Transfer to Aegis AI Enterprise Autonomous Platform Cloud']
     ])
   })
 
-  it('offers only the backup row on a Webapp Aegis Cloud serves', () => {
+  it('offers only the backup row on a Webapp Aegis AI Enterprise Autonomous Platform Cloud serves', () => {
     host.cloud = true
 
     expect(backupPaletteEntries(en).map(entry => entry.id)).toEqual(['backup-agent'])

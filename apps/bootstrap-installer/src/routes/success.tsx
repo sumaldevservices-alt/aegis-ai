@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { type CSSProperties } from 'react'
 
 import { HackeryButton } from '../components/hackery-button'
-import { launchAegisDesktop } from '../store'
+import { launchAegis AI Enterprise Autonomous PlatformDesktop } from '../store'
 
 /*
  * Success screen. AEGIS AGENT wordmark stays as the visual anchor
@@ -11,9 +11,9 @@ import { launchAegisDesktop } from '../store'
  * with a status line below.
  *
  * Launching the desktop can fail (e.g. Stage-Desktop was skipped and
- * Aegis.exe doesn't exist). We catch the Tauri error and surface it
+ * Aegis AI Enterprise Autonomous Platform.exe doesn't exist). We catch the Tauri error and surface it
  * inline rather than silently doing nothing — the previous version
- * had `onClick={() => void launchAegisDesktop()}` which swallowed
+ * had `onClick={() => void launchAegis AI Enterprise Autonomous PlatformDesktop()}` which swallowed
  * the rejection and left the user staring at an unresponsive button.
  */
 export default function Success() {
@@ -25,7 +25,7 @@ export default function Success() {
     setLaunching(true)
 
     try {
-      await launchAegisDesktop()
+      await launchAegis AI Enterprise Autonomous PlatformDesktop()
       // On success the installer exits — control never returns here.
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e)
@@ -48,9 +48,9 @@ export default function Success() {
           }
         >
           <span>
-            <span>Aegis is ready</span>
+            <span>Aegis AI Enterprise Autonomous Platform is ready</span>
           </span>
-          <span aria-hidden="true">Aegis is ready</span>
+          <span aria-hidden="true">Aegis AI Enterprise Autonomous Platform is ready</span>
         </p>
 
         <p className="m-0 text-center text-base leading-normal tracking-tight text-muted-foreground">

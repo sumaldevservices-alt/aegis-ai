@@ -4,7 +4,7 @@ import { join } from 'node:path'
 
 import { expect, test } from 'vitest'
 
-import { AegisGateway } from './client'
+import { Aegis AI Enterprise Autonomous PlatformGateway } from './client'
 
 // Class sweep: every Desktop producer frame that reaches the shared owner must fit the closed
 // (`additionalProperties: false`) canonical contract generated from tui_gateway/contracts. The
@@ -247,7 +247,7 @@ test.each(SITES)('%s: the canonical frame fits the generated contract', async (_
       )
     })
   })
-  const client = new AegisGateway()
+  const client = new Aegis AI Enterprise Autonomous PlatformGateway()
 
   try {
     const address = server.address() as { port: number }

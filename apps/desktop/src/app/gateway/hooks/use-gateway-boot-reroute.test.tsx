@@ -117,7 +117,7 @@ function Harness({
     handleServerRequest: () => false,
     onConnectionReady: () => undefined,
     onGatewayReady: () => undefined,
-    refreshAegisConfig: async () => undefined,
+    refreshAegis AI Enterprise Autonomous PlatformConfig: async () => undefined,
     refreshSessions
   })
 
@@ -1109,7 +1109,7 @@ describe('a local profile moves while the window is on another gateway', () => {
 
   const teamDefault = { ...teamWork, profile: 'default' }
 
-  // This computer's `work`: Aegis's own backend, then the plugin's launcher.
+  // This computer's `work`: Aegis AI Enterprise Autonomous Platform's own backend, then the plugin's launcher.
   const hostWork = {
     ...launcherConn,
     baseUrl: 'http://127.0.0.1:9120',

@@ -158,7 +158,7 @@ export const AEGIS_PATHS_MIME = 'application/x-aegis-paths'
 
 /**
  * Eagerly resolve files from a drop event into [File?, path, isDirectory?]
- * triples. Internal Aegis sources (e.g. the project tree) ride on a custom
+ * triples. Internal Aegis AI Enterprise Autonomous Platform sources (e.g. the project tree) ride on a custom
  * MIME and produce path-only entries; OS drops produce File-bearing entries.
  *
  * Must be called synchronously from inside the drop handler — `DataTransfer`
@@ -754,7 +754,7 @@ export function useComposerActions({
   /**
    * Convert a very large plain-text paste into a `.txt` attachment chip.
    * The trimmed, sanitized paste text is written to a
-   * Aegis-managed composer-pastes file via the main process, then attached
+   * Aegis AI Enterprise Autonomous Platform-managed composer-pastes file via the main process, then attached
    * through the same `@file:` pipeline as a manually attached text file.
    * Returns false (paste stays inline) when the desktop bridge is missing
    * or the write fails. A paste rejected for its size returns true after the

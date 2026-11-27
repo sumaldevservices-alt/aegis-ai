@@ -657,7 +657,7 @@ const previewAct: Handler = ({ deps, isActiveSession, request, sessionId }) => {
  *  agent relays it instead of retrying a call that can never succeed. */
 const BROWSER_WINDOW_READ_REFUSAL = {
   error:
-    'read_window_below needs the Aegis desktop app: this session is in a browser tab, which cannot see the OS windows around it.',
+    'read_window_below needs the Aegis AI Enterprise Autonomous Platform desktop app: this session is in a browser tab, which cannot see the OS windows around it.',
   platform: 'browser'
 }
 

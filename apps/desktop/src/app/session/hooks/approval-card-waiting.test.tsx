@@ -9,7 +9,7 @@ import { rehydrateLiveSessionStatuses } from '@/app/contrib/hooks/use-background
 import { useMessageStream } from '@/app/session/hooks/use-message-stream'
 import { useSessionStateCache } from '@/app/session/hooks/use-session-state-cache'
 import { PendingApprovalStack } from '@/components/assistant-ui/tool/approval'
-import type { AegisGateway } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import { $gateway } from '@/store/gateway'
 import { respondToApprovalAction } from '@/store/native-notifications'
 import { $profileDotStateByScope, profileDotSummaryFor } from '@/store/profile-dot-state'
@@ -63,7 +63,7 @@ function Chat() {
     ...cache,
     queryClient,
     hydrateFromStoredSession: noop,
-    refreshAegisConfig: noop,
+    refreshAegis AI Enterprise Autonomous PlatformConfig: noop,
     refreshSessions: noop
   })
 
@@ -127,7 +127,7 @@ function openChat({
     request: vi.fn(async (method: string) =>
       method === 'approval.pending' ? { approvals: pendingList } : { ok: true }
     )
-  } as unknown as AegisGateway)
+  } as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
   render(<Chat />)
   // The window knows this chat: its runtime is bound to the stored id of the sidebar row.
   send('session.info', { running: false, stored_session_id: STORED, ...(reported ? { model: 'model-1' } : {}) })

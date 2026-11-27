@@ -250,7 +250,7 @@ export function createLinuxNotifications() {
               member: 'Notify',
               signature: 'susssasa{sv}i',
               body: [
-                'Aegis',
+                'Aegis AI Enterprise Autonomous Platform',
                 0,
                 options.icon || '',
                 options.title,

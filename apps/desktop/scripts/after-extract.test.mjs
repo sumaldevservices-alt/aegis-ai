@@ -23,14 +23,14 @@ test('the exe identity stamp is wired to afterExtract with ASAR integrity kept o
   assert.equal(builderConfig.disableAsarIntegrity, undefined)
 })
 
-test('stamps the stock electron.exe on win32 only, before it is renamed to Aegis.exe', async () => {
+test('stamps the stock electron.exe on win32 only, before it is renamed to Aegis AI Enterprise Autonomous Platform.exe', async () => {
   stampExeIdentity.mockClear()
   const appOutDir = path.join('tmp', 'win-unpacked')
 
   await afterExtract({
     appOutDir,
     electronPlatformName: 'win32',
-    packager: { appInfo: { productFilename: 'Aegis' } }
+    packager: { appInfo: { productFilename: 'Aegis AI Enterprise Autonomous Platform' } }
   })
   assert.deepEqual(stampExeIdentity.mock.calls, [[path.join(appOutDir, 'electron.exe'), desktopRoot]])
 
@@ -38,7 +38,7 @@ test('stamps the stock electron.exe on win32 only, before it is renamed to Aegis
   await afterExtract({
     appOutDir: path.join('tmp', 'linux-unpacked'),
     electronPlatformName: 'linux',
-    packager: { appInfo: { productFilename: 'Aegis' } }
+    packager: { appInfo: { productFilename: 'Aegis AI Enterprise Autonomous Platform' } }
   })
   assert.equal(stampExeIdentity.mock.calls.length, 0)
 })

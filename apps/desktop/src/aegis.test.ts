@@ -42,7 +42,7 @@ const emptySessionsResponse = {
   total: 0
 }
 
-describe('Aegis REST helpers', () => {
+describe('Aegis AI Enterprise Autonomous Platform REST helpers', () => {
   let api: ReturnType<typeof vi.fn>
 
   beforeEach(() => {

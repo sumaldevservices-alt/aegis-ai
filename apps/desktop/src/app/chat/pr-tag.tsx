@@ -1,6 +1,6 @@
 import { Codicon } from '@/components/ui/codicon'
 import { Tip } from '@/components/ui/tooltip'
-import type { AegisBranchPullRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformBranchPullRequest } from '@/global'
 import { cn } from '@/lib/utils'
 import { pullRequestBucket } from '@/store/pull-requests'
 
@@ -14,7 +14,7 @@ const PR_STYLE: Record<string, { className: string; icon: string }> = {
   open: { className: 'text-(--ui-green)', icon: 'git-pull-request' }
 }
 
-export function openPullRequest(pr: AegisBranchPullRequest): void {
+export function openPullRequest(pr: Aegis AI Enterprise Autonomous PlatformBranchPullRequest): void {
   if (pr.url) {
     void window.aegisDesktop?.openExternal?.(pr.url)
   }
@@ -31,7 +31,7 @@ export function PrTag({
   showIcon = true
 }: {
   className?: string
-  pr: AegisBranchPullRequest
+  pr: Aegis AI Enterprise Autonomous PlatformBranchPullRequest
   showIcon?: boolean
 }) {
   const style = PR_STYLE[pullRequestBucket(pr)] ?? PR_STYLE.open

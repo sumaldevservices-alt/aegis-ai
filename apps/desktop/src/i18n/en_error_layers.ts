@@ -10,22 +10,22 @@ export const enErrorLayers: Pick<ThreadCopy, 'errorLayerBodies' | 'errorLayers'>
     disk: 'Disk full',
     endpoint: "Can't reach your model server",
     gateway: "Couldn't send your message",
-    generic: "Aegis couldn't finish this reply",
+    generic: "Aegis AI Enterprise Autonomous Platform couldn't finish this reply",
     provider: 'The AI service returned an error',
-    runtime: 'Aegis hit a problem',
+    runtime: 'Aegis AI Enterprise Autonomous Platform hit a problem',
     streaming: 'The reply was cut off'
   },
   errorLayerBodies: {
     auth: 'The AI service rejected your sign-in. Check the credentials for this provider, then send your message again.',
     billing: 'Your account has no credits left for this provider. Top up or switch provider, then send again.',
-    disk: 'Your disk is full, so Aegis could not save this conversation. Free some space, then retry.',
-    endpoint: "Aegis can't reach your custom model server. Check that it is running, then send your message again.",
+    disk: 'Your disk is full, so Aegis AI Enterprise Autonomous Platform could not save this conversation. Free some space, then retry.',
+    endpoint: "Aegis AI Enterprise Autonomous Platform can't reach your custom model server. Check that it is running, then send your message again.",
     gateway:
-      'Aegis hit an internal problem starting this reply. Send your message again; if it keeps happening, send diagnostics.',
-    generic: 'Something went wrong while Aegis was replying. Retry, or copy the details if it keeps happening.',
+      'Aegis AI Enterprise Autonomous Platform hit an internal problem starting this reply. Send your message again; if it keeps happening, send diagnostics.',
+    generic: 'Something went wrong while Aegis AI Enterprise Autonomous Platform was replying. Retry, or copy the details if it keeps happening.',
     provider: 'The AI service could not complete this request. Retry in a moment or switch provider.',
     runtime:
-      'Aegis hit an internal problem starting this reply. Send your message again; if it keeps happening, send diagnostics.',
+      'Aegis AI Enterprise Autonomous Platform hit an internal problem starting this reply. Send your message again; if it keeps happening, send diagnostics.',
     streaming: 'The connection dropped before the reply finished. Retry to send it again.'
   }
 }

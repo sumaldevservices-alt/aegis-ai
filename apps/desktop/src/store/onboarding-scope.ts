@@ -32,7 +32,7 @@ export async function requestOnboardingGateway<T>(
   const desktop = window.aegisDesktop
 
   if (scope.connectionId && !desktop.getConnectionFor) {
-    throw new Error('This Desktop build cannot dial registry connections. Update Aegis Desktop.')
+    throw new Error('This Desktop build cannot dial registry connections. Update Aegis AI Enterprise Autonomous Platform Desktop.')
   }
 
   const connection = await withTimeout(

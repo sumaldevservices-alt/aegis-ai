@@ -11,7 +11,7 @@ import {
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisGateway } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import { useIncrementalExternalStoreRuntime } from '@/lib/incremental-external-store-runtime'
 import { $notifications, clearNotifications } from '@/store/notifications'
 
@@ -30,7 +30,7 @@ afterEach(() => {
   Reflect.deleteProperty(window, 'aegisDesktop')
 })
 
-function Harness({ gateway }: { gateway: AegisGateway }) {
+function Harness({ gateway }: { gateway: Aegis AI Enterprise Autonomous PlatformGateway }) {
   const repository = ExportedMessageRepository.fromArray([userMessage(), assistantMessage()])
 
   const runtime = useIncrementalExternalStoreRuntime<ThreadMessage>({
@@ -60,7 +60,7 @@ function fileDrop(...files: File[]) {
   }
 }
 
-async function openEditor(gateway: AegisGateway) {
+async function openEditor(gateway: Aegis AI Enterprise Autonomous PlatformGateway) {
   render(<Harness gateway={gateway} />)
   fireEvent.click(await screen.findByRole('button', { name: 'Edit message' }))
 
@@ -75,7 +75,7 @@ describe('edit composer drop staging failures', () => {
 
     Object.defineProperty(window, 'aegisDesktop', { configurable: true, value: { stageFileForAttach } })
     const request = vi.fn(async () => ({}))
-    const editor = await openEditor({ request } as unknown as AegisGateway)
+    const editor = await openEditor({ request } as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
 
     await act(async () => {
       fireEvent.drop(editor, { dataTransfer: fileDrop(new File(['payload'], 'notes.txt', { type: 'text/plain' })) })
@@ -105,7 +105,7 @@ describe('edit composer drop staging failures', () => {
     })
 
     Object.defineProperty(window, 'aegisDesktop', { configurable: true, value: { stageFileForAttach } })
-    const editor = await openEditor({ request: vi.fn(async () => ({})) } as unknown as AegisGateway)
+    const editor = await openEditor({ request: vi.fn(async () => ({})) } as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
 
     await act(async () => {
       fireEvent.drop(editor, {

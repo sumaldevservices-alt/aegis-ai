@@ -4,10 +4,10 @@ import type { GatewayHostTranslations } from './types_gateway_host'
 export const esGatewayHost: GatewayHostTranslations = {
   unavailableTitle: 'Ajustes del gateway no disponibles',
   unavailableDesc:
-    'Los ajustes de conexión solo se pueden cambiar desde la app Aegis Desktop en el equipo que la ejecuta.',
-  webappHostTitle: 'Host de Aegis',
+    'Los ajustes de conexión solo se pueden cambiar desde la app Aegis AI Enterprise Autonomous Platform Desktop en el equipo que la ejecuta.',
+  webappHostTitle: 'Host de Aegis AI Enterprise Autonomous Platform',
   webappHostDesc:
-    'La Webapp siempre se ejecuta en el host de Aegis que la sirve. Las conexiones guardadas de abajo son la lista de esta máquina, compartida con la app Aegis Desktop; los demás gateways se alcanzan a través de este host.',
+    'La Webapp siempre se ejecuta en el host de Aegis AI Enterprise Autonomous Platform que la sirve. Las conexiones guardadas de abajo son la lista de esta máquina, compartida con la app Aegis AI Enterprise Autonomous Platform Desktop; los demás gateways se alcanzan a través de este host.',
   webappOauthPaste: {
     title: 'Terminar de iniciar sesión',
     description: 'Si la pestaña de inicio de sesión terminó en una dirección que no carga (este navegador no está en la máquina del gateway), pega esa dirección aquí.',
@@ -17,7 +17,7 @@ export const esGatewayHost: GatewayHostTranslations = {
   },
   webAccess: {
     title: 'Acceso web',
-    intro: 'Abre Aegis de este ordenador desde tu teléfono u otro ordenador, con tu cuenta de Nous. Quien inicie sesión puede ejecutar comandos en este ordenador.',
+    intro: 'Abre Aegis AI Enterprise Autonomous Platform de este ordenador desde tu teléfono u otro ordenador, con tu cuenta de Nous. Quien inicie sesión puede ejecutar comandos en este ordenador.',
     failed: 'No se pudo cambiar el acceso web',
     running: 'En ejecución',
     stopped: 'Detenido',
@@ -25,7 +25,7 @@ export const esGatewayHost: GatewayHostTranslations = {
     stopping: 'Deteniendo',
     restartNeeded: 'Reinicio necesario',
     unavailable: 'No disponible',
-    notRunningDetail: 'Inícialo para abrir Aegis desde otro dispositivo.',
+    notRunningDetail: 'Inícialo para abrir Aegis AI Enterprise Autonomous Platform desde otro dispositivo.',
     needsNous: 'Primero inicia sesión en tu cuenta de Nous en Proveedores.',
     runningLan: 'Abre esta dirección en un dispositivo de la misma red.',
     runningPublic: 'Servido a través de tu URL.',

@@ -1,7 +1,7 @@
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { ClientSessionState } from '@/app/types'
-import type { AegisActiveWork } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformActiveWork } from '@/global'
 
 import { createStreamThrottle } from '../../electron/stream-throttle'
 
@@ -69,7 +69,7 @@ describe('active work bridge', () => {
     throttle.register(owner)
     throttle.register(peer)
     // Exercise the real renderer summary and main-process policy, not a mocked summary.
-    setActiveWork.mockImplementation((work: AegisActiveWork) => {
+    setActiveWork.mockImplementation((work: Aegis AI Enterprise Autonomous PlatformActiveWork) => {
       throttle.setVoiceActive(owner, work.voiceActive === true)
       throttle.update(work.count > 0)
     })

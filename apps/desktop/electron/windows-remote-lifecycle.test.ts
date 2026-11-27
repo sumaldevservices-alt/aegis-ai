@@ -55,7 +55,7 @@ test('Windows spawn publishes the initial ownership record before releasing the 
       ownershipId,
       spawnNonce: '0123456789abcdef',
       profile: 'default',
-      aegisPath: 'C:\\Aegis\\aegis.exe',
+      aegisPath: 'C:\\Aegis AI Enterprise Autonomous Platform\\aegis.exe',
       aegisHome: 'C:\\Users\\andre\\.aegis',
       tokenFingerprint: 'a'.repeat(32),
       startedAt: '2026-07-14T00:00:00.000Z'
@@ -206,8 +206,8 @@ test('Windows relaunch gate refuses live and uncertain markers before executing 
           os: 'Windows',
           arch: 'AMD64',
           aegisHome: 'C:\\Users\\alice\\.aegis',
-          aegisPath: 'C:\\Aegis\\aegis.exe',
-          python: 'C:\\Aegis\\python.exe'
+          aegisPath: 'C:\\Aegis AI Enterprise Autonomous Platform\\aegis.exe',
+          python: 'C:\\Aegis AI Enterprise Autonomous Platform\\python.exe'
         })
       }
 
@@ -226,7 +226,7 @@ test('Windows relaunch gate refuses live and uncertain markers before executing 
           pickLocalPort: async () => 50000,
           forward: async () => {},
           cancelForward: async () => {},
-          waitForAegis: async () => {},
+          waitForAegis AI Enterprise Autonomous Platform: async () => {},
           probeReuseProof: async () => 'authenticated-ok'
         }),
       (error: any) => error.kind === 'update-in-progress'
@@ -298,7 +298,7 @@ test('Windows relaunch gate uses strict install-wide marker parsing and fail-clo
   assert.doesNotMatch(script, /ErrorAction SilentlyContinue/)
 })
 
-test('Windows probe validates Aegis and Python topology before selection', async () => {
+test('Windows probe validates Aegis AI Enterprise Autonomous Platform and Python topology before selection', async () => {
   let script = ''
   await probeWindowsRemote(
     sshWith(async (command, options) => {
@@ -503,7 +503,7 @@ test('Windows platform probe and marker gate send their scripts without stdin', 
   assert.match(markerCommand, /-EncodedCommand [A-Za-z0-9+/=]+$/)
   assert.doesNotMatch(probeCommand, /-Command /)
   assert.match(decodePowerShellCommand(probeCommand), /Assert-NoReparse/)
-  assert.match(decodePowerShellCommand(markerCommand), /AegisMarkerNoFollow/)
+  assert.match(decodePowerShellCommand(markerCommand), /Aegis AI Enterprise Autonomous PlatformMarkerNoFollow/)
 })
 
 test('Windows platform probe preserves Unicode paths in its compressed command', async () => {
@@ -736,10 +736,10 @@ test('platform detection surfaces transport failures as themselves, not unsuppor
           throw new Error('not recognized')
         }
 
-        throw new Error('Aegis is not installed on the remote Windows host.')
+        throw new Error('Aegis AI Enterprise Autonomous Platform is not installed on the remote Windows host.')
       })
     ),
-    (err: any) => err.kind === 'unsupported-platform' && /Aegis is not installed/.test(err.message)
+    (err: any) => err.kind === 'unsupported-platform' && /Aegis AI Enterprise Autonomous Platform is not installed/.test(err.message)
   )
 
   await assert.rejects(
@@ -750,13 +750,13 @@ test('platform detection surfaces transport failures as themselves, not unsuppor
         }
 
         throw new Error(
-          '#< CLIXML <Objs><S S="progress">module load</S><S S="Error">The remote Aegis Python runtime was not found._x000D__x000A_</S></Objs>'
+          '#< CLIXML <Objs><S S="progress">module load</S><S S="Error">The remote Aegis AI Enterprise Autonomous Platform Python runtime was not found._x000D__x000A_</S></Objs>'
         )
       })
     ),
     (err: any) =>
       err.kind === 'unsupported-platform' &&
-      /probe: The remote Aegis Python runtime was not found\./.test(err.message) &&
+      /probe: The remote Aegis AI Enterprise Autonomous Platform Python runtime was not found\./.test(err.message) &&
       !/CLIXML|module load/.test(err.message)
   )
 })
@@ -796,14 +796,14 @@ test('platform detection preserves typed Windows probe failures', async () => {
 
 test('helper command enters through the launcher module dispatch and quotes path data', () => {
   // The shape update drain and bootstrap rollback rebuild from stored state: no runtime command.
-  const command = helperCommand({ aegisPath: "C:\\Program Files\\Aegis's\\bin\\aegis.exe", aegisHome: 'C:\\h', python: '' }, 'inspect', [
+  const command = helperCommand({ aegisPath: "C:\\Program Files\\Aegis AI Enterprise Autonomous Platform's\\bin\\aegis.exe", aegisHome: 'C:\\h', python: '' }, 'inspect', [
     'C:\\x y\\aegis.exe'
   ])
 
   const encoded = command.split(' ').pop()!
   const script = Buffer.from(encoded, 'base64').toString('utf16le')
   assert.match(script, /bin\\aegis\.exe' '--run-module' 'aegis_cli\.windows_ssh_runtime' 'inspect'/)
-  assert.match(script, /Aegis''s/)
+  assert.match(script, /Aegis AI Enterprise Autonomous Platform''s/)
   assert.match(script, /C:\\x y\\aegis\.exe/)
 })
 

@@ -453,9 +453,9 @@ export const en: KanbanMessages = {
     blockedTitle: 'Task blocked — needs your input',
     blockLoopTitle: 'Task routed to triage — needs a decision',
     gaveUpTitle: 'Task stopped',
-    gaveUpBody: 'Aegis couldn’t finish this task. Open Kanban to see why and reassign it.',
-    crashedTitle: 'Task hit a problem — Aegis will retry it automatically',
-    timedOutTitle: 'Task took too long — Aegis will retry it automatically',
+    gaveUpBody: 'Aegis AI Enterprise Autonomous Platform couldn’t finish this task. Open Kanban to see why and reassign it.',
+    crashedTitle: 'Task hit a problem — Aegis AI Enterprise Autonomous Platform will retry it automatically',
+    timedOutTitle: 'Task took too long — Aegis AI Enterprise Autonomous Platform will retry it automatically',
     openKanban: 'Open Kanban',
     artifacts: (n: number) => `${n} artifacts`
   }
@@ -684,9 +684,9 @@ const ja: KanbanMessages = {
     blockedTitle: 'タスクがブロック中 — 入力が必要です',
     blockLoopTitle: 'タスクをトリアージへ移動 — 判断が必要です',
     gaveUpTitle: 'タスクが停止しました',
-    gaveUpBody: 'Aegis はこのタスクを完了できませんでした。かんばんを開いて原因を確認し、再割り当てしてください。',
-    crashedTitle: 'タスクで問題が発生 — Aegis が自動で再試行します',
-    timedOutTitle: 'タスクに時間がかかりすぎました — Aegis が自動で再試行します',
+    gaveUpBody: 'Aegis AI Enterprise Autonomous Platform はこのタスクを完了できませんでした。かんばんを開いて原因を確認し、再割り当てしてください。',
+    crashedTitle: 'タスクで問題が発生 — Aegis AI Enterprise Autonomous Platform が自動で再試行します',
+    timedOutTitle: 'タスクに時間がかかりすぎました — Aegis AI Enterprise Autonomous Platform が自動で再試行します',
     openKanban: 'かんばんを開く',
     artifacts: (n: number) => `成果物 ${n} 件`
   }
@@ -912,9 +912,9 @@ const zh: KanbanMessages = {
     blockedTitle: '任务受阻 — 需要你的输入',
     blockLoopTitle: '任务已转入分类 — 需要人工决定',
     gaveUpTitle: '任务已停止',
-    gaveUpBody: 'Aegis 无法完成这个任务。打开看板查看原因并重新分配。',
-    crashedTitle: '任务遇到问题 — Aegis 将自动重试',
-    timedOutTitle: '任务耗时过长 — Aegis 将自动重试',
+    gaveUpBody: 'Aegis AI Enterprise Autonomous Platform 无法完成这个任务。打开看板查看原因并重新分配。',
+    crashedTitle: '任务遇到问题 — Aegis AI Enterprise Autonomous Platform 将自动重试',
+    timedOutTitle: '任务耗时过长 — Aegis AI Enterprise Autonomous Platform 将自动重试',
     openKanban: '打开看板',
     artifacts: (n: number) => `${n} 个产物`
   }
@@ -1140,9 +1140,9 @@ const zhHant: KanbanMessages = {
     blockedTitle: '任務受阻 — 需要你的輸入',
     blockLoopTitle: '任務已轉入分類 — 需要人工決定',
     gaveUpTitle: '任務已停止',
-    gaveUpBody: 'Aegis 無法完成這個任務。開啟看板查看原因並重新指派。',
-    crashedTitle: '任務遇到問題 — Aegis 將自動重試',
-    timedOutTitle: '任務耗時過長 — Aegis 將自動重試',
+    gaveUpBody: 'Aegis AI Enterprise Autonomous Platform 無法完成這個任務。開啟看板查看原因並重新指派。',
+    crashedTitle: '任務遇到問題 — Aegis AI Enterprise Autonomous Platform 將自動重試',
+    timedOutTitle: '任務耗時過長 — Aegis AI Enterprise Autonomous Platform 將自動重試',
     openKanban: '開啟看板',
     artifacts: (n: number) => `${n} 個產物`
   }

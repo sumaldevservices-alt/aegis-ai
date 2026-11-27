@@ -1,12 +1,12 @@
 import type { TranslationOverrides } from './define-locale'
 
 export const ruOnboarding: TranslationOverrides['onboarding'] = {
-  headerTitle: 'Настроим для вас Aegis Agent',
+  headerTitle: 'Настроим для вас Aegis AI Enterprise Autonomous Platform Agent',
   headerDesc: 'Подключите провайдера модели, чтобы начать общение. Большинство вариантов — в один клик.',
-  preparingInstall: 'Aegis завершает установку. Обычно это занимает меньше минуты при первом запуске.',
-  starting: 'Запускаем Aegis…',
+  preparingInstall: 'Aegis AI Enterprise Autonomous Platform завершает установку. Обычно это занимает меньше минуты при первом запуске.',
+  starting: 'Запускаем Aegis AI Enterprise Autonomous Platform…',
   setupSlowTitle: 'Настройка занимает больше времени, чем обычно.',
-  setupSlowBody: 'Aegis всё ещё запускается в фоновом режиме.',
+  setupSlowBody: 'Aegis AI Enterprise Autonomous Platform всё ещё запускается в фоновом режиме.',
   continueWithoutSetup: 'Продолжить без настройки',
   lookingUpProviders: 'Ищем провайдеров...',
   collapse: 'Свернуть',
@@ -15,7 +15,7 @@ export const ruOnboarding: TranslationOverrides['onboarding'] = {
   chooseLater: 'Выберу провайдера позже',
   recommended: 'Рекомендуется',
   connected: 'Подключено',
-  featuredPitch: 'Одна подписка, 300+ передовых моделей — рекомендуемый способ запускать Aegis',
+  featuredPitch: 'Одна подписка, 300+ передовых моделей — рекомендуемый способ запускать Aegis AI Enterprise Autonomous Platform',
   fireworksPitch: 'Прямой API моделей — передовые модели на хостинге Fireworks',
   openRouterPitch: 'Один ключ, сотни моделей — надёжный вариант по умолчанию',
   apiKeyOptions: {
@@ -33,7 +33,7 @@ export const ruOnboarding: TranslationOverrides['onboarding'] = {
     local: {
       short: 'self-hosted',
       description:
-        'Укажите Aegis локальный или self-hosted OpenAI-совместимый endpoint (vLLM, llama.cpp, Ollama и т.д.).'
+        'Укажите Aegis AI Enterprise Autonomous Platform локальный или self-hosted OpenAI-совместимый endpoint (vLLM, llama.cpp, Ollama и т.д.).'
     }
   },
   backToSignIn: 'Назад ко входу',
@@ -46,7 +46,7 @@ export const ruOnboarding: TranslationOverrides['onboarding'] = {
   update: 'Обновить',
   flowSubtitles: {
     pkce: 'Откроет браузер для входа, затем продолжит здесь',
-    device_code: 'Откроет страницу подтверждения в браузере — Aegis подключится автоматически',
+    device_code: 'Откроет страницу подтверждения в браузере — Aegis AI Enterprise Autonomous Platform подключится автоматически',
     external: 'Войдите один раз в терминале, затем вернитесь в чат'
   },
   startingSignIn: provider => `Начинаем вход для ${provider}...`,
@@ -57,7 +57,7 @@ export const ruOnboarding: TranslationOverrides['onboarding'] = {
   pickDifferentProvider: 'Выбрать другого провайдера',
   signInWith: provider => `Войти через ${provider}`,
   openedBrowser: provider => `Мы открыли ${provider} в вашем браузере.`,
-  authorizeThere: 'Авторизуйте Aegis там.',
+  authorizeThere: 'Авторизуйте Aegis AI Enterprise Autonomous Platform там.',
   copyAuthCode: 'Скопируйте код авторизации и вставьте его ниже.',
   pasteAuthCode: 'Вставьте код авторизации',
   reopenAuthPage: 'Открыть страницу авторизации снова',

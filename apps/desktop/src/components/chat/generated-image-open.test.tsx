@@ -1,7 +1,7 @@
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { I18nProvider } from '@/i18n'
 import { createBrowserFilesBridge } from '@/lib/browser-files'
 import type { BrowserBootstrap } from '@/lib/browser-transport'
@@ -83,7 +83,7 @@ it.each([
     mode: 'remote',
     profile: 'default',
     token: 'secret-token'
-  } as unknown as AegisConnection)
+  } as unknown as Aegis AI Enterprise Autonomous PlatformConnection)
   $sessions.set([{ id: 'origin-session', profile: 'work' } as SessionInfo])
   $selectedStoredSessionId.set('origin-session')
 
@@ -111,7 +111,7 @@ it('saves a relative gateway image from a chat not stored yet through its runtim
     connectionId: 'remote-1',
     mode: 'remote',
     token: 'secret-token'
-  } as unknown as AegisConnection)
+  } as unknown as Aegis AI Enterprise Autonomous PlatformConnection)
   $activeSessionId.set('runtime-1')
 
   const link = openImageLink('renders/out.png')
@@ -131,7 +131,7 @@ it('saves a relative gateway image from a chat not stored yet through its runtim
 
 // Anything else opens as on main: a web image's own URL.
 it('opens a web image\'s URL with the system handler in native Desktop', async () => {
-  $connection.set({ baseUrl: 'https://gateway.example', mode: 'remote', token: 'secret-token' } as unknown as AegisConnection)
+  $connection.set({ baseUrl: 'https://gateway.example', mode: 'remote', token: 'secret-token' } as unknown as Aegis AI Enterprise Autonomous PlatformConnection)
 
   const link = openImageLink('https://images.example/cat.png')
   await act(async () => {
@@ -162,7 +162,7 @@ it.each(['electron', 'browser'])('saves a data: image that will not decode in %s
 
   ;(window as unknown as { aegisDesktop: object }).aegisDesktop = { openExternal, saveGatewayFile, saveImageFromUrl }
   window.document.documentElement.dataset.aegisDesktopHost = host
-  $connection.set({ baseUrl: 'https://gateway.example', mode: 'remote', token: 'secret-token' } as unknown as AegisConnection)
+  $connection.set({ baseUrl: 'https://gateway.example', mode: 'remote', token: 'secret-token' } as unknown as Aegis AI Enterprise Autonomous PlatformConnection)
 
   const link = openImageLink(image)
   await act(async () => {

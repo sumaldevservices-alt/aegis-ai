@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import { saveAegisConfig } from '@/aegis'
+import { saveAegis AI Enterprise Autonomous PlatformConfig } from '@/aegis'
 import { useI18n } from '@/i18n'
 import { notifyError } from '@/store/notifications'
 import {
@@ -10,9 +10,9 @@ import {
   resolveChatFontFamily,
   setChatFontFamilyFromConfig
 } from '@/themes/chat-font'
-import type { AegisConfigRecord } from '@/types/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'
 
-import { setAegisConfigCache, useAegisConfigRecord } from '../hooks/use-config-record'
+import { setAegis AI Enterprise Autonomous PlatformConfigCache, useAegis AI Enterprise Autonomous PlatformConfigRecord } from '../hooks/use-config-record'
 import { useOnProfileSwitch } from '../hooks/use-on-profile-switch'
 import { useProfileSwitchLatch } from '../hooks/use-profile-switch-latch'
 
@@ -23,7 +23,7 @@ import { ListRow } from './primitives'
 const AUTOSAVE_DELAY_MS = 550
 const CONFIG_PATH = 'desktop.font_family'
 
-function fontFamilyFromConfig(config: AegisConfigRecord): string {
+function fontFamilyFromConfig(config: Aegis AI Enterprise Autonomous PlatformConfigRecord): string {
   return normalizeChatFontFamily(getNested(config, CONFIG_PATH))
 }
 
@@ -35,7 +35,7 @@ function fontFamilyFromConfig(config: AegisConfigRecord): string {
 export function ChatFontSetting() {
   const { t } = useI18n()
   const copy = t.settings.appearance
-  const { data: loadedConfig, dataUpdatedAt, writeScope } = useAegisConfigRecord()
+  const { data: loadedConfig, dataUpdatedAt, writeScope } = useAegis AI Enterprise Autonomous PlatformConfigRecord()
   const [draft, setDraft] = useState<string | null>(null)
   // The seed effect refuses to reseed while the query still carries the
   // previous profile's stamp. A structurally-shared refetch keeps the object
@@ -85,7 +85,7 @@ export function ChatFontSetting() {
 
       // Sparse patch: PUT /api/config deep-merges; echoing the cached snapshot
       // would overwrite keys other surfaces changed since it loaded.
-      void saveAegisConfig(setNested({}, CONFIG_PATH, value), writeScope)
+      void saveAegis AI Enterprise Autonomous PlatformConfig(setNested({}, CONFIG_PATH, value), writeScope)
         .then(result => {
           if (!result.ok) {
             throw new Error(t.settings.config.autosaveFailed)
@@ -95,7 +95,7 @@ export function ChatFontSetting() {
             return
           }
 
-          setAegisConfigCache(next)
+          setAegis AI Enterprise Autonomous PlatformConfigCache(next)
         })
         .catch(error => {
           if (saveVersionRef.current !== version) {

@@ -186,7 +186,7 @@ async function startRemote(python: string, env: Record<string, string>, logPath:
           }
 
           return fetch(`${url}/api/status`, {
-            headers: { 'X-Aegis-Session-Token': REMOTE_TOKEN },
+            headers: { 'X-Aegis AI Enterprise Autonomous Platform-Session-Token': REMOTE_TOKEN },
             signal: AbortSignal.timeout(2_000)
           })
             .then(response => response.status)
@@ -268,11 +268,11 @@ test('Settings provider setup stays on its gateway/profile across A → B → A'
   const localHome = path.join(original.root, 'local')
   const remoteHome = path.join(original.root, 'remote')
   const sandbox: Sandbox = { ...original, aegisHome: path.join(localHome, '.aegis') }
-  const remoteAegisHome = path.join(remoteHome, '.aegis')
-  const remoteProfileHome = path.join(remoteAegisHome, 'profiles', PROFILE)
+  const remoteAegis AI Enterprise Autonomous PlatformHome = path.join(remoteHome, '.aegis')
+  const remoteProfileHome = path.join(remoteAegis AI Enterprise Autonomous PlatformHome, 'profiles', PROFILE)
   const python = pythonBinary()
   const localEnv = isolatedEnv(localHome, sandbox.aegisHome)
-  const remoteEnv = isolatedEnv(remoteHome, remoteAegisHome)
+  const remoteEnv = isolatedEnv(remoteHome, remoteAegis AI Enterprise Autonomous PlatformHome)
   const receipts: RpcReceipt[] = []
   const discoveryRequests: string[] = []
   let advertisedModel = 'remote-first'
@@ -297,7 +297,7 @@ test('Settings provider setup stays on its gateway/profile across A → B → A'
   try {
     const endpointUrl = `http://127.0.0.1:${await listen(endpoint)}`
     seedConfig(sandbox.aegisHome, endpointUrl, 'local-sentinel')
-    seedConfig(remoteAegisHome, endpointUrl, 'remote-default-sentinel')
+    seedConfig(remoteAegis AI Enterprise Autonomous PlatformHome, endpointUrl, 'remote-default-sentinel')
     seedConfig(remoteProfileHome, endpointUrl, 'remote-before-setup')
     await test
       .info()
@@ -351,7 +351,7 @@ test('Settings provider setup stays on its gateway/profile across A → B → A'
       timeout: 60_000
     })
     const localConfig = fs.readFileSync(path.join(sandbox.aegisHome, 'config.yaml'), 'utf8')
-    const remoteDefault = fs.readFileSync(path.join(remoteAegisHome, 'config.yaml'), 'utf8')
+    const remoteDefault = fs.readFileSync(path.join(remoteAegis AI Enterprise Autonomous PlatformHome, 'config.yaml'), 'utf8')
 
     const localProfiles = () =>
       fs.existsSync(path.join(sandbox.aegisHome, 'profiles'))
@@ -412,7 +412,7 @@ test('Settings provider setup stays on its gateway/profile across A → B → A'
         .toMatchObject({ ok: true, model, profile: PROFILE })
       expect(fs.readFileSync(path.join(sandbox.aegisHome, 'config.yaml'), 'utf8')).toBe(localConfig)
       expect(localProfiles()).toEqual([])
-      expect(fs.readFileSync(path.join(remoteAegisHome, 'config.yaml'), 'utf8')).toBe(remoteDefault)
+      expect(fs.readFileSync(path.join(remoteAegis AI Enterprise Autonomous PlatformHome, 'config.yaml'), 'utf8')).toBe(remoteDefault)
       await page.screenshot({ path: test.info().outputPath(`${model}-saved.png`) })
       await page.getByRole('button', { name: 'Close settings', exact: true }).click()
       await selectGateway(page, 'local', 'This device', 'default')

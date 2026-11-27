@@ -7,7 +7,7 @@ export const arThemePicker: ThemePickerCopy = {
   customColor: 'لون مخصص',
   themeAccent: 'افتراضي السمة',
   basic: 'أساسي',
-  basicDetail: 'للتحدث مع Aegis.',
+  basicDetail: 'للتحدث مع Aegis AI Enterprise Autonomous Platform.',
   elite: 'متقدم',
   eliteDetail: 'للمطورين: الطرفية والملفات والفروقات.',
   noPick: 'لا اختيار'

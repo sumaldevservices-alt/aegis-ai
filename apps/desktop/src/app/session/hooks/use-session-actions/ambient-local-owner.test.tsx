@@ -2,7 +2,7 @@ import { act, cleanup, render } from '@testing-library/react'
 import { useEffect, useRef } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { getLatestSessionMessages, type SessionInfo } from '@/aegis'
 import { createClientSessionState } from '@/lib/chat-runtime'
 import * as gateways from '@/store/gateway'
@@ -19,7 +19,7 @@ vi.mock('@/aegis', async importOriginal => ({
   ...(await importOriginal<Record<string, unknown>>()),
   getLatestSessionMessages: vi.fn(async () => ({ messages: [], session_id: 'stored' })),
   getProfiles: vi.fn(async () => ({ profiles: [{ name: 'default' }] })),
-  AegisGateway: class {
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     connect = async () => {
       this.connectionState = 'open'
@@ -37,7 +37,7 @@ function rpcResult(method: string) {
   return method === 'session.resume' ? { info: {}, messages: [], resumed: 'stored', session_id: 'runtime' } : {}
 }
 
-function descriptor(connectionId: string, registryScoped = true): AegisConnection {
+function descriptor(connectionId: string, registryScoped = true): Aegis AI Enterprise Autonomous PlatformConnection {
   return {
     connectionId,
     profile: 'default',
@@ -47,7 +47,7 @@ function descriptor(connectionId: string, registryScoped = true): AegisConnectio
     token: 'test',
     wsUrl: `ws://${connectionId}.invalid/ws`,
     baseUrl: `http://${connectionId}.invalid`
-  } as AegisConnection
+  } as Aegis AI Enterprise Autonomous PlatformConnection
 }
 
 type Resume = ReturnType<typeof useSessionActions>['resumeSession']

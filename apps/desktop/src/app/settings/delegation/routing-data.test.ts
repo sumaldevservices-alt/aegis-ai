@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import type { DelegationModelMap, DelegationRouting } from '@/api/delegation'
-import type { AegisApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 import { queryClient } from '@/lib/query-client'
 
 import { routingQueryKey, saveModelRoutes } from './routing-data'
@@ -27,7 +27,7 @@ beforeEach(() => {
   // Each PUT waits until the test settles it, so the test picks the order answers come back in.
   window.aegisDesktop = {
     ...window.aegisDesktop,
-    api: (request: AegisApiRequest) => {
+    api: (request: Aegis AI Enterprise Autonomous PlatformApiRequest) => {
       if (request.path === '/api/delegation/routing') {
         return Promise.resolve({ ...queryClient.getQueryData(routingQueryKey(undefined)), model_map: server })
       }

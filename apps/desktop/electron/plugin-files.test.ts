@@ -71,9 +71,9 @@ describe('grants', () => {
   })
 
   it.each([
-    ['the Aegis home', () => aegisHome],
-    ['a folder inside the Aegis home', () => path.join(aegisHome, 'skills')],
-    ['a folder that contains the Aegis home', () => path.join(scratch, 'home')],
+    ['the Aegis AI Enterprise Autonomous Platform home', () => aegisHome],
+    ['a folder inside the Aegis AI Enterprise Autonomous Platform home', () => path.join(aegisHome, 'skills')],
+    ['a folder that contains the Aegis AI Enterprise Autonomous Platform home', () => path.join(scratch, 'home')],
     ['the app data folder', () => userData],
     ['another plugin data folder', () => path.join(userData, 'plugin-files', 'data', 'other')]
   ])('refuses to grant %s', async (_label, folder) => {
@@ -90,7 +90,7 @@ describe('grants', () => {
     expect(await files.addGrant('plexus', ssh)).toMatchObject({ ok: false, error: 'protected' })
   })
 
-  it('refuses to grant a symlink that resolves into the Aegis home', async () => {
+  it('refuses to grant a symlink that resolves into the Aegis AI Enterprise Autonomous Platform home', async () => {
     const link = path.join(scratch, 'innocent')
     fs.symlinkSync(aegisHome, link)
 
@@ -119,7 +119,7 @@ describe('grants', () => {
     })
   })
 
-  it('refuses a grant whose folder was swapped for a link into the Aegis home', async () => {
+  it('refuses a grant whose folder was swapped for a link into the Aegis AI Enterprise Autonomous Platform home', async () => {
     const id = await grantVault()
     fs.rmSync(vault, { recursive: true })
     fs.symlinkSync(aegisHome, vault)
@@ -135,13 +135,13 @@ describe('path containment', () => {
     ['nested traversal', 'notes/../../.aegis/.env'],
     ['backslash traversal', 'notes\\..\\..\\.aegis\\.env'],
     ['an absolute POSIX path', '/etc/passwd'],
-    ['an absolute path into the Aegis home', ''],
+    ['an absolute path into the Aegis AI Enterprise Autonomous Platform home', ''],
     ['a Windows drive path', 'C:\\Users\\me\\.aegis\\.env'],
     ['a UNC path', '\\\\server\\share\\x'],
     ['a NUL byte', 'notes/a.md\0.png']
   ])('refuses %s', async (label, rel) => {
     const id = await grantVault()
-    const target = label === 'an absolute path into the Aegis home' ? path.join(aegisHome, '.env') : rel
+    const target = label === 'an absolute path into the Aegis AI Enterprise Autonomous Platform home' ? path.join(aegisHome, '.env') : rel
 
     expect(await files.run('plexus', { op: 'readText', folder: id, path: target })).toMatchObject({
       ok: false,
@@ -194,7 +194,7 @@ describe('path containment', () => {
     expect(fs.existsSync(outside)).toBe(false)
   })
 
-  it('refuses listing, renaming and trashing through a symlinked folder into the Aegis home', async () => {
+  it('refuses listing, renaming and trashing through a symlinked folder into the Aegis AI Enterprise Autonomous Platform home', async () => {
     const id = await grantVault()
     fs.symlinkSync(aegisHome, path.join(vault, 'home'))
 

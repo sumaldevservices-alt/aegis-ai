@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 
 import { createServedProfiles } from './browser-served-profiles'
 
@@ -11,8 +11,8 @@ function controlledStatus() {
   const answers: ((status: Status) => void)[] = []
 
   const api = vi.fn(
-    (_request: AegisApiRequest) => new Promise<Status>(resolve => answers.push(resolve))
-  ) as unknown as (<T>(request: AegisApiRequest) => Promise<T>) & ReturnType<typeof vi.fn>
+    (_request: Aegis AI Enterprise Autonomous PlatformApiRequest) => new Promise<Status>(resolve => answers.push(resolve))
+  ) as unknown as (<T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>) & ReturnType<typeof vi.fn>
 
   return { answer: (index: number, shared: string[]) => answers[index]({ gateway_shared_with: shared }), api }
 }
@@ -96,7 +96,7 @@ describe('a signed-out status read', () => {
       .mockResolvedValueOnce(SIGNED_OUT_STATUS)
       .mockResolvedValueOnce({ active_sessions: 0, gateway_shared_with: ['default', 'solo'], install_id: 'i' })
 
-    const served = createServedProfiles(api as unknown as <T>(request: AegisApiRequest) => Promise<T>)
+    const served = createServedProfiles(api as unknown as <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>)
 
     await served.refresh(['default', 'solo'])
     expect(served.serves('solo')).toBe(false)
@@ -119,7 +119,7 @@ describe('a signed-out status read', () => {
       .mockResolvedValueOnce({ active_sessions: 0, gateway_shared_with: ['default'], install_id: 'i' })
       .mockResolvedValueOnce({ active_sessions: 0, auth_required: true, install_id: 'i' })
 
-    const served = createServedProfiles(api as unknown as <T>(request: AegisApiRequest) => Promise<T>)
+    const served = createServedProfiles(api as unknown as <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>)
 
     await served.refresh(['default', 'solo'])
     await served.refresh(['default', 'solo', 'fresh'])

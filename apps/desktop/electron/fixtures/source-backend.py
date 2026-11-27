@@ -34,7 +34,7 @@ def main() -> None:
     uv = shutil.which("uv")
     assert uv, "real uv must be prepared on PATH"
     sites = [p for p in sys.path if p.endswith("site-packages")]
-    assert sites, "run with the prepared Aegis Python dependency environment"
+    assert sites, "run with the prepared Aegis AI Enterprise Autonomous Platform Python dependency environment"
     wheels = temp / "wheels"
     wheels.mkdir()
     dist = "desktop_backend_deps-1.dist-info"

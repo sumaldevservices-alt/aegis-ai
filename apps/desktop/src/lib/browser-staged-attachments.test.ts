@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { stageDroppedFilePath, useComposerActions } from '@/app/chat/hooks/use-composer-actions'
 import { uploadComposerAttachment } from '@/app/session/hooks/use-prompt-actions'
-import type { AegisStagedUpload } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformStagedUpload } from '@/global'
 import {
   $composerAttachments, clearSessionDraft, type ComposerAttachment, stashSessionDraft, takeSessionDraft
 } from '@/store/composer'
@@ -13,7 +13,7 @@ import { clearWebappSession, seedWebappSession } from '@/test/webapp-session'
 
 import { installBrowserDesktopBridge } from './browser-desktop-bridge'
 
-const source: AegisStagedUpload = {
+const source: Aegis AI Enterprise Autonomous PlatformStagedUpload = {
   install_id: '11111111111111111111111111111111',
   path: '/srv/aegis/profiles/owner/uploads/web-123-notes.txt',
   profile_home: '/srv/aegis/profiles/owner'
@@ -246,7 +246,7 @@ describe('browser staged attachment transport', () => {
     expect(fetchMock).toHaveBeenCalledTimes(1)
   })
 
-  it.each(['another Aegis backend', 'Profile not found'])(
+  it.each(['another Aegis AI Enterprise Autonomous Platform backend', 'Profile not found'])(
     'does not replace an authoritative %s rejection with a byte-upload fallback',
     async message => {
       const fetchMock = await installBrowser()

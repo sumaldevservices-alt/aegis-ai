@@ -212,7 +212,7 @@ async function ensureGitRepo(gitBin, dir) {
         '-c',
         'user.email=aegis@localhost',
         '-c',
-        'user.name=Aegis',
+        'user.name=Aegis AI Enterprise Autonomous Platform',
         'commit',
         '--allow-empty',
         '-m',

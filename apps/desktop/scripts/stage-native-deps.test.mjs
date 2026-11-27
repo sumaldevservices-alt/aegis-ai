@@ -308,7 +308,7 @@ test.skipIf(process.platform === 'win32')(
       const stagedUnixTerminal = await import(stagedUnixTerminalUrl.href)
       const unpackedHelper = join(
         tmp,
-        'Aegis.app',
+        'Aegis AI Enterprise Autonomous Platform.app',
         'Contents',
         'Resources',
         'app.asar.unpacked',

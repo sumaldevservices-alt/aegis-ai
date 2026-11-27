@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as AegisApi from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformApi from '@/aegis'
 import { registerGatewayReconnect } from '@/store/gateway-reconnect'
 
 // The REST layer is the only seam these flows own; the confirm dialog and
@@ -10,7 +10,7 @@ const getActionStatus = vi.fn()
 const restartGateway = vi.fn()
 
 vi.mock('@/aegis', async importOriginal => ({
-  ...(await importOriginal<typeof AegisApi>()),
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformApi>()),
   getActionStatus: (name: string, timeout?: number) => getActionStatus(name, timeout),
   getStatus: async () => ({}),
   restartGateway: () => restartGateway()

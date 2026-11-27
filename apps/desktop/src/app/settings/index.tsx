@@ -5,10 +5,10 @@ import { Navigate, useLocation, useNavigate } from 'react-router'
 import { codiconIcon } from '@/components/ui/codicon'
 import { KbdCombo } from '@/components/ui/kbd'
 import { Tip } from '@/components/ui/tooltip'
-import { getAegisConfigDefaults, getAegisConfigRecord, saveAegisConfig } from '@/aegis'
+import { getAegis AI Enterprise Autonomous PlatformConfigDefaults, getAegis AI Enterprise Autonomous PlatformConfigRecord, saveAegis AI Enterprise Autonomous PlatformConfig } from '@/aegis'
 import { useI18n } from '@/i18n'
 import { triggerHaptic } from '@/lib/haptics'
-import { servedByAegisCloud } from '@/lib/aegis-cloud-host'
+import { servedByAegis AI Enterprise Autonomous PlatformCloud } from '@/lib/aegis-cloud-host'
 import {
   Archive,
   BarChart3,
@@ -214,7 +214,7 @@ export function SettingsView({ onClose, onConfigSaved, onMainModelChanged }: Set
 
   const exportConfig = async () => {
     try {
-      const cfg = await getAegisConfigRecord()
+      const cfg = await getAegis AI Enterprise Autonomous PlatformConfigRecord()
       const blob = new Blob([JSON.stringify(cfg, null, 2)], { type: 'application/json' })
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
@@ -240,7 +240,7 @@ export function SettingsView({ onClose, onConfigSaved, onMainModelChanged }: Set
     }
 
     try {
-      await saveAegisConfig(await getAegisConfigDefaults())
+      await saveAegis AI Enterprise Autonomous PlatformConfig(await getAegis AI Enterprise Autonomous PlatformConfigDefaults())
       triggerHaptic('success')
       onConfigSaved?.()
     } catch (err) {
@@ -425,12 +425,12 @@ export function SettingsView({ onClose, onConfigSaved, onMainModelChanged }: Set
             label: t.settings.nav.sessions,
             onSelect: () => setActiveView('sessions')
           },
-          // On a Webapp Aegis Cloud serves, the page is backup only: that tab IS a cloud agent.
+          // On a Webapp Aegis AI Enterprise Autonomous Platform Cloud serves, the page is backup only: that tab IS a cloud agent.
           {
             active: activeView === 'backup',
-            icon: servedByAegisCloud() ? Archive : CloudUpload,
+            icon: servedByAegis AI Enterprise Autonomous PlatformCloud() ? Archive : CloudUpload,
             id: 'backup',
-            label: servedByAegisCloud() ? t.settings.nav.backupOnly : t.settings.nav.backup,
+            label: servedByAegis AI Enterprise Autonomous PlatformCloud() ? t.settings.nav.backupOnly : t.settings.nav.backup,
             onSelect: () => setActiveView('backup')
           },
           {

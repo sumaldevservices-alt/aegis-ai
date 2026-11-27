@@ -1,6 +1,6 @@
 import type { IconComponent } from '@/lib/icons'
 import { normalize } from '@/lib/text'
-import type { ConfigFieldSchema, EnvVarInfo, AegisConfigRecord } from '@/types/aegis'
+import type { ConfigFieldSchema, EnvVarInfo, Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'
 
 import { FIELD_LABELS, SECTIONS } from './constants'
 import { credentialRowLabel } from './credential-key-ui'
@@ -72,7 +72,7 @@ function configFieldDescription(key: string, field: ConfigFieldSchema, copy: Con
 
 export function buildConfigSearchEntries(
   schema: Record<string, ConfigFieldSchema> | null | undefined,
-  config: AegisConfigRecord | null | undefined,
+  config: Aegis AI Enterprise Autonomous PlatformConfigRecord | null | undefined,
   copy: ConfigSearchCopy,
   sections: DesktopConfigSection[] = SECTIONS
 ): SettingsSearchEntry[] {

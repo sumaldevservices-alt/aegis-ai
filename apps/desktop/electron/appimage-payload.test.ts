@@ -80,7 +80,7 @@ function mountedResources(root: string): string {
 
 /** An AppImage runtime stand-in: `--appimage-extract <pattern>` unpacks into ./squashfs-root, then runs `after`. */
 function fakeAppImage(root: string, resources: string, after = ''): string {
-  const appimage: string = path.join(root, `Aegis-${roots.length}-${Math.random().toString(36).slice(2)}.AppImage`)
+  const appimage: string = path.join(root, `Aegis AI Enterprise Autonomous Platform-${roots.length}-${Math.random().toString(36).slice(2)}.AppImage`)
 
   fs.writeFileSync(
     appimage,
@@ -122,7 +122,7 @@ function copyHost(root: string, resources: string, overrides: Partial<PayloadCop
 function fuseMountinfo(mountPoint: string): string {
   return [
     '22 1 259:2 / / rw,relatime shared:1 - ext4 /dev/nvme0n1p2 rw',
-    `640 22 0:77 / ${mountPoint.replace(/ /g, '\\040')} ro,nosuid,nodev,relatime shared:350 - fuse.Aegis.AppImage Aegis.AppImage ro,user_id=1000`
+    `640 22 0:77 / ${mountPoint.replace(/ /g, '\\040')} ro,nosuid,nodev,relatime shared:350 - fuse.Aegis AI Enterprise Autonomous Platform.AppImage Aegis AI Enterprise Autonomous Platform.AppImage ro,user_id=1000`
   ].join('\n')
 }
 
@@ -148,24 +148,24 @@ test('cleanup looks for gateway units where `aegis gateway install` writes them'
 })
 
 posix('only a payload on the AppImage FUSE mount is copied, into the XDG data home', (): void => {
-  const resources = '/tmp/.mount_Aegis Ab12/resources'
+  const resources = '/tmp/.mount_Aegis AI Enterprise Autonomous Platform Ab12/resources'
 
   const host = {
-    env: { APPIMAGE: '/home/u/Apps/Aegis.AppImage', XDG_DATA_HOME: '/data' },
+    env: { APPIMAGE: '/home/u/Apps/Aegis AI Enterprise Autonomous Platform.AppImage', XDG_DATA_HOME: '/data' },
     home: '/home/u',
     resourcesPath: resources,
     stamp: stamp(),
     log: (): void => {}
   }
 
-  assert.deepEqual(payloadCopyPlan(host, fuseMountinfo('/tmp/.mount_Aegis Ab12')), {
-    appimage: '/home/u/Apps/Aegis.AppImage',
+  assert.deepEqual(payloadCopyPlan(host, fuseMountinfo('/tmp/.mount_Aegis AI Enterprise Autonomous Platform Ab12')), {
+    appimage: '/home/u/Apps/Aegis AI Enterprise Autonomous Platform.AppImage',
     source: path.join(resources, 'agent-payload'),
     root: '/data/aegis/bundles',
     key: payloadCopyKey(stamp())
   })
   assert.equal(
-    payloadCopyPlan({ ...host, env: { XDG_DATA_HOME: 'relative' } }, fuseMountinfo('/tmp/.mount_Aegis Ab12'))?.root,
+    payloadCopyPlan({ ...host, env: { XDG_DATA_HOME: 'relative' } }, fuseMountinfo('/tmp/.mount_Aegis AI Enterprise Autonomous Platform Ab12'))?.root,
     '/home/u/.local/share/aegis/bundles'
   )
   assert.equal(payloadCopyPlan(host, fuseMountinfo('/tmp/.mount_Other')), null)
@@ -181,15 +181,15 @@ test('installs that are not a mounted AppImage keep running the artifact payload
 
   const host = {
     platform: 'linux' as NodeJS.Platform,
-    execPath: '/tmp/.mount_Aegis/aegis',
-    env: { APPIMAGE: '/home/u/Aegis.AppImage' },
+    execPath: '/tmp/.mount_Aegis AI Enterprise Autonomous Platform/aegis',
+    env: { APPIMAGE: '/home/u/Aegis AI Enterprise Autonomous Platform.AppImage' },
     home: '/home/u',
-    resourcesPath: '/tmp/.mount_Aegis/resources',
+    resourcesPath: '/tmp/.mount_Aegis AI Enterprise Autonomous Platform/resources',
     stamp: stamp(),
     readMountinfo: async (): Promise<string> => {
       mountinfoReads += 1
 
-      return fuseMountinfo('/tmp/.mount_Aegis')
+      return fuseMountinfo('/tmp/.mount_Aegis AI Enterprise Autonomous Platform')
     },
     binDir: '/home/u/.local/bin',
     log: (): void => {}
@@ -198,8 +198,8 @@ test('installs that are not a mounted AppImage keep running the artifact payload
   for (const variant of [
     { ...host, platform: 'darwin' as NodeJS.Platform },
     { ...host, env: {} },
-    // A .deb Aegis started from a terminal AppImage inherits that image's APPIMAGE and APPDIR.
-    { ...host, execPath: '/opt/Aegis/aegis', env: { APPIMAGE: '/home/u/Term.AppImage', APPDIR: '/tmp/.mount_Term' } },
+    // A .deb Aegis AI Enterprise Autonomous Platform started from a terminal AppImage inherits that image's APPIMAGE and APPDIR.
+    { ...host, execPath: '/opt/Aegis AI Enterprise Autonomous Platform/aegis', env: { APPIMAGE: '/home/u/Term.AppImage', APPDIR: '/tmp/.mount_Term' } },
     { ...host, stamp: stamp({ payload: 'light' }) },
     { ...host, stamp: null }
   ]) {

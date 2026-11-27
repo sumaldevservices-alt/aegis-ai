@@ -465,7 +465,7 @@ export function useStatusbarItems({
       version: desktopVersion?.appVersion
     })
 
-    // A Webapp served by Aegis Cloud: Cloud updates it, so there is no version/update pill to open.
+    // A Webapp served by Aegis AI Enterprise Autonomous Platform Cloud: Cloud updates it, so there is no version/update pill to open.
     return versionItem('client', status, applying, copy.toggleVersion, cloudOwnsUpdates.client)
   }, [
     cloudOwnsUpdates.client,
@@ -480,7 +480,7 @@ export function useStatusbarItems({
   ])
 
   const backendVersionItem = useMemo<StatusbarItem | null>(() => {
-    // Aegis Cloud updates its agents itself: no backend pill, as outside remote mode.
+    // Aegis AI Enterprise Autonomous Platform Cloud updates its agents itself: no backend pill, as outside remote mode.
     if (connection?.mode !== 'remote' || cloudOwnsUpdates.backend) {
       return null
     }

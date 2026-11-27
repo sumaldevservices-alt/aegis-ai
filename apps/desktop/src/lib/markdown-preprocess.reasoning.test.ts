@@ -6,10 +6,10 @@ import { preprocessMarkdown } from './markdown-preprocess'
 // reasoning strip has to behave on a text whose close tag has not arrived yet.
 describe('reasoning blocks in streamed markdown', () => {
   it('does not fuse the words a stripped block separated', () => {
-    expect(preprocessMarkdown('no<thinking>hmm</thinking> Aegis Desktop')).toBe('no Aegis Desktop')
+    expect(preprocessMarkdown('no<thinking>hmm</thinking> Aegis AI Enterprise Autonomous Platform Desktop')).toBe('no Aegis AI Enterprise Autonomous Platform Desktop')
     expect(preprocessMarkdown('backend e o <thinking>x</thinking>useSmoothReveal')).toBe('backend e o useSmoothReveal')
     expect(preprocessMarkdown('<thought>x</thought>\n\nResposta final.')).toBe('Resposta final.')
-    expect(preprocessMarkdown('no<thinking>a</thinking><think>b</think>Aegis')).toBe('no Aegis')
+    expect(preprocessMarkdown('no<thinking>a</thinking><think>b</think>Aegis AI Enterprise Autonomous Platform')).toBe('no Aegis AI Enterprise Autonomous Platform')
   })
 
   it('hides an unterminated block at a block boundary but keeps a mid-sentence mention', () => {

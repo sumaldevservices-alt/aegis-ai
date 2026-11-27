@@ -2,7 +2,7 @@ import { atom } from 'nanostores'
 
 import { translateNow } from '@/i18n'
 import { isOutOfSyncRpcParams } from '@/lib/gateway-rpc'
-import { servedByAegisCloud } from '@/lib/aegis-cloud-host'
+import { servedByAegis AI Enterprise Autonomous PlatformCloud } from '@/lib/aegis-cloud-host'
 import { isTimeoutError } from '@/lib/with-timeout'
 import { type ErrorToastCategory, recordFriction } from '@/store/desktop-metrics'
 import { requestBackendRestart, requestRoute } from '@/store/recovery-requests'
@@ -124,15 +124,15 @@ const MAINTENANCE_ROUTE = '/command-center?section=maintenance'
 /** One-click recoveries reused by several rules. */
 export const RECOVERY_ACTIONS = {
   openUpdates: (): NotificationAction => ({
-    label: translateNow('notifications.updateAegis'),
+    label: translateNow('notifications.updateAegis AI Enterprise Autonomous Platform'),
     onClick: () => void import('@/store/updates').then(({ openUpdatesWindow }) => openUpdatesWindow())
   }),
   reload: (): NotificationAction => ({
     label: translateNow('commandCenter.reloadWindow'),
     onClick: () => window.location.reload()
   }),
-  restartAegis: (): NotificationAction => ({
-    label: translateNow('notifications.actions.restartAegis'),
+  restartAegis AI Enterprise Autonomous Platform: (): NotificationAction => ({
+    label: translateNow('notifications.actions.restartAegis AI Enterprise Autonomous Platform'),
     onClick: requestBackendRestart
   }),
   openKeys: (envKey: string): NotificationAction => ({
@@ -215,7 +215,7 @@ const ERROR_SUMMARIES: ErrorSummaryRule[] = [
     category: 'method_not_allowed',
     test: msg => /method not allowed/i.test(msg),
     summarize: () => translateNow('notifications.errors.methodNotAllowed'),
-    action: () => RECOVERY_ACTIONS.restartAegis()
+    action: () => RECOVERY_ACTIONS.restartAegis AI Enterprise Autonomous Platform()
   },
   {
     category: 'microphone_permission',
@@ -226,14 +226,14 @@ const ERROR_SUMMARIES: ErrorSummaryRule[] = [
     category: 'rpc_out_of_sync',
     test: msg => isOutOfSyncRpcParams(msg),
     summarize: () => translateNow('notifications.errors.rpcOutOfSync'),
-    // A Webapp served by Aegis Cloud has no updater: reloading picks up the agent's new app.
-    action: () => (servedByAegisCloud() ? RECOVERY_ACTIONS.reload() : RECOVERY_ACTIONS.openUpdates())
+    // A Webapp served by Aegis AI Enterprise Autonomous Platform Cloud has no updater: reloading picks up the agent's new app.
+    action: () => (servedByAegis AI Enterprise Autonomous PlatformCloud() ? RECOVERY_ACTIONS.reload() : RECOVERY_ACTIONS.openUpdates())
   },
   {
     category: 'restart_required',
     test: msg => /Restart required:/i.test(msg),
     summarize: () => translateNow('notifications.errors.codeSkewRestartRequired'),
-    action: () => RECOVERY_ACTIONS.restartAegis()
+    action: () => RECOVERY_ACTIONS.restartAegis AI Enterprise Autonomous Platform()
   }
 ]
 

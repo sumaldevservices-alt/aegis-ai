@@ -63,7 +63,7 @@ export function createCoreSandbox(label: string): CoreSandbox {
   // token` for GitHub credentials; with a sandbox HOME a real gh can block on
   // the desktop keyring for ~60 s, and a probe in flight at quit outlives the
   // backend (reported as a finding) — which would make the orphan census
-  // depend on the runner's keyring rather than on Aegis.
+  // depend on the runner's keyring rather than on Aegis AI Enterprise Autonomous Platform.
   const bin = path.join(root, 'bin')
   fs.mkdirSync(bin, { recursive: true })
   fs.writeFileSync(path.join(bin, 'gh'), '#!/bin/sh\necho "no oauth token found for github.com" >&2\nexit 1\n', {
@@ -90,7 +90,7 @@ export function createCoreSandbox(label: string): CoreSandbox {
 
 /**
  * Sandbox config: only the scripted provider. The approval prompts under test
- * come from Aegis's own detector.
+ * come from Aegis AI Enterprise Autonomous Platform's own detector.
  */
 export function providerConfigYaml(providerUrl: string, extra = '', approvals: 'manual' | 'off' = 'off'): string {
   return `model:
@@ -153,7 +153,7 @@ export function coreAppEnv(sandbox: CoreSandbox, extra: Record<string, string> =
     // setup-pm exports an install-scoped interpreter, not a checkout .venv.
     // The Desktop override must be explicit because the sandbox strips AEGIS_*.
     ...(process.env.AEGIS_E2E_PYTHON ? { AEGIS_DESKTOP_PYTHON: process.env.AEGIS_E2E_PYTHON } : {}),
-    AEGIS_DESKTOP_APP_NAME: `AegisCoreE2E-${path.basename(sandbox.root)}`,
+    AEGIS_DESKTOP_APP_NAME: `Aegis AI Enterprise Autonomous PlatformCoreE2E-${path.basename(sandbox.root)}`,
     AEGIS_DESKTOP_SKIP_QUIT_CONFIRM: '1',
     // Never repoint the user's OS aegis:// handler (HKCU on Windows) at a test checkout.
     AEGIS_DESKTOP_SKIP_PROTOCOL_REGISTRATION: '1',

@@ -1,4 +1,4 @@
-# Aegis Desktop ☤
+# Aegis AI Enterprise Autonomous Platform Desktop ☤
 
 <p align="center">
   <a href="https://github.com/NousResearch/aegis-agent/releases"><img src="https://img.shields.io/badge/Download-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-FFD700?style=for-the-badge" alt="Download"></a>
@@ -7,19 +7,19 @@
   <a href="https://github.com/NousResearch/aegis-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
 </p>
 
-**The native desktop app for [Aegis Agent](../../README.md) — the self-improving AI agent from [Nous Research](https://nousresearch.com).** Same agent, same skills, same memory as the CLI and gateway, in a polished native window — chat with streaming tool output, side-by-side previews, a file browser, voice, and settings, no terminal required. Available for **macOS, Windows, and Linux**.
+**The native desktop app for [Aegis AI Enterprise Autonomous Platform Agent](../../README.md) — the self-improving AI agent from [Nous Research](https://nousresearch.com).** Same agent, same skills, same memory as the CLI and gateway, in a polished native window — chat with streaming tool output, side-by-side previews, a file browser, voice, and settings, no terminal required. Available for **macOS, Windows, and Linux**.
 
-> **Intel Macs:** the `Aegis-Setup.dmg` bootstrap installer is built for
+> **Intel Macs:** the `Aegis AI Enterprise Autonomous Platform-Setup.dmg` bootstrap installer is built for
 > Apple Silicon (arm64) only, so on an Intel Mac it reports "not supported on
 > this Mac". No release builds a native `darwin-x64` bundle; install the
 > [CLI](../../README.md) and run `aegis desktop`. See
 > [Platform Support](../../website/docs/getting-started/platform-support.md#build-targets-and-support-priority).
 
 <table>
-<tr><td><b>Chat with the full agent</b></td><td>Streaming responses, live tool activity, structured tool summaries, and the same conversation history as every other Aegis surface.</td></tr>
+<tr><td><b>Chat with the full agent</b></td><td>Streaming responses, live tool activity, structured tool summaries, and the same conversation history as every other Aegis AI Enterprise Autonomous Platform surface.</td></tr>
 <tr><td><b>Side-by-side previews</b></td><td>Render web pages, files, and tool outputs in a right-hand pane while you keep chatting.</td></tr>
 <tr><td><b>File browser</b></td><td>Explore and preview the working directory without leaving the app.</td></tr>
-<tr><td><b>Voice</b></td><td>Talk to Aegis and hear it back.</td></tr>
+<tr><td><b>Voice</b></td><td>Talk to Aegis AI Enterprise Autonomous Platform and hear it back.</td></tr>
 <tr><td><b>Settings & onboarding</b></td><td>Manage providers, models, tools, and credentials from a real UI. First-run setup gets you to your first message in seconds.</td></tr>
 <tr><td><b>Stays current</b></td><td>Built-in updates pull the latest agent and rebuild the app in place.</td></tr>
 </table>
@@ -28,19 +28,19 @@
 
 ## Install
 
-### Install with Aegis (recommended)
+### Install with Aegis AI Enterprise Autonomous Platform (recommended)
 
-Already have the Aegis CLI? Just run:
+Already have the Aegis AI Enterprise Autonomous Platform CLI? Just run:
 
 ```bash
 aegis desktop
 ```
 
-It builds and launches the GUI against your existing install — same config, keys, sessions, and skills. If Desktop cannot find a usable runtime or saved remote connection, first launch lets you connect to an existing Aegis gateway or install Aegis locally. Local onboarding then walks you through choosing a provider and model.
+It builds and launches the GUI against your existing install — same config, keys, sessions, and skills. If Desktop cannot find a usable runtime or saved remote connection, first launch lets you connect to an existing Aegis AI Enterprise Autonomous Platform gateway or install Aegis AI Enterprise Autonomous Platform locally. Local onboarding then walks you through choosing a provider and model.
 
 ### Prebuilt installers
 
-Prebuilt installers are built and distributed via [the Aegis Desktop website.](https://aegis-agent.nousresearch.com/).
+Prebuilt installers are built and distributed via [the Aegis AI Enterprise Autonomous Platform Desktop website.](https://aegis-agent.nousresearch.com/).
 
 ---
 
@@ -58,8 +58,8 @@ payload. See [BUILDING.md](BUILDING.md) for package and release contracts.
 ## Screenshot shortcut (macOS)
 
 Enable **Settings → Keyboard Shortcuts → Screenshot shortcut**, then press the
-left and right Command keys together in any app. Aegis captures that app's
-frontmost window and attaches the image to the last-active Aegis composer,
+left and right Command keys together in any app. Aegis AI Enterprise Autonomous Platform captures that app's
+frontmost window and attaches the image to the last-active Aegis AI Enterprise Autonomous Platform composer,
 including split-pane chats. It does not send the draft or capture the whole
 screen. Release both keys before taking another screenshot.
 
@@ -132,7 +132,7 @@ The app has three boundaries:
   filesystem/git/window capabilities, and exposes a narrow preload bridge.
 - **React** owns the Desktop routes, panes, interaction state, and
   `@assistant-ui/react` transcript.
-- **Aegis Agent** runs as a headless `aegis serve` process and exposes the
+- **Aegis AI Enterprise Autonomous Platform Agent** runs as a headless `aegis serve` process and exposes the
   `tui_gateway` JSON-RPC/WebSocket API. The renderer connects through
   [`apps/shared`](../shared/), which is also used by the browser dashboard.
 
@@ -161,12 +161,12 @@ Before changing the app, read:
 
 ### Connections, projects, and switching
 
-Desktop supports a managed local backend, explicit remote gateways, and Aegis
+Desktop supports a managed local backend, explicit remote gateways, and Aegis AI Enterprise Autonomous Platform
 Cloud connections. Remote and cloud modes use the same remote-capability path;
 authentication and discovery differ, not the renderer feature model.
 
 When no usable local runtime or saved remote connection exists, the first-run
-screen offers **Connect to existing Aegis** before starting the local installer.
+screen offers **Connect to existing Aegis AI Enterprise Autonomous Platform** before starting the local installer.
 Desktop probes the gateway to discover token or OAuth authentication, requires a
 successful HTTP and WebSocket connection test, and saves the connection using
 the same encrypted Desktop configuration used by Settings. A saved remote
@@ -175,7 +175,7 @@ still includes the local-install option; this is a remote operating mode, not a
 separate client-only application.
 
 In remote mode the gateway host is the execution boundary: agent tools,
-terminal commands, and file operations run against the remote Aegis host, not
+terminal commands, and file operations run against the remote Aegis AI Enterprise Autonomous Platform host, not
 the computer displaying the Desktop UI.
 
 Remote gateways that sit behind an access proxy may require extra headers on
@@ -201,8 +201,8 @@ Electron `userData/connection.json` remote block:
 Per-profile remote entries under `profiles[name].headers` use the same shape.
 Desktop applies these headers only to matching remote gateway requests, treats
 `https` and `wss` as the same gateway origin for WebSocket upgrades, and drops
-transport- or Aegis-managed header names such as `Authorization`, `Cookie`,
-`Host`, `Origin`, `Referer`, and `X-Aegis-Session-Token`.
+transport- or Aegis AI Enterprise Autonomous Platform-managed header names such as `Authorization`, `Cookie`,
+`Host`, `Origin`, `Referer`, and `X-Aegis AI Enterprise Autonomous Platform-Session-Token`.
 
 Projects are the workspace abstraction. A project may own multiple folders,
 repositories, worktrees, and sessions; a bare new chat remains detached unless
@@ -256,7 +256,7 @@ Remove-Item "$env:LOCALAPPDATA\aegis\aegis-agent\.aegis-bootstrap-complete"
 Remove-Item -Recurse -Force "$env:LOCALAPPDATA\aegis\aegis-agent\venv"
 ```
 
-> The default Aegis home on Windows is `%LOCALAPPDATA%\aegis`. Set the `AEGIS_HOME` env var if you've relocated it.
+> The default Aegis AI Enterprise Autonomous Platform home on Windows is `%LOCALAPPDATA%\aegis`. Set the `AEGIS_HOME` env var if you've relocated it.
 
 ---
 

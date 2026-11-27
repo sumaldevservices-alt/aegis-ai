@@ -37,8 +37,8 @@ it('shows a rejected loader’s cause and reloads only when the user clicks Relo
 
   await bootRenderer(() => Promise.reject(error)).catch(error => showBootFailure(error, reload))
 
-  expect(console.error).toHaveBeenCalledWith('Aegis failed to load', error)
-  expect(within(root).getByRole('heading', { level: 1 }).textContent).toBe('Aegis couldn’t load')
+  expect(console.error).toHaveBeenCalledWith('Aegis AI Enterprise Autonomous Platform failed to load', error)
+  expect(within(root).getByRole('heading', { level: 1 }).textContent).toBe('Aegis AI Enterprise Autonomous Platform couldn’t load')
   expect(within(root).getByRole('alert').textContent).toContain(
     'Part of the app didn’t load; reloading usually fixes it.'
   )
@@ -63,7 +63,7 @@ it.each(['element', 'text'])('leaves mounted %s content untouched and still logs
 
   expect([...root.childNodes]).toEqual([content])
   expect(root.textContent).toBe('Already mounted')
-  expect(console.error).toHaveBeenCalledWith('Aegis failed to load', error)
+  expect(console.error).toHaveBeenCalledWith('Aegis AI Enterprise Autonomous Platform failed to load', error)
   expect(reload).not.toHaveBeenCalled()
 })
 
@@ -85,7 +85,7 @@ it.each(['hud', 'overlay', 'quick', 'wake'])(
     showBootFailure(error, vi.fn())
 
     expect(root.childNodes).toHaveLength(0)
-    expect(console.error).toHaveBeenCalledWith('Aegis failed to load', error)
+    expect(console.error).toHaveBeenCalledWith('Aegis AI Enterprise Autonomous Platform failed to load', error)
   }
 )
 
@@ -99,7 +99,7 @@ it('shows a decorative wordmark above the accessible heading without app CSS', (
   showBootFailure(new Error('CSS failed'), vi.fn())
 
   const wordmark = within(root).getByText('AEGIS AGENT')
-  const heading = within(root).getByRole('heading', { level: 1, name: 'Aegis couldn’t load' })
+  const heading = within(root).getByRole('heading', { level: 1, name: 'Aegis AI Enterprise Autonomous Platform couldn’t load' })
   const alert = within(root).getByRole('alert')
   expect(wordmark.tagName).toBe('P')
   expect(wordmark.getAttribute('aria-hidden')).toBe('true')

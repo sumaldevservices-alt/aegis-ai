@@ -106,7 +106,7 @@ import { CommandPalette } from '../command-palette'
 import { triggerAndRefreshCronJobs } from '../cron/cron-actions'
 import { useGatewayBoot } from '../gateway/hooks/use-gateway-boot'
 import { useGatewayRequest } from '../gateway/hooks/use-gateway-request'
-import { useAegisConfigRecord } from '../hooks/use-config-record'
+import { useAegis AI Enterprise Autonomous PlatformConfigRecord } from '../hooks/use-config-record'
 import { useKeybinds } from '../hooks/use-keybinds'
 import { useHudHandoff } from '../hud/handoff'
 import { ModelPickerOverlay } from '../model-picker-overlay'
@@ -132,7 +132,7 @@ import { SessionSwitcher } from '../session-switcher'
 import { useBackgroundQueueDrain } from '../session/hooks/use-background-queue-drain'
 import { useContextSuggestions } from '../session/hooks/use-context-suggestions'
 import { useCwdActions } from '../session/hooks/use-cwd-actions'
-import { useAegisConfig } from '../session/hooks/use-aegis-config'
+import { useAegis AI Enterprise Autonomous PlatformConfig } from '../session/hooks/use-aegis-config'
 import { useMessageStream } from '../session/hooks/use-message-stream'
 import { useModelControls } from '../session/hooks/use-model-controls'
 import { useOwnerQueueReconcile } from '../session/hooks/use-owner-queue-reconcile'
@@ -243,7 +243,7 @@ function useFirstRunOnboarding(request: OnboardingRequest, open: OnboardingResum
   }, [open])
 }
 
-// Recovery actions raised by toast buttons (Restart Aegis, Open Billing, cron
+// Recovery actions raised by toast buttons (Restart Aegis AI Enterprise Autonomous Platform, Open Billing, cron
 // review) fire from stores with no router context. Each counter is
 // consumed here: the ref skips the initial mount value, and only a fresh
 // request navigates or recycles the backend.
@@ -266,14 +266,14 @@ function useRecoveryRequestToasts(): void {
 
     if (backendRestartRequest > 0) {
       if ($connection.get()?.mode === 'remote') {
-        void reconnectGateway().catch(err => notifyError(err, translateNow('notifications.errors.restartAegisFailed')))
+        void reconnectGateway().catch(err => notifyError(err, translateNow('notifications.errors.restartAegis AI Enterprise Autonomous PlatformFailed')))
 
         return
       }
 
       void window.aegisDesktop
         ?.recycleBackend?.(normalizeProfileKey($activeGatewayProfile.get()))
-        .catch(err => notifyError(err, translateNow('notifications.errors.restartAegisFailed')))
+        .catch(err => notifyError(err, translateNow('notifications.errors.restartAegis AI Enterprise Autonomous PlatformFailed')))
     }
   }, [backendRestartRequest])
 
@@ -453,7 +453,7 @@ export function ContribWiring({ children }: { children: ReactNode }) {
     requestGateway
   })
 
-  const { refreshAegisConfig, sttEnabled, voiceMaxRecordingSeconds } = useAegisConfig({ activeSessionIdRef })
+  const { refreshAegis AI Enterprise Autonomous PlatformConfig, sttEnabled, voiceMaxRecordingSeconds } = useAegis AI Enterprise Autonomous PlatformConfig({ activeSessionIdRef })
 
   const { applySavedMainModel, followDefaultModel, refreshCurrentModel, selectModel } = useModelControls({
     cacheOwnerConnectionId: activeConnectionId || undefined,
@@ -515,7 +515,7 @@ export function ContribWiring({ children }: { children: ReactNode }) {
     activeSessionIdRef,
     hydrateFromStoredSession,
     queryClient,
-    refreshAegisConfig,
+    refreshAegis AI Enterprise Autonomous PlatformConfig,
     refreshSessions,
     sessionStateByRuntimeIdRef,
     updateSessionState
@@ -577,7 +577,7 @@ export function ContribWiring({ children }: { children: ReactNode }) {
   })
 
   useFreshSessionRequest(startFreshSessionDraft)
-  useGatewayScopeRefresh(activeConnectionId, activeGatewayProfile, refreshCurrentModel, refreshAegisConfig)
+  useGatewayScopeRefresh(activeConnectionId, activeGatewayProfile, refreshCurrentModel, refreshAegis AI Enterprise Autonomous PlatformConfig)
 
   // New session anchored to a workspace. Seeds cwd + branch from the clicked
   // workspace; an explicit worktree path also drills the sidebar into that
@@ -888,7 +888,7 @@ export function ContribWiring({ children }: { children: ReactNode }) {
     onGatewayReady: g => {
       gatewayRef.current = g
     },
-    refreshAegisConfig,
+    refreshAegis AI Enterprise Autonomous PlatformConfig,
     refreshSessions
   })
 
@@ -944,7 +944,7 @@ export function ContribWiring({ children }: { children: ReactNode }) {
     refreshActiveTranscript,
     refreshCronJobs,
     refreshCurrentModel,
-    refreshAegisConfig,
+    refreshAegis AI Enterprise Autonomous PlatformConfig,
     refreshMessagingSessions,
     refreshSessions,
     requestGateway,
@@ -959,7 +959,7 @@ export function ContribWiring({ children }: { children: ReactNode }) {
   // display.resume_last_session gates the cold-start restore. `undefined` while
   // the record is still loading holds the restore latch open; a failed fetch
   // falls back to the historical behavior (resume).
-  const configRecord = useAegisConfigRecord()
+  const configRecord = useAegis AI Enterprise Autonomous PlatformConfigRecord()
 
   const resumeLastSession = configRecord.isPending
     ? undefined
@@ -1286,7 +1286,7 @@ export function ContribWiring({ children }: { children: ReactNode }) {
         <DesktopOnboardingOverlay
           enabled={gatewayState === 'open'}
           onCompleted={() => {
-            void refreshAegisConfig()
+            void refreshAegis AI Enterprise Autonomous PlatformConfig()
             void refreshCurrentModel()
             void queryClient.invalidateQueries({ queryKey: ['model-options'] })
           }}
@@ -1338,7 +1338,7 @@ export function ContribWiring({ children }: { children: ReactNode }) {
             gateway={gateway}
             onClose={closeOverlayToPreviousRoute}
             onConfigSaved={() => {
-              void refreshAegisConfig()
+              void refreshAegis AI Enterprise Autonomous PlatformConfig()
               void refreshCurrentModel()
               void queryClient.invalidateQueries({ queryKey: ['model-options'] })
             }}

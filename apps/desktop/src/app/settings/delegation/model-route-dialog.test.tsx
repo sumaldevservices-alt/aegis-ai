@@ -3,7 +3,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { DelegationModelRoute } from '@/api/delegation'
-import type { AegisApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 import { queryClient } from '@/lib/query-client'
 import { stubMenuDomApis, stubResizeObserver } from '@/test/jsdom'
 
@@ -30,7 +30,7 @@ beforeEach(() => {
   queryClient.clear()
   window.aegisDesktop = {
     ...window.aegisDesktop,
-    api: async (request: AegisApiRequest) => {
+    api: async (request: Aegis AI Enterprise Autonomous PlatformApiRequest) => {
       if (request.path.startsWith('/api/model/options')) {
         return structuredClone(CATALOG)
       }

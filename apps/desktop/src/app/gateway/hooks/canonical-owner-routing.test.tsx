@@ -36,7 +36,7 @@ function fakeDesktop() {
 function Harness({ handleGatewayEvent, handleServerRequest }: Pick<Parameters<typeof useGatewayBoot>[0], 'handleGatewayEvent' | 'handleServerRequest'>) {
   useGatewayBoot({ handleGatewayEvent, handleServerRequest, beforeConnectionSwitch: () => undefined,
     onConnectionReady: () => undefined, onGatewayReady: () => undefined,
-    refreshAegisConfig: async () => undefined, refreshSessions: async () => undefined })
+    refreshAegis AI Enterprise Autonomous PlatformConfig: async () => undefined, refreshSessions: async () => undefined })
 
   return null
 }

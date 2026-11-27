@@ -3,7 +3,7 @@
  * between (a Bot's title, a mirrored room taking the generated name) never mints a second room.
  */
 import { host } from '@aegis/plugin-sdk'
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
@@ -21,7 +21,7 @@ import type { RosterRow } from './types'
 
 const { request, notify } = vi.hoisted(() => ({ request: vi.fn(), notify: vi.fn() }))
 vi.mock('@aegis/plugin-sdk', async importOriginal => (await import('./canonical-group-contract-test-utils'))
-  .localGatewaySdkMock(await importOriginal<typeof AegisSdk>(), request, () => translateBots, { notify }))
+  .localGatewaySdkMock(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>(), request, () => translateBots, { notify }))
 
 const words = CANONICAL_GROUP_LOCALES.en
 const here: RosterRow = { name: 'default', connectionId: 'local' }
@@ -29,7 +29,7 @@ const beta: RosterRow = { name: 'beta', connectionId: 'local' }
 const mini = peerRosterRow('mini', 'Mac Mini')
 
 beforeEach(() => {
-  ;(host.state.gateway as ReturnType<typeof AegisSdk.atom<string>>).set('open')
+  ;(host.state.gateway as ReturnType<typeof Aegis AI Enterprise Autonomous PlatformSdk.atom<string>>).set('open')
   $canonicalGroupBindings.set({})
   $botMeta.set({})
   $groupChats.set({})

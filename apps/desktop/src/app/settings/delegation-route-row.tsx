@@ -1,6 +1,6 @@
 import type { ProfileScope } from '@/aegis'
 import { useI18n } from '@/i18n'
-import type { AegisConfigRecord } from '@/types/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'
 
 import { FIELD_DESCRIPTIONS } from './constants'
 import { DelegationModelProviderField, type DelegationModelProviderValue } from './delegation-model-provider-field'
@@ -16,9 +16,9 @@ const DIRECT_ENDPOINT_KEYS = ['delegation.base_url', 'delegation.api_key', 'dele
 
 /** The config after applying a subagent route. */
 export function applyDelegationRoute(
-  config: AegisConfigRecord,
+  config: Aegis AI Enterprise Autonomous PlatformConfigRecord,
   { model, provider, resetDirectEndpoint }: DelegationModelProviderValue
-): AegisConfigRecord {
+): Aegis AI Enterprise Autonomous PlatformConfigRecord {
   let next = setNested(setNested(config, 'delegation.model', model), 'delegation.provider', provider)
 
   if (resetDirectEndpoint) {
@@ -34,9 +34,9 @@ export function DelegationRouteRow({
   scope,
   onConfigChange
 }: {
-  config: AegisConfigRecord
+  config: Aegis AI Enterprise Autonomous PlatformConfigRecord
   scope?: ProfileScope
-  onConfigChange: (next: AegisConfigRecord) => void
+  onConfigChange: (next: Aegis AI Enterprise Autonomous PlatformConfigRecord) => void
 }) {
   const { t } = useI18n()
 

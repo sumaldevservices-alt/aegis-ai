@@ -3,7 +3,7 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { act, cleanup, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as AegisApi from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformApi from '@/aegis'
 import type { CronJob, SessionInfo } from '@/aegis'
 import { queryClient } from '@/lib/query-client'
 import { $cronFocusJobId, $cronJobs, setCronFocusJobId, setCronJobs } from '@/store/cron'
@@ -16,7 +16,7 @@ const getCronJobs = vi.fn()
 const triggerCronJob = vi.fn()
 
 vi.mock('@/aegis', async importOriginal => ({
-  ...(await importOriginal<typeof AegisApi>()),
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformApi>()),
   getCronJobRuns: (jobId: string) => getCronJobRuns(jobId),
   getCronJobs: (profile?: string) => getCronJobs(profile),
   triggerCronJob: (jobId: string) => triggerCronJob(jobId)

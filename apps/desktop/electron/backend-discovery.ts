@@ -29,7 +29,7 @@ export interface HostBackendRecord {
   registeredAt: number
 }
 
-/** Filename the CLI writes under the machine Aegis root. */
+/** Filename the CLI writes under the machine Aegis AI Enterprise Autonomous Platform root. */
 export const SPAWN_LEDGER_FILENAME = 'spawn-ledger.json'
 
 /** Ledger purposes that denote a JSON-RPC/WebSocket backend we can attach to. */

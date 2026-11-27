@@ -67,7 +67,7 @@ export function renderMessageStream(
       activeSessionIdRef,
       hydrateFromStoredSession: vi.fn(async () => undefined),
       queryClient: queryClientRef.current,
-      refreshAegisConfig: vi.fn(async () => undefined),
+      refreshAegis AI Enterprise Autonomous PlatformConfig: vi.fn(async () => undefined),
       refreshSessions: vi.fn(async () => undefined),
       sessionStateByRuntimeIdRef,
       updateSessionState: (id, updater) => {

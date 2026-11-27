@@ -12,7 +12,7 @@ const compactScope: CapabilityScope = {
   key: 'default',
   onChange: vi.fn(),
   options: [
-    { key: 'default', label: 'Aegis (default)', value: 'default' },
+    { key: 'default', label: 'Aegis AI Enterprise Autonomous Platform (default)', value: 'default' },
     { key: longProfile, label: longProfile, value: longProfile }
   ],
   profile: null,

@@ -1,4 +1,4 @@
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { cleanup, render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
@@ -14,7 +14,7 @@ import { translateBotsIn } from './i18n-test-helper'
 
 const { request, locale, union } = vi.hoisted(() => ({ request: vi.fn(), locale: { value: 'en' }, union: { profiles: [] as unknown[] } }))
 vi.mock('@aegis/plugin-sdk', async importOriginal =>
-  localGatewaySdkMock(await importOriginal<typeof AegisSdk>(), request, () => translateBotsIn(locale.value)))
+  localGatewaySdkMock(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>(), request, () => translateBotsIn(locale.value)))
 vi.mock('./data', async importOriginal => ({ ...await importOriginal<typeof DataModule>(), cachedUnionRoster: () => union }))
 
 const binding = { connectionId: 'local', profile: 'default', roomId: 'linked' }

@@ -1,9 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import {
-  getAegisConfigRecord,
+  getAegis AI Enterprise Autonomous PlatformConfigRecord,
   peekConfigReadOrigin,
-  saveAegisConfig,
+  saveAegis AI Enterprise Autonomous PlatformConfig,
   setApiRequestConnection,
   setApiRequestProfile
 } from '@/aegis'
@@ -34,7 +34,7 @@ describe('config read/write route binding', () => {
     setApiRequestConnection('connection-a')
     setApiRequestProfile('default')
 
-    const record = await getAegisConfigRecord()
+    const record = await getAegis AI Enterprise Autonomous PlatformConfigRecord()
 
     expect(peekConfigReadOrigin(record)).toEqual({ connectionId: 'connection-a', profile: 'default' })
     expect(api).toHaveBeenCalledWith(
@@ -42,7 +42,7 @@ describe('config read/write route binding', () => {
     )
 
     setApiRequestConnection('connection-b')
-    await saveAegisConfig(record)
+    await saveAegis AI Enterprise Autonomous PlatformConfig(record)
 
     const puts = api.mock.calls.filter(call => call[0].method === 'PUT')
 

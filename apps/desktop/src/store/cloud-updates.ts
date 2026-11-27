@@ -1,5 +1,5 @@
 /**
- * Aegis Cloud owns updates for its agents: it replaces the agent's image, so
+ * Aegis AI Enterprise Autonomous Platform Cloud owns updates for its agents: it replaces the agent's image, so
  * no in-app updater may be offered there. Two shapes reach a Cloud agent:
  *
  * - the Webapp served BY a Cloud agent (the tab's own origin is the agent):
@@ -8,28 +8,28 @@
  *   the Desktop app on this machine still updates itself.
  */
 
-import { isAegisCloudUrl } from '@aegis/shared'
+import { isAegis AI Enterprise Autonomous PlatformCloudUrl } from '@aegis/shared'
 import { computed } from 'nanostores'
 
-import type { AegisConnection } from '@/global'
-import { servedByAegisCloud } from '@/lib/aegis-cloud-host'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
+import { servedByAegis AI Enterprise Autonomous PlatformCloud } from '@/lib/aegis-cloud-host'
 import type { UpdateTarget } from '@/lib/update-copy'
 import { $connection } from '@/store/session'
 
-function connectedToAegisCloud(connection: AegisConnection | null): boolean {
-  return connection?.mode === 'remote' && (connection.remoteKind === 'cloud' || isAegisCloudUrl(connection.baseUrl))
+function connectedToAegis AI Enterprise Autonomous PlatformCloud(connection: Aegis AI Enterprise Autonomous PlatformConnection | null): boolean {
+  return connection?.mode === 'remote' && (connection.remoteKind === 'cloud' || isAegis AI Enterprise Autonomous PlatformCloudUrl(connection.baseUrl))
 }
 
-/** Whether Aegis Cloud owns updates for `target` under `connection`. */
-export function cloudOwnsUpdates(target: UpdateTarget, connection: AegisConnection | null = $connection.get()): boolean {
-  return servedByAegisCloud() || (target === 'backend' && connectedToAegisCloud(connection))
+/** Whether Aegis AI Enterprise Autonomous Platform Cloud owns updates for `target` under `connection`. */
+export function cloudOwnsUpdates(target: UpdateTarget, connection: Aegis AI Enterprise Autonomous PlatformConnection | null = $connection.get()): boolean {
+  return servedByAegis AI Enterprise Autonomous PlatformCloud() || (target === 'backend' && connectedToAegis AI Enterprise Autonomous PlatformCloud(connection))
 }
 
 /**
- * The target a generic "Update Aegis" command acts on: the connected backend
- * in remote mode, unless Aegis Cloud owns it — then this machine's own app.
+ * The target a generic "Update Aegis AI Enterprise Autonomous Platform" command acts on: the connected backend
+ * in remote mode, unless Aegis AI Enterprise Autonomous Platform Cloud owns it — then this machine's own app.
  */
-export function updateTargetFor(connection: AegisConnection | null): UpdateTarget {
+export function updateTargetFor(connection: Aegis AI Enterprise Autonomous PlatformConnection | null): UpdateTarget {
   return connection?.mode === 'remote' && !cloudOwnsUpdates('backend', connection) ? 'backend' : 'client'
 }
 

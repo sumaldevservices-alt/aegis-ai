@@ -288,7 +288,7 @@ export function formatHistory(rows: SessionMessage[]): string {
 
     const clipped = text.length > HISTORY_PREVIEW ? `${text.slice(0, HISTORY_PREVIEW)}…` : text
 
-    return [`${message.role === 'user' ? t.historyYou : t.historyAegis}: ${clipped}`]
+    return [`${message.role === 'user' ? t.historyYou : t.historyAegis AI Enterprise Autonomous Platform}: ${clipped}`]
   })
 
   return turns.length ? [t.historyHeader(String(turns.length)), ...turns].join('\n') : t.historyEmpty

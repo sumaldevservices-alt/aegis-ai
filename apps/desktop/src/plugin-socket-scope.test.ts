@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 
 // pluginSocket must dial the ACTIVE gateway's backend — resolved through the
 // same (connectionId, profile) source of truth ensureGatewayProfile /
@@ -17,7 +17,7 @@ vi.mock('@/aegis', async importOriginal => {
   return {
     ...actual,
     // Stub only the socket class so gateway activations don't dial real WS.
-    AegisGateway: class {
+    Aegis AI Enterprise Autonomous PlatformGateway: class {
       connectionState = 'closed'
       connect = async (_wsUrl: string): Promise<void> => {
         this.connectionState = 'open'
@@ -39,7 +39,7 @@ const { $activeGatewayProfile, ensureGatewayAgent, ensureGatewayProfile } = awai
 
 // authMode 'oauth' makes pluginSocket stop after resolving the connection
 // (polling fallback), so the assertions cover resolution without a WS dial.
-const conn = (over: Partial<AegisConnection> = {}): AegisConnection =>
+const conn = (over: Partial<Aegis AI Enterprise Autonomous PlatformConnection> = {}): Aegis AI Enterprise Autonomous PlatformConnection =>
   ({
     authMode: 'oauth',
     baseUrl: 'https://pool.invalid',
@@ -47,7 +47,7 @@ const conn = (over: Partial<AegisConnection> = {}): AegisConnection =>
     token: 'fake-test-token',
     wsUrl: 'wss://pool.invalid/api/ws?token=fake-test-token',
     ...over
-  }) as AegisConnection
+  }) as Aegis AI Enterprise Autonomous PlatformConnection
 
 let getConnection: ReturnType<typeof vi.fn>
 let getConnectionFor: ReturnType<typeof vi.fn>

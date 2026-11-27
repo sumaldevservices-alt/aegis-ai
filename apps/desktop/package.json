@@ -1,9 +1,9 @@
 {
   "name": "aegis",
-  "productName": "Aegis",
+  "productName": "Aegis AI Enterprise Autonomous Platform",
   "private": true,
   "version": "0.0.0",
-  "description": "Native desktop shell for Aegis Agent.",
+  "description": "Native desktop shell for Aegis AI Enterprise Autonomous Platform Agent.",
   "author": "Nous Research",
   "repository": {
     "type": "git",

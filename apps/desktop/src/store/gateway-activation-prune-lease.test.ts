@@ -18,7 +18,7 @@ const secondaryGateways: Array<{
 let connectGate: Promise<void> | null = null
 
 vi.mock('@/aegis', () => ({
-  AegisGateway: class {
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     connect = vi.fn(async () => {
       if (this.connectionState === 'connecting') {

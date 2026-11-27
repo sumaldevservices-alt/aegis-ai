@@ -89,7 +89,7 @@ test('normalizeRemoteHeaders keeps safe proxy headers and drops transport/auth h
       Authorization: { encoding: 'plain', value: 'bearer' },
       Cookie: { encoding: 'plain', value: 'a=b' },
       Host: { encoding: 'plain', value: 'example.com' },
-      'X-Aegis-Session-Token': { encoding: 'plain', value: 'token' },
+      'X-Aegis AI Enterprise Autonomous Platform-Session-Token': { encoding: 'plain', value: 'token' },
       'Bad Header': { encoding: 'plain', value: 'bad' },
       Empty: { encoding: 'plain', value: '' }
     }),
@@ -353,7 +353,7 @@ test('normalizeSshConfig strips a pasted "ssh " command prefix', () => {
 })
 
 test('localProfileEntry preserves inactive SSH drafts but drops Cloud state', () => {
-  const ssh = { mode: 'ssh', host: 'box', user: 'alice', remoteAegisPath: '/aegis' }
+  const ssh = { mode: 'ssh', host: 'box', user: 'alice', remoteAegis AI Enterprise Autonomous PlatformPath: '/aegis' }
   assert.deepEqual(localProfileEntry(ssh), { mode: 'local', savedSsh: ssh })
   assert.deepEqual(localProfileEntry({ mode: 'local', savedSsh: ssh }), {
     mode: 'local',
@@ -1533,7 +1533,7 @@ test('gateway WS URL IPC result serializes success and the auth-vs-transport mat
 
   for (const error of [
     Object.assign(new Error('500: unavailable'), { statusCode: 500 }),
-    new Error('Timed out connecting to Aegis backend after 8000ms'),
+    new Error('Timed out connecting to Aegis AI Enterprise Autonomous Platform backend after 8000ms'),
     Object.assign(new Error('socket reset'), { code: 'ECONNRESET' })
   ]) {
     assert.deepEqual(await gatewayWsUrlIpcResult(async () => Promise.reject(error)), {
@@ -1575,7 +1575,7 @@ test('gatewayTicketFailure only copies an integer statusCode, not a message pref
 })
 
 // OAuth integration regression (#85373): the WS-ticket mint boundary runs
-// BEFORE waitForAegisReady. This mirrors main.ts buildRemoteConnection's
+// BEFORE waitForAegis AI Enterprise Autonomous PlatformReady. This mirrors main.ts buildRemoteConnection's
 // catch — classify a Nous Cloud server fault via the shared factory, else
 // fall through to gatewayTicketFailure. Proves the production composition:
 //   1. Cloud + OAuth ticket mint + 503  -> actionable Cloud-down error
@@ -1615,7 +1615,7 @@ test('OAuth ticket-mint 401 stays on the reauth path (never Cloud-down)', () => 
   assert.equal((wrapped as any).statusCode, 401)
 })
 
-test('FIX #95701: a confirmed 401/403 ticket rejection is tagged isReauthRequired so startAegis latches it', () => {
+test('FIX #95701: a confirmed 401/403 ticket rejection is tagged isReauthRequired so startAegis AI Enterprise Autonomous Platform latches it', () => {
   for (const statusCode of [401, 403]) {
     const source = Object.assign(new Error(`${statusCode}: rejected`), { statusCode })
     const wrapped = gatewayTicketFailure(source, 'auth copy', 'transport copy') as any
@@ -1635,7 +1635,7 @@ test('FIX #95701: a confirmed 401/403 ticket rejection is tagged isReauthRequire
 test('FIX #95701: transport and server failures at the ticket mint stay retryable — never reauth', () => {
   for (const source of [
     Object.assign(new Error('503: unavailable'), { statusCode: 503 }),
-    new Error('Timed out connecting to Aegis backend after 8000ms'),
+    new Error('Timed out connecting to Aegis AI Enterprise Autonomous Platform backend after 8000ms'),
     Object.assign(new Error('read ECONNRESET'), { code: 'ECONNRESET' })
   ]) {
     const wrapped = gatewayTicketFailure(source, 'auth copy', 'transport copy') as any

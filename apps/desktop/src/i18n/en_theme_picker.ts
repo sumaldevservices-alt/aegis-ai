@@ -7,7 +7,7 @@ export const enThemePicker: ThemePickerCopy = {
   customColor: 'Custom color',
   themeAccent: 'Theme default',
   basic: 'Basic',
-  basicDetail: 'For talking to Aegis.',
+  basicDetail: 'For talking to Aegis AI Enterprise Autonomous Platform.',
   elite: 'Elite',
   eliteDetail: 'For developers: terminal, files, diffs.',
   noPick: 'No pick'

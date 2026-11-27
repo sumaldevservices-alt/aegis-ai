@@ -318,7 +318,7 @@ export function formatErrorDiagnostics(input: {
   const model = input.surface?.model || input.model
 
   const lines = [
-    '── Aegis error details ──',
+    '── Aegis AI Enterprise Autonomous Platform error details ──',
     input.failedAt ? `time: ${new Date(input.failedAt * 1000).toISOString()}` : null,
     input.surface ? `layer: ${input.surface.layer}` : null,
     input.surface ? `code: ${input.surface.code}` : null,
@@ -377,7 +377,7 @@ const PROVIDER_SETTINGS_URLS: Record<string, string> = {
   nous: 'https://portal.nousresearch.com'
 }
 
-/** The provider's own settings page (privacy/data policy), when Aegis knows one. */
+/** The provider's own settings page (privacy/data policy), when Aegis AI Enterprise Autonomous Platform knows one. */
 export function providerSettingsUrl(surface?: ErrorSurface | null): string | undefined {
   return PROVIDER_SETTINGS_URLS[(surface?.provider || '').toLowerCase()]
 }

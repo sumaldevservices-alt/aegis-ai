@@ -6,7 +6,7 @@ import { ROUTES_AREA, SIDEBAR_NAV_AREA, type SidebarNavContribution } from '@/ap
 import { createPluginContext } from '@/contrib/plugin'
 import { useContributions } from '@/contrib/react/use-contributions'
 import { registry } from '@/contrib/registry'
-import type { AegisConfigRecord } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/aegis'
 import { I18nProvider, useI18n } from '@/i18n'
 import type { I18nContextValue } from '@/i18n'
 import { setRuntimeI18nLocale } from '@/i18n/runtime'
@@ -61,9 +61,9 @@ it('relabels Kanban after delayed config load and locale switches without replac
   const route = registry.getArea(ROUTES_AREA).find(c => c.id === 'kanban:page')
   const handler = contributedKeybindHandler('kanban.newTask')
   setBinding('kanban.newTask', ['mod+alt+k'])
-  let resolveConfig!: (config: AegisConfigRecord) => void
+  let resolveConfig!: (config: Aegis AI Enterprise Autonomous PlatformConfigRecord) => void
 
-  const config = new Promise<AegisConfigRecord>(resolve => {
+  const config = new Promise<Aegis AI Enterprise Autonomous PlatformConfigRecord>(resolve => {
     resolveConfig = resolve
   })
 

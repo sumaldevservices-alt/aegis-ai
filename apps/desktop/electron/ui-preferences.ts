@@ -1,5 +1,5 @@
 // Machine-level UI preferences (#145213): one JSON document beside the ROOT
-// Aegis home, shared by native Desktop (this module, over the typed preload
+// Aegis AI Enterprise Autonomous Platform home, shared by native Desktop (this module, over the typed preload
 // capability) and every browser that opens this machine's Webapp (the Python
 // twin `aegis_cli/ui_preferences.py`, over `/api/ui-preferences`). Not per
 // profile, not per gateway connection: a Desktop connected to a remote gateway

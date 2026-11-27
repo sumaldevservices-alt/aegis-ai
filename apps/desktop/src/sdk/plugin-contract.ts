@@ -3,7 +3,7 @@
 export type { ClearProfileBackendInput, SetProfileBackendInput } from './profile-backend'
 
 export type {
-  AegisPlugin,
+  Aegis AI Enterprise Autonomous PlatformPlugin,
   PetMessageTone,
   PetSayOptions,
   PluginAppActionId,

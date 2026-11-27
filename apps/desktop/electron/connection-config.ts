@@ -11,7 +11,7 @@
  *
  * Background on the two auth models a remote gateway can use:
  *   - 'token': legacy static dashboard session token. REST uses an
- *     `X-Aegis-Session-Token` header; WS uses `?token=`.
+ *     `X-Aegis AI Enterprise Autonomous Platform-Session-Token` header; WS uses `?token=`.
  *   - 'oauth': hosted gateways gate behind an OAuth provider. REST is authed
  *     by an HttpOnly session cookie; WS upgrades require a single-use
  *     `?ticket=` minted at POST /api/auth/ws-ticket. The gateway advertises
@@ -138,7 +138,7 @@ export function gatewayTicketTransportMessage(error: unknown): string {
 
   if (['ETIMEDOUT', 'ETIMEOUT', 'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN', 'ENOTFOUND'].includes(code)) {
     return (
-      'Could not reach the remote Aegis gateway while refreshing its WebSocket ticket: ' +
+      'Could not reach the remote Aegis AI Enterprise Autonomous Platform gateway while refreshing its WebSocket ticket: ' +
       'the connection timed out or the host could not be resolved. ' +
       'Check your network/VPN path and the gateway URL, then reconnect.'
     )
@@ -146,13 +146,13 @@ export function gatewayTicketTransportMessage(error: unknown): string {
 
   if (code === 'ECONNREFUSED') {
     return (
-      'Could not reach the remote Aegis gateway while refreshing its WebSocket ticket: ' +
+      'Could not reach the remote Aegis AI Enterprise Autonomous Platform gateway while refreshing its WebSocket ticket: ' +
       'the connection was refused. The gateway process is likely down or listening on another port. ' +
       'Start the gateway (or fix its URL), then reconnect.'
     )
   }
 
-  return 'Could not reach the remote Aegis gateway while refreshing its WebSocket ticket. Try reconnecting.'
+  return 'Could not reach the remote Aegis AI Enterprise Autonomous Platform gateway while refreshing its WebSocket ticket. Try reconnecting.'
 }
 
 function gatewayTicketFailure(error, authMessage, transportMessage) {
@@ -173,7 +173,7 @@ function gatewayTicketFailure(error, authMessage, transportMessage) {
     // cookie path only sees a 401/403 after the gateway's transparent AT/RT
     // rotation has already failed, and the native-bearer path only after
     // mintGatewayWsTicket's forced /auth/native/refresh has. Nothing will
-    // change until the user signs in, so tag it the way startAegis latches
+    // change until the user signs in, so tag it the way startAegis AI Enterprise Autonomous Platform latches
     // (isReauthRequiredError): the boot is marked non-retryable and the
     // overlay's Sign in button stops flickering away under the renderer's
     // transient-boot retry loop (#95701).
@@ -311,7 +311,7 @@ function connectionScopeKey(profile) {
   return String(profile ?? '').trim() || null
 }
 
-/** Which Aegis profile the remote SSH dashboard should actually run as.
+/** Which Aegis AI Enterprise Autonomous Platform profile the remote SSH dashboard should actually run as.
  *  Registry pool keys (`conn:mac-mini::default`) are desktop routing labels —
  *  they must never be sent to the remote as a profile name. `default` and
  *  empty mean the remote root home. */
@@ -432,7 +432,7 @@ function remoteRequestMatchesBaseUrl(requestUrl, baseUrl) {
 }
 
 // True for connection modes that resolve to a REMOTE backend. 'cloud' is a
-// Aegis Cloud connection (cloud-auto-discovery Q3/Q6): it carries a
+// Aegis AI Enterprise Autonomous Platform Cloud connection (cloud-auto-discovery Q3/Q6): it carries a
 // remote-shaped block and reuses the entire remote connect/probe/reconnect
 // path, so every resolution site treats it exactly like 'remote'. The only
 // places that distinguish cloud from remote are the settings UI (which card to
@@ -507,15 +507,15 @@ function normalizeSshConfig(entry) {
     out.keyPath = keyPath
   }
 
-  const remoteAegisPath = String(entry.remoteAegisPath || '').trim()
+  const remoteAegis AI Enterprise Autonomous PlatformPath = String(entry.remoteAegis AI Enterprise Autonomous PlatformPath || '').trim()
 
-  if (remoteAegisPath) {
-    out.remoteAegisPath = remoteAegisPath
+  if (remoteAegis AI Enterprise Autonomous PlatformPath) {
+    out.remoteAegis AI Enterprise Autonomous PlatformPath = remoteAegis AI Enterprise Autonomous PlatformPath
   }
 
   // A Desktop profile can be a local routing label rather than the profile
-  // name used by the remote Aegis installation. Preserve an explicit mapping
-  // when it is a valid Aegis profile identifier; otherwise fall back to the
+  // name used by the remote Aegis AI Enterprise Autonomous Platform installation. Preserve an explicit mapping
+  // when it is a valid Aegis AI Enterprise Autonomous Platform profile identifier; otherwise fall back to the
   // historical same-name behavior in the caller.
   Object.assign(out, normalizeRemoteProfileName(entry.remoteProfile))
 
@@ -663,7 +663,7 @@ function profileRemoteOverride(config, profile) {
 }
 
 // Validate a remote profile mapping the same way the SSH path does (a valid
-// Aegis profile identifier, never a reserved alias). Invalid/blank → no
+// Aegis AI Enterprise Autonomous Platform profile identifier, never a reserved alias). Invalid/blank → no
 // mapping, so callers fall back to the historical same-name behavior.
 function normalizeRemoteProfileName(value) {
   const remoteProfile = String(value || '').trim()

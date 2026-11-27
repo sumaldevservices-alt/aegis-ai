@@ -11,7 +11,7 @@ export interface DesktopBootState extends DesktopBootProgress {
 const INITIAL_BOOT_STATE: DesktopBootState = {
   error: null,
   fakeMode: false,
-  message: translateNow('boot.steps.startingAegisDesktop'),
+  message: translateNow('boot.steps.startingAegis AI Enterprise Autonomous PlatformDesktop'),
   phase: 'renderer.init',
   progress: 2,
   running: true,

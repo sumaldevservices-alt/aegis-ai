@@ -19,7 +19,7 @@ export const arSettings = {
     billing: {
       keepGoingOnCredits: {
         title: 'الاستمرار بالرصيد',
-        description: 'استخدم رصيدك عند نفاد الاستخدام المضمّن. عند الإيقاف: ينتظر Aegis إعادة التعيين.',
+        description: 'استخدم رصيدك عند نفاد الاستخدام المضمّن. عند الإيقاف: ينتظر Aegis AI Enterprise Autonomous Platform إعادة التعيين.',
         approveInBrowser: 'وافق على الإنفاق عن بُعد في متصفحك لتغيير هذا. يُطبَّق فور الموافقة.',
         openAgain: 'الفتح مرة أخرى',
         cancel: 'إلغاء',
@@ -100,7 +100,7 @@ export const arSettings = {
     exportConfig: 'تصدير الإعدادات',
     importConfig: 'استيراد الإعدادات',
     resetToDefaults: 'إعادة الافتراضيات',
-    resetConfirm: 'هل تريد إعادة كل الإعدادات إلى افتراضيات Aegis؟',
+    resetConfirm: 'هل تريد إعادة كل الإعدادات إلى افتراضيات Aegis AI Enterprise Autonomous Platform؟',
     exportFailed: 'فشل التصدير',
     resetFailed: 'فشلت إعادة الضبط',
     pluginPages: {
@@ -176,7 +176,7 @@ export const arSettings = {
       deleteAction: 'إزالة العنصر المحفوظ',
       otpField: 'مفتاح المصادقة',
       otpPlaceholder: 'سر Base32 أو رابط otpauth://',
-      otpHint: '«مفتاح الإعداد» الذي يعرضه الموقع عند تفعيل المصادقة الثنائية. بحفظه يولّد Aegis الرموز بنفسه.',
+      otpHint: '«مفتاح الإعداد» الذي يعرضه الموقع عند تفعيل المصادقة الثنائية. بحفظه يولّد Aegis AI Enterprise Autonomous Platform الرموز بنفسه.',
       twoFactorBadge: '2FA تلقائي',
       deleteTitle: 'حذف هذا العنصر؟',
       deleteDescription: label => `سيُزال "${label}" من الخزنة المشفّرة. لا يمكن التراجع عن هذا.`,
@@ -186,10 +186,10 @@ export const arSettings = {
         blurb:
           'تُكتشف مديري كلمات المرور المثبّتة تلقائيًا. يطلب منك الوكيل فتح أحدها في أول مرة يحتاج فيها إلى بيانات دخول منه (مرة واحدة لكل جلسة)؛ يبقى في الذاكرة رمز الجلسة فقط، ولا يرى الوكيل كلمة المرور الرئيسية أو أي بيانات دخول.',
         toggleFailed: 'تعذر تحديث مدير كلمات المرور',
-        notInstalled: name => `غير مكتشف. ثبّت أداة سطر الأوامر ${name} وسجّل الدخول إليها؛ سيكتشفها Aegis تلقائيًا.`,
-        disabledDesc: 'مكتشف لكنه معطّل لـ Aegis.',
+        notInstalled: name => `غير مكتشف. ثبّت أداة سطر الأوامر ${name} وسجّل الدخول إليها؛ سيكتشفها Aegis AI Enterprise Autonomous Platform تلقائيًا.`,
+        disabledDesc: 'مكتشف لكنه معطّل لـ Aegis AI Enterprise Autonomous Platform.',
         lockedDesc: 'مكتشف. سيطلب منك الوكيل فتحه عند الحاجة إلى بيانات دخول، أو افتحه الآن.',
-        unlockedDesc: 'مفتوح لهذه الجلسة. يُقفل تلقائيًا بعد 30 دقيقة من الخمول أو عند إغلاق Aegis.',
+        unlockedDesc: 'مفتوح لهذه الجلسة. يُقفل تلقائيًا بعد 30 دقيقة من الخمول أو عند إغلاق Aegis AI Enterprise Autonomous Platform.',
         statusLocked: 'مقفل',
         statusNotDetected: 'غير مكتشف',
         statusOff: 'متوقف',
@@ -213,7 +213,7 @@ export const arSettings = {
       kinds: { bundled: 'مضمّنة', disk: 'على القرص', runtime: 'وقت التشغيل' },
       installModal: {
         installUncertain:
-          'توقف Aegis عن انتظار نتيجة التثبيت، لكن قد يستمر تثبيت المكوّن الإضافي. أغلق هذه النافذة وأعد فحص قائمة المكوّنات الإضافية قبل محاولة التثبيت مرة أخرى.',
+          'توقف Aegis AI Enterprise Autonomous Platform عن انتظار نتيجة التثبيت، لكن قد يستمر تثبيت المكوّن الإضافي. أغلق هذه النافذة وأعد فحص قائمة المكوّنات الإضافية قبل محاولة التثبيت مرة أخرى.',
         toolsConnected: n => `تم توصيل ${n} من الأدوات`,
         skillsReady: names => (names.length === 1 ? `المهارة ${names[0]} جاهزة` : `${names.length} من المهارات جاهزة`),
         nextChat: 'أدوات أخرى متاحة في دردشتك التالية',
@@ -247,7 +247,7 @@ export const arSettings = {
         'إشعارات سطح المكتب الأصلية، منفصلة عن التنبيهات داخل التطبيق. هذه محلية على الجهاز — كل حاسوب يحتفظ بإعداداته الخاصة.',
       enableAll: 'تفعيل الإشعارات',
       enableAllDesc: 'إيقافه يصمت كل الإشعارات أدناه.',
-      focusedHint: 'تنبيهات الاكتمال تظهر فقط عندما يكون Aegis في الخلفية.',
+      focusedHint: 'تنبيهات الاكتمال تظهر فقط عندما يكون Aegis AI Enterprise Autonomous Platform في الخلفية.',
       kinds: {
         approval: {
           label: 'يلزم الموافقة',
@@ -255,11 +255,11 @@ export const arSettings = {
         },
         input: {
           label: 'يلزم إدخال',
-          description: 'طرح Aegis سؤالا أو يحتاج إلى كلمة مرور أو سر.'
+          description: 'طرح Aegis AI Enterprise Autonomous Platform سؤالا أو يحتاج إلى كلمة مرور أو سر.'
         },
         turnDone: {
           label: 'الرد جاهز',
-          description: 'انتهى دور بينما كان Aegis في الخلفية.'
+          description: 'انتهى دور بينما كان Aegis AI Enterprise Autonomous Platform في الخلفية.'
         },
         turnError: {
           label: 'فشل الدور',
@@ -283,15 +283,15 @@ export const arSettings = {
       },
       phonePresence: {
         title: 'هذا الحاسوب لإشعارات الهاتف',
-        description: 'ما تخبر به هذه النافذة Aegis عن وجودك هنا. يقرّر مكوّن إشعارات الهاتف ما يفعله بذلك.',
+        description: 'ما تخبر به هذه النافذة Aegis AI Enterprise Autonomous Platform عن وجودك هنا. يقرّر مكوّن إشعارات الهاتف ما يفعله بذلك.',
         unsupported: 'لا تتأثر إشعارات الهاتف بنشاطك على هذه الواجهة الخلفية.',
         disconnected: 'غير متصل.',
-        watchingComputer: (time: string) => `ما دامت محادثة مفتوحة في هذه النافذة، يُبلَّغ Aegis بآخر مرة استخدمت فيها هذا الحاسوب. آخر إدخال قبل ${time}.`,
-        watchingWindow: (time: string) => `ما دامت محادثة مفتوحة في هذه النافذة، يُبلَّغ Aegis بآخر مرة استخدمت فيها هذه النافذة. آخر إدخال قبل ${time}.`,
-        watchingWindowNoInput: 'ما دامت محادثة مفتوحة في هذه النافذة، يُبلَّغ Aegis بآخر مرة استخدمت فيها هذه النافذة. لم يُرصَد أي إدخال بعد.'
+        watchingComputer: (time: string) => `ما دامت محادثة مفتوحة في هذه النافذة، يُبلَّغ Aegis AI Enterprise Autonomous Platform بآخر مرة استخدمت فيها هذا الحاسوب. آخر إدخال قبل ${time}.`,
+        watchingWindow: (time: string) => `ما دامت محادثة مفتوحة في هذه النافذة، يُبلَّغ Aegis AI Enterprise Autonomous Platform بآخر مرة استخدمت فيها هذه النافذة. آخر إدخال قبل ${time}.`,
+        watchingWindowNoInput: 'ما دامت محادثة مفتوحة في هذه النافذة، يُبلَّغ Aegis AI Enterprise Autonomous Platform بآخر مرة استخدمت فيها هذه النافذة. لم يُرصَد أي إدخال بعد.'
       },
       test: 'إرسال إشعار تجريبي',
-      testTitle: 'Aegis',
+      testTitle: 'Aegis AI Enterprise Autonomous Platform',
       testBody: 'الإشعارات تعمل.',
       testSent: 'تم إرسال التجربة. إذا لم يظهر شيء، تحقق من أذونات الإشعارات في نظام التشغيل ووضع التركيز/عدم الإزعاج.',
       testUnsupported: 'هذا النظام لا يدعم الإشعارات الأصلية.',
@@ -313,7 +313,7 @@ export const arSettings = {
       advanced: 'متقدم'
     },
     searchPlaceholder: {
-      about: 'حول Aegis Desktop',
+      about: 'حول Aegis AI Enterprise Autonomous Platform Desktop',
       config: 'ابحث في الإعدادات...',
       gateway: 'اتصال البوابة...',
       keys: 'ابحث في مفاتيح API...',
@@ -339,7 +339,7 @@ export const arSettings = {
       chatTextScaleDesc:
         'يضبط حجم نص المحادثة ومحرر الرسائل نسبةً إلى مقياس الواجهة. يبقى حجم الأشرطة الجانبية وعناصر التحكم كما هو.',
       title: 'المظهر',
-      intro: 'خصص مظهر Aegis Desktop.',
+      intro: 'خصص مظهر Aegis AI Enterprise Autonomous Platform Desktop.',
       colorMode: 'نمط الألوان',
       colorModeDesc: 'اختر الوضع الفاتح أو الداكن أو اتبع النظام.',
       toolViewTitle: 'عرض الأدوات',
@@ -370,7 +370,7 @@ export const arSettings = {
         sidebar: 'الشريط الجانبي فقط'
       },
       backdropTitle: 'خلفية النافذة',
-      backdropDesc: 'اختيار مقدار مزج خلفية سطح المكتب مع سطح Aegis.',
+      backdropDesc: 'اختيار مقدار مزج خلفية سطح المكتب مع سطح Aegis AI Enterprise Autonomous Platform.',
       userBubbleTitle: 'فقاعة الرسالة',
       userBubbleDesc: 'مدى شفافية رسائلك. معتمة عند 0؛ يبقى الإطار فقط عند 100.',
       textDirectionTitle: 'اتجاه النص',
@@ -382,14 +382,14 @@ export const arSettings = {
       modelPricingTitle: 'أسعار النماذج',
       modelPricingDesc: 'عرض أسعار الإدخال والإخراج وقراءة ذاكرة التخزين المؤقت لكل مليون رمز في منتقي النماذج.',
       reactionsTitle: 'تفاعلات الرسائل',
-      reactionsDesc: 'تفاعلات إيموجي بأسلوب iMessage — تفاعل مع الرسائل، ويمكن لـ Aegis التفاعل مع رسائلك.',
+      reactionsDesc: 'تفاعلات إيموجي بأسلوب iMessage — تفاعل مع الرسائل، ويمكن لـ Aegis AI Enterprise Autonomous Platform التفاعل مع رسائلك.',
       tipsTitle: 'نصائح داخل التطبيق',
       tipsDesc:
-        'نصائح تظهر أحيانًا من التطبيق وAegis. تظهر كل نصيحة مرة واحدة. تُعطّل تلقائيًا بعد أول 30 يومًا من الاستخدام، ويمكنك تفعيلها مجددًا.',
+        'نصائح تظهر أحيانًا من التطبيق وAegis AI Enterprise Autonomous Platform. تظهر كل نصيحة مرة واحدة. تُعطّل تلقائيًا بعد أول 30 يومًا من الاستخدام، ويمكنك تفعيلها مجددًا.',
       tipsReset: count => `إظهار ${count} نصيحة مرة أخرى`,
       toursTitle: 'جولات إرشادية',
       toursDesc:
-        'دع Aegis يرشدك في التطبيق مع إبراز كل خطوة. تُعطّل الجولات تلقائيًا بعد أول 30 يومًا من الاستخدام، ويمكنك تفعيلها مجددًا.',
+        'دع Aegis AI Enterprise Autonomous Platform يرشدك في التطبيق مع إبراز كل خطوة. تُعطّل الجولات تلقائيًا بعد أول 30 يومًا من الاستخدام، ويمكنك تفعيلها مجددًا.',
       composerPopoutTitle: 'محرر عائم',
       composerPopoutDesc: 'السماح بسحب محرر الرسائل خارج موضعه. عند إيقاف الخيار، يبقى مثبتًا في الأسفل.',
       fileBrowserTitle: 'مستعرض الملفات',
@@ -424,9 +424,9 @@ export const arSettings = {
       pet: {
         title: 'حيوان أليف',
         intro:
-          'تبنَّ تعويذة petdex متحركة تطفو فوق التطبيق وتتفاعل مع ما يفعله Aegis — تجري أثناء تنفيذ الأدوات، وتحتفل عند النجاح، وتعبس عند الأخطاء.',
+          'تبنَّ تعويذة petdex متحركة تطفو فوق التطبيق وتتفاعل مع ما يفعله Aegis AI Enterprise Autonomous Platform — تجري أثناء تنفيذ الأدوات، وتحتفل عند النجاح، وتعبس عند الأخطاء.',
         restartHint:
-          'تحتاج الحيوانات الأليفة إلى إعادة تشغيل سريعة — بدأ التطبيق العامل قبل إضافة هذه الميزة. أغلق Aegis وأعد فتحه، ثم ارجع إلى هنا.',
+          'تحتاج الحيوانات الأليفة إلى إعادة تشغيل سريعة — بدأ التطبيق العامل قبل إضافة هذه الميزة. أغلق Aegis AI Enterprise Autonomous Platform وأعد فتحه، ثم ارجع إلى هنا.',
         scaleTitle: 'الحجم',
         scaleDesc: 'غيّر حجم التعويذة الطافية. يُطبّق في كل مكان فورا.',
         chooseTitle: 'اختر حيوانا أليفا',
@@ -553,9 +553,9 @@ export const arSettings = {
       fallbackProviders: 'إدخالات احتياطية بصيغة provider:model لتجربتها إذا فشل النموذج الافتراضي.',
       'display.personality': 'أسلوب المساعد الافتراضي للجلسات الجديدة.',
       'display.showReasoning': 'يعرض أقسام التفكير عندما توفرها الخلفية.',
-      timezone: 'تستخدم عندما يحتاج Aegis إلى سياق الوقت المحلي. اتركها فارغة لاستخدام منطقة النظام.',
+      timezone: 'تستخدم عندما يحتاج Aegis AI Enterprise Autonomous Platform إلى سياق الوقت المحلي. اتركها فارغة لاستخدام منطقة النظام.',
       'agent.imageInputMode': 'يتحكم في طريقة إرسال مرفقات الصور إلى النموذج.',
-      'agent.maxTurns': 'الحد الأعلى لدورات استدعاء الأدوات قبل أن يوقف Aegis التشغيل.',
+      'agent.maxTurns': 'الحد الأعلى لدورات استدعاء الأدوات قبل أن يوقف Aegis AI Enterprise Autonomous Platform التشغيل.',
       'terminal.cwd': 'مجلد المشروع الافتراضي لعمل الأدوات والطرفية.',
       'terminal.persistentShell': 'يحافظ على حالة الصدفة بين الأوامر عندما تدعمها الخلفية.',
       'terminal.envPassthrough': 'متغيرات البيئة التي تمرر إلى تنفيذ الأدوات.',
@@ -564,8 +564,8 @@ export const arSettings = {
       'terminal.modalImage': 'الصورة المستخدمة عند اختيار Modal.',
       'terminal.daytonaImage': 'الصورة المستخدمة عند اختيار Daytona.',
       'codeExecution.mode': 'مدى تقييد تنفيذ الكود بالمشروع الحالي.',
-      fileReadMaxChars: 'أقصى عدد أحرف يستطيع Aegis قراءته من ملف واحد في الطلب.',
-      'approvals.mode': 'كيف يتعامل Aegis مع الأوامر التي تحتاج موافقة صريحة.',
+      fileReadMaxChars: 'أقصى عدد أحرف يستطيع Aegis AI Enterprise Autonomous Platform قراءته من ملف واحد في الطلب.',
+      'approvals.mode': 'كيف يتعامل Aegis AI Enterprise Autonomous Platform مع الأوامر التي تحتاج موافقة صريحة.',
       'approvals.timeout': 'مدة انتظار طلبات الموافقة قبل انتهاء المهلة.',
       'security.redactSecrets': 'يخفي الأسرار المكتشفة من المحتوى المرئي للنموذج قدر الإمكان.',
       'checkpoints.enabled': 'ينشئ لقطات رجوع قبل تعديلات الملفات.',
@@ -583,7 +583,7 @@ export const arSettings = {
       'stt.enabled': 'يفعل التفريغ الصوتي المحلي أو عبر مزود.',
       'stt.elevenlabs.languageCode': 'رمز لغة ISO-639-3 اختياري. اتركه فارغاً للاكتشاف التلقائي.',
       'updates.nonInteractiveLocalChanges':
-        'عندما يحدّث Aegis نفسه من التطبيق دون موجه طرفية، احتفظ بتعديلات المصدر المحلية أو تجاهلها.'
+        'عندما يحدّث Aegis AI Enterprise Autonomous Platform نفسه من التطبيق دون موجه طرفية، احتفظ بتعديلات المصدر المحلية أو تجاهلها.'
     },
     about: {
       updates: 'التحديثات',
@@ -593,7 +593,7 @@ export const arSettings = {
     config: {
       minimizeToTrayTitle: 'التصغير إلى علبة النظام',
       minimizeToTrayDesc:
-        'تصغير النوافذ أو إغلاق النافذة الرئيسية يخفيها في علبة النظام (شريط القوائم على macOS) مع استمرار Aegis في العمل. استخدم إنهاء Aegis من قائمة العلبة أو Cmd+Q للخروج. معطّل افتراضيًا ويُطبّق على هذا الجهاز فقط.',
+        'تصغير النوافذ أو إغلاق النافذة الرئيسية يخفيها في علبة النظام (شريط القوائم على macOS) مع استمرار Aegis AI Enterprise Autonomous Platform في العمل. استخدم إنهاء Aegis AI Enterprise Autonomous Platform من قائمة العلبة أو Cmd+Q للخروج. معطّل افتراضيًا ويُطبّق على هذا الجهاز فقط.',
       minimizeToTrayUnavailable:
         'علبة النظام غير متاحة. ستُصغّر النوافذ وتُغلق كالمعتاد. أوقف هذا الخيار ثم فعّله لإعادة المحاولة.',
       none: 'لا شيء',
@@ -603,7 +603,7 @@ export const arSettings = {
       searchPlaceholder: 'بحث…',
       noResults: 'لا توجد نتائج',
       systemDefault: 'إعداد النظام الافتراضي',
-      loading: 'جار تحميل إعدادات Aegis...',
+      loading: 'جار تحميل إعدادات Aegis AI Enterprise Autonomous Platform...',
       emptyTitle: 'لا توجد إعدادات',
       emptyDesc: 'لا يحتوي هذا القسم على إعدادات قابلة للتعديل.',
       failedLoad: 'فشل تحميل الإعدادات',
@@ -622,26 +622,26 @@ export const arSettings = {
       description:
         'اضغط ثم حرّر ⌘ + Option على Mac، أو Ctrl + Alt على Windows/Linux، لإظهار HUD من أي تطبيق. معطّل افتراضيًا ويُطبّق على هذا الجهاز فقط.',
       permission:
-        'اسمح لـ Aegis في إعدادات النظام ← الخصوصية والأمان ← مراقبة الإدخال، ثم أعد المحاولة. لا تسجّل هذه الإيماءة ضغطات المفاتيح ولا تلتقط الشاشة.',
+        'اسمح لـ Aegis AI Enterprise Autonomous Platform في إعدادات النظام ← الخصوصية والأمان ← مراقبة الإدخال، ثم أعد المحاولة. لا تسجّل هذه الإيماءة ضغطات المفاتيح ولا تلتقط الشاشة.',
       unavailable:
-        'تعذّر تشغيل مساعد إيماءة HUD أو توقف بشكل غير متوقع. أعد المحاولة أو أعد تشغيل Aegis. يظل اختصار HUD الحالي يعمل داخل Aegis.',
-      missingHelper: 'مساعد إيماءة HUD غير موجود في تثبيت Aegis هذا. حدّث Aegis أو أعد تثبيته، ثم أعد المحاولة.',
+        'تعذّر تشغيل مساعد إيماءة HUD أو توقف بشكل غير متوقع. أعد المحاولة أو أعد تشغيل Aegis AI Enterprise Autonomous Platform. يظل اختصار HUD الحالي يعمل داخل Aegis AI Enterprise Autonomous Platform.',
+      missingHelper: 'مساعد إيماءة HUD غير موجود في تثبيت Aegis AI Enterprise Autonomous Platform هذا. حدّث Aegis AI Enterprise Autonomous Platform أو أعد تثبيته، ثم أعد المحاولة.',
       unsupportedSession:
         'جلسة سطح المكتب هذه لا تدعم ضغطات مفاتيح التعديل على مستوى النظام. يتطلب Linux جلسة X11؛ Wayland غير مدعوم.'
     },
     screenshot: {
       enabledTitle: 'اختصار لقطة الشاشة',
       enabledDesc:
-        'اضغط مفتاحَي Command معًا من أي تطبيق لالتقاط النافذة الأمامية وإرفاقها بمسودة Aegis الحالية. لا يُرسل أي شيء تلقائيًا. معطّل افتراضيًا ويُطبَّق على جهاز Mac هذا فقط. قد تتضمن النافذة محتوى حساسًا، لذا راجع المرفق قبل الإرسال.',
+        'اضغط مفتاحَي Command معًا من أي تطبيق لالتقاط النافذة الأمامية وإرفاقها بمسودة Aegis AI Enterprise Autonomous Platform الحالية. لا يُرسل أي شيء تلقائيًا. معطّل افتراضيًا ويُطبَّق على جهاز Mac هذا فقط. قد تتضمن النافذة محتوى حساسًا، لذا راجع المرفق قبل الإرسال.',
       statusTitle: 'حالة اختصار لقطة الشاشة',
       checking: 'جارٍ التحقق من اختصار لقطة الشاشة…',
       disabled: 'اختصار لقطة الشاشة معطّل.',
       starting: 'جارٍ بدء رصد الاختصار. لم يصبح جاهزًا بعد.',
       ready: 'الاختصار جاهز. تُرفق اللقطات بالمسودة الحالية دون إرسالها.',
       inputPermission:
-        'يتيح إذن مراقبة الإدخال لـ Aegis رصد مفتاحَي Command أثناء استخدام تطبيق آخر. اسمح لـ Aegis في إعدادات النظام ← الخصوصية والأمان ← مراقبة الإدخال، ثم عُد إلى هنا وأعد المحاولة.',
+        'يتيح إذن مراقبة الإدخال لـ Aegis AI Enterprise Autonomous Platform رصد مفتاحَي Command أثناء استخدام تطبيق آخر. اسمح لـ Aegis AI Enterprise Autonomous Platform في إعدادات النظام ← الخصوصية والأمان ← مراقبة الإدخال، ثم عُد إلى هنا وأعد المحاولة.',
       screenPermission:
-        'يتيح إذن تسجيل الشاشة لـ Aegis التقاط نافذة التطبيق الأمامية عند استخدام هذا الاختصار. اسمح لـ Aegis في إعدادات النظام ← الخصوصية والأمان ← تسجيل الشاشة، ثم عُد إلى هنا وأعد المحاولة. أعد تشغيل Aegis إذا طلب macOS ذلك.',
+        'يتيح إذن تسجيل الشاشة لـ Aegis AI Enterprise Autonomous Platform التقاط نافذة التطبيق الأمامية عند استخدام هذا الاختصار. اسمح لـ Aegis AI Enterprise Autonomous Platform في إعدادات النظام ← الخصوصية والأمان ← تسجيل الشاشة، ثم عُد إلى هنا وأعد المحاولة. أعد تشغيل Aegis AI Enterprise Autonomous Platform إذا طلب macOS ذلك.',
       openSettings: 'فتح إعدادات النظام',
       retry: 'إعادة المحاولة',
       unavailable: 'اختصار لقطة الشاشة غير متاح. أعد المحاولة أو عطّله.',
@@ -654,7 +654,7 @@ export const arSettings = {
     },
     quickEntry: {
       enabledTitle: 'الإدخال السريع',
-      enabledDesc: 'استدعِ محرّرا صغيرا من أي مكان باختصار عام وأرسل طلبا دون فتح Aegis.',
+      enabledDesc: 'استدعِ محرّرا صغيرا من أي مكان باختصار عام وأرسل طلبا دون فتح Aegis AI Enterprise Autonomous Platform.',
       shortcutTitle: 'اختصار الإدخال السريع',
       shortcutDesc: 'يحتاج إلى مفتاح تعديل واحد على الأقل، مثل CommandOrControl+Shift+Space.',
       active: 'الاختصار مفعّل.',
@@ -684,9 +684,9 @@ export const arSettings = {
       loading: 'جار تحميل إعدادات البوابة...',
       unavailableTitle: 'إعدادات البوابة غير متاحة',
       unavailableDesc: 'جسر IPC في سطح المكتب لا يوفّر إعدادات البوابة.',
-      webappHostTitle: 'مضيف Aegis',
+      webappHostTitle: 'مضيف Aegis AI Enterprise Autonomous Platform',
       webappHostDesc:
-        'يعمل Webapp دائمًا على مضيف Aegis الذي يقدّمه. الاتصالات المحفوظة أدناه هي قائمة هذا الجهاز، مشتركة مع تطبيق Aegis Desktop؛ ويتم الوصول إلى البوابات الأخرى عبر هذا المضيف.',
+        'يعمل Webapp دائمًا على مضيف Aegis AI Enterprise Autonomous Platform الذي يقدّمه. الاتصالات المحفوظة أدناه هي قائمة هذا الجهاز، مشتركة مع تطبيق Aegis AI Enterprise Autonomous Platform Desktop؛ ويتم الوصول إلى البوابات الأخرى عبر هذا المضيف.',
       webappOauthPaste: {
         title: 'إكمال تسجيل الدخول',
         description: 'إذا انتهت علامة تبويب تسجيل الدخول على عنوان لا يُحمَّل (هذا المتصفح ليس على جهاز البوابة)، فالصق ذلك العنوان هنا.',
@@ -697,14 +697,14 @@ export const arSettings = {
       title: 'اتصال البوابة',
       envOverride: 'تجاوز من البيئة',
       intro:
-        'يشغّل Aegis Desktop بوابة محلية خاصة افتراضياً. استخدم بوابة بعيدة عندما تريد أن يتحكم هذا التطبيق بخلفية Aegis تعمل مسبقاً على جهاز آخر أو خلف وكيل موثوق. اتصالات البوابة إعداد على مستوى الجهاز؛ ويتم اكتشاف الملفات الشخصية من البوابات المتصلة.',
+        'يشغّل Aegis AI Enterprise Autonomous Platform Desktop بوابة محلية خاصة افتراضياً. استخدم بوابة بعيدة عندما تريد أن يتحكم هذا التطبيق بخلفية Aegis AI Enterprise Autonomous Platform تعمل مسبقاً على جهاز آخر أو خلف وكيل موثوق. اتصالات البوابة إعداد على مستوى الجهاز؛ ويتم اكتشاف الملفات الشخصية من البوابات المتصلة.',
       envOverrideTitle: 'متغيرات البيئة تتحكم في جلسة سطح المكتب هذه.',
       envOverrideDesc: 'أزل AEGIS_DESKTOP_REMOTE_URL و AEGIS_DESKTOP_REMOTE_TOKEN لاستخدام الإعداد المحفوظ أدناه.',
       localTitle: 'بوابة محلية',
-      localDesc: 'تشغيل خلفية Aegis خاصة على localhost. هذا هو الافتراضي ويعمل دون اتصال.',
+      localDesc: 'تشغيل خلفية Aegis AI Enterprise Autonomous Platform خاصة على localhost. هذا هو الافتراضي ويعمل دون اتصال.',
       remoteTitle: 'بوابة بعيدة',
       remoteDesc:
-        'صل واجهة سطح المكتب هذه بخلفية Aegis بعيدة. البوابات المستضافة تستخدم OAuth أو اسم مستخدم وكلمة مرور، والبوابات الذاتية قد تستخدم رمز جلسة.',
+        'صل واجهة سطح المكتب هذه بخلفية Aegis AI Enterprise Autonomous Platform بعيدة. البوابات المستضافة تستخدم OAuth أو اسم مستخدم وكلمة مرور، والبوابات الذاتية قد تستخدم رمز جلسة.',
       remoteUrlTitle: 'رابط البوابة البعيدة',
       remoteUrlDesc: 'الرابط الأساسي لخلفية لوحة التحكم البعيدة. يمكن استخدام بادئات مسار مثل /aegis.',
       probing: 'جار فحص طريقة مصادقة هذه البوابة...',
@@ -741,9 +741,9 @@ export const arSettings = {
       enterUrlFirst: 'أدخل رابط البوابة البعيدة أولاً.',
       restartingTitle: 'جار إعادة تشغيل اتصال البوابة',
       savedTitle: 'تم حفظ إعدادات البوابة',
-      restartingMessage: 'سيعيد Aegis Desktop الاتصال باستخدام الإعدادات المحفوظة.',
+      restartingMessage: 'سيعيد Aegis AI Enterprise Autonomous Platform Desktop الاتصال باستخدام الإعدادات المحفوظة.',
       savedMessage: 'تم الحفظ للتشغيل القادم.',
-      connectedTo: (baseUrl, version) => `متصل بـ ${baseUrl}${version ? ` · Aegis ${version}` : ''}`,
+      connectedTo: (baseUrl, version) => `متصل بـ ${baseUrl}${version ? ` · Aegis AI Enterprise Autonomous Platform ${version}` : ''}`,
       reachableTitle: 'البوابة البعيدة قابلة للوصول',
       signedOutTitle: 'تم تسجيل الخروج',
       signedOutMessage: 'تم مسح جلسة البوابة البعيدة.',
@@ -755,7 +755,7 @@ export const arSettings = {
       saveFailed: 'تعذر حفظ إعدادات البوابة',
       webAccess: {
         title: 'الوصول عبر الويب',
-        intro: 'افتح Aegis الموجود على هذا الحاسوب من هاتفك أو من حاسوب آخر، مع تسجيل الدخول بحساب Nous. من يسجّل الدخول يمكنه تشغيل الأوامر على هذا الحاسوب.',
+        intro: 'افتح Aegis AI Enterprise Autonomous Platform الموجود على هذا الحاسوب من هاتفك أو من حاسوب آخر، مع تسجيل الدخول بحساب Nous. من يسجّل الدخول يمكنه تشغيل الأوامر على هذا الحاسوب.',
         failed: 'تعذّر تغيير الوصول عبر الويب',
         running: 'قيد التشغيل',
         stopped: 'متوقف',
@@ -763,7 +763,7 @@ export const arSettings = {
         stopping: 'جارٍ الإيقاف',
         restartNeeded: 'يلزم إعادة التشغيل',
         unavailable: 'غير متاح',
-        notRunningDetail: 'شغّله لفتح Aegis من جهاز آخر.',
+        notRunningDetail: 'شغّله لفتح Aegis AI Enterprise Autonomous Platform من جهاز آخر.',
         needsNous: 'سجّل الدخول إلى حساب Nous من قسم المزوّدين أولًا.',
         runningLan: 'افتح هذا العنوان على جهاز في الشبكة نفسها.',
         runningPublic: 'يُقدَّم عبر عنوانك.',
@@ -817,7 +817,7 @@ export const arSettings = {
       remove: 'إزالة',
       deepLinkTitle: 'إضافة خادم MCP؟',
       deepLinkDescription:
-        'طلب رابط إضافة خادم MCP هذا إلى Aegis. راجع الإعدادات الكاملة أدناه — فهي قادمة من الرابط وليست من Aegis.',
+        'طلب رابط إضافة خادم MCP هذا إلى Aegis AI Enterprise Autonomous Platform. راجع الإعدادات الكاملة أدناه — فهي قادمة من الرابط وليست من Aegis AI Enterprise Autonomous Platform.',
       deepLinkStdioWarning:
         'سيشغّل هذا الخادم عملية محلية على جهازك بالأمر الموضح أدناه. لا تتابع إلا إذا كنت تثق بمصدره.',
       deepLinkConfirm: 'إضافة الخادم',
@@ -946,7 +946,7 @@ export const arSettings = {
     providers: {
       connectAccount: 'ربط حساب',
       haveApiKey: 'لديك مفتاح API بدلاً من ذلك؟',
-      intro: 'سجل الدخول باشتراكك دون نسخ مفتاح API. يشغّل Aegis تسجيل الدخول من المتصفح لك داخل التطبيق.',
+      intro: 'سجل الدخول باشتراكك دون نسخ مفتاح API. يشغّل Aegis AI Enterprise Autonomous Platform تسجيل الدخول من المتصفح لك داخل التطبيق.',
       connected: 'متصل',
       collapse: 'طي',
       connectAnother: 'ربط مزود آخر',
@@ -1039,7 +1039,7 @@ export const arSettings = {
     }
   },
   modelAssignment: {
-    saveFailed: 'لم يحفظ Aegis تغيير النموذج هذا.',
+    saveFailed: 'لم يحفظ Aegis AI Enterprise Autonomous Platform تغيير النموذج هذا.',
     confirmTitle: 'تحذير اختيار النموذج',
     confirmDetail: 'أكّد فقط إذا كنت تقبل هذه المقايضة.',
     confirmAction: 'تأكيد',
@@ -1098,11 +1098,11 @@ export const arSettings = {
   },
   interfaceMode: {
     title: 'وضع الواجهة',
-    hint: 'يغيّر ما يظهر، وليس ما يستطيع Aegis فعله.',
+    hint: 'يغيّر ما يظهر، وليس ما يستطيع Aegis AI Enterprise Autonomous Platform فعله.',
     sessionNote: 'يحدده الوضع البسيط. التغيير هنا يستمر لهذه الجلسة فقط؛ بدّل إلى المتقدم لجعله خيارك.',
     simple: {
       label: 'بسيط',
-      description: 'للتحدث مع Aegis. الشريط الجانبي والدردشة؛ بلا طرفية أو لوحات ملفات أو فروقات.'
+      description: 'للتحدث مع Aegis AI Enterprise Autonomous Platform. الشريط الجانبي والدردشة؛ بلا طرفية أو لوحات ملفات أو فروقات.'
     },
     advanced: {
       label: 'متقدم',

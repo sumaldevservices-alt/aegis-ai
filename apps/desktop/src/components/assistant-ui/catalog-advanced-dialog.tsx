@@ -132,7 +132,7 @@ function CatalogAdvancedForm({ entry, fields, kind, onCancel, onInstall }: Catal
   const filesUrl = pluginFilesUrl(entry)
 
   const requirements = [
-    ...(entry.requiresAegis ? [copy.requiresAegis(entry.requiresAegis)] : []),
+    ...(entry.requiresAegis AI Enterprise Autonomous Platform ? [copy.requiresAegis AI Enterprise Autonomous Platform(entry.requiresAegis AI Enterprise Autonomous Platform)] : []),
     ...fields.map(field => copy.envVar(field.name))
   ]
 

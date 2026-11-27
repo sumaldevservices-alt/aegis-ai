@@ -25,7 +25,7 @@ import {
 markOnboardingDecided()
 
 const NOT_CONNECTED =
-  'Aegis is not connected to any AI provider yet. Run `aegis model` to pick one, or `aegis auth add <provider>`.'
+  'Aegis AI Enterprise Autonomous Platform is not connected to any AI provider yet. Run `aegis model` to pick one, or `aegis auth add <provider>`.'
 
 function baseState(overrides: Partial<DesktopOnboardingState> = {}): DesktopOnboardingState {
   return {
@@ -221,7 +221,7 @@ describe('refreshOnboarding', () => {
       if (method === 'setup.runtime_check') {
         return {
           ok: false,
-          error: 'Aegis is not connected to any AI provider yet. Run `aegis model` to pick one.'
+          error: 'Aegis AI Enterprise Autonomous Platform is not connected to any AI provider yet. Run `aegis model` to pick one.'
         } as never
       }
 

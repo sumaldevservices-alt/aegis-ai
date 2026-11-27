@@ -45,7 +45,7 @@ import {
 import { onGatewayEvent } from '@/contrib/events'
 import { registry } from '@/contrib/registry'
 import type { PluginWorkspaceOptions, WorkspaceMode } from '@/contrib/types'
-import { deleteProfile, getLogs, getStatus, aegisApi, type AegisGateway } from '@/aegis'
+import { deleteProfile, getLogs, getStatus, aegisApi, type Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import { traceIdentityChange } from '@/lib/identity-trace'
 import { completeMcpDesktopOAuth } from '@/lib/mcp-dashboard-oauth'
 import {
@@ -126,7 +126,7 @@ import { $viewport, type ViewportRect } from './viewport'
 
 /** Pane, status bar and titlebar slots; see `./areas` for the mount rules. */
 export * from './areas'
-/** The plugin authoring contract (`AegisPlugin`, `PluginContext`, `ctx.*` door types). */
+/** The plugin authoring contract (`Aegis AI Enterprise Autonomous PlatformPlugin`, `PluginContext`, `ctx.*` door types). */
 export type * from './plugin-contract'
 export type { PluginProfileRequestOptions, PluginProfileRoute } from './profile-request'
 
@@ -500,7 +500,7 @@ function waitForFocusedSessionHydration({
 
 // Wait for a profile switch, but never longer than the wake budget.
 //
-// ensureGatewayProfile awaits the store's dial, and AegisGateway.connect() has
+// ensureGatewayProfile awaits the store's dial, and Aegis AI Enterprise Autonomous PlatformGateway.connect() has
 // no dial timeout of its own: a backend that accepts the socket and then never
 // completes the handshake leaves this promise pending for the life of the
 // window. That is not merely a slow open. waitForFocusedSessionHydration arms
@@ -769,7 +769,7 @@ export const host = {
     const bridge = window.aegisDesktop?.connections
 
     if (!bridge) {
-      throw new Error('This Desktop build has no connection registry. Update Aegis Desktop.')
+      throw new Error('This Desktop build has no connection registry. Update Aegis AI Enterprise Autonomous Platform Desktop.')
     }
 
     const registryPayload = await bridge.list()
@@ -786,7 +786,7 @@ export const host = {
     const roster = window.aegisDesktop?.getAgentRoster
 
     if (!roster) {
-      throw new Error('This Desktop build cannot enumerate multi-source agents. Update Aegis Desktop.')
+      throw new Error('This Desktop build cannot enumerate multi-source agents. Update Aegis AI Enterprise Autonomous Platform Desktop.')
     }
 
     return roster()
@@ -1247,7 +1247,7 @@ export const host = {
       const openTab = $newSessionTabAction.get()
 
       if (!openTab) {
-        notify({ kind: 'error', message: 'Update Aegis Desktop to open another bot chat.' })
+        notify({ kind: 'error', message: 'Update Aegis AI Enterprise Autonomous Platform Desktop to open another bot chat.' })
 
         return
       }
@@ -1344,7 +1344,7 @@ export const host = {
     const getProfileRoutes = desktop?.getProfileRoutes
 
     if (!getProfileRoutes) {
-      throw new Error('Aegis Desktop connection routing unavailable')
+      throw new Error('Aegis AI Enterprise Autonomous Platform Desktop connection routing unavailable')
     }
 
     let profiles = $profiles.get()
@@ -1502,7 +1502,7 @@ export const host = {
     const gateway = $gateway.get()
 
     if (!gateway) {
-      throw new Error('Aegis gateway unavailable')
+      throw new Error('Aegis AI Enterprise Autonomous Platform gateway unavailable')
     }
 
     return timeoutMs === undefined ? gateway.request<T>(method, params) : gateway.request<T>(method, params, timeoutMs)
@@ -1510,10 +1510,10 @@ export const host = {
 
   /** The LIVE gateway instance for the active profile (null before the first
    *  socket opens). Most plugins want `host.request`; this exists for SDK
-   *  components that take a `AegisGateway` prop directly (e.g. `ConnectorsTab`),
+   *  components that take a `Aegis AI Enterprise Autonomous PlatformGateway` prop directly (e.g. `ConnectorsTab`),
    *  which need the instance, not just a JSON-RPC door. Re-read per use — the
    *  active instance changes on a profile swap. */
-  getGateway: (): AegisGateway | null => $gateway.get(),
+  getGateway: (): Aegis AI Enterprise Autonomous PlatformGateway | null => $gateway.get(),
 
   /** Change-only desktop.log line for multi-connection identity diagnostics
    *  (`[category win=…] tag detail`). Call as `host.traceIdentityChange?.(…)`. */
@@ -1777,7 +1777,7 @@ export { pluginSettingsHref, SETTINGS_PLUGINS_AREA } from '@/contrib/settings-pa
 export type { Contribution } from '@/contrib/types'
 /** The live gateway instance type — for typing the `gateway` prop `ConnectorsTab`
  *  takes; obtain the instance from `host.getGateway()`. */
-export type { AegisGateway } from '@/aegis'
+export type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 /** Grab-to-pan for overflow containers (boards, timelines, wide tables) —
  *  the shared scrub primitive; don't hand-roll drag-to-scroll. */
 export { type GrabScroll, useGrabScroll } from '@/hooks/use-grab-scroll'
@@ -1829,7 +1829,7 @@ export {
   type SurfaceModelSwitchConfirmOptions
 } from '@/lib/guarded-model-switch'
 export { triggerHaptic as haptic } from '@/lib/haptics'
-export type { AegisOpenTarget } from '@/lib/aegis-open-target'
+export type { Aegis AI Enterprise Autonomous PlatformOpenTarget } from '@/lib/aegis-open-target'
 /** The app's lucide icon set (RefreshCw, LayoutDashboard, Activity, …). */
 export * as icons from '@/lib/icons'
 /** IME-aware Enter: true only for a real submit Enter, never a CJK composition
@@ -1957,7 +1957,7 @@ export { APPROVAL_RESPOND_TIMEOUT_MS } from '@aegis/shared'
 /** THE id minter: a v4 UUID on every origin. `crypto.randomUUID` exists only in secure contexts,
  *  so a Webapp opened over plain HTTP from another machine has none. */
 export { randomUuid } from '@aegis/shared'
-/** Aegis' reasoning levels, so a plugin surfacing a thinking depth uses the
+/** Aegis AI Enterprise Autonomous Platform' reasoning levels, so a plugin surfacing a thinking depth uses the
  *  same scale as the rest of the app (labels: `reasoningEffortLabel`). */
 export {
   DEFAULT_REASONING_EFFORT,

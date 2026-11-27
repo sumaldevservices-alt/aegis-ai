@@ -8,7 +8,7 @@ import { afterEach, beforeEach, test } from 'vitest'
 import { createDesktopProfilePreferences, type MissingLocalProfileCheck } from './desktop-profile'
 import { localProfileIsLive } from './local-profile-liveness'
 
-// The preference file lives in Electron userData, which a Aegis reinstall
+// The preference file lives in Electron userData, which a Aegis AI Enterprise Autonomous Platform reinstall
 // does not touch; the profiles live under AEGIS_HOME, which it can wipe.
 let root = ''
 let target = ''
@@ -38,7 +38,7 @@ function check(overrides: Partial<MissingLocalProfileCheck> = {}): MissingLocalP
   }
 }
 
-test('a remembered local profile missing from the Aegis home falls back to default on disk', () => {
+test('a remembered local profile missing from the Aegis AI Enterprise Autonomous Platform home falls back to default on disk', () => {
   createDesktopProfilePreferences(target).remember('aegis-contributor')
 
   const preferences = createDesktopProfilePreferences(target)
@@ -64,7 +64,7 @@ test('existing, default and explicitly launched profiles are kept', () => {
   assert.deepEqual(preferences.forgetMissingLocalProfiles(check()), [])
   assert.equal(preferences.readActive(), 'default')
 
-  // `Aegis --profile typo` must still surface the backend's refusal.
+  // `Aegis AI Enterprise Autonomous Platform --profile typo` must still surface the backend's refusal.
   preferences.remember('typo')
   assert.deepEqual(preferences.forgetMissingLocalProfiles(check({ launchProfile: 'typo' })), [])
   assert.equal(preferences.readActive(), 'typo')

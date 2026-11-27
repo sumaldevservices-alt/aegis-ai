@@ -196,7 +196,7 @@ it('applying another remote profile on a saved SSH host adds it and leaves the s
   expect(next.connections.find(c => c.id === next.primary)?.remoteProfile).toBe('writer')
 })
 
-it('saving a corrected key or Aegis path updates the matching SSH entry in place, set or cleared', () => {
+it('saving a corrected key or Aegis AI Enterprise Autonomous Platform path updates the matching SSH entry in place, set or cleared', () => {
   const registry = normalizeRegistry({
     version: 2,
     primary: 'coder',
@@ -212,7 +212,7 @@ it('saving a corrected key or Aegis path updates the matching SSH entry in place
         user: 'aegis',
         remoteProfile: 'coder',
         keyPath: '/old/key',
-        remoteAegisPath: '/old/aegis'
+        remoteAegis AI Enterprise Autonomous PlatformPath: '/old/aegis'
       }
     ]
   })
@@ -221,15 +221,15 @@ it('saving a corrected key or Aegis path updates the matching SSH entry in place
 
   const fixed = registerGlobalRoute(registry, {
     mode: 'ssh',
-    remote: { ...route, keyPath: '/new/key', remoteAegisPath: '/new/aegis' }
+    remote: { ...route, keyPath: '/new/key', remoteAegis AI Enterprise Autonomous PlatformPath: '/new/aegis' }
   })
 
   const entry = fixed.connections.find(c => c.id === 'coder')
   expect(fixed.connections.filter(c => c.kind === 'ssh')).toHaveLength(1)
-  expect([entry?.label, entry?.keyPath, entry?.remoteAegisPath]).toEqual(['Box (coder)', '/new/key', '/new/aegis'])
+  expect([entry?.label, entry?.keyPath, entry?.remoteAegis AI Enterprise Autonomous PlatformPath]).toEqual(['Box (coder)', '/new/key', '/new/aegis'])
 
   const cleared = registerGlobalRoute(fixed, { mode: 'ssh', remote: route }).connections.find(c => c.id === 'coder')
-  expect([cleared?.keyPath, cleared?.remoteAegisPath]).toEqual([undefined, undefined])
+  expect([cleared?.keyPath, cleared?.remoteAegis AI Enterprise Autonomous PlatformPath]).toEqual([undefined, undefined])
 })
 
 it('Apply routes the window to each applied SSH profile, back to one already saved; Save never re-picks', () => {

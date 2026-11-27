@@ -37,7 +37,7 @@ it('routes word erase only to a live shell and releases the context-menu handle 
   expect(terminalMenuHandleFor(host)).toBeNull()
 })
 
-it('keeps a plain Alt chord Aegis ran off the PTY and leaves shared Ctrl keys and other cancels to the shell', () => {
+it('keeps a plain Alt chord Aegis AI Enterprise Autonomous Platform ran off the PTY and leaves shared Ctrl keys and other cancels to the shell', () => {
   const attachCustomKeyEventHandler = vi.fn()
   const term = { attachCustomKeyEventHandler, getSelection: () => '' } as unknown as Terminal
   const dispose = bindTerminalClipboard(term, document.createElement('div'), vi.fn(), vi.fn(), () => true)
@@ -52,7 +52,7 @@ it('keeps a plain Alt chord Aegis ran off the PTY and leaves shared Ctrl keys an
   }
 
   expect(passToPty(ran({ altKey: true, key: 't' }))).toBe(false)
-  // Ctrl+D is EOF in the shell even though it is also a Aegis chord.
+  // Ctrl+D is EOF in the shell even though it is also a Aegis AI Enterprise Autonomous Platform chord.
   expect(passToPty(ran({ ctrlKey: true, key: 'd' }))).toBe(true)
   expect(passToPty(new KeyboardEvent('keydown', { altKey: true, key: 'b' }))).toBe(true)
 

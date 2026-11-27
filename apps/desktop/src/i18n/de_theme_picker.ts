@@ -7,7 +7,7 @@ export const deThemePicker: ThemePickerCopy = {
   customColor: 'Eigene Farbe',
   themeAccent: 'Standard des Themes',
   basic: 'Basic',
-  basicDetail: 'Zum Chatten mit Aegis.',
+  basicDetail: 'Zum Chatten mit Aegis AI Enterprise Autonomous Platform.',
   elite: 'Elite',
   eliteDetail: 'Für Entwickler: Terminal, Dateien, Diffs.',
   noPick: 'Keine Auswahl'

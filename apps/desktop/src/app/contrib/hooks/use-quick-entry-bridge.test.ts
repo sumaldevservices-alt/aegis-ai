@@ -51,13 +51,13 @@ describe('quickEntrySubmitAck', () => {
 })
 
 describe('useQuickEntryBridge', () => {
-  const originalAegisDesktop = window.aegisDesktop
+  const originalAegis AI Enterprise Autonomous PlatformDesktop = window.aegisDesktop
   let root: Root | null = null
 
   afterEach(() => {
     root?.unmount()
     root = null
-    window.aegisDesktop = originalAegisDesktop
+    window.aegisDesktop = originalAegis AI Enterprise Autonomous PlatformDesktop
     vi.clearAllMocks()
   })
 

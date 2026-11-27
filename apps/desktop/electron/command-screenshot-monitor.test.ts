@@ -27,7 +27,7 @@ test('launches the unpacked helper without prompting and delivers only validated
 
   const monitor = new CommandScreenshotMonitor({
     platform: 'darwin',
-    appPath: '/Applications/Aegis.app/Contents/Resources/app.asar',
+    appPath: '/Applications/Aegis AI Enterprise Autonomous Platform.app/Contents/Resources/app.asar',
     spawn
   })
 
@@ -37,7 +37,7 @@ test('launches the unpacked helper without prompting and delivers only validated
   )
   assert.equal(spawn.mock.calls.length, 1)
   assert.deepEqual(spawn.mock.calls[0], [
-    '/Applications/Aegis.app/Contents/Resources/app.asar.unpacked/dist/native/command-screenshot-monitor',
+    '/Applications/Aegis AI Enterprise Autonomous Platform.app/Contents/Resources/app.asar.unpacked/dist/native/command-screenshot-monitor',
     [],
     { stdio: ['pipe', 'pipe', 'ignore'], shell: false, detached: false, windowsHide: true }
   ])

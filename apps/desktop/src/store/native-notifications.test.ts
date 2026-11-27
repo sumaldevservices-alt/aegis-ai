@@ -23,7 +23,7 @@ import { setActiveSessionId } from './session'
 import { dropSessionState, publishSessionState } from './session-states'
 
 const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
-const initialAegisDesktop = desktopWindow.aegisDesktop
+const initialAegis AI Enterprise Autonomous PlatformDesktop = desktopWindow.aegisDesktop
 
 const notify = vi.fn().mockResolvedValue(true)
 
@@ -60,8 +60,8 @@ beforeEach(() => {
 afterEach(() => {
   clearPluginNotifyHandlers()
 
-  if (initialAegisDesktop) {
-    desktopWindow.aegisDesktop = initialAegisDesktop
+  if (initialAegis AI Enterprise Autonomous PlatformDesktop) {
+    desktopWindow.aegisDesktop = initialAegis AI Enterprise Autonomous PlatformDesktop
   } else {
     delete desktopWindow.aegisDesktop
   }
@@ -298,7 +298,7 @@ describe('sendTestNativeNotification', () => {
   it('fires regardless of focus or active session', () => {
     setWindowState({ focused: true, hidden: false })
     setActiveSessionId('on-screen')
-    sendTestNativeNotification('Aegis', 'works')
+    sendTestNativeNotification('Aegis AI Enterprise Autonomous Platform', 'works')
     expect(notify).toHaveBeenCalledTimes(1)
   })
 })

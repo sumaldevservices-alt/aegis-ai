@@ -2,8 +2,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 vi.mock('@/store/haptics', () => ({ $hapticsMuted: { get: vi.fn(() => false) } }))
 vi.mock('@/aegis', () => ({
-  getAegisConfigRecord: vi.fn(async () => ({})),
-  saveAegisConfig: vi.fn(async () => undefined)
+  getAegis AI Enterprise Autonomous PlatformConfigRecord: vi.fn(async () => ({})),
+  saveAegis AI Enterprise Autonomous PlatformConfig: vi.fn(async () => undefined)
 }))
 
 import { $hapticsMuted } from '@/store/haptics'

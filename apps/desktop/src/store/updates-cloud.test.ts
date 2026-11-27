@@ -1,18 +1,18 @@
 // @vitest-environment jsdom
 // The update store's own entry points refuse a Cloud-owned target, so no button,
-// toast or flow left anywhere can start an update Aegis Cloud owns.
+// toast or flow left anywhere can start an update Aegis AI Enterprise Autonomous Platform Cloud owns.
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 
-const checkAegisUpdateSpy = vi.fn()
-const updateAegisSpy = vi.fn()
+const checkAegis AI Enterprise Autonomous PlatformUpdateSpy = vi.fn()
+const updateAegis AI Enterprise Autonomous PlatformSpy = vi.fn()
 
 vi.mock('@/aegis', async importOriginal => ({
   ...(await importOriginal<Record<string, unknown>>()),
-  checkAegisUpdate: (...args: unknown[]) => checkAegisUpdateSpy(...args),
+  checkAegis AI Enterprise Autonomous PlatformUpdate: (...args: unknown[]) => checkAegis AI Enterprise Autonomous PlatformUpdateSpy(...args),
   getActionStatus: vi.fn(),
-  updateAegis: (...args: unknown[]) => updateAegisSpy(...args)
+  updateAegis AI Enterprise Autonomous Platform: (...args: unknown[]) => updateAegis AI Enterprise Autonomous PlatformSpy(...args)
 }))
 const notifySpy = vi.fn()
 
@@ -24,7 +24,7 @@ const { setConnection } = await import('./session')
 const clientCheck = vi.fn().mockResolvedValue({ supported: true, behind: 2, targetSha: 'a' })
 const clientApply = vi.fn().mockResolvedValue({ ok: true })
 
-const remote = (baseUrl: string): AegisConnection => ({
+const remote = (baseUrl: string): Aegis AI Enterprise Autonomous PlatformConnection => ({
   baseUrl,
   isFullscreen: false,
   logs: [],
@@ -38,8 +38,8 @@ const remote = (baseUrl: string): AegisConnection => ({
 
 beforeEach(() => {
   vi.clearAllMocks()
-  checkAegisUpdateSpy.mockResolvedValue({ behind: 1, can_apply: true, current_version: '1', update_available: true })
-  updateAegisSpy.mockResolvedValue({ ok: true, name: 'aegis-update' })
+  checkAegis AI Enterprise Autonomous PlatformUpdateSpy.mockResolvedValue({ behind: 1, can_apply: true, current_version: '1', update_available: true })
+  updateAegis AI Enterprise Autonomous PlatformSpy.mockResolvedValue({ ok: true, name: 'aegis-update' })
   window.aegisDesktop = { updates: { apply: clientApply, check: clientCheck, onProgress: () => () => {} } } as never
   updates.$updateOverlayOpen.set(false)
 })
@@ -49,7 +49,7 @@ afterEach(() => {
   document.documentElement.removeAttribute('data-aegis-desktop-host')
 })
 
-describe('update entry points under Aegis Cloud', () => {
+describe('update entry points under Aegis AI Enterprise Autonomous Platform Cloud', () => {
   it('a Webapp tab served by a Cloud agent checks, applies and opens nothing', async () => {
     document.documentElement.dataset.aegisDesktopHost = 'browser'
     vi.stubGlobal('location', new URL('https://lab--app.agents.nousresearch.com/'))
@@ -65,8 +65,8 @@ describe('update entry points under Aegis Cloud', () => {
 
     expect(clientCheck).not.toHaveBeenCalled()
     expect(clientApply).not.toHaveBeenCalled()
-    expect(checkAegisUpdateSpy).not.toHaveBeenCalled()
-    expect(updateAegisSpy).not.toHaveBeenCalled()
+    expect(checkAegis AI Enterprise Autonomous PlatformUpdateSpy).not.toHaveBeenCalled()
+    expect(updateAegis AI Enterprise Autonomous PlatformSpy).not.toHaveBeenCalled()
     expect(updates.$updateOverlayOpen.get()).toBe(false)
   })
 
@@ -75,8 +75,8 @@ describe('update entry points under Aegis Cloud', () => {
 
     await updates.checkBackendUpdates({ force: true })
     expect(await updates.applyBackendUpdate()).toMatchObject({ ok: false, error: 'cloud-managed' })
-    expect(checkAegisUpdateSpy).not.toHaveBeenCalled()
-    expect(updateAegisSpy).not.toHaveBeenCalled()
+    expect(checkAegis AI Enterprise Autonomous PlatformUpdateSpy).not.toHaveBeenCalled()
+    expect(updateAegis AI Enterprise Autonomous PlatformSpy).not.toHaveBeenCalled()
 
     await updates.checkUpdates({ force: true })
     expect(clientCheck).toHaveBeenCalled()
@@ -92,7 +92,7 @@ describe('update entry points under Aegis Cloud', () => {
 
     await vi.waitFor(() => expect(clientApply).toHaveBeenCalled())
     expect(updates.$updateOverlayTarget.get()).toBe('client')
-    expect(updateAegisSpy).not.toHaveBeenCalled()
+    expect(updateAegis AI Enterprise Autonomous PlatformSpy).not.toHaveBeenCalled()
   })
 
   it('a Cloud-served tab running older code than its agent offers Reload, not an updater', () => {

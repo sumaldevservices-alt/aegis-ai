@@ -7,10 +7,10 @@ import { Input } from '@/components/ui/input'
 import { Tip } from '@/components/ui/tooltip'
 import {
   deleteSession,
-  getAegisConfigRecord,
+  getAegis AI Enterprise Autonomous PlatformConfigRecord,
   peekConfigReadOrigin,
   retainConfigReadOrigin,
-  saveAegisConfig,
+  saveAegis AI Enterprise Autonomous PlatformConfig,
   setSessionArchived
 } from '@/aegis'
 import { useI18n } from '@/i18n'
@@ -29,7 +29,7 @@ import { $connection, applyConfiguredDefaultProjectDir, ensureDefaultWorkspaceCw
 import { untombstoneSessions } from '@/store/session-removal'
 import { forgetSessionUnread } from '@/store/session-unread'
 import { listEveryArchivedSession } from '@/store/sidebar-archive'
-import type { AegisConfigRecord, SessionInfo } from '@/types/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord, SessionInfo } from '@/types/aegis'
 
 import { EmptyState, ListRow, SectionHeading, SettingsContent, SettingsSkeleton, ToggleRow } from './primitives'
 import { SETTING_IDS, settingElementId } from './settings-manifest'
@@ -229,7 +229,7 @@ function ArchivedSessionsSettings({ includeDefaultDirectory }: { includeDefaultD
 function AutoArchiveSetting() {
   const { t } = useI18n()
   const s = t.settings.sessions
-  const [config, setConfig] = useState<AegisConfigRecord | null>(null)
+  const [config, setConfig] = useState<Aegis AI Enterprise Autonomous PlatformConfigRecord | null>(null)
   const [enabled, setEnabled] = useState(false)
   const [days, setDays] = useState(DEFAULT_AUTO_ARCHIVE_DAYS)
 
@@ -242,7 +242,7 @@ function AutoArchiveSetting() {
 
     let alive = true
 
-    void getAegisConfigRecord()
+    void getAegis AI Enterprise Autonomous PlatformConfigRecord()
       .then(record => {
         if (!alive) {
           return
@@ -285,7 +285,7 @@ function AutoArchiveSetting() {
       try {
         // Sparse patch: PUT /api/config deep-merges, and echoing the cached
         // snapshot would overwrite keys other surfaces changed since it loaded.
-        await saveAegisConfig({ sessions: { auto_archive: autoArchive, auto_archive_days: archiveDays } }, writeScope)
+        await saveAegis AI Enterprise Autonomous PlatformConfig({ sessions: { auto_archive: autoArchive, auto_archive_days: archiveDays } }, writeScope)
       } catch (err) {
         notifyError(err, s.autoArchiveFailed)
       }
@@ -336,7 +336,7 @@ function AutoArchiveSetting() {
 
 // Lets the user pin the default cwd for new sessions. Without this, packaged
 // builds on Windows used to spawn sessions in the install dir (`win-unpacked`
-// / Program Files), which buried any files Aegis wrote there.
+// / Program Files), which buried any files Aegis AI Enterprise Autonomous Platform wrote there.
 function DefaultProjectDirSetting() {
   const { t } = useI18n()
   const s = t.settings.sessions

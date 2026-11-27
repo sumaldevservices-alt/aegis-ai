@@ -18,7 +18,7 @@ const gatewayMocks = vi.hoisted(() => {
 
 vi.mock('@/aegis', async importOriginal => ({
   ...(await importOriginal<Record<string, unknown>>()),
-  AegisGateway: class {
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     close = vi.fn(() => {
       this.connectionState = 'closed'
@@ -42,7 +42,7 @@ const { activeGatewayProfileKey, closeSecondaryGateways, setPrimaryGateway, setP
   await import('./gateway')
 
 const { $profileSwitchFailure, $profileSwitchPending } = await import('./profile-switch-state')
-const { AegisGateway } = await import('@/aegis')
+const { Aegis AI Enterprise Autonomous PlatformGateway } = await import('@/aegis')
 
 await import('./session-states')
 
@@ -88,7 +88,7 @@ describe('ensureGatewayProfile — switch failure surfaces instead of silent fal
 })
 
 it('offers Retry after a registry rail switch fails to open its socket without replacing the draft', async () => {
-  const primary = new AegisGateway()
+  const primary = new Aegis AI Enterprise Autonomous PlatformGateway()
   await primary.connect('wss://default.invalid/ws')
   setPrimaryGateway(primary)
   setPrimaryGatewayConnectionId('remote-test', 'remote')

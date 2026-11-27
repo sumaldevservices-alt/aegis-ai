@@ -6,7 +6,7 @@ import path from 'node:path'
 
 import { test } from 'vitest'
 
-import { listRemoteAegisProfiles, readRemoteInstallId } from './remote-lifecycle'
+import { listRemoteAegis AI Enterprise Autonomous PlatformProfiles, readRemoteInstallId } from './remote-lifecycle'
 import { assertWindowsRemoteInstallUpdateClear, connectWindowsRemote, decodePowerShellCommand, probeWindowsFiles, probeWindowsRemote, windowsHelperOwnsRuntime } from './windows-remote-lifecycle'
 
 const runtime = {
@@ -30,7 +30,7 @@ test('platform and marker scripts survive outer-shell parsing as one compressed 
     return calls.length === 1 ? JSON.stringify(runtime) : 'CLEAR'
   } }
 
-  await probeWindowsRemote(ssh, 'C:\\用户\\Aegis\\aegis.exe')
+  await probeWindowsRemote(ssh, 'C:\\用户\\Aegis AI Enterprise Autonomous Platform\\aegis.exe')
   await assertWindowsRemoteInstallUpdateClear(ssh, runtime.aegisHome, runtime.python)
 
   for (const { command, options } of calls) {
@@ -55,11 +55,11 @@ test('Windows roster and install id never dispatch POSIX syntax or hide a failed
     return JSON.stringify({ profiles: ['default', 'bob', 'not legal', '.rollback', 'bob'], installId: 'a'.repeat(32) })
   } }
 
-  assert.deepEqual(await listRemoteAegisProfiles(ssh, runtime), ['default', 'bob'])
+  assert.deepEqual(await listRemoteAegis AI Enterprise Autonomous PlatformProfiles(ssh, runtime), ['default', 'bob'])
   assert.equal(await readRemoteInstallId(ssh, runtime), 'a'.repeat(32))
   assert.ok(calls.length > 0)
   const failed = { exec: async () => { throw new Error('fixture disconnected') } }
-  await assert.rejects(() => listRemoteAegisProfiles(failed, runtime))
+  await assert.rejects(() => listRemoteAegis AI Enterprise Autonomous PlatformProfiles(failed, runtime))
 })
 
 test('Windows inventory rejects malformed helper output instead of fabricating default', async () => {
@@ -69,7 +69,7 @@ test('Windows inventory rejects malformed helper output instead of fabricating d
     return script.includes('.aegis-update-in-progress') ? 'CLEAR' : '{}'
   } }
 
-  await assert.rejects(() => listRemoteAegisProfiles(ssh, runtime))
+  await assert.rejects(() => listRemoteAegis AI Enterprise Autonomous PlatformProfiles(ssh, runtime))
 })
 
 test('a bin launcher does not require a nonexistent sibling Python and resolves after the update gate', async () => {
@@ -124,7 +124,7 @@ test('the complete connect path keeps atomic spawn off argv and delivers the exp
 
   const result = await connectWindowsRemote({
     ssh, profile: 'bob', ownershipId: 'a'.repeat(32), pickLocalPort: async () => 4444,
-    forward: async () => {}, cancelForward: async () => {}, waitForAegis: async () => {}, probeReuseProof: async () => 'authenticated-ok'
+    forward: async () => {}, cancelForward: async () => {}, waitForAegis AI Enterprise Autonomous Platform: async () => {}, probeReuseProof: async () => 'authenticated-ok'
   })
 
   assert.equal(spawned, true)
@@ -139,7 +139,7 @@ test('Test and Connect share one verdict on a helper too old for a boot-selected
   assert.equal(windowsHelperOwnsRuntime(runtime, { supported: true }), true)
 })
 
-test.runIf(process.platform === 'win32')('the real Windows probe finds a .cmd-only launcher in the Aegis home off PATH', async () => {
+test.runIf(process.platform === 'win32')('the real Windows probe finds a .cmd-only launcher in the Aegis AI Enterprise Autonomous Platform home off PATH', async () => {
   const home = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-probe-home-'))
   fs.mkdirSync(path.join(home, 'bin'))
   fs.writeFileSync(path.join(home, 'bin', 'aegis.cmd'), '@echo off\r\n')

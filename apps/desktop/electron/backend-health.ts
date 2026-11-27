@@ -1,5 +1,5 @@
 // Relative, not `@aegis/shared`: esbuild bundles electron/ without tsconfig paths.
-import { isAegisCloudUrl } from '../../shared/src/aegis-cloud'
+import { isAegis AI Enterprise Autonomous PlatformCloudUrl } from '../../shared/src/aegis-cloud'
 
 // A cold backend boot (plugin discovery + route mounting at web_server import
 // time) can take 45-60s on slower hardware. A 45s deadline makes first-boot
@@ -19,7 +19,7 @@ export const DEFAULT_HEALTH_PROBE_TIMEOUT_MS = 5_000
 type FetchPublicJson = (url: string, options?: { timeoutMs?: number }) => Promise<unknown>
 type FetchJson = (url: string, token?: string | null, options?: { timeoutMs?: number }) => Promise<unknown>
 
-export interface AegisReadyOptions {
+export interface Aegis AI Enterprise Autonomous PlatformReadyOptions {
   fetchPublicJson: FetchPublicJson
   fetchJson: FetchJson
   token?: string | null
@@ -39,7 +39,7 @@ export interface AegisReadyOptions {
   probeHealth?: (url: string, options?: { timeoutMs?: number }) => Promise<unknown>
   /**
    * Whether `probeHealth` actually presents credentials. Distinguishes the
-   * two very different meanings of a 401 (see `waitForAegisReady`).
+   * two very different meanings of a 401 (see `waitForAegis AI Enterprise Autonomous PlatformReady`).
    */
   probeIsCredentialed?: boolean
   /**
@@ -61,7 +61,7 @@ export const REMOTE_SESSION_EXPIRED_MESSAGE =
   'Your remote gateway session has expired. Open Settings → Gateway and click "Sign in" again.'
 
 export const REMOTE_UNSIGNED_OAUTH_MESSAGE =
-  'Remote Aegis gateway uses OAuth, but you are not signed in. ' +
+  'Remote Aegis AI Enterprise Autonomous Platform gateway uses OAuth, but you are not signed in. ' +
   'Open Settings → Gateway and click "Sign in", or switch back to Local.'
 
 /**
@@ -119,7 +119,7 @@ export function isServerSideHttpError(error: unknown): {
  *
  *  - OAuth WS-ticket mint (buildRemoteConnection → mintGatewayWsTicket), which
  *    runs BEFORE the readiness loop; and
- *  - readiness-probe exhaustion in waitForAegisReady().
+ *  - readiness-probe exhaustion in waitForAegis AI Enterprise Autonomous PlatformReady().
  *
  * Returns null unless the backend is a *.agents.nousresearch.com host AND the
  * error classifies as 502/503/504. When it matches, returns an error carrying:
@@ -167,13 +167,13 @@ export function makeNousCloudBackendDownError(baseUrl: string, error: unknown): 
 }
 
 /**
- * True when the backend URL points at a Nous-managed Aegis Cloud instance
+ * True when the backend URL points at a Nous-managed Aegis AI Enterprise Autonomous Platform Cloud instance
  * (e.g. ares-3009.agents.nousresearch.com, or its staging twin). These are
  * hosted machines the user cannot restart themselves — a 503 from one means
  * the server is down and the recovery path is Portal/Discord/wait.
  */
 export function isNousCloudAgentUrl(baseUrl: string): boolean {
-  return isAegisCloudUrl(baseUrl)
+  return isAegis AI Enterprise Autonomous PlatformCloudUrl(baseUrl)
 }
 
 export function isMissingHealthEndpointError(error: unknown): boolean {
@@ -222,7 +222,7 @@ export function makeReauthRequiredError(detail?: string): Error {
 
 /**
  * No native token and no live cookie: boot cannot self-heal. Must carry
- * `isReauthRequired` so startAegis latches; a bare `needsOauthLogin` (the
+ * `isReauthRequired` so startAegis AI Enterprise Autonomous Platform latches; a bare `needsOauthLogin` (the
  * IPC-shaped hint) only drives Sign in copy and would retry after #88070,
  * hiding the overlay. A confirmed ticket-mint 401/403 carries the same tag
  * (see gatewayTicketFailure, #95701).
@@ -246,7 +246,7 @@ function supersededError() {
   return error
 }
 
-export async function waitForAegisReady(baseUrl: string, options: AegisReadyOptions): Promise<void> {
+export async function waitForAegis AI Enterprise Autonomous PlatformReady(baseUrl: string, options: Aegis AI Enterprise Autonomous PlatformReadyOptions): Promise<void> {
   const timeoutMs = options.timeoutMs ?? DEFAULT_BACKEND_READY_TIMEOUT_MS
   const pollMs = options.pollMs ?? DEFAULT_BACKEND_READY_POLL_MS
   const healthProbeTimeoutMs = options.healthProbeTimeoutMs ?? DEFAULT_HEALTH_PROBE_TIMEOUT_MS
@@ -302,7 +302,7 @@ export async function waitForAegisReady(baseUrl: string, options: AegisReadyOpti
       }
 
       if (options.alreadyBound && isConnectionRefusedError(error)) {
-        throw new Error(`Aegis backend did not become ready: ${(error as Error).message}`)
+        throw new Error(`Aegis AI Enterprise Autonomous Platform backend did not become ready: ${(error as Error).message}`)
       }
 
       // An explicitly missing route means the backend predates /api/health.
@@ -335,5 +335,5 @@ export async function waitForAegisReady(baseUrl: string, options: AegisReadyOpti
     throw cloudError
   }
 
-  throw new Error(`Aegis backend did not become ready: ${detail}`)
+  throw new Error(`Aegis AI Enterprise Autonomous Platform backend did not become ready: ${detail}`)
 }

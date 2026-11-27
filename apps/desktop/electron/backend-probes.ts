@@ -103,7 +103,7 @@ async function execProbe(
 }
 
 /** Probe the checkout at cwd with the same dependency activation as launch. */
-async function canImportAegisCli(
+async function canImportAegis AI Enterprise Autonomous PlatformCli(
   pythonPath: string,
   opts: { env?: NodeJS.ProcessEnv; cwd?: string } = {}
 ): Promise<boolean> {
@@ -150,20 +150,20 @@ async function canImportAegisCli(
  * @param {boolean} [opts.shell] - Whether to run through a shell. For
  *   .cmd/.bat shims on Windows spawn needs shell:true to find
  *   the cmd interpreter; mirrors the same flag isCommandScript() drives
- *   in resolveAegisBackend.
+ *   in resolveAegis AI Enterprise Autonomous PlatformBackend.
  * @returns {boolean}
  */
 /**
  * An explicit desktop backend command is a deployment contract, not a PATH
  * discovery candidate. In particular, the Nix desktop wrapper points this at
- * its immutable, matching Aegis package; it must never fall through to the
+ * its immutable, matching Aegis AI Enterprise Autonomous Platform package; it must never fall through to the
  * mutable install-script bootstrap path if a best-effort probe is slow.
  */
-function shouldTrustAegisOverride(aegisOverride?: string) {
+function shouldTrustAegis AI Enterprise Autonomous PlatformOverride(aegisOverride?: string) {
   return typeof aegisOverride === 'string' && aegisOverride.trim().length > 0
 }
 
-async function verifyAegisCli(aegisCommand: string, opts?: { shell?: boolean }) {
+async function verifyAegis AI Enterprise Autonomous PlatformCli(aegisCommand: string, opts?: { shell?: boolean }) {
   if (!aegisCommand) {
     return false
   }
@@ -183,12 +183,12 @@ async function verifyAegisCli(aegisCommand: string, opts?: { shell?: boolean }) 
 }
 
 export {
-  canImportAegisCli,
+  canImportAegis AI Enterprise Autonomous PlatformCli,
   DEFAULT_PROBE_TIMEOUT_MS,
   execProbe,
   isTimeoutError,
   PROBE_TIMEOUT_MS,
   resolveProbeTimeoutMs,
-  shouldTrustAegisOverride,
-  verifyAegisCli
+  shouldTrustAegis AI Enterprise Autonomous PlatformOverride,
+  verifyAegis AI Enterprise Autonomous PlatformCli
 }

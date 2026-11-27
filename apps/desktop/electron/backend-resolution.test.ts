@@ -40,15 +40,15 @@ describe('installed runtime gate', () => {
   it('uses the runtime this launch installed so the post-install re-resolve does not reinstall', async () => {
     const { runtime } = gate({ AEGIS_DESKTOP_IGNORE_EXISTING: '1' })
     const probe = vi.fn(async () => active)
-    // main.ts: resolveAegisBackend's ACTIVE_AEGIS_ROOT rung, else bootstrap-needed.
-    const resolveAegisBackend = async () => (await runtime.resolve(ROOT, probe)) ?? 'bootstrap-needed'
+    // main.ts: resolveAegis AI Enterprise Autonomous PlatformBackend's ACTIVE_AEGIS_ROOT rung, else bootstrap-needed.
+    const resolveAegis AI Enterprise Autonomous PlatformBackend = async () => (await runtime.resolve(ROOT, probe)) ?? 'bootstrap-needed'
 
-    await expect(resolveAegisBackend()).resolves.toBe('bootstrap-needed')
+    await expect(resolveAegis AI Enterprise Autonomous PlatformBackend()).resolves.toBe('bootstrap-needed')
     expect(probe).not.toHaveBeenCalled()
     // main.ts ensureRuntime: the re-resolve after a successful bootstrap.
-    await expect(runtime.afterInstall(resolveAegisBackend)).resolves.toBe(active)
+    await expect(runtime.afterInstall(resolveAegis AI Enterprise Autonomous PlatformBackend)).resolves.toBe(active)
     // Later resolves (pool backends, TUI resume) keep the new runtime too.
-    await expect(resolveAegisBackend()).resolves.toBe(active)
+    await expect(resolveAegis AI Enterprise Autonomous PlatformBackend()).resolves.toBe(active)
     expect(probe).toHaveBeenCalledTimes(2)
   })
 

@@ -2,7 +2,7 @@ import { useStore } from '@nanostores/react'
 import { replaceEqualDeep, useQuery } from '@tanstack/react-query'
 
 import {
-  getAegisConfigRecord,
+  getAegis AI Enterprise Autonomous PlatformConfigRecord,
   peekConfigReadOrigin,
   type ProfileScope,
   profileScopeKey,
@@ -10,7 +10,7 @@ import {
 } from '@/aegis'
 import { queryClient } from '@/lib/query-client'
 import { $activeConnectionId } from '@/store/connections'
-import type { AegisConfigRecord } from '@/types/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'
 
 // One shared cache for the whole profile config record (`GET /api/config`).
 // Every settings surface (MCP, model, config) reads and writes through this key
@@ -63,7 +63,7 @@ export const aegisConfigKey = (
 // `profile` scopes both the query key and the fetch. Omitting it still targets
 // the app-wide active profile (`profileScoped(undefined)` fallback), but the
 // cache slot is the active gateway's — not the bare root key.
-export const useAegisConfigRecord = (profile?: ProfileScope) => {
+export const useAegis AI Enterprise Autonomous PlatformConfigRecord = (profile?: ProfileScope) => {
   // Reactive read, not a store getter: under the React Compiler a value with
   // no reactive inputs is computed once per component instance, so a
   // getter-based key would freeze on the first gateway and keep serving its
@@ -81,26 +81,26 @@ export const useAegisConfigRecord = (profile?: ProfileScope) => {
       // key. A refetch of the slot we are leaving must not store the new
       // gateway's record there — that is the other machine's config.yaml.
       if (connectionId && $activeConnectionId.get() !== connectionId) {
-        const cached = queryClient.getQueryData<AegisConfigRecord>(aegisConfigKey(profile, connectionId))
+        const cached = queryClient.getQueryData<Aegis AI Enterprise Autonomous PlatformConfigRecord>(aegisConfigKey(profile, connectionId))
 
         if (cached !== undefined) {
           return cached
         }
       }
 
-      return getAegisConfigRecord(profile ?? undefined)
+      return getAegis AI Enterprise Autonomous PlatformConfigRecord(profile ?? undefined)
     },
     staleTime: 0,
     // Keep structural sharing so an unchanged refetch (every consumer mount at
     // staleTime 0, every invalidate) yields the SAME object and consumers'
     // memos/autosave effects don't re-arm. The read origin lives in a WeakMap
     // keyed by the record, so re-stamp whatever object survives the merge with
-    // the origin of the NEW fetch (`next`, bound by getAegisConfigRecord) —
+    // the origin of the NEW fetch (`next`, bound by getAegis AI Enterprise Autonomous PlatformConfigRecord) —
     // otherwise a retained object would keep routing writes to the gateway
     // that served the previous GET.
     structuralSharing: (previous: unknown, next: unknown) =>
       retainConfigReadOrigin(
-        replaceEqualDeep(previous as AegisConfigRecord | undefined, next as AegisConfigRecord),
+        replaceEqualDeep(previous as Aegis AI Enterprise Autonomous PlatformConfigRecord | undefined, next as Aegis AI Enterprise Autonomous PlatformConfigRecord),
         next as object
       )
   })
@@ -110,7 +110,7 @@ export const useAegisConfigRecord = (profile?: ProfileScope) => {
   // subscribes each consumer to fetchStatus/dataUpdatedAt/… churn. The getter
   // reads `query.data` through the proxy, so only `data` is tracked.
   //
-  // `undefined`, never `null`: callers hand this straight to saveAegisConfig
+  // `undefined`, never `null`: callers hand this straight to saveAegis AI Enterprise Autonomous PlatformConfig
   // with sparse `setNested({}, …)` patches, so the WeakMap misses and the
   // fallback is capabilityScoped(writeScope) → profileScoped(writeScope).
   // profileScoped(undefined) keeps the app-wide `_apiProfile`; profileScoped
@@ -125,17 +125,17 @@ export const useAegisConfigRecord = (profile?: ProfileScope) => {
   return query as typeof query & { writeScope: ReturnType<typeof peekConfigReadOrigin> }
 }
 
-// setAegisConfigCache writes the active gateway's record. The key is resolved
+// setAegis AI Enterprise Autonomous PlatformConfigCache writes the active gateway's record. The key is resolved
 // at WRITE time, not when the writer is created, so a writer memoized by a
 // long-lived settings panel (keyed only on the profile name) lands on whichever
 // gateway is active when the save happens — the same row its query reads.
-const writeAegisConfigCache =
+const writeAegis AI Enterprise Autonomous PlatformConfigCache =
   (keyFor: () => ReturnType<typeof aegisConfigKey>) =>
   (
     next:
-      AegisConfigRecord | undefined | ((previous: AegisConfigRecord | undefined) => AegisConfigRecord | undefined)
+      Aegis AI Enterprise Autonomous PlatformConfigRecord | undefined | ((previous: Aegis AI Enterprise Autonomous PlatformConfigRecord | undefined) => Aegis AI Enterprise Autonomous PlatformConfigRecord | undefined)
   ) =>
-    void queryClient.setQueryData<AegisConfigRecord>(keyFor(), previous => {
+    void queryClient.setQueryData<Aegis AI Enterprise Autonomous PlatformConfigRecord>(keyFor(), previous => {
       const record = typeof next === 'function' ? next(previous) : next
 
       // setQueryData also runs the hook's structuralSharing (query.setData →
@@ -146,9 +146,9 @@ const writeAegisConfigCache =
       return record ? retainConfigReadOrigin(record, previous) : record
     })
 
-export const setAegisConfigCache = writeAegisConfigCache(() => aegisConfigKey())
+export const setAegis AI Enterprise Autonomous PlatformConfigCache = writeAegis AI Enterprise Autonomous PlatformConfigCache(() => aegisConfigKey())
 export const aegisConfigCacheWriter = (profile?: ProfileScope) =>
-  writeAegisConfigCache(() => aegisConfigKey(profile))
+  writeAegis AI Enterprise Autonomous PlatformConfigCache(() => aegisConfigKey(profile))
 
-export const invalidateAegisConfig = (profile?: ProfileScope) =>
+export const invalidateAegis AI Enterprise Autonomous PlatformConfig = (profile?: ProfileScope) =>
   queryClient.invalidateQueries({ queryKey: aegisConfigKey(profile) })

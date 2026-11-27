@@ -6,7 +6,7 @@
 //!   Linux:   ~/.aegis  (override via $AEGIS_HOME)
 //!
 //! NOTE (macOS): Python's get_aegis_home(), scripts/install.sh, and the
-//! Electron desktop's resolveAegisHome() ALL use ~/.aegis on macOS — there
+//! Electron desktop's resolveAegis AI Enterprise Autonomous PlatformHome() ALL use ~/.aegis on macOS — there
 //! is no ~/Library/Application Support branch anywhere else. An earlier
 //! version of this file used Application Support, which drifted from every
 //! other component: the installer wrote the install to one dir and the
@@ -21,7 +21,7 @@ use std::path::{Path, PathBuf};
 use std::process::Command;
 use tracing_appender::non_blocking::WorkerGuard;
 
-/// Returns the canonical Aegis home directory, respecting $AEGIS_HOME if set.
+/// Returns the canonical Aegis AI Enterprise Autonomous Platform home directory, respecting $AEGIS_HOME if set.
 pub fn aegis_home() -> PathBuf {
     if let Ok(override_path) = std::env::var("AEGIS_HOME") {
         if !override_path.trim().is_empty() {
@@ -67,19 +67,19 @@ fn platform_default_home() -> PathBuf {
 
 /// `suffix` is AEGIS_DATA_DIR_SUFFIX, appended literally to the leaf exactly as
 /// `aegis_constants._get_platform_default_aegis_home()` and the desktop's
-/// `platformDefaultAegisHome()` do: channel builds keep their own data dir,
+/// `platformDefaultAegis AI Enterprise Autonomous PlatformHome()` do: channel builds keep their own data dir,
 /// and with it their own update marker.
 fn platform_default_home_with(suffix: &str) -> PathBuf {
     #[cfg(target_os = "windows")]
     {
-        // %LOCALAPPDATA%\aegis — matches scripts/install.ps1's $AegisHome.
+        // %LOCALAPPDATA%\aegis — matches scripts/install.ps1's $Aegis AI Enterprise Autonomous PlatformHome.
         if let Some(local_app_data) = dirs::data_local_dir() {
             return local_app_data.join(format!("aegis{suffix}"));
         }
     }
 
     // macOS + Linux + fallback: ~/.aegis (matches Python get_aegis_home(),
-    // install.sh, and the Electron desktop's resolveAegisHome()).
+    // install.sh, and the Electron desktop's resolveAegis AI Enterprise Autonomous PlatformHome()).
     if let Some(home) = dirs::home_dir() {
         return home.join(format!(".aegis{suffix}"));
     }

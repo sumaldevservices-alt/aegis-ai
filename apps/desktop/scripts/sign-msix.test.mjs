@@ -11,11 +11,11 @@ import { azureConfigFromEnv, azureSignFile, shouldSignFile } from './sign-msix.m
 const require = createRequire(import.meta.url)
 
 test('shouldSignFile admits only .msix and .msixbundle artifacts', () => {
-  assert.equal(shouldSignFile('release/Aegis-0.17.0-win32-arm64.msix'), true)
-  assert.equal(shouldSignFile('release/Aegis-0.17.0-win32-x64.msix'), true)
-  assert.equal(shouldSignFile('release/Aegis-0.17.0-win32-arm64.msixbundle'), true)
+  assert.equal(shouldSignFile('release/Aegis AI Enterprise Autonomous Platform-0.17.0-win32-arm64.msix'), true)
+  assert.equal(shouldSignFile('release/Aegis AI Enterprise Autonomous Platform-0.17.0-win32-x64.msix'), true)
+  assert.equal(shouldSignFile('release/Aegis AI Enterprise Autonomous Platform-0.17.0-win32-arm64.msixbundle'), true)
   // Case-insensitive — artifactName could emit .MSIX on some host.
-  assert.equal(shouldSignFile('release/Aegis-0.17.0-win32-arm64.MSIX'), true)
+  assert.equal(shouldSignFile('release/Aegis AI Enterprise Autonomous Platform-0.17.0-win32-arm64.MSIX'), true)
 })
 
 test('shouldSignFile rejects the Store-submission variant (Partner Center re-signs)', () => {
@@ -24,16 +24,16 @@ test('shouldSignFile rejects the Store-submission variant (Partner Center re-sig
   // cannot customize CN and CA/B requires the legal entity name — so
   // SignerSign would fail 0x8007000B. Partner Center signs on ingestion.
   assert.equal(
-    shouldSignFile('release/Store-AegisBundled-0.28.0+canary.20260828T211829Z-win-x64.msix'),
+    shouldSignFile('release/Store-Aegis AI Enterprise Autonomous PlatformBundled-0.28.0+canary.20260828T211829Z-win-x64.msix'),
     false
   )
   assert.equal(
-    shouldSignFile('release/Store-AegisBundled-0.28.0+canary.20260828T211829Z-win-arm64.msixbundle'),
+    shouldSignFile('release/Store-Aegis AI Enterprise Autonomous PlatformBundled-0.28.0+canary.20260828T211829Z-win-arm64.msixbundle'),
     false
   )
   // The out-of-store artifacts keep the only signature Windows validates.
   assert.equal(
-    shouldSignFile('release/AegisBundled-0.28.0+canary.20260828T211829Z-win-x64.msix'),
+    shouldSignFile('release/Aegis AI Enterprise Autonomous PlatformBundled-0.28.0+canary.20260828T211829Z-win-x64.msix'),
     true
   )
 })
@@ -42,11 +42,11 @@ test('shouldSignFile rejects every non-package file the hook is asked to sign', 
   // The app exe and any payload binary are covered by the package's block
   // map — signing them is wasted round-trips and would break the hash if
   // done after makeappx packs the package.
-  assert.equal(shouldSignFile('release/win-unpacked/Aegis.exe'), false)
-  assert.equal(shouldSignFile('C:/work/aegis-agent/release/win-unpacked/Aegis.exe'), false)
-  assert.equal(shouldSignFile('release/Aegis-0.17.0-win32-arm64.nsis.exe'), false)
-  assert.equal(shouldSignFile('release/Aegis-0.17.0-win32-arm64.msixupload'), false)
-  assert.equal(shouldSignFile('release/Aegis-0.17.0-win32-arm64.dll'), false)
+  assert.equal(shouldSignFile('release/win-unpacked/Aegis AI Enterprise Autonomous Platform.exe'), false)
+  assert.equal(shouldSignFile('C:/work/aegis-agent/release/win-unpacked/Aegis AI Enterprise Autonomous Platform.exe'), false)
+  assert.equal(shouldSignFile('release/Aegis AI Enterprise Autonomous Platform-0.17.0-win32-arm64.nsis.exe'), false)
+  assert.equal(shouldSignFile('release/Aegis AI Enterprise Autonomous Platform-0.17.0-win32-arm64.msixupload'), false)
+  assert.equal(shouldSignFile('release/Aegis AI Enterprise Autonomous Platform-0.17.0-win32-arm64.dll'), false)
   assert.equal(shouldSignFile(''), false)
 })
 

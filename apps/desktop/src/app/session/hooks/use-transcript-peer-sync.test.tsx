@@ -2,13 +2,13 @@ import { act, cleanup, render } from '@testing-library/react'
 import { useRef } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as AegisModule from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformModule from '@/aegis'
 import { textPart } from '@/lib/chat-messages'
 import { createClientSessionState } from '@/lib/chat-runtime'
 import { $sessionTiles, publishSessionState } from '@/store/session-states'
 
 vi.mock('@/aegis', async importOriginal => {
-  const actual = await importOriginal<typeof AegisModule>()
+  const actual = await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformModule>()
 
   return {
     ...actual,

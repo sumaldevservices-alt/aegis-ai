@@ -359,7 +359,7 @@ test(
     child.stdout.emit('data', 'aegis: finishing an interrupted source update...\n')
     await assert.rejects(
       wait,
-      /Timed out waiting for Aegis backend port announcement .* while an update completion was in progress/
+      /Timed out waiting for Aegis AI Enterprise Autonomous Platform backend port announcement .* while an update completion was in progress/
     )
   },
   10_000

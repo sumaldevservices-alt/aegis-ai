@@ -14,12 +14,12 @@ describe('host.spellcheck dictionary verbs', () => {
 
     desktopWindow.aegisDesktop = { spellcheckDictionary }
 
-    expect(await host.spellcheck.addWord('Aegis')).toBe(true)
-    expect(await host.spellcheck.removeWord('Aegis')).toBe(true)
+    expect(await host.spellcheck.addWord('Aegis AI Enterprise Autonomous Platform')).toBe(true)
+    expect(await host.spellcheck.removeWord('Aegis AI Enterprise Autonomous Platform')).toBe(true)
 
     expect(spellcheckDictionary.mock.calls).toEqual([
-      ['add', 'Aegis'],
-      ['remove', 'Aegis']
+      ['add', 'Aegis AI Enterprise Autonomous Platform'],
+      ['remove', 'Aegis AI Enterprise Autonomous Platform']
     ])
 
     spellcheckDictionary.mockResolvedValueOnce(false)
@@ -28,7 +28,7 @@ describe('host.spellcheck dictionary verbs', () => {
   })
 
   it('resolves false instead of throwing without a desktop shell or with a non-string', async () => {
-    expect(await host.spellcheck.addWord('Aegis')).toBe(false)
+    expect(await host.spellcheck.addWord('Aegis AI Enterprise Autonomous Platform')).toBe(false)
 
     const spellcheckDictionary = vi.fn(async () => {
       throw new Error('older shell')
@@ -36,7 +36,7 @@ describe('host.spellcheck dictionary verbs', () => {
 
     desktopWindow.aegisDesktop = { spellcheckDictionary }
 
-    expect(await host.spellcheck.removeWord('Aegis')).toBe(false)
+    expect(await host.spellcheck.removeWord('Aegis AI Enterprise Autonomous Platform')).toBe(false)
     expect(await host.spellcheck.addWord(42 as unknown as string)).toBe(false)
     expect(spellcheckDictionary).toHaveBeenCalledTimes(1)
   })

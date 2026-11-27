@@ -3,16 +3,16 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 
 import {
   getElevenLabsVoices,
-  getAegisConfigSchema,
+  getAegis AI Enterprise Autonomous PlatformConfigSchema,
   type ProfileScope,
   profileScopeKey,
-  saveAegisConfigRecord
+  saveAegis AI Enterprise Autonomous PlatformConfigRecord
 } from '@/aegis'
 import { useI18n } from '@/i18n'
 import { notifyError } from '@/store/notifications'
-import type { AegisConfigRecord } from '@/types/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'
 
-import { aegisConfigCacheWriter, useAegisConfigRecord } from '../hooks/use-config-record'
+import { aegisConfigCacheWriter, useAegis AI Enterprise Autonomous PlatformConfigRecord } from '../hooks/use-config-record'
 
 import { ConfigField } from './config-field'
 import { SECTIONS } from './constants'
@@ -53,7 +53,7 @@ export function VoiceProviderFields({
 }) {
   const { t } = useI18n()
   const keys = useMemo(() => voiceProviderKeys(section, providerKey), [section, providerKey])
-  const { data: loadedConfig, writeScope } = useAegisConfigRecord(profile)
+  const { data: loadedConfig, writeScope } = useAegis AI Enterprise Autonomous PlatformConfigRecord(profile)
   // Parents pass `profile` as a fresh object literal each render; keying the
   // writer and the autosave effect on its identity would re-arm the 550ms
   // timer on every unrelated re-render. Key on the scope string instead
@@ -64,19 +64,19 @@ export function VoiceProviderFields({
 
   const { data: schemaResponse } = useQuery({
     queryKey: ['aegis-config-schema'],
-    queryFn: () => getAegisConfigSchema(),
+    queryFn: () => getAegis AI Enterprise Autonomous PlatformConfigSchema(),
     staleTime: 5 * 60 * 1000
   })
 
   // Local editable draft, seeded once from the shared cache (background
   // refetches must not clobber in-progress edits) — the same shape as
   // config-settings.tsx's autosave loop.
-  const [config, setConfig] = useState<AegisConfigRecord | null>(null)
+  const [config, setConfig] = useState<Aegis AI Enterprise Autonomous PlatformConfigRecord | null>(null)
   // Autosave sends only what changed against this baseline (config-settings.tsx
   // pattern): the seeded record is a default-expanded snapshot, and echoing it
   // whole would overwrite keys other surfaces changed since it loaded. The
   // baseline advances to each successfully saved draft.
-  const [baseline, setBaseline] = useState<AegisConfigRecord | null>(null)
+  const [baseline, setBaseline] = useState<Aegis AI Enterprise Autonomous PlatformConfigRecord | null>(null)
   const seeded = useRef(false)
 
   // eslint-disable-next-line no-restricted-syntax -- one-shot config seed flag, not an atom mirror
@@ -97,7 +97,7 @@ export function VoiceProviderFields({
     }
 
     const timeout = window.setTimeout(() => {
-      void saveAegisConfigRecord(diffConfig(baseline ?? {}, config), writeScope ?? profile)
+      void saveAegis AI Enterprise Autonomous PlatformConfigRecord(diffConfig(baseline ?? {}, config), writeScope ?? profile)
         .then(() => {
           setBaseline(config)
           writeConfigCache(config)
@@ -147,7 +147,7 @@ export function VoiceProviderFields({
 
   const schema = schemaResponse?.fields ?? {}
 
-  const updateConfig = (next: AegisConfigRecord) => {
+  const updateConfig = (next: Aegis AI Enterprise Autonomous PlatformConfigRecord) => {
     saveVersionRef.current += 1
     setConfig(next)
     setSaveVersion(saveVersionRef.current)

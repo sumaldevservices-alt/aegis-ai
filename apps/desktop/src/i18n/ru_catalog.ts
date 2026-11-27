@@ -65,7 +65,7 @@ export const ruCatalog = {
   retry: 'Попробовать снова',
   more: 'Показать ещё',
   pinned: 'Проверенный коммит',
-  snapshotHint: 'Из каталога Aegis. При просмотре нет обращений к исходным репозиториям.',
+  snapshotHint: 'Из каталога Aegis AI Enterprise Autonomous Platform. При просмотре нет обращений к исходным репозиториям.',
   installHint: 'Проверьте исходный код перед установкой. Изменения применяются к новым сессиям.',
   results: (count: number) =>
     `${count.toLocaleString('ru')} ${resultWord(count)}`,

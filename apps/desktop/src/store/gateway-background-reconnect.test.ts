@@ -1,7 +1,7 @@
 import { type GatewayEvent } from '@aegis/shared'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { AegisGateway } from '@/api/client'
+import { Aegis AI Enterprise Autonomous PlatformGateway } from '@/api/client'
 
 import { connectionWire } from './connection-wire'
 import {
@@ -34,7 +34,7 @@ const history: SequencedEvent[] = []
 const onEvent = vi.fn<(event: GatewayEvent) => void>()
 const onActiveRouteChanged = vi.fn()
 const ambient = vi.fn<() => Promise<never>>()
-let primary: AegisGateway
+let primary: Aegis AI Enterprise Autonomous PlatformGateway
 
 class NetworkSocket extends EventTarget {
   static readonly CONNECTING = 0
@@ -153,7 +153,7 @@ beforeEach(async () => {
     onEvent,
     onActiveRouteChanged
   })
-  primary = new AegisGateway()
+  primary = new Aegis AI Enterprise Autonomous PlatformGateway()
   const connected = primary.connect('wss://h2-local.invalid/api/ws')
   await vi.advanceTimersByTimeAsync(1)
   await connected

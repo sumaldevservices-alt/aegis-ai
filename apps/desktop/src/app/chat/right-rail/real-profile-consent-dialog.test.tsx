@@ -2,7 +2,7 @@
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import {
   $realProfilePromptClaim,
   $realProfilePromptDismissed,
@@ -21,12 +21,12 @@ const mocks = vi.hoisted(() => ({
 }))
 
 vi.mock('@/aegis', () => ({
-  saveAegisConfigRecord: (config: Record<string, unknown>, profile?: unknown) => mocks.save(config, profile)
+  saveAegis AI Enterprise Autonomous PlatformConfigRecord: (config: Record<string, unknown>, profile?: unknown) => mocks.save(config, profile)
 }))
 
 const promptCopy = {
   title: 'Stay signed in to your sites',
-  body: 'Let Aegis browse with a snapshot of your default browser profile.',
+  body: 'Let Aegis AI Enterprise Autonomous Platform browse with a snapshot of your default browser profile.',
   bulletSnapshot: 'Cookies and logins are copied into a managed snapshot.',
   bulletLiveProfile: 'Your live browser profile is never opened directly.',
   bulletLocal: 'Nothing leaves this computer.',
@@ -60,11 +60,11 @@ vi.mock('@/store/notifications', () => ({
 
 vi.mock('../../hooks/use-config-record', () => ({
   aegisConfigCacheWriter: () => (config: Record<string, unknown>) => mocks.cache(config),
-  useAegisConfigRecord: () => ({ data: mocks.loadedConfig })
+  useAegis AI Enterprise Autonomous PlatformConfigRecord: () => ({ data: mocks.loadedConfig })
 }))
 
-const localConnection = { mode: 'local' } as AegisConnection
-const remoteConnection = { mode: 'remote', remoteKind: 'ssh' } as AegisConnection
+const localConnection = { mode: 'local' } as Aegis AI Enterprise Autonomous PlatformConnection
+const remoteConnection = { mode: 'remote', remoteKind: 'ssh' } as Aegis AI Enterprise Autonomous PlatformConnection
 
 const openGate = {
   claim: 'tab-1',
@@ -84,14 +84,14 @@ describe('shouldOfferRealProfilePrompt', () => {
   it('never offers it for a remote backend (#119398)', () => {
     for (const remoteKind of ['ssh', 'url', 'cloud'] as const) {
       expect(
-        shouldOfferRealProfilePrompt({ ...openGate, connection: { mode: 'remote', remoteKind } as AegisConnection })
+        shouldOfferRealProfilePrompt({ ...openGate, connection: { mode: 'remote', remoteKind } as Aegis AI Enterprise Autonomous PlatformConnection })
       ).toBe(false)
     }
   })
 
   it('fails closed while the connection is unresolved', () => {
     expect(shouldOfferRealProfilePrompt({ ...openGate, connection: null })).toBe(false)
-    expect(shouldOfferRealProfilePrompt({ ...openGate, connection: {} as AegisConnection })).toBe(false)
+    expect(shouldOfferRealProfilePrompt({ ...openGate, connection: {} as Aegis AI Enterprise Autonomous PlatformConnection })).toBe(false)
   })
 
   it('keeps the existing gates', () => {

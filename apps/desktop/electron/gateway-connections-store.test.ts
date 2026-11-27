@@ -184,7 +184,7 @@ test('a v2 user keeps every connection, field, secret, quarantined entry and sig
         user: 'alice',
         port: 2222,
         keyPath: '~/.ssh/id',
-        remoteAegisPath: '/opt/h',
+        remoteAegis AI Enterprise Autonomous PlatformPath: '/opt/h',
         remoteProfile: 'coder',
         token: sealed('ssh-tok')
       }

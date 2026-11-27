@@ -3,13 +3,13 @@
 // self-accept so this module's own reload doesn't reset the cache. Prod strips
 // import.meta.hot → byte-for-byte unchanged live unmount.
 
-import type { AegisConnection } from '@/global'
-import type { AegisGateway } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 
 export interface GatewaySurvivor {
-  gateway: AegisGateway
+  gateway: Aegis AI Enterprise Autonomous PlatformGateway
   profile: string
-  connection: AegisConnection | null
+  connection: Aegis AI Enterprise Autonomous PlatformConnection | null
 }
 
 // One slot on globalThis, keyed by a process-stable Symbol so repeated imports

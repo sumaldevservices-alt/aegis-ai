@@ -47,7 +47,7 @@ export const zhOverrides = {
   connectors: zhConnectorCard,
   sessionImport: {
     title: '从其他应用继续',
-    subtitle: '将对话导入 Aegis，接着上次的进度继续。',
+    subtitle: '将对话导入 Aegis AI Enterprise Autonomous Platform，接着上次的进度继续。',
     action: '导入会话',
     readingFrom: '读取自',
     connectedComputer: '已连接的计算机',
@@ -65,17 +65,17 @@ export const zhOverrides = {
     more: '加载更多会话',
     messages: '条消息',
     choose: '继续一段对话',
-    chooseHelp: '选择会话，在导入 Aegis 前查看历史记录。',
+    chooseHelp: '选择会话，在导入 Aegis AI Enterprise Autonomous Platform 前查看历史记录。',
     previewLoading: '正在打开预览',
     previewError: '预览不可用',
     previewHelp: '源文件可能已移动或更改。请刷新列表后重试。',
     previewLimit: '预览已缩短，便于阅读。导入时会复制完整对话。',
     you: '你',
-    snapshot: '此对话已导入 Aegis。打开现有副本即可继续。',
+    snapshot: '此对话已导入 Aegis AI Enterprise Autonomous Platform。打开现有副本即可继续。',
     copyNotice: '复制对话文本，不更改源文件。不包含工具输出和推理内容。',
     importing: '正在导入…',
-    open: '在 Aegis 中打开',
-    continue: '在 Aegis 中继续',
+    open: '在 Aegis AI Enterprise Autonomous Platform 中打开',
+    continue: '在 Aegis AI Enterprise Autonomous Platform 中继续',
     importError: '无法导入此对话。'
   },
   common: {
@@ -142,19 +142,19 @@ export const zhOverrides = {
   },
 
   boot: {
-    ready: 'Aegis 桌面版已就绪',
+    ready: 'Aegis AI Enterprise Autonomous Platform 桌面版已就绪',
     desktopBootFailedWithMessage: message => `桌面启动失败：${message}`,
     steps: {
       connectingGateway: '正在连接桌面网关',
-      loadingSettings: '正在加载 Aegis 设置',
+      loadingSettings: '正在加载 Aegis AI Enterprise Autonomous Platform 设置',
       loadingSessions: '正在加载最近会话',
-      retryingRemoteBackend: '正在重新连接远程 Aegis 后端…',
+      retryingRemoteBackend: '正在重新连接远程 Aegis AI Enterprise Autonomous Platform 后端…',
       startingDesktopConnection: '正在启动桌面连接',
-      startingAegisDesktop: '正在启动 Aegis 桌面版…'
+      startingAegis AI Enterprise Autonomous PlatformDesktop: '正在启动 Aegis AI Enterprise Autonomous Platform 桌面版…'
     },
     errors: {
-      backgroundExited: 'Aegis 后台进程已退出。',
-      backgroundExitedDuringStartup: 'Aegis 后台进程在启动期间退出。',
+      backgroundExited: 'Aegis AI Enterprise Autonomous Platform 后台进程已退出。',
+      backgroundExitedDuringStartup: 'Aegis AI Enterprise Autonomous Platform 后台进程在启动期间退出。',
       backendStopped: '后端已停止',
       desktopBootFailed: '桌面启动失败',
       gatewayConnectionLost: '与网关的连接已断开',
@@ -164,7 +164,7 @@ export const zhOverrides = {
       ipcBridgeUnavailable: '桌面 IPC 桥不可用。'
     },
     failure: {
-      title: 'Aegis 无法启动',
+      title: 'Aegis AI Enterprise Autonomous Platform 无法启动',
       description: '后台网关没有启动。请尝试下面的恢复步骤；这里不会删除你的对话或设置。',
       remoteTitle: '需要重新登录远程网关',
       remoteDescription: '你的远程网关会话已过期。请重新登录以恢复连接。这些操作不会删除你的对话或设置。',
@@ -175,8 +175,8 @@ export const zhOverrides = {
       back: '返回',
       openLogs: '打开日志',
       repairHint: '修复会重新运行安装器，在新机器上可能需要几分钟。',
-      bundledReinstallHint: '捆绑安装无法从应用内部自修复——重新安装 Aegis Desktop 以恢复其后端。',
-      reinstallApp: '重新安装 Aegis Desktop',
+      bundledReinstallHint: '捆绑安装无法从应用内部自修复——重新安装 Aegis AI Enterprise Autonomous Platform Desktop 以恢复其后端。',
+      reinstallApp: '重新安装 Aegis AI Enterprise Autonomous Platform Desktop',
       remoteSignInHint: signInLabel =>
         `先退出已保存的远程浏览器会话，然后打开${signInLabel}。也可以使用本地网关切换到随应用提供的后端。`,
       signOutAndSignIn: '退出并重新登录',
@@ -202,7 +202,7 @@ export const zhOverrides = {
 
   notifications: {
     sharedProfileWarning:
-      '另一个 Aegis 安装实例正在使用此配置。两个实例共享此配置的设置和数据，因此更改可能发生冲突。你可以继续使用，也可以在更改前关闭另一个实例。',
+      '另一个 Aegis AI Enterprise Autonomous Platform 安装实例正在使用此配置。两个实例共享此配置的设置和数据，因此更改可能发生冲突。你可以继续使用，也可以在更改前关闭另一个实例。',
     region: '通知',
     hide: '隐藏',
     show: '显示',
@@ -213,16 +213,16 @@ export const zhOverrides = {
     copyDetail: '复制详情',
     copyDetailFailed: '无法复制通知详情',
     backendOutOfDateTitle: '后端版本过旧',
-    backendOutOfDateMessage: '你的 Aegis 后端早于当前桌面构建，可能无法正常工作。请更新以保持一致。',
+    backendOutOfDateMessage: '你的 Aegis AI Enterprise Autonomous Platform 后端早于当前桌面构建，可能无法正常工作。请更新以保持一致。',
     desktopOutOfDateTitle: '应用版本过旧',
-    desktopOutOfDateMessage: '此 Aegis 应用早于所连接的后端，可能无法正常工作。请更新应用以保持一致。',
+    desktopOutOfDateMessage: '此 Aegis AI Enterprise Autonomous Platform 应用早于所连接的后端，可能无法正常工作。请更新应用以保持一致。',
     updateDesktopApp: '更新应用',
     installMethodUnsupportedTitle: '不受支持的安装方式',
-    updateAegis: '更新 Aegis',
+    updateAegis AI Enterprise Autonomous Platform: '更新 Aegis AI Enterprise Autonomous Platform',
     updateReadyTitle: '有可用更新',
     updateReadyMessage: count => `有 ${count} 项新更改可用。`,
     updateReadyMessageUnknown: '有新更新可用。',
-    updateReadyMessageAppInstaller: 'Aegis 新版本已就绪。现在更新，Windows 会自动完成。',
+    updateReadyMessageAppInstaller: 'Aegis AI Enterprise Autonomous Platform 新版本已就绪。现在更新，Windows 会自动完成。',
     seeWhatsNew: '查看更新内容',
     mcp: {
       needsAuthTitle: 'MCP 服务器需要重新认证',
@@ -240,7 +240,7 @@ export const zhOverrides = {
       elevenLabsRejectedKey: 'ElevenLabs 拒绝了该 API key (401)。',
       diskFull: '磁盘已满 — 请腾出一些空间后再试。',
       gatewayAuthFailed: '网关认证失败 — 请检查你的 API_SERVER_KEY。',
-      methodNotAllowed: '桌面后端拒绝了该请求 (405 Method Not Allowed)。请尝试重启 Aegis Desktop。',
+      methodNotAllowed: '桌面后端拒绝了该请求 (405 Method Not Allowed)。请尝试重启 Aegis AI Enterprise Autonomous Platform Desktop。',
       microphonePermission: '麦克风权限已被拒绝。',
       openaiRejectedApiKey: 'OpenAI 拒绝了该 API key。',
       openaiTtsNeedsKey: 'OpenAI TTS 需要 VOICE_TOOLS_OPENAI_KEY 或 OPENAI_API_KEY。',
@@ -270,7 +270,7 @@ export const zhOverrides = {
       liveEndedConnectionLost: '实时语音会话连接已断开。',
       liveEndedClosed: '实时语音会话已被服务端关闭。',
       liveError: '实时语音',
-      liveDelegationFailed: '无法将请求交给 Aegis',
+      liveDelegationFailed: '无法将请求交给 Aegis AI Enterprise Autonomous Platform',
       liveUnavailable: reason => `GPT-Live 语音聊天不可用：${reason}。已改用语音转文字。`
     },
     native: {
@@ -288,8 +288,8 @@ export const zhOverrides = {
       denyAction: '拒绝',
       inputTitle: '需要输入',
       inputTitleNamed: session => `需要输入 — ${session}`,
-      inputBody: 'Aegis 正在等待你的回应。',
-      turnDoneTitle: 'Aegis 已完成',
+      inputBody: 'Aegis AI Enterprise Autonomous Platform 正在等待你的回应。',
+      turnDoneTitle: 'Aegis AI Enterprise Autonomous Platform 已完成',
       turnDoneBody: '消息已完成。',
       turnErrorTitle: '本轮失败',
       backgroundDoneTitle: '后台任务已完成',
@@ -526,7 +526,7 @@ export const zhOverrides = {
     exportConfig: '导出配置',
     importConfig: '导入配置',
     resetToDefaults: '恢复默认',
-    resetConfirm: '将所有设置恢复为 Aegis 默认值？',
+    resetConfirm: '将所有设置恢复为 Aegis AI Enterprise Autonomous Platform 默认值？',
     exportFailed: '导出失败',
     resetFailed: '重置失败',
     pluginPages: {
@@ -604,7 +604,7 @@ export const zhOverrides = {
       deleteAction: '移除已保存项',
       otpField: '验证器密钥',
       otpPlaceholder: 'Base32 密钥或 otpauth:// 链接',
-      otpHint: '启用两步验证时网站显示的“设置密钥”。保存后 Aegis 会自动生成验证码。',
+      otpHint: '启用两步验证时网站显示的“设置密钥”。保存后 Aegis AI Enterprise Autonomous Platform 会自动生成验证码。',
       twoFactorBadge: '自动 2FA',
       deleteTitle: '删除此项？',
       deleteDescription: label => `“${label}”将从加密保险库中移除。此操作无法撤销。`,
@@ -614,10 +614,10 @@ export const zhOverrides = {
         blurb:
           '已安装的密码管理器会被自动识别。智能体第一次需要其中的登录信息时会请你解锁（每个会话一次）；内存中只保留会话令牌，智能体永远看不到你的主密码或任何登录信息。',
         toggleFailed: '无法更新密码管理器',
-        notInstalled: name => `未检测到。安装 ${name} 命令行工具并登录后，Aegis 会自动识别。`,
-        disabledDesc: '已检测到，但已为 Aegis 关闭。',
+        notInstalled: name => `未检测到。安装 ${name} 命令行工具并登录后，Aegis AI Enterprise Autonomous Platform 会自动识别。`,
+        disabledDesc: '已检测到，但已为 Aegis AI Enterprise Autonomous Platform 关闭。',
         lockedDesc: '已检测到。智能体需要登录信息时会请你解锁，也可立即解锁。',
-        unlockedDesc: '本会话已解锁。闲置 30 分钟或关闭 Aegis 后会自动锁定。',
+        unlockedDesc: '本会话已解锁。闲置 30 分钟或关闭 Aegis AI Enterprise Autonomous Platform 后会自动锁定。',
         statusLocked: '已锁定',
         statusNotDetected: '未检测到',
         statusOff: '已关闭',
@@ -681,7 +681,7 @@ export const zhOverrides = {
         agentSuccess: name => `智能体插件 ${name} 已安装`,
         desktopSuccess: name => `桌面插件 ${name} 已安装`,
         agentFailed: '智能体插件安装失败',
-        installUncertain: 'Aegis 已停止等待安装结果，但插件可能仍在安装。关闭此窗口并刷新插件列表，然后再尝试安装。',
+        installUncertain: 'Aegis AI Enterprise Autonomous Platform 已停止等待安装结果，但插件可能仍在安装。关闭此窗口并刷新插件列表，然后再尝试安装。',
         desktopFailed: '桌面插件安装失败',
         missingEnv: (_name, vars) => `缺少环境变量：${vars}。请在设置 → 密钥中添加。`,
         verified: '已验证',
@@ -717,7 +717,7 @@ export const zhOverrides = {
       advanced: '高级'
     },
     searchPlaceholder: {
-      about: '关于 Aegis Desktop',
+      about: '关于 Aegis AI Enterprise Autonomous Platform Desktop',
       config: '搜索设置…',
       gateway: '网关连接…',
       keys: '搜索 API 密钥…',
@@ -735,7 +735,7 @@ export const zhOverrides = {
       title: '外观',
       intro: '这些是仅桌面端的显示偏好。模式控制明暗；主题控制强调色与对话界面样式。',
       colorMode: '颜色模式',
-      colorModeDesc: '选择固定模式，或让 Aegis 跟随系统设置。',
+      colorModeDesc: '选择固定模式，或让 Aegis AI Enterprise Autonomous Platform 跟随系统设置。',
       toolViewTitle: '工具调用显示',
       toolViewDesc: '产品模式隐藏原始工具数据；技术模式显示完整输入/输出。',
       hideCodeDiffsTitle: '隐藏代码差异',
@@ -805,12 +805,12 @@ export const zhOverrides = {
       modelPricingTitle: '模型价格',
       modelPricingDesc: '在模型选择器中显示每百万 token 的输入、输出和缓存读取价格。',
       reactionsTitle: '消息回应',
-      reactionsDesc: 'iMessage 风格的表情回应 — 你可以给消息添加回应，Aegis 也能回应你的消息。',
+      reactionsDesc: 'iMessage 风格的表情回应 — 你可以给消息添加回应，Aegis AI Enterprise Autonomous Platform 也能回应你的消息。',
       tipsTitle: '应用内提示',
-      tipsDesc: '偶尔显示来自应用和 Aegis 的提示，每条提示只出现一次。开始使用满30天后自动关闭，你可以重新开启。',
+      tipsDesc: '偶尔显示来自应用和 Aegis AI Enterprise Autonomous Platform 的提示，每条提示只出现一次。开始使用满30天后自动关闭，你可以重新开启。',
       tipsReset: (count: number) => `再次显示 ${count} 条提示`,
       toursTitle: '引导导览',
-      toursDesc: '让 Aegis 逐步高亮每个位置，带你熟悉应用。开始使用满30天后自动关闭，你可以重新开启。',
+      toursDesc: '让 Aegis AI Enterprise Autonomous Platform 逐步高亮每个位置，带你熟悉应用。开始使用满30天后自动关闭，你可以重新开启。',
       composerPopoutTitle: '悬浮输入框',
       composerPopoutDesc: '允许将输入框拖出底部停靠区。关闭时，输入框停靠在底部。',
       fileBrowserTitle: '文件浏览器',
@@ -846,8 +846,8 @@ export const zhOverrides = {
       pet: {
         title: '宠物',
         intro:
-          '领养一只悬浮在应用上的 petdex 动画宠物，它会根据 Aegis 的状态做出反应——工具执行时奔跑、成功时欢呼、出错时沮丧。',
-        restartHint: '宠物功能需要重启——当前运行的应用在此功能加入前启动。请退出并重新打开 Aegis，然后回到此处。',
+          '领养一只悬浮在应用上的 petdex 动画宠物，它会根据 Aegis AI Enterprise Autonomous Platform 的状态做出反应——工具执行时奔跑、成功时欢呼、出错时沮丧。',
+        restartHint: '宠物功能需要重启——当前运行的应用在此功能加入前启动。请退出并重新打开 Aegis AI Enterprise Autonomous Platform，然后回到此处。',
         scaleTitle: '大小',
         scaleDesc: '调整悬浮宠物的大小，所有界面即时生效。',
         roamTitle: '漫游',
@@ -1072,10 +1072,10 @@ export const zhOverrides = {
         repoScanRoots: '要扫描的文件夹。留空时扫描主目录。',
         repoScanExcludePaths: '发现代码仓库时跳过这些文件夹及其子目录。'
       },
-      timezone: '当 Aegis 需要本地时间上下文时使用。留空则使用系统时区。',
+      timezone: '当 Aegis AI Enterprise Autonomous Platform 需要本地时间上下文时使用。留空则使用系统时区。',
       agent: {
         imageInputMode: '控制图片附件如何发送给模型。',
-        maxTurns: 'Aegis 停止一次运行前工具调用轮次的上限。'
+        maxTurns: 'Aegis AI Enterprise Autonomous Platform 停止一次运行前工具调用轮次的上限。'
       },
       terminal: {
         cwd: '工具与终端操作的默认项目目录。',
@@ -1089,9 +1089,9 @@ export const zhOverrides = {
       codeExecution: {
         mode: '代码执行被限定到当前项目的严格程度。'
       },
-      fileReadMaxChars: 'Aegis 单次文件读取可读取的最大字符数。',
+      fileReadMaxChars: 'Aegis AI Enterprise Autonomous Platform 单次文件读取可读取的最大字符数。',
       approvals: {
-        mode: 'Aegis 如何处理需要显式审批的命令。',
+        mode: 'Aegis AI Enterprise Autonomous Platform 如何处理需要显式审批的命令。',
         timeout: '审批提示在超时前等待的时长。'
       },
       security: {
@@ -1118,15 +1118,15 @@ export const zhOverrides = {
       },
       browser: {
         useRealProfile:
-          '本地浏览使用你的真实登录状态。Aegis 会把你默认浏览器的配置（Cookie、登录、偏好）复制为受管快照，并用自带的 Chromium 驱动它——不会直接打开你的实时配置，且每次运行都会从实时配置刷新副本。还允许智能体在配置了云端浏览器后端时，按需打开本地真实配置会话。仅支持 Chromium 系浏览器（Chrome、Edge、Brave、Brave Origin、Chromium）；默认浏览器不是 Chromium 系时会给出明确报错。默认关闭。'
+          '本地浏览使用你的真实登录状态。Aegis AI Enterprise Autonomous Platform 会把你默认浏览器的配置（Cookie、登录、偏好）复制为受管快照，并用自带的 Chromium 驱动它——不会直接打开你的实时配置，且每次运行都会从实时配置刷新副本。还允许智能体在配置了云端浏览器后端时，按需打开本地真实配置会话。仅支持 Chromium 系浏览器（Chrome、Edge、Brave、Brave Origin、Chromium）；默认浏览器不是 Chromium 系时会给出明确报错。默认关闭。'
       },
       voice: {
         autoTts: '自动朗读助手回复。',
         voiceChatMode:
-          'chained：语音转文字 → Aegis → 文字转语音，使用下方的提供商。gpt-live：一个全双工的 OpenAI 语音模型（gpt-live-1）负责听和说，并把每个实际请求交给 Aegis——由你选择的任意模型带着完整工具集作答。需要 OpenAI API 密钥；语音层按每分钟 $0.05 计费。',
+          'chained：语音转文字 → Aegis AI Enterprise Autonomous Platform → 文字转语音，使用下方的提供商。gpt-live：一个全双工的 OpenAI 语音模型（gpt-live-1）负责听和说，并把每个实际请求交给 Aegis AI Enterprise Autonomous Platform——由你选择的任意模型带着完整工具集作答。需要 OpenAI API 密钥；语音层按每分钟 $0.05 计费。',
         gptLive: {
           voice: 'GPT-Live 模式使用的音色，可填写自定义音色 ID。',
-          instructions: '附加到实时语音人设的句子（语气、语速、语言）。Aegis 保留自己的系统提示词。'
+          instructions: '附加到实时语音人设的句子（语气、语速、语言）。Aegis AI Enterprise Autonomous Platform 保留自己的系统提示词。'
         }
       },
       stt: {
@@ -1152,13 +1152,13 @@ export const zhOverrides = {
       },
       updates: {
         nonInteractiveLocalChanges:
-          'Aegis 从应用内更新时（无终端提示），保留本地源码修改（暂存）或丢弃（放弃）。通过终端更新时始终会询问。'
+          'Aegis AI Enterprise Autonomous Platform 从应用内更新时（无终端提示），保留本地源码修改（暂存）或丢弃（放弃）。通过终端更新时始终会询问。'
       }
     }),
     uninstallSection: {
       dangerZone: '危险操作',
       checkingInstalled: '正在检查已安装内容…',
-      uninstallAegis: '卸载 Aegis',
+      uninstallAegis AI Enterprise Autonomous Platform: '卸载 Aegis AI Enterprise Autonomous Platform',
       chooseHowMuch: '选择要删除的内容。应用会关闭以完成卸载；随时重新打开安装程序即可恢复。',
       confirmUninstall: '确认卸载',
       confirmBody: what => `这将删除${what}。此操作无法撤销。`,
@@ -1169,18 +1169,18 @@ export const zhOverrides = {
       options: {
         gui: {
           title: '仅卸载聊天图形界面',
-          description: '仅移除此桌面应用。Aegis 智能体、你的配置和聊天记录都会保留。',
+          description: '仅移除此桌面应用。Aegis AI Enterprise Autonomous Platform 智能体、你的配置和聊天记录都会保留。',
           consequence: '桌面聊天图形界面（此应用及其数据）'
         },
         lite: {
           title: '卸载图形界面和智能体，保留数据',
-          description: '移除应用和 Aegis 智能体，但保留配置、聊天记录和密钥，以便将来重新安装。',
-          consequence: '聊天图形界面和 Aegis 智能体（配置、聊天记录和密钥会保留）'
+          description: '移除应用和 Aegis AI Enterprise Autonomous Platform 智能体，但保留配置、聊天记录和密钥，以便将来重新安装。',
+          consequence: '聊天图形界面和 Aegis AI Enterprise Autonomous Platform 智能体（配置、聊天记录和密钥会保留）'
         },
         full: {
           title: '全部卸载',
           description: '移除应用、智能体和所有用户数据——配置、聊天记录、定时任务、密钥和日志。',
-          consequence: '全部内容——聊天图形界面、Aegis 智能体以及你的所有配置、聊天记录、密钥和日志'
+          consequence: '全部内容——聊天图形界面、Aegis AI Enterprise Autonomous Platform 智能体以及你的所有配置、聊天记录、密钥和日志'
         }
       }
     },
@@ -1234,7 +1234,7 @@ export const zhOverrides = {
     config: {
       minimizeToTrayTitle: '最小化到托盘',
       minimizeToTrayDesc:
-        '最小化窗口或关闭主窗口时，将其隐藏到系统托盘（macOS 上为菜单栏），让 Aegis 继续运行。通过托盘菜单中的“退出 Aegis”或 Cmd+Q 退出。默认关闭，仅适用于此设备。',
+        '最小化窗口或关闭主窗口时，将其隐藏到系统托盘（macOS 上为菜单栏），让 Aegis AI Enterprise Autonomous Platform 继续运行。通过托盘菜单中的“退出 Aegis AI Enterprise Autonomous Platform”或 Cmd+Q 退出。默认关闭，仅适用于此设备。',
       minimizeToTrayUnavailable: '系统托盘不可用。窗口将正常最小化和关闭。关闭此选项后重新开启即可重试。',
       none: '无',
       noneParen: '(无)',
@@ -1244,7 +1244,7 @@ export const zhOverrides = {
       searchPlaceholder: '搜索…',
       noResults: '未找到结果',
       systemDefault: '系统默认',
-      loading: '正在加载 Aegis 配置...',
+      loading: '正在加载 Aegis AI Enterprise Autonomous Platform 配置...',
       emptyTitle: '无可配置项',
       emptyDesc: '此分区没有可调整的设置。',
       failedLoad: '设置加载失败',
@@ -1281,24 +1281,24 @@ export const zhOverrides = {
       title: '轻按唤出 HUD',
       description:
         '在 Mac 上按下并松开 ⌘ + Option，在 Windows/Linux 上按下并松开 Ctrl + Alt，即可从任意应用将 HUD 置于前台。默认关闭，仅适用于此设备。',
-      permission: '请在系统设置 → 隐私与安全性 → 输入监控中允许 Aegis，然后重试。此手势不会记录按键或截取屏幕。',
-      unavailable: 'HUD 手势辅助程序无法启动或意外停止。请重试或重启 Aegis。Aegis 内原有的 HUD 快捷键仍可使用。',
-      missingHelper: '此 Aegis 安装缺少 HUD 手势辅助程序。请更新或重新安装 Aegis，然后重试。',
+      permission: '请在系统设置 → 隐私与安全性 → 输入监控中允许 Aegis AI Enterprise Autonomous Platform，然后重试。此手势不会记录按键或截取屏幕。',
+      unavailable: 'HUD 手势辅助程序无法启动或意外停止。请重试或重启 Aegis AI Enterprise Autonomous Platform。Aegis AI Enterprise Autonomous Platform 内原有的 HUD 快捷键仍可使用。',
+      missingHelper: '此 Aegis AI Enterprise Autonomous Platform 安装缺少 HUD 手势辅助程序。请更新或重新安装 Aegis AI Enterprise Autonomous Platform，然后重试。',
       unsupportedSession: '此桌面会话不支持全局修饰键轻按事件。Linux 需要 X11；不支持 Wayland。'
     },
     screenshot: {
       enabledTitle: '截图快捷键',
       enabledDesc:
-        '在任意应用中同时按下左右两个 Command 键，即可截取最前面的窗口并附加到当前 Aegis 草稿。绝不会自动发送。默认关闭，仅适用于这台 Mac。窗口可能包含敏感内容，请在发送前检查附件。',
+        '在任意应用中同时按下左右两个 Command 键，即可截取最前面的窗口并附加到当前 Aegis AI Enterprise Autonomous Platform 草稿。绝不会自动发送。默认关闭，仅适用于这台 Mac。窗口可能包含敏感内容，请在发送前检查附件。',
       statusTitle: '截图快捷键状态',
       checking: '正在检查截图快捷键…',
       disabled: '截图快捷键已关闭。',
       starting: '正在启动快捷键监听，尚未就绪。',
       ready: '快捷键已就绪。截图会附加到当前草稿，不会发送。',
       inputPermission:
-        '输入监控权限允许 Aegis 在其他应用处于活动状态时检测两个 Command 键。请在系统设置 → 隐私与安全性 → 输入监控中允许 Aegis，然后返回此处重试。',
+        '输入监控权限允许 Aegis AI Enterprise Autonomous Platform 在其他应用处于活动状态时检测两个 Command 键。请在系统设置 → 隐私与安全性 → 输入监控中允许 Aegis AI Enterprise Autonomous Platform，然后返回此处重试。',
       screenPermission:
-        '屏幕录制权限允许 Aegis 在你使用此快捷键时截取最前面的应用窗口。请在系统设置 → 隐私与安全性 → 屏幕录制中允许 Aegis，然后返回此处重试。如果 macOS 提示，请重启 Aegis。',
+        '屏幕录制权限允许 Aegis AI Enterprise Autonomous Platform 在你使用此快捷键时截取最前面的应用窗口。请在系统设置 → 隐私与安全性 → 屏幕录制中允许 Aegis AI Enterprise Autonomous Platform，然后返回此处重试。如果 macOS 提示，请重启 Aegis AI Enterprise Autonomous Platform。',
       openSettings: '打开系统设置',
       retry: '重试',
       unavailable: '截图快捷键不可用。请重试或将其关闭。',
@@ -1311,7 +1311,7 @@ export const zhOverrides = {
     },
     quickEntry: {
       enabledTitle: '快速输入',
-      enabledDesc: '用全局快捷键在任何地方唤出一个小输入框，无需打开 Aegis 即可发送提示。',
+      enabledDesc: '用全局快捷键在任何地方唤出一个小输入框，无需打开 Aegis AI Enterprise Autonomous Platform 即可发送提示。',
       shortcutTitle: '快速输入快捷键',
       shortcutDesc: '至少需要一个修饰键，例如 CommandOrControl+Shift+Space。',
       active: '快捷键已生效。',
@@ -1341,7 +1341,7 @@ export const zhOverrides = {
     // v2 多连接注册表：设置 → 网关。
     connections: {
       title: '已注册网关',
-      intro: '管理本机以及通过远程、SSH 或 Aegis Cloud 连接可访问的每个 Aegis 网关。',
+      intro: '管理本机以及通过远程、SSH 或 Aegis AI Enterprise Autonomous Platform Cloud 连接可访问的每个 Aegis AI Enterprise Autonomous Platform 网关。',
       stagedNote: '所有网关都保持连接。配置档案、聊天、消息和定时任务归属于各自网关，“会话”可以同时显示全部网关。',
       launchModeTitle: '启动时返回上次使用网关的会话视图',
       launchModeDesc: '关闭时，会话将在主网关上打开。',
@@ -1366,15 +1366,15 @@ export const zhOverrides = {
       updateAllRunning: '正在更新所有实例…',
       updateAllDone: '更新已分发',
       updateAllFailed: '批量更新失败',
-      updateSkippedCloud: '由 Aegis Cloud 托管',
+      updateSkippedCloud: '由 Aegis AI Enterprise Autonomous Platform Cloud 托管',
       kindLocal: '本地',
       kindRemote: '远程网关',
-      kindCloud: 'Aegis Cloud',
+      kindCloud: 'Aegis AI Enterprise Autonomous Platform Cloud',
       kindSsh: 'SSH',
-      kindLocalDesc: '由本应用管理的 Aegis 运行时。',
-      kindRemoteDesc: '可通过 HTTP(S) 访问的 Aegis 网关——局域网、Tailscale 或互联网。',
-      kindCloudDesc: '通过你的 Aegis Cloud 账户发现的托管实例。',
-      kindSshDesc: '通过 SSH 访问的 Aegis 安装。',
+      kindLocalDesc: '由本应用管理的 Aegis AI Enterprise Autonomous Platform 运行时。',
+      kindRemoteDesc: '可通过 HTTP(S) 访问的 Aegis AI Enterprise Autonomous Platform 网关——局域网、Tailscale 或互联网。',
+      kindCloudDesc: '通过你的 Aegis AI Enterprise Autonomous Platform Cloud 账户发现的托管实例。',
+      kindSshDesc: '通过 SSH 访问的 Aegis AI Enterprise Autonomous Platform 安装。',
       labelTitle: '名称',
       labelDesc: '必填。此实例出现的所有位置都会显示该名称；必须唯一（例如“家庭服务器”、“工作笔记本”）。',
       labelPlaceholder: '家庭服务器',
@@ -1382,7 +1382,7 @@ export const zhOverrides = {
       sshHostTitle: 'SSH 主机',
       headersTitle: '额外网关请求头',
       headersDesc:
-        '随发往此网关的每个 HTTP 和 WebSocket 请求一起发送——用于 Cloudflare Access 等访问代理（CF-Access-Client-Id / CF-Access-Client-Secret）。值加密存储。由 Aegis 管理的请求头（Authorization、Cookie、Host 等）会被忽略。',
+        '随发往此网关的每个 HTTP 和 WebSocket 请求一起发送——用于 Cloudflare Access 等访问代理（CF-Access-Client-Id / CF-Access-Client-Secret）。值加密存储。由 Aegis AI Enterprise Autonomous Platform 管理的请求头（Authorization、Cookie、Host 等）会被忽略。',
       headerValuePlaceholder: '值',
       headerValueSaved: '已保存——留空以保留',
       headerAdd: '添加请求头',
@@ -1392,7 +1392,7 @@ export const zhOverrides = {
       duplicateSsh: (label: string) => `已存在指向此 SSH 主机的连接（“${label}”）。`,
       sameBackendHint: (label: string) => `与“${label}”是同一后端`,
       localAddHint: '“本地”不可用：应用管理的本地连接已存在（永远只有一个）。',
-      cloudAddHint: '提示：在上方登录 Aegis Cloud 可自动发现你的智能体——此表单仅用于手动注册已知的实例 URL。',
+      cloudAddHint: '提示：在上方登录 Aegis AI Enterprise Autonomous Platform Cloud 可自动发现你的智能体——此表单仅用于手动注册已知的实例 URL。',
       save: '保存连接',
       saving: '保存中…',
       cancel: '取消',
@@ -1422,21 +1422,21 @@ export const zhOverrides = {
       title: '网关连接',
       envOverride: '环境变量覆盖',
       intro:
-        'Aegis Desktop 默认会启动自己的本地网关。当你希望此应用控制另一台机器上或可信代理后的现有 Aegis 后端时，可以使用远程网关。网关连接属于本机级设置；profile 是从所连接的网关中发现的。',
+        'Aegis AI Enterprise Autonomous Platform Desktop 默认会启动自己的本地网关。当你希望此应用控制另一台机器上或可信代理后的现有 Aegis AI Enterprise Autonomous Platform 后端时，可以使用远程网关。网关连接属于本机级设置；profile 是从所连接的网关中发现的。',
       envOverrideTitle: '环境变量正在控制此桌面会话。',
       envOverrideDesc: '取消设置 AEGIS_DESKTOP_REMOTE_URL 和 AEGIS_DESKTOP_REMOTE_TOKEN 后才会使用下面保存的设置。',
       modeTitle: '连接模式',
       localTitle: '本地网关',
-      localDesc: '在 localhost 启动私有 Aegis 后端。这是默认方式，并且可离线工作。',
+      localDesc: '在 localhost 启动私有 Aegis AI Enterprise Autonomous Platform 后端。这是默认方式，并且可离线工作。',
       remoteTitle: '远程网关',
-      remoteDesc: '将此桌面外壳连接到远程 Aegis 后端。',
+      remoteDesc: '将此桌面外壳连接到远程 Aegis AI Enterprise Autonomous Platform 后端。',
       remoteAuthHint: '托管网关使用 OAuth 或用户名密码；自托管网关也可能使用会话 token。',
-      cloudTitle: 'Aegis Cloud',
-      cloudDesc: '只需登录 Aegis Cloud 一次，即可从你账户下的智能体中选择——无需粘贴 URL。',
-      cloudSignInTitle: 'Aegis Cloud',
-      cloudSignIn: '登录 Aegis Cloud',
-      cloudSignedIn: '已登录 Aegis Cloud',
-      cloudNeedsSignIn: '登录 Aegis Cloud 以发现你账户下的智能体。',
+      cloudTitle: 'Aegis AI Enterprise Autonomous Platform Cloud',
+      cloudDesc: '只需登录 Aegis AI Enterprise Autonomous Platform Cloud 一次，即可从你账户下的智能体中选择——无需粘贴 URL。',
+      cloudSignInTitle: 'Aegis AI Enterprise Autonomous Platform Cloud',
+      cloudSignIn: '登录 Aegis AI Enterprise Autonomous Platform Cloud',
+      cloudSignedIn: '已登录 Aegis AI Enterprise Autonomous Platform Cloud',
+      cloudNeedsSignIn: '登录 Aegis AI Enterprise Autonomous Platform Cloud 以发现你账户下的智能体。',
       cloudSignedInDesc: '你已登录。在下方选择一个智能体；会话会自动刷新。',
       cloudAgentsTitle: '你的智能体',
       cloudOrgPickerTitle: '选择一个组织',
@@ -1456,11 +1456,11 @@ export const zhOverrides = {
       cloudUseSaved: '使用网关',
       cloudActive: '当前窗口正在使用',
       cloudConnecting: '正在连接…',
-      cloudDiscoverFailed: '无法加载你的 Aegis Cloud 智能体',
+      cloudDiscoverFailed: '无法加载你的 Aegis AI Enterprise Autonomous Platform Cloud 智能体',
       cloudConnectFailed: '无法连接到该智能体',
-      cloudSignInFailed: 'Aegis Cloud 登录失败',
-      cloudSignedOutTitle: '已退出 Aegis Cloud',
-      cloudSignedOutMessage: '已清除 Aegis Cloud 会话。',
+      cloudSignInFailed: 'Aegis AI Enterprise Autonomous Platform Cloud 登录失败',
+      cloudSignedOutTitle: '已退出 Aegis AI Enterprise Autonomous Platform Cloud',
+      cloudSignedOutMessage: '已清除 Aegis AI Enterprise Autonomous Platform Cloud 会话。',
       cloudConnectedTitle: '已连接',
       cloudConnectedPill: '已连接',
       cloudConnectedTo: name => `已连接到 ${name}。`,
@@ -1509,9 +1509,9 @@ export const zhOverrides = {
       enterUrlFirst: '请先输入远程 URL。',
       restartingTitle: '网关连接正在重启',
       savedTitle: '网关设置已保存',
-      restartingMessage: 'Aegis Desktop 将使用已保存设置重新连接（界面保持打开）。',
+      restartingMessage: 'Aegis AI Enterprise Autonomous Platform Desktop 将使用已保存设置重新连接（界面保持打开）。',
       savedMessage: '已保存，下一次重启生效。',
-      connectedTo: (baseUrl, version) => `已连接到 ${baseUrl}${version ? ` · Aegis ${version}` : ''}`,
+      connectedTo: (baseUrl, version) => `已连接到 ${baseUrl}${version ? ` · Aegis AI Enterprise Autonomous Platform ${version}` : ''}`,
       reachableTitle: '远程网关可访问',
       signedOutTitle: '已退出登录',
       signedOutMessage: '已清除远程网关会话。',
@@ -1523,7 +1523,7 @@ export const zhOverrides = {
       saveFailed: '无法保存网关设置',
       sshTitle: '通过 SSH 连接',
       sshDesc:
-        'Aegis 会通过 SSH 在远程启动并以隧道连接到本应用——无需自行启动或暴露任何服务。前提：已具备到该主机的密钥 SSH 访问。',
+        'Aegis AI Enterprise Autonomous Platform 会通过 SSH 在远程启动并以隧道连接到本应用——无需自行启动或暴露任何服务。前提：已具备到该主机的密钥 SSH 访问。',
       sshTrustHint: '首次提供的主机密钥会被信任并固定；后续变更将被拒绝。',
       sshHostTitle: '主机',
       sshHostDesc: 'user@host，或 ~/.ssh/config 中的 Host 别名。',
@@ -1538,25 +1538,25 @@ export const zhOverrides = {
       sshPortDesc: '留空 = 22 或 ~/.ssh/config 中的端口。',
       sshKeyTitle: '密钥文件',
       sshKeyDesc: '私钥路径。留空 = ssh-agent 或 ~/.ssh/config。',
-      sshAegisPathTitle: 'Aegis 路径（可选）',
-      sshAegisPathDesc: '远程 aegis 可执行文件的完整路径。留空 = 自动检测。',
-      sshAegisPathPlaceholder: '自动检测',
+      sshAegis AI Enterprise Autonomous PlatformPathTitle: 'Aegis AI Enterprise Autonomous Platform 路径（可选）',
+      sshAegis AI Enterprise Autonomous PlatformPathDesc: '远程 aegis 可执行文件的完整路径。留空 = 自动检测。',
+      sshAegis AI Enterprise Autonomous PlatformPathPlaceholder: '自动检测',
       sshTestConnection: '测试 SSH',
       sshConnect: '连接',
       sshButtonsHint: '“保存”将在下次启动时生效，“连接”则立即重新连接。',
-      sshReachable: (host, platform) => `可连接：${host}（${platform}）——已找到 Aegis`,
+      sshReachable: (host, platform) => `可连接：${host}（${platform}）——已找到 Aegis AI Enterprise Autonomous Platform`,
       sshIncompleteHost: '连接前请输入 SSH 主机。',
       sshErrUnreachable: '无法通过 SSH 连接到该主机。请检查主机、端口和网络。',
       sshErrAuth:
-        'SSH 认证失败。请将密钥加载到 ssh-agent（ssh-add），或在 ~/.ssh/config 中设置 IdentityFile——Aegis 以非交互方式运行 ssh。',
+        'SSH 认证失败。请将密钥加载到 ssh-agent（ssh-add），或在 ~/.ssh/config 中设置 IdentityFile——Aegis AI Enterprise Autonomous Platform 以非交互方式运行 ssh。',
       sshErrHostKey: '自上次连接以来主机密钥已更改。请确认这是预期的，然后运行 ssh-keygen -R <host> 并重新连接。',
       sshErrNotInstalled:
-        '远程主机上未安装 Aegis。请在远程安装（curl -fsSL https://aegis-agent.nousresearch.com/install.sh | sh）或设置 Aegis 路径。',
-      sshErrPlatform: '不支持的远程平台。Aegis Desktop 的 SSH 模式支持 Linux、macOS 和 Windows 远程主机。',
+        '远程主机上未安装 Aegis AI Enterprise Autonomous Platform。请在远程安装（curl -fsSL https://aegis-agent.nousresearch.com/install.sh | sh）或设置 Aegis AI Enterprise Autonomous Platform 路径。',
+      sshErrPlatform: '不支持的远程平台。Aegis AI Enterprise Autonomous Platform Desktop 的 SSH 模式支持 Linux、macOS 和 Windows 远程主机。',
       sshErrTimeout: 'SSH 连接超时。主机可能无法访问或处于休眠状态。',
-      sshErrUpdateRequired: '使用 Desktop SSH 连接前，请更新远程主机上的 Aegis。',
+      sshErrUpdateRequired: '使用 Desktop SSH 连接前，请更新远程主机上的 Aegis AI Enterprise Autonomous Platform。',
       sshErrInteractiveAuth:
-        'Tailscale SSH 需要交互式浏览器验证。请在终端运行 `ssh <host> true` 完成验证后重试——Aegis 以非交互方式运行 SSH。',
+        'Tailscale SSH 需要交互式浏览器验证。请在终端运行 `ssh <host> true` 完成验证后重试——Aegis AI Enterprise Autonomous Platform 以非交互方式运行 SSH。',
       sshErrUnknown: 'SSH 连接失败。'
     },
     keys: {
@@ -1603,7 +1603,7 @@ export const zhOverrides = {
       noOutput: '暂无输出。',
       deepLinkTitle: '添加 MCP 服务器？',
       deepLinkDescription:
-        '一个链接请求将此 MCP 服务器添加到 Aegis。请检查下方的完整配置——它来自该链接，而非 Aegis。',
+        '一个链接请求将此 MCP 服务器添加到 Aegis AI Enterprise Autonomous Platform。请检查下方的完整配置——它来自该链接，而非 Aegis AI Enterprise Autonomous Platform。',
       deepLinkStdioWarning: '此服务器会使用下方所示命令在你的电脑上运行本地进程。仅在信任其来源时继续。',
       deepLinkConfirm: '添加服务器',
       deepLinkNameInvalid: '名称须为 1-64 个字母、数字、点、连字符或下划线。',
@@ -1710,7 +1710,7 @@ export const zhOverrides = {
       },
       keepGoingOnCredits: {
         title: '用额度继续',
-        description: '包含的用量用完后，使用你的额度。关闭时，Aegis 等待重置。',
+        description: '包含的用量用完后，使用你的额度。关闭时，Aegis AI Enterprise Autonomous Platform 等待重置。',
         approveInBrowser: '请在浏览器中批准 Remote Spending 以更改此设置。批准后立即生效。',
         openAgain: '再次打开',
         cancel: '取消',
@@ -1829,7 +1829,7 @@ export const zhOverrides = {
         sessionRevoked: { title: '会话已登出', message: '你的会话已登出。请从“设置 → 网关”重新登录。' },
         cliBillingDisabled: {
           title: '远程支出已关闭',
-          message: '此账户的远程支出已关闭，账单管理员可在门户的 Aegis Agent 页面开启。'
+          message: '此账户的远程支出已关闭，账单管理员可在门户的 Aegis AI Enterprise Autonomous Platform Agent 页面开启。'
         },
         roleRequired: {
           title: '需要管理员权限',
@@ -1867,7 +1867,7 @@ export const zhOverrides = {
     providers: {
       connectAccount: '连接账号',
       haveApiKey: '改用 API 密钥？',
-      intro: '使用订阅登录，无需复制 API 密钥。Aegis 会在应用中为你完成浏览器登录。',
+      intro: '使用订阅登录，无需复制 API 密钥。Aegis AI Enterprise Autonomous Platform 会在应用中为你完成浏览器登录。',
       connected: '已连接',
       collapse: '收起',
       connectAnother: '连接其他提供方',
@@ -1887,7 +1887,7 @@ export const zhOverrides = {
       noKeysMatch: '没有匹配的提供方。',
       localEndpoint: {
         title: '本地 / 自定义端点',
-        description: '将 Aegis 指向任意 OpenAI 兼容端点（Zyphra、vLLM、llama.cpp、Ollama 等）。'
+        description: '将 Aegis AI Enterprise Autonomous Platform 指向任意 OpenAI 兼容端点（Zyphra、vLLM、llama.cpp、Ollama 等）。'
       },
       loading: '正在加载提供方...'
     },
@@ -2019,7 +2019,7 @@ export const zhOverrides = {
         signinsFailed: '无法将登录信息导入应用内浏览器',
         prompt: {
           title: '让网站保持登录状态',
-          body: '让 Aegis 使用默认浏览器配置文件的快照进行浏览，无论是代理还是应用内浏览器，网站打开时即已登录。',
+          body: '让 Aegis AI Enterprise Autonomous Platform 使用默认浏览器配置文件的快照进行浏览，无论是代理还是应用内浏览器，网站打开时即已登录。',
           bulletSnapshot: 'Cookie 和登录信息会复制到托管快照中。',
           bulletLiveProfile: '绝不会直接打开你的真实浏览器配置文件。',
           bulletLocal: '所有数据都不会离开这台电脑。',
@@ -2100,7 +2100,7 @@ export const zhOverrides = {
       halfDesktopHint: '本应用，所有配置相同',
       halfAgent: 'Agent',
       halfAgentIn: (profile: string) => `${profile} 中的 Agent`,
-      defaultProfile: 'Aegis（默认）',
+      defaultProfile: 'Aegis AI Enterprise Autonomous Platform（默认）',
       kindAgent: 'Agent',
       kindDesktop: '桌面',
       kindBoth: 'Agent + 桌面',
@@ -2119,10 +2119,10 @@ export const zhOverrides = {
       emptyHint: '在下方目录中浏览，一键安装经过审核的插件。',
       loadFailed: '无法加载 agent 插件',
       toggleFailed: (name: string) => `无法切换 ${name}`,
-      legacyBackend: '此后端版本较旧，不支持按键名切换插件 — 请更新 Aegis 后再在此管理。',
+      legacyBackend: '此后端版本较旧，不支持按键名切换插件 — 请更新 Aegis AI Enterprise Autonomous Platform 后再在此管理。',
       portableBadge: '便携',
       alreadyInstalled: (name: string) => `${name} 已安装在此配置中。`,
-      catalogProvenance: (sha: string) => `从 Aegis 目录安装${sha ? `，固定提交 ${sha}` : ''}。`,
+      catalogProvenance: (sha: string) => `从 Aegis AI Enterprise Autonomous Platform 目录安装${sha ? `，固定提交 ${sha}` : ''}。`,
       pinnedProvenance: (sha: string) => `已固定到提交 ${sha}。重新固定前将拒绝更新。`,
       pinnedBadge: (sha: string) => `固定 @ ${sha}`,
       ...zhPluginUpdate,
@@ -2140,8 +2140,8 @@ export const zhOverrides = {
       uninstalledDesktop: (name: string) => `${name} 已卸载。`,
       deepLinkErrorTitle: '插件安装链接已拒绝',
       deepLinkCatalogInvalidName: '链接中的目录名称缺失或无效。',
-      deepLinkCatalogUnknown: (name: string) => `“${name}”不在 Aegis 插件目录中。未安装任何内容。`,
-      deepLinkCatalogUnavailable: '无法加载 Aegis 插件目录。请检查网络连接后重新打开链接。'
+      deepLinkCatalogUnknown: (name: string) => `“${name}”不在 Aegis AI Enterprise Autonomous Platform 插件目录中。未安装任何内容。`,
+      deepLinkCatalogUnavailable: '无法加载 Aegis AI Enterprise Autonomous Platform 插件目录。请检查网络连接后重新打开链接。'
     },
     officialCatalog: '可安装',
     officialPill: '官方',
@@ -2208,7 +2208,7 @@ export const zhOverrides = {
     loadFailed: '无法加载记忆图谱',
     loading: '加载中…',
     emptyTitle: '尚无学习内容',
-    emptyDesc: '当 Aegis 为你的工作构建技能和记忆时，会显示在这里。',
+    emptyDesc: '当 Aegis AI Enterprise Autonomous Platform 为你的工作构建技能和记忆时，会显示在这里。',
     share: '分享图谱',
     shareHint: '复制代码以分享此图谱，或粘贴代码以载入。仅包含布局，不含你的记忆或技能内容。',
     shareTitle: '导入 / 导出图谱',
@@ -2289,7 +2289,7 @@ export const zhOverrides = {
       placeholder: '搜索宠物…',
       loading: '正在加载 petdex 画廊…',
       error: '无法连接到 petdex 画廊。',
-      staleBackend: '请重启 Aegis 以使用宠物功能——当前后端版本过旧。',
+      staleBackend: '请重启 Aegis AI Enterprise Autonomous Platform 以使用宠物功能——当前后端版本过旧。',
       empty: '没有匹配的宠物。',
       turnOff: '关闭',
       turnOn: '开启',
@@ -2316,8 +2316,8 @@ export const zhOverrides = {
       hatchComposing: '正在拼合……',
       hatchSaving: '马上就好……',
       namePlaceholder: '给宠物起个名字',
-      staleBackend: '请更新 Aegis 以生成宠物。',
-      backgroundHint: '你可以关闭此窗口——完成后 Aegis 会通知你。',
+      staleBackend: '请更新 Aegis AI Enterprise Autonomous Platform 以生成宠物。',
+      backgroundHint: '你可以关闭此窗口——完成后 Aegis AI Enterprise Autonomous Platform 会通知你。',
       slowProviderHint: '这可能需要几分钟',
       remix: '混合生成',
       remixConfirmTitle: '以此造型混合生成？',
@@ -2346,7 +2346,7 @@ export const zhOverrides = {
     sections: { maintenance: '维护', sessions: '会话', system: '系统', usage: '用量' },
     nav: {
       newChat: { title: '新建会话', detail: '开始一个新会话' },
-      settings: { title: '设置', detail: '配置 Aegis 桌面端' },
+      settings: { title: '设置', detail: '配置 Aegis AI Enterprise Autonomous Platform 桌面端' },
       capabilities: { title: '技能与工具', detail: '启用技能、工具集与提供方' },
       messaging: { title: '消息平台', detail: '配置 Telegram、Slack、Discord 等' },
       artifacts: { title: '产物', detail: '浏览生成的输出' }
@@ -2368,7 +2368,7 @@ export const zhOverrides = {
     noSessions: '暂无会话。',
     gatewayRunning: '消息网关运行中',
     gatewayStopped: '消息网关已停止',
-    aegisActiveSessions: (version, count) => `Aegis ${version} · 活跃会话 ${count}`,
+    aegisActiveSessions: (version, count) => `Aegis AI Enterprise Autonomous Platform ${version} · 活跃会话 ${count}`,
     restartGateway: '重启网关',
     openBrowser: '切换浏览器',
     toggleBrowser: '切换浏览器',
@@ -2377,7 +2377,7 @@ export const zhOverrides = {
     sharedGatewayRestartDescription: bots => `此设备上的所有机器人都会重新连接：${bots}`,
     sharedGatewayRestartConfirm: '全部重启',
     sharedGatewayRestarted: count => `共享网关已重启（${count} 个机器人）`,
-    updateAegis: '更新 Aegis',
+    updateAegis AI Enterprise Autonomous Platform: '更新 Aegis AI Enterprise Autonomous Platform',
     reloadWindow: '重新载入窗口',
     actionRunning: '运行中',
     actionDone: '完成',
@@ -2419,7 +2419,7 @@ export const zhOverrides = {
       debugShareDesc: '上传摘要（版本、配置键名、错误计数；不含日志文本），获取可分享链接（6 小时后自动删除）',
       debugShareConfirm: '将调试报告上传到公开粘贴服务？',
       debugShareConfirmDesc:
-        '将摘要上传到公开粘贴服务：Aegis、Python 和操作系统版本，已连接平台与工具集名称，配置键名（不含值），以及警告/错误计数。不包含任何日志行或消息文本。粘贴内容 6 小时后自动删除；若 paste.rs 不可用，备用的 dpaste.com 会将其公开保留 1 天，且无法提前删除。',
+        '将摘要上传到公开粘贴服务：Aegis AI Enterprise Autonomous Platform、Python 和操作系统版本，已连接平台与工具集名称，配置键名（不含值），以及警告/错误计数。不包含任何日志行或消息文本。粘贴内容 6 小时后自动删除；若 paste.rs 不可用，备用的 dpaste.com 会将其公开保留 1 天，且无法提前删除。',
       debugShareRunning: '正在上传调试报告…',
       debugShareLinks: '分享链接',
       debugShareFailed: '调试分享失败',
@@ -2458,14 +2458,14 @@ export const zhOverrides = {
       sectionTitle: '可安装',
       badges: { official: '官方', verified: '已验证' },
       notInstalled: '未安装',
-      intro: (name: string) => `${name} 是 Aegis 目录中的插件。安装后即启用，然后可在此填写凭据。`,
+      intro: (name: string) => `${name} 是 Aegis AI Enterprise Autonomous Platform 目录中的插件。安装后即启用，然后可在此填写凭据。`,
       disclosure: '披露：',
       install: '安装',
       installing: '正在安装…',
       installed: (name: string) => `已安装 ${name}`,
       installedDetail: '填写凭据以完成连接。',
       installFailed: (name: string) => `无法安装 ${name}`,
-      lazyOff: '插件自动安装已关闭（security.allow_lazy_installs），因此 Aegis 不会在此安装。',
+      lazyOff: '插件自动安装已关闭（security.allow_lazy_installs），因此 Aegis AI Enterprise Autonomous Platform 不会在此安装。',
       runCommand: '在终端中安装：',
     },
     search: '搜索消息平台…',
@@ -2552,7 +2552,7 @@ export const zhOverrides = {
     relayLink: {
       title: 'Team Gateway',
       badge: '无需机器人令牌',
-      intro: (platform: string) => `${platform} 通过共享的 Aegis 机器人连接到此智能体。关联你的 ${platform} 账号，然后给机器人发消息即可与智能体对话。`,
+      intro: (platform: string) => `${platform} 通过共享的 Aegis AI Enterprise Autonomous Platform 机器人连接到此智能体。关联你的 ${platform} 账号，然后给机器人发消息即可与智能体对话。`,
       link: (platform: string) => `关联 ${platform}`,
       linkAnother: (platform: string) => `关联另一个 ${platform} 账号`,
       linkedAccounts: '已关联账号',
@@ -2577,10 +2577,10 @@ export const zhOverrides = {
     },
     telegramQr: {
       title: '选择连接 Telegram 机器人的方式',
-      subtitle: '两种方式都会连接一个由你控制的机器人，凭据仅保存在此 Aegis 安装中。',
+      subtitle: '两种方式都会连接一个由你控制的机器人，凭据仅保存在此 Aegis AI Enterprise Autonomous Platform 安装中。',
       quickSetup: '快速设置',
       recommended: '推荐',
-      quickHelp: '扫描二维码并在 Telegram 中确认。Aegis 会自动创建机器人并识别你的 Telegram 用户 ID。',
+      quickHelp: '扫描二维码并在 Telegram 中确认。Aegis AI Enterprise Autonomous Platform 会自动创建机器人并识别你的 Telegram 用户 ID。',
       createWithQr: '通过二维码创建',
       starting: '正在启动…',
       replaceWarning: 'Telegram 凭据已配置。保存后，新的二维码设置或机器人令牌将替换当前机器人。',
@@ -2666,10 +2666,10 @@ export const zhOverrides = {
       slack: '创建 Slack 应用，启用 Socket Mode，安装到你的工作区，然后复制 bot 令牌和 app 级令牌。',
       mattermost: '在你的 Mattermost 服务器上，创建机器人账户或个人访问令牌，然后在此粘贴服务器 URL 和令牌。',
       matrix: '用机器人账户登录你的 homeserver，然后复制访问令牌、用户 ID 和 homeserver URL。',
-      signal: '在可访问的位置运行 signal-cli REST 桥接，然后把 Aegis 指向该 URL 和已注册的电话号码。',
-      whatsapp: '启动 Aegis 自带的 WhatsApp 桥接，首次运行时扫描二维码，然后启用该平台。',
+      signal: '在可访问的位置运行 signal-cli REST 桥接，然后把 Aegis AI Enterprise Autonomous Platform 指向该 URL 和已注册的电话号码。',
+      whatsapp: '启动 Aegis AI Enterprise Autonomous Platform 自带的 WhatsApp 桥接，首次运行时扫描二维码，然后启用该平台。',
       bluebubbles:
-        '在装有 iMessage 的 Mac 上运行 BlueBubbles Server，暴露其 API，然后用服务器密码把 Aegis 指向该 URL。',
+        '在装有 iMessage 的 Mac 上运行 BlueBubbles Server，暴露其 API，然后用服务器密码把 Aegis AI Enterprise Autonomous Platform 指向该 URL。',
       homeassistant: '在 Home Assistant 中打开你的个人资料并创建长期访问令牌。把它连同你的 HA URL 一起粘贴到这里。',
       email: '使用专用邮箱。对于 Gmail/Workspace,创建应用专用密码并使用 imap.gmail.com / smtp.gmail.com。',
       sms: '从 Twilio 控制台获取你的 Account SID 和 Auth Token，以及一个可发送短信的电话号码。',
@@ -2678,10 +2678,10 @@ export const zhOverrides = {
       wecom: '在企业微信中添加群机器人，复制其 webhook key 作为 WECOM_BOT_ID。仅可发送——双向请用企业微信 (应用) 选项。',
       wecom_callback: '设置一个企业微信自建应用，暴露其回调 URL，并提供 corp ID、secret、agent ID 和 AES key。',
       weixin:
-        '运行 `aegis gateway setup`，选择 Weixin，然后使用个人微信账号扫描并确认二维码。Aegis 会通过腾讯 iLink Bot API 连接并保存凭据。',
+        '运行 `aegis gateway setup`，选择 Weixin，然后使用个人微信账号扫描并确认二维码。Aegis AI Enterprise Autonomous Platform 会通过腾讯 iLink Bot API 连接并保存凭据。',
       qqbot: '在 QQ 开放平台 (q.qq.com) 注册一个应用，复制 App ID 和 Client Secret。',
       api_server:
-        '把 Aegis 暴露为兼容 OpenAI 的 API。设置一个鉴权密钥，然后把 Open WebUI / LobeChat 等指向 host:port。',
+        '把 Aegis AI Enterprise Autonomous Platform 暴露为兼容 OpenAI 的 API。设置一个鉴权密钥，然后把 Open WebUI / LobeChat 等指向 host:port。',
       webhook: '运行一个 HTTP 服务器，供其他工具 (GitHub、GitLab、自定义应用)POST。用 secret 验证签名。'
     }
   },
@@ -2774,7 +2774,7 @@ export const zhOverrides = {
     exported: '配置档案已导出',
     failedImport: '导入配置档案失败',
     failedExport: '导出配置档案失败',
-    exportNeedsHost: name => `浏览器无法保存配置档案归档。请在 Aegis 主机上运行：aegis profile export ${name}`,
+    exportNeedsHost: name => `浏览器无法保存配置档案归档。请在 Aegis AI Enterprise Autonomous Platform 主机上运行：aegis profile export ${name}`,
     allProfiles: '全部配置档案',
     showAllProfiles: '显示全部配置档案',
     notServedHere: '此处未提供',
@@ -2790,9 +2790,9 @@ export const zhOverrides = {
       onGateway: (name, gateway) => `${name} · ${gateway}`,
       switchTo: (name, gateway) => `打开 ${gateway} 上的 ${name}`,
       deleteOn: gateway => `（位于 ${gateway}）`,
-      localDevice: '此设备（本地后端——若未安装 Aegis 则会安装，否则打开一个新会话）',
-      installDeviceTitle: '在此设备上安装 Aegis？',
-      installDeviceDesc: '这将在本地安装 Aegis，然后在这台电脑上打开一个新会话。确认之前不会开始安装。',
+      localDevice: '此设备（本地后端——若未安装 Aegis AI Enterprise Autonomous Platform 则会安装，否则打开一个新会话）',
+      installDeviceTitle: '在此设备上安装 Aegis AI Enterprise Autonomous Platform？',
+      installDeviceDesc: '这将在本地安装 Aegis AI Enterprise Autonomous Platform，然后在这台电脑上打开一个新会话。确认之前不会开始安装。',
       installDeviceConfirm: '本地安装',
       connectExistingInstead: '改为连接现有环境'
     },
@@ -2802,7 +2802,7 @@ export const zhOverrides = {
       runHere: '在此电脑上运行…',
       sandboxed: '已沙盒化',
       title: (profile: string) => `将 ${profile} 连接到远程主机`,
-      description: '此配置档案中的会话将在你指定的远程 Aegis 上运行，而不是这台电脑。',
+      description: '此配置档案中的会话将在你指定的远程 Aegis AI Enterprise Autonomous Platform 上运行，而不是这台电脑。',
       urlLabel: '远程地址',
       urlPlaceholder: 'https://aegis.example.com',
       urlInvalid: '请输入以 http:// 或 https:// 开头的完整地址',
@@ -2835,7 +2835,7 @@ export const zhOverrides = {
     setAsDefault: '设为默认',
     defaultProfile: '默认配置档案',
     defaultSet: name => `${name} 已设为默认`,
-    defaultDescription: '用于 Aegis 启动和新建聊天。现有会话仍保留在各自的配置档案中。',
+    defaultDescription: '用于 Aegis AI Enterprise Autonomous Platform 启动和新建聊天。现有会话仍保留在各自的配置档案中。',
     failedSetDefault: '无法设置默认配置档案',
     setColor: color => `设置颜色 ${color}`,
     autoColor: '自动',
@@ -2872,7 +2872,7 @@ export const zhOverrides = {
     deleteDescMid: ' 并移除其 ',
     deleteDescSuffix: ' 目录。此操作无法撤销。',
     deleting: '删除中…',
-    createDesc: '配置档案是相互独立的 Aegis 环境：各自拥有独立的配置、技能和 SOUL.md。',
+    createDesc: '配置档案是相互独立的 Aegis AI Enterprise Autonomous Platform 环境：各自拥有独立的配置、技能和 SOUL.md。',
     nameLabel: '名称',
     cloneFrom: '克隆来源',
     cloneFromNone: '无（空白）',
@@ -2906,7 +2906,7 @@ export const zhOverrides = {
   },
 
   modelAssignment: {
-    saveFailed: 'Aegis 未保存该模型更改。',
+    saveFailed: 'Aegis AI Enterprise Autonomous Platform 未保存该模型更改。',
     confirmTitle: '模型选择警告',
     confirmDetail: '仅在你接受此权衡时确认。',
     confirmAction: '确认',
@@ -2972,7 +2972,7 @@ export const zhOverrides = {
     topOfHour: '每个整点',
     everyHourAt: minute => `每小时的 :${minute}`,
     newCron: '新建定时任务',
-    emptyDescNew: '按 cron 表达式排程一个提示词。Aegis 会运行它，并把结果发送到你选择的目的地。',
+    emptyDescNew: '按 cron 表达式排程一个提示词。Aegis AI Enterprise Autonomous Platform 会运行它，并把结果发送到你选择的目的地。',
     emptyDescSearch: '尝试更宽泛的搜索词。',
     emptyTitleNew: '暂无排程任务',
     emptyTitleSearch: '无匹配项',
@@ -3256,12 +3256,12 @@ export const zhOverrides = {
     switchingProfileSlow: '仍在连接。现在发送的消息会等待连接完成后发给此智能体。',
     switchProfileFailed: profile => `无法切换到 ${profile}`,
     willSendTo: profile => `将发送给 ${profile}`,
-    placeholderStarting: '正在启动 Aegis…',
-    placeholderReconnecting: '正在重新连接 Aegis…',
+    placeholderStarting: '正在启动 Aegis AI Enterprise Autonomous Platform…',
+    placeholderReconnecting: '正在重新连接 Aegis AI Enterprise Autonomous Platform…',
     placeholderFollowUp: '发送后续消息',
     newSessionPlaceholders: [
       '我们要构建什么？',
-      '给 Aegis 一个任务',
+      '给 Aegis AI Enterprise Autonomous Platform 一个任务',
       '你在想什么？',
       '描述你需要什么',
       '我们该处理什么？',
@@ -3299,8 +3299,8 @@ export const zhOverrides = {
     transcribingDictation: '正在转写听写',
     voiceControls: '语音',
     voiceEngine: '语音聊天引擎',
-    voiceEngineChained: '语音转文字 + Aegis 语音',
-    voiceEngineLive: 'GPT-Live（全双工，委托给 Aegis）',
+    voiceEngineChained: '语音转文字 + Aegis AI Enterprise Autonomous Platform 语音',
+    voiceEngineLive: 'GPT-Live（全双工，委托给 Aegis AI Enterprise Autonomous Platform）',
     voiceEngineLiveNeedsKey: '需要 OpenAI API 密钥',
     voiceEngineChangeFailed: '无法更改语音聊天引擎',
     voiceEngineChainedShort: '语音转文字',
@@ -3349,7 +3349,7 @@ export const zhOverrides = {
       '/journey': '打开记忆图谱 — 查看技能与记忆随时间的变化',
       '/queue': '排队、查看、编辑、移除、移动或清空下一轮提示词',
       '/steer': '在下一次工具调用后插入消息，不会中断当前工作',
-      '/goal': '设置持续目标，让 Aegis 跨回合工作直到完成',
+      '/goal': '设置持续目标，让 Aegis AI Enterprise Autonomous Platform 跨回合工作直到完成',
       '/heartbeat': '设置周期性提示词，在空闲时重新进入此会话',
       '/refine': '立即检查此对话，并将心得保存到记忆或技能',
       '/review': '生成独立子代理，审查刚才讨论的工作（PR、代码、文档）',
@@ -3361,7 +3361,7 @@ export const zhOverrides = {
       '/egress': '显示 Docker 对外连接代理状态',
       '/context': '显示详细的上下文窗口，包括用量、分类明细、压缩统计与吞吐量',
       '/whoami': '显示你的斜线命令访问权限（admin / user）',
-      '/profile': '切换活跃的 Aegis 配置档案',
+      '/profile': '切换活跃的 Aegis AI Enterprise Autonomous Platform 配置档案',
       '/codex-runtime': '切换 OpenAI/Codex 模型使用的 Codex app-server runtime',
       '/personality': '设置预定义人格',
       '/battery': '切换状态栏中的彩色电池指示器',
@@ -3388,7 +3388,7 @@ export const zhOverrides = {
       '/subscription': '查看你的 Nous 方案，并在浏览器中更改',
       '/topup': '显示你的 Nous 余额，并在 Portal 管理账务',
       '/platform': '暂停、恢复或列出故障的网关平台',
-      '/version': '显示 Aegis Agent 版本',
+      '/version': '显示 Aegis AI Enterprise Autonomous Platform Agent 版本',
       '/debug': '调试报告（版本、配置键名、错误计数；不含日志文本）：先显示隐私声明；/debug upload 分享链接',
       '/model': '切换此会话的模型'
     },
@@ -3403,7 +3403,7 @@ export const zhOverrides = {
       'composer.history': '循环弹窗 / 历史'
     },
     attachUrlTitle: '附加 URL',
-    attachUrlDesc: 'Aegis 将抓取该页面并作为本回合的上下文。',
+    attachUrlDesc: 'Aegis AI Enterprise Autonomous Platform 将抓取该页面并作为本回合的上下文。',
     urlPlaceholder: 'https://example.com/post',
     urlHintPre: '请包含完整 URL，例如 ',
     attach: '附加',
@@ -3624,7 +3624,7 @@ export const zhOverrides = {
       createPr: '创建 PR',
       openPr: '打开 PR',
       ghMissing: '安装 GitHub CLI (gh) 并登录后可打开 PR',
-      agentShip: '让 Aegis 提交并开 PR',
+      agentShip: '让 Aegis AI Enterprise Autonomous Platform 提交并开 PR',
       agentShipUnavailable: '拥有这些更改的会话当前不在屏幕上。',
       agentShipPrompt: '检查当前更改，使用清晰的约定式提交信息提交，推送分支，并开启一个拉取请求。',
       newBranch: '新建分支',
@@ -3636,21 +3636,21 @@ export const zhOverrides = {
   },
 
   updates: {
-    discontinuedTitle: '此版本的 Aegis 已停止支持',
-    discontinuedBody: '此版本的 Aegis 已停止支持，可能无法正常运行——请卸载。您的数据仍保留在磁盘上。',
+    discontinuedTitle: '此版本的 Aegis AI Enterprise Autonomous Platform 已停止支持',
+    discontinuedBody: '此版本的 Aegis AI Enterprise Autonomous Platform 已停止支持，可能无法正常运行——请卸载。您的数据仍保留在磁盘上。',
     channels: { stable: '稳定版', canary: '预览版' },
     bundleSwapPending: '重启以完成更新',
-    bundleSwapPendingDesc: '更新后的应用已安装完成，只需重启 Aegis 即可加载新版本。聊天记录和设置不会受到影响。',
-    bundleSwapPendingAction: '重启 Aegis',
+    bundleSwapPendingDesc: '更新后的应用已安装完成，只需重启 Aegis AI Enterprise Autonomous Platform 即可加载新版本。聊天记录和设置不会受到影响。',
+    bundleSwapPendingAction: '重启 Aegis AI Enterprise Autonomous Platform',
     stages: {
       idle: '准备中…',
       prepare: '准备中…',
       fetch: '下载中…',
       pull: '马上完成…',
       pydeps: '收尾中…',
-      update: '正在更新 Aegis…',
+      update: '正在更新 Aegis AI Enterprise Autonomous Platform…',
       rebuild: '正在重新构建桌面应用…',
-      restart: '正在重启 Aegis…',
+      restart: '正在重启 Aegis AI Enterprise Autonomous Platform…',
       done: '更新完成',
       manual: '从终端更新',
       guiSkew: '请更新桌面应用',
@@ -3660,49 +3660,49 @@ export const zhOverrides = {
     checkFailedTitle: '无法检查更新',
     tryAgain: '重试',
     notAvailableTitle: '更新不可用',
-    unsupportedMessage: '此版本的 Aegis 无法在应用内自行更新。',
+    unsupportedMessage: '此版本的 Aegis AI Enterprise Autonomous Platform 无法在应用内自行更新。',
     connectionRetry: '请检查网络连接后重试。',
-    gitUnusable: 'Aegis 无法在这台电脑上运行 Git，因此无法检查更新。',
+    gitUnusable: 'Aegis AI Enterprise Autonomous Platform 无法在这台电脑上运行 Git，因此无法检查更新。',
     latestBody: '你正在运行最新版本。',
     latestBodyBackend: '后端正在运行最新版本。',
     allSetTitle: '已是最新',
     availableTitle: '有可用更新',
-    availableBody: '新版 Aegis 已可安装。',
+    availableBody: '新版 Aegis AI Enterprise Autonomous Platform 已可安装。',
     availableTitleBackend: '后端有可用更新',
-    availableBodyBackend: '已连接的 Aegis 后端有新版本可安装。',
+    availableBodyBackend: '已连接的 Aegis AI Enterprise Autonomous Platform 后端有新版本可安装。',
     availableBodyNoChangelog: '已有新版本可用。此安装方式无法显示更新日志。',
-    availableBodyAppInstaller: 'Aegis 新版本已就绪。Aegis 会关闭，Windows 完成更新后自动重新打开。',
+    availableBodyAppInstaller: 'Aegis AI Enterprise Autonomous Platform 新版本已就绪。Aegis AI Enterprise Autonomous Platform 会关闭，Windows 完成更新后自动重新打开。',
     updateNow: '立即更新',
     maybeLater: '稍后再说',
     moreChanges: count => `另有 ${count} 项更改。`,
     copyFullLog: '复制完整更新日志',
     manualTitle: '从终端更新',
     manualUnavailableTitle: '无法从这里更新',
-    manualBody: '你是从命令行安装的 Aegis，因此更新也需要在那里运行。请将此命令粘贴到终端：',
-    manualBodyBackend: 'Aegis 后端由本应用之外管理。请在托管它的服务器上运行此命令：',
-    manualPickedUp: '下次启动 Aegis 时会使用新版本。',
+    manualBody: '你是从命令行安装的 Aegis AI Enterprise Autonomous Platform，因此更新也需要在那里运行。请将此命令粘贴到终端：',
+    manualBodyBackend: 'Aegis AI Enterprise Autonomous Platform 后端由本应用之外管理。请在托管它的服务器上运行此命令：',
+    manualPickedUp: '下次启动 Aegis AI Enterprise Autonomous Platform 时会使用新版本。',
     manualPickedUpBackend: '后端将在更新完成后加载新版本。',
     guiSkewTitle: '请更新桌面应用',
     guiSkewBody:
-      '后端已更新，但此桌面应用包未更改。请更新或重新安装 Aegis 桌面应用（你的 AppImage / .deb / .rpm）以保持一致。',
+      '后端已更新，但此桌面应用包未更改。请更新或重新安装 Aegis AI Enterprise Autonomous Platform 桌面应用（你的 AppImage / .deb / .rpm）以保持一致。',
     copy: '复制',
     copied: '已复制',
     done: '完成',
     applyingBody:
-      'Aegis 更新器会在自己的窗口中接管，并在完成后自动重新打开 Aegis。更新期间请不要自行重新打开 Aegis。',
-    applyingBodyBackend: '远程后端正在应用更新并将重启。恢复后 Aegis 会自动重新连接。',
-    applyingClose: '此窗口会在更新期间关闭，随后 Aegis 会自动重新打开。',
-    applyingBodyAppInstaller: 'Aegis 会关闭，Windows 会完成更新，然后 Aegis 自动重新打开——无需任何操作。',
-    applyingCloseAppInstaller: '此窗口会关闭，Windows 完成更新后 Aegis 自动重新打开。',
+      'Aegis AI Enterprise Autonomous Platform 更新器会在自己的窗口中接管，并在完成后自动重新打开 Aegis AI Enterprise Autonomous Platform。更新期间请不要自行重新打开 Aegis AI Enterprise Autonomous Platform。',
+    applyingBodyBackend: '远程后端正在应用更新并将重启。恢复后 Aegis AI Enterprise Autonomous Platform 会自动重新连接。',
+    applyingClose: '此窗口会在更新期间关闭，随后 Aegis AI Enterprise Autonomous Platform 会自动重新打开。',
+    applyingBodyAppInstaller: 'Aegis AI Enterprise Autonomous Platform 会关闭，Windows 会完成更新，然后 Aegis AI Enterprise Autonomous Platform 自动重新打开——无需任何操作。',
+    applyingCloseAppInstaller: '此窗口会关闭，Windows 完成更新后 Aegis AI Enterprise Autonomous Platform 自动重新打开。',
     checkUnknownTitleAppInstaller: '无法检查更新',
-    checkUnknownBodyAppInstaller: 'Windows 目前无法检查更新。重启 Aegis 时也会自动安装更新。',
+    checkUnknownBodyAppInstaller: 'Windows 目前无法检查更新。重启 Aegis AI Enterprise Autonomous Platform 时也会自动安装更新。',
     errorTitle: '更新未完成',
     errorBody: '没有数据丢失。你可以现在重试。',
-    blockerTitle: '关闭本地预览以更新 Aegis？',
-    blockerBody: 'Aegis 需要在更新前停止这些本地预览。这不会修改或删除你的文件。',
-    foreignBlockerTitle: '关闭其他进程以更新 Aegis',
-    foreignBlockerBody: 'Aegis 无法安全地自动关闭这些进程。请关闭拥有这些进程的应用、终端或服务，然后重试更新。',
-    mixedBlockerBody: 'Aegis 可以关闭下方列出的本地预览。其他进程必须手动关闭，更新才能继续。',
+    blockerTitle: '关闭本地预览以更新 Aegis AI Enterprise Autonomous Platform？',
+    blockerBody: 'Aegis AI Enterprise Autonomous Platform 需要在更新前停止这些本地预览。这不会修改或删除你的文件。',
+    foreignBlockerTitle: '关闭其他进程以更新 Aegis AI Enterprise Autonomous Platform',
+    foreignBlockerBody: 'Aegis AI Enterprise Autonomous Platform 无法安全地自动关闭这些进程。请关闭拥有这些进程的应用、终端或服务，然后重试更新。',
+    mixedBlockerBody: 'Aegis AI Enterprise Autonomous Platform 可以关闭下方列出的本地预览。其他进程必须手动关闭，更新才能继续。',
     closePreviewsAndUpdate: '关闭预览并更新',
     closePreviewsAndCheckAgain: '关闭预览并重新检查',
     localPreview: '本地预览',
@@ -3733,7 +3733,7 @@ export const zhOverrides = {
       noReturn: '后端未恢复在线。更新可能未完成——请检查后端主机。'
     },
     // Update-status overlay + version-details (mechanism-aware update UI).
-    appName: 'Aegis',
+    appName: 'Aegis AI Enterprise Autonomous Platform',
     version: value => `版本 ${value}`,
     versionUnavailable: '版本不可用',
     checkNow: '立即检查',
@@ -3754,7 +3754,7 @@ export const zhOverrides = {
     daysAgo: count => `${count} 天前`,
     justNowSuffix: ' · 刚刚',
     bundleOutOfSync: '应用版本过旧',
-    bundleOutOfSyncDesc: 'Aegis 运行时已更新，但桌面应用仍是较旧的构建。请更新以获取最新修复。',
+    bundleOutOfSyncDesc: 'Aegis AI Enterprise Autonomous Platform 运行时已更新，但桌面应用仍是较旧的构建。请更新以获取最新修复。',
     bundleOutOfSyncAction: '获取安装程序',
     checkingShort: '检查中…',
     releaseAvailable: tag => `版本 ${tag} 可用。`,
@@ -3789,7 +3789,7 @@ export const zhOverrides = {
       skipped: '已跳过',
       failed: '失败'
     },
-    oneTimeTitle: 'Aegis 需要一次性安装',
+    oneTimeTitle: 'Aegis AI Enterprise Autonomous Platform 需要一次性安装',
     unsupportedDesc: platform =>
       `${platform} 暂不支持自动首次启动安装。请打开终端并运行下面的命令，然后重新启动此应用。之后启动会跳过此步骤。`,
     installCommand: '安装命令',
@@ -3797,26 +3797,26 @@ export const zhOverrides = {
     viewDocs: '查看安装文档',
     installTo: '将安装到',
     retryAfterRun: '我已运行 -- 重试',
-    setupChoiceTitle: '设置 Aegis Desktop',
-    setupChoiceDesc: '将此应用连接到你已运行的 Aegis 网关，或在这台电脑上本地安装 Aegis。',
-    connectExistingTitle: '连接到现有 Aegis',
+    setupChoiceTitle: '设置 Aegis AI Enterprise Autonomous Platform Desktop',
+    setupChoiceDesc: '将此应用连接到你已运行的 Aegis AI Enterprise Autonomous Platform 网关，或在这台电脑上本地安装 Aegis AI Enterprise Autonomous Platform。',
+    connectExistingTitle: '连接到现有 Aegis AI Enterprise Autonomous Platform',
     connectExistingShort: '连接现有环境',
     connectExistingDesc: '使用会话令牌或浏览器登录连接远程后端。不会启动本地安装。',
-    setupChoiceDescLocal: '在这台电脑上安装 Aegis，或连接到已在运行的 Aegis 网关。',
+    setupChoiceDescLocal: '在这台电脑上安装 Aegis AI Enterprise Autonomous Platform，或连接到已在运行的 Aegis AI Enterprise Autonomous Platform 网关。',
 
-    installLocalTitle: '本地安装 Aegis',
-    installLocalDesc: '下载 Aegis，创建 Python 环境，并在这台电脑上运行后端。',
-    useLocalTitle: '使用这台电脑上的 Aegis',
-    useLocalDesc: '此电脑已安装 Aegis 运行时——一键启动，无需下载。',
-    bundledLocalDesc: '此应用自带 Aegis 运行时——捆绑后端即本地安装。',
-    localStartUnavailable: '无法启动本地安装。请重启 Aegis Desktop 后重试。',
-    remoteSetupTitle: '连接到现有 Aegis',
-    remoteSetupDesc: '输入网关 URL。Aegis Desktop 会检测需要令牌还是浏览器登录。',
+    installLocalTitle: '本地安装 Aegis AI Enterprise Autonomous Platform',
+    installLocalDesc: '下载 Aegis AI Enterprise Autonomous Platform，创建 Python 环境，并在这台电脑上运行后端。',
+    useLocalTitle: '使用这台电脑上的 Aegis AI Enterprise Autonomous Platform',
+    useLocalDesc: '此电脑已安装 Aegis AI Enterprise Autonomous Platform 运行时——一键启动，无需下载。',
+    bundledLocalDesc: '此应用自带 Aegis AI Enterprise Autonomous Platform 运行时——捆绑后端即本地安装。',
+    localStartUnavailable: '无法启动本地安装。请重启 Aegis AI Enterprise Autonomous Platform Desktop 后重试。',
+    remoteSetupTitle: '连接到现有 Aegis AI Enterprise Autonomous Platform',
+    remoteSetupDesc: '输入网关 URL。Aegis AI Enterprise Autonomous Platform Desktop 会检测需要令牌还是浏览器登录。',
     remoteUrlTitle: '网关 URL',
-    remoteUrlDesc: '使用 Aegis 网关的基础 URL；远程地址请包含 https://。',
+    remoteUrlDesc: '使用 Aegis AI Enterprise Autonomous Platform 网关的基础 URL；远程地址请包含 https://。',
     remoteUrlPlaceholder: 'https://gateway.example.com/aegis',
     probing: '正在检测网关认证方式...',
-    probeError: '无法连接到该 Aegis 网关。',
+    probeError: '无法连接到该 Aegis AI Enterprise Autonomous Platform 网关。',
     identityProvider: '你的身份提供方',
     authTitle: '认证',
     authNeedsOauth: provider => `测试此网关前请先使用 ${provider} 登录。`,
@@ -3836,11 +3836,11 @@ export const zhOverrides = {
     applyRemote: '应用并重新连接',
     backToSetup: '返回',
     failedTitle: '安装失败',
-    settingUpTitle: '正在设置 Aegis Agent',
+    settingUpTitle: '正在设置 Aegis AI Enterprise Autonomous Platform Agent',
     finishingTitle: '正在收尾',
     failedDesc:
-      '某个安装步骤失败。在 Windows 上，如果另一个 Aegis CLI 或桌面实例正在运行，可能会出现这种情况。请停止正在运行的 Aegis 实例后重试。可查看下面的详情或 desktop 日志中的完整记录。',
-    activeDesc: '这是一次性设置。Aegis 安装器正在下载依赖并配置你的机器。之后启动会跳过此步骤。',
+      '某个安装步骤失败。在 Windows 上，如果另一个 Aegis AI Enterprise Autonomous Platform CLI 或桌面实例正在运行，可能会出现这种情况。请停止正在运行的 Aegis AI Enterprise Autonomous Platform 实例后重试。可查看下面的详情或 desktop 日志中的完整记录。',
+    activeDesc: '这是一次性设置。Aegis AI Enterprise Autonomous Platform 安装器正在下载依赖并配置你的机器。之后启动会跳过此步骤。',
     progress: (completed, total) => `${completed}/${total} 个步骤已完成`,
     currentStage: stage => ` -- 当前：${stage}`,
     fetchingManifest: '正在获取安装器 manifest...',
@@ -3864,7 +3864,7 @@ export const zhOverrides = {
   freeTier: {
     providerRowTitle: 'Nous · 免费层',
     providerRowPitch: '登录 Nous 账户以解锁更多模型和工具。',
-    readyTitle: 'Aegis 已就绪。',
+    readyTitle: 'Aegis AI Enterprise Autonomous Platform 已就绪。',
     readyCaption: '免费 · 含连接器',
     begin: '开始',
     signInInstead: '改为登录 Nous 账户',
@@ -3899,10 +3899,10 @@ export const zhOverrides = {
     timedOutBody: '代码未在有效期内使用。你仍在免费层。',
     errorBody: '登录未完成；请重试。',
     alreadySignedInHeading: '已登录。',
-    alreadySignedInBody: '此 Aegis 已登录 Nous 账户。',
+    alreadySignedInBody: '此 Aegis AI Enterprise Autonomous Platform 已登录 Nous 账户。',
     offer: {
-      heading: '继续使用 Aegis',
-      body: '你正在使用免费额度。继续使用 Aegis 的话，你会开始遇到限制。登录免费的 Nous 账户，即可获得更多额度。',
+      heading: '继续使用 Aegis AI Enterprise Autonomous Platform',
+      body: '你正在使用免费额度。继续使用 Aegis AI Enterprise Autonomous Platform 的话，你会开始遇到限制。登录免费的 Nous 账户，即可获得更多额度。',
       signIn: '登录',
       notNow: '暂不'
     }
@@ -4024,14 +4024,14 @@ export const zhOverrides = {
       update: '更新',
       updateInProgress: '正在更新',
       commitsBehind: (count, branch) => `落后 ${branch} ${count} 个提交`,
-      desktopVersion: version => `Aegis Desktop v${version}`,
+      desktopVersion: version => `Aegis AI Enterprise Autonomous Platform Desktop v${version}`,
       releaseAvailable: tag => `版本 ${tag} 可用。`,
       backendVersion: version => `后端 v${version}`,
       clientLabel: version => `客户端 v${version}`,
       connectionSsh: host => `SSH: ${host}`,
       connectionRemote: host => `远程: ${host}`,
       connectionCloud: host => `云端: ${host}`,
-      connectionCloudTooltip: host => `Aegis Cloud · ${host}`,
+      connectionCloudTooltip: host => `Aegis AI Enterprise Autonomous Platform Cloud · ${host}`,
       connectionSshTooltip: host => `SSH · ${host}`,
       connectionRemoteTooltip: host => `Remote · ${host}`,
       backendLabel: version => `后端 v${version}`,
@@ -4216,7 +4216,7 @@ export const zhOverrides = {
     binaryTitle: '这看起来像二进制文件',
     binaryBody: label => `预览 ${label} 可能会显示不可读文本。`,
     largeTitle: '此文件较大',
-    largeBody: (label, size) => `${label} 大小为 ${size}。Aegis 只会显示前 512 KB。`,
+    largeBody: (label, size) => `${label} 大小为 ${size}。Aegis AI Enterprise Autonomous Platform 只会显示前 512 KB。`,
     previewAnyway: '仍然预览',
     truncated: '显示前 512 KB。',
     noInlineTitle: '没有内联预览',
@@ -4255,11 +4255,11 @@ export const zhOverrides = {
 
   interfaceMode: {
     title: '界面模式',
-    hint: '只改变显示的内容，不改变 Aegis 的能力。',
+    hint: '只改变显示的内容，不改变 Aegis AI Enterprise Autonomous Platform 的能力。',
     sessionNote: '由简洁模式设定。此处的更改仅在本次会话内生效；切换到高级模式即可保留为你的设置。',
     simple: {
       label: '简洁',
-      description: '用于与 Aegis 对话。只有侧边栏和聊天；没有终端、文件或差异面板。'
+      description: '用于与 Aegis AI Enterprise Autonomous Platform 对话。只有侧边栏和聊天；没有终端、文件或差异面板。'
     },
     advanced: {
       label: '高级',
@@ -4345,7 +4345,7 @@ export const zhOverrides = {
     thread: {
       loadingSession: '正在加载会话',
       showEarlier: '显示更早的消息',
-      loadingResponse: 'Aegis 正在加载回复',
+      loadingResponse: 'Aegis AI Enterprise Autonomous Platform 正在加载回复',
       loadingLocalModel: model => `正在将 ${model} 载入内存`,
       processingPrompt: '正在处理提示词',
       resumeWhenBackgroundDone: count =>
@@ -4407,7 +4407,7 @@ export const zhOverrides = {
         },
         timeout: {
           title: provider => `无法连接 ${provider}`,
-          body: provider => `Aegis 无法连接到 ${provider}。请检查网络连接后重试。`
+          body: provider => `Aegis AI Enterprise Autonomous Platform 无法连接到 ${provider}。请检查网络连接后重试。`
         },
         ssl_cert_verification: {
           title: provider => `无法验证 ${provider} 的连接`,
@@ -4526,7 +4526,7 @@ export const zhOverrides = {
       envRequired: '请先填写所需凭据',
       sendFailed: '无法发送 MCP 设置响应',
       reloadFailed: '服务器已保存，但重新加载 MCP 工具失败 — 将在下个会话加载',
-      gatewayDisconnected: 'Aegis 网关未连接'
+      gatewayDisconnected: 'Aegis AI Enterprise Autonomous Platform 网关未连接'
     },
     tool: {
       copyCode: '复制代码',
@@ -4620,17 +4620,17 @@ export const zhOverrides = {
   },
 
   prompts: {
-    gatewayDisconnected: 'Aegis 网关未连接',
+    gatewayDisconnected: 'Aegis AI Enterprise Autonomous Platform 网关未连接',
     sudoSendFailed: '无法发送 sudo 密码',
     secretSendFailed: '无法发送密钥',
     sudoTitle: '管理员密码',
     sudoDesc: '输入 sudo 密码前，请先检查命令。密码会发送给执行命令的 agent，并在本次会话中缓存。',
     sudoCommandUnavailable: '此 agent 未提供命令。如果无法在对话中确认，请取消。',
     sudoInstallDesc:
-      'Aegis 需要你的 sudo 密码，以在网关主机上安装 Bot Screen 软件包（TigerVNC + Xfce）。它只会发送到该主机。',
+      'Aegis AI Enterprise Autonomous Platform 需要你的 sudo 密码，以在网关主机上安装 Bot Screen 软件包（TigerVNC + Xfce）。它只会发送到该主机。',
     sudoPlaceholder: 'sudo 密码',
     secretTitle: '需要密钥',
-    secretDesc: 'Aegis 需要一个凭据才能继续。',
+    secretDesc: 'Aegis AI Enterprise Autonomous Platform 需要一个凭据才能继续。',
     secretPlaceholder: '密钥值',
     vaultUnlockSendFailed: '无法发送主密码',
     vaultUnlockTitle: name => `解锁 ${name}`,
@@ -4642,7 +4642,7 @@ export const zhOverrides = {
     vaultSaveSendFailed: '无法保存登录信息',
     vaultSaveTitle: site => `保存 ${site} 的登录信息？`,
     vaultSaveDesc: origin =>
-      `Aegis 到达了 ${origin} 的登录页，但没有为它保存的登录信息。在此输入一次；它将在本机加密保存并直接填入页面，模型永远看不到密码。`,
+      `Aegis AI Enterprise Autonomous Platform 到达了 ${origin} 的登录页，但没有为它保存的登录信息。在此输入一次；它将在本机加密保存并直接填入页面，模型永远看不到密码。`,
     vaultSaveIdentifierLabel: '邮箱或用户名',
     vaultSaveIdentifierPlaceholder: 'you@example.com',
     vaultSavePasswordPlaceholder: '密码',
@@ -4652,9 +4652,9 @@ export const zhOverrides = {
     vaultCodeSendFailed: '无法发送验证码',
     vaultCodeTitle: site => `${site} 的验证码`,
     vaultCodeDesc: site =>
-      `${site} 要求输入一次性验证码（短信、邮件或验证器应用）。在此输入，Aegis 会将其填入页面；模型永远看不到它。`,
+      `${site} 要求输入一次性验证码（短信、邮件或验证器应用）。在此输入，Aegis AI Enterprise Autonomous Platform 会将其填入页面；模型永远看不到它。`,
     vaultCodeLabel: '验证码',
-    vaultCodeFootnote: '提示：在“设置 → 密码与登录”中为该登录保存验证器密钥后，Aegis 会自动填写验证码。',
+    vaultCodeFootnote: '提示：在“设置 → 密码与登录”中为该登录保存验证器密钥后，Aegis AI Enterprise Autonomous Platform 会自动填写验证码。',
     vaultCodeSkip: '跳过',
     vaultCodeConfirm: '输入验证码'
   },
@@ -4724,8 +4724,8 @@ export const zhOverrides = {
     sessionExportFailed: '无法导出会话',
     imageSaved: '图片已保存',
     downloadStarted: '下载已开始',
-    restartToUseSaveImage: '重启 Aegis 桌面版后可使用保存图片。',
-    restartToSaveImages: '重启 Aegis 桌面版以保存图片',
+    restartToUseSaveImage: '重启 Aegis AI Enterprise Autonomous Platform 桌面版后可使用保存图片。',
+    restartToSaveImages: '重启 Aegis AI Enterprise Autonomous Platform 桌面版以保存图片',
     imageDownloadFailed: '图片下载失败',
     openImage: '打开图片',
     downloadImage: '下载图片',
@@ -4764,14 +4764,14 @@ export const zhOverrides = {
       },
       skills: {
         title: '教一次就够',
-        text: '技能是一组说明文件，Aegis 会在需要时自行加载。'
+        text: '技能是一组说明文件，Aegis AI Enterprise Autonomous Platform 会在需要时自行加载。'
       },
       messaging: {
         title: '离开电脑也能用',
         text: '接入 Telegram、Discord、Slack 等 — 同一个智能体，同一份记忆。'
       },
       artifacts: {
-        title: 'Aegis 做过的一切',
+        title: 'Aegis AI Enterprise Autonomous Platform 做过的一切',
         text: '所有会话里的图片、文件和链接，都汇总在这里。'
       },
       cron: {
@@ -4784,7 +4784,7 @@ export const zhOverrides = {
       },
       profiles: {
         title: '配置文件彼此独立',
-        text: '每个都是独立的 Aegis — 自己的密钥、记忆和会话。'
+        text: '每个都是独立的 Aegis AI Enterprise Autonomous Platform — 自己的密钥、记忆和会话。'
       },
       'composer-mentions': {
         title: '附件与命令',

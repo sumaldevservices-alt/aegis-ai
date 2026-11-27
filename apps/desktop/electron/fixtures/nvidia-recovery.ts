@@ -1,6 +1,6 @@
 import { appendFileSync, existsSync, readFileSync } from 'node:fs'
 
-// No windows, gateway, credentials, or real Aegis home. This fixture exercises
+// No windows, gateway, credentials, or real Aegis AI Enterprise Autonomous Platform home. This fixture exercises
 // native Electron locking with the production Linux recovery policy and test driver facts.
 import { app } from 'electron'
 

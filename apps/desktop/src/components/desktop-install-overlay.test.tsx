@@ -106,15 +106,15 @@ describe('DesktopInstallOverlay first-run setup', () => {
 
     render(<DesktopInstallOverlay />)
 
-    expect(await screen.findByText('Set up Aegis Desktop')).toBeTruthy()
-    expect(screen.getByText('Connect to existing Aegis')).toBeTruthy()
-    expect(screen.getByText('Install Aegis locally')).toBeTruthy()
+    expect(await screen.findByText('Set up Aegis AI Enterprise Autonomous Platform Desktop')).toBeTruthy()
+    expect(screen.getByText('Connect to existing Aegis AI Enterprise Autonomous Platform')).toBeTruthy()
+    expect(screen.getByText('Install Aegis AI Enterprise Autonomous Platform locally')).toBeTruthy()
     expect(screen.getByText(/Will install to/i)).toBeTruthy()
     expect(screen.queryByText(/steps complete/i)).toBeNull()
     expect(screen.queryByText(/Fetching installer manifest/i)).toBeNull()
   })
 
-  it('continues local bootstrap only when Install Aegis locally is selected', async () => {
+  it('continues local bootstrap only when Install Aegis AI Enterprise Autonomous Platform locally is selected', async () => {
     const desktop = installDesktopMock(
       bootstrapState({
         setupChoice: {
@@ -128,16 +128,16 @@ describe('DesktopInstallOverlay first-run setup', () => {
 
     render(<DesktopInstallOverlay />)
 
-    fireEvent.click(await screen.findByText('Install Aegis locally'))
+    fireEvent.click(await screen.findByText('Install Aegis AI Enterprise Autonomous Platform locally'))
 
     expect(desktop.continueBootstrapLocal).toHaveBeenCalledTimes(1)
-    expect(screen.getByText('Set up Aegis Desktop')).toBeTruthy()
+    expect(screen.getByText('Set up Aegis AI Enterprise Autonomous Platform Desktop')).toBeTruthy()
 
     act(() => {
       desktop.emitBootstrapEvent({ type: 'manifest', protocolVersion: 1, stages: [] })
     })
 
-    await waitFor(() => expect(screen.queryByText('Set up Aegis Desktop')).toBeNull())
+    await waitFor(() => expect(screen.queryByText('Set up Aegis AI Enterprise Autonomous Platform Desktop')).toBeNull())
     expect(screen.getByText(/Fetching installer manifest/i)).toBeTruthy()
   })
 
@@ -156,11 +156,11 @@ describe('DesktopInstallOverlay first-run setup', () => {
     desktop.continueBootstrapLocal = undefined as never
     render(<DesktopInstallOverlay />)
 
-    const install = (await screen.findByText('Install Aegis locally')).closest('button') as HTMLButtonElement
+    const install = (await screen.findByText('Install Aegis AI Enterprise Autonomous Platform locally')).closest('button') as HTMLButtonElement
     fireEvent.click(install)
 
     expect(
-      await screen.findByText('Local installation could not start. Restart Aegis Desktop and try again.')
+      await screen.findByText('Local installation could not start. Restart Aegis AI Enterprise Autonomous Platform Desktop and try again.')
     ).toBeTruthy()
     expect(install.disabled).toBe(false)
   })
@@ -183,14 +183,14 @@ describe('DesktopInstallOverlay first-run setup', () => {
     // Click the instant the choice paints, before React drains the passive
     // effect that reacts to the first snapshot. A loaded runner hits this
     // window by accident; observing the DOM directly hits it every time.
-    const install = (await whenPresent('Install Aegis locally')).closest('button') as HTMLButtonElement
+    const install = (await whenPresent('Install Aegis AI Enterprise Autonomous Platform locally')).closest('button') as HTMLButtonElement
     fireEvent.click(install)
 
     await act(async () => {
       await Promise.resolve()
     })
 
-    expect(screen.queryByText('Local installation could not start. Restart Aegis Desktop and try again.')).toBeTruthy()
+    expect(screen.queryByText('Local installation could not start. Restart Aegis AI Enterprise Autonomous Platform Desktop and try again.')).toBeTruthy()
   })
 
   it('clears a stale local-start error when a repair presents a different root', async () => {
@@ -208,9 +208,9 @@ describe('DesktopInstallOverlay first-run setup', () => {
     desktop.continueBootstrapLocal = undefined as never
     render(<DesktopInstallOverlay />)
 
-    fireEvent.click((await screen.findByText('Install Aegis locally')).closest('button') as HTMLButtonElement)
+    fireEvent.click((await screen.findByText('Install Aegis AI Enterprise Autonomous Platform locally')).closest('button') as HTMLButtonElement)
     expect(
-      await screen.findByText('Local installation could not start. Restart Aegis Desktop and try again.')
+      await screen.findByText('Local installation could not start. Restart Aegis AI Enterprise Autonomous Platform Desktop and try again.')
     ).toBeTruthy()
 
     act(() => {
@@ -222,7 +222,7 @@ describe('DesktopInstallOverlay first-run setup', () => {
       })
     })
 
-    expect(screen.queryByText('Local installation could not start. Restart Aegis Desktop and try again.')).toBeNull()
+    expect(screen.queryByText('Local installation could not start. Restart Aegis AI Enterprise Autonomous Platform Desktop and try again.')).toBeNull()
   })
 
   it('opens the remote connection form from the first-run choice', async () => {
@@ -234,7 +234,7 @@ describe('DesktopInstallOverlay first-run setup', () => {
 
     render(<DesktopInstallOverlay />)
 
-    fireEvent.click(await screen.findByText('Connect to existing Aegis'))
+    fireEvent.click(await screen.findByText('Connect to existing Aegis AI Enterprise Autonomous Platform'))
 
     expect(await screen.findByText('Gateway URL')).toBeTruthy()
     expect(screen.getByText('Test connection')).toBeTruthy()
@@ -250,13 +250,13 @@ describe('DesktopInstallOverlay first-run setup', () => {
 
     render(<DesktopInstallOverlay />)
 
-    fireEvent.click(await screen.findByText('Connect to existing Aegis'))
+    fireEvent.click(await screen.findByText('Connect to existing Aegis AI Enterprise Autonomous Platform'))
     expect(await screen.findByText('Gateway URL')).toBeTruthy()
 
     fireEvent.click(screen.getByText('Back'))
 
-    expect(await screen.findByText('Set up Aegis Desktop')).toBeTruthy()
-    expect(screen.getByText('Install Aegis locally')).toBeTruthy()
+    expect(await screen.findByText('Set up Aegis AI Enterprise Autonomous Platform Desktop')).toBeTruthy()
+    expect(screen.getByText('Install Aegis AI Enterprise Autonomous Platform locally')).toBeTruthy()
   })
 
   it('requires a successful token connection test before applying remote config', async () => {
@@ -287,7 +287,7 @@ describe('DesktopInstallOverlay first-run setup', () => {
 
     render(<DesktopInstallOverlay />)
 
-    fireEvent.click(await screen.findByText('Connect to existing Aegis'))
+    fireEvent.click(await screen.findByText('Connect to existing Aegis AI Enterprise Autonomous Platform'))
     fireEvent.change(await screen.findByPlaceholderText('https://gateway.example.com/aegis'), {
       target: { value: 'https://gateway.example.com/aegis' }
     })
@@ -353,7 +353,7 @@ describe('DesktopInstallOverlay first-run setup', () => {
 
     render(<DesktopInstallOverlay />)
 
-    fireEvent.click(await screen.findByText('Connect to existing Aegis'))
+    fireEvent.click(await screen.findByText('Connect to existing Aegis AI Enterprise Autonomous Platform'))
     fireEvent.change(await screen.findByPlaceholderText('https://gateway.example.com/aegis'), {
       target: { value: 'https://gateway.example.com/aegis' }
     })
@@ -405,7 +405,7 @@ describe('DesktopInstallOverlay first-run setup', () => {
 
     render(<DesktopInstallOverlay />)
 
-    fireEvent.click(await screen.findByText('Connect to existing Aegis'))
+    fireEvent.click(await screen.findByText('Connect to existing Aegis AI Enterprise Autonomous Platform'))
     fireEvent.change(await screen.findByPlaceholderText('https://gateway.example.com/aegis'), {
       target: { value: 'https://gateway.example.com/aegis' }
     })
@@ -471,7 +471,7 @@ describe('DesktopInstallOverlay first-run setup', () => {
       })
     )
     render(<DesktopInstallOverlay />)
-    fireEvent.click(await screen.findByText('Connect to existing Aegis'))
+    fireEvent.click(await screen.findByText('Connect to existing Aegis AI Enterprise Autonomous Platform'))
     const url = screen.getByPlaceholderText('https://gateway.example.com/aegis')
     fireEvent.change(url, { target: { value: 'https://a.example' } })
     fireEvent.click(await screen.findByRole('button', { name: /Sign in with/ }))
@@ -484,7 +484,7 @@ describe('DesktopInstallOverlay first-run setup', () => {
     expect(saveConnectionConfig).not.toHaveBeenCalled()
     expect(desktop.applyConnectionConfig).not.toHaveBeenCalled()
     fireEvent.click(screen.getByText('Back'))
-    fireEvent.click(await screen.findByText('Install Aegis locally'))
+    fireEvent.click(await screen.findByText('Install Aegis AI Enterprise Autonomous Platform locally'))
     expect(desktop.continueBootstrapLocal).toHaveBeenCalledTimes(1)
     expect(saveConnectionConfig).not.toHaveBeenCalled()
   })
@@ -503,7 +503,7 @@ describe('DesktopInstallOverlay first-run setup', () => {
 
     render(<DesktopInstallOverlay />)
 
-    expect(await screen.findByText('Aegis needs a one-time install')).toBeTruthy()
+    expect(await screen.findByText('Aegis AI Enterprise Autonomous Platform needs a one-time install')).toBeTruthy()
 
     fireEvent.click(screen.getByText('Connect existing'))
 
@@ -544,7 +544,7 @@ describe('DesktopInstallOverlay first-run setup', () => {
     fireEvent.click(screen.getByText('Apply and reconnect'))
 
     await waitFor(() => expect(screen.queryByText('Gateway URL')).toBeNull())
-    expect(screen.queryByText('Aegis needs a one-time install')).toBeNull()
+    expect(screen.queryByText('Aegis AI Enterprise Autonomous Platform needs a one-time install')).toBeNull()
   })
 
   it('dismisses a cancelled/failed install via the footer Close button, without reloading or resetting bootstrap', async () => {
@@ -577,9 +577,9 @@ describe('DesktopInstallOverlay first-run setup', () => {
 })
 
 it.each([
-  ['installed', false, 'Use Aegis on this computer', /already installed here/i, false],
-  ['bundled', true, 'Use Aegis on this computer', /included with this app/i, false],
-  [undefined, false, 'Install Aegis locally', /Will install to/i, true]
+  ['installed', false, 'Use Aegis AI Enterprise Autonomous Platform on this computer', /already installed here/i, false],
+  ['bundled', true, 'Use Aegis AI Enterprise Autonomous Platform on this computer', /included with this app/i, false],
+  [undefined, false, 'Install Aegis AI Enterprise Autonomous Platform locally', /Will install to/i, true]
 ] as const)(
   'local presentation for %s (including old backends)',
   async (
@@ -590,7 +590,7 @@ it.each([
     footer: boolean
   ): Promise<void> => {
     const state: DesktopBootstrapState = bootstrapState({
-      setupChoice: { platform: 'win32', activeRoot: 'C:\\Aegis', local: local ?? 'none', bundled }
+      setupChoice: { platform: 'win32', activeRoot: 'C:\\Aegis AI Enterprise Autonomous Platform', local: local ?? 'none', bundled }
     })
 
     if (local === undefined && state.setupChoice) {
@@ -604,7 +604,7 @@ it.each([
     expect(screen.queryByText(/Will install to/i) !== null).toBe(footer)
 
     if (!footer) {
-      expect(screen.queryByText('Install Aegis locally')).toBeNull()
+      expect(screen.queryByText('Install Aegis AI Enterprise Autonomous Platform locally')).toBeNull()
     }
   }
 )

@@ -72,7 +72,7 @@ import {
   USER_BUBBLE_BASE_CLASS
 } from '@/components/assistant-ui/thread/user-message'
 import { Codicon } from '@/components/ui/codicon'
-import type { AegisGateway } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import { useI18n } from '@/i18n'
 import { attachmentDisplayText, attachmentId, pathLabel } from '@/lib/chat-runtime'
 import { sanitizeComposerInput } from '@/lib/composer-input-sanitize'
@@ -91,7 +91,7 @@ import { notifyThreadEditClose } from '@/store/thread-scroll'
 
 interface UserEditComposerProps {
   cwd: string | null
-  gateway: AegisGateway | null
+  gateway: Aegis AI Enterprise Autonomous PlatformGateway | null
   sessionId: string | null
 }
 

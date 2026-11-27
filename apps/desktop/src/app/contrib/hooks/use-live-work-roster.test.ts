@@ -1,7 +1,7 @@
 import { act, cleanup, renderHook } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisGateway } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import type * as GatewayStore from '@/store/gateway'
 import { $liveWorkRoster } from '@/store/live-work-roster'
 import type * as SessionStore from '@/store/session'
@@ -71,7 +71,7 @@ beforeEach(() => {
   h.rows = []
   h.request.mockReset()
   h.request.mockResolvedValue({ sessions: [] })
-  $gateway.set({ request: vi.fn() } as unknown as AegisGateway)
+  $gateway.set({ request: vi.fn() } as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
   $gatewayState.set('open')
   $liveWorkRoster.set({})
 })

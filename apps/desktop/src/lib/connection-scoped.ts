@@ -29,7 +29,7 @@ import { readKey, writeKey } from './storage'
 // profile keys). Backend-mirrored lists (pins) self-heal from the gateway's
 // own rows instead.
 
-/** Minimal slice of AegisConnection this module keys on. */
+/** Minimal slice of Aegis AI Enterprise Autonomous PlatformConnection this module keys on. */
 export interface ConnectionScopeDescriptor {
   baseUrl?: string
   mode?: 'local' | 'remote'

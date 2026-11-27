@@ -20,7 +20,7 @@ vi.mock('@/store/gateway', () => ({
 }))
 
 vi.mock('@/aegis', () => ({
-  getAegisConfig: vi.fn(),
+  getAegis AI Enterprise Autonomous PlatformConfig: vi.fn(),
   getProfiles: vi.fn(),
   aegisApi: vi.fn(),
   setApiRequestProfile: vi.fn(),

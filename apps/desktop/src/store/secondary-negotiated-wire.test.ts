@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 
-import { AegisGateway } from '@/api/client'
-import type { AegisConnection } from '@/global'
+import { Aegis AI Enterprise Autonomous PlatformGateway } from '@/api/client'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { TimeoutError } from '@/lib/with-timeout'
 
 import { serverOwnsComposerQueue } from './composer-queue'
@@ -11,7 +11,7 @@ import { isStalledDialError } from './gateway-dial-failures'
 import { $connection, _resetSessionOwnerHintsForTests, setSessionOwnerHint } from './session'
 
 // @donovan-yohan's reproducer from the review of #148219 on cc6ad86a, with a parking case added:
-// the registry, AegisGateway, wire publisher, composer predicate and stall classifier are real;
+// the registry, Aegis AI Enterprise Autonomous PlatformGateway, wire publisher, composer predicate and stall classifier are real;
 // the Electron descriptor and the WebSocket peer are synthetic.
 class ReviewSocket extends EventTarget {
   static readonly CONNECTING = 0
@@ -47,13 +47,13 @@ class ReviewSocket extends EventTarget {
   }
 }
 
-let primary: AegisGateway
+let primary: Aegis AI Enterprise Autonomous PlatformGateway
 
 const descriptor = {
   connectionId: 'override-remote', mode: 'remote', profile: 'worker', authMode: 'token',
   token: 'synthetic-only', wsUrl: 'wss://override.example/api/ws?ticket=synthetic',
   baseUrl: 'https://override.example'
-} as AegisConnection
+} as Aegis AI Enterprise Autonomous PlatformConnection
 
 beforeEach(async () => {
   vi.useFakeTimers()
@@ -63,7 +63,7 @@ beforeEach(async () => {
   $connectionWires.set({})
   _resetSessionOwnerHintsForTests({ storage: true })
   configureGatewayRegistry({ activeConnectionId: () => 'local', foregroundScopes: () => new Set(), onEvent: vi.fn() })
-  primary = new AegisGateway()
+  primary = new Aegis AI Enterprise Autonomous PlatformGateway()
   const opening = primary.connect('wss://local.example/api/ws?ticket=synthetic')
   await vi.advanceTimersByTimeAsync(2)
   await opening
@@ -132,7 +132,7 @@ test('control: an explicit remote source records its own wire without changing l
 
 test('a real protocol readiness timeout is classified as a stalled dial', async () => {
   ReviewSocket.advertise = null
-  const client = new AegisGateway()
+  const client = new Aegis AI Enterprise Autonomous PlatformGateway()
   const connected = client.connect('wss://silent.example/api/ws?ticket=synthetic')
   const outcome = connected.then(() => null, error => error)
 
@@ -140,7 +140,7 @@ test('a real protocol readiness timeout is classified as a stalled dial', async 
     await vi.advanceTimersByTimeAsync(15_001)
     const error = await outcome
     expect(error).toBeInstanceOf(Error)
-    expect(error.message).toBe('Aegis gateway protocol readiness timed out')
+    expect(error.message).toBe('Aegis AI Enterprise Autonomous Platform gateway protocol readiness timed out')
     expect(client.connectionState).toBe('closed')
     expect(isStalledDialError(error)).toBe(true)
   } finally {

@@ -20,15 +20,15 @@ import {
   fingerprintToken,
   isForwardBindCollision,
   isLockfileSkew,
-  listRemoteAegisProfiles,
-  locateAegis,
+  listRemoteAegis AI Enterprise Autonomous PlatformProfiles,
+  locateAegis AI Enterprise Autonomous Platform,
   LOCKFILE_SCHEMA_VERSION,
   lockfilePath,
   MIN_READY_TIMEOUT_MS,
   openForward,
   ownershipDirectory,
   pidIsOurDashboard,
-  probeAegisVersion,
+  probeAegis AI Enterprise Autonomous PlatformVersion,
   probeRemotePlatform,
   PROTOCOL_VERSION,
   readLockfile,
@@ -140,7 +140,7 @@ function fakeSsh(rules: any[] = []) {
   }
 }
 
-test('POSIX relaunch gate refuses live and uncertain install markers without executing Aegis', async () => {
+test('POSIX relaunch gate refuses live and uncertain install markers without executing Aegis AI Enterprise Autonomous Platform', async () => {
   for (const observation of ['LIVE:4242', 'UNCERTAIN']) {
     const calls: string[] = []
 
@@ -289,24 +289,24 @@ test('readRemoteInstallId reports no id rather than a bad one', async () => {
   }
 })
 
-test('listRemoteAegisProfiles inventories Mini-style profile dirs without spawning a dashboard', async () => {
+test('listRemoteAegis AI Enterprise Autonomous PlatformProfiles inventories Mini-style profile dirs without spawning a dashboard', async () => {
   const ssh = fakeSsh([
     [/AEGIS_HOME/, '/Users/zillajr/.aegis\n'],
     [/ls -1/, 'bob\ndixie\ngoose\nrambo\nbob.rollback-old\n']
   ])
 
-  assert.deepEqual(await listRemoteAegisProfiles(ssh), ['default', 'bob', 'dixie', 'goose', 'rambo'])
+  assert.deepEqual(await listRemoteAegis AI Enterprise Autonomous PlatformProfiles(ssh), ['default', 'bob', 'dixie', 'goose', 'rambo'])
   assert.equal(
     ssh.calls.some(cmd => cmd.includes('serve') || cmd.includes('dashboard')),
     false
   )
 })
 
-test('listRemoteAegisProfiles rejects a hostile AEGIS_HOME', async () => {
+test('listRemoteAegis AI Enterprise Autonomous PlatformProfiles rejects a hostile AEGIS_HOME', async () => {
   const ssh = fakeSsh([[/AEGIS_HOME/, '/tmp/x; echo pwned\n']])
 
   await assert.rejects(
-    () => listRemoteAegisProfiles(ssh),
+    () => listRemoteAegis AI Enterprise Autonomous PlatformProfiles(ssh),
     (err: any) => {
       assert.equal(err.kind, 'unsafe-path')
 
@@ -319,12 +319,12 @@ test('listRemoteAegisProfiles rejects a hostile AEGIS_HOME', async () => {
   )
 })
 
-test('locateAegis prefers the explicit profile path when executable', async () => {
+test('locateAegis AI Enterprise Autonomous Platform prefers the explicit profile path when executable', async () => {
   const ssh = fakeSsh([[/\[ -x .*\/opt\/aegis/, 'OK']])
-  assert.equal(await locateAegis(ssh, '/opt/aegis'), '/opt/aegis')
+  assert.equal(await locateAegis AI Enterprise Autonomous Platform(ssh, '/opt/aegis'), '/opt/aegis')
 })
 
-test('locateAegis throws (no silent fallback) when an EXPLICIT path is not executable', async () => {
+test('locateAegis AI Enterprise Autonomous Platform throws (no silent fallback) when an EXPLICIT path is not executable', async () => {
   // command -v WOULD find a different install, but an explicit path must not
   // silently fall back to it — that is the "connected to the wrong aegis" bug.
   const ssh = fakeSsh([
@@ -333,7 +333,7 @@ test('locateAegis throws (no silent fallback) when an EXPLICIT path is not execu
   ])
 
   await assert.rejects(
-    () => locateAegis(ssh, '/bad/path/aegis'),
+    () => locateAegis AI Enterprise Autonomous Platform(ssh, '/bad/path/aegis'),
     (err: any) => {
       assert.equal(err.kind, 'aegis-not-found')
       assert.match(err.message, /\/bad\/path\/aegis/)
@@ -343,16 +343,16 @@ test('locateAegis throws (no silent fallback) when an EXPLICIT path is not execu
   )
 })
 
-test('locateAegis falls back to the login-shell command -v probe', async () => {
+test('locateAegis AI Enterprise Autonomous Platform falls back to the login-shell command -v probe', async () => {
   const ssh = fakeSsh([
     [/command -v aegis/, '/home/u/.local/bin/aegis\n'],
     [/\[ -x .*\.local\/bin\/aegis/, 'OK']
   ])
 
-  assert.equal(await locateAegis(ssh, ''), '/home/u/.local/bin/aegis')
+  assert.equal(await locateAegis AI Enterprise Autonomous Platform(ssh, ''), '/home/u/.local/bin/aegis')
 })
 
-test('locateAegis preserves an installer wrapper instead of resolving its interpreter', async () => {
+test('locateAegis AI Enterprise Autonomous Platform preserves an installer wrapper instead of resolving its interpreter', async () => {
   // install.sh venv mode writes: exec "$AEGIS_BIN" "$AEGIS_ENTRYPOINT" "$@",
   // where $AEGIS_BIN is the venv python. The old canonicalization returned
   // that interpreter, so `<python> --version` printed "Python x.y.z" and
@@ -366,15 +366,15 @@ test('locateAegis preserves an installer wrapper instead of resolving its interp
     [/python3 -c/, '/home/u/.aegis/aegis-agent/venv/bin/python\n']
   ])
 
-  assert.equal(await locateAegis(ssh, ''), '/home/u/.local/bin/aegis')
+  assert.equal(await locateAegis AI Enterprise Autonomous Platform(ssh, ''), '/home/u/.local/bin/aegis')
   assert.ok(
     !ssh.calls.some(cmd => cmd.includes('python3 -c')),
-    'locateAegis must not shell out to a python3 parser to rewrite the launcher'
+    'locateAegis AI Enterprise Autonomous Platform must not shell out to a python3 parser to rewrite the launcher'
   )
 })
 
-test('locateAegis returns an explicit remoteAegisPath unchanged', async () => {
-  // The override half of #74411: an explicit remoteAegisPath pointing at a
+test('locateAegis AI Enterprise Autonomous Platform returns an explicit remoteAegis AI Enterprise Autonomous PlatformPath unchanged', async () => {
+  // The override half of #74411: an explicit remoteAegis AI Enterprise Autonomous PlatformPath pointing at a
   // wrapper was also canonicalized to its interpreter, so overriding to
   // ~/.local/bin/aegis changed nothing for affected users.
   const ssh = fakeSsh([
@@ -382,29 +382,29 @@ test('locateAegis returns an explicit remoteAegisPath unchanged', async () => {
     [/python3 -c/, '/home/u/.aegis/aegis-agent/venv/bin/python\n']
   ])
 
-  assert.equal(await locateAegis(ssh, '~/.local/bin/aegis'), '~/.local/bin/aegis')
-  assert.ok(!ssh.calls.some(cmd => cmd.includes('python3 -c')), 'an explicit remoteAegisPath must never be rewritten')
+  assert.equal(await locateAegis AI Enterprise Autonomous Platform(ssh, '~/.local/bin/aegis'), '~/.local/bin/aegis')
+  assert.ok(!ssh.calls.some(cmd => cmd.includes('python3 -c')), 'an explicit remoteAegis AI Enterprise Autonomous PlatformPath must never be rewritten')
 })
 
-test('locateAegis falls back to ~/.local/bin/aegis when the login-shell probe misses', async () => {
+test('locateAegis AI Enterprise Autonomous Platform falls back to ~/.local/bin/aegis when the login-shell probe misses', async () => {
   // ~/.local/bin is the non-root installer's command location (scripts/install.sh).
   const ssh = fakeSsh([
     [/command -v aegis/, ''],
     [/\[ -x .*\.local\/bin\/aegis/, 'OK']
   ])
 
-  assert.equal(await locateAegis(ssh, ''), '~/.local/bin/aegis')
+  assert.equal(await locateAegis AI Enterprise Autonomous Platform(ssh, ''), '~/.local/bin/aegis')
 })
 
-test('locateAegis tries the conventional venv path last', async () => {
+test('locateAegis AI Enterprise Autonomous Platform tries the conventional venv path last', async () => {
   const ssh = fakeSsh([[/\[ -x .*venv\/bin\/aegis/, 'OK']])
-  assert.equal(await locateAegis(ssh, ''), '~/.aegis/aegis-agent/venv/bin/aegis')
+  assert.equal(await locateAegis AI Enterprise Autonomous Platform(ssh, ''), '~/.aegis/aegis-agent/venv/bin/aegis')
 })
 
-test('locateAegis throws a aegis-not-found error with an install hint', async () => {
+test('locateAegis AI Enterprise Autonomous Platform throws a aegis-not-found error with an install hint', async () => {
   const ssh = fakeSsh([]) // nothing is executable
   await assert.rejects(
-    () => locateAegis(ssh, ''),
+    () => locateAegis AI Enterprise Autonomous Platform(ssh, ''),
     (err: any) => {
       assert.equal(err.kind, 'aegis-not-found')
       assert.match(err.message, /install/i)
@@ -414,13 +414,13 @@ test('locateAegis throws a aegis-not-found error with an install hint', async ()
   )
 })
 
-test('locateAegis uses a login shell for the command -v probe', async () => {
+test('locateAegis AI Enterprise Autonomous Platform uses a login shell for the command -v probe', async () => {
   const ssh = fakeSsh([
     [/command -v aegis/, '/x/aegis'],
     [/\[ -x/, 'OK']
   ])
 
-  await locateAegis(ssh, '')
+  await locateAegis AI Enterprise Autonomous Platform(ssh, '')
   assert.ok(
     ssh.calls.some(c => /bash -lc/.test(c)),
     'must probe in a login shell (PATH pitfall)'
@@ -1122,7 +1122,7 @@ function connectDeps(ssh, over: any = {}) {
     forward: async () => {},
     cancelForward: async () => {},
     pickLocalPort: async () => 50001,
-    waitForAegis: async () => {},
+    waitForAegis AI Enterprise Autonomous Platform: async () => {},
     probeReuseProof: async () => 'authenticated-ok',
     adoptServedToken: async (_baseUrl, spawn) => spawn || 'served-token',
     rememberLog: () => {},
@@ -1241,7 +1241,7 @@ test('connect() respawns when the requested remote profile differs from the lock
     [/print\("OWNED"/, 'OWNED\n'],
     [cmd => /pidfd_open/.test(cmd), 'TERMINATED\n'],
     [/kill 333/, ''],
-    [/--version/, 'Aegis Agent v0.18.2\n'],
+    [/--version/, 'Aegis AI Enterprise Autonomous Platform Agent v0.18.2\n'],
     [/grep -q ssh-session-token-file/, 'YES\n'],
     [/python3 -c/, ''],
     [/setsid/, '890\n'],
@@ -1270,7 +1270,7 @@ test('connect() respawns when the lockfile aegisPath differs from the resolved p
     [/cat .*lock\.json/, JSON.stringify(lock)],
     [/kill -0/, 'ALIVE'],
     [/print\("OWNED"/, 'FOREIGN\n'],
-    [/--version/, 'Aegis Agent v0.18.2\n'],
+    [/--version/, 'Aegis AI Enterprise Autonomous Platform Agent v0.18.2\n'],
     [/grep -q ssh-session-token-file/, 'YES\n'],
     [/python3 -c/, ''],
     [/setsid/, '890\n'],
@@ -1278,7 +1278,7 @@ test('connect() respawns when the lockfile aegisPath differs from the resolved p
   ])
 
   const result = await connect(
-    connectDeps(ssh, { reuseToken, remoteAegisPath: '/new/aegis', adoptServedToken: async () => 'fresh' })
+    connectDeps(ssh, { reuseToken, remoteAegis AI Enterprise Autonomous PlatformPath: '/new/aegis', adoptServedToken: async () => 'fresh' })
   )
 
   assert.equal(result.reused, false, 'must respawn, not reuse the old-path dashboard')
@@ -1981,12 +1981,12 @@ test('probes run under the remote watchdog so a hung CLI cannot orphan (#110478)
       (cmd: string) => {
         versionProbe = cmd
 
-        return 'Aegis Agent v0.18.2 (abc123)\n'
+        return 'Aegis AI Enterprise Autonomous Platform Agent v0.18.2 (abc123)\n'
       }
     ]
   ])
 
-  assert.equal(await probeAegisVersion(versionSsh, '/x/aegis'), 'Aegis Agent v0.18.2 (abc123)')
+  assert.equal(await probeAegis AI Enterprise Autonomous PlatformVersion(versionSsh, '/x/aegis'), 'Aegis AI Enterprise Autonomous Platform Agent v0.18.2 (abc123)')
   assert.ok(versionProbe.includes('kill -9'), 'version probe wrapped in the remote watchdog')
 
   let helpProbe = ''
@@ -2205,7 +2205,7 @@ test('connect() post-spawn cleanup that cannot prove ownership keeps the origina
     connect(
       connectDeps(ssh, {
         platform: { os: 'Linux', arch: 'x86_64' },
-        waitForAegis: async () => {
+        waitForAegis AI Enterprise Autonomous Platform: async () => {
           throw boot
         }
       })

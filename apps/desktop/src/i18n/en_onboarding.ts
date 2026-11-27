@@ -1,12 +1,12 @@
 import type { Translations } from './types'
 
 export const enOnboarding: Translations['onboarding'] = {
-  headerTitle: "Let's get you setup with Aegis Agent",
+  headerTitle: "Let's get you setup with Aegis AI Enterprise Autonomous Platform Agent",
   headerDesc: 'Connect a model provider to start chatting. Most options take one click.',
-  preparingInstall: 'Aegis is finishing install. This usually takes under a minute on first run.',
-  starting: 'Starting Aegis…',
+  preparingInstall: 'Aegis AI Enterprise Autonomous Platform is finishing install. This usually takes under a minute on first run.',
+  starting: 'Starting Aegis AI Enterprise Autonomous Platform…',
   setupSlowTitle: 'Setup is taking longer than usual.',
-  setupSlowBody: 'Aegis is still starting in the background.',
+  setupSlowBody: 'Aegis AI Enterprise Autonomous Platform is still starting in the background.',
   continueWithoutSetup: 'Continue without setup',
   lookingUpProviders: 'Looking up providers...',
   collapse: 'Collapse',
@@ -15,7 +15,7 @@ export const enOnboarding: Translations['onboarding'] = {
   chooseLater: "I'll choose a provider later",
   recommended: 'Recommended',
   connected: 'Connected',
-  featuredPitch: 'One subscription, 300+ frontier models — the recommended way to run Aegis',
+  featuredPitch: 'One subscription, 300+ frontier models — the recommended way to run Aegis AI Enterprise Autonomous Platform',
   fireworksPitch: 'Direct model API — Fireworks-hosted frontier models',
   localModelsTitle: 'Run models locally',
   localModelsPitch: 'No account needed — download a model and run it on this machine',
@@ -34,7 +34,7 @@ export const enOnboarding: Translations['onboarding'] = {
     xai: { short: 'Grok models', description: 'Direct access to xAI Grok models.' },
     local: {
       short: 'self-hosted',
-      description: 'Point Aegis at a local or self-hosted OpenAI-compatible endpoint (vLLM, llama.cpp, Ollama, etc).'
+      description: 'Point Aegis AI Enterprise Autonomous Platform at a local or self-hosted OpenAI-compatible endpoint (vLLM, llama.cpp, Ollama, etc).'
     }
   },
   backToSignIn: 'Back to sign in',
@@ -48,7 +48,7 @@ export const enOnboarding: Translations['onboarding'] = {
   update: 'Update',
   flowSubtitles: {
     pkce: 'Opens your browser to sign in, then continues here',
-    device_code: 'Opens a verification page in your browser — Aegis connects automatically',
+    device_code: 'Opens a verification page in your browser — Aegis AI Enterprise Autonomous Platform connects automatically',
     external: 'Sign in once in your terminal, then come back to chat'
   },
   startingSignIn: provider => `Starting sign-in for ${provider}...`,
@@ -66,7 +66,7 @@ export const enOnboarding: Translations['onboarding'] = {
   pickDifferentProvider: 'Pick a different provider',
   signInWith: provider => `Sign in with ${provider}`,
   openedBrowser: provider => `We opened ${provider} in your browser.`,
-  authorizeThere: 'Authorize Aegis there.',
+  authorizeThere: 'Authorize Aegis AI Enterprise Autonomous Platform there.',
   copyAuthCode: 'Copy the authorization code and paste it below.',
   pasteAuthCode: 'Paste authorization code',
   reopenAuthPage: 'Re-open authorization page',

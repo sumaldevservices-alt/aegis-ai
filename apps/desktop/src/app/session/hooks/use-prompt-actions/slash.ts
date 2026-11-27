@@ -754,7 +754,7 @@ export function useSlashCommand(deps: SlashCommandDeps) {
         // /background (alias /bg) starts a detached background turn via the
         // gateway's prompt.background RPC — the TUI's path
         // (ui-tui/src/app/slash/commands/session.ts). It must NOT go through
-        // runExec: the slash worker's AegisCLI prints the completion from a
+        // runExec: the slash worker's Aegis AI Enterprise Autonomous PlatformCLI prints the completion from a
         // fire-and-forget thread after process_command already returned, past
         // the worker's stdout capture window, so the result never reached the
         // conversation that started the task (#97635, #57444). The RPC replies
@@ -1067,7 +1067,7 @@ export function useSlashCommand(deps: SlashCommandDeps) {
           }
         },
         // /wake must stay in the gateway process that owns the Desktop wake
-        // lease. Sending it through slash.exec creates a separate AegisCLI in
+        // lease. Sending it through slash.exec creates a separate Aegis AI Enterprise Autonomous PlatformCLI in
         // the slash worker, which can claim the machine-wide microphone lock
         // while the Desktop UI still reports the GUI listener as off.
         wake: async ctx => {

@@ -77,7 +77,7 @@ function Harness() {
     handleServerRequest: () => false,
     onConnectionReady: () => undefined,
     onGatewayReady: () => undefined,
-    refreshAegisConfig: async () => undefined,
+    refreshAegis AI Enterprise Autonomous PlatformConfig: async () => undefined,
     refreshSessions: async () => undefined
   })
 
@@ -153,7 +153,7 @@ it('a hold published after boot (a pool/profile backend) still reaches the block
   const progress = {
     error: null,
     fakeMode: false,
-    message: 'Aegis is ready',
+    message: 'Aegis AI Enterprise Autonomous Platform is ready',
     phase: 'backend.ready',
     progress: 100,
     retryable: false,

@@ -21,7 +21,7 @@ export const enCatalogInstall: CatalogInstallTranslations = {
   securityHeading: 'Security',
   scan: { passed: 'Scan passed', warnings: 'Scan found warnings', failed: 'Scan failed' },
   requirementsLabel: 'Requires',
-  requiresAegis: range => `Aegis ${range}`,
+  requiresAegis AI Enterprise Autonomous Platform: range => `Aegis AI Enterprise Autonomous Platform ${range}`,
   envVar: name => `${name} environment variable`,
   credentialsHeading: 'Credentials',
   phase: {

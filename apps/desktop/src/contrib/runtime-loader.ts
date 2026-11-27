@@ -4,7 +4,7 @@
  *
  *   source (plain ESM js) -> import allowlist (`@aegis/plugin-sdk` / `react*`
  *   only) -> bare-specifier rewrite to live shim blobs (see sdk/runtime.ts)
- *   -> blob `import()` -> validate default AegisPlugin -> register(ctx)
+ *   -> blob `import()` -> validate default Aegis AI Enterprise Autonomous PlatformPlugin -> register(ctx)
  *
  * Loading the same plugin id again disposes the previous registrations first
  * (agent rewrites a plugin file -> clean reload) — everything taken out
@@ -44,7 +44,7 @@ import { notifyError } from '@/store/notifications'
 import { forgetPluginPreviewAccess } from '@/store/plugin-preview-grants'
 
 import { trackGatewayEventDisposers } from './events'
-import { createPluginContext, declaredCapabilities, type AegisPlugin } from './plugin'
+import { createPluginContext, declaredCapabilities, type Aegis AI Enterprise Autonomous PlatformPlugin } from './plugin'
 import {
   $pluginRecords,
   dropPlugin,
@@ -409,12 +409,12 @@ export async function loadRuntimePlugin(
 
     const url = URL.createObjectURL(new Blob([rewriteSpecifiers(source)], { type: 'text/javascript' }))
 
-    let mod: { default?: AegisPlugin }
+    let mod: { default?: Aegis AI Enterprise Autonomous PlatformPlugin }
     let deadline: ReturnType<typeof setTimeout> | undefined
 
     try {
       mod = await Promise.race([
-        import(/* @vite-ignore */ url) as Promise<{ default?: AegisPlugin }>,
+        import(/* @vite-ignore */ url) as Promise<{ default?: Aegis AI Enterprise Autonomous PlatformPlugin }>,
         new Promise<never>((_, reject) => {
           deadline = setTimeout(
             () =>
@@ -433,7 +433,7 @@ export async function loadRuntimePlugin(
     const plugin = mod.default
 
     if (!plugin?.id || typeof plugin.register !== 'function') {
-      throw new Error(`${origin} has no valid default AegisPlugin export`)
+      throw new Error(`${origin} has no valid default Aegis AI Enterprise Autonomous PlatformPlugin export`)
     }
 
     // A disk/runtime copy of a plugin that now ships BUNDLED (e.g. a
@@ -742,7 +742,7 @@ async function readPluginSourceText(file: string): Promise<string> {
 
   if (result.truncated) {
     throw new PluginSourceOversizeError(
-      "plugin.js exceeds this shell's 512 KiB read limit — update Aegis Desktop to load larger plugins"
+      "plugin.js exceeds this shell's 512 KiB read limit — update Aegis AI Enterprise Autonomous Platform Desktop to load larger plugins"
     )
   }
 
@@ -1070,7 +1070,7 @@ export async function uninstallDiskPlugin(
   const remove = removeDesktop ?? window.aegisDesktop?.removeDesktopPlugin
 
   if (!remove) {
-    return { ok: false, error: 'this Aegis Desktop build cannot remove desktop plugins — delete the folder by hand' }
+    return { ok: false, error: 'this Aegis AI Enterprise Autonomous Platform Desktop build cannot remove desktop plugins — delete the folder by hand' }
   }
 
   const result = await remove({ name: record.origin })

@@ -8,7 +8,7 @@ describe('isProviderSetupErrorMessage', () => {
       true
     )
     expect(isProviderSetupErrorMessage('No inference provider is configured.')).toBe(true)
-    expect(isProviderSetupErrorMessage('No Aegis provider is configured.')).toBe(true)
+    expect(isProviderSetupErrorMessage('No Aegis AI Enterprise Autonomous Platform provider is configured.')).toBe(true)
     expect(isProviderSetupErrorMessage('set an API key (OPENROUTER_API_KEY) in ~/.aegis/.env')).toBe(true)
   })
 
@@ -16,7 +16,7 @@ describe('isProviderSetupErrorMessage', () => {
     // tui_gateway/user_messages.py::agent_init_failed_message wrapping agent/agent_init.py's raise.
     expect(
       isProviderSetupErrorMessage(
-        'Aegis could not start the assistant for this session. Details: No LLM provider configured. Run `aegis model` to select a provider, or run `aegis setup` for first-time configuration. Check the model and provider with /model, or run `aegis setup` in a terminal to reconfigure.'
+        'Aegis AI Enterprise Autonomous Platform could not start the assistant for this session. Details: No LLM provider configured. Run `aegis model` to select a provider, or run `aegis setup` for first-time configuration. Check the model and provider with /model, or run `aegis setup` in a terminal to reconfigure.'
       )
     ).toBe(true)
   })

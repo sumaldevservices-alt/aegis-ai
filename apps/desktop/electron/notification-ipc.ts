@@ -4,7 +4,7 @@ import { createEventDeduper } from './event-dedupe'
 import { resolveNotificationAction } from './notification-actions'
 import { createLinuxNotifications } from './notification-linux'
 import { createNotificationRegistry } from './notification-registry'
-import type { AegisNotification } from './notification-types'
+import type { Aegis AI Enterprise Autonomous PlatformNotification } from './notification-types'
 
 interface NotificationHost {
   getMainWindow: () => BrowserWindow | null
@@ -42,7 +42,7 @@ export function registerNativeNotifications({
   const notifications = createNotificationRegistry({ releaseOnClose: Boolean(linux) })
   const supported = () => Boolean(linux) || Notification.isSupported()
 
-  ipcMain.handle('aegis:notify', async (event, payload: AegisNotification) => {
+  ipcMain.handle('aegis:notify', async (event, payload: Aegis AI Enterprise Autonomous PlatformNotification) => {
     // The source renderer owns runtime bindings and plugin callbacks.
     const sourceWindow = BrowserWindow.fromWebContents(event.sender)
     const targetWindow = () => (sourceWindow && !sourceWindow.isDestroyed() ? sourceWindow : getMainWindow())
@@ -62,7 +62,7 @@ export function registerNativeNotifications({
     const icon = typeof payload?.icon === 'string' && payload.icon.trim() ? payload.icon.trim() : undefined
 
     const options = {
-      title: payload?.title || 'Aegis',
+      title: payload?.title || 'Aegis AI Enterprise Autonomous Platform',
       body: payload?.body || '',
       silent: Boolean(payload?.silent),
       ...(icon ? { icon } : {}),

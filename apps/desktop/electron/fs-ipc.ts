@@ -10,7 +10,7 @@ import { app, BrowserWindow, dialog, ipcMain, shell } from 'electron'
 
 import { PLUGIN_CATALOG_NAME_RE } from '../../shared/src/desktop-plugin-files'
 
-import { platformDefaultAegisHome } from './data-paths'
+import { platformDefaultAegis AI Enterprise Autonomous PlatformHome } from './data-paths'
 import { installDesktopPluginFromGit, probePluginRepo } from './desktop-plugin-install'
 import { removeDesktopPlugin } from './desktop-plugin-remove'
 import {
@@ -62,7 +62,7 @@ export function registerFsIpc({
     userDataDir: () => app.getPath('userData'),
     aegisHomes: () => [
       aegisHome,
-      platformDefaultAegisHome(app.getPath('home')),
+      platformDefaultAegis AI Enterprise Autonomous PlatformHome(app.getPath('home')),
       path.join(app.getPath('home'), '.aegis')
     ],
     trashItem: target => shell.trashItem(target)
@@ -121,7 +121,7 @@ export function registerFsIpc({
   })
 
   // The LOCAL Desktop runtime-plugin root: `<AEGIS_HOME>/desktop-plugins`,
-  // resolved from the main-process AEGIS_HOME (see resolveAegisHome) — NOT from
+  // resolved from the main-process AEGIS_HOME (see resolveAegis AI Enterprise Autonomous PlatformHome) — NOT from
   // the connected backend. A remote backend reports its own `aegis_home` over
   // the gateway, which is a path on the REMOTE box; deriving the plugin dir from
   // it yields `undefined/desktop-plugins` (or a non-existent remote path) and the

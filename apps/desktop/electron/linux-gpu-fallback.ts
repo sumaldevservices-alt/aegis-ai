@@ -28,7 +28,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { alreadyHasDisableGpu, isAegisDesktopGpuOverrideOff } from './windows-stack-cookie-fallback'
+import { alreadyHasDisableGpu, isAegis AI Enterprise Autonomous PlatformDesktopGpuOverrideOff } from './windows-stack-cookie-fallback'
 
 export const LINUX_GPU_FALLBACK_MARKER_FILENAME = 'linux-gpu-fallback.json'
 
@@ -267,7 +267,7 @@ export function decideLinuxGpuLaunch(
   // the recovery path this file documents, so it must not leave the stale fallback marker
   // behind: keeping it makes `main.ts` sticky again, the next override-free launch re-engages
   // software rendering (`sticky-fallback`) and only an app-version change would clear it.
-  if (isAegisDesktopGpuOverrideOff(env)) {
+  if (isAegis AI Enterprise Autonomous PlatformDesktopGpuOverrideOff(env)) {
     return { enable: false, reason: null, nextMarker: { state: 'booting' } }
   }
 

@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react'
 import { useEffect } from 'react'
 
-import { useAegisConfigRecord } from '@/app/hooks/use-config-record'
+import { useAegis AI Enterprise Autonomous PlatformConfigRecord } from '@/app/hooks/use-config-record'
 import { readUseRealProfile } from '@/app/settings/browser-real-profile-panel'
 import { syncPreviewSigninsIfChanged } from '@/lib/preview-signins'
 import { $connection } from '@/store/session'
@@ -13,7 +13,7 @@ import { isMainWindow } from '@/store/windows'
  * Main window only, so several windows never import at once; local backends only (main re-checks).
  */
 export function usePreviewSigninsBoot() {
-  const { data: config, writeScope: scope } = useAegisConfigRecord()
+  const { data: config, writeScope: scope } = useAegis AI Enterprise Autonomous PlatformConfigRecord()
   const local = useStore($connection)?.mode === 'local'
   const enabled = config ? readUseRealProfile(config) : null
   const connectionId = scope?.connectionId ?? null

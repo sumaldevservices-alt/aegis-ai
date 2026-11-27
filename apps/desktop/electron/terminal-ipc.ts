@@ -183,7 +183,7 @@ export function registerTerminalIpc({
 
     // Strip color/theme-detection vars that ride along when Electron is launched
     // from a non-tty agent shell (Cursor's runner sets NO_COLOR/FORCE_COLOR=0
-    // /TERM=dumb; some terminals set COLORFGBG which would flip Aegis' TUI into
+    // /TERM=dumb; some terminals set COLORFGBG which would flip Aegis AI Enterprise Autonomous Platform' TUI into
     // light-mode). Our PTY is a real xterm-compat terminal — force truecolor.
     delete env.NO_COLOR
     delete env.FORCE_COLOR
@@ -192,7 +192,7 @@ export function registerTerminalIpc({
     env.COLORTERM = 'truecolor'
     env.LC_CTYPE = terminalLcCtype(env)
     env.TERM = 'xterm-256color'
-    env.TERM_PROGRAM = 'Aegis'
+    env.TERM_PROGRAM = 'Aegis AI Enterprise Autonomous Platform'
     env.TERM_PROGRAM_VERSION = app.getVersion()
 
     // Let a aegis/--tui launched in this pane know it's embedded in the desktop

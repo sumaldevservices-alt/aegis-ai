@@ -79,7 +79,7 @@ test('primary remote descriptor preserves the effective SSH dialing identity', (
   const ssh = {
     effectiveConfigFingerprint: 'effective-config',
     host: 'build-host',
-    remoteAegisPath: '/srv/aegis',
+    remoteAegis AI Enterprise Autonomous PlatformPath: '/srv/aegis',
     remoteProfile: 'default',
     user: 'alice'
   }

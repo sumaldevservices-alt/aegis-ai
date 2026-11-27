@@ -3,7 +3,7 @@ import { type RefObject, useEffect, useMemo, useRef, useState } from 'react'
 import { type CodeEditorApi } from '@/components/chat/code-editor'
 import { type McpImportEntry } from '@/lib/mcp-import'
 import { getServers, type McpServers } from '@/lib/mcp-servers'
-import type { AegisConfigRecord } from '@/types/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'
 
 import { parseServersDoc, scanServerBlocks, type ServerBlock, STARTER_ENTRY, uniqueServerKey, wrapDoc } from './mcp-doc'
 
@@ -27,7 +27,7 @@ export interface McpDraft {
 }
 
 export interface UseMcpDraftOptions {
-  config: AegisConfigRecord | null | undefined
+  config: Aegis AI Enterprise Autonomous PlatformConfigRecord | null | undefined
   names: string[]
   profilePending: boolean
   servers: McpServers

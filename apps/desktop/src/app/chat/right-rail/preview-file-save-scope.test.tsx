@@ -7,7 +7,7 @@ import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { expect, it, vi } from 'vitest'
 
 import { setApiRequestConnection, setApiRequestProfile } from '@/api/client'
-import type { AegisApiRequest, AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest, Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { $connection } from '@/store/session'
 
 import { LocalFilePreview } from './preview-file'
@@ -23,7 +23,7 @@ it.each(['connection', 'profile', 'local', 'api-route'] as const)(
     const originFile = path.join(directory, 'origin.txt')
     const otherFile = path.join(directory, 'other.txt')
     const logicalPath = '/workspace/note.txt'
-    const origin = { connectionId: 'gateway-a', mode: 'remote', profile: 'default' } as AegisConnection
+    const origin = { connectionId: 'gateway-a', mode: 'remote', profile: 'default' } as Aegis AI Enterprise Autonomous PlatformConnection
 
     const other = {
       connectionId:
@@ -34,7 +34,7 @@ it.each(['connection', 'profile', 'local', 'api-route'] as const)(
             : 'gateway-a',
       mode: destination === 'local' ? 'local' : 'remote',
       profile: destination === 'profile' ? 'other' : 'default'
-    } as AegisConnection
+    } as Aegis AI Enterprise Autonomous PlatformConnection
 
     const rangeDescriptors = Object.getOwnPropertyDescriptors(Range.prototype)
     let releaseRead!: () => void
@@ -66,7 +66,7 @@ it.each(['connection', 'profile', 'local', 'api-route'] as const)(
       return { path: logicalPath }
     }
 
-    const activate = (connection: AegisConnection) => {
+    const activate = (connection: Aegis AI Enterprise Autonomous PlatformConnection) => {
       $connection.set(connection)
       setApiRequestConnection(connection.connectionId ?? null)
       setApiRequestProfile(connection.profile ?? null)
@@ -76,7 +76,7 @@ it.each(['connection', 'profile', 'local', 'api-route'] as const)(
       await writeFile(originFile, 'origin baseline')
       await writeFile(otherFile, 'unrelated valuable contents')
       vi.stubGlobal('aegisDesktop', {
-        api: async (request: AegisApiRequest) => {
+        api: async (request: Aegis AI Enterprise Autonomous PlatformApiRequest) => {
           const file =
             request.connectionId === origin.connectionId && request.profile === origin.profile ? originFile : otherFile
 

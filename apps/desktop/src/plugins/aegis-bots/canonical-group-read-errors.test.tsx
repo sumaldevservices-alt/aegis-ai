@@ -1,4 +1,4 @@
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { act, cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 
@@ -9,7 +9,7 @@ import { translateBotsIn } from './i18n-test-helper'
 
 const { request, locale } = vi.hoisted(() => ({ request: vi.fn(), locale: { value: 'en' } }))
 vi.mock('@aegis/plugin-sdk', async importOriginal =>
-  localGatewaySdkMock(await importOriginal<typeof AegisSdk>(), request, () => translateBotsIn(locale.value)))
+  localGatewaySdkMock(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>(), request, () => translateBotsIn(locale.value)))
 afterEach(() => { cleanup(); request.mockReset(); localStorage.clear() })
 
 const timeoutAdvice = [

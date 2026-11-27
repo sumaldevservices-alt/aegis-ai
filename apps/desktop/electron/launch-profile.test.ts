@@ -23,28 +23,28 @@ function withStoredProfile(profile: string, run: (target: string) => void) {
 }
 
 test('parses both --profile spellings and ignores a missing flag', () => {
-  assert.equal(parseLaunchProfile(['Aegis.exe', '--profile', 'desktop']), 'desktop')
-  assert.equal(parseLaunchProfile(['Aegis.exe', '--profile=desktop']), 'desktop')
-  assert.equal(parseLaunchProfile(['open', '-a', 'Aegis', '--args', '--profile', 'work']), 'work')
-  assert.equal(parseLaunchProfile(['Aegis.exe', '--local']), null)
-  assert.equal(parseLaunchProfile(['Aegis.exe']), null)
+  assert.equal(parseLaunchProfile(['Aegis AI Enterprise Autonomous Platform.exe', '--profile', 'desktop']), 'desktop')
+  assert.equal(parseLaunchProfile(['Aegis AI Enterprise Autonomous Platform.exe', '--profile=desktop']), 'desktop')
+  assert.equal(parseLaunchProfile(['open', '-a', 'Aegis AI Enterprise Autonomous Platform', '--args', '--profile', 'work']), 'work')
+  assert.equal(parseLaunchProfile(['Aegis AI Enterprise Autonomous Platform.exe', '--local']), null)
+  assert.equal(parseLaunchProfile(['Aegis AI Enterprise Autonomous Platform.exe']), null)
 })
 
 test('normalizes a launch profile the same way the CLI does', () => {
-  assert.equal(parseLaunchProfile(['Aegis.exe', '--profile', '  Desktop  ']), 'desktop')
-  assert.equal(parseLaunchProfile(['Aegis.exe', '--profile=Work']), 'work')
-  assert.equal(parseLaunchProfile(['Aegis.exe', '--profile', 'default']), 'default')
-  assert.equal(parseLaunchProfile(['Aegis.exe', '--profile']), null)
-  assert.equal(parseLaunchProfile(['Aegis.exe', '--profile=']), null)
-  assert.equal(parseLaunchProfile(['Aegis.exe', '--profile', 'my profile']), null)
-  assert.equal(parseLaunchProfile(['Aegis.exe', '--profile', '-desktop']), null)
+  assert.equal(parseLaunchProfile(['Aegis AI Enterprise Autonomous Platform.exe', '--profile', '  Desktop  ']), 'desktop')
+  assert.equal(parseLaunchProfile(['Aegis AI Enterprise Autonomous Platform.exe', '--profile=Work']), 'work')
+  assert.equal(parseLaunchProfile(['Aegis AI Enterprise Autonomous Platform.exe', '--profile', 'default']), 'default')
+  assert.equal(parseLaunchProfile(['Aegis AI Enterprise Autonomous Platform.exe', '--profile']), null)
+  assert.equal(parseLaunchProfile(['Aegis AI Enterprise Autonomous Platform.exe', '--profile=']), null)
+  assert.equal(parseLaunchProfile(['Aegis AI Enterprise Autonomous Platform.exe', '--profile', 'my profile']), null)
+  assert.equal(parseLaunchProfile(['Aegis AI Enterprise Autonomous Platform.exe', '--profile', '-desktop']), null)
 })
 
 test('a launch --profile is persisted before the backend reads active-profile.json', () => {
   withStoredProfile('stored', target => {
     const preferences = createDesktopProfilePreferences(target)
 
-    const launched = applyLaunchProfileOverride(['Aegis.exe', '--profile', 'desktop'], name => {
+    const launched = applyLaunchProfileOverride(['Aegis AI Enterprise Autonomous Platform.exe', '--profile', 'desktop'], name => {
       preferences.remember(name)
     })
 
@@ -60,7 +60,7 @@ test('--profile=<name> persists the same profile the space spelling does', () =>
   withStoredProfile('stored', target => {
     const preferences = createDesktopProfilePreferences(target)
 
-    applyLaunchProfileOverride(['Aegis.exe', '--ozone-platform=wayland', '--profile=desktop'], name => {
+    applyLaunchProfileOverride(['Aegis AI Enterprise Autonomous Platform.exe', '--ozone-platform=wayland', '--profile=desktop'], name => {
       preferences.remember(name)
     })
 
@@ -70,11 +70,11 @@ test('--profile=<name> persists the same profile the space spelling does', () =>
 
 test('a missing or invalid flag does not change the stored profile', () => {
   for (const argv of [
-    ['Aegis.exe'],
-    ['Aegis.exe', '--local'],
-    ['Aegis.exe', '--profile'],
-    ['Aegis.exe', '--profile', 'Not a name'],
-    ['Aegis.exe', '--profile=../desktop']
+    ['Aegis AI Enterprise Autonomous Platform.exe'],
+    ['Aegis AI Enterprise Autonomous Platform.exe', '--local'],
+    ['Aegis AI Enterprise Autonomous Platform.exe', '--profile'],
+    ['Aegis AI Enterprise Autonomous Platform.exe', '--profile', 'Not a name'],
+    ['Aegis AI Enterprise Autonomous Platform.exe', '--profile=../desktop']
   ]) {
     withStoredProfile('stored', target => {
       const before = fs.readFileSync(target, 'utf8')

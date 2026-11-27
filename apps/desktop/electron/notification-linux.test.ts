@@ -4,7 +4,7 @@ import type { Message } from 'dbus-native'
 import type { BrowserWindow, IpcMainInvokeEvent } from 'electron'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
-import type { AegisNotification } from './notification-types'
+import type { Aegis AI Enterprise Autonomous PlatformNotification } from './notification-types'
 
 const host = vi.hoisted(() => ({ handle: vi.fn(), fromWebContents: vi.fn(), createClient: vi.fn() }))
 vi.mock('electron', () => ({
@@ -170,7 +170,7 @@ function setup(alreadyRunning = false, activatable = !alreadyRunning) {
     platform: 'linux'
   })
 
-  const notify = (payload: AegisNotification) =>
+  const notify = (payload: Aegis AI Enterprise Autonomous PlatformNotification) =>
     Promise.resolve(
       host.handle.mock.calls[0][1]({ sender: source.webContents } as unknown as IpcMainInvokeEvent, payload)
     )

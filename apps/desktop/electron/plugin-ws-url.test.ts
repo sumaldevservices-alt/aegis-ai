@@ -25,7 +25,7 @@ test('a plugin dial carries the grant header once and never in its URL', () => {
     expect(dials.headers({ ...details, url: url.replace('ws://127.0.0.1:9', elsewhere) })).toBeNull()
   }
 
-  expect(dials.headers(details)).toEqual({ 'X-Aegis-Gateway-Ticket': 'grant-1' })
+  expect(dials.headers(details)).toEqual({ 'X-Aegis AI Enterprise Autonomous Platform-Gateway-Ticket': 'grant-1' })
   expect(dials.headers(details)).toBeNull()
 })
 

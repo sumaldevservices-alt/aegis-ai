@@ -422,9 +422,9 @@ test('Windows managed launcher starts a hidden child and leaves exit 75 to the e
     {
       ssh: { exec: async () => '' },
       platform: 'Windows',
-      aegisPath: 'C:\\Aegis\\aegis.exe',
+      aegisPath: 'C:\\Aegis AI Enterprise Autonomous Platform\\aegis.exe',
       aegisHome: 'C:\\Users\\alice\\.aegis',
-      pythonPath: 'C:\\Aegis\\python.exe'
+      pythonPath: 'C:\\Aegis AI Enterprise Autonomous Platform\\python.exe'
     },
     CORRELATION
   )
@@ -572,7 +572,7 @@ test.runIf(process.platform !== 'win32')(
 
       assert.equal(clean.ok, true)
       assert.equal(clean.owed, undefined)
-      assert.equal(clean.message, 'Remote Aegis updated and every managed SSH profile is ready.')
+      assert.equal(clean.message, 'Remote Aegis AI Enterprise Autonomous Platform updated and every managed SSH profile is ready.')
 
       // The debt survives a failed restoration: update and restore verdicts stay independent.
       const unrestored = await run([{ step: 'dependencies', reason: 'sync failed' }], { restoreFails: true })
@@ -724,9 +724,9 @@ test('Windows coordinator handoff is pending until its marker clears and correla
 
   const target = {
     platform: 'Windows' as const,
-    aegisPath: 'C:\\Aegis\\aegis.exe',
+    aegisPath: 'C:\\Aegis AI Enterprise Autonomous Platform\\aegis.exe',
     aegisHome: 'C:\\Users\\alice\\.aegis',
-    pythonPath: 'C:\\Aegis\\python.exe',
+    pythonPath: 'C:\\Aegis AI Enterprise Autonomous Platform\\python.exe',
     ssh: {
       exec: async () => {
         const reply = replies[Math.min(calls, replies.length - 1)]

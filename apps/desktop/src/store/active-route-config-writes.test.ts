@@ -1,7 +1,7 @@
 import { atom } from 'nanostores'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import type * as AegisModule from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformModule from '@/aegis'
 import { $activeGatewayProfile } from '@/store/profile'
 
 // Voice mode and the Appearance display toggles write `config.set` for the
@@ -13,8 +13,8 @@ import { $activeGatewayProfile } from '@/store/profile'
 const sockets = vi.hoisted(() => [] as Array<{ requests: Array<[string, unknown]>; wsUrl: string }>)
 
 vi.mock('@/aegis', async importOriginal => ({
-  ...(await importOriginal<typeof AegisModule>()),
-  AegisGateway: class {
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformModule>()),
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     record = { requests: [] as Array<[string, unknown]>, wsUrl: '' }
     constructor() {

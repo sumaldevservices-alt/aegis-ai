@@ -28,7 +28,7 @@ function complete(sessionId: string): GatewayEventContext {
       lastCwdInfoSessionRef: { current: null },
       nativeSubagentSessionsRef: { current: new Set() },
       queryClient: {} as GatewayEventContext['deps']['queryClient'],
-      refreshAegisConfig: vi.fn(async () => undefined),
+      refreshAegis AI Enterprise Autonomous PlatformConfig: vi.fn(async () => undefined),
       scheduleSessionsRefresh: vi.fn(),
       sessionInterrupted: vi.fn(() => false),
       sessionStateByRuntimeIdRef: { current: new Map() },

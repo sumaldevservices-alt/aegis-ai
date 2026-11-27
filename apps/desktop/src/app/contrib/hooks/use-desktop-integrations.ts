@@ -10,7 +10,7 @@ import { openConnectionDoneLink } from '@/components/assistant-ui/connector-tool
 import { $diskPluginsScanPending } from '@/contrib/runtime-loader'
 import { getSession } from '@/aegis'
 import { resolveDeepLinkAction } from '@/lib/deeplink-routes'
-import { pathFromAegisDeepLink, resolveAegisOpenPath } from '@/lib/aegis-open-target'
+import { pathFromAegis AI Enterprise Autonomous PlatformDeepLink, resolveAegis AI Enterprise Autonomous PlatformOpenPath } from '@/lib/aegis-open-target'
 import { storedSessionIdForNotification } from '@/lib/session-ids'
 import { announceNewSessionDraftKey } from '@/store/composer'
 import { recordAction } from '@/store/desktop-metrics'
@@ -100,7 +100,7 @@ export function useDesktopIntegrations({
     // notifies on transitions into needs-auth/error with a Sign in action.
     startMcpHealthChecker()
     // The native "Check for Updates…" menu item lives in the app menu next to
-    // "About Aegis" — it is the OS-standard affordance for updating THIS app,
+    // "About Aegis AI Enterprise Autonomous Platform" — it is the OS-standard affordance for updating THIS app,
     // so it always opens the client overlay. Inheriting the connection-mode
     // default pointed a Mac at its remote Linux backend and left the app itself
     // silently stale (#70266).
@@ -395,7 +395,7 @@ export function useDesktopIntegrations({
         // Defense-in-depth: re-resolve at the IPC boundary rather than trusting
         // the pre-IPC validation — any future aegisDesktop.notify caller gets
         // funneled through the same resolver.
-        const path = resolveAegisOpenPath(payload.activate)
+        const path = resolveAegis AI Enterprise Autonomous PlatformOpenPath(payload.activate)
 
         if (path) {
           navigate(path)
@@ -497,7 +497,7 @@ export function useDesktopIntegrations({
       // Not a core action — treat as a plugin-scoped or open/ navigation deep
       // link (aegis://index-network/intent/1, aegis://open/…). The resolver
       // rejects reserved kinds and unsafe paths.
-      const path = pathFromAegisDeepLink(payload.kind, payload.name || '', payload.params || {})
+      const path = pathFromAegis AI Enterprise Autonomous PlatformDeepLink(payload.kind, payload.name || '', payload.params || {})
 
       if (path) {
         navigate(path)

@@ -94,11 +94,11 @@ export const arAssistant = {
         },
         timeout: {
           title: provider => `تعذّر الوصول إلى ${provider}`,
-          body: provider => `تعذّر على Aegis الوصول إلى ${provider}. تحقّق من اتصالك، ثم أعد المحاولة.`
+          body: provider => `تعذّر على Aegis AI Enterprise Autonomous Platform الوصول إلى ${provider}. تحقّق من اتصالك، ثم أعد المحاولة.`
         },
         no_reply: {
           title: 'لم يصل الرد',
-          body: 'أنهى Aegis هذه الجولة، لكن لم يصل أي رد إلى هذه النافذة. أعد المحاولة لإرسالها مجددًا.'
+          body: 'أنهى Aegis AI Enterprise Autonomous Platform هذه الجولة، لكن لم يصل أي رد إلى هذه النافذة. أعد المحاولة لإرسالها مجددًا.'
         },
         upstream_blocked: {
           title: provider => `حظر ${provider} هذا الطلب`,
@@ -150,21 +150,21 @@ export const arAssistant = {
           body: provider => `لم يُعِد ${provider} أي شيء لهذه الرسالة. أعد المحاولة بعد قليل.`
         },
         loop_error: {
-          title: 'تعذّر على Aegis إنهاء هذه الخطوة',
+          title: 'تعذّر على Aegis AI Enterprise Autonomous Platform إنهاء هذه الخطوة',
           body: 'حدث خطأ أثناء معالجة الرد. أعد المحاولة؛ وإذا تكرر ذلك، أرسل التشخيصات من التفاصيل.'
         },
         agent_init_failed: {
           title: 'تعذّر بدء هذه المحادثة',
           body: provider =>
-            `تعذّر على Aegis الاتصال بـ ${provider} لهذه المحادثة. أعد المحاولة؛ وإذا استمر الفشل، تحقّق من المزوّد في الإعدادات.`
+            `تعذّر على Aegis AI Enterprise Autonomous Platform الاتصال بـ ${provider} لهذه المحادثة. أعد المحاولة؛ وإذا استمر الفشل، تحقّق من المزوّد في الإعدادات.`
         },
         SESSION_NOT_OWNED: {
           title: 'المحادثة مفتوحة في مكان آخر',
-          body: 'هذه المحادثة مفتوحة في نافذة Aegis أخرى أو في الطرفية. ابدأ محادثة جديدة هنا، أو أغلقها هناك أولًا.'
+          body: 'هذه المحادثة مفتوحة في نافذة Aegis AI Enterprise Autonomous Platform أخرى أو في الطرفية. ابدأ محادثة جديدة هنا، أو أغلقها هناك أولًا.'
         },
         disk_full: {
           title: 'القرص ممتلئ',
-          body: 'تعذّر على Aegis حفظ هذه المحادثة. حرّر بعض المساحة، ثم أعد المحاولة.'
+          body: 'تعذّر على Aegis AI Enterprise Autonomous Platform حفظ هذه المحادثة. حرّر بعض المساحة، ثم أعد المحاولة.'
         },
         free_tier_disabled: {
           title: 'سجّل الدخول لمتابعة المحادثة',
@@ -180,7 +180,7 @@ export const arAssistant = {
         },
         free_tier_model_not_free: {
           title: 'هذا النموذج يتطلب تسجيل الدخول',
-          body: 'يستخدم Aegis النموذج المجاني حاليًا. سجّل الدخول بحساب Nous للوصول إلى نماذج أكثر، فهو مجاني.'
+          body: 'يستخدم Aegis AI Enterprise Autonomous Platform النموذج المجاني حاليًا. سجّل الدخول بحساب Nous للوصول إلى نماذج أكثر، فهو مجاني.'
         },
         free_tier_route: {
           title: 'تعذّر الوصول إلى النموذج المجاني',
@@ -200,7 +200,7 @@ export const arAssistant = {
         },
         session_read_only: {
           title: 'هذه المحادثة للقراءة فقط',
-          body: 'إنها سجلّ محفوظ يستطيع Aegis عرضه لكن لا يستطيع متابعته، لذا لم تُنفَّذ رسالتك. ابدأ محادثة جديدة لإرسالها.'
+          body: 'إنها سجلّ محفوظ يستطيع Aegis AI Enterprise Autonomous Platform عرضه لكن لا يستطيع متابعته، لذا لم تُنفَّذ رسالتك. ابدأ محادثة جديدة لإرسالها.'
         },
         usage_window: {
           title: 'نفد الاستخدام المضمّن',
@@ -218,7 +218,7 @@ export const arAssistant = {
           title: 'تعذّر الوصول إلى خادم النماذج المحلي',
           body: 'خادم النماذج المحلي لا يعمل بعد: ربما لا يزال قيد التشغيل. أعد المحاولة بعد لحظة، أو انتقل إلى نموذج آخر.',
           bodyNoRetry:
-            'خادم النماذج المحلي متوقف. شغّله من تطبيق Aegis لسطح المكتب أو عبر `aegis model` في الطرفية، أو انتقل إلى نموذج آخر.'
+            'خادم النماذج المحلي متوقف. شغّله من تطبيق Aegis AI Enterprise Autonomous Platform لسطح المكتب أو عبر `aegis model` في الطرفية، أو انتقل إلى نموذج آخر.'
         }
       },
       errorAuthKinds: {
@@ -301,23 +301,23 @@ export const arAssistant = {
       allow: 'السماح',
       allowHint: 'حتى إيقاف بيئة العزل',
       denyReason: 'سبب الرفض',
-      denyReasonPlaceholder: 'أخبر Aegis بالسبب (اختياري)',
+      denyReasonPlaceholder: 'أخبر Aegis AI Enterprise Autonomous Platform بالسبب (اختياري)',
       access: {
         title: 'الوصول إلى المجلد',
         readOnly: 'قراءة فقط',
         readWrite: 'قراءة وكتابة',
         timedOut: folder =>
-          `انتهت مهلة الطلب — لم يُمنح الوصول إلى المجلد ${folder}. اطلب من Aegis المحاولة مرة أخرى.`,
+          `انتهت مهلة الطلب — لم يُمنح الوصول إلى المجلد ${folder}. اطلب من Aegis AI Enterprise Autonomous Platform المحاولة مرة أخرى.`,
         alwaysTitle: 'السماح دائمًا بهذا المجلد؟',
         alwaysDescription:
-          'تتم إضافة المجلد إلى بيئة العزل لهذا الملف الشخصي. لن يسأل Aegis عنه مرة أخرى في أي محادثة.'
+          'تتم إضافة المجلد إلى بيئة العزل لهذا الملف الشخصي. لن يسأل Aegis AI Enterprise Autonomous Platform عنه مرة أخرى في أي محادثة.'
       },
       network: {
         title: 'الوصول إلى موقع',
-        timedOut: site => `انتهت مهلة الطلب — لم يُمنح الوصول إلى ${site}. اطلب من Aegis المحاولة مرة أخرى.`,
+        timedOut: site => `انتهت مهلة الطلب — لم يُمنح الوصول إلى ${site}. اطلب من Aegis AI Enterprise Autonomous Platform المحاولة مرة أخرى.`,
         alwaysTitle: 'السماح دائمًا بهذا الموقع؟',
         alwaysDescription:
-          'تتم إضافة الموقع إلى المواقع المسموح بها لهذا الملف الشخصي. لن يسأل Aegis عنه مرة أخرى في أي محادثة.'
+          'تتم إضافة الموقع إلى المواقع المسموح بها لهذا الملف الشخصي. لن يسأل Aegis AI Enterprise Autonomous Platform عنه مرة أخرى في أي محادثة.'
       }
     },
     clarify: {

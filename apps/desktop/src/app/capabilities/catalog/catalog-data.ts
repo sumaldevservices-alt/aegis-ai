@@ -23,7 +23,7 @@ export interface CatalogEntry {
   sha: string
   subdir: string
   version: string
-  requiresAegis: string
+  requiresAegis AI Enterprise Autonomous Platform: string
   tags: string[]
   platforms: string[]
   requirements: string[]
@@ -157,7 +157,7 @@ function catalogEntry(kind: CatalogKind, row: any): CatalogEntry {
     sha: text(row.sha),
     subdir: text(row.subdir),
     version: text(row.version),
-    requiresAegis: text(row.requiresAegis),
+    requiresAegis AI Enterprise Autonomous Platform: text(row.requiresAegis AI Enterprise Autonomous Platform),
     tags,
     tools,
     hooks,

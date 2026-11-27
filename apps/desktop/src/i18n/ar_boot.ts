@@ -4,19 +4,19 @@ import type { TranslationOverrides } from './define-locale'
 
 export const arBoot = {
   boot: {
-    ready: 'Aegis Desktop جاهز',
+    ready: 'Aegis AI Enterprise Autonomous Platform Desktop جاهز',
     desktopBootFailedWithMessage: message => `فشل تشغيل سطح المكتب: ${message}`,
     steps: {
       connectingGateway: 'جار الاتصال ببوابة سطح المكتب',
-      loadingSettings: 'جار تحميل إعدادات Aegis',
+      loadingSettings: 'جار تحميل إعدادات Aegis AI Enterprise Autonomous Platform',
       loadingSessions: 'جار تحميل الجلسات الأخيرة',
-      retryingRemoteBackend: 'جارٍ إعادة الاتصال بخادم Aegis البعيد…',
+      retryingRemoteBackend: 'جارٍ إعادة الاتصال بخادم Aegis AI Enterprise Autonomous Platform البعيد…',
       startingDesktopConnection: 'جار بدء اتصال سطح المكتب',
-      startingAegisDesktop: 'جار تشغيل Aegis Desktop...'
+      startingAegis AI Enterprise Autonomous PlatformDesktop: 'جار تشغيل Aegis AI Enterprise Autonomous Platform Desktop...'
     },
     errors: {
-      backgroundExited: 'خرجت عملية Aegis الخلفية.',
-      backgroundExitedDuringStartup: 'خرجت عملية Aegis الخلفية أثناء بدء التشغيل.',
+      backgroundExited: 'خرجت عملية Aegis AI Enterprise Autonomous Platform الخلفية.',
+      backgroundExitedDuringStartup: 'خرجت عملية Aegis AI Enterprise Autonomous Platform الخلفية أثناء بدء التشغيل.',
       backendStopped: 'توقف الخلفية',
       desktopBootFailed: 'فشل تشغيل سطح المكتب',
       gatewayConnectionLost: 'انقطع الاتصال بالبوابة',
@@ -26,7 +26,7 @@ export const arBoot = {
       ipcBridgeUnavailable: 'جسر IPC لسطح المكتب غير متاح.'
     },
     failure: {
-      title: 'تعذر تشغيل Aegis',
+      title: 'تعذر تشغيل Aegis AI Enterprise Autonomous Platform',
       description: 'لم تعمل البوابة الخلفية. جرب إحدى خطوات الاسترداد أدناه. لن يحذف ذلك محادثاتك أو إعداداتك.',
       remoteTitle: 'تسجيل الدخول للبوابة البعيدة مطلوب',
       remoteDescription: 'انتهت جلسة البوابة البعيدة. سجل الدخول مرة أخرى لإعادة الاتصال.',
@@ -57,9 +57,9 @@ export const arBoot = {
     }
   },
   keepAwakeOffer: {
-    title: 'دخل جهاز الكمبيوتر في وضع السكون أثناء عمل Aegis',
+    title: 'دخل جهاز الكمبيوتر في وضع السكون أثناء عمل Aegis AI Enterprise Autonomous Platform',
     message:
-      'يمكن لـ Aegis إبقاء جهازك مستيقظًا أثناء تشغيل مهمة. ستنطفئ الشاشة كالمعتاد، وقد يدخل الجهاز في وضع السكون عند العمل بالبطارية.',
+      'يمكن لـ Aegis AI Enterprise Autonomous Platform إبقاء جهازك مستيقظًا أثناء تشغيل مهمة. ستنطفئ الشاشة كالمعتاد، وقد يدخل الجهاز في وضع السكون عند العمل بالبطارية.',
     action: 'إبقاء الجهاز مستيقظًا أثناء العمل'
   },
   remoteDisplayBanner: {
@@ -68,7 +68,7 @@ export const arBoot = {
   butterbar: {
     goTo: (index, total) => `عرض الإشعار ${index} من ${total}`,
     legal: {
-      before: 'يخضع استخدام Aegis Agent لـ',
+      before: 'يخضع استخدام Aegis AI Enterprise Autonomous Platform Agent لـ',
       terms: 'شروط الخدمة',
       between: ' و',
       privacy: 'سياسة الخصوصية',
@@ -88,22 +88,22 @@ export const arBoot = {
     desktopCommands: arDesktopCommands
   },
   updates: {
-    discontinuedTitle: 'لم يعد إصدار Aegis هذا مدعومًا',
-    discontinuedBody: 'لم يعد إصدار Aegis هذا مدعومًا وقد يتوقف عن العمل — ألغِ تثبيته. ستبقى بياناتك على القرص.',
+    discontinuedTitle: 'لم يعد إصدار Aegis AI Enterprise Autonomous Platform هذا مدعومًا',
+    discontinuedBody: 'لم يعد إصدار Aegis AI Enterprise Autonomous Platform هذا مدعومًا وقد يتوقف عن العمل — ألغِ تثبيته. ستبقى بياناتك على القرص.',
     channels: { stable: 'مستقر', canary: 'تجريبي' },
     bundleSwapPending: 'أعد التشغيل لإكمال التحديث',
     bundleSwapPendingDesc:
-      'تم تثبيت التطبيق المحدَّث بالفعل — يكفي إعادة تشغيل Aegis لتحميله. لن تتأثر المحادثات أو الإعدادات.',
-    bundleSwapPendingAction: 'إعادة تشغيل Aegis',
+      'تم تثبيت التطبيق المحدَّث بالفعل — يكفي إعادة تشغيل Aegis AI Enterprise Autonomous Platform لتحميله. لن تتأثر المحادثات أو الإعدادات.',
+    bundleSwapPendingAction: 'إعادة تشغيل Aegis AI Enterprise Autonomous Platform',
     stages: {
       idle: 'جار التحضير...',
       prepare: 'جار التحضير...',
       fetch: 'جار التنزيل...',
       pull: 'أوشكنا على الانتهاء...',
       pydeps: 'جار الإنهاء...',
-      update: 'جار تحديث Aegis...',
+      update: 'جار تحديث Aegis AI Enterprise Autonomous Platform...',
       rebuild: 'جار إعادة بناء تطبيق سطح المكتب...',
-      restart: 'جار إعادة تشغيل Aegis...',
+      restart: 'جار إعادة تشغيل Aegis AI Enterprise Autonomous Platform...',
       done: 'اكتمل التحديث',
       manual: 'التحديث من الطرفية',
       guiSkew: 'تحديث تطبيق سطح المكتب',
@@ -113,13 +113,13 @@ export const arBoot = {
     checkFailedTitle: 'تعذّر التحقق من التحديثات',
     tryAgain: 'إعادة المحاولة',
     notAvailableTitle: 'التحديث غير متاح',
-    unsupportedMessage: 'لا يمكن لهذا الإصدار من Aegis تحديث نفسه من داخل التطبيق.',
-    appName: 'Aegis Desktop',
+    unsupportedMessage: 'لا يمكن لهذا الإصدار من Aegis AI Enterprise Autonomous Platform تحديث نفسه من داخل التطبيق.',
+    appName: 'Aegis AI Enterprise Autonomous Platform Desktop',
     version: value => `الإصدار ${value}`,
     versionUnavailable: 'الإصدار غير متاح',
     bundleOutOfSync: 'إصدار التطبيق قديم',
     bundleOutOfSyncDesc:
-      'تم تحديث وقت تشغيل Aegis، لكن تطبيق سطح المكتب نفسه لا يزال إصدارًا قديمًا — لن تظهر ميزات الواجهة الجديدة (مثل Bot Mode) حتى يتم تحديث التطبيق. شغّل التحديث أدناه لإعادة بناء التطبيق. إذا لم يختفِ هذا التحذير، فأعد التثبيت من أحدث مثبّت لسطح المكتب.',
+      'تم تحديث وقت تشغيل Aegis AI Enterprise Autonomous Platform، لكن تطبيق سطح المكتب نفسه لا يزال إصدارًا قديمًا — لن تظهر ميزات الواجهة الجديدة (مثل Bot Mode) حتى يتم تحديث التطبيق. شغّل التحديث أدناه لإعادة بناء التطبيق. إذا لم يختفِ هذا التحذير، فأعد التثبيت من أحدث مثبّت لسطح المكتب.',
     bundleOutOfSyncAction: 'الحصول على المثبّت',
     checkNow: 'التحقق الآن',
     checkingShort: 'جار التحقق...',
@@ -160,46 +160,46 @@ export const arBoot = {
     versionDetailsInstallId: 'معرّف التثبيت',
     versionDetailsUncommittedChanges: '(+ تغييرات غير ملتزمة)',
     connectionRetry: 'تحقق من اتصالك وأعد المحاولة.',
-    gitUnusable: 'لم يتمكن Aegis من تشغيل Git على هذا الجهاز، لذا لم يتمكن من التحقق من التحديثات.',
+    gitUnusable: 'لم يتمكن Aegis AI Enterprise Autonomous Platform من تشغيل Git على هذا الجهاز، لذا لم يتمكن من التحقق من التحديثات.',
     latestBody: 'أنت تستخدم أحدث إصدار.',
     latestBodyBackend: 'الواجهة الخلفية تعمل بأحدث إصدار.',
     allSetTitle: 'كل شيء جاهز',
     availableTitle: 'يتوفر تحديث جديد',
-    availableBody: 'إصدار جديد من Aegis جاهز للتثبيت.',
+    availableBody: 'إصدار جديد من Aegis AI Enterprise Autonomous Platform جاهز للتثبيت.',
     availableTitleBackend: 'يتوفر تحديث للواجهة الخلفية',
-    availableBodyBackend: 'إصدار أحدث من واجهة Aegis الخلفية المتصلة جاهز للتثبيت.',
+    availableBodyBackend: 'إصدار أحدث من واجهة Aegis AI Enterprise Autonomous Platform الخلفية المتصلة جاهز للتثبيت.',
     availableBodyNoChangelog: 'إصدار أحدث جاهز. ملاحظات الإصدار غير متاحة لنوع التثبيت هذا.',
-    availableBodyRelease: (tag: string) => `Aegis ${tag} جاهز للتثبيت.`,
+    availableBodyRelease: (tag: string) => `Aegis AI Enterprise Autonomous Platform ${tag} جاهز للتثبيت.`,
     updateNow: 'التحديث الآن',
     maybeLater: 'ربما لاحقا',
     moreChanges: count => `+ ${count} تغيير${count === 1 ? '' : 'ات'} إضافي مُضمَّن.`,
     copyFullLog: 'نسخ سجل التغييرات الكامل',
     manualTitle: 'التحديث من الطرفية',
     manualUnavailableTitle: 'لا يمكن التحديث من هنا',
-    manualBody: 'لقد ثبّتت Aegis من سطر الأوامر، لذا تُجرى التحديثات من هناك أيضا. الصق هذا في طرفيتك:',
-    manualBodyBackend: 'تتم إدارة خادم Aegis خارج هذا التطبيق. نفّذ هذا الأمر على الخادم الذي يستضيفه:',
-    manualPickedUp: 'سيلتقط Aegis الإصدار الجديد في المرة التالية التي تشغّله فيها.',
+    manualBody: 'لقد ثبّتت Aegis AI Enterprise Autonomous Platform من سطر الأوامر، لذا تُجرى التحديثات من هناك أيضا. الصق هذا في طرفيتك:',
+    manualBodyBackend: 'تتم إدارة خادم Aegis AI Enterprise Autonomous Platform خارج هذا التطبيق. نفّذ هذا الأمر على الخادم الذي يستضيفه:',
+    manualPickedUp: 'سيلتقط Aegis AI Enterprise Autonomous Platform الإصدار الجديد في المرة التالية التي تشغّله فيها.',
     manualPickedUpBackend: 'سيحمّل الخادم الإصدار الجديد بعد اكتمال التحديث.',
     guiSkewTitle: 'تحديث تطبيق سطح المكتب',
     guiSkewBody:
-      'تم تحديث الواجهة الخلفية، لكن حزمة تطبيق سطح المكتب هذه لم تتغير. حدّث أو أعد تثبيت تطبيق Aegis لسطح المكتب (ملف AppImage / ‎.deb / ‎.rpm) لمطابقته.',
+      'تم تحديث الواجهة الخلفية، لكن حزمة تطبيق سطح المكتب هذه لم تتغير. حدّث أو أعد تثبيت تطبيق Aegis AI Enterprise Autonomous Platform لسطح المكتب (ملف AppImage / ‎.deb / ‎.rpm) لمطابقته.',
     copy: 'نسخ',
     copied: 'تم النسخ',
     done: 'تم',
     applyingBody:
-      'يتولّى مُحدِّث Aegis المهمة في نافذته الخاصة ويعيد فتح Aegis تلقائيا عند الانتهاء. الرجاء عدم إعادة فتح Aegis بنفسك أثناء التحديث.',
+      'يتولّى مُحدِّث Aegis AI Enterprise Autonomous Platform المهمة في نافذته الخاصة ويعيد فتح Aegis AI Enterprise Autonomous Platform تلقائيا عند الانتهاء. الرجاء عدم إعادة فتح Aegis AI Enterprise Autonomous Platform بنفسك أثناء التحديث.',
     applyingBodyBackend:
-      'تطبّق الواجهة الخلفية البعيدة التحديث وستعيد التشغيل. يعيد Aegis الاتصال تلقائيا عند عودتها.',
-    applyingClose: 'ستُغلق هذه النافذة أثناء تشغيل التحديث، ثم يعيد Aegis فتح نفسه تلقائيا.',
+      'تطبّق الواجهة الخلفية البعيدة التحديث وستعيد التشغيل. يعيد Aegis AI Enterprise Autonomous Platform الاتصال تلقائيا عند عودتها.',
+    applyingClose: 'ستُغلق هذه النافذة أثناء تشغيل التحديث، ثم يعيد Aegis AI Enterprise Autonomous Platform فتح نفسه تلقائيا.',
     errorTitle: 'لم يكتمل التحديث',
     errorBody: 'لا داعي للقلق — لم يُفقد شيء. يمكنك إعادة المحاولة الآن.',
-    blockerTitle: 'إغلاق المعاينات المحلية لتحديث Aegis؟',
-    blockerBody: 'يحتاج Aegis إلى إيقاف هذه المعاينات المحلية قبل التحديث. لن يؤدي ذلك إلى تعديل ملفاتك أو حذفها.',
-    foreignBlockerTitle: 'أغلق العمليات الأخرى لتحديث Aegis',
+    blockerTitle: 'إغلاق المعاينات المحلية لتحديث Aegis AI Enterprise Autonomous Platform؟',
+    blockerBody: 'يحتاج Aegis AI Enterprise Autonomous Platform إلى إيقاف هذه المعاينات المحلية قبل التحديث. لن يؤدي ذلك إلى تعديل ملفاتك أو حذفها.',
+    foreignBlockerTitle: 'أغلق العمليات الأخرى لتحديث Aegis AI Enterprise Autonomous Platform',
     foreignBlockerBody:
-      'لا يمكن لـ Aegis إغلاق هذه العمليات تلقائيًا بأمان. أغلق التطبيق أو الطرفية أو الخدمة التي تشغّل كل عملية، ثم حاول التحديث مرة أخرى.',
+      'لا يمكن لـ Aegis AI Enterprise Autonomous Platform إغلاق هذه العمليات تلقائيًا بأمان. أغلق التطبيق أو الطرفية أو الخدمة التي تشغّل كل عملية، ثم حاول التحديث مرة أخرى.',
     mixedBlockerBody:
-      'يمكن لـ Aegis إغلاق المعاينات المحلية المدرجة أدناه. يجب إغلاق العمليات الأخرى يدويًا قبل متابعة التحديث.',
+      'يمكن لـ Aegis AI Enterprise Autonomous Platform إغلاق المعاينات المحلية المدرجة أدناه. يجب إغلاق العمليات الأخرى يدويًا قبل متابعة التحديث.',
     closePreviewsAndUpdate: 'إغلاق المعاينات والتحديث',
     closePreviewsAndCheckAgain: 'إغلاق المعاينات والتحقق مجددًا',
     localPreview: 'معاينة محلية',
@@ -239,7 +239,7 @@ export const arBoot = {
       skipped: 'تم التخطي',
       failed: 'فشل'
     },
-    oneTimeTitle: 'يحتاج Aegis إلى تثبيت لمرة واحدة',
+    oneTimeTitle: 'يحتاج Aegis AI Enterprise Autonomous Platform إلى تثبيت لمرة واحدة',
     unsupportedDesc: platform =>
       `التثبيت التلقائي عند أول تشغيل غير متاح على ${platform} بعد. افتح الطرفية وشغّل الأمر أدناه، ثم أعد تشغيل هذا التطبيق. ستتخطى عمليات التشغيل اللاحقة هذه الخطوة.`,
     installCommand: 'أمر التثبيت',
@@ -248,12 +248,12 @@ export const arBoot = {
     installTo: 'سيتم التثبيت في',
     retryAfterRun: 'لقد شغّلته -- إعادة المحاولة',
     failedTitle: 'فشل التثبيت',
-    settingUpTitle: 'جار إعداد وكيل Aegis',
+    settingUpTitle: 'جار إعداد وكيل Aegis AI Enterprise Autonomous Platform',
     finishingTitle: 'جار الإنهاء',
     failedDesc:
-      'فشلت إحدى خطوات التثبيت. على Windows، قد يحدث هذا إذا كان هناك نسخة أخرى من Aegis CLI أو تطبيق سطح المكتب قيد التشغيل. أوقف أي نسخ Aegis قيد التشغيل، ثم أعد المحاولة. تحقق من التفاصيل أدناه أو من سجل سطح المكتب للحصول على النص الكامل.',
+      'فشلت إحدى خطوات التثبيت. على Windows، قد يحدث هذا إذا كان هناك نسخة أخرى من Aegis AI Enterprise Autonomous Platform CLI أو تطبيق سطح المكتب قيد التشغيل. أوقف أي نسخ Aegis AI Enterprise Autonomous Platform قيد التشغيل، ثم أعد المحاولة. تحقق من التفاصيل أدناه أو من سجل سطح المكتب للحصول على النص الكامل.',
     activeDesc:
-      'هذا إعداد لمرة واحدة. يقوم مثبّت Aegis بتنزيل التبعيات وتهيئة جهازك. ستتخطى عمليات التشغيل اللاحقة هذه الخطوة.',
+      'هذا إعداد لمرة واحدة. يقوم مثبّت Aegis AI Enterprise Autonomous Platform بتنزيل التبعيات وتهيئة جهازك. ستتخطى عمليات التشغيل اللاحقة هذه الخطوة.',
     progress: (completed, total) => `اكتملت ${completed} من ${total} خطوة`,
     currentStage: stage => ` -- الآن: ${stage}`,
     fetchingManifest: 'جار جلب بيان المثبّت...',
@@ -270,12 +270,12 @@ export const arBoot = {
     reloadRetry: 'إعادة التحميل وإعادة المحاولة'
   },
   onboarding: {
-    headerTitle: 'لنُعِدّ لك Aegis Agent',
+    headerTitle: 'لنُعِدّ لك Aegis AI Enterprise Autonomous Platform Agent',
     headerDesc: 'اربط مزوّد نماذج لبدء المحادثة. معظم الخيارات تتطلب نقرة واحدة.',
-    preparingInstall: 'يُكمل Aegis التثبيت. عادة ما يستغرق ذلك أقل من دقيقة في أول تشغيل.',
-    starting: 'جار بدء Aegis...',
+    preparingInstall: 'يُكمل Aegis AI Enterprise Autonomous Platform التثبيت. عادة ما يستغرق ذلك أقل من دقيقة في أول تشغيل.',
+    starting: 'جار بدء Aegis AI Enterprise Autonomous Platform...',
     setupSlowTitle: 'يستغرق الإعداد وقتا أطول من المعتاد.',
-    setupSlowBody: 'لا يزال Aegis قيد البدء في الخلفية.',
+    setupSlowBody: 'لا يزال Aegis AI Enterprise Autonomous Platform قيد البدء في الخلفية.',
     continueWithoutSetup: 'المتابعة دون إعداد',
     lookingUpProviders: 'جار البحث عن المزوّدين...',
     collapse: 'طي',
@@ -284,7 +284,7 @@ export const arBoot = {
     chooseLater: 'سأختار مزوّدا لاحقا',
     recommended: 'موصى به',
     connected: 'متصل',
-    featuredPitch: 'اشتراك واحد، أكثر من 300 نموذج متقدم — الطريقة الموصى بها لتشغيل Aegis',
+    featuredPitch: 'اشتراك واحد، أكثر من 300 نموذج متقدم — الطريقة الموصى بها لتشغيل Aegis AI Enterprise Autonomous Platform',
     fireworksPitch: 'نماذج مفتوحة سريعة مع استضافة Fireworks.',
     openRouterPitch: 'مفتاح واحد لمئات النماذج — خيار افتراضي جيد',
     apiKeyOptions: {
@@ -307,7 +307,7 @@ export const arBoot = {
       local: {
         short: 'مستضاف ذاتيا',
         description:
-          'وجّه Aegis إلى نقطة نهاية محلية أو مستضافة ذاتيا متوافقة مع OpenAI (vLLM، llama.cpp، Ollama، إلخ).'
+          'وجّه Aegis AI Enterprise Autonomous Platform إلى نقطة نهاية محلية أو مستضافة ذاتيا متوافقة مع OpenAI (vLLM، llama.cpp، Ollama، إلخ).'
       }
     },
     backToSignIn: 'العودة إلى تسجيل الدخول',
@@ -320,7 +320,7 @@ export const arBoot = {
     update: 'تحديث',
     flowSubtitles: {
       pkce: 'يفتح المتصفح لتسجيل الدخول ثم يتابع هنا',
-      device_code: 'يفتح صفحة تحقق في المتصفح — يتصل Aegis تلقائياً',
+      device_code: 'يفتح صفحة تحقق في المتصفح — يتصل Aegis AI Enterprise Autonomous Platform تلقائياً',
       external: 'سجل الدخول مرة واحدة في الطرفية ثم عد إلى المحادثة'
     },
     startingSignIn: provider => `جار بدء تسجيل الدخول لـ ${provider}...`,
@@ -333,7 +333,7 @@ export const arBoot = {
     pickDifferentProvider: 'اختر مزوداً آخر',
     signInWith: provider => `تسجيل الدخول عبر ${provider}`,
     openedBrowser: provider => `فتحنا ${provider} في المتصفح.`,
-    authorizeThere: 'صرّح لـ Aegis هناك.',
+    authorizeThere: 'صرّح لـ Aegis AI Enterprise Autonomous Platform هناك.',
     copyAuthCode: 'انسخ رمز التفويض وألصقه أدناه.',
     pasteAuthCode: 'ألصق رمز التفويض',
     reopenAuthPage: 'إعادة فتح صفحة التفويض',

@@ -11,8 +11,8 @@ import {
   DialogHeader,
   DialogTitle
 } from '@/components/ui/dialog'
-import type { AegisConnection } from '@/global'
-import { saveAegisConfigRecord } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
+import { saveAegis AI Enterprise Autonomous PlatformConfigRecord } from '@/aegis'
 import { useI18n } from '@/i18n'
 import { Check, Globe } from '@/lib/icons'
 import { claimPreviewSigninsSync, syncPreviewSignins } from '@/lib/preview-signins'
@@ -26,7 +26,7 @@ import {
 } from '@/store/real-profile-consent'
 import { $connection } from '@/store/session'
 
-import { aegisConfigCacheWriter, useAegisConfigRecord } from '../../hooks/use-config-record'
+import { aegisConfigCacheWriter, useAegis AI Enterprise Autonomous PlatformConfigRecord } from '../../hooks/use-config-record'
 
 interface RealProfileConsentDialogProps {
   /** The Browser tab this pane renders — used only to claim the prompt so
@@ -37,7 +37,7 @@ interface RealProfileConsentDialogProps {
 interface RealProfilePromptGate {
   claim: null | string
   configLoaded: boolean
-  connection: AegisConnection | null
+  connection: Aegis AI Enterprise Autonomous PlatformConnection | null
   dismissed: boolean
   enabled: boolean
   muted: boolean
@@ -88,7 +88,7 @@ export function RealProfileConsentDialog({ tabId }: RealProfileConsentDialogProp
   const muted = useStore($realProfilePromptMuted)
   const claim = useStore($realProfilePromptClaim)
   const connection = useStore($connection)
-  const { data: config, writeScope } = useAegisConfigRecord()
+  const { data: config, writeScope } = useAegis AI Enterprise Autonomous PlatformConfigRecord()
   const setConfig = aegisConfigCacheWriter()
   const [busy, setBusy] = useState(false)
 
@@ -120,7 +120,7 @@ export function RealProfileConsentDialog({ tabId }: RealProfileConsentDialogProp
     try {
       // Sparse patch: PUT /api/config deep-merges, and echoing the cached
       // snapshot would overwrite keys other surfaces changed since it loaded.
-      await saveAegisConfigRecord({ browser: { use_real_profile: true } }, writeScope)
+      await saveAegis AI Enterprise Autonomous PlatformConfigRecord({ browser: { use_real_profile: true } }, writeScope)
 
       notify({ kind: 'info', title: copy.enabledTitle, message: copy.enabledMessage })
       // After the save, so the backend's own consent check sees it: signs this Browser tab in too.

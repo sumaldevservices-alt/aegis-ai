@@ -1,5 +1,5 @@
 import type { Translations } from '@/i18n'
-import { servedByAegisCloud } from '@/lib/aegis-cloud-host'
+import { servedByAegis AI Enterprise Autonomous PlatformCloud } from '@/lib/aegis-cloud-host'
 import { Archive, CloudUpload, type IconComponent } from '@/lib/icons'
 
 export const BACKUP_SETTINGS_HREF = '/settings?tab=backup'
@@ -22,7 +22,7 @@ export interface BackupPaletteEntry {
   label: string
 }
 
-/** The ⌘K rows that open Settings ▸ Backup & Transfer: one per task. A Webapp Aegis Cloud serves
+/** The ⌘K rows that open Settings ▸ Backup & Transfer: one per task. A Webapp Aegis AI Enterprise Autonomous Platform Cloud serves
  *  is a cloud agent itself, so it gets the backup row only. */
 export function backupPaletteEntries(t: Translations): BackupPaletteEntry[] {
   const copy = t.settings.backup
@@ -34,7 +34,7 @@ export function backupPaletteEntries(t: Translations): BackupPaletteEntry[] {
       keywords: ['backup', 'export', 'archive', 'save', 'download', 'settings'],
       label: copy.backupCommand
     },
-    ...(servedByAegisCloud()
+    ...(servedByAegis AI Enterprise Autonomous PlatformCloud()
       ? []
       : [
           {

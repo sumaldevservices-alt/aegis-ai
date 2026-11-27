@@ -4,7 +4,7 @@
  * Pure, electron-free helpers for the desktop's multi-connection registry —
  * the v2 successor to the single global `mode` + `remote` block in
  * connection.json. The registry is a named list of agent SOURCES (local
- * runtime, remote gateways, Aegis Cloud instances, SSH hosts) that are all
+ * runtime, remote gateways, Aegis AI Enterprise Autonomous Platform Cloud instances, SSH hosts) that are all
  * registered at once; routing/pooling changes that consume the registry land
  * separately, so this module is deliberately storage-shaped, not
  * transport-shaped.
@@ -28,7 +28,7 @@
  */
 
 // Relative, not `@aegis/shared`: esbuild bundles electron/ without tsconfig paths.
-import { AEGIS_CLOUD_MANAGED, isAegisCloudUrl } from '../../shared/src/aegis-cloud'
+import { AEGIS_CLOUD_MANAGED, isAegis AI Enterprise Autonomous PlatformCloudUrl } from '../../shared/src/aegis-cloud'
 
 import {
   hostLabelFromBaseUrl,
@@ -75,7 +75,7 @@ export interface RegistryConnection {
   user?: string
   port?: number
   keyPath?: string
-  remoteAegisPath?: string
+  remoteAegis AI Enterprise Autonomous PlatformPath?: string
   remoteProfile?: string
 }
 
@@ -233,7 +233,7 @@ export interface ResolvedConnectionSshDescriptor {
   host?: string
   keyPath?: string
   port?: number
-  remoteAegisPath?: string
+  remoteAegis AI Enterprise Autonomous PlatformPath?: string
   remoteProfile?: string
   user?: string
 }
@@ -432,7 +432,7 @@ export async function reuseMatchingPrimarySshBackend({
     !sourceFingerprint ||
     !activeSsh ||
     sourceFingerprint !== String(activeSsh.effectiveConfigFingerprint || '').trim() ||
-    String(source.remoteAegisPath || '').trim() !== String(activeSsh.remoteAegisPath || '').trim() ||
+    String(source.remoteAegis AI Enterprise Autonomous PlatformPath || '').trim() !== String(activeSsh.remoteAegis AI Enterprise Autonomous PlatformPath || '').trim() ||
     rootProfile(source.remoteProfile) !== rootProfile(activeSsh.remoteProfile)
   ) {
     return null
@@ -902,13 +902,13 @@ export interface UpdateEligibility {
 }
 
 /**
- * Whether "Update all instances" may drive this connection. Aegis Cloud
+ * Whether "Update all instances" may drive this connection. Aegis AI Enterprise Autonomous Platform Cloud
  * instances are platform-managed — we never run `aegis update` against them,
  * including one saved as a plain URL remote. Local, remote, and ssh sources
  * are all eligible (reachability and busy checks happen at dispatch time).
  */
 export function updateEligibility(connection: RegistryConnection): UpdateEligibility {
-  if (connection.kind === 'cloud' || isAegisCloudUrl(connection.url)) {
+  if (connection.kind === 'cloud' || isAegis AI Enterprise Autonomous PlatformCloudUrl(connection.url)) {
     return { eligible: false, reason: AEGIS_CLOUD_MANAGED }
   }
 
@@ -978,7 +978,7 @@ export interface ConnectionInput {
   user?: string
   port?: number | string
   keyPath?: string
-  remoteAegisPath?: string
+  remoteAegis AI Enterprise Autonomous PlatformPath?: string
   remoteProfile?: string
 }
 
@@ -989,7 +989,7 @@ export interface ConnectionInput {
  * edit and that entry is excluded from the label-collision check.
  */
 /**
- * Auth mode a stored remote-shaped entry actually uses. A Aegis Cloud gateway
+ * Auth mode a stored remote-shaped entry actually uses. A Aegis AI Enterprise Autonomous Platform Cloud gateway
  * signs in through its OAuth session and never keeps a pasted token (the save
  * path drops one), so a cloud entry on token auth with no token has no
  * credential at all and Test can only fail (#89529). Read it as oauth; a cloud
@@ -1047,7 +1047,7 @@ export function normalizeConnectionInput(input: ConnectionInput, registry: Conne
       user: input.user,
       port: input.port,
       keyPath: input.keyPath,
-      remoteAegisPath: input.remoteAegisPath,
+      remoteAegis AI Enterprise Autonomous PlatformPath: input.remoteAegis AI Enterprise Autonomous PlatformPath,
       remoteProfile: input.remoteProfile
     })
 
@@ -1113,7 +1113,7 @@ export function normalizeConnectionInput(input: ConnectionInput, registry: Conne
     // Extra gateway headers (access-proxy credentials) apply to any
     // remote-shaped entry regardless of auth mode — Cloudflare Access sits in
     // front of both token- and OAuth-gated gateways. Normalization drops
-    // transport-/Aegis-managed names; an empty result stores nothing.
+    // transport-/Aegis AI Enterprise Autonomous Platform-managed names; an empty result stores nothing.
     if (input.headers !== undefined) {
       const headers = normalizeRemoteHeaders(input.headers)
 
@@ -1145,7 +1145,7 @@ export function normalizeConnectionInput(input: ConnectionInput, registry: Conne
  * editor doesn't carry survive a save. Renaming a migrated cloud entry must
  * not drop its `org` (downstream update-fanout uses it to skip
  * platform-managed instances), and renaming an ssh entry must not drop
- * `remoteAegisPath`/`remoteProfile`. Only fields the payload explicitly
+ * `remoteAegis AI Enterprise Autonomous PlatformPath`/`remoteProfile`. Only fields the payload explicitly
  * carries (non-undefined) override; `token` is deliberately NOT merged here —
  * the caller owns secret handling.
  */
@@ -1175,7 +1175,7 @@ export function mergeConnectionInput(input: ConnectionInput, existing?: null | R
 
   inherit('host')
   inherit('keyPath')
-  inherit('remoteAegisPath')
+  inherit('remoteAegis AI Enterprise Autonomous PlatformPath')
   inherit('remoteProfile')
   // Headers inherit like other dial fields: an edit payload that omits the
   // field keeps the stored set; an explicit payload (even {}) is
@@ -1217,7 +1217,7 @@ export function connectionDialFieldsChanged(before: RegistryConnection, after: R
     'user',
     'port',
     'keyPath',
-    'remoteAegisPath',
+    'remoteAegis AI Enterprise Autonomous PlatformPath',
     'remoteProfile'
   ]
 
@@ -1456,7 +1456,7 @@ export function migrateV1ToRegistry(v1: unknown): ConnectionRegistry {
     }
 
     const label = uniqueLabel(
-      hostLabelFromBaseUrl(url) || (kind === 'cloud' ? 'Aegis Cloud' : 'Remote gateway'),
+      hostLabelFromBaseUrl(url) || (kind === 'cloud' ? 'Aegis AI Enterprise Autonomous Platform Cloud' : 'Remote gateway'),
       connections.map(c => c.label)
     )
 
@@ -1675,7 +1675,7 @@ export function reconcileAppliedGlobalConnection(
 
   const kind: ConnectionKind = mode === 'cloud' ? 'cloud' : 'remote'
 
-  const hostLabel = hostLabelFromBaseUrl(url) || (kind === 'cloud' ? 'Aegis Cloud' : 'Remote gateway')
+  const hostLabel = hostLabelFromBaseUrl(url) || (kind === 'cloud' ? 'Aegis AI Enterprise Autonomous Platform Cloud' : 'Remote gateway')
   const name = kind === 'cloud' ? String(block.name ?? existing?.name ?? '').trim() : ''
 
   const label =
@@ -1767,7 +1767,7 @@ export function reconcileRegistryDrift(
       //
       // Known by target is not enough, though: the router tags the live
       // window by the FULL route identity (matchingConnectionId also compares
-      // keyPath, remoteAegisPath and remoteProfile). A v1 route carrying a
+      // keyPath, remoteAegis AI Enterprise Autonomous PlatformPath and remoteProfile). A v1 route carrying a
       // keyPath the registered entry never had resolves to no connectionId,
       // the renderer treats the untagged window as the unscoped local backend
       // ("This device") and the roster force-spawns a phantom local child.
@@ -1780,7 +1780,7 @@ export function reconcileRegistryDrift(
       const { host: _host, user: _user, port: _port, ...identityFields } = sshFields
       const aligned: RegistryConnection = { ...registered }
       delete aligned.keyPath
-      delete aligned.remoteAegisPath
+      delete aligned.remoteAegis AI Enterprise Autonomous PlatformPath
       delete aligned.remoteProfile
       Object.assign(aligned, identityFields)
 

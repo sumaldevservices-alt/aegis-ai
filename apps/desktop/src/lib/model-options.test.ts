@@ -45,7 +45,7 @@ describe('requestModelOptions', () => {
     const restPayload = {
       model: 'profile-default',
       provider: 'openai-codex',
-      providers: [{ models: ['aegis-local'], name: 'Aegis Local vLLM', slug: 'aegis-local' }]
+      providers: [{ models: ['aegis-local'], name: 'Aegis AI Enterprise Autonomous Platform Local vLLM', slug: 'aegis-local' }]
     }
 
     const gateway = {
@@ -67,7 +67,7 @@ describe('requestModelOptions', () => {
     const restPayload = {
       model: 'aegis-local',
       provider: 'aegis-local',
-      providers: [{ models: ['aegis-local'], name: 'Aegis Local vLLM', slug: 'aegis-local' }]
+      providers: [{ models: ['aegis-local'], name: 'Aegis AI Enterprise Autonomous Platform Local vLLM', slug: 'aegis-local' }]
     }
 
     const gateway = {

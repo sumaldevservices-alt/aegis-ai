@@ -32,7 +32,7 @@ vi.mock('@/aegis', () => ({
   // profile.ts calls this at import (its $activeGatewayProfile subscribe fires
   // immediately), pulled in transitively via session-states.
   setApiRequestProfile: () => {},
-  AegisGateway: class {}
+  Aegis AI Enterprise Autonomous PlatformGateway: class {}
 }))
 
 vi.mock('@/store/gateway', () => ({

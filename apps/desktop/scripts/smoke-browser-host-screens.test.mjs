@@ -9,41 +9,41 @@ function shownTitles(innerText) {
 
 describe('browser smoke startup screens', () => {
   it("knows the boot-failure and sign-in titles the renderer shows", () => {
-    expect(STARTUP_FAILURE_TITLES).toContain("Aegis couldn't start")
-    expect(STARTUP_FAILURE_TITLES).toContain('Sign in to Aegis')
+    expect(STARTUP_FAILURE_TITLES).toContain("Aegis AI Enterprise Autonomous Platform couldn't start")
+    expect(STARTUP_FAILURE_TITLES).toContain('Sign in to Aegis AI Enterprise Autonomous Platform')
   })
 
   it('finds the boot-failure screen on the page', () => {
-    const titles = shownTitles("Aegis couldn't start\nAegis' background service didn't come up.\nRetry")
+    const titles = shownTitles("Aegis AI Enterprise Autonomous Platform couldn't start\nAegis AI Enterprise Autonomous Platform' background service didn't come up.\nRetry")
 
-    expect(titles).toEqual(["Aegis couldn't start"])
+    expect(titles).toEqual(["Aegis AI Enterprise Autonomous Platform couldn't start"])
     expect(startupScreenFailures(titles, { allowGatewayFailure: false })).toEqual([
-      'Webapp shows the boot-failure screen ("Aegis couldn\'t start")'
+      'Webapp shows the boot-failure screen ("Aegis AI Enterprise Autonomous Platform couldn\'t start")'
     ])
   })
 
   it('finds the Webapp sign-in screen on the page', () => {
-    const titles = shownTitles('Sign in to Aegis\nRun aegis webapp on this computer to sign this browser in.')
+    const titles = shownTitles('Sign in to Aegis AI Enterprise Autonomous Platform\nRun aegis webapp on this computer to sign this browser in.')
 
     expect(startupScreenFailures(titles, { allowGatewayFailure: false })).toEqual([
-      'Webapp shows the sign-in screen ("Sign in to Aegis")'
+      'Webapp shows the sign-in screen ("Sign in to Aegis AI Enterprise Autonomous Platform")'
     ])
   })
 
   it('tolerates the boot-failure screen only when a gateway failure is allowed', () => {
-    const titles = shownTitles("Aegis couldn't start")
+    const titles = shownTitles("Aegis AI Enterprise Autonomous Platform couldn't start")
 
     expect(startupScreenFailures(titles, { allowGatewayFailure: true })).toEqual([])
   })
 
   it('fails on the sign-in screen even when a gateway failure is allowed', () => {
-    const titles = shownTitles('Sign in to Aegis')
+    const titles = shownTitles('Sign in to Aegis AI Enterprise Autonomous Platform')
 
     expect(startupScreenFailures(titles, { allowGatewayFailure: true })).toHaveLength(1)
   })
 
   it('passes a ready Webapp', () => {
-    const titles = shownTitles('New session\nAsk Aegis anything')
+    const titles = shownTitles('New session\nAsk Aegis AI Enterprise Autonomous Platform anything')
 
     expect(titles).toEqual([])
     expect(startupScreenFailures(titles, { allowGatewayFailure: false })).toEqual([])

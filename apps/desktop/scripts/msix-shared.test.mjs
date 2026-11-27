@@ -21,7 +21,7 @@ function makeFakeDesktop(version) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'msix-ident-'))
   fs.writeFileSync(
     path.join(dir, 'product-identity.cjs'),
-    "module.exports = { store: false, light: false, displayName: 'Aegis', appId: 'com.nousresearch.aegis-bundled', channel: 'latest', artifactNamePascal: 'AegisBundled', msixAppIdWithOrg: 'NousResearch.AegisBundled' }\n"
+    "module.exports = { store: false, light: false, displayName: 'Aegis AI Enterprise Autonomous Platform', appId: 'com.nousresearch.aegis-bundled', channel: 'latest', artifactNamePascal: 'Aegis AI Enterprise Autonomous PlatformBundled', msixAppIdWithOrg: 'NousResearch.Aegis AI Enterprise Autonomous PlatformBundled' }\n"
   )
   fs.writeFileSync(path.join(dir, 'package.json'), JSON.stringify({ name: 'aegis-desktop', version }))
   return dir

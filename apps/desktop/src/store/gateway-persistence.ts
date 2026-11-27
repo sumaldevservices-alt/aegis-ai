@@ -40,7 +40,7 @@ function primaryPublished(primary: PrimaryGatewayRoute): boolean {
   return Boolean(primary.connectionId || primary.mode)
 }
 
-/** Dialing This device where Aegis is not installed would start the installer
+/** Dialing This device where Aegis AI Enterprise Autonomous Platform is not installed would start the installer
  *  unseen; only a confirmed click may do that. */
 async function dial(
   connectionId: string,

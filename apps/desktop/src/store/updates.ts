@@ -15,9 +15,9 @@ import type {
   DesktopUpdateStage,
   DesktopUpdateStatus,
   DesktopVersionInfo,
-  AegisConnection
+  Aegis AI Enterprise Autonomous PlatformConnection
 } from '@/global'
-import { checkAegisUpdate, getActionStatus, updateAegis } from '@/aegis'
+import { checkAegis AI Enterprise Autonomous PlatformUpdate, getActionStatus, updateAegis AI Enterprise Autonomous Platform } from '@/aegis'
 import { translateNow } from '@/i18n'
 import { persistString, storedString } from '@/lib/storage'
 import { cloudOwnsUpdates, updateTargetFor } from '@/store/cloud-updates'
@@ -212,11 +212,11 @@ export function reportBackendContract(contract: number | undefined, protocol?: s
     }
 
     notify({
-      // Aegis Cloud updates its agents itself: name the skew, offer no update.
+      // Aegis AI Enterprise Autonomous Platform Cloud updates its agents itself: name the skew, offer no update.
       action: cloudOwnsUpdates('backend')
         ? undefined
         : {
-            label: translateNow('notifications.updateAegis'),
+            label: translateNow('notifications.updateAegis AI Enterprise Autonomous Platform'),
             onClick: () => {
               snoozeSkewToast()
               void applyBackendUpdate()
@@ -239,7 +239,7 @@ export function reportBackendContract(contract: number | undefined, protocol?: s
     }
 
     notify({
-      // A Webapp served by Aegis Cloud: Cloud replaced the image under this tab, and a reload loads it.
+      // A Webapp served by Aegis AI Enterprise Autonomous Platform Cloud: Cloud replaced the image under this tab, and a reload loads it.
       action: cloudOwnsUpdates('client')
         ? { label: translateNow('commandCenter.reloadWindow'), onClick: () => window.location.reload() }
         : {
@@ -603,7 +603,7 @@ export async function checkBackendUpdates({
   $backendUpdateChecking.set(true)
 
   try {
-    const status = mapBackendCheck(await checkAegisUpdate(force))
+    const status = mapBackendCheck(await checkAegis AI Enterprise Autonomous PlatformUpdate(force))
 
     if (connectionKey($connection.get()) === requestKey) {
       $backendUpdateStatus.set(status)
@@ -1044,7 +1044,7 @@ async function runBackendUpdate(): Promise<DesktopUpdateApplyResult> {
       ? previousStatus.targetSha.slice('backend:'.length)
       : undefined
 
-    const started = await updateAegis()
+    const started = await updateAegis AI Enterprise Autonomous Platform()
     const applyStartedAtMs = Date.now()
 
     if (!started.ok) {
@@ -1122,7 +1122,7 @@ async function runBackendUpdate(): Promise<DesktopUpdateApplyResult> {
 
       if (!started.action_id && last.exit_code === null) {
         try {
-          const status = await checkAegisUpdate(true)
+          const status = await checkAegis AI Enterprise Autonomous PlatformUpdate(true)
 
           if (legacyBackendReachedTarget(status, requestedTargetSha, previousVersion)) {
             return finishBackendApply(true)
@@ -1247,7 +1247,7 @@ export function applyEverythingUpdate(): Promise<void> {
   return updateEverythingInFlight
 }
 
-/** The everything-flow's backend leg: a remote backend, unless Aegis Cloud updates it itself. */
+/** The everything-flow's backend leg: a remote backend, unless Aegis AI Enterprise Autonomous Platform Cloud updates it itself. */
 function backendLegApplies(): boolean {
   return isRemoteMode() && !cloudOwnsUpdates('backend')
 }
@@ -1374,7 +1374,7 @@ let lastVersionScopeKey: string | undefined
 // the mode doesn't. Pooled profiles share a baseUrl, so the profile joins
 // the key: the update check is profile-scoped (per-profile overrides can
 // pin a different channel/branch).
-function connectionKey(conn: AegisConnection | null): string {
+function connectionKey(conn: Aegis AI Enterprise Autonomous PlatformConnection | null): string {
   if (conn?.mode !== 'remote') {
     return String(conn?.mode)
   }
@@ -1419,7 +1419,7 @@ export function startUpdatePoller(): void {
   // backend check above sees mode≠remote and no-ops. Re-check once the
   // connection resolves to remote, and again whenever the remote target
   // itself changes (switching between two remote profiles).
-  connectionUnsub = $connection.subscribe((conn: AegisConnection | null): void => {
+  connectionUnsub = $connection.subscribe((conn: Aegis AI Enterprise Autonomous PlatformConnection | null): void => {
     const key = connectionKey(conn)
 
     if (key === lastConnectionKey) {

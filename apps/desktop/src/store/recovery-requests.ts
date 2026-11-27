@@ -27,7 +27,7 @@ export function requestRoute(path: string): void {
   $routeRequest.set({ seq: routeSeq, path })
 }
 
-/** Restart the local Aegis service for the profile currently in view. */
+/** Restart the local Aegis AI Enterprise Autonomous Platform service for the profile currently in view. */
 export const $backendRestartRequest = atom(0)
 
 export function requestBackendRestart(): void {

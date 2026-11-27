@@ -55,7 +55,7 @@ export async function resolveSiblingWsUrl(
   const desktop = window.aegisDesktop
 
   if (!desktop?.getConnection) {
-    throw new Error('Aegis Desktop connection bridge unavailable')
+    throw new Error('Aegis AI Enterprise Autonomous Platform Desktop connection bridge unavailable')
   }
 
   const connectionId = route.connectionId?.trim() || null

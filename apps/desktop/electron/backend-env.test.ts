@@ -8,7 +8,7 @@ import { test } from 'vitest'
 import {
   appendUniquePathEntries,
   buildDesktopBackendEnv,
-  normalizeAegisHomeRoot,
+  normalizeAegis AI Enterprise Autonomous PlatformHomeRoot,
   pathEnvKey,
   POSIX_SANE_PATH_ENTRIES,
   profileBackendParentEnv
@@ -73,8 +73,8 @@ test('backend runs the store toolchain even after the login-shell PATH is merged
   ])
 })
 
-test('AEGIS_RUNTIME_DIR names the store; look-alike prefixes are not Aegis-owned', () => {
-  const store = '/Applications/Aegis.app/Contents/Resources/agent-payload/tools'
+test('AEGIS_RUNTIME_DIR names the store; look-alike prefixes are not Aegis AI Enterprise Autonomous Platform-owned', () => {
+  const store = '/Applications/Aegis AI Enterprise Autonomous Platform.app/Contents/Resources/agent-payload/tools'
 
   const backend = buildDesktopBackendEnv({
     currentEnv: {
@@ -119,32 +119,32 @@ test('buildDesktopBackendEnv forces PYTHONUTF8 unless the user set it explicitly
   assert.equal(optedOut.PYTHONUTF8, '0')
 })
 
-test('normalizeAegisHomeRoot expands a literal leading ~ against the home directory, not cwd', () => {
+test('normalizeAegis AI Enterprise Autonomous PlatformHomeRoot expands a literal leading ~ against the home directory, not cwd', () => {
   assert.equal(
-    normalizeAegisHomeRoot('~/.aegis', { pathModule: path.posix, homedir: '/Users/test' }),
+    normalizeAegis AI Enterprise Autonomous PlatformHomeRoot('~/.aegis', { pathModule: path.posix, homedir: '/Users/test' }),
     '/Users/test/.aegis'
   )
   assert.equal(
-    normalizeAegisHomeRoot('~/.aegis/profiles/oracle', { pathModule: path.posix, homedir: '/Users/test' }),
+    normalizeAegis AI Enterprise Autonomous PlatformHomeRoot('~/.aegis/profiles/oracle', { pathModule: path.posix, homedir: '/Users/test' }),
     '/Users/test/.aegis'
   )
   assert.equal(
-    normalizeAegisHomeRoot('~\\.aegis', { pathModule: path.win32, homedir: 'C:\\Users\\test' }),
+    normalizeAegis AI Enterprise Autonomous PlatformHomeRoot('~\\.aegis', { pathModule: path.win32, homedir: 'C:\\Users\\test' }),
     'C:\\Users\\test\\.aegis'
   )
-  assert.equal(normalizeAegisHomeRoot('~', { pathModule: path.posix, homedir: '/Users/test' }), '/Users/test')
+  assert.equal(normalizeAegis AI Enterprise Autonomous PlatformHomeRoot('~', { pathModule: path.posix, homedir: '/Users/test' }), '/Users/test')
 })
 
-test('normalizeAegisHomeRoot maps profile homes back to the global Aegis root', () => {
+test('normalizeAegis AI Enterprise Autonomous PlatformHomeRoot maps profile homes back to the global Aegis AI Enterprise Autonomous Platform root', () => {
   assert.equal(
-    normalizeAegisHomeRoot('/Users/test/.aegis/profiles/oracle', { pathModule: path.posix }),
+    normalizeAegis AI Enterprise Autonomous PlatformHomeRoot('/Users/test/.aegis/profiles/oracle', { pathModule: path.posix }),
     '/Users/test/.aegis'
   )
   assert.equal(
-    normalizeAegisHomeRoot('C:\\Users\\test\\AppData\\Local\\aegis\\profiles\\oracle', { pathModule: path.win32 }),
+    normalizeAegis AI Enterprise Autonomous PlatformHomeRoot('C:\\Users\\test\\AppData\\Local\\aegis\\profiles\\oracle', { pathModule: path.win32 }),
     'C:\\Users\\test\\AppData\\Local\\aegis'
   )
-  assert.equal(normalizeAegisHomeRoot('/Users/test/.aegis', { pathModule: path.posix }), '/Users/test/.aegis')
+  assert.equal(normalizeAegis AI Enterprise Autonomous PlatformHomeRoot('/Users/test/.aegis', { pathModule: path.posix }), '/Users/test/.aegis')
 })
 
 test('pathEnvKey finds the platform-cased PATH key', () => {
@@ -160,7 +160,7 @@ test('appendUniquePathEntries flattens, dedupes, and preserves first occurrence'
 
 // `aegis desktop` loads its launch profile's .env/.op.env into os.environ and
 // hands that env to Electron; these cover what a profile backend inherits (#68367).
-function withAegisRoot(files: Record<string, string>, run: (root: string) => void) {
+function withAegis AI Enterprise Autonomous PlatformRoot(files: Record<string, string>, run: (root: string) => void) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-profile-env-'))
 
   try {
@@ -191,7 +191,7 @@ const ROOT_LAUNCHED_ENV = {
 }
 
 test('a named profile backend does not inherit secrets the root .env/.op.env loaded into Desktop', () => {
-  withAegisRoot(ROOT_SCOPE_FILES, root => {
+  withAegis AI Enterprise Autonomous PlatformRoot(ROOT_SCOPE_FILES, root => {
     const env = profileBackendParentEnv({
       aegisHome: root,
       profile: 'urbot',
@@ -205,7 +205,7 @@ test('a named profile backend does not inherit secrets the root .env/.op.env loa
 })
 
 test('a named profile backend keeps the launch AEGIS_MANAGED_DIR when the root .env plants one', () => {
-  withAegisRoot({ ...ROOT_SCOPE_FILES, '.env': 'AEGIS_MANAGED_DIR=/home/user/planted\n' }, root => {
+  withAegis AI Enterprise Autonomous PlatformRoot({ ...ROOT_SCOPE_FILES, '.env': 'AEGIS_MANAGED_DIR=/home/user/planted\n' }, root => {
     const currentEnv = { ...ROOT_LAUNCHED_ENV, AEGIS_MANAGED_DIR: '/etc/org-policy' }
     const env = profileBackendParentEnv({ aegisHome: root, profile: 'urbot', currentEnv, platform: 'linux' })
 
@@ -216,7 +216,7 @@ test('a named profile backend keeps the launch AEGIS_MANAGED_DIR when the root .
 })
 
 test('the launch profile backend inherits the Desktop env unchanged', () => {
-  withAegisRoot(ROOT_SCOPE_FILES, root => {
+  withAegis AI Enterprise Autonomous PlatformRoot(ROOT_SCOPE_FILES, root => {
     for (const profile of ['default', null, undefined]) {
       assert.deepEqual(
         profileBackendParentEnv({ aegisHome: root, profile, currentEnv: ROOT_LAUNCHED_ENV, platform: 'linux' }),
@@ -227,7 +227,7 @@ test('the launch profile backend inherits the Desktop env unchanged', () => {
 })
 
 test('a primary backend without an explicit profile follows the sticky active_profile', () => {
-  withAegisRoot({ ...ROOT_SCOPE_FILES, active_profile: 'urbot\n' }, root => {
+  withAegis AI Enterprise Autonomous PlatformRoot({ ...ROOT_SCOPE_FILES, active_profile: 'urbot\n' }, root => {
     const env = profileBackendParentEnv({ aegisHome: root, profile: null, currentEnv: ROOT_LAUNCHED_ENV })
 
     assert.equal(env.TLON_SHIP_CODE, undefined)
@@ -237,7 +237,7 @@ test('a primary backend without an explicit profile follows the sticky active_pr
 })
 
 test('Desktop launched from a named profile keeps that profile out of the default backend', () => {
-  withAegisRoot(
+  withAegis AI Enterprise Autonomous PlatformRoot(
     {
       '.env': 'OPENAI_API_KEY=root-key\n',
       'profiles/work/.env': 'TLON_SHIP_CODE=work-code\nOP_SERVICE_ACCOUNT_TOKEN=work-op\n'

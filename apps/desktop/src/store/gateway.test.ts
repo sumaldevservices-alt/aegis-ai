@@ -27,7 +27,7 @@ const gatewayMocks = vi.hoisted(() => {
 
 vi.mock('@/aegis', () => ({
   setApiRequestConnection: vi.fn(),
-  AegisGateway: class {
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     close = vi.fn(() => {
       this.connectionState = 'closed'
@@ -348,12 +348,12 @@ describe('secondary connection timeout (#93454)', () => {
 
   it('surfaces a rejected shared-primary route lookup instead of retrying it as a secondary dial', async () => {
     const getConnection = vi.fn(async () => {
-      throw new Error('Aegis gateway did not start')
+      throw new Error('Aegis AI Enterprise Autonomous Platform gateway did not start')
     })
 
     installDesktop({ getConnection })
 
-    await expect(ensureGatewayForProfile('work')).rejects.toThrow('Aegis gateway did not start')
+    await expect(ensureGatewayForProfile('work')).rejects.toThrow('Aegis AI Enterprise Autonomous Platform gateway did not start')
     expect(getConnection).toHaveBeenCalledTimes(1)
     expect(gatewayMocks.instances).toHaveLength(0)
   })

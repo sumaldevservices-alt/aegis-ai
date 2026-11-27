@@ -13,7 +13,7 @@ vi.mock('@/i18n', () => ({ useI18n: () => ({ t: en }) }))
 
 vi.mock('@/aegis', async importOriginal => ({
   ...(await importOriginal<Record<string, unknown>>()),
-  getAegisConfigRecord: vi.fn().mockResolvedValue({ config: {} }),
+  getAegis AI Enterprise Autonomous PlatformConfigRecord: vi.fn().mockResolvedValue({ config: {} }),
   setSessionArchived: vi.fn().mockResolvedValue(undefined)
 }))
 

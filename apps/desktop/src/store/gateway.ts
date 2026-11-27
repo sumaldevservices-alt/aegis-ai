@@ -11,8 +11,8 @@ import {
 import { batch } from 'nanostores'
 
 import { canonicalOwnerProfile } from '@/api/canonical-protocol'
-import type { AegisConnection } from '@/global'
-import { AegisGateway } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
+import { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import { translateNow } from '@/i18n'
 import { UnservedProfileError } from '@/lib/browser-served-profiles'
 import {
@@ -67,7 +67,7 @@ export type SpawnPriority = 'foreground' | 'background'
 
 // Read connection state through a call so TS control-flow analysis doesn't
 // narrow the getter to a constant across guards (it genuinely changes).
-const isOpen = (gateway: AegisGateway | null): boolean => gateway?.connectionState === 'open'
+const isOpen = (gateway: Aegis AI Enterprise Autonomous PlatformGateway | null): boolean => gateway?.connectionState === 'open'
 
 // ── Secondary (pool) backends ──────────────────────────────────────────────
 // How long a mid-dial activation holds its prune lease: it must outlast every
@@ -116,7 +116,7 @@ export function activeGatewayProfileKey(): string {
 export function gatewayRouteState(
   connectionId: null | string,
   profile: string
-): { gateway: AegisGateway | null; key: string; open: boolean } {
+): { gateway: Aegis AI Enterprise Autonomous PlatformGateway | null; key: string; open: boolean } {
   const key = normKey(profile)
   const scope = registryBackendScopeKey(connectionId, key)
   const onPrimary = key === g.primaryProfile && (scope === key || isPrimaryRegistryRoute(connectionId, key))
@@ -178,7 +178,7 @@ function primaryConnectionId(): null | string {
 // to the primary the route was resolved against.
 const primaryIdentity = (): PrimaryIdentity => ({ connectionId: primaryConnectionId(), gateway: g.primaryGateway })
 
-export function setPrimaryGateway(gateway: AegisGateway | null, profile = 'default'): void {
+export function setPrimaryGateway(gateway: Aegis AI Enterprise Autonomous PlatformGateway | null, profile = 'default'): void {
   const next = normKey(profile)
 
   if (g.primaryGateway !== gateway) {
@@ -250,7 +250,7 @@ export function dialedGatewayModeFor(connectionId: null | string, profile: strin
 
 /** Publish the registry source owned by the window primary socket. */
 export function setPrimaryGatewayConnection(
-  connection: Pick<AegisConnection, 'connectionId' | 'mode'> | null,
+  connection: Pick<Aegis AI Enterprise Autonomous PlatformConnection, 'connectionId' | 'mode'> | null,
   profile?: string
 ): void {
   setPrimaryGatewayConnectionId(connection?.connectionId, connection?.mode, profile)
@@ -325,7 +325,7 @@ async function requestOnPrimaryGateway<T>(
   const gateway = g.primaryGateway
 
   if (!gateway || !isOpen(gateway)) {
-    throw new Error('Aegis gateway unavailable')
+    throw new Error('Aegis AI Enterprise Autonomous Platform gateway unavailable')
   }
 
   return timeoutMs === undefined && signal === undefined
@@ -347,7 +347,7 @@ export function gatewayActivationEpoch(): number {
   return Number.isFinite($gatewayActivationEpoch.get()) ? $gatewayActivationEpoch.get() : 0
 }
 
-export function activeGateway(): AegisGateway | null {
+export function activeGateway(): Aegis AI Enterprise Autonomous PlatformGateway | null {
   if (g.activeKey === g.primaryProfile) {
     return g.primaryGateway
   }
@@ -512,7 +512,7 @@ function applyActive(profile: string, activationEpoch: number, shownProfile?: st
   return true
 }
 
-function publishActiveConnection(connection: AegisConnection): void {
+function publishActiveConnection(connection: Aegis AI Enterprise Autonomous PlatformConnection): void {
   if (g.config?.onActiveConnectionChanged) {
     g.config.onActiveConnectionChanged(connection)
   } else {
@@ -857,7 +857,7 @@ async function reconnectSecondary(entry: Secondary): Promise<void> {
 }
 
 function createSecondary(profile: string, connectionId: null | string = null): Secondary {
-  const gateway = new AegisGateway()
+  const gateway = new Aegis AI Enterprise Autonomous PlatformGateway()
   const scope = registryBackendScopeKey(connectionId, profile)
 
   const entry: Secondary = {
@@ -937,7 +937,7 @@ async function gatewayForProfile(
   profile: string,
   leaseRequest = false,
   spawnPriority: SpawnPriority = 'background'
-): Promise<{ gateway: AegisGateway | null; key: string; release: () => void; scopeProfile: boolean }> {
+): Promise<{ gateway: Aegis AI Enterprise Autonomous PlatformGateway | null; key: string; release: () => void; scopeProfile: boolean }> {
   const key = normKey(profile)
   const noRelease = () => undefined
 
@@ -1035,7 +1035,7 @@ export async function requestGatewayForProfile<T>(
 
   try {
     if (!route.gateway) {
-      throw new Error(`Aegis gateway unavailable for profile "${route.key}"`)
+      throw new Error(`Aegis AI Enterprise Autonomous Platform gateway unavailable for profile "${route.key}"`)
     }
 
     const routedParams = route.scopeProfile ? { ...params, profile: route.key } : params
@@ -1127,7 +1127,7 @@ export async function requestGatewayForAgent<T>(
   traceAgentRoute(scope, 'secondary')
 
   if (!window.aegisDesktop?.getConnectionFor) {
-    throw new Error('This Desktop build cannot dial registry connections. Update Aegis Desktop.')
+    throw new Error('This Desktop build cannot dial registry connections. Update Aegis AI Enterprise Autonomous Platform Desktop.')
   }
 
   const entry = g.secondaries.get(scope) ?? createSecondary(key, connectionId)
@@ -1608,14 +1608,14 @@ export async function openGatewayForAgent(
 
   if (await ridesPrimaryBackend(connectionId, profile)) {
     if (!isOpen(g.primaryGateway)) {
-      throw new Error('Aegis gateway unavailable')
+      throw new Error('Aegis AI Enterprise Autonomous Platform gateway unavailable')
     }
 
     return
   }
 
   if (!window.aegisDesktop?.getConnectionFor) {
-    throw new Error('This Desktop build cannot dial registry connections. Update Aegis Desktop.')
+    throw new Error('This Desktop build cannot dial registry connections. Update Aegis AI Enterprise Autonomous Platform Desktop.')
   }
 
   const entry = g.secondaries.get(scope) ?? createSecondary(profile, connectionId)
@@ -1669,7 +1669,7 @@ export async function ensureGatewayForAgent(
   }
 
   if (!window.aegisDesktop?.getConnectionFor) {
-    throw new Error('This Desktop build cannot dial registry connections. Update Aegis Desktop.')
+    throw new Error('This Desktop build cannot dial registry connections. Update Aegis AI Enterprise Autonomous Platform Desktop.')
   }
 
   let entry = g.secondaries.get(scope)
@@ -1813,7 +1813,7 @@ export async function ensureGatewayForProfile(profile: string, { keepShown = fal
 // retries; only a user gesture (`explicit`: the Reconnect action) may redial it.
 export async function ensureActiveGatewayOpen({
   explicit = false
-}: { explicit?: boolean } = {}): Promise<AegisGateway | null> {
+}: { explicit?: boolean } = {}): Promise<Aegis AI Enterprise Autonomous PlatformGateway | null> {
   if (g.activeKey === g.primaryProfile) {
     return g.primaryGateway
   }
@@ -1835,7 +1835,7 @@ export async function ensureActiveGatewayOpen({
   if (!isOpen(entry.gateway)) {
     // A remote/registry secondary can still be ACTIVATING (backend waking,
     // socket dialing). Failing instantly turned a routine cold start into
-    // "Aegis gateway is not connected" on the Sessions `+` action (#88880).
+    // "Aegis AI Enterprise Autonomous Platform gateway is not connected" on the Sessions `+` action (#88880).
     // Wait a bounded beat for the in-flight activation instead of erroring;
     // a genuinely dead gateway still returns null when the window closes.
     const deadline = Date.now() + ACTIVE_GATEWAY_OPEN_WAIT_MS

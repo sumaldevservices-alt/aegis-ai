@@ -4,7 +4,7 @@ export const frNotifications = {
   intro: "Notifications système (pas les toasts de l'application). Par appareil.",
   enableAll: 'Activer les notifications',
   enableAllDesc: 'Désactivé coupe toutes les notifications ci-dessous.',
-  focusedHint: 'Les alertes de fin ne se déclenchent que quand Aegis est en arrière-plan.',
+  focusedHint: 'Les alertes de fin ne se déclenchent que quand Aegis AI Enterprise Autonomous Platform est en arrière-plan.',
   kinds: {
     approval: {
       label: 'Approbation requise',
@@ -12,11 +12,11 @@ export const frNotifications = {
     },
     input: {
       label: 'Saisie requise',
-      description: "Aegis a posé une question ou a besoin d'un mot de passe ou d'un secret."
+      description: "Aegis AI Enterprise Autonomous Platform a posé une question ou a besoin d'un mot de passe ou d'un secret."
     },
     turnDone: {
       label: 'Réponse prête',
-      description: "Un tour s'est terminé pendant que Aegis était en arrière-plan."
+      description: "Un tour s'est terminé pendant que Aegis AI Enterprise Autonomous Platform était en arrière-plan."
     },
     turnError: {
       label: 'Échec du tour',
@@ -32,7 +32,7 @@ export const frNotifications = {
     },
     plugin: {
       label: 'Notifications des plugins',
-      description: 'Un plugin desktop a envoyé une notification pendant que Aegis était en arrière-plan.'
+      description: 'Un plugin desktop a envoyé une notification pendant que Aegis AI Enterprise Autonomous Platform était en arrière-plan.'
     }
   },
   browserPermission: {
@@ -50,15 +50,15 @@ export const frNotifications = {
   },
   phonePresence: {
     title: 'Cet ordinateur pour les notifications du téléphone',
-    description: 'Ce que cette fenêtre indique à Aegis sur votre présence. Un plugin de notifications sur téléphone décide quoi en faire.',
+    description: 'Ce que cette fenêtre indique à Aegis AI Enterprise Autonomous Platform sur votre présence. Un plugin de notifications sur téléphone décide quoi en faire.',
     unsupported: 'Sur ce backend, les notifications du téléphone ne dépendent pas de votre activité.',
     disconnected: 'Non connecté.',
-    watchingComputer: (time: string) => `Tant qu’une conversation est ouverte dans cette fenêtre, Aegis sait quand vous avez utilisé cet ordinateur pour la dernière fois. Dernière saisie il y a ${time}.`,
-    watchingWindow: (time: string) => `Tant qu’une conversation est ouverte dans cette fenêtre, Aegis sait quand vous avez utilisé cette fenêtre pour la dernière fois. Dernière saisie il y a ${time}.`,
-    watchingWindowNoInput: 'Tant qu’une conversation est ouverte dans cette fenêtre, Aegis sait quand vous avez utilisé cette fenêtre pour la dernière fois. Aucune saisie détectée pour l’instant.'
+    watchingComputer: (time: string) => `Tant qu’une conversation est ouverte dans cette fenêtre, Aegis AI Enterprise Autonomous Platform sait quand vous avez utilisé cet ordinateur pour la dernière fois. Dernière saisie il y a ${time}.`,
+    watchingWindow: (time: string) => `Tant qu’une conversation est ouverte dans cette fenêtre, Aegis AI Enterprise Autonomous Platform sait quand vous avez utilisé cette fenêtre pour la dernière fois. Dernière saisie il y a ${time}.`,
+    watchingWindowNoInput: 'Tant qu’une conversation est ouverte dans cette fenêtre, Aegis AI Enterprise Autonomous Platform sait quand vous avez utilisé cette fenêtre pour la dernière fois. Aucune saisie détectée pour l’instant.'
   },
   test: 'Envoyer une notification de test',
-  testTitle: 'Aegis',
+  testTitle: 'Aegis AI Enterprise Autonomous Platform',
   testBody: 'Les notifications fonctionnent.',
   testSent:
     "Test envoyé. Si rien n'apparaît, vérifiez les autorisations de notification de votre système et le mode Ne pas déranger.",

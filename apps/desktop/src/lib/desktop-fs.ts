@@ -1,17 +1,17 @@
 import { aegisApi, sessionFileOwnerScope } from '@/api/client'
 import type {
-  AegisConnection,
-  AegisReadDirResult,
-  AegisReadFileErrorResult,
-  AegisReadFileTextResult,
-  AegisSelectPathsOptions
+  Aegis AI Enterprise Autonomous PlatformConnection,
+  Aegis AI Enterprise Autonomous PlatformReadDirResult,
+  Aegis AI Enterprise Autonomous PlatformReadFileErrorResult,
+  Aegis AI Enterprise Autonomous PlatformReadFileTextResult,
+  Aegis AI Enterprise Autonomous PlatformSelectPathsOptions
 } from '@/global'
 import { translateNow } from '@/i18n'
 import { hostHas } from '@/lib/host-capabilities'
 import { $connection } from '@/store/session'
 
 export interface DesktopFsRemotePicker {
-  selectPaths: (options?: AegisSelectPathsOptions) => Promise<string[]>
+  selectPaths: (options?: Aegis AI Enterprise Autonomous PlatformSelectPathsOptions) => Promise<string[]>
 }
 
 let remotePicker: DesktopFsRemotePicker | null = null
@@ -20,7 +20,7 @@ export function setDesktopFsRemotePicker(next: DesktopFsRemotePicker | null) {
   remotePicker = next
 }
 
-function connectionCacheKey(connection: AegisConnection | null) {
+function connectionCacheKey(connection: Aegis AI Enterprise Autonomous PlatformConnection | null) {
   if (!connection) {
     return 'local:'
   }
@@ -40,7 +40,7 @@ function connectionCacheKey(connection: AegisConnection | null) {
   return `${connection.mode || 'local'}:${connection.remoteKind || ''}:${connection.profile || ''}:${target}`
 }
 
-export function desktopFsCacheKey(connection: AegisConnection | null = $connection.get()) {
+export function desktopFsCacheKey(connection: Aegis AI Enterprise Autonomous PlatformConnection | null = $connection.get()) {
   return connectionCacheKey(connection)
 }
 
@@ -85,7 +85,7 @@ function bridge() {
   const desktop = window.aegisDesktop
 
   if (!desktop) {
-    throw new Error('Aegis Desktop bridge is unavailable')
+    throw new Error('Aegis AI Enterprise Autonomous Platform Desktop bridge is unavailable')
   }
 
   return desktop
@@ -101,11 +101,11 @@ function remoteFsApi<T>(path: string, body?: Record<string, unknown>, owner = fs
  *  not spam Electron's console with a stack trace per probe). Callers that
  *  already try/catch their read get the same behavior as a rejection: throw
  *  with the original message. */
-export function isReadFileErrorResult(value: unknown): value is AegisReadFileErrorResult {
+export function isReadFileErrorResult(value: unknown): value is Aegis AI Enterprise Autonomous PlatformReadFileErrorResult {
   return !!value && typeof value === 'object' && (value as { ok?: unknown }).ok === false
 }
 
-function throwForReadErrorResult(result: AegisReadFileErrorResult): never {
+function throwForReadErrorResult(result: Aegis AI Enterprise Autonomous PlatformReadFileErrorResult): never {
   throw new DesktopFileMissingError(result)
 }
 
@@ -116,25 +116,25 @@ function throwForReadErrorResult(result: AegisReadFileErrorResult): never {
 export class DesktopFileMissingError extends Error {
   readonly code: string
 
-  constructor(result: AegisReadFileErrorResult) {
+  constructor(result: Aegis AI Enterprise Autonomous PlatformReadFileErrorResult) {
     super(result.message || `File read failed: ${result.error}`)
     this.name = 'DesktopFileMissingError'
     this.code = result.error
   }
 }
 
-export async function readDesktopDir(path: string): Promise<AegisReadDirResult> {
+export async function readDesktopDir(path: string): Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult> {
   if (!isDesktopFsRemoteMode()) {
     return bridge().readDir(path)
   }
 
-  return remoteFsApi<AegisReadDirResult>(fsPath('list', path))
+  return remoteFsApi<Aegis AI Enterprise Autonomous PlatformReadDirResult>(fsPath('list', path))
 }
 
 export async function readDesktopFileText(
   path: string,
   scope?: DesktopFsSessionScope
-): Promise<AegisReadFileTextResult> {
+): Promise<Aegis AI Enterprise Autonomous PlatformReadFileTextResult> {
   if (!isDesktopFsRemoteMode()) {
     const result = await bridge().readFileText(path)
 
@@ -147,7 +147,7 @@ export async function readDesktopFileText(
 
   const route = fsRoute(scope)
 
-  return remoteFsApi<AegisReadFileTextResult>(fsPath('read-text', path, route.sessionId), undefined, route.owner)
+  return remoteFsApi<Aegis AI Enterprise Autonomous PlatformReadFileTextResult>(fsPath('read-text', path, route.sessionId), undefined, route.owner)
 }
 
 // Save UTF-8 text back to a file. Local writes go through the hardened Electron
@@ -311,7 +311,7 @@ export async function desktopFileDiff(repoRoot: string, filePath: string): Promi
   return git?.fileDiff ? git.fileDiff(repoRoot, filePath) : ''
 }
 
-export async function selectDesktopPaths(options?: AegisSelectPathsOptions): Promise<string[]> {
+export async function selectDesktopPaths(options?: Aegis AI Enterprise Autonomous PlatformSelectPathsOptions): Promise<string[]> {
   const desktop = bridge()
   const profile = desktopFsProfile()
   const localOptions = profile ? { ...options, profile } : options

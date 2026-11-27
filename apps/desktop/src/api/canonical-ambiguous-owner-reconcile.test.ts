@@ -1,7 +1,7 @@
 import { JsonRpcGatewayClient } from '@aegis/shared'
 import { afterEach, expect, test, vi } from 'vitest'
 
-import { AegisGateway } from './client'
+import { Aegis AI Enterprise Autonomous PlatformGateway } from './client'
 
 afterEach(() => vi.restoreAllMocks())
 
@@ -16,7 +16,7 @@ async function equalIdClient(resume: (profile: string) => Promise<unknown>) {
 
     return (method === 'session.resume' ? resume(String(params?.profile)) : { status: 'resolved' }) as never
   })
-  const client = new AegisGateway()
+  const client = new Aegis AI Enterprise Autonomous PlatformGateway()
   await client.connect('ws://localhost/api/ws?native_dial=fixture&ticket=first')
 
   return { calls, client, emit: (event: Record<string, unknown>) => (client as any).handleEvent(event) }

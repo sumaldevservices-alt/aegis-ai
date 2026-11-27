@@ -17,7 +17,7 @@ function config(overrides: Partial<ProfileRouteConfig> = {}): ProfileRouteConfig
     remoteUrl: '',
     sshHost: '',
     sshPort: null,
-    sshRemoteAegisPath: '',
+    sshRemoteAegis AI Enterprise Autonomous PlatformPath: '',
     sshRemoteProfile: '',
     sshUser: '',
     ...overrides
@@ -32,7 +32,7 @@ describe('buildOpaqueProfileRoutes', () => {
         config({
           mode: 'ssh',
           sshHost: 'lab-a',
-          sshRemoteAegisPath: '~/.aegis',
+          sshRemoteAegis AI Enterprise Autonomous PlatformPath: '~/.aegis',
           sshRemoteProfile: 'remote-research'
         })
       ],
@@ -41,7 +41,7 @@ describe('buildOpaqueProfileRoutes', () => {
         config({
           mode: 'ssh',
           sshHost: 'lab-b',
-          sshRemoteAegisPath: '~/.aegis',
+          sshRemoteAegis AI Enterprise Autonomous PlatformPath: '~/.aegis',
           sshRemoteProfile: 'remote-writing'
         })
       ]
@@ -74,7 +74,7 @@ describe('buildOpaqueProfileRoutes', () => {
 
   it('changes opaque IDs when the effective SSH destination changes', async () => {
     const options = {
-      getProfileConfig: () => config({ mode: 'ssh', sshHost: 'lab', sshRemoteAegisPath: '~/.aegis' }),
+      getProfileConfig: () => config({ mode: 'ssh', sshHost: 'lab', sshRemoteAegis AI Enterprise Autonomous PlatformPath: '~/.aegis' }),
       globalConfig: config(),
       installationId: 'install-a-secret',
       primaryProfile: 'default',

@@ -996,7 +996,7 @@ interface BackgroundSyncParams {
   refreshActiveTranscript: () => Promise<unknown> | unknown
   refreshCronJobs: () => Promise<unknown> | unknown
   refreshCurrentModel: (force?: boolean) => Promise<unknown> | unknown
-  refreshAegisConfig: () => Promise<unknown> | unknown
+  refreshAegis AI Enterprise Autonomous PlatformConfig: () => Promise<unknown> | unknown
   refreshMessagingSessions: () => Promise<unknown> | unknown
   refreshSessions: () => Promise<unknown> | unknown
   requestGateway: GatewayRequester
@@ -1069,7 +1069,7 @@ export function useBackgroundSync({
   refreshActiveTranscript,
   refreshCronJobs,
   refreshCurrentModel,
-  refreshAegisConfig,
+  refreshAegis AI Enterprise Autonomous PlatformConfig,
   refreshMessagingSessions,
   refreshSessions,
   requestGateway,
@@ -1618,9 +1618,9 @@ export function useBackgroundSync({
   useEffect(() => {
     if (gatewayState === 'open' && !activeSessionId && freshDraftReady) {
       void refreshCurrentModel()
-      void refreshAegisConfig()
+      void refreshAegis AI Enterprise Autonomous PlatformConfig()
     }
-  }, [activeSessionId, freshDraftReady, gatewayState, refreshCurrentModel, refreshAegisConfig])
+  }, [activeSessionId, freshDraftReady, gatewayState, refreshCurrentModel, refreshAegis AI Enterprise Autonomous PlatformConfig])
 
   // A refused mid-turn pick hands new chats back to the default (deferred-pick.ts) while a draft may already
   // be open: repaint that draft's pill with the default it now launches with.

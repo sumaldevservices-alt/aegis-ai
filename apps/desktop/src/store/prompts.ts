@@ -112,7 +112,7 @@ export interface ApprovalAccessTarget {
 
 export interface ApprovalNetworkTarget {
   host: string
-  /** A display name for the site, e.g. the Aegis tool that uses it. */
+  /** A display name for the site, e.g. the Aegis AI Enterprise Autonomous Platform tool that uses it. */
   label?: string
 }
 
@@ -523,7 +523,7 @@ export async function answerApproval(
   }
 
   if (!gateway) {
-    throw new Error('Aegis gateway is not connected')
+    throw new Error('Aegis AI Enterprise Autonomous Platform gateway is not connected')
   }
 
   const params = {

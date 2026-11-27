@@ -12,7 +12,7 @@ export function preUpdateBackupEnabled(value: unknown): boolean {
   return typeof value !== 'string' || !DISABLED_BACKUP_MODES.has(value.trim().toLowerCase())
 }
 
-export interface AegisConfigRuntime {
+export interface Aegis AI Enterprise Autonomous PlatformConfigRuntime {
   command?: string | null
   args?: string[]
   env?: NodeJS.ProcessEnv
@@ -20,7 +20,7 @@ export interface AegisConfigRuntime {
 }
 
 export async function readPreUpdateBackupEnabled(
-  runtime: AegisConfigRuntime | Promise<AegisConfigRuntime>,
+  runtime: Aegis AI Enterprise Autonomous PlatformConfigRuntime | Promise<Aegis AI Enterprise Autonomous PlatformConfigRuntime>,
   aegisHome: string,
   run = execFileAsync
 ): Promise<boolean> {

@@ -139,7 +139,7 @@ export function remoteMediaEndpoint(baseUrl: string, filePath: string, profile?:
   const url = new URL(`${normalizedBase}/api/files/stream`)
 
   if (url.protocol !== 'http:' && url.protocol !== 'https:') {
-    throw new Error(`Unsupported Aegis backend URL protocol: ${url.protocol}`)
+    throw new Error(`Unsupported Aegis AI Enterprise Autonomous Platform backend URL protocol: ${url.protocol}`)
   }
 
   if (/^file:/i.test(filePath)) {

@@ -1,11 +1,11 @@
 /**
- * Aegis skin → DesktopTheme converter.
+ * Aegis AI Enterprise Autonomous Platform skin → DesktopTheme converter.
  *
  * A "skin" is the CLI/TUI theme unit: a YAML file in `$AEGIS_HOME/skins/` (or a
  * built-in) resolved by `aegis_cli/skin_engine.py` and pushed to every surface
  * over JSON-RPC (`gateway.ready`, `skin.changed`, `config.get skin`). This is the
  * one place the desktop turns that CLI-shaped palette into a `DesktopTheme`, so a
- * skin Aegis authors from a prompt lights up all three surfaces from one file.
+ * skin Aegis AI Enterprise Autonomous Platform authors from a prompt lights up all three surfaces from one file.
  *
  * Skins carry terminal-oriented keys (banner/status/completion). We seed the
  * desktop model from the load-bearing few (background, foreground, accent, error)
@@ -16,7 +16,7 @@
  */
 
 import { ensureContrast, mix } from '@aegis/shared/color'
-import type { AegisSkin, SkinColors } from '@aegis/shared/skin'
+import type { Aegis AI Enterprise Autonomous PlatformSkin, SkinColors } from '@aegis/shared/skin'
 
 import { luminance, normalizeHex, readableInk } from './color'
 import type { DesktopTheme, DesktopThemeColors } from './types'
@@ -44,7 +44,7 @@ const titleCase = (name: string): string => name.charAt(0).toUpperCase() + name.
  * Convert a resolved skin into a `DesktopTheme`, or null when it carries no
  * usable colors (so a broken/empty skin never registers junk).
  */
-export function skinToDesktopTheme(skin: AegisSkin): DesktopTheme | null {
+export function skinToDesktopTheme(skin: Aegis AI Enterprise Autonomous PlatformSkin): DesktopTheme | null {
   const name = (skin.name ?? '').trim()
   const colors = skin.colors
 
@@ -109,7 +109,7 @@ export function skinToDesktopTheme(skin: AegisSkin): DesktopTheme | null {
   return {
     name,
     label: titleCase(name),
-    description: 'Aegis skin',
+    description: 'Aegis AI Enterprise Autonomous Platform skin',
     // Single palette in both slots: a skin is one-mode, so the light/dark toggle
     // shouldn't invert it. renderedModeFor still paints `.dark` from luminance.
     colors: palette,

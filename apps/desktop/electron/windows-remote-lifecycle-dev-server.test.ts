@@ -64,7 +64,7 @@ function ownedWindowsSsh(lock: null | Record<string, unknown>) {
       }
 
       if (op('inspect')) {
-        return JSON.stringify({ path: AEGIS_PATH, version: 'Aegis Agent v1', runtimeBootstrapOwnership: 1, supported: true })
+        return JSON.stringify({ path: AEGIS_PATH, version: 'Aegis AI Enterprise Autonomous Platform Agent v1', runtimeBootstrapOwnership: 1, supported: true })
       }
 
       if (op('read-lock')) {
@@ -94,7 +94,7 @@ function connectAs(ssh: ReturnType<typeof ownedWindowsSsh>, devServer: string) {
     pickLocalPort: async () => 50001,
     forward: async () => {},
     cancelForward: async () => {},
-    waitForAegis: async () => {},
+    waitForAegis AI Enterprise Autonomous Platform: async () => {},
     probeReuseProof: async () => 'authenticated-ok',
     readyTimeoutMs: 2000
   })

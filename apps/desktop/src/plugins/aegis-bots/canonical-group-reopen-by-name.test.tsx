@@ -1,4 +1,4 @@
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { host } from '@aegis/plugin-sdk'
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import type { WritableAtom } from 'nanostores'
@@ -19,7 +19,7 @@ const { request, notify, openWorkspace, catalog } = vi.hoisted(() => ({
 }))
 
 vi.mock('@aegis/plugin-sdk', async importOriginal => {
-  const sdk = await importOriginal<typeof AegisSdk>()
+  const sdk = await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>()
   const { localGatewaySdkMock } = await import('./canonical-group-contract-test-utils')
   const { en } = await import('@/i18n/en')
 

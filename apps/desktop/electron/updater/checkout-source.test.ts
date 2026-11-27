@@ -118,11 +118,11 @@ function channelRecord(channel: 'stable' | 'canary', sequence: number): FixtureR
     nextSequence: sequence + 1,
     identity: {
       token: 'b'.repeat(16),
-      displayName: channel === 'stable' ? 'Aegis Stable' : 'Aegis Canary',
-      appNamePascal: 'Aegis',
-      artifactNamePascal: 'Aegis',
+      displayName: channel === 'stable' ? 'Aegis AI Enterprise Autonomous Platform Stable' : 'Aegis AI Enterprise Autonomous Platform Canary',
+      appNamePascal: 'Aegis AI Enterprise Autonomous Platform',
+      artifactNamePascal: 'Aegis AI Enterprise Autonomous Platform',
       appId: 'chat.nous.aegis',
-      msixAppIdWithOrg: 'NousResearch.Aegis',
+      msixAppIdWithOrg: 'NousResearch.Aegis AI Enterprise Autonomous Platform',
       cliName: 'aegis',
       windowsExecutableName: 'aegis'
     },
@@ -144,11 +144,11 @@ function buildManifest(
 ): FixtureManifest {
   const identity: FixtureIdentity = {
     token: 'b'.repeat(16),
-    displayName: channel === 'stable' ? 'Aegis Stable' : 'Aegis Canary',
-    appNamePascal: 'Aegis',
-    artifactNamePascal: 'Aegis',
+    displayName: channel === 'stable' ? 'Aegis AI Enterprise Autonomous Platform Stable' : 'Aegis AI Enterprise Autonomous Platform Canary',
+    appNamePascal: 'Aegis AI Enterprise Autonomous Platform',
+    artifactNamePascal: 'Aegis AI Enterprise Autonomous Platform',
     appId: 'chat.nous.aegis',
-    msixAppIdWithOrg: 'NousResearch.Aegis',
+    msixAppIdWithOrg: 'NousResearch.Aegis AI Enterprise Autonomous Platform',
     cliName: 'aegis',
     windowsExecutableName: 'aegis'
   }
@@ -379,7 +379,7 @@ if not getattr(urllib.request, '_aegis_loopback', False):
 
       emitUpdateProgress: vi.fn(),
       rememberLog: vi.fn(),
-      startAegis: async (): Promise<void> => {},
+      startAegis AI Enterprise Autonomous Platform: async (): Promise<void> => {},
 
       stopBackendsForUpdate: vi.fn(async (): Promise<void> => {}),
       repairMacUpdaterHelper: (): void => {},

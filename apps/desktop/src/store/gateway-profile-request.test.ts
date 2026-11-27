@@ -12,7 +12,7 @@ const secondaryGateways: Array<{
 let connectGate: Promise<void> | null = null
 
 vi.mock('@/aegis', () => ({
-  AegisGateway: class {
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     connect = vi.fn(async () => {
       if (this.connectionState === 'connecting') {
@@ -119,7 +119,7 @@ describe('requestGatewayForProfile', () => {
       // The target profile's backend never comes up.
       const getConnection = vi.fn(async (profile: null | string) => {
         if (profile === 'jody') {
-          throw new Error('Failed to connect to Aegis gateway')
+          throw new Error('Failed to connect to Aegis AI Enterprise Autonomous Platform gateway')
         }
 
         return { port: 4242, token: 'primary-token' }
@@ -164,7 +164,7 @@ describe('requestGatewayForProfile', () => {
       const getConnection = vi.fn(async (profile: null | string) => {
         if (profile === 'jody') {
           if (!jodyUp) {
-            throw new Error('Failed to connect to Aegis gateway')
+            throw new Error('Failed to connect to Aegis AI Enterprise Autonomous Platform gateway')
           }
 
           return { port: 5151, profile, token: 'secondary-token' }
@@ -894,9 +894,9 @@ describe('session-owner calls for a profile on the shared local host backend (#1
     setPrimaryGatewayConnection({ connectionId: 'local', mode: 'local' })
     const getConnectionFor = installLocalHost(profile => ({ profile, sharedPrimary: true }))
     await ensureGatewayForProfile('default')
-    getConnectionFor.mockRejectedValue(new Error('Aegis gateway did not start'))
+    getConnectionFor.mockRejectedValue(new Error('Aegis AI Enterprise Autonomous Platform gateway did not start'))
 
-    await expect(ensureGatewayForAgent('local', 'work')).rejects.toThrow('Aegis gateway did not start')
+    await expect(ensureGatewayForAgent('local', 'work')).rejects.toThrow('Aegis AI Enterprise Autonomous Platform gateway did not start')
 
     expect(getConnectionFor).toHaveBeenCalledOnce()
     expect(secondaryGateways).toHaveLength(0)
@@ -910,7 +910,7 @@ describe('session-owner calls for a profile on the shared local host backend (#1
       setPrimaryGateway(primary as never, 'default')
       setPrimaryGatewayConnection({ connectionId: 'local', mode: 'local' })
       const getConnectionFor = installLocalHost(profile => ({ profile, sharedPrimary: true }))
-      const unavailable = new Error('Aegis gateway did not start')
+      const unavailable = new Error('Aegis AI Enterprise Autonomous Platform gateway did not start')
       getConnectionFor.mockRejectedValue(unavailable)
       const poll = () => requestGatewayForAgent('local', 'work', 'session.control.read')
 

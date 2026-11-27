@@ -119,7 +119,7 @@ export function useScreenPortalState(bot: RosterRow) {
         }
       })
       .catch((error: unknown) => {
-        // An older Aegis without display.* is a settled answer (hide the surface);
+        // An older Aegis AI Enterprise Autonomous Platform without display.* is a settled answer (hide the surface);
         // an offline bot is transient and stays in its unknown state.
         if (!cancelled && isDisplayUnavailable(error)) {
           setScreenUnavailable(bot)

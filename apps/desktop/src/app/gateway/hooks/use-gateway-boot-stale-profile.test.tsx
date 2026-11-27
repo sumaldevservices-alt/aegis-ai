@@ -1,7 +1,7 @@
 import { act, cleanup, render } from '@testing-library/react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
-import { getAegisConfig } from '@/api/config'
+import { getAegis AI Enterprise Autonomous PlatformConfig } from '@/api/config'
 import { $desktopBoot } from '@/store/boot'
 import { closeSecondaryGateways } from '@/store/gateway'
 import { $activeGatewayProfile, $profiles, invalidateProfileListFetches, refreshProfiles } from '@/store/profile'
@@ -152,10 +152,10 @@ it.each(['default', 'deleted-workspace'])(
         onConnectionReady: () => undefined,
         onGatewayReady: () => undefined,
         refreshSessions: async () => undefined,
-        refreshAegisConfig: async () => {
+        refreshAegis AI Enterprise Autonomous PlatformConfig: async () => {
           // Establish a successful authoritative roster, not an empty cache.
           await refreshProfiles()
-          await getAegisConfig($settingsRequestProfile.get()).catch(error => {
+          await getAegis AI Enterprise Autonomous PlatformConfig($settingsRequestProfile.get()).catch(error => {
             configError = error
           })
         }

@@ -2357,11 +2357,11 @@ export interface ProfilesGetAssetResult {
   size?: number | null
   data?: string | null
 }
-/** ``assume_fresh``: the unpackaged desktop's ``--fresh-install`` launch; the backend treats this machine as one that never used Aegis. Packaged builds never send it. */
+/** ``assume_fresh``: the unpackaged desktop's ``--fresh-install`` launch; the backend treats this machine as one that never used Aegis AI Enterprise Autonomous Platform. Packaged builds never send it. */
 export interface OnboardingStateParams {
   assume_fresh?: boolean
 }
-/** ``run``: onboarding opens on this launch (root config ``onboarding.run``, else a machine that never used Aegis). ``eligible``: this is the desktop's local backend and the welcome trial or a configured provider can carry the first chat. ``session_id``: the stored id of the onboarding chat still in progress, so a relaunch reopens it; ``run_id``: that run's id, which ``onboarding.ended`` names. */
+/** ``run``: onboarding opens on this launch (root config ``onboarding.run``, else a machine that never used Aegis AI Enterprise Autonomous Platform). ``eligible``: this is the desktop's local backend and the welcome trial or a configured provider can carry the first chat. ``session_id``: the stored id of the onboarding chat still in progress, so a relaunch reopens it; ``run_id``: that run's id, which ``onboarding.ended`` names. */
 export interface OnboardingRunStateResult {
   run: boolean
   eligible: boolean
@@ -5096,7 +5096,7 @@ export interface SessionCreateDescriptor {
   sources: string[]
   parameters: string[]
 }
-/** ``tui_gateway/change_watcher.py::resolve_skin`` — the resolved active skin (``AegisSkin``). ``{}`` when the skin engine failed to load. Colour maps are token → colour string. */
+/** ``tui_gateway/change_watcher.py::resolve_skin`` — the resolved active skin (``Aegis AI Enterprise Autonomous PlatformSkin``). ``{}`` when the skin engine failed to load. Colour maps are token → colour string. */
 export interface SkinPayload {
   name?: string
   description?: string

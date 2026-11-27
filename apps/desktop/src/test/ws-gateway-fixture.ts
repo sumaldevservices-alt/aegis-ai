@@ -1,7 +1,7 @@
-// A real `ws` server for AegisGateway dial tests (node environment only).
+// A real `ws` server for Aegis AI Enterprise Autonomous PlatformGateway dial tests (node environment only).
 import { type ConnectionState, JsonRpcGatewayClient } from '@aegis/shared'
 
-import type { AegisGateway } from '@/api/client'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/api/client'
 
 export interface FixtureSocket {
   on(event: 'message', handler: (bytes: Buffer) => void): void
@@ -39,20 +39,20 @@ export function publicUrl(server: FixtureServer): string {
   return `ws://127.0.0.1:${(server.address() as { port: number }).port}/api/ws?ticket=public-fixture`
 }
 
-export async function shut(client: AegisGateway, server: FixtureServer): Promise<void> {
+export async function shut(client: Aegis AI Enterprise Autonomous PlatformGateway, server: FixtureServer): Promise<void> {
   client.close()
 
   for (const socket of server.clients) { socket.terminate() }
   await new Promise<void>(resolve => server.close(() => resolve()))
 }
 
-// The transport's own states. AegisGateway holds `open` from its subscribers until the dial's
+// The transport's own states. Aegis AI Enterprise Autonomous PlatformGateway holds `open` from its subscribers until the dial's
 // wire is known, so a test that needs the moment the socket opened listens below that.
-export function onTransportState(client: AegisGateway, handler: (state: ConnectionState) => void): () => void {
+export function onTransportState(client: Aegis AI Enterprise Autonomous PlatformGateway, handler: (state: ConnectionState) => void): () => void {
   return JsonRpcGatewayClient.prototype.onState.call(client, handler)
 }
 
-export function transportOpened(client: AegisGateway): Promise<void> {
+export function transportOpened(client: Aegis AI Enterprise Autonomous PlatformGateway): Promise<void> {
   return new Promise(resolve => {
     const off = onTransportState(client, state => {
       if (state === 'open') {

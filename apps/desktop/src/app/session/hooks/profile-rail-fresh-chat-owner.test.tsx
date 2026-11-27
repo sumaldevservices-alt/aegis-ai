@@ -158,7 +158,7 @@ function answer(socket: MockGateway, method: string, params: Record<string, unkn
 
 vi.mock('@/aegis', async importOriginal => ({
   ...(await importOriginal<Record<string, unknown>>()),
-  AegisGateway: class {
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectUrl: null | string = null
     connectionState = 'closed'
     eventListeners = new Set<(event: GatewayEvent) => void>()
@@ -450,7 +450,7 @@ describe('profile rail: a fresh Omar chat keeps its exact registry owner across 
     await waitFor(() => expect(activeGatewayProfileKey()).toBe('omar'))
     expect(activeGatewayConnectionId()).toBe(SOURCE_ID)
 
-    // The socket the registry dialed for homelab::omar (mocked AegisGateway
+    // The socket the registry dialed for homelab::omar (mocked Aegis AI Enterprise Autonomous PlatformGateway
     // instances register themselves on construction).
     expect(sockets.length).toBeGreaterThan(0)
     const omarSocket = sockets.find(socket => socket.connectUrl?.includes(`:${OMAR_PORT}`))

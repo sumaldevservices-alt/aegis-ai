@@ -1,5 +1,5 @@
-import type { AegisConnection } from '@/global'
-import type { AegisGateway } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 
 /** One secondary (pool) socket the gateway registry (store/gateway.ts) keeps. */
 export interface Secondary {
@@ -8,8 +8,8 @@ export interface Secondary {
   profile: string
   /** Registry connection serving this socket; null = the local/legacy path. */
   connectionId: null | string
-  connection: AegisConnection | null
-  gateway: AegisGateway
+  connection: Aegis AI Enterprise Autonomous PlatformConnection | null
+  gateway: Aegis AI Enterprise Autonomous PlatformGateway
   /**
    * Date.now() of the most recent socket 'open'. The live-work pruner's
    * min-lifetime grace reads this: an idle prune can race an on-demand dial

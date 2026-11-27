@@ -41,7 +41,7 @@ interface EditorState {
   label: string
   host: string
   keyPath: string
-  remoteAegisPath: string
+  remoteAegis AI Enterprise Autonomous PlatformPath: string
   // ssh remote profile, hydrated on edit so the duplicate key matches the
   // main-process one (user@host:port + profile); the editor doesn't expose it.
   remoteProfile: string
@@ -65,7 +65,7 @@ function editorFromConnection(conn: DesktopRegistryConnection): EditorState {
     // would silently resurrect the old values.
     host: conn.host ? `${conn.user ? `${conn.user}@` : ''}${conn.host}${conn.port ? `:${conn.port}` : ''}` : '',
     keyPath: conn.keyPath || '',
-    remoteAegisPath: conn.remoteAegisPath || '',
+    remoteAegis AI Enterprise Autonomous PlatformPath: conn.remoteAegis AI Enterprise Autonomous PlatformPath || '',
     remoteProfile: conn.remoteProfile || '',
     headers: (conn.headerNames || []).map(name => ({ name, stored: true, value: '' }))
   }
@@ -78,7 +78,7 @@ function emptyEditor(kind: DesktopConnectionKind): EditorState {
     label: '',
     host: '',
     keyPath: '',
-    remoteAegisPath: '',
+    remoteAegis AI Enterprise Autonomous PlatformPath: '',
     remoteProfile: '',
     headers: []
   }
@@ -232,7 +232,7 @@ function useRegistryChanges(
 
 /**
  * The connections registry section of Settings → Gateways: manage the named
- * agent sources (local runtime + any number of remote gateways / Aegis Cloud
+ * agent sources (local runtime + any number of remote gateways / Aegis AI Enterprise Autonomous Platform Cloud
  * instances / SSH hosts). Storage-level management — the active/primary
  * switchover UX is the connection-mode controls above this section.
  */
@@ -394,7 +394,7 @@ export function ConnectionsRegistrySection() {
           // of truth — never send separate user/port (see editorFromConnection).
           payload.host = editor.host
           payload.keyPath = editor.keyPath || undefined
-          payload.remoteAegisPath = editor.remoteAegisPath.trim()
+          payload.remoteAegis AI Enterprise Autonomous PlatformPath = editor.remoteAegis AI Enterprise Autonomous PlatformPath.trim()
         }
 
         const result = await bridge.save(payload)
@@ -869,13 +869,13 @@ export function ConnectionsRegistrySection() {
               <ListRow
                 action={
                   <Input
-                    onChange={e => setEditor({ ...editor, remoteAegisPath: e.target.value })}
-                    placeholder={t.settings.gateway.sshAegisPathPlaceholder}
-                    value={editor.remoteAegisPath}
+                    onChange={e => setEditor({ ...editor, remoteAegis AI Enterprise Autonomous PlatformPath: e.target.value })}
+                    placeholder={t.settings.gateway.sshAegis AI Enterprise Autonomous PlatformPathPlaceholder}
+                    value={editor.remoteAegis AI Enterprise Autonomous PlatformPath}
                   />
                 }
-                description={t.settings.gateway.sshAegisPathDesc}
-                title={t.settings.gateway.sshAegisPathTitle}
+                description={t.settings.gateway.sshAegis AI Enterprise Autonomous PlatformPathDesc}
+                title={t.settings.gateway.sshAegis AI Enterprise Autonomous PlatformPathTitle}
               />
             </>
           )}

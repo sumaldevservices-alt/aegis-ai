@@ -17,10 +17,10 @@ const PLATFORM = process.platform
 // shell and the PM payload under resources/agent-payload.
 const APP = (() => {
   if (PLATFORM === 'darwin') {
-    const appPath = path.join(RELEASE_ROOT, `mac-${ARCH}`, 'Aegis.app')
+    const appPath = path.join(RELEASE_ROOT, `mac-${ARCH}`, 'Aegis AI Enterprise Autonomous Platform.app')
     return {
       appPath,
-      binary: path.join(appPath, 'Contents', 'MacOS', 'Aegis'),
+      binary: path.join(appPath, 'Contents', 'MacOS', 'Aegis AI Enterprise Autonomous Platform'),
       resourcesPath: path.join(appPath, 'Contents', 'Resources'),
       asarPath: path.join(appPath, 'Contents', 'Resources', 'app.asar'),
       unpackedDistIndex: path.join(appPath, 'Contents', 'Resources', 'app.asar.unpacked', 'dist', 'index.html')
@@ -35,7 +35,7 @@ const APP = (() => {
       .find(exists)
     return {
       appPath: unpacked,
-      binary: unpacked ? path.join(unpacked, 'Aegis.exe') : path.join(RELEASE_ROOT, 'win-unpacked', 'Aegis.exe'),
+      binary: unpacked ? path.join(unpacked, 'Aegis AI Enterprise Autonomous Platform.exe') : path.join(RELEASE_ROOT, 'win-unpacked', 'Aegis AI Enterprise Autonomous Platform.exe'),
       resourcesPath: unpacked ? path.join(unpacked, 'resources') : path.join(RELEASE_ROOT, 'win-unpacked', 'resources'),
       asarPath: unpacked ? path.join(unpacked, 'resources', 'app.asar') : path.join(RELEASE_ROOT, 'win-unpacked', 'resources', 'app.asar'),
       unpackedDistIndex: unpacked
@@ -47,7 +47,7 @@ const APP = (() => {
   const unpacked = path.join(RELEASE_ROOT, 'linux-unpacked')
   return {
     appPath: unpacked,
-    binary: path.join(unpacked, 'Aegis'),
+    binary: path.join(unpacked, 'Aegis AI Enterprise Autonomous Platform'),
     resourcesPath: path.join(unpacked, 'resources'),
     asarPath: path.join(unpacked, 'resources', 'app.asar'),
     unpackedDistIndex: path.join(unpacked, 'resources', 'app.asar.unpacked', 'dist', 'index.html')
@@ -118,10 +118,10 @@ function ensurePackagedApp() {
 
 function resolveDmgPath() {
   if (!exists(RELEASE_ROOT)) {
-    return path.join(RELEASE_ROOT, `Aegis-${PACKAGE_JSON.version}-${ARCH}.dmg`)
+    return path.join(RELEASE_ROOT, `Aegis AI Enterprise Autonomous Platform-${PACKAGE_JSON.version}-${ARCH}.dmg`)
   }
 
-  const prefix = `Aegis-${PACKAGE_JSON.version}`
+  const prefix = `Aegis AI Enterprise Autonomous Platform-${PACKAGE_JSON.version}`
   const candidates = fs
     .readdirSync(RELEASE_ROOT)
     .filter(name => name.endsWith('.dmg'))
@@ -135,7 +135,7 @@ function resolveDmgPath() {
 
   return candidates.length > 0
     ? path.join(RELEASE_ROOT, candidates[0])
-    : path.join(RELEASE_ROOT, `Aegis-${PACKAGE_JSON.version}-${ARCH}.dmg`)
+    : path.join(RELEASE_ROOT, `Aegis AI Enterprise Autonomous Platform-${PACKAGE_JSON.version}-${ARCH}.dmg`)
 }
 
 function resolveMsixPath() {
@@ -303,8 +303,8 @@ function lifecycleEnv(sandbox) {
   env.AEGIS_DESKTOP_SKIP_QUIT_CONFIRM = '1'
   // Window-title label only — NOT package identity; package identity is build-
   // time. Identity isolation here is the sandboxed userData (single-instance
-  // lock is scoped to it), so a live Aegis instance can never be contacted.
-  env.AEGIS_DESKTOP_APP_NAME = 'AegisLifecycleProbe'
+  // lock is scoped to it), so a live Aegis AI Enterprise Autonomous Platform instance can never be contacted.
+  env.AEGIS_DESKTOP_APP_NAME = 'Aegis AI Enterprise Autonomous PlatformLifecycleProbe'
   // REQUIRED: with a thin (external-payload) build there is no sealed runtime,
   // and an unresolved backend would fall through to first-run bootstrap —
   // install.ps1, which writes User PATH, Start-Menu shortcuts and ACLs on a
@@ -551,7 +551,7 @@ function printArtifacts(options = {}) {
 
 function help() {
   console.log(`Usage:
-  pnpm run test:desktop:existing # build packaged app, launch with normal PATH/existing Aegis
+  pnpm run test:desktop:existing # build packaged app, launch with normal PATH/existing Aegis AI Enterprise Autonomous Platform
   pnpm run test:desktop:fresh    # build packaged app, launch with temp userData + AEGIS_HOME
   pnpm run test:desktop:dmg      # (macOS only) build DMG and open it
   pnpm run test:desktop:msix     # (win32 only) build MSIX package

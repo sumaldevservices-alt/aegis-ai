@@ -38,7 +38,7 @@ export const ruFirstRun: FirstRunCopy = {
     notNow: 'Не сейчас'
   },
   intro: {
-    greeting: 'Привет, я Aegis.',
+    greeting: 'Привет, я Aegis AI Enterprise Autonomous Platform.',
     plan: 'Давайте всё настроим под вас. А потом сделаем что-нибудь классное.'
   },
   rerun: {

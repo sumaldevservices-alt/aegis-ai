@@ -2,7 +2,7 @@ import { applyDocumentLocale, isRecord } from '@aegis/shared/i18n'
 import { useStore } from '@nanostores/react'
 import { createContext, type ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 
-import { getAegisConfigRecord, type AegisConfigRecord, retainConfigReadOrigin, saveAegisConfig } from '@/aegis'
+import { getAegis AI Enterprise Autonomous PlatformConfigRecord, type Aegis AI Enterprise Autonomous PlatformConfigRecord, retainConfigReadOrigin, saveAegis AI Enterprise Autonomous PlatformConfig } from '@/aegis'
 
 import { TRANSLATIONS } from './catalog'
 import {
@@ -18,8 +18,8 @@ import { $requestedLocale, setRuntimeI18nLocale } from './runtime'
 import type { Locale, Translations } from './types'
 
 export interface I18nConfigClient {
-  getConfig: () => Promise<AegisConfigRecord>
-  saveConfig: (config: AegisConfigRecord) => Promise<{ ok: boolean }>
+  getConfig: () => Promise<Aegis AI Enterprise Autonomous PlatformConfigRecord>
+  saveConfig: (config: Aegis AI Enterprise Autonomous PlatformConfigRecord) => Promise<{ ok: boolean }>
 }
 
 const defaultConfigClient: I18nConfigClient = {
@@ -30,25 +30,25 @@ const defaultConfigClient: I18nConfigClient = {
 
     // Merged defaults make an unset language indistinguishable from saved English.
     // Older backends ignore the option and keep returning English as before.
-    return getAegisConfigRecord(undefined, { includeDefaults: false })
+    return getAegis AI Enterprise Autonomous PlatformConfigRecord(undefined, { includeDefaults: false })
   },
   saveConfig: config => {
     if (typeof window === 'undefined' || !window.aegisDesktop?.api) {
       return Promise.resolve({ ok: true })
     }
 
-    // No explicit scope: saveAegisConfig resolves the record's captured read
+    // No explicit scope: saveAegis AI Enterprise Autonomous PlatformConfig resolves the record's captured read
     // origin itself (resolveConfigWriteScope), and withConfigDisplayLanguage
     // retains that origin onto the derived record.
-    return saveAegisConfig(config, undefined, { preserveLanguage: true })
+    return saveAegis AI Enterprise Autonomous PlatformConfig(config, undefined, { preserveLanguage: true })
   }
 }
 
-export function getConfigDisplayLanguage(config: AegisConfigRecord): unknown {
+export function getConfigDisplayLanguage(config: Aegis AI Enterprise Autonomous PlatformConfigRecord): unknown {
   return isRecord(config.display) ? config.display.language : undefined
 }
 
-export function withConfigDisplayLanguage(config: AegisConfigRecord, locale: Locale): AegisConfigRecord {
+export function withConfigDisplayLanguage(config: Aegis AI Enterprise Autonomous PlatformConfigRecord, locale: Locale): Aegis AI Enterprise Autonomous PlatformConfigRecord {
   const display = isRecord(config.display) ? config.display : {}
 
   return retainConfigReadOrigin(

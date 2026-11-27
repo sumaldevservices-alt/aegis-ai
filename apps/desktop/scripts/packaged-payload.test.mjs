@@ -47,7 +47,7 @@ function packContext(platform = 'linux') {
   const packager = platform === 'darwin'
     ? Object.assign(Object.create(PlatformPackager.prototype), {
       platform: Platform.MAC,
-      appInfo: { productFilename: 'Aegis' },
+      appInfo: { productFilename: 'Aegis AI Enterprise Autonomous Platform' },
       info: { framework: { distMacOsAppName: 'Electron.app' }, config, projectDir }
     })
     : { config, projectDir }
@@ -103,7 +103,7 @@ it('lets an exact payload copy through afterPack and fails a lossy one, naming e
   }
 })
 
-it('fails a bundled pack whose payload never arrived but leaves Aegis Light alone', async () => {
+it('fails a bundled pack whose payload never arrived but leaves Aegis AI Enterprise Autonomous Platform Light alone', async () => {
   const missing = packContext()
   const failure = await afterPack(missing.context).catch(error => error)
   expect(failure).toBeInstanceOf(Error)

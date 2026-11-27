@@ -25,7 +25,7 @@ type CookieWindowOutcome = 'landed' | 'closed' | 'timeout' | Error
 
 // Canonical Nous portal base URL, overridable for staging/dev. Mirrors the CLI
 // convention (aegis_cli/auth.py DEFAULT_NOUS_PORTAL_URL + the same env names)
-// so a single override flips every Aegis surface to the same portal.
+// so a single override flips every Aegis AI Enterprise Autonomous Platform surface to the same portal.
 const DEFAULT_NOUS_PORTAL_URL = 'https://portal.nousresearch.com'
 
 export function resolvePortalBaseUrl() {
@@ -233,7 +233,7 @@ export function createPortalSession({
       // hang the discovery call behind an invisible window.
       const outcome = await driveCookieWindow(sess, previous, {
         kind: 'portal-renew',
-        title: 'Renewing Aegis Cloud session…',
+        title: 'Renewing Aegis AI Enterprise Autonomous Platform Cloud session…',
         show: false,
         pollMs: 500,
         deadlineMs: 12_000
@@ -259,7 +259,7 @@ export function createPortalSession({
   // must not close the window before the portal can replace it.
   async function openPortalLoginWindow(): Promise<void> {
     if (!isReady()) {
-      throw new Error('Desktop is not ready to start a Aegis Cloud sign-in.')
+      throw new Error('Desktop is not ready to start a Aegis AI Enterprise Autonomous Platform Cloud sign-in.')
     }
 
     const sess = getOauthSession()
@@ -270,7 +270,7 @@ export function createPortalSession({
 
     const outcome = await driveCookieWindow(sess, await readAccessCookies(), {
       kind: 'portal',
-      title: 'Sign in to Aegis Cloud',
+      title: 'Sign in to Aegis AI Enterprise Autonomous Platform Cloud',
       show: true,
       pollMs: 750
     })

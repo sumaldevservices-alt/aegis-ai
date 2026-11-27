@@ -13,7 +13,7 @@ const gatewayMocks = vi.hoisted(() => {
 vi.mock('@/aegis', async importActual => ({
   ...(await importActual<Record<string, unknown>>()),
   setApiRequestConnection: vi.fn(),
-  AegisGateway: class {
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     private eventHandlers = new Set<
       (event: { payload?: Record<string, unknown>; session_id?: string; type: string }) => void

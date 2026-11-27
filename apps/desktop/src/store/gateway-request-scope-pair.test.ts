@@ -9,7 +9,7 @@ import { $apiRequestScope, setApiRequestConnection, setApiRequestProfile } from 
 
 vi.mock(import('@/aegis'), async importOriginal => ({
   ...(await importOriginal()),
-  AegisGateway: class {
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     connect = async (): Promise<void> => {
       this.connectionState = 'open'

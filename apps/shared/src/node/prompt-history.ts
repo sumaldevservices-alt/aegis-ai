@@ -1,4 +1,4 @@
-// The Aegis prompt history file (`<AEGIS_HOME>/.aegis_history`, the classic CLI's format), with
+// The Aegis AI Enterprise Autonomous Platform prompt history file (`<AEGIS_HOME>/.aegis_history`, the classic CLI's format), with
 // AEGIS_HOME read once at import.
 import { appendFileSync, existsSync, mkdirSync, readFileSync } from 'node:fs'
 import { homedir } from 'node:os'

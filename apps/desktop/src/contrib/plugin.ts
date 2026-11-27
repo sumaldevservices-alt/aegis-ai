@@ -1,6 +1,6 @@
 /**
  * The plugin authoring contract. A plugin is a file that default-exports a
- * `AegisPlugin`; it never touches the registry directly — it receives a
+ * `Aegis AI Enterprise Autonomous PlatformPlugin`; it never touches the registry directly — it receives a
  * scoped `PluginContext` whose `register` auto-tags provenance
  * (`source: 'plugin:<id>'`) and namespaces the contribution id
  * (`<id>:<localId>`), so authors write plain contributions and collisions
@@ -41,7 +41,7 @@ import type { Contribution } from './types'
 
 export type { PluginSettingsPage, PluginSettingsSubpage } from './settings-pages'
 export type { PluginRestOptions } from '@/aegis'
-export type { AegisOpenTarget } from '@/lib/aegis-open-target'
+export type { Aegis AI Enterprise Autonomous PlatformOpenTarget } from '@/lib/aegis-open-target'
 export type { PluginAppActionId, PluginAppActionInfo, PluginRunActionResult } from '@/lib/keybinds/plugin-actions'
 export type { PluginNativeNotificationInput, PluginNotificationAction } from '@/store/native-notifications'
 export type { PetMessageTone, PetSayOptions } from '@/store/pet-plugin-messages'
@@ -66,7 +66,7 @@ export interface PluginStorage {
 export interface PluginOs {
   /** Native OS notification (Electron), attributed to this plugin. Gated by
    *  Settings ▸ Notifications ▸ "Plugin notifications" and fires only while
-   *  the user is away from Aegis — use `host.notify` for the in-app toast.
+   *  the user is away from Aegis AI Enterprise Autonomous Platform — use `host.notify` for the in-app toast.
    *  Throttled per plugin; reserve it for genuinely notable events.
    *  Supports `icon`, `activate` (e.g. `aegis://index-network/intent/1`),
    *  action buttons, and renderer `onActivate` / `onAction` callbacks. */
@@ -184,7 +184,7 @@ export interface PluginContext {
   storage: PluginStorage
   /** Folder-scoped file access: this plugin's own data folder plus folders
    *  the user grants it through the app's picker, by relative path. The app
-   *  checks every call; nothing outside those folders (or inside Aegis'
+   *  checks every call; nothing outside those folders (or inside Aegis AI Enterprise Autonomous Platform'
    *  own data) is reachable. Feature-detect on older hosts: `ctx.files?.…`. */
   files: PluginFiles
   /** Plugin-scoped i18n: ship + register locale bundles under this plugin,
@@ -192,7 +192,7 @@ export interface PluginContext {
   i18n: PluginI18n
 }
 
-export interface AegisPlugin {
+export interface Aegis AI Enterprise Autonomous PlatformPlugin {
   /** Stable slug — becomes the `plugin:<id>` source and the id namespace. */
   id: string
   /** Human name for settings / about UI. */
@@ -362,7 +362,7 @@ function createPluginLifetime(track: (dispose: () => void) => () => void) {
 }
 
 /** The declared capabilities of a plugin export, strings only. */
-export function declaredCapabilities(plugin: Pick<AegisPlugin, 'capabilities'>): string[] {
+export function declaredCapabilities(plugin: Pick<Aegis AI Enterprise Autonomous PlatformPlugin, 'capabilities'>): string[] {
   return Array.isArray(plugin.capabilities)
     ? plugin.capabilities.filter((entry): entry is string => typeof entry === 'string')
     : []

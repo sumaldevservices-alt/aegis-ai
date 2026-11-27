@@ -1,7 +1,7 @@
 import { type MutableRefObject, useCallback, useRef, useState } from 'react'
 
 import { setTerminalFontFamilyFromConfig } from '@/app/right-sidebar/terminal/terminal-font'
-import { getAegisConfig, getAegisConfigDefaults } from '@/aegis'
+import { getAegis AI Enterprise Autonomous PlatformConfig, getAegis AI Enterprise Autonomous PlatformConfigDefaults } from '@/aegis'
 import { BUILTIN_PERSONALITIES, normalizePersonalityValue, personalityNamesFromConfig } from '@/lib/chat-runtime'
 import { composerServiceTier } from '@/lib/model-status-label'
 import { normalize } from '@/lib/text'
@@ -56,16 +56,16 @@ function normalizeConfigEffort(value: unknown): string {
   return effort === 'false' || effort === 'disabled' ? 'none' : effort
 }
 
-interface AegisConfigOptions {
+interface Aegis AI Enterprise Autonomous PlatformConfigOptions {
   activeSessionIdRef: MutableRefObject<string | null>
 }
 
-export function useAegisConfig({ activeSessionIdRef }: AegisConfigOptions) {
+export function useAegis AI Enterprise Autonomous PlatformConfig({ activeSessionIdRef }: Aegis AI Enterprise Autonomous PlatformConfigOptions) {
   const [voiceMaxRecordingSeconds, setVoiceMaxRecordingSeconds] = useState(DEFAULT_VOICE_SECONDS)
   const [sttEnabled, setSttEnabled] = useState(true)
   const profileRefreshEpochRef = useRef(0)
 
-  const refreshAegisConfig = useCallback(
+  const refreshAegis AI Enterprise Autonomous PlatformConfig = useCallback(
     async (force = false, shouldPublish: () => boolean = () => true) => {
       if (force) {
         profileRefreshEpochRef.current += 1
@@ -77,7 +77,7 @@ export function useAegisConfig({ activeSessionIdRef }: AegisConfigOptions) {
       const profile = $activeGatewayProfile.get()
 
       try {
-        const [config, defaults] = await Promise.all([getAegisConfig(), getAegisConfigDefaults().catch(() => ({}))])
+        const [config, defaults] = await Promise.all([getAegis AI Enterprise Autonomous PlatformConfig(), getAegis AI Enterprise Autonomous PlatformConfigDefaults().catch(() => ({}))])
 
         const canPublish = () => profileRefreshEpochRef.current === profileRefreshEpoch && shouldPublish()
 
@@ -111,7 +111,7 @@ export function useAegisConfig({ activeSessionIdRef }: AegisConfigOptions) {
         // Publish the profile default regardless of whether the composer is
         // reseeded below: picker rows and preset application resolve "the
         // default" from here, so a manual model pick must not leave them
-        // rendering/applying Aegis' built-in medium over the user's config.
+        // rendering/applying Aegis AI Enterprise Autonomous Platform' built-in medium over the user's config.
         if (!canPublish()) {
           return
         }
@@ -181,5 +181,5 @@ export function useAegisConfig({ activeSessionIdRef }: AegisConfigOptions) {
     [activeSessionIdRef]
   )
 
-  return { refreshAegisConfig, sttEnabled, voiceMaxRecordingSeconds }
+  return { refreshAegis AI Enterprise Autonomous PlatformConfig, sttEnabled, voiceMaxRecordingSeconds }
 }

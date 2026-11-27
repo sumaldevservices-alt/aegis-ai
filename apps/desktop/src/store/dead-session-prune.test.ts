@@ -1,12 +1,12 @@
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as AegisModule from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformModule from '@/aegis'
 import type { ProfileInfo, SessionInfo } from '@/types/aegis'
 
 const getSessionMock = vi.fn<(id: string, profile?: null | string) => Promise<SessionInfo>>()
 
 vi.mock('@/aegis', async importOriginal => {
-  const actual = await importOriginal<typeof AegisModule>()
+  const actual = await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformModule>()
 
   return {
     ...actual,

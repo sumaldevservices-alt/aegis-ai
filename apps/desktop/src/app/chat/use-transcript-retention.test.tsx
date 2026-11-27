@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { stubThreadEnvironment } from '@/components/assistant-ui/test-utils'
 import { type TranscriptWindowValue, useTranscriptWindow } from '@/components/assistant-ui/thread/transcript-window'
-import type * as AegisApi from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformApi from '@/aegis'
 import type { ChatMessage } from '@/lib/chat-messages'
 import { RENDER_WEIGHT_CHARS } from '@/lib/render-weight'
 import type * as SessionStates from '@/store/session-states'
@@ -17,7 +17,7 @@ import { useTranscriptRetention } from './use-transcript-retention'
 import { ChatRuntimeBoundary } from '.'
 
 vi.mock('@/aegis', async importOriginal => ({
-  ...(await importOriginal<typeof AegisApi>()),
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformApi>()),
   getOlderSessionMessages: vi.fn()
 }))
 vi.mock('@/store/session-states', async importOriginal => ({

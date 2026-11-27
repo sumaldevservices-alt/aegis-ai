@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Aegis",
+  "productName": "Aegis AI Enterprise Autonomous Platform",
   "version": "0.0.0",
   "identifier": "com.nousresearch.aegis.setup",
   "build": {
@@ -13,7 +13,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "Aegis",
+        "title": "Aegis AI Enterprise Autonomous Platform",
         "width": 880,
         "height": 620,
         "minWidth": 720,
@@ -34,8 +34,8 @@
   "bundle": {
     "active": true,
     "category": "DeveloperTool",
-    "shortDescription": "Aegis",
-    "longDescription": "Installs Aegis Agent on your machine. Drives scripts/install.ps1 (Windows) and scripts/install.sh (macOS/Linux).",
+    "shortDescription": "Aegis AI Enterprise Autonomous Platform",
+    "longDescription": "Installs Aegis AI Enterprise Autonomous Platform Agent on your machine. Drives scripts/install.ps1 (Windows) and scripts/install.sh (macOS/Linux).",
     "publisher": "Nous Research",
     "copyright": "Copyright © 2026 Nous Research",
     "targets": [

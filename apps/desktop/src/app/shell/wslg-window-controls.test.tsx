@@ -12,7 +12,7 @@ const windowControls = {
 }
 
 const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
-const originalAegisDesktop = desktopWindow.aegisDesktop
+const originalAegis AI Enterprise Autonomous PlatformDesktop = desktopWindow.aegisDesktop
 
 function renderControls(isMaximized = false, path = '/', isFullscreen = false) {
   return render(
@@ -26,8 +26,8 @@ afterEach(() => {
   cleanup()
   vi.clearAllMocks()
 
-  if (originalAegisDesktop) {
-    desktopWindow.aegisDesktop = originalAegisDesktop
+  if (originalAegis AI Enterprise Autonomous PlatformDesktop) {
+    desktopWindow.aegisDesktop = originalAegis AI Enterprise Autonomous PlatformDesktop
   } else {
     delete desktopWindow.aegisDesktop
   }

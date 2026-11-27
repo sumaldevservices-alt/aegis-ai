@@ -1,11 +1,11 @@
 import { describe, expect, it, vi } from 'vitest'
 
 vi.mock('@/aegis', () => ({
-  getAegisConfigRecord: vi.fn(async () => ({})),
-  saveAegisConfig: vi.fn(async () => undefined)
+  getAegis AI Enterprise Autonomous PlatformConfigRecord: vi.fn(async () => ({})),
+  saveAegis AI Enterprise Autonomous PlatformConfig: vi.fn(async () => undefined)
 }))
 
-import { saveAegisConfig } from '@/aegis'
+import { saveAegis AI Enterprise Autonomous PlatformConfig } from '@/aegis'
 import { isVoiceStopCommand } from '@/lib/voice-stop-word'
 
 import {
@@ -34,13 +34,13 @@ it('keeps the desktop toggle local across config refreshes', async () => {
         })
       }
 
-      vi.mocked(saveAegisConfig).mockClear()
+      vi.mocked(saveAegis AI Enterprise Autonomous PlatformConfig).mockClear()
 
       try {
         await prefs.setAutoSpeakReplies(enabled)
         prefs.applyAutoSpeakFromConfig({ voice: { auto_tts: !enabled } })
         expect(prefs.$autoSpeakReplies.get()).toBe(enabled)
-        expect(saveAegisConfig).not.toHaveBeenCalled()
+        expect(saveAegis AI Enterprise Autonomous PlatformConfig).not.toHaveBeenCalled()
         expect(localStorage.getItem('aegis.desktop.autoSpeakReplies')).toBe(fails ? null : String(enabled))
       } finally {
         write.mockRestore()
@@ -137,7 +137,7 @@ describe('applyVoiceStopPhraseFromConfig', () => {
 })
 
 // The live matcher reads the atoms these seed, so drive it through them the way
-// `useAegisConfig` does: `/api/config` (defaults merged in) + `/api/config/defaults`.
+// `useAegis AI Enterprise Autonomous PlatformConfig` does: `/api/config` (defaults merged in) + `/api/config/defaults`.
 describe('spoken stop follows the loaded voice.stop_phrases (#117801)', () => {
   const defaults = { voice: { stop_phrases: ['stop'] } }
 

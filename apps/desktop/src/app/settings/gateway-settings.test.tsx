@@ -453,7 +453,7 @@ describe('GatewaySettings', () => {
     })
   })
 
-  // The Webapp is served by one Aegis host and can only reach that host, so no
+  // The Webapp is served by one Aegis AI Enterprise Autonomous Platform host and can only reach that host, so no
   // mode switch, Cloud sign-in or saved connection can act there. What applies
   // is which host this is and, behind the sign-in gate, signing out of it.
   describe('in the Webapp', () => {
@@ -673,7 +673,7 @@ describe('GatewaySettings', () => {
       sshUser: '',
       sshPort: 22,
       sshKeyPath: '',
-      sshRemoteAegisPath: '',
+      sshRemoteAegis AI Enterprise Autonomous PlatformPath: '',
       sshRemoteProfile: ''
     })
     const cause = 'The Windows remote probe failed. (probe: Path was not found: C:\\h\\bin\\python.exe)'
@@ -705,7 +705,7 @@ describe('GatewaySettings', () => {
       sshUser: '',
       sshPort: 22,
       sshKeyPath: '',
-      sshRemoteAegisPath: '',
+      sshRemoteAegis AI Enterprise Autonomous PlatformPath: '',
       sshRemoteProfile: ''
     })
     const testConnectionConfig = vi.fn().mockResolvedValue({ reachable: false, sshError: 'interactive-auth' })
@@ -739,7 +739,7 @@ describe('GatewaySettings', () => {
       sshUser: '',
       sshPort: 22,
       sshKeyPath: '',
-      sshRemoteAegisPath: '',
+      sshRemoteAegis AI Enterprise Autonomous PlatformPath: '',
       sshRemoteProfile: ''
     })
     const sshConfigHosts = vi.fn().mockResolvedValue({ hosts: ['github.com'] })

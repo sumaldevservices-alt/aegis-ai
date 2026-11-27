@@ -48,9 +48,9 @@ vi.mock('@/i18n', () => ({
           gatewayUnreachable: (gateway: string) => `${gateway} · unreachable`,
           installDeviceConfirm: 'Install locally',
           installDeviceDesc:
-            'This will install Aegis locally, then open a fresh session on this computer. Nothing is installed until you confirm.',
-          installDeviceTitle: 'Install Aegis on This device?',
-          localDevice: 'This device (local backend — installs Aegis if missing, otherwise opens a fresh session)',
+            'This will install Aegis AI Enterprise Autonomous Platform locally, then open a fresh session on this computer. Nothing is installed until you confirm.',
+          installDeviceTitle: 'Install Aegis AI Enterprise Autonomous Platform on This device?',
+          localDevice: 'This device (local backend — installs Aegis AI Enterprise Autonomous Platform if missing, otherwise opens a fresh session)',
           onGateway: (name: string, gateway: string) => `${name} · ${gateway}`,
           switchTo: (name: string, gateway: string) => `Open ${name} on ${gateway}`
         },
@@ -124,7 +124,7 @@ vi.mock('./use-profile-rail-refresh-on-active', () => ({
 }))
 
 vi.mock('@/components/remote-setup/first-run', () => ({
-  FirstRunRemoteSetup: () => 'Connect to existing Aegis'
+  FirstRunRemoteSetup: () => 'Connect to existing Aegis AI Enterprise Autonomous Platform'
 }))
 
 vi.mock('@/aegis', () => ({
@@ -486,7 +486,7 @@ describe('ProfileRail fleet mode', () => {
     const local = screen.getByRole('group', { name: 'Profiles on This device' })
 
     const localDevice = within(local).getByRole('button', {
-      name: 'This device (local backend — installs Aegis if missing, otherwise opens a fresh session)'
+      name: 'This device (local backend — installs Aegis AI Enterprise Autonomous Platform if missing, otherwise opens a fresh session)'
     })
 
     expect(within(local).getByRole('button', { name: 'builder · This device' })).toBeTruthy()
@@ -559,7 +559,7 @@ describe('ProfileRail fleet mode', () => {
 
     fireEvent.click(
       screen.getByRole('button', {
-        name: 'This device (local backend — installs Aegis if missing, otherwise opens a fresh session)'
+        name: 'This device (local backend — installs Aegis AI Enterprise Autonomous Platform if missing, otherwise opens a fresh session)'
       })
     )
 
@@ -574,21 +574,21 @@ describe('ProfileRail fleet mode', () => {
 
     fireEvent.click(
       screen.getByRole('button', {
-        name: 'This device (local backend — installs Aegis if missing, otherwise opens a fresh session)'
+        name: 'This device (local backend — installs Aegis AI Enterprise Autonomous Platform if missing, otherwise opens a fresh session)'
       })
     )
 
     expect(selectConnection).not.toHaveBeenCalled()
     expect(
       await screen.findByText(
-        'This will install Aegis locally, then open a fresh session on this computer. Nothing is installed until you confirm.'
+        'This will install Aegis AI Enterprise Autonomous Platform locally, then open a fresh session on this computer. Nothing is installed until you confirm.'
       )
     ).toBeTruthy()
 
     fireEvent.click(screen.getByRole('button', { name: 'Connect to existing instead' }))
 
     expect(selectConnection).not.toHaveBeenCalled()
-    expect(await screen.findByText('Connect to existing Aegis')).toBeTruthy()
+    expect(await screen.findByText('Connect to existing Aegis AI Enterprise Autonomous Platform')).toBeTruthy()
   })
 
   it('keeps the active gateway click on the plain profile path', async () => {
@@ -648,7 +648,7 @@ describe('ProfileRail fleet mode', () => {
     fireEvent.pointerDown(screen.getByRole('button', { name: 'Profiles' }), { button: 0, ctrlKey: false })
 
     const localDevice = await screen.findByRole('menuitem', {
-      name: 'This device (local backend — installs Aegis if missing, otherwise opens a fresh session)'
+      name: 'This device (local backend — installs Aegis AI Enterprise Autonomous Platform if missing, otherwise opens a fresh session)'
     })
 
     expect(localDevice.querySelector('.codicon-device-desktop')).toBeTruthy()

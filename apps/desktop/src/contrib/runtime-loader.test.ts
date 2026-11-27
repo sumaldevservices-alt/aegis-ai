@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisReadDirResult } from '@/global'
-import type * as AegisModule from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformReadDirResult } from '@/global'
+import type * as Aegis AI Enterprise Autonomous PlatformModule from '@/aegis'
 import { $previewScriptGrants, grantPreviewScript } from '@/store/plugin-preview-grants'
 
 import { emitGatewayEvent } from './events'
@@ -19,12 +19,12 @@ import {
 const getStatus = vi.fn(async () => ({ aegis_home: '/remote/box/.aegis' }))
 
 vi.mock('@/aegis', async importActual => ({
-  ...(await importActual<typeof AegisModule>()),
+  ...(await importActual<typeof Aegis AI Enterprise Autonomous PlatformModule>()),
   getStatus: () => getStatus()
 }))
 
 const desktopPluginsRoot = vi.fn<() => Promise<string>>()
-const readDir = vi.fn<(path: string) => Promise<AegisReadDirResult>>()
+const readDir = vi.fn<(path: string) => Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>>()
 const readFileText = vi.fn<(path: string) => Promise<{ text: string; truncated?: boolean }>>()
 const readPluginSource = vi.fn<(path: string) => Promise<{ text: string; truncated?: boolean }>>()
 const watchDirectory = vi.fn<(path: string) => Promise<{ id: string }>>()

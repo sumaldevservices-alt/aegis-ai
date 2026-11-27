@@ -13,7 +13,7 @@ import { act, cleanup, fireEvent, render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { I18nProvider } from '@/i18n'
 import { clearProfileBackend, setProfileBackend } from '@/sdk/profile-backend'
 import {
@@ -165,7 +165,7 @@ beforeEach(() => {
   setGatewayState('open')
   // This computer's backend owns its chats' queues (the gateway FIFO): nothing may be put there
   // while the profile leaves that backend.
-  $connection.set({ mode: 'local', wsUrl: 'ws://localhost/api/ws?native_dial=unminted' } as AegisConnection)
+  $connection.set({ mode: 'local', wsUrl: 'ws://localhost/api/ws?native_dial=unminted' } as Aegis AI Enterprise Autonomous PlatformConnection)
 })
 
 afterEach(() => {

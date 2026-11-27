@@ -4,13 +4,13 @@ import { useCallback, useEffect } from 'react'
 
 import { useGatewayRequest } from '@/app/gateway/hooks/use-gateway-request'
 import { $pluginRecords } from '@/contrib/plugins-store'
-import { getEnvVars, getAegisConfigSchema } from '@/aegis'
+import { getEnvVars, getAegis AI Enterprise Autonomous PlatformConfigSchema } from '@/aegis'
 import { useI18n } from '@/i18n'
 import { type IconComponent, Monitor, Package, Settings2, Wrench } from '@/lib/icons'
 import { $agentPlugins, isDesktopRelevantPlugin, loadAgentPlugins } from '@/store/agent-plugins'
 import { $gatewayState } from '@/store/session'
 
-import { useAegisConfigRecord } from '../hooks/use-config-record'
+import { useAegis AI Enterprise Autonomous PlatformConfigRecord } from '../hooks/use-config-record'
 import { useOnProfileSwitch } from '../hooks/use-on-profile-switch'
 
 import { SECTIONS } from './constants'
@@ -39,11 +39,11 @@ export interface PluginSearchEntry {
  */
 export function useSettingsSearchCatalog(enabled: boolean) {
   const { t } = useI18n()
-  const configQuery = useAegisConfigRecord()
+  const configQuery = useAegis AI Enterprise Autonomous PlatformConfigRecord()
 
   const schemaQuery = useQuery({
     queryKey: ['aegis-config-schema'],
-    queryFn: () => getAegisConfigSchema(),
+    queryFn: () => getAegis AI Enterprise Autonomous PlatformConfigSchema(),
     enabled,
     staleTime: 5 * 60 * 1000
   })

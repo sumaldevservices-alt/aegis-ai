@@ -15,7 +15,7 @@
  *      fails closed — the subscription fix must not loosen identity matching.
  */
 
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, cleanup, render, screen, waitFor } from '@testing-library/react'
 import type { atom } from 'nanostores'
@@ -34,7 +34,7 @@ beforeAll(() => {
 const { request } = vi.hoisted(() => ({ request: vi.fn() }))
 
 vi.mock('@aegis/plugin-sdk', async importOriginal => {
-  const sdk = await importOriginal<typeof AegisSdk>()
+  const sdk = await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>()
   const { atom: nanoAtom } = await import('nanostores')
 
   return {

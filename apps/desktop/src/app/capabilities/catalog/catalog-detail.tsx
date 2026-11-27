@@ -86,7 +86,7 @@ export function CatalogDetail({
 
   const metadata = [
     [c.platforms, entry.platforms.join(', ')],
-    [c.requires, entry.requiresAegis ? `Aegis ${entry.requiresAegis}` : ''],
+    [c.requires, entry.requiresAegis AI Enterprise Autonomous Platform ? `Aegis AI Enterprise Autonomous Platform ${entry.requiresAegis AI Enterprise Autonomous Platform}` : ''],
     [c.pinned, entry.sha ? <code>{entry.sha.slice(0, 8)}</code> : '']
   ] as [string, ReactNode][]
 

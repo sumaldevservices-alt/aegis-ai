@@ -27,7 +27,7 @@ function deps(root: string, status: SourceUpdate | null, isWindows: boolean): Ch
     remoteGatewayActive: (): boolean => false,
     emitUpdateProgress: vi.fn(),
     rememberLog: vi.fn(),
-    startAegis: vi.fn(async (): Promise<void> => {}),
+    startAegis AI Enterprise Autonomous Platform: vi.fn(async (): Promise<void> => {}),
     stopBackendsForUpdate: vi.fn(async (): Promise<void> => {}),
     repairMacUpdaterHelper: vi.fn(),
     preflightStateDb: vi.fn(),

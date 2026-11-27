@@ -1,6 +1,6 @@
 import { LOCAL_CONNECTION_ID } from '@aegis/shared'
 
-import type { DesktopOauthLoginOptions, AegisApiRequest, AegisConnection } from '@/global'
+import type { DesktopOauthLoginOptions, Aegis AI Enterprise Autonomous PlatformApiRequest, Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { webappSignInRequired } from '@/lib/browser-launch-session'
 import { signInSavedConnection, signOutSavedConnection } from '@/lib/browser-saved-connection-oauth'
 import type { BrowserSavedConnections } from '@/lib/browser-saved-connections'
@@ -39,7 +39,7 @@ function connectionFor(
   bootstrap: BrowserBootstrap,
   profile: null | string | undefined,
   servedHere: boolean
-): AegisConnection {
+): Aegis AI Enterprise Autonomous PlatformConnection {
   if (!bootstrap.authRequired && !bootstrap.token) {
     throw webappSignInRequired()
   }
@@ -82,14 +82,14 @@ function browserConnectionConfig(bootstrap: BrowserBootstrap, profile?: null | s
     sshHost: '',
     sshKeyPath: '',
     sshPort: null,
-    sshRemoteAegisPath: '',
+    sshRemoteAegis AI Enterprise Autonomous PlatformPath: '',
     sshRemoteProfile: '',
     sshUser: ''
   }
 }
 
 interface BrowserConnectionOptions {
-  api: <T>(request: AegisApiRequest) => Promise<T>
+  api: <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>
   bootstrap: BrowserBootstrap
   /** This machine's saved gateway connections, reached through the serving gateway
    *  (`browser-saved-connections.ts`). Absent: only the serving gateway. */

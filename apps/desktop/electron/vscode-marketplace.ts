@@ -142,7 +142,7 @@ async function queryGallery(payload, { maxBytes = 4 * 1024 * 1024 } = {}) {
       Accept: 'application/json;api-version=3.0-preview.1',
       'Content-Type': 'application/json',
       'Content-Length': Buffer.byteLength(body),
-      'User-Agent': 'Aegis-Desktop'
+      'User-Agent': 'Aegis AI Enterprise Autonomous Platform-Desktop'
     },
     body,
     maxBytes
@@ -366,7 +366,7 @@ async function fetchMarketplaceThemes(id) {
   }
 
   const { displayName, vsixUrl } = await resolveExtension(trimmed)
-  const vsix = await request(vsixUrl, { headers: { 'User-Agent': 'Aegis-Desktop' } })
+  const vsix = await request(vsixUrl, { headers: { 'User-Agent': 'Aegis AI Enterprise Autonomous Platform-Desktop' } })
   const themes = extractThemes(vsix)
 
   return { extensionId: trimmed, displayName, themes }

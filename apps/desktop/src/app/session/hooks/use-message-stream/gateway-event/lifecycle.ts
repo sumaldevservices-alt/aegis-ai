@@ -1,5 +1,5 @@
 import type { GatewayEvent } from '@aegis/shared'
-import type { AegisSkin } from '@aegis/shared/skin'
+import type { Aegis AI Enterprise Autonomous PlatformSkin } from '@aegis/shared/skin'
 
 import { invalidateContextBreakdown } from '@/app/shell/hooks/use-context-breakdown'
 import { eventSourceMatchesOwner, gatewayEventSource } from '@/lib/replay-gap-owner'
@@ -65,10 +65,10 @@ export function handleLifecycleEvent(ctx: GatewayEventContext): boolean {
   }
 
   if (event.type === 'skin.changed') {
-    // A runtime skin switch (Aegis activating an authored skin, or `/skin`
+    // A runtime skin switch (Aegis AI Enterprise Autonomous Platform activating an authored skin, or `/skin`
     // on another surface). Only the active source+profile's change repaints.
     if (fromActiveSource()) {
-      ingestBackendSkin(payload as AegisSkin | undefined, { apply: true })
+      ingestBackendSkin(payload as Aegis AI Enterprise Autonomous PlatformSkin | undefined, { apply: true })
     }
 
     return true

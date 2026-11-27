@@ -68,7 +68,7 @@ vi.mock('@/store/windows', async importOriginal => {
 // profile-ready gate, ownership validation, and legacy-key discard.
 
 const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
-const initialAegisDesktop = desktopWindow.aegisDesktop
+const initialAegis AI Enterprise Autonomous PlatformDesktop = desktopWindow.aegisDesktop
 
 const session = (over: Partial<SessionInfo> = {}): SessionInfo => makeSessionInfo({ id: 'live', ...over })
 
@@ -111,8 +111,8 @@ describe('useDesktopIntegrations', () => {
   })
 
   afterEach(() => {
-    if (initialAegisDesktop) {
-      desktopWindow.aegisDesktop = initialAegisDesktop
+    if (initialAegis AI Enterprise Autonomous PlatformDesktop) {
+      desktopWindow.aegisDesktop = initialAegis AI Enterprise Autonomous PlatformDesktop
     }
 
     vi.restoreAllMocks()

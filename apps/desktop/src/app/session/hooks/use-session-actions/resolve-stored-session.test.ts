@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as AegisModule from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformModule from '@/aegis'
 import { getSession } from '@/aegis'
 import { $activeGatewayProfile, $profiles } from '@/store/profile'
 import { $projectTree } from '@/store/projects'
@@ -11,7 +11,7 @@ import type { SessionInfo } from '@/types/aegis'
 import { cachedSessionRow, resolveStoredSession } from './utils'
 
 vi.mock('@/aegis', async importActual => ({
-  ...(await importActual<typeof AegisModule>()),
+  ...(await importActual<typeof Aegis AI Enterprise Autonomous PlatformModule>()),
   getSession: vi.fn()
 }))
 

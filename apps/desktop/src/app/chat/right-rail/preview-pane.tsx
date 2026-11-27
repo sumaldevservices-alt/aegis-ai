@@ -218,7 +218,7 @@ function isModuleMimeError(message: string): boolean {
  */
 const PREVIEW_PRINT_GUARD_SCRIPT =
   '(function(){if(window.__aegisPrintGuard)return;window.__aegisPrintGuard=true;' +
-  'window.print=function(){console.warn("[Aegis] Printing is disabled in the in-app preview. ' +
+  'window.print=function(){console.warn("[Aegis AI Enterprise Autonomous Platform] Printing is disabled in the in-app preview. ' +
   'Open the page in your browser to print.");};})()'
 
 export function PreviewLoadError({
@@ -723,7 +723,7 @@ export function PreviewPane({
 
     // Auto-open the preview console so the user can see progress events
     // streaming back from the background agent. Without this, clicking
-    // "Ask Aegis to restart the server" looked like it did nothing —
+    // "Ask Aegis AI Enterprise Autonomous Platform to restart the server" looked like it did nothing —
     // the work was happening, but in a collapsed pane.
     consoleState.setOpen(true)
 

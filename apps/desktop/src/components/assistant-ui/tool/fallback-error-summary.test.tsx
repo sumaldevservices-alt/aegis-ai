@@ -19,7 +19,7 @@ const WINDOWS_PATH_ERROR = 'Failed to write file: C:\\Users\\test-user\\Document
 const WWW_PATH_ERROR = 'Failed to read /tmp/www.config and C:\\Users\\test-user\\Documents\\www.config'
 
 const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
-const initialAegisDesktop = desktopWindow.aegisDesktop
+const initialAegis AI Enterprise Autonomous PlatformDesktop = desktopWindow.aegisDesktop
 let fetchLinkTitle: ReturnType<typeof vi.fn>
 
 function renderErrorToolRow(result: unknown) {
@@ -48,7 +48,7 @@ beforeEach(() => {
 afterEach(() => {
   cleanup()
   $toolDisclosureStates.set({})
-  desktopWindow.aegisDesktop = initialAegisDesktop
+  desktopWindow.aegisDesktop = initialAegis AI Enterprise Autonomous PlatformDesktop
 })
 
 describe('tool error summary linkification', () => {

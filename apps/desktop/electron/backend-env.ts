@@ -2,11 +2,11 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 
-import { resolveDesktopAegisHome } from './data-paths'
+import { resolveDesktopAegis AI Enterprise Autonomous PlatformHome } from './data-paths'
 
 // macOS apps launched from Finder/Dock inherit only /usr/bin:/bin:/usr/sbin:/sbin,
 // which misses Homebrew and user-installed CLI tools (codex, git credential
-// helpers). Aegis' own managed tools need no PATH help — the backend composes
+// helpers). Aegis AI Enterprise Autonomous Platform' own managed tools need no PATH help — the backend composes
 // their environment in-process via pm — but user tools on PATH do.
 const POSIX_SANE_PATH_ENTRIES = Object.freeze([
   '/opt/homebrew/bin',
@@ -59,7 +59,7 @@ function appendUniquePathEntries(entries, { delimiter = path.delimiter } = {}) {
   return ordered.join(delimiter)
 }
 
-function resolveAegisHomePath(aegisHome, { pathModule, homedir = os.homedir() }: any) {
+function resolveAegis AI Enterprise Autonomous PlatformHomePath(aegisHome, { pathModule, homedir = os.homedir() }: any) {
   // fish (and any shell when the value is quoted) hands a literal `~` through; path.resolve()
   // would pin it under cwd and the Python backend inherits that absolute path via AEGIS_HOME.
   let raw = String(aegisHome)
@@ -75,7 +75,7 @@ function isProfileHome(resolved, pathModule) {
   return pathModule.basename(pathModule.dirname(resolved)).toLowerCase() === 'profiles'
 }
 
-function normalizeAegisHomeRoot(
+function normalizeAegis AI Enterprise Autonomous PlatformHomeRoot(
   aegisHome,
   { pathModule = pathModuleForPlatform(process.platform), homedir = os.homedir() }: any = {}
 ) {
@@ -83,13 +83,13 @@ function normalizeAegisHomeRoot(
     return aegisHome
   }
 
-  const resolved = resolveAegisHomePath(aegisHome, { pathModule, homedir })
+  const resolved = resolveAegis AI Enterprise Autonomous PlatformHomePath(aegisHome, { pathModule, homedir })
 
   return isProfileHome(resolved, pathModule) ? pathModule.dirname(pathModule.dirname(resolved)) : resolved
 }
 
 // OS/interpreter names a dotenv may redeclare that no child can run without, plus the launch-only
-// Aegis keys (aegis_constants.LAUNCH_ONLY_ENV_KEYS): the loader never takes those from a .env.
+// Aegis AI Enterprise Autonomous Platform keys (aegis_constants.LAUNCH_ONLY_ENV_KEYS): the loader never takes those from a .env.
 const PROCESS_ENV_NAMES = new Set([
   'APPDATA',
   'COMSPEC',
@@ -160,7 +160,7 @@ function profileBackendParentEnv({
   }
 
   const fold = platform === 'win32' ? (value: string) => value.toUpperCase() : (value: string) => value
-  const inheritedHome = currentEnv?.AEGIS_HOME ? resolveAegisHomePath(currentEnv.AEGIS_HOME, { pathModule }) : null
+  const inheritedHome = currentEnv?.AEGIS_HOME ? resolveAegis AI Enterprise Autonomous PlatformHomePath(currentEnv.AEGIS_HOME, { pathModule }) : null
   const launchHome = inheritedHome && isProfileHome(inheritedHome, pathModule) ? inheritedHome : aegisHome
   const name = profile || readTextOrEmpty(fsModule, pathModule.join(aegisHome, 'active_profile')).trim()
   const targetHome = !name || name === 'default' ? aegisHome : pathModule.join(aegisHome, 'profiles', name)
@@ -188,7 +188,7 @@ function profileBackendParentEnv({
 /**
  * PATH with the entries under the PM store (AEGIS_RUNTIME_DIR, else
  * <aegis home>/tools, as pm.environments.store_root resolves it) moved to the
- * front, every other entry kept in order. Aegis's own children must run the
+ * front, every other entry kept in order. Aegis AI Enterprise Autonomous Platform's own children must run the
  * store's uv/node/npm, but shell-path.ts puts the user's login-shell entries
  * (nvm, Homebrew, ~/.local/bin) ahead of the inherited PATH, which is where
  * `aegis desktop` put the store dirs.
@@ -199,7 +199,7 @@ function storeFirstPath(
 ) {
   const pathModule = pathModuleForPlatform(platform)
   const delimiter = delimiterForPlatform(platform)
-  const aegisHome = resolveDesktopAegisHome({ home: homedir, env: currentEnv, platform })
+  const aegisHome = resolveDesktopAegis AI Enterprise Autonomous PlatformHome({ home: homedir, env: currentEnv, platform })
   const roots = [currentEnv?.AEGIS_RUNTIME_DIR, pathModule.join(aegisHome, 'tools')].filter(Boolean)
 
   const owned = (entry: string) =>
@@ -250,7 +250,7 @@ export {
   appendUniquePathEntries,
   buildDesktopBackendEnv,
   delimiterForPlatform,
-  normalizeAegisHomeRoot,
+  normalizeAegis AI Enterprise Autonomous PlatformHomeRoot,
   pathEnvKey,
   POSIX_SANE_PATH_ENTRIES,
   profileBackendParentEnv,

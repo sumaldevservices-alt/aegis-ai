@@ -2,7 +2,7 @@ import { atom } from 'nanostores'
 
 import { translateNow } from '@/i18n'
 import { browserNotificationsAllowed } from '@/lib/browser-notifications'
-import { type AegisOpenTarget, resolveAegisOpenPath } from '@/lib/aegis-open-target'
+import { type Aegis AI Enterprise Autonomous PlatformOpenTarget, resolveAegis AI Enterprise Autonomous PlatformOpenPath } from '@/lib/aegis-open-target'
 import { isBrowserHostedDesktop } from '@/lib/platform'
 import { persistString, storedString } from '@/lib/storage'
 
@@ -21,7 +21,7 @@ import { isSessionGone, isSessionGoneForBackgroundPolling, markSessionGone } fro
 import { $activeSessionId, ownerLookupSessionRows, sessionMatchesStoredId } from './session'
 import { storedSessionIdForRuntimeId } from './session-states'
 
-export type { AegisOpenTarget }
+export type { Aegis AI Enterprise Autonomous PlatformOpenTarget }
 
 // Native OS notifications (Electron `Notification`), separate from the in-app
 // toast feed in `notifications.ts`. Each kind toggles independently.
@@ -128,7 +128,7 @@ function throttled(key: string, now: number): boolean {
   return false
 }
 
-// "Backgrounded" = the user isn't on Aegis. `document.hidden` only flips when
+// "Backgrounded" = the user isn't on Aegis AI Enterprise Autonomous Platform. `document.hidden` only flips when
 // minimized/occluded; an alt-tabbed window is visible-but-unfocused, so we also
 // check `document.hasFocus()`.
 function isBackgrounded(): boolean {
@@ -324,7 +324,7 @@ export interface PluginNotificationAction {
   id: string
   label: string
   /** Navigate here on button press (path or `aegis://index-network/intent/1`). */
-  activate?: AegisOpenTarget
+  activate?: Aegis AI Enterprise Autonomous PlatformOpenTarget
   /** Renderer callback — only `id` crosses IPC; this stays in-process. */
   onAction?: () => void
 }
@@ -340,7 +340,7 @@ export interface PluginNativeNotificationInput {
    * (`aegis://index-network/intent/1`), a hash path (`/index-network/intent/1`),
    * or `{ path, params }` — all resolve through the same helper as OS deep links.
    */
-  activate?: AegisOpenTarget
+  activate?: Aegis AI Enterprise Autonomous PlatformOpenTarget
   /** Extra work on body click (runs in addition to `activate` navigation). */
   onActivate?: () => void
   actions?: PluginNotificationAction[]
@@ -398,14 +398,14 @@ export function clearPluginNotifyHandlers(notifyId?: string): void {
 /** Native OS notification on behalf of a plugin. One "Plugin notifications"
  *  preference gates all plugins; the plugin id keys throttling/dedupe so two
  *  plugins can't collapse each other's notifications. Fires only while the
- *  user is away from Aegis — the in-app toast (`host.notify`) covers the
+ *  user is away from Aegis AI Enterprise Autonomous Platform — the in-app toast (`host.notify`) covers the
  *  foreground case. */
 export function dispatchPluginNativeNotification(pluginId: string, input: PluginNativeNotificationInput): void {
-  const activate = resolveAegisOpenPath(input.activate) ?? undefined
+  const activate = resolveAegis AI Enterprise Autonomous PlatformOpenPath(input.activate) ?? undefined
   const notifyId = input.onActivate || input.actions?.some(a => a.onAction) ? mintNotifyId(pluginId) : undefined
 
   const actions: NativeNotificationAction[] | undefined = input.actions?.map(action => ({
-    activate: resolveAegisOpenPath(action.activate) ?? undefined,
+    activate: resolveAegis AI Enterprise Autonomous PlatformOpenPath(action.activate) ?? undefined,
     id: action.id,
     text: action.label
   }))

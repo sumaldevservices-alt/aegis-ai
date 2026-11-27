@@ -53,7 +53,7 @@ describe('aegis:pluginFiles:request', () => {
     expect(await call('aegis:pluginFiles:grants', 'plexus')).toEqual([])
   })
 
-  it('the Aegis home is refused even when the user picks it', async () => {
+  it('the Aegis AI Enterprise Autonomous Platform home is refused even when the user picks it', async () => {
     showOpenDialog.mockResolvedValueOnce({ canceled: false, filePaths: [aegisHome] })
 
     expect(await call('aegis:pluginFiles:request', 'plexus')).toMatchObject({ ok: false, error: 'protected' })

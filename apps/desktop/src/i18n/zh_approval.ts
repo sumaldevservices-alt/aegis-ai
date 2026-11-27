@@ -1,7 +1,7 @@
 import type { ApprovalCopy } from './types_approval'
 
 export const zhApproval: Partial<ApprovalCopy> = {
-  gatewayDisconnected: 'Aegis 网关未连接',
+  gatewayDisconnected: 'Aegis AI Enterprise Autonomous Platform 网关未连接',
   sendFailed: '无法发送审批响应',
   run: '运行',
   command: '命令',
@@ -12,25 +12,25 @@ export const zhApproval: Partial<ApprovalCopy> = {
   reject: '拒绝',
   alwaysTitle: '始终允许此命令？',
   alwaysDescription: pattern =>
-    `这会将“${pattern}”模式加入永久允许列表 (~/.aegis/config.yaml)。Aegis 对类似命令将不再询问，包括当前会话和未来会话。`,
+    `这会将“${pattern}”模式加入永久允许列表 (~/.aegis/config.yaml)。Aegis AI Enterprise Autonomous Platform 对类似命令将不再询问，包括当前会话和未来会话。`,
   alwaysAllow: '始终允许',
   deny: '拒绝',
   allow: '允许',
   allowHint: '直到关闭沙盒',
   denyReason: '拒绝原因',
-  denyReasonPlaceholder: '告诉 Aegis 原因（可选）',
+  denyReasonPlaceholder: '告诉 Aegis AI Enterprise Autonomous Platform 原因（可选）',
   access: {
     title: '文件夹访问',
     readOnly: '只读',
     readWrite: '读写',
-    timedOut: folder => `请求已超时 — 未授予对文件夹 ${folder} 的访问权限。请让 Aegis 重试。`,
+    timedOut: folder => `请求已超时 — 未授予对文件夹 ${folder} 的访问权限。请让 Aegis AI Enterprise Autonomous Platform 重试。`,
     alwaysTitle: '始终允许此文件夹？',
-    alwaysDescription: '该文件夹将加入此档案的沙盒。Aegis 在任何对话中都不会再询问。'
+    alwaysDescription: '该文件夹将加入此档案的沙盒。Aegis AI Enterprise Autonomous Platform 在任何对话中都不会再询问。'
   },
   network: {
     title: '网站访问',
-    timedOut: site => `请求已超时 — 未授予对 ${site} 的访问权限。请让 Aegis 重试。`,
+    timedOut: site => `请求已超时 — 未授予对 ${site} 的访问权限。请让 Aegis AI Enterprise Autonomous Platform 重试。`,
     alwaysTitle: '始终允许此网站？',
-    alwaysDescription: '该网站将加入此档案的允许网站。Aegis 在任何对话中都不会再询问。'
+    alwaysDescription: '该网站将加入此档案的允许网站。Aegis AI Enterprise Autonomous Platform 在任何对话中都不会再询问。'
   }
 }

@@ -217,7 +217,7 @@ describe('attachPresenceSource', () => {
     expect(presence.get().locked).toBe(true)
   })
 
-  // Under X11 the clock is reset by Aegis itself after a reply (no user input), so Linux never
+  // Under X11 the clock is reset by Aegis AI Enterprise Autonomous Platform itself after a reply (no user input), so Linux never
   // samples it, X11 or Wayland: presence falls back to input inside the window.
   it.each([
     ['X11', { DISPLAY: ':0', XDG_SESSION_TYPE: 'x11', WAYLAND_DISPLAY: undefined }],

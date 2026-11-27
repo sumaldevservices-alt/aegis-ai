@@ -17,7 +17,7 @@ function deferred() {
   return { promise, reject, resolve }
 }
 
-const config = { host: 'box', user: 'alice', port: 22, keyPath: '/key', remoteAegisPath: '/aegis' }
+const config = { host: 'box', user: 'alice', port: 22, keyPath: '/key', remoteAegis AI Enterprise Autonomous PlatformPath: '/aegis' }
 
 test('sshConfigFingerprint covers scope and every connection field', () => {
   const base = sshConfigFingerprint('', config)
@@ -28,7 +28,7 @@ test('sshConfigFingerprint covers scope and every connection field', () => {
     user: 'bob',
     port: 2222,
     keyPath: '/other',
-    remoteAegisPath: '/other-aegis',
+    remoteAegis AI Enterprise Autonomous PlatformPath: '/other-aegis',
     remoteProfile: 'default',
     effectiveConfigFingerprint: 'changed-config'
   })) {

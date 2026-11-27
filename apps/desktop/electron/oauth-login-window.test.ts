@@ -85,7 +85,7 @@ test('an unattended sign-in never shows its window and gives up after the deadli
   const attempt = h.start({ silent: true, background: true })
   const outcome = attempt.result.catch(error => error)
 
-  expect(h.created).toEqual([{ show: false, title: 'Connecting to Aegis Cloud agent…' }])
+  expect(h.created).toEqual([{ show: false, title: 'Connecting to Aegis AI Enterprise Autonomous Platform Cloud agent…' }])
   expect(h.windows[0].state.loaded).toBe(`${GATEWAY}/`)
 
   // Past the 2.5s reveal point a foreground silent window would have shown.
@@ -162,7 +162,7 @@ test('an interactive sign-in opens visible on the provider chooser', () => {
   const h = harness()
 
   h.start({ silent: false, background: false })
-  expect(h.created).toEqual([{ show: true, title: 'Sign in to Aegis gateway' }])
+  expect(h.created).toEqual([{ show: true, title: 'Sign in to Aegis AI Enterprise Autonomous Platform gateway' }])
   expect(h.windows[0].state.loaded).toBe(`${GATEWAY}/login`)
 })
 

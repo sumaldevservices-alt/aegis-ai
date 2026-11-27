@@ -72,7 +72,7 @@ interface MessageStreamOptions {
     runtimeSessionId?: string | null
   ) => Promise<void>
   queryClient: QueryClient
-  refreshAegisConfig: () => Promise<void>
+  refreshAegis AI Enterprise Autonomous PlatformConfig: () => Promise<void>
   refreshSessions: () => Promise<void>
   sessionStateByRuntimeIdRef: MutableRefObject<Map<string, ClientSessionState>>
   updateSessionState: (
@@ -167,7 +167,7 @@ export function useMessageStream({
   activeSessionIdRef,
   hydrateFromStoredSession,
   queryClient,
-  refreshAegisConfig,
+  refreshAegis AI Enterprise Autonomous PlatformConfig,
   refreshSessions,
   sessionStateByRuntimeIdRef,
   updateSessionState
@@ -1237,7 +1237,7 @@ export function useMessageStream({
         const streamId = state.streamId ?? `assistant-error-${Date.now()}`
         const groupId = state.pendingBranchGroup ?? undefined
         const prev = state.messages
-        const error = errorMessage.trim() || 'Aegis reported an error'
+        const error = errorMessage.trim() || 'Aegis AI Enterprise Autonomous Platform reported an error'
         // The `error` event carries no descriptor; the dispatcher may recover
         // one from the text (SESSION_NOT_OWNED, disk_full) so the card gates
         // its buttons like a classified turn.
@@ -1327,7 +1327,7 @@ export function useMessageStream({
     finalizeInterimAssistantMessage,
     hydrateFromStoredSession,
     queryClient,
-    refreshAegisConfig,
+    refreshAegis AI Enterprise Autonomous PlatformConfig,
     scheduleSessionsRefresh,
     sessionInterrupted,
     sessionStateByRuntimeIdRef,

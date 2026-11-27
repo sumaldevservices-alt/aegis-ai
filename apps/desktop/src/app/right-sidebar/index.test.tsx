@@ -2,7 +2,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { $activeTreeGroup, $layoutTree } from '@/components/pane-shell/tree/store'
-import type { AegisReadDirResult } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformReadDirResult } from '@/global'
 import { $connection, $selectedStoredSessionId, $sessions, $workspaceCwdOwner, setCurrentCwd } from '@/store/session'
 import { $sessionTiles } from '@/store/session-states'
 
@@ -10,7 +10,7 @@ import { resetProjectTreeState } from './files/use-project-tree'
 
 import { RightSidebarPane } from './index'
 
-const readDir = vi.fn<(path: string) => Promise<AegisReadDirResult>>()
+const readDir = vi.fn<(path: string) => Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>>()
 const repoStatus = vi.fn<(cwd: string) => Promise<null>>()
 
 function installBridge() {

@@ -1,13 +1,13 @@
 /**
- * Aegis Bot Mode — a "one chat per agent" roster for the Aegis desktop.
+ * Aegis AI Enterprise Autonomous Platform Bot Mode — a "one chat per agent" roster for the Aegis AI Enterprise Autonomous Platform desktop.
  *
- * Left pane "Bots": one row per Aegis profile (a bot = an agent profile) with
+ * Left pane "Bots": one row per Aegis AI Enterprise Autonomous Platform profile (a bot = an agent profile) with
  * a customizable avatar (shape + color + eyes, image, or pet). Click opens that
  * bot's chat; right-click → Edit Profile (avatar, title, description).
  * "New Bot" creates a profile — Name / Title / Description with an
  * "Advanced" disclosure for full profile config.
  *
- * Right tile "Routines": scheduled tasks (Aegis cron jobs) scoped to the
+ * Right tile "Routines": scheduled tasks (Aegis AI Enterprise Autonomous Platform cron jobs) scoped to the
  * bot you're currently chatting with — follows the live gateway profile.
  *
  * Bots message each other straight into each bot's ONE canonical "Bot
@@ -712,7 +712,7 @@ export default {
       registerRoutinesPane(true)
     }
 
-    // A bot's chat before it has spoken: core's splash is Aegis' wordmark and
+    // A bot's chat before it has spoken: core's splash is Aegis AI Enterprise Autonomous Platform' wordmark and
     // stands down for any session that exists, so the bot titles its own.
     ctx.register({
       id: 'chat-empty',

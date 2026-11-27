@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as AegisApi from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformApi from '@/aegis'
 import type { FreeTierRequester } from '@/store/free-tier'
 import type { AppHandoffStatus } from '@/types/aegis'
 
@@ -10,7 +10,7 @@ const cancelOAuthSession = vi.fn(async (_id: string) => ({ ok: true }))
 const getNousHandoffStatus = vi.fn()
 
 vi.mock('@/aegis', async importOriginal => ({
-  ...(await importOriginal<typeof AegisApi>()),
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformApi>()),
   cancelOAuthSession: (id: string) => cancelOAuthSession(id),
   getNousHandoffStatus: (since: null | string) => getNousHandoffStatus(since),
   listOAuthProviders: async () => ({ providers: [] }),

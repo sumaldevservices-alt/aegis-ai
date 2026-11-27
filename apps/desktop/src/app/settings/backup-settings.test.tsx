@@ -60,7 +60,7 @@ async function startTransfer() {
   fireEvent.click(screen.getByRole('button', { name: 'Replace Agent One' }))
 }
 
-describe('Transfer to Aegis Cloud', () => {
+describe('Transfer to Aegis AI Enterprise Autonomous Platform Cloud', () => {
   it('Undo after a retried failed restore puts back the FIRST undo point, not the half-restored one', async () => {
     const { TransferRestoreError } = await vi.importActual<typeof AgentTransfer>('@/lib/agent-transfer')
 

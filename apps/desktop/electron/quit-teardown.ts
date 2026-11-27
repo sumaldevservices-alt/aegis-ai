@@ -36,7 +36,7 @@ export type BackendTeardownIntent = 'quit' | 'reconnect'
  * The `soft` option a deliberate teardown must pass to
  * `teardownPrimaryBackendAndWait()`.
  *
- * `soft: true` is what stops `resetAegisConnectionState()` from rewriting the
+ * `soft: true` is what stops `resetAegis AI Enterprise Autonomous PlatformConnectionState()` from rewriting the
  * boot-progress overlay — the step that writes `[boot] Restarting desktop
  * connection` into desktop.log and pushes `aegis:boot-progress` to the
  * renderer. A reconnect may announce that; a quit must not, because the

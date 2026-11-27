@@ -1,13 +1,13 @@
 import { cleanup, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
-import type { AegisReviewFile } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformReviewFile } from '@/global'
 import { I18nProvider } from '@/i18n'
 import { $reviewFiles, $reviewScope, $reviewShipInfo } from '@/store/review'
 
 import { ReviewShipBar } from './ship-bar'
 
-const file = (path: string): AegisReviewFile => ({
+const file = (path: string): Aegis AI Enterprise Autonomous PlatformReviewFile => ({
   added: 1,
   path,
   removed: 0,

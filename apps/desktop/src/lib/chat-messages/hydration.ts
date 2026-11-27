@@ -181,7 +181,7 @@ const NOTICE_DISPLAY_KINDS = [
   'process_complete',
   'auto_continue',
   'personality_switch',
-  // Aegis closing a failed turn, not the model speaking.
+  // Aegis AI Enterprise Autonomous Platform closing a failed turn, not the model speaking.
   'failed_turn',
   // A safety-refused turn retained for display: the user's own message, shown
   // greyed with a notice. Rendered through the system path, never a user bubble.
@@ -695,7 +695,7 @@ export function toChatMessages(messages: SessionMessage[]): ChatMessage[] {
     let pendingAbsorbedRows = 0
 
     // A machine notice stored as an assistant row (the failed-turn boundary) is
-    // Aegis speaking: it must not join the tool-call reply it follows.
+    // Aegis AI Enterprise Autonomous Platform speaking: it must not join the tool-call reply it follows.
     if (displayRole === 'assistant') {
       if (pendingToolParts.length) {
         if (!appendPartsToActiveAssistant(pendingToolParts, message.timestamp ?? pendingToolTimestamp)) {

@@ -1,5 +1,5 @@
 /**
- * Live skin sync from the Aegis backend.
+ * Live skin sync from the Aegis AI Enterprise Autonomous Platform backend.
  *
  * The backend resolves the active skin (built-in or `$AEGIS_HOME/skins/*.yaml`)
  * and announces it on `gateway.ready` / `skin.changed`, and answers `config.get
@@ -12,11 +12,11 @@
  *      `$pendingSkinApply`, which the ThemeProvider drains through `setTheme`.
  *
  * `gateway.ready` seeds the baseline WITHOUT applying, so a fresh connect never
- * stomps the user's persisted desktop theme; only a genuine name change (Aegis
+ * stomps the user's persisted desktop theme; only a genuine name change (Aegis AI Enterprise Autonomous Platform
  * authoring/activating a skin from a prompt, or `/skin` elsewhere) repaints.
  */
 
-import type { AegisSkin } from '@aegis/shared/skin'
+import type { Aegis AI Enterprise Autonomous PlatformSkin } from '@aegis/shared/skin'
 import { atom } from 'nanostores'
 
 import { readJson, writeJson } from '@/lib/storage'
@@ -46,7 +46,7 @@ export const localDisplaySkinProfile = localDisplaySkinName
 const cacheable = (name: string) => !BUILTIN_THEMES[name] && !RETIRED_SKINS.has(name)
 
 // Dropped entries are written back out, so a stale shadow (the reverted #130015
-// build cached the CLI `default` skin as a second "Classic Aegis") is gone from
+// build cached the CLI `default` skin as a second "Classic Aegis AI Enterprise Autonomous Platform") is gone from
 // disk on the first launch, not only hidden until the next registry change.
 const readCached = (): Record<string, DesktopTheme> => {
   const stored = Object.entries(readJson<Record<string, unknown>>(BACKEND_THEMES_KEY) ?? {})
@@ -98,7 +98,7 @@ export function __resetBackendSkinSync(): void {
  * records the baseline; `apply: true` (runtime change / poll) repaints on a name
  * change. Built-in names keep the desktop's own palette but can still be applied.
  */
-export function ingestBackendSkin(skin: AegisSkin | undefined | null, { apply }: { apply: boolean }): void {
+export function ingestBackendSkin(skin: Aegis AI Enterprise Autonomous PlatformSkin | undefined | null, { apply }: { apply: boolean }): void {
   const name = (skin && typeof skin === 'object' ? (skin.name ?? '') : '').trim()
 
   if (!name) {
@@ -114,7 +114,7 @@ export function ingestBackendSkin(skin: AegisSkin | undefined | null, { apply }:
   // Built-in names (mono/slate/…) already have a hand-tuned desktop palette — we
   // never shadow it, but the name is still a valid apply target.
   if (cacheable(name)) {
-    const theme = skinToDesktopTheme(skin as AegisSkin)
+    const theme = skinToDesktopTheme(skin as Aegis AI Enterprise Autonomous PlatformSkin)
 
     if (!theme) {
       return

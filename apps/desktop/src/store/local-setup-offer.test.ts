@@ -1,13 +1,13 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
-import type * as Aegis from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
+import type * as Aegis AI Enterprise Autonomous Platform from '@/aegis'
 import type { LocalCatalogModel, LocalModelsStatus } from '@/types/aegis'
 
 const backend = vi.hoisted(() => ({ catalog: vi.fn(), status: vi.fn() }))
 
 vi.mock('@/aegis', async importOriginal => ({
-  ...(await importOriginal<typeof Aegis>()),
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous Platform>()),
   getLocalCatalog: () => backend.catalog(),
   getLocalModelsStatus: () => backend.status()
 }))
@@ -18,7 +18,7 @@ const row = (id: string, recommended: boolean): LocalCatalogModel =>
 const NO_RUNTIME = { models: [], runtime_installed: false } as unknown as LocalModelsStatus
 
 const connection = (mode: 'local' | 'remote', baseUrl = 'http://127.0.0.1:9') =>
-  ({ baseUrl, isFullscreen: false, mode }) as AegisConnection
+  ({ baseUrl, isFullscreen: false, mode }) as Aegis AI Enterprise Autonomous PlatformConnection
 
 async function connectLocal() {
   const { $localModelsEnabled } = await import('./local-models-flag')

@@ -16,7 +16,7 @@ const mocks = vi.hoisted(() => ({
 }))
 
 vi.mock('@/aegis', () => ({
-  saveAegisConfig: (config: Record<string, unknown>) => mocks.save(config)
+  saveAegis AI Enterprise Autonomous PlatformConfig: (config: Record<string, unknown>) => mocks.save(config)
 }))
 
 vi.mock('@/i18n', () => ({
@@ -41,8 +41,8 @@ vi.mock('@/store/notifications', () => ({
 }))
 
 vi.mock('../hooks/use-config-record', () => ({
-  setAegisConfigCache: (config: Record<string, unknown>) => mocks.cache(config),
-  useAegisConfigRecord: () => ({ data: mocks.loadedConfig, dataUpdatedAt: mocks.configUpdatedAt })
+  setAegis AI Enterprise Autonomous PlatformConfigCache: (config: Record<string, unknown>) => mocks.cache(config),
+  useAegis AI Enterprise Autonomous PlatformConfigRecord: () => ({ data: mocks.loadedConfig, dataUpdatedAt: mocks.configUpdatedAt })
 }))
 
 vi.mock('../hooks/use-on-profile-switch', () => ({

@@ -3,7 +3,7 @@ type SshHostState = {
   sshUser: string
   sshPort: number | null
   sshKeyPath: string
-  sshRemoteAegisPath: string
+  sshRemoteAegis AI Enterprise Autonomous PlatformPath: string
 }
 
 type ResolvedSshHost = {
@@ -23,7 +23,7 @@ function selectSshHost<T extends SshHostState>(state: T, host: string): T {
     sshUser: '',
     sshPort: null,
     sshKeyPath: '',
-    sshRemoteAegisPath: ''
+    sshRemoteAegis AI Enterprise Autonomous PlatformPath: ''
   }
 }
 

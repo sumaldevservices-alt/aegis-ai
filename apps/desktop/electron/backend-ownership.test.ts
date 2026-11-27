@@ -304,7 +304,7 @@ test('backend identity check matches only serve and dashboard invocation shapes'
   assert.equal(backendCommandMatches('/venv/bin/aegis serve --port 0'), true)
   assert.equal(backendCommandMatches('python -m aegis_cli.main dashboard --no-open'), true)
   assert.equal(backendCommandMatches('/venv/bin/aegis --profile work serve --port 0'), true)
-  assert.equal(backendCommandMatches('"C:\\Aegis Runtime\\aegis.exe" dashboard --no-open'), true)
+  assert.equal(backendCommandMatches('"C:\\Aegis AI Enterprise Autonomous Platform Runtime\\aegis.exe" dashboard --no-open'), true)
   assert.equal(backendCommandMatches('aegis chat --query serve'), false)
   assert.equal(backendCommandMatches('unrelated dashboard'), false)
 })

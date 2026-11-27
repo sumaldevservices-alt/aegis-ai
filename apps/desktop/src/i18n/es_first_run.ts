@@ -38,7 +38,7 @@ export const esFirstRun: FirstRunCopy = {
     notNow: 'Ahora no'
   },
   intro: {
-    greeting: 'Hola, soy Aegis.',
+    greeting: 'Hola, soy Aegis AI Enterprise Autonomous Platform.',
     plan: 'Vamos a dejarlo todo listo para ti. Luego haremos algo genial.'
   },
   rerun: {

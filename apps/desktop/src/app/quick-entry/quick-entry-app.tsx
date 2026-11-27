@@ -83,7 +83,7 @@ export function QuickEntryApp() {
 
     const offLateResult = api?.onLateResult(payload => {
       dispatch({
-        message: payload?.result?.message ?? 'Aegis could not deliver the prompt.',
+        message: payload?.result?.message ?? 'Aegis AI Enterprise Autonomous Platform could not deliver the prompt.',
         ok: payload?.result?.ok === true,
         type: 'late-result'
       })
@@ -162,7 +162,7 @@ export function QuickEntryApp() {
                 dispatch({ type: 'dismiss' })
               }
             }}
-            placeholder={state.connected ? 'Ask Aegis…' : 'Not connected — open Aegis to reconnect'}
+            placeholder={state.connected ? 'Ask Aegis AI Enterprise Autonomous Platform…' : 'Not connected — open Aegis AI Enterprise Autonomous Platform to reconnect'}
             ref={inputRef}
             spellCheck={false}
             style={{

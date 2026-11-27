@@ -1,7 +1,7 @@
 import { renderHook, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisGateway } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import { $connectionsRegistry } from '@/store/connection-registry-state'
 import { setPrimaryGateway, setPrimaryGatewayConnectionId } from '@/store/gateway'
 import { $gatewayProjectLooks } from '@/store/gateway-project-looks'
@@ -60,7 +60,7 @@ describe("another gateway's project colours", () => {
 
     const socket = { connectionState: 'open', onState: () => () => {}, request }
 
-    setPrimaryGateway(socket as unknown as AegisGateway, 'research')
+    setPrimaryGateway(socket as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'research')
     setPrimaryGatewayConnectionId('studio', 'remote')
 
     const { result } = renderHook(() => useGatewayProjectTree([], [studioChat]))

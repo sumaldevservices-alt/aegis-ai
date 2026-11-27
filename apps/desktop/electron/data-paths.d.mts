@@ -1,4 +1,4 @@
-export function platformDefaultAegisHome(
+export function platformDefaultAegis AI Enterprise Autonomous PlatformHome(
   home: string,
   env?: NodeJS.ProcessEnv,
   platform?: NodeJS.Platform,
@@ -6,7 +6,7 @@ export function platformDefaultAegisHome(
 
 export function resolveDesktopUserData(defaultPath: string, env?: NodeJS.ProcessEnv): string
 
-export interface AegisHomeOptions {
+export interface Aegis AI Enterprise Autonomous PlatformHomeOptions {
   home: string
   env?: NodeJS.ProcessEnv
   platform?: NodeJS.Platform
@@ -14,4 +14,4 @@ export interface AegisHomeOptions {
   readWindowsHome?: () => string | null
 }
 
-export function resolveDesktopAegisHome(options: AegisHomeOptions): string
+export function resolveDesktopAegis AI Enterprise Autonomous PlatformHome(options: Aegis AI Enterprise Autonomous PlatformHomeOptions): string

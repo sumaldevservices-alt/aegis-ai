@@ -334,7 +334,7 @@ describe('TreeGroup', () => {
         data: {},
         id: 'workspace',
         render: () => <div>Chat</div>,
-        title: 'Aegis'
+        title: 'Aegis AI Enterprise Autonomous Platform'
       })
       vi.stubGlobal('CSS', { escape: (value: string) => value })
 

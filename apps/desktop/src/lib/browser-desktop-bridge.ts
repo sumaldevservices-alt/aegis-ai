@@ -1,6 +1,6 @@
 import { externalUrlTarget, LOCAL_CONNECTION_ID } from '@aegis/shared'
 
-import type { AegisApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 import { BROWSER_BRIDGE_STUBS } from '@/lib/browser-bridge-stubs'
 import { createBrowserClipboardBridge } from '@/lib/browser-clipboard'
 import { createBrowserCloudBridge } from '@/lib/browser-cloud'
@@ -27,7 +27,7 @@ import { tagRegistrySessionResponse } from '../../electron/profile-session-routi
 
 /**
  * Install a capability-limited Desktop bridge when the real renderer is served
- * directly by Aegis' authenticated web server.
+ * directly by Aegis AI Enterprise Autonomous Platform' authenticated web server.
  *
  * Electron remains authoritative everywhere it exists: no injected dashboard
  * token means this is a normal Vite/Electron renderer, and an existing preload
@@ -56,7 +56,7 @@ export function installBrowserDesktopBridge(): boolean {
     announceWebappWindow()
   }
 
-  const api = <T>(request: AegisApiRequest) => browserApi<T>(bootstrap, request)
+  const api = <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => browserApi<T>(bootstrap, request)
 
   // This machine's saved gateway connections (the list native Desktop keeps): each other gateway's
   // requests ride `/api/relay/<id>` on this origin (browser-saved-connections.ts). A host that does
@@ -66,7 +66,7 @@ export function installBrowserDesktopBridge(): boolean {
   const activeConnectionId = () => $connection.get()?.connectionId ?? LOCAL_CONNECTION_ID
 
   // A request names its connection; untagged, it goes to the one this window is on.
-  const activeApi = <T>(request: AegisApiRequest) =>
+  const activeApi = <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) =>
     browserApi<T>(bootstrapFor(request.connectionId ?? activeConnectionId()), request)
 
   // Members with no connection of their own (host files, uploads) follow the window's connection.
@@ -90,7 +90,7 @@ export function installBrowserDesktopBridge(): boolean {
   // already name (`local` for the one serving this page). An untagged listed row beside a `local`
   // new chat read as two owners, which split one gateway's sessions into an unowned group and a
   // `local` gateway group.
-  const rendererApi = async <T>(request: AegisApiRequest): Promise<T> => {
+  const rendererApi = async <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest): Promise<T> => {
     const owner = request.connectionId || LOCAL_CONNECTION_ID
     const response = await browserApi<T>(bootstrapFor(owner), request)
 

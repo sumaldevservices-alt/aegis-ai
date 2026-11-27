@@ -2,7 +2,7 @@
 export interface UninstallSectionTranslations {
   dangerZone: string
   checkingInstalled: string
-  uninstallAegis: string
+  uninstallAegis AI Enterprise Autonomous Platform: string
   managedBody: string
   dataKept: (path: string) => string
   openAppsSettings: string

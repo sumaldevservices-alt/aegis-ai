@@ -67,7 +67,7 @@ export { fileUrlToNativePath } from './file-url'
 export { compactNumber } from './format'
 export { type FuzzyMatch, fuzzyRank, fuzzyScore, fuzzyScoreMulti, type RankedItem } from './fuzzy'
 export * from './gateway-events'
-export { AEGIS_CLOUD_MANAGED, isAegisCloudUrl } from './aegis-cloud'
+export { AEGIS_CLOUD_MANAGED, isAegis AI Enterprise Autonomous PlatformCloudUrl } from './aegis-cloud'
 export {
   applyDocumentLocale,
   type EndonymLocale,
@@ -137,7 +137,7 @@ export {
 export { randomUuid } from './session-http-mutations'
 export { skillInvocationText } from './skill-scaffold'
 export {
-  type AegisSkin,
+  type Aegis AI Enterprise Autonomous PlatformSkin,
   SKIN_BRANDING_TOKENS,
   SKIN_COLOR_TOKENS,
   type SkinBranding,
@@ -202,12 +202,12 @@ export { type UpdateDebt, updateDebt, type UpdateDebtReceipt, type UpdateDebtSte
 export { mergeUsage, usageFromTick, type UsageTickPayload } from './usage-tick'
 export {
   BROWSER_NATIVE_DIAL,
-  buildAegisWebSocketUrl,
+  buildAegis AI Enterprise Autonomous PlatformWebSocketUrl,
   type GatewayAuthMode,
   GatewayReauthRequiredError,
   type GatewayWsConnection,
   type GatewayWsUrlResult,
-  type AegisWebSocketUrlOptions,
+  type Aegis AI Enterprise Autonomous PlatformWebSocketUrlOptions,
   isGatewayReauthRequired,
   normalizeBasePath,
   resolveGatewayWsUrl,

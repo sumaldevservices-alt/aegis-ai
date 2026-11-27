@@ -27,7 +27,7 @@ import {
   SAFE_STORAGE_ENCODING,
   SECRET_FILE_MODE,
   sensitiveFileBlockReason,
-  setSensitiveAegisHome,
+  setSensitiveAegis AI Enterprise Autonomous PlatformHome,
   tightenSecretFileMode,
   writeSecretFileAtomic
 } from './hardening'
@@ -923,12 +923,12 @@ test('resolveReadableFileForIpc blocks common sensitive files', async () => {
   }
 })
 
-test('resolveReadableFileForIpc blocks Aegis credential stores in the home and every profile', async () => {
+test('resolveReadableFileForIpc blocks Aegis AI Enterprise Autonomous Platform credential stores in the home and every profile', async () => {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-desktop-creds-'))
   const aegisHome = path.join(tempDir, 'aegis-home')
 
   try {
-    setSensitiveAegisHome(aegisHome)
+    setSensitiveAegis AI Enterprise Autonomous PlatformHome(aegisHome)
 
     const stores = [
       'auth.json',
@@ -954,7 +954,7 @@ test('resolveReadableFileForIpc blocks Aegis credential stores in the home and e
       }
     }
 
-    // Ordinary Aegis files and same-named project files stay previewable.
+    // Ordinary Aegis AI Enterprise Autonomous Platform files and same-named project files stay previewable.
     const allowed = [path.join(aegisHome, 'config.yaml'), path.join(tempDir, 'project', 'auth.json')]
 
     for (const filePath of allowed) {
@@ -963,7 +963,7 @@ test('resolveReadableFileForIpc blocks Aegis credential stores in the home and e
       assert.equal((await resolveReadableFileForIpc(filePath, { purpose: 'File preview' })).resolvedPath, filePath)
     }
   } finally {
-    setSensitiveAegisHome(null)
+    setSensitiveAegis AI Enterprise Autonomous PlatformHome(null)
     fs.rmSync(tempDir, { recursive: true, force: true })
   }
 })
@@ -983,14 +983,14 @@ function trySymlink(target: string, link: string, type?: 'dir' | 'file' | 'junct
   }
 }
 
-test('resolveReadableFileForIpc blocks a link outside the home that resolves to a Aegis store', async () => {
+test('resolveReadableFileForIpc blocks a link outside the home that resolves to a Aegis AI Enterprise Autonomous Platform store', async () => {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-desktop-creds-link-'))
   const aegisHome = path.join(tempDir, 'aegis-home')
 
   try {
     fs.mkdirSync(aegisHome)
     fs.writeFileSync(path.join(aegisHome, 'auth.json'), 'TOKEN_MARKER', 'utf8')
-    setSensitiveAegisHome(aegisHome)
+    setSensitiveAegis AI Enterprise Autonomous PlatformHome(aegisHome)
 
     const link = path.join(tempDir, 'innocent.json')
 
@@ -1000,12 +1000,12 @@ test('resolveReadableFileForIpc blocks a link outside the home that resolves to 
 
     await rejectsWithCode(resolveReadableFileForIpc(link, { purpose: 'File preview' }), 'sensitive-file')
   } finally {
-    setSensitiveAegisHome(null)
+    setSensitiveAegis AI Enterprise Autonomous PlatformHome(null)
     fs.rmSync(tempDir, { recursive: true, force: true })
   }
 })
 
-test('resolveReadableFileForIpc blocks relocated Aegis stores read through their real path', async () => {
+test('resolveReadableFileForIpc blocks relocated Aegis AI Enterprise Autonomous Platform stores read through their real path', async () => {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-desktop-creds-moved-'))
   const aegisHome = path.join(tempDir, 'aegis-home')
   const workHome = path.join(tempDir, 'data', 'work-home')
@@ -1036,7 +1036,7 @@ test('resolveReadableFileForIpc blocks relocated Aegis stores read through their
       return
     }
 
-    setSensitiveAegisHome(aegisHome)
+    setSensitiveAegis AI Enterprise Autonomous PlatformHome(aegisHome)
 
     for (const filePath of [
       path.join(workHome, 'auth.json'),
@@ -1051,12 +1051,12 @@ test('resolveReadableFileForIpc blocks relocated Aegis stores read through their
     const notes = path.join(workHome, 'notes.md')
     assert.equal((await resolveReadableFileForIpc(notes, { purpose: 'File preview' })).resolvedPath, notes)
   } finally {
-    setSensitiveAegisHome(null)
+    setSensitiveAegis AI Enterprise Autonomous PlatformHome(null)
     fs.rmSync(tempDir, { recursive: true, force: true })
   }
 })
 
-test('sensitiveFileBlockReason re-resolves relocated Aegis stores at most once per window', () => {
+test('sensitiveFileBlockReason re-resolves relocated Aegis AI Enterprise Autonomous Platform stores at most once per window', () => {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-desktop-creds-ttl-'))
   const aegisHome = path.join(tempDir, 'aegis-home')
   const vaultDir = path.join(tempDir, 'data', 'vault')
@@ -1070,7 +1070,7 @@ test('sensitiveFileBlockReason re-resolves relocated Aegis stores at most once p
     fs.mkdirSync(path.dirname(notes), { recursive: true })
     fs.writeFileSync(path.join(vaultDir, 'vault.key'), 'TOKEN_MARKER', 'utf8')
     fs.writeFileSync(notes, 'ok', 'utf8')
-    setSensitiveAegisHome(aegisHome)
+    setSensitiveAegis AI Enterprise Autonomous PlatformHome(aegisHome)
     assert.equal(sensitiveFileBlockReason(notes), null)
 
     const sweep = realpath.mock.calls.length
@@ -1090,7 +1090,7 @@ test('sensitiveFileBlockReason re-resolves relocated Aegis stores at most once p
   } finally {
     realpath.mockRestore()
     vi.useRealTimers()
-    setSensitiveAegisHome(null)
+    setSensitiveAegis AI Enterprise Autonomous PlatformHome(null)
     fs.rmSync(tempDir, { recursive: true, force: true })
   }
 })

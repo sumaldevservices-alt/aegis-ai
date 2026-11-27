@@ -1,6 +1,6 @@
 // The desktop product identity — THE single source for every name-shaped
-// value a variant owns. AEGIS_DESKTOP_VARIANT=light builds "Aegis
-// Light", the remote-only client; everything else is full "Aegis".
+// value a variant owns. AEGIS_DESKTOP_VARIANT=light builds "Aegis AI Enterprise Autonomous Platform
+// Light", the remote-only client; everything else is full "Aegis AI Enterprise Autonomous Platform".
 //
 // Consumed at build time by electron-builder.config.cjs (packaging
 // identity). electron/product-identity.ts is the typed runtime accessor.
@@ -9,16 +9,16 @@
 'use strict'
 
 const variants = {
-  '': { display: 'Aegis', kebab: 'aegis', pascal: 'Aegis' },
+  '': { display: 'Aegis AI Enterprise Autonomous Platform', kebab: 'aegis', pascal: 'Aegis AI Enterprise Autonomous Platform' },
   light: {
-    display: 'Aegis Light',
+    display: 'Aegis AI Enterprise Autonomous Platform Light',
     kebab: 'aegis-light',
-    pascal: 'AegisLight'
+    pascal: 'Aegis AI Enterprise Autonomous PlatformLight'
   },
   bundled: {
-    display: 'Aegis Agent',
+    display: 'Aegis AI Enterprise Autonomous Platform Agent',
     kebab: 'aegis-bundled',
-    pascal: 'AegisBundled'
+    pascal: 'Aegis AI Enterprise Autonomous PlatformBundled'
   }
 }
 
@@ -88,7 +88,7 @@ const identity = {
           // validated + re-signed by the Store on submission. Canary builds use
           // a distinct non-production identity name so a staged canary bundle
           // can never pass for a stable Partner Center submission.
-          identityName: canary ? 'NousResearchInc.AegisAgentCanary' : 'NousResearchInc.AegisAgent',
+          identityName: canary ? 'NousResearchInc.Aegis AI Enterprise Autonomous PlatformAgentCanary' : 'NousResearchInc.Aegis AI Enterprise Autonomous PlatformAgent',
           publisher: 'CN=EE6D86E4-606F-4E38-B940-AD7248C9D519',
           publisherDisplayName: 'Nous Research Inc.'
         }

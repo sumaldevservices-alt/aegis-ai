@@ -49,7 +49,7 @@ function handoffFixture(remote: boolean, scriptText: string = ''): { root: strin
     remoteGatewayActive: (): boolean => remote,
     emitUpdateProgress: vi.fn(),
     rememberLog: vi.fn(),
-    startAegis: vi.fn(async (): Promise<void> => {}),
+    startAegis AI Enterprise Autonomous Platform: vi.fn(async (): Promise<void> => {}),
     stopBackendsForUpdate: async (): Promise<void> => {},
     repairMacUpdaterHelper: (): void => {},
     preflightStateDb: (): void => {},
@@ -169,7 +169,7 @@ it('a failed hand-off spawn keeps the app alive and reports the failure in plain
       await createCheckoutStrategy(deps).apply()
 
     expect(result).toMatchObject({ ok: false, error: 'updater-spawn-failed' })
-    expect(result.message).toMatch(/Aegis keeps running/)
+    expect(result.message).toMatch(/Aegis AI Enterprise Autonomous Platform keeps running/)
     expect(result.message).toMatch(/Details: .*ENOENT/)
     expect(result.message?.indexOf('Details:')).toBeGreaterThan(0)
     expect(deps.quit).not.toHaveBeenCalled()
@@ -196,7 +196,7 @@ it('a hand-off whose legacy script never takes the marker keeps the app alive an
     expect(deps.quit).not.toHaveBeenCalled()
     expect(deps.markQuittingForHandoff).not.toHaveBeenCalled()
     // Windows stopped its backends before spawning; POSIX never did.
-    expect(vi.mocked(deps.startAegis).mock.calls.length > 0).toBe(IS_WINDOWS)
+    expect(vi.mocked(deps.startAegis AI Enterprise Autonomous Platform).mock.calls.length > 0).toBe(IS_WINDOWS)
     expect(fs.existsSync(markerPath(deps.aegisHome))).toBe(false)
   } finally {
     fs.rmSync(root, { recursive: true, force: true })
@@ -401,7 +401,7 @@ describe.skipIf(IS_WINDOWS)('protocol 2 hand-off', () => {
         const result = await createCheckoutStrategy({ ...deps, handoffClaimTimeoutMs: 400 }).apply()
 
         expect(result).toMatchObject({ ok: true, handedOff: true })
-        expect(deps.startAegis).not.toHaveBeenCalled()
+        expect(deps.startAegis AI Enterprise Autonomous Platform).not.toHaveBeenCalled()
         expect(kill).not.toHaveBeenCalled()
         expect(deps.markQuittingForHandoff).toHaveBeenCalled()
         // Re-asked only while the lock is busy (an error re-asked could cost

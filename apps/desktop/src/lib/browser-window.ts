@@ -1,10 +1,10 @@
 import { randomUuid } from '@aegis/shared'
 
-import type { AegisApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 import { dismissNotification } from '@/store/notifications'
 
 interface BrowserWindowOptions {
-  api: <T>(request: AegisApiRequest) => Promise<T>
+  api: <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>
   basePath: string
   privateSession: boolean
 }

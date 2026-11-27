@@ -26,8 +26,8 @@ const setModelAssignment = vi.fn()
 const getRecommendedDefaultModel = vi.fn()
 const saveMoaModels = vi.fn()
 const setEnvVar = vi.fn()
-const getAegisConfigRecord = vi.fn()
-const saveAegisConfig = vi.fn()
+const getAegis AI Enterprise Autonomous PlatformConfigRecord = vi.fn()
+const saveAegis AI Enterprise Autonomous PlatformConfig = vi.fn()
 const startManualLocalEndpoint = vi.fn()
 const startManualOnboarding = vi.fn()
 const startManualProviderOAuth = vi.fn()
@@ -47,8 +47,8 @@ vi.mock('@/aegis', async () => ({
   getRecommendedDefaultModel: (slug: string) => getRecommendedDefaultModel(slug),
   saveMoaModels: (body: unknown) => saveMoaModels(body),
   setEnvVar: (key: string, value: string) => setEnvVar(key, value),
-  getAegisConfigRecord: () => getAegisConfigRecord(),
-  saveAegisConfig: (config: unknown) => saveAegisConfig(config),
+  getAegis AI Enterprise Autonomous PlatformConfigRecord: () => getAegis AI Enterprise Autonomous PlatformConfigRecord(),
+  saveAegis AI Enterprise Autonomous PlatformConfig: (config: unknown) => saveAegis AI Enterprise Autonomous PlatformConfig(config),
   setApiRequestProfile: () => {}
 }))
 
@@ -85,8 +85,8 @@ beforeEach(() => {
   setModelAssignment.mockResolvedValue({ ok: true, provider: 'nous', model: 'aegis-4', gateway_tools: [] })
   getRecommendedDefaultModel.mockResolvedValue({ provider: 'nous', model: 'aegis-4', free_tier: null })
   setEnvVar.mockResolvedValue({ ok: true })
-  getAegisConfigRecord.mockResolvedValue({ agent: { reasoning_effort: 'medium', service_tier: 'normal' } })
-  saveAegisConfig.mockResolvedValue({ ok: true })
+  getAegis AI Enterprise Autonomous PlatformConfigRecord.mockResolvedValue({ agent: { reasoning_effort: 'medium', service_tier: 'normal' } })
+  saveAegis AI Enterprise Autonomous PlatformConfig.mockResolvedValue({ ok: true })
 })
 
 afterEach(() => {
@@ -333,17 +333,17 @@ describe('ModelSettings', () => {
     // The cached record is a default-expanded snapshot; a CLI pin made after it
     // loaded is not in it. Echoing the whole record back would reset that
     // auxiliary slot to auto/'' (#95460) — only the edited key may be sent.
-    getAegisConfigRecord.mockResolvedValue({
+    getAegis AI Enterprise Autonomous PlatformConfigRecord.mockResolvedValue({
       agent: { reasoning_effort: 'medium', service_tier: 'normal' },
       auxiliary: { curator: { provider: 'auto', model: '', reasoning_effort: 'high' } }
     })
     renderModelSettings()
-    await waitFor(() => expect(getAegisConfigRecord).toHaveBeenCalled())
+    await waitFor(() => expect(getAegis AI Enterprise Autonomous PlatformConfigRecord).toHaveBeenCalled())
 
     const fastSwitch = await screen.findByRole('switch')
     fireEvent.click(fastSwitch)
 
-    await waitFor(() => expect(saveAegisConfig).toHaveBeenCalledWith({ agent: { service_tier: 'fast' } }))
+    await waitFor(() => expect(saveAegis AI Enterprise Autonomous PlatformConfig).toHaveBeenCalledWith({ agent: { service_tier: 'fast' } }))
   })
 
   it('hides the reasoning/speed defaults when the main model reports no capabilities', async () => {
@@ -360,7 +360,7 @@ describe('ModelSettings', () => {
     })
 
     renderModelSettings()
-    await waitFor(() => expect(getAegisConfigRecord).toHaveBeenCalled())
+    await waitFor(() => expect(getAegis AI Enterprise Autonomous PlatformConfigRecord).toHaveBeenCalled())
 
     expect(screen.queryByRole('switch')).toBeNull()
   })
@@ -1019,7 +1019,7 @@ describe('ModelSettings stale-aux banner dismissal', () => {
 
 describe('ModelSettings code-skew 503', () => {
   const skewError = new Error(
-    'Error invoking remote method \'aegis:api\': Error: 503: {"detail":"Restart required: This process is running code from 08b4875f4a but the checkout on disk is now 48d2528066. The model picker would risk a stale-module crash — restart the Desktop-owned backend to load the new code (use Restart backend in Aegis Desktop, or quit and reopen the app)"}'
+    'Error invoking remote method \'aegis:api\': Error: 503: {"detail":"Restart required: This process is running code from 08b4875f4a but the checkout on disk is now 48d2528066. The model picker would risk a stale-module crash — restart the Desktop-owned backend to load the new code (use Restart backend in Aegis AI Enterprise Autonomous Platform Desktop, or quit and reopen the app)"}'
   )
 
   afterEach(() => {

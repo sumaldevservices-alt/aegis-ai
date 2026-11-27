@@ -52,7 +52,7 @@ function profileBackendBridge() {
     !desktop.clearProfileBackend ||
     !desktop.confirmClearProfileBackend
   ) {
-    throw new Error('This build of Aegis Desktop cannot run a profile through a plugin.')
+    throw new Error('This build of Aegis AI Enterprise Autonomous Platform Desktop cannot run a profile through a plugin.')
   }
 
   return desktop as Required<

@@ -19,18 +19,18 @@ const digestModule = pathToFileURL(path.join(import.meta.dirname, 'payload-diges
 // provides; a PATH python would fail later with an unrelated ImportError.
 function preparedPython() {
   const configured = process.env.AEGIS_PYTHON
-  if (!configured) throw new Error('mac-sign tests need AEGIS_PYTHON set to the prepared Aegis runtime interpreter')
+  if (!configured) throw new Error('mac-sign tests need AEGIS_PYTHON set to the prepared Aegis AI Enterprise Autonomous Platform runtime interpreter')
   return configured
 }
 
 function fixture() {
   const python = preparedPython()
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mac-digest-order-'))
-  const app = path.join(root, 'Aegis.app')
+  const app = path.join(root, 'Aegis AI Enterprise Autonomous Platform.app')
   const payload = path.join(app, 'Contents', 'Resources', 'agent-payload')
   const tools = path.join(payload, 'tools')
   const nested = path.join(tools, 'chromium', 'Browser.app')
-  const binaries = [path.join(app, 'Contents', 'MacOS', 'Aegis'),
+  const binaries = [path.join(app, 'Contents', 'MacOS', 'Aegis AI Enterprise Autonomous Platform'),
     path.join(tools, 'python', 'bin', 'python3'),
     path.join(nested, 'Contents', 'MacOS', process.platform === 'win32' ? 'chrome.exe' : 'Chromium')]
   for (const binary of binaries) {

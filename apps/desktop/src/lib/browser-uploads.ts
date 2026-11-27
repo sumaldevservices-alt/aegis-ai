@@ -1,4 +1,4 @@
-import type { AegisApiRequest, AegisSelectPathsOptions, AegisStagedUpload } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest, Aegis AI Enterprise Autonomous PlatformSelectPathsOptions, Aegis AI Enterprise Autonomous PlatformStagedUpload } from '@/global'
 import { blobToDataUrl } from '@/lib/base64'
 import { type BrowserBootstrap, browserFetch, endpointUrl } from '@/lib/browser-transport'
 
@@ -96,7 +96,7 @@ function sandboxedHtmlBlob(bytes: Uint8Array, assetsBasePath: string): Blob {
 interface StageResponse {
   detail?: unknown
   path?: string
-  staged_upload?: AegisStagedUpload
+  staged_upload?: Aegis AI Enterprise Autonomous PlatformStagedUpload
 }
 
 /** A proxy's own error page (nginx's 413, a 502/504) is HTML, not the server's JSON. */
@@ -118,7 +118,7 @@ function uploadFailure(status: number, detail: unknown): string {
     : `File upload failed (${status})`
 }
 
-type OnStaged = (path: string, name: string, staged?: AegisStagedUpload) => void
+type OnStaged = (path: string, name: string, staged?: Aegis AI Enterprise Autonomous PlatformStagedUpload) => void
 
 async function stageBrowserFile(
   bootstrap: BrowserBootstrap,
@@ -158,7 +158,7 @@ async function stageBrowserFile(
 
 function selectBrowserFiles(
   bootstrap: BrowserBootstrap,
-  options: AegisSelectPathsOptions | undefined,
+  options: Aegis AI Enterprise Autonomous PlatformSelectPathsOptions | undefined,
   fallbackProfile: null | string,
   onStaged: OnStaged
 ): Promise<string[]> {
@@ -203,7 +203,7 @@ function selectBrowserFiles(
 }
 
 interface BrowserUploadsOptions {
-  api: <T>(request: AegisApiRequest) => Promise<T>
+  api: <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>
   bootstrap: BrowserBootstrap
   /** The serving gateway's base path. The preview wrapper runs on this origin, so its own scripts
    *  come from here even when *bootstrap* is a relayed gateway's. */
@@ -228,7 +228,7 @@ export function createBrowserUploadsBridge({
   'getStagedFileDisplayName' | 'getStagedFileForAttach' | 'saveImageBuffer' | 'savePastedText' | 'selectPaths' | 'stageFileForAttach'
 > {
   const displayNames = new Map<string, string>()
-  const stagedUploads = new Map<string, AegisStagedUpload>()
+  const stagedUploads = new Map<string, Aegis AI Enterprise Autonomous PlatformStagedUpload>()
 
   const rememberStaged: OnStaged = (path, name, staged) => {
     // Keep the existing string-path bridge for pickers and drops. Composer chips

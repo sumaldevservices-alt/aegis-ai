@@ -5,7 +5,7 @@ interface ResolvedPrimaryRemote {
   headers?: Record<string, string>
   /** A desktop plugin's launcher on this computer serves this profile's backend. */
   launcher?: { plugin: string }
-  remoteAegisVersion?: string
+  remoteAegis AI Enterprise Autonomous PlatformVersion?: string
   remoteHost?: string
   remoteKind?: 'cloud' | 'ssh' | 'url'
   source?: string
@@ -14,7 +14,7 @@ interface ResolvedPrimaryRemote {
     host?: string
     keyPath?: string
     port?: number
-    remoteAegisPath?: string
+    remoteAegis AI Enterprise Autonomous PlatformPath?: string
     remoteProfile?: string
     user?: string
   }
@@ -39,7 +39,7 @@ export function createPrimaryRemoteConnection<State extends object>(
     authMode: remote.authMode || 'token',
     remoteHost: remote.remoteHost,
     remoteKind: remote.remoteKind,
-    remoteAegisVersion: remote.remoteAegisVersion,
+    remoteAegis AI Enterprise Autonomous PlatformVersion: remote.remoteAegis AI Enterprise Autonomous PlatformVersion,
     ...(remote.connectionId ? { connectionId: remote.connectionId } : {}),
     ...(remote.launcher ? { launcher: remote.launcher } : {}),
     ...(remote.ssh ? { ssh: remote.ssh } : {}),
@@ -147,7 +147,7 @@ export async function connectPrimaryRemote<State extends object>(
 ) {
   options.signal?.throwIfAborted()
   options.assertCurrentAttempt()
-  await options.advanceBootProgress('backend.remote', `Connecting to remote Aegis backend at ${remote.baseUrl}`, 24)
+  await options.advanceBootProgress('backend.remote', `Connecting to remote Aegis AI Enterprise Autonomous Platform backend at ${remote.baseUrl}`, 24)
   await options.waitForRemote(remote)
   options.signal?.throwIfAborted()
   options.assertCurrentAttempt()
@@ -188,7 +188,7 @@ export async function connectPrimaryRemote<State extends object>(
 
   options.updateBootProgress({
     phase: 'backend.ready',
-    message: 'Remote Aegis backend is ready',
+    message: 'Remote Aegis AI Enterprise Autonomous Platform backend is ready',
     progress: 94,
     running: true,
     error: null

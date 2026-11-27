@@ -1,6 +1,6 @@
 /**
  * Bot Screen install card — installs the TigerVNC + Xfce packages on the bot's
- * gateway host from inside Aegis Desktop.
+ * gateway host from inside Aegis AI Enterprise Autonomous Platform Desktop.
  *
  * `display.install` starts the distro package command on the host; sudo, when
  * needed, arrives as the same masked password card the terminal tool uses
@@ -32,7 +32,7 @@ interface ScreenInstallCardProps {
 }
 
 /**
- * The pane for a host without the screen packages. Aegis Cloud ships Screen in the image of
+ * The pane for a host without the screen packages. Aegis AI Enterprise Autonomous Platform Cloud ships Screen in the image of
  * its larger sizes; a smaller bot's image leaves it out, and packages installed by hand would
  * not survive the next update, so only a self-managed host is offered the install.
  */

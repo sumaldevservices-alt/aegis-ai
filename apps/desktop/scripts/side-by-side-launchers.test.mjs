@@ -22,7 +22,7 @@ test('the Store bundler rejects non-release selectors before platform tools or s
 test('nonstable MSIX CLI aliases each activate their own entrypoint, never the GUI', () => {
   const launchers = ['aegis-canary', 'aegis-canary-acp']
   const applications = msix.appExecutionAliasApplications(launchers, {
-    appNamePascal: 'AegisBundledCanary', displayName: 'Aegis Agent Canary'
+    appNamePascal: 'Aegis AI Enterprise Autonomous PlatformBundledCanary', displayName: 'Aegis AI Enterprise Autonomous Platform Agent Canary'
   })
   const apps = applications.match(/<Application[\s\S]*?<\/Application>/g)
   assert.equal(apps.length, launchers.length)

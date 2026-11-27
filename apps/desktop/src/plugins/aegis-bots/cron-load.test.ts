@@ -18,7 +18,7 @@
  * routing layer (route resolution, error coercion) runs.
  */
 
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { RoutineJob } from './types'
@@ -26,7 +26,7 @@ import type { RoutineJob } from './types'
 const request = vi.fn()
 
 vi.mock('@aegis/plugin-sdk', async importOriginal => {
-  const sdk = await importOriginal<typeof AegisSdk>()
+  const sdk = await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>()
 
   return { ...sdk, host: { ...sdk.host, request } }
 })

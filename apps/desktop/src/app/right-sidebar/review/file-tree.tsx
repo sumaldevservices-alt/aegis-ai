@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/context-menu'
 import { DiffCount } from '@/components/ui/diff-count'
 import { Tip } from '@/components/ui/tooltip'
-import type { AegisReviewFile } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformReviewFile } from '@/global'
 import { useI18n } from '@/i18n'
 import { isDesktopFsRemoteMode } from '@/lib/desktop-fs'
 import { displayPath } from '@/lib/display-path'
@@ -479,7 +479,7 @@ function ReviewFileContextMenu({
   children: ReactNode
   cwd: null | string
   dragPath: string
-  file: AegisReviewFile
+  file: Aegis AI Enterprise Autonomous PlatformReviewFile
   onOpenChanges: () => void
   onOpenFile: () => void
 }) {

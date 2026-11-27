@@ -34,7 +34,7 @@ test('a commit claim packages as its commit identity and never as a release', ()
   const identity = JSON.parse(result.stdout)
   assert.equal(identity.version, '26.922.0.1403')
   assert.equal(identity.fileVersion, '0.21.4+commit.20260922T001403Z')
-  assert.equal(identity.app, 'NousResearch.AegisBundledCommitaaaaaaa')
+  assert.equal(identity.app, 'NousResearch.Aegis AI Enterprise Autonomous PlatformBundledCommitaaaaaaa')
   // Without the commit identity a commit claim would build an updatable release: refused.
   assert.notEqual(run({ AEGIS_PAYLOAD_TAG: claim.AEGIS_PAYLOAD_TAG }).status, 0)
   // Nor does a commit identity take any other release tag.

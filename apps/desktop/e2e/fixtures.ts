@@ -1,5 +1,5 @@
 /**
- * Shared E2E fixtures for the Aegis desktop Playwright suite.
+ * Shared E2E fixtures for the Aegis AI Enterprise Autonomous Platform desktop Playwright suite.
  *
  * Two fixture modes:
  *
@@ -74,13 +74,13 @@ function isCredentialEnvVar(name: string): boolean {
   return CREDENTIAL_SUFFIXES.some((suffix) => name.endsWith(suffix))
 }
 
-// Runtime state of whatever Aegis launched this run. A spec driven from inside
+// Runtime state of whatever Aegis AI Enterprise Autonomous Platform launched this run. A spec driven from inside
 // an agent's terminal inherits AEGIS_YOLO_MODE, AEGIS_INTERACTIVE,
 // AEGIS_SESSION_ID…, and the sandboxed backend then skips approvals or binds
 // the caller's session — the approval spec failed locally on the leaked yolo
 // flag while CI (which never has these) stayed green. The fixtures set every
 // AEGIS_* the app needs themselves; only the harness's own knobs pass.
-function isInheritedAegisRuntimeVar(name: string): boolean {
+function isInheritedAegis AI Enterprise Autonomous PlatformRuntimeVar(name: string): boolean {
   return name.startsWith('AEGIS_') && !name.startsWith('AEGIS_DESKTOP_') && !name.startsWith('AEGIS_E2E_')
 }
 
@@ -92,7 +92,7 @@ function stripCredentials(env: Record<string, string | undefined>): Record<strin
       continue
     }
 
-    if (isCredentialEnvVar(key) || isInheritedAegisRuntimeVar(key)) {
+    if (isCredentialEnvVar(key) || isInheritedAegis AI Enterprise Autonomous PlatformRuntimeVar(key)) {
       continue
     }
 
@@ -218,7 +218,7 @@ export function buildAppEnv(sandbox: Sandbox, extra: Record<string, string> = {}
     AEGIS_DESKTOP_ISOLATED_BACKEND: '1',
     HOME: sandbox.root,
     AEGIS_DESKTOP_AEGIS_ROOT: REPO_ROOT,
-    AEGIS_DESKTOP_APP_NAME: `AegisE2E-${Date.now()}`,
+    AEGIS_DESKTOP_APP_NAME: `Aegis AI Enterprise Autonomous PlatformE2E-${Date.now()}`,
     // `app.close()` in teardown must exit even when a spec leaves a turn
     // mid-flight — otherwise the quit confirmation waits on a click that no
     // one is there to make, and the worker dies on a teardown timeout.
@@ -440,7 +440,7 @@ export async function setupDeadBackend(options: DeadBackendOptions = {}): Promis
   writeMockProviderConfig(sandbox.aegisHome, deadUrl)
   writeEnvFile(sandbox.aegisHome, 'e2e-mock-key', deadUrl)
 
-  const env = buildAppEnv(sandbox, options.fakeError ? { AEGIS_DESKTOP_BOOT_FAKE_ERROR: 'Failed to connect to Aegis backend: connection refused' } : {})
+  const env = buildAppEnv(sandbox, options.fakeError ? { AEGIS_DESKTOP_BOOT_FAKE_ERROR: 'Failed to connect to Aegis AI Enterprise Autonomous Platform backend: connection refused' } : {})
   const { app, page } = await launchDesktop(env)
 
   return {
@@ -462,13 +462,13 @@ export async function setupDeadBackend(options: DeadBackendOptions = {}): Promis
  */
 function resolvePackagedBinaryPath(): string {
   if (process.platform === 'win32') {
-    return path.join(RELEASE_ROOT, 'win-unpacked', 'Aegis.exe')
+    return path.join(RELEASE_ROOT, 'win-unpacked', 'Aegis AI Enterprise Autonomous Platform.exe')
   }
 
   if (process.platform === 'darwin') {
     const arch = process.arch === 'arm64' ? 'arm64' : 'x64'
 
-    return path.join(RELEASE_ROOT, `mac-${arch}`, 'Aegis.app', 'Contents', 'MacOS', 'Aegis')
+    return path.join(RELEASE_ROOT, `mac-${arch}`, 'Aegis AI Enterprise Autonomous Platform.app', 'Contents', 'MacOS', 'Aegis AI Enterprise Autonomous Platform')
   }
 
   return path.join(RELEASE_ROOT, 'linux-unpacked', 'aegis')
@@ -490,7 +490,7 @@ export interface PackagedAppFixture {
 /**
  * Launch the *packaged* Electron binary (from `pnpm run pack` →
  * `electron-builder --dir`) with `BOOT_FAKE=1` so it simulates boot
- * progress without spawning a real Aegis backend.
+ * progress without spawning a real Aegis AI Enterprise Autonomous Platform backend.
  *
  * Uses the same sandbox isolation (credential stripping, isolated
  * AEGIS_HOME + userData, unique app name) as the dev-mode fixtures.

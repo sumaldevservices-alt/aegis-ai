@@ -1,21 +1,21 @@
-// The Aegis home the desktop main process runs against, resolved once at boot.
+// The Aegis AI Enterprise Autonomous Platform home the desktop main process runs against, resolved once at boot.
 // Resolving it here also registers it with the file-preview read guard, so the
 // home's (and every profile's) credential stores are refused before any IPC
 // read can be served.
 
-import { resolveDesktopAegisHome } from './data-paths'
+import { resolveDesktopAegis AI Enterprise Autonomous PlatformHome } from './data-paths'
 import { directoryExists } from './fs-probes'
-import { setSensitiveAegisHome } from './hardening'
+import { setSensitiveAegis AI Enterprise Autonomous PlatformHome } from './hardening'
 import { readWindowsUserEnvVar } from './windows-user-env'
 
-export function resolveMainAegisHome(home: string): string {
-  const aegisHome = resolveDesktopAegisHome({
+export function resolveMainAegis AI Enterprise Autonomous PlatformHome(home: string): string {
+  const aegisHome = resolveDesktopAegis AI Enterprise Autonomous PlatformHome({
     home,
     directoryExists,
     readWindowsHome: (): string | null => readWindowsUserEnvVar('AEGIS_HOME')
   })
 
-  setSensitiveAegisHome(aegisHome)
+  setSensitiveAegis AI Enterprise Autonomous PlatformHome(aegisHome)
 
   return aegisHome
 }

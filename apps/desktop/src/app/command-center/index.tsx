@@ -11,7 +11,7 @@ import { SearchField } from '@/components/ui/search-field'
 import { SegmentedControl } from '@/components/ui/segmented-control'
 import { ResponsiveTabs } from '@/components/ui/tab-dropdown'
 import { Tip } from '@/components/ui/tooltip'
-import { getActionStatus, getLogs, getStatus, getUsageAnalytics, restartGateway, updateAegis } from '@/aegis'
+import { getActionStatus, getLogs, getStatus, getUsageAnalytics, restartGateway, updateAegis AI Enterprise Autonomous Platform } from '@/aegis'
 import type { ActionStatusResponse, AnalyticsResponse, SessionInfo, StatusResponse } from '@/aegis'
 import { useI18n } from '@/i18n'
 import { sessionTitle } from '@/lib/chat-runtime'
@@ -131,8 +131,8 @@ function RowIconButton({
   )
 }
 
-/** The System card's Update button. Aegis Cloud updates its agents itself, so it has none there. */
-function UpdateAegisButton({ label, onClick }: { label: string; onClick: () => void }) {
+/** The System card's Update button. Aegis AI Enterprise Autonomous Platform Cloud updates its agents itself, so it has none there. */
+function UpdateAegis AI Enterprise Autonomous PlatformButton({ label, onClick }: { label: string; onClick: () => void }) {
   if (useStore($cloudOwnsUpdates).backend) {
     return null
   }
@@ -329,7 +329,7 @@ export function CommandCenterView({
       }
 
       try {
-        const started = kind === 'restart' ? await restartGateway() : await updateAegis()
+        const started = kind === 'restart' ? await restartGateway() : await updateAegis AI Enterprise Autonomous Platform()
         let nextStatus: ActionStatusResponse | null = null
 
         for (let attempt = 0; attempt < 18; attempt += 1) {
@@ -522,7 +522,7 @@ export function CommandCenterView({
                           <Button onClick={() => void runSystemAction('restart')} size="xs" variant="text">
                             {cc.restartGateway}
                           </Button>
-                          <UpdateAegisButton label={cc.updateAegis} onClick={() => void runSystemAction('update')} />
+                          <UpdateAegis AI Enterprise Autonomous PlatformButton label={cc.updateAegis AI Enterprise Autonomous Platform} onClick={() => void runSystemAction('update')} />
                         </div>
                       </div>
                       {systemAction && (

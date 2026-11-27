@@ -48,7 +48,7 @@ export function managedSshConfig(source: RegistryConnection, profile: null | str
     user: source.user,
     port: source.port,
     keyPath: source.keyPath,
-    remoteAegisPath: source.remoteAegisPath,
+    remoteAegis AI Enterprise Autonomous PlatformPath: source.remoteAegis AI Enterprise Autonomous PlatformPath,
     remoteProfile: source.remoteProfile || (profileKey === 'default' ? '' : profileKey)
   })
 }
@@ -90,7 +90,7 @@ function profileNames(body: unknown): string[] {
 // Same shape remote-lifecycle gives a remote `--profile X serve` that refuses a missing profile.
 function remoteProfileMissing(profile: string): Error & { kind: string; profile: string } {
   return Object.assign(
-    new Error(`The remote Aegis profile '${profile}' does not exist. Select an existing remote profile.`),
+    new Error(`The remote Aegis AI Enterprise Autonomous Platform profile '${profile}' does not exist. Select an existing remote profile.`),
     { kind: 'remote-profile-missing', profile }
   )
 }

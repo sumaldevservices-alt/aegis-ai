@@ -1,6 +1,6 @@
 import { fileUrlToNativePath } from '@aegis/shared'
 
-import type { AegisApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 import { translateNow } from '@/i18n'
 import { requireBrowserConnection } from '@/lib/browser-connection'
 import { fetchBrowserImage } from '@/lib/browser-image-download'
@@ -51,7 +51,7 @@ async function saveExplicitDownload(
 }
 
 interface BrowserFilesOptions {
-  api: <T>(request: AegisApiRequest) => Promise<T>
+  api: <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>
   bootstrap: BrowserBootstrap
   currentProfile: () => string | null
   /** The bootstrap a file of *connectionId* is read through: a relayed gateway's, when the serving
@@ -90,14 +90,14 @@ export function createBrowserFilesBridge({
 
     const target = bootstrapFor(connectionId)
 
-    return { api: <T>(request: AegisApiRequest) => browserApi<T>(target, request), bootstrap: target }
+    return { api: <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => browserApi<T>(target, request), bootstrap: target }
   }
 
   const downloadUrl = async (url: string, filename = '') => {
     const target = new URL(url, window.location.href)
 
     // Cross-origin anchors ignore download and navigate the current tab.
-    // Fetch without Aegis credentials; CORS denial must not fall back to navigation.
+    // Fetch without Aegis AI Enterprise Autonomous Platform credentials; CORS denial must not fall back to navigation.
     if (target.origin !== window.location.origin && !['blob:', 'data:'].includes(target.protocol)) {
       const image = await fetchBrowserImage(target)
 

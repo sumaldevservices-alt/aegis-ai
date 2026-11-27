@@ -153,7 +153,7 @@ export function restartGateway(profile?: null | string): Promise<ActionResponse>
   })
 }
 
-export function updateAegis(): Promise<ActionResponse> {
+export function updateAegis AI Enterprise Autonomous Platform(): Promise<ActionResponse> {
   return aegisApi<ActionResponse>({
     ...profileScoped(),
     path: '/api/aegis/update',
@@ -164,7 +164,7 @@ export function updateAegis(): Promise<ActionResponse> {
 /** Query the connected backend's own update state. In remote mode this is the
  *  authoritative source for the backend's behind-count + "what's changed",
  *  distinct from the Electron client clone's git state. */
-export function checkAegisUpdate(force = false): Promise<BackendUpdateCheckResponse> {
+export function checkAegis AI Enterprise Autonomous PlatformUpdate(force = false): Promise<BackendUpdateCheckResponse> {
   return aegisApi<BackendUpdateCheckResponse>({
     ...profileScoped(),
     path: `/api/aegis/update/check${force ? '?force=true' : ''}`

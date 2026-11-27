@@ -8,7 +8,7 @@
  * job cannot invalidate every other bot's list.
  */
 
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { queryClient } from '@aegis/plugin-sdk'
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -16,7 +16,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 const { request } = vi.hoisted(() => ({ request: vi.fn(async () => ({})) }))
 
 vi.mock('@aegis/plugin-sdk', async importOriginal => {
-  const sdk = await importOriginal<typeof AegisSdk>()
+  const sdk = await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>()
 
   return { ...sdk, host: { ...sdk.host, request } }
 })

@@ -3,7 +3,7 @@
  * <form>: its Open and Dismiss buttons must never act as Send for whatever draft is typed.
  */
 
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 
@@ -14,7 +14,7 @@ import type { RosterRow } from './types'
 const { openRosterBot } = vi.hoisted(() => ({ openRosterBot: vi.fn(async () => true) }))
 
 vi.mock('@aegis/plugin-sdk', async importOriginal => ({
-  ...(await importOriginal<typeof AegisSdk>()),
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>()),
   usePluginI18n: () => translateBotsIn('en')
 }))
 

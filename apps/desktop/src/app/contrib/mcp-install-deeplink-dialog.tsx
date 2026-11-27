@@ -12,7 +12,7 @@ import {
   DialogTitle
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
-import { getAegisConfigRecord, saveMcpServers } from '@/aegis'
+import { getAegis AI Enterprise Autonomous PlatformConfigRecord, saveMcpServers } from '@/aegis'
 import { useI18n } from '@/i18n'
 import { AlertTriangle } from '@/lib/icons'
 import { MCP_DEEPLINK_NAME_RE } from '@/lib/mcp-deeplink'
@@ -20,7 +20,7 @@ import { getServers } from '@/lib/mcp-servers'
 import { $mcpInstallRequest } from '@/store/mcp-deeplink-install'
 import { notify, readableError } from '@/store/notifications'
 
-import { setAegisConfigCache } from '../hooks/use-config-record'
+import { setAegis AI Enterprise Autonomous PlatformConfigCache } from '../hooks/use-config-record'
 
 /**
  * Explicit-confirm gate for `aegis://mcp/install` deep links. The payload is
@@ -28,7 +28,7 @@ import { setAegisConfigCache } from '../hooks/use-config-record'
  * this dialog shows the server name and the FULL pretty-printed config —
  * exactly what would be written — and nothing touches config until the user
  * confirms. stdio (`command`) entries carry an extra caution banner because
- * confirming lets Aegis spawn that local process. An existing server name is
+ * confirming lets Aegis AI Enterprise Autonomous Platform spawn that local process. An existing server name is
  * never silently overwritten: confirm stays blocked until the user picks a
  * fresh name or cancels.
  */
@@ -57,7 +57,7 @@ export function McpInstallDeepLinkDialog() {
 
     let cancelled = false
 
-    getAegisConfigRecord()
+    getAegis AI Enterprise Autonomous PlatformConfigRecord()
       .then(config => {
         if (!cancelled) {
           setExistingNames(Object.keys(getServers(config)))
@@ -103,7 +103,7 @@ export function McpInstallDeepLinkDialog() {
       // Merge over the FRESHEST server map — saveMcpServers replaces the whole
       // `mcp_servers` document, so saving over a stale snapshot would drop
       // servers added elsewhere since the dialog opened.
-      const current = getServers(await getAegisConfigRecord())
+      const current = getServers(await getAegis AI Enterprise Autonomous PlatformConfigRecord())
 
       if (Object.prototype.hasOwnProperty.call(current, trimmedName)) {
         setExistingNames(Object.keys(current))
@@ -114,7 +114,7 @@ export function McpInstallDeepLinkDialog() {
 
       const nextServers = { ...current, [trimmedName]: request.config }
       await saveMcpServers(nextServers)
-      setAegisConfigCache(previous => (previous ? { ...previous, mcp_servers: nextServers } : previous))
+      setAegis AI Enterprise Autonomous PlatformConfigCache(previous => (previous ? { ...previous, mcp_servers: nextServers } : previous))
       notify({ kind: 'success', title: m.savedTitle, message: m.savedMessage(trimmedName) })
       $mcpInstallRequest.set(null)
       navigate(`/capabilities?tab=connectors&server=${encodeURIComponent(trimmedName)}`)

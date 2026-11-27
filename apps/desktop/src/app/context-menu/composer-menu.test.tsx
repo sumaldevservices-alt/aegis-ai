@@ -214,8 +214,8 @@ describe('composer context-menu contribution area', () => {
     await waitFor(() => expect(action).not.toBeNull())
 
     expect(action!.word).toBe('Hermse')
-    expect(action!.replaceWord('Aegis')).toBe(true)
-    expect(editor.textContent).toBe('Aegis rocks')
+    expect(action!.replaceWord('Aegis AI Enterprise Autonomous Platform')).toBe(true)
+    expect(editor.textContent).toBe('Aegis AI Enterprise Autonomous Platform rocks')
   })
 
   it('keeps astral-plane letters inside the word', async () => {

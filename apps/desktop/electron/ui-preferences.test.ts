@@ -7,7 +7,7 @@ import { promisify } from 'node:util'
 
 import { afterEach, test } from 'vitest'
 
-import { resolveDesktopAegisHome } from './data-paths'
+import { resolveDesktopAegis AI Enterprise Autonomous PlatformHome } from './data-paths'
 import { readUiPreferences, uiPreferencesPath, uiPreferencesRoot, writeUiPreferences } from './ui-preferences'
 
 // Native Desktop (this module) and the Webapp's Python server must land on ONE
@@ -37,7 +37,7 @@ const PY_PATH = 'from aegis_cli.ui_preferences import store_path; print(store_pa
 
 /** The file main's IPC registers for this AEGIS_HOME (registerUiPreferencesIpc). */
 const electronStorePath = (home: string, aegisHome: string) =>
-  uiPreferencesPath(uiPreferencesRoot(resolveDesktopAegisHome({ env: { AEGIS_HOME: aegisHome }, home })))
+  uiPreferencesPath(uiPreferencesRoot(resolveDesktopAegis AI Enterprise Autonomous PlatformHome({ env: { AEGIS_HOME: aegisHome }, home })))
 
 test('native Desktop and the Webapp server resolve the same store from a profile home', () => {
   const home = scratchHome()

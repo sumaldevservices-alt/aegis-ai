@@ -204,7 +204,7 @@ test("a window plan's limit line is no toast, but still an OS notification", () 
   expect(noticeToToast(limit)).toBeNull()
   showAgentNotice(limit)
   expect($notifications.get()).toHaveLength(0)
-  expect(nativeNoticeInput(limit, 'Aegis credits')?.body).toBe(limit.text)
+  expect(nativeNoticeInput(limit, 'Aegis AI Enterprise Autonomous Platform credits')?.body).toBe(limit.text)
 })
 
 // ── a window plan's 90% heads-up (credits.window.<id>) ───────────────────────
@@ -224,5 +224,5 @@ test('the 90% heads-up is an orange ttl toast, replaced in place per allowance',
   expect(toast?.message).toBe('91% of your weekly limit used')
   expect(toast?.id).toBe('credits.window.week')
   // A heads-up, not an alarm: no OS notification.
-  expect(nativeNoticeInput(headsUp, 'Aegis credits')).toBeNull()
+  expect(nativeNoticeInput(headsUp, 'Aegis AI Enterprise Autonomous Platform credits')).toBeNull()
 })

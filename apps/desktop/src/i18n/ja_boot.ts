@@ -3,19 +3,19 @@ import type { TranslationOverrides } from './define-locale'
 // The boot screen's copy, composed by ja.ts.
 export const jaBoot = {
   boot: {
-    ready: 'Aegis Desktop の準備ができました',
+    ready: 'Aegis AI Enterprise Autonomous Platform Desktop の準備ができました',
     desktopBootFailedWithMessage: message => `デスクトップの起動に失敗しました: ${message}`,
     steps: {
       connectingGateway: 'ライブデスクトップゲートウェイに接続中',
-      loadingSettings: 'Aegis の設定を読み込み中',
+      loadingSettings: 'Aegis AI Enterprise Autonomous Platform の設定を読み込み中',
       loadingSessions: '最近のセッションを読み込み中',
-      retryingRemoteBackend: 'リモート Aegis バックエンドに再接続中…',
+      retryingRemoteBackend: 'リモート Aegis AI Enterprise Autonomous Platform バックエンドに再接続中…',
       startingDesktopConnection: 'デスクトップ接続を開始中',
-      startingAegisDesktop: 'Aegis Desktop を起動中…'
+      startingAegis AI Enterprise Autonomous PlatformDesktop: 'Aegis AI Enterprise Autonomous Platform Desktop を起動中…'
     },
     errors: {
-      backgroundExited: 'Aegis バックグラウンドプロセスが終了しました。',
-      backgroundExitedDuringStartup: '起動中に Aegis バックグラウンドプロセスが終了しました。',
+      backgroundExited: 'Aegis AI Enterprise Autonomous Platform バックグラウンドプロセスが終了しました。',
+      backgroundExitedDuringStartup: '起動中に Aegis AI Enterprise Autonomous Platform バックグラウンドプロセスが終了しました。',
       backendStopped: 'バックエンドが停止しました',
       desktopBootFailed: 'デスクトップの起動に失敗しました',
       gatewayConnectionLost: 'ゲートウェイへの接続が切断されました',
@@ -25,7 +25,7 @@ export const jaBoot = {
       ipcBridgeUnavailable: 'デスクトップ IPC ブリッジが利用できません。'
     },
     failure: {
-      title: 'Aegis を起動できませんでした',
+      title: 'Aegis AI Enterprise Autonomous Platform を起動できませんでした',
       description:
         'バックグラウンドゲートウェイが起動しませんでした。以下の回復手順をお試しください。チャットや設定は削除されません。',
       remoteTitle: 'リモートゲートウェイへのサインインが必要です',

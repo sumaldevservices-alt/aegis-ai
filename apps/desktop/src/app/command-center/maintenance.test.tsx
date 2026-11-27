@@ -1,7 +1,7 @@
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as AegisApi from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformApi from '@/aegis'
 import { getActionStatus, runDebugShare, setApiRequestConnection, setApiRequestProfile } from '@/aegis'
 import { $desktopActionTasks } from '@/store/activity'
 import { $confirmRequest, settleConfirm } from '@/store/confirm'
@@ -23,7 +23,7 @@ function spawn(name: string) {
 }
 
 vi.mock('@/aegis', async importOriginal => ({
-  ...(await importOriginal<typeof AegisApi>()),
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformApi>()),
   getActionStatus: vi.fn(async (name: string) => ({
     exit_code: running[name] ? null : 0,
     lines: [`${name} run ${runs[name]} output`],
@@ -111,7 +111,7 @@ describe('MaintenancePanel debug share', () => {
   // Profile shortcuts stay live behind the modal: the upload must publish the
   // logs of the profile the user confirmed for, not whichever is active later.
   it('uploads the profile that was active when the confirmation opened', async () => {
-    const actual = await vi.importActual<typeof AegisApi>('@/aegis')
+    const actual = await vi.importActual<typeof Aegis AI Enterprise Autonomous PlatformApi>('@/aegis')
     const api = vi.fn(async (_request: { connectionId?: string; path: string; profile?: string }) => ({ auto_delete_seconds: 21600, failures: [], ok: true, redacted: true, urls: {} }))
     vi.stubGlobal('aegisDesktop', { api })
     vi.mocked(runDebugShare).mockImplementationOnce(actual.runDebugShare)

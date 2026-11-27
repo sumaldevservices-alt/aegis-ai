@@ -22,7 +22,7 @@ import {
 } from '@/components/ui/dialog'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { SanitizedInput } from '@/components/ui/sanitized-input'
-import type { AegisGitBranch } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformGitBranch } from '@/global'
 import { useI18n } from '@/i18n'
 import type { GitOwnerRoute } from '@/lib/desktop-git'
 import { isSubmitEnter } from '@/lib/ime'
@@ -49,7 +49,7 @@ interface BranchActionCopy {
   branchTrackRemote: string
 }
 
-const branchActionLabel = (branch: AegisGitBranch, copy: BranchActionCopy) => {
+const branchActionLabel = (branch: Aegis AI Enterprise Autonomous PlatformGitBranch, copy: BranchActionCopy) => {
   if (branch.checkedOut) {
     return copy.branchOpenExisting
   }
@@ -84,7 +84,7 @@ export function WorktreeDialog() {
   const [name, setName] = useState('')
   const [pending, setPending] = useState(false)
   const [convertMode, setConvertMode] = useState(false)
-  const [branches, setBranches] = useState<AegisGitBranch[]>([])
+  const [branches, setBranches] = useState<Aegis AI Enterprise Autonomous PlatformGitBranch[]>([])
   const [branchesLoading, setBranchesLoading] = useState(false)
   const [selectedBase, setSelectedBase] = useState('')
   // The repo that the dialog targets. It is seeded from the resolved intent.
@@ -198,7 +198,7 @@ export function WorktreeDialog() {
     }
   }
 
-  const convert = async (branch: AegisGitBranch) => {
+  const convert = async (branch: Aegis AI Enterprise Autonomous PlatformGitBranch) => {
     if (pending || !repoPath || !branch) {
       return
     }

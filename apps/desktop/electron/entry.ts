@@ -4,7 +4,7 @@ import path from 'node:path'
 
 import { app } from 'electron'
 
-import { resolveDesktopAegisHome } from './data-paths'
+import { resolveDesktopAegis AI Enterprise Autonomous PlatformHome } from './data-paths'
 import { releasePackagedWorkingDirectory } from './packaged-working-directory'
 import { readDesktopLaunchConfig } from './renderer-heap-flags'
 import { restoreUserProxyEnv } from './updater/system-proxy-env'
@@ -23,7 +23,7 @@ if (process.argv.includes('--aegis-sandbox-probe')) {
 }
 
 // Run before main creates windows/IME integrations or spawns resident helpers.
-// Closing Aegis cannot release a CWD inherited by an out-of-tree process.
+// Closing Aegis AI Enterprise Autonomous Platform cannot release a CWD inherited by an out-of-tree process.
 releasePackagedWorkingDirectory(app.isPackaged || Boolean(process.env.AEGIS_DESKTOP_IS_PACKAGED))
 
 function configuredElectronFlags(env: NodeJS.ProcessEnv): string[] {
@@ -31,7 +31,7 @@ function configuredElectronFlags(env: NodeJS.ProcessEnv): string[] {
   // AEGIS_DATA_DIR_SUFFIX channel installs and profiles/-rooted AEGIS_HOME
   // values must pick the same config.yaml before the relaunch and inside the
   // app, or desktop.electron_flags silently never reaches the relaunch.
-  const home = resolveDesktopAegisHome({
+  const home = resolveDesktopAegis AI Enterprise Autonomous PlatformHome({
     home: os.homedir(),
     env,
     // Linux-only pre-launch path; the win32 legacy-migration probe is never

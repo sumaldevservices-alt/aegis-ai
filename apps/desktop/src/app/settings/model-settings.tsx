@@ -15,7 +15,7 @@ import {
   getGlobalModelOptions,
   getMoaModels,
   getRecommendedDefaultModel,
-  saveAegisConfig,
+  saveAegis AI Enterprise Autonomous PlatformConfig,
   saveMoaModels,
   setEnvVar,
   setModelAssignment
@@ -41,7 +41,7 @@ import { setMainModelAssignment } from '@/store/model-assignment'
 import { notify, notifyError, readableError } from '@/store/notifications'
 import { startManualLocalEndpoint, startManualOnboarding, startManualProviderOAuth } from '@/store/onboarding'
 
-import { aegisConfigCacheWriter, invalidateAegisConfig, useAegisConfigRecord } from '../hooks/use-config-record'
+import { aegisConfigCacheWriter, invalidateAegis AI Enterprise Autonomous PlatformConfig, useAegis AI Enterprise Autonomous PlatformConfigRecord } from '../hooks/use-config-record'
 import { useOnProfileSwitch } from '../hooks/use-on-profile-switch'
 import { PanelEmpty } from '../overlays/panel'
 
@@ -400,7 +400,7 @@ export function ModelSettings({ onMainModelChanged, scopeProfile, subpage }: Mod
   const [newMoaPresetName, setNewMoaPresetName] = useState('')
   // agent.* defaults round-trip through the shared config cache (read → write
   // back the whole record), so a save here shows in the MCP/model surfaces.
-  const { data: config, writeScope } = useAegisConfigRecord(scopeProfile)
+  const { data: config, writeScope } = useAegis AI Enterprise Autonomous PlatformConfigRecord(scopeProfile)
   const setConfig = useMemo(() => aegisConfigCacheWriter(scopeProfile), [scopeProfile])
   const [applying, setApplying] = useState(false)
   const [editingAuxTask, setEditingAuxTask] = useState<null | string>(null)
@@ -506,7 +506,7 @@ export function ModelSettings({ onMainModelChanged, scopeProfile, subpage }: Mod
 
         // The config record loads via its own shared query; a model switch can
         // change it server-side (aux slots), so nudge that cache to refetch.
-        void invalidateAegisConfig(scopeProfile)
+        void invalidateAegis AI Enterprise Autonomous PlatformConfig(scopeProfile)
       } catch (err) {
         if (profileEpoch.current === epoch) {
           setCaughtError(err, m.loadFailed)
@@ -794,7 +794,7 @@ export function ModelSettings({ onMainModelChanged, scopeProfile, subpage }: Mod
       setConfig(next)
 
       try {
-        await saveAegisConfig(setNested({}, key, value), writeScope ?? scopeProfile)
+        await saveAegis AI Enterprise Autonomous PlatformConfig(setNested({}, key, value), writeScope ?? scopeProfile)
       } catch (err) {
         setConfig(prev)
         notifyError(err, m.defaultsFailed)
@@ -1168,7 +1168,7 @@ export function ModelSettings({ onMainModelChanged, scopeProfile, subpage }: Mod
             <p className="mt-2 text-xs text-muted-foreground">
               {selectedProviderRow?.auth_type === 'api_key'
                 ? `${selectedProviderRow?.name} needs an API key — set it up to choose a model.`
-                : `${selectedProviderRow?.name} signs in through your browser — Aegis runs the flow for you.`}
+                : `${selectedProviderRow?.name} signs in through your browser — Aegis AI Enterprise Autonomous Platform runs the flow for you.`}
             </p>
           )}
           {config && mainModel && (reasoningSupported || fastSupported || ultrafastSupported) && (

@@ -14,7 +14,7 @@ import {
 } from './windows'
 
 const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
-const initialAegisDesktop = desktopWindow.aegisDesktop
+const initialAegis AI Enterprise Autonomous PlatformDesktop = desktopWindow.aegisDesktop
 
 const notifyError = vi.fn()
 
@@ -39,8 +39,8 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-  if (initialAegisDesktop) {
-    desktopWindow.aegisDesktop = initialAegisDesktop
+  if (initialAegis AI Enterprise Autonomous PlatformDesktop) {
+    desktopWindow.aegisDesktop = initialAegis AI Enterprise Autonomous PlatformDesktop
   } else {
     delete desktopWindow.aegisDesktop
   }

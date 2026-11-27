@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { readKey } from '@/lib/storage'
 
 import { $pinnedSessionIds, $sidebarSessionOrderIds, $sidebarSessionOrderManual, pinSession } from './layout'
@@ -17,19 +17,19 @@ const localConn = {
   baseUrl: 'http://127.0.0.1:8000',
   mode: 'local',
   profile: 'default'
-} as unknown as AegisConnection
+} as unknown as Aegis AI Enterprise Autonomous PlatformConnection
 
 const remoteA = {
   baseUrl: 'https://vps-a.example:8443',
   mode: 'remote',
   profile: 'default'
-} as unknown as AegisConnection
+} as unknown as Aegis AI Enterprise Autonomous PlatformConnection
 
 const remoteB = {
   baseUrl: 'https://vps-b.example:8443',
   mode: 'remote',
   profile: 'default'
-} as unknown as AegisConnection
+} as unknown as Aegis AI Enterprise Autonomous PlatformConnection
 
 beforeEach(() => {
   window.localStorage.clear()
@@ -122,7 +122,7 @@ describe('connection-scoped sidebar lists (#77318)', () => {
     $sidebarSessionOrderIds.set(['s1'])
     $sidebarSessionOrderManual.set(true)
 
-    setConnection({ ...remoteA, profile: 'k9' } as unknown as AegisConnection)
+    setConnection({ ...remoteA, profile: 'k9' } as unknown as Aegis AI Enterprise Autonomous PlatformConnection)
 
     expect($pinnedSessionIds.get()).toEqual(['a-1'])
     expect($sidebarSessionOrderIds.get()).toEqual([])

@@ -27,7 +27,7 @@ import {
 } from './reference-kinds'
 
 const AEGIS_REF_TYPES = WIRE_REFERENCE_KINDS
-type AegisRefType = (typeof AEGIS_REF_TYPES)[number]
+type Aegis AI Enterprise Autonomous PlatformRefType = (typeof AEGIS_REF_TYPES)[number]
 
 /** Icon glyphs come from the shared reference vocabulary, so the popover row
  *  and the chip can never drift apart. */
@@ -345,7 +345,7 @@ function safeDirectiveSegments(text: string): Unstable_DirectiveSegment[] {
 }
 
 /**
- * Renders text containing Aegis directives (`@file:...`, `@image:...`) as
+ * Renders text containing Aegis AI Enterprise Autonomous Platform directives (`@file:...`, `@image:...`) as
  * inline chips. Embedded MEDIA images render below as a thumbnail row.
  */
 export function DirectiveContent({ text }: { text: string }) {

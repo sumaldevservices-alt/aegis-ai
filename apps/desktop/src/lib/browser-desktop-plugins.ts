@@ -1,4 +1,4 @@
-import type { AegisApiRequest, AegisReadFileTextResult } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest, Aegis AI Enterprise Autonomous PlatformReadFileTextResult } from '@/global'
 
 type DesktopPluginsBridge = Pick<
   Window['aegisDesktop'],
@@ -11,7 +11,7 @@ type DesktopPluginsBridge = Pick<
 >
 
 interface BrowserDesktopPluginsOptions {
-  api: <T>(request: AegisApiRequest) => Promise<T>
+  api: <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>
   /** The page's /api/fs readers, kept for every path outside the plugins folder. */
   files: Pick<Window['aegisDesktop'], 'readDir' | 'readFileText'>
 }
@@ -30,7 +30,7 @@ export function createBrowserDesktopPluginsBridge({ api, files }: BrowserDesktop
   const inside = (path: string) =>
     root !== null && (path === root || path.startsWith(`${root}/`) || path.startsWith(`${root}\\`))
 
-  const readFile = (path: string) => get<AegisReadFileTextResult>('read', path)
+  const readFile = (path: string) => get<Aegis AI Enterprise Autonomous PlatformReadFileTextResult>('read', path)
 
   const reconcile = () =>
     api<{ refused?: { name: string; reason: string }[]; touched: string[] }>({

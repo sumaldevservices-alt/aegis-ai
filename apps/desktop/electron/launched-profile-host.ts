@@ -63,7 +63,7 @@ export function createLaunchedProfileHost<Backend>(deps: LaunchedProfileHostDeps
   const isLaunched = (profile: null | string | undefined) => profileIsLaunched(deps.readConfig(), profile)
   const isMarked = (profile: string) => Boolean(readRunElsewhereMarker(deps.aegisHome, profile))
 
-  // Aegis's own backend on this computer serves the profile: no plugin runs
+  // Aegis AI Enterprise Autonomous Platform's own backend on this computer serves the profile: no plugin runs
   // it (a launcher entry is a remote connection too), core does not mark it,
   // and the user has not connected it to a remote host, whose backend would
   // list that computer's profiles.

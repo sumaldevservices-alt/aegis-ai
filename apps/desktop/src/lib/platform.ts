@@ -21,7 +21,7 @@ export const isWindowsPlatform = (): boolean =>
 export const isLinuxPlatform = (): boolean =>
   typeof navigator !== 'undefined' && /linux/i.test(navigator.platform || navigator.userAgent || '')
 
-/** Globals the Aegis web server injects into the page it serves. */
+/** Globals the Aegis AI Enterprise Autonomous Platform web server injects into the page it serves. */
 export interface BrowserHostGlobals {
   __AEGIS_AUTH_REQUIRED__?: boolean
   __AEGIS_BASE_PATH__?: string

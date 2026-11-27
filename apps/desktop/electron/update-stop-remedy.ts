@@ -87,7 +87,7 @@ export function readStoppedRun(aegisHome: string, correlationId: string | null):
  */
 const STOP_EXPLANATIONS: Record<string, UpdateStopExplanation> = {
   downgrade_refused: {
-    message: 'Aegis kept your install: the offered release is older than it',
+    message: 'Aegis AI Enterprise Autonomous Platform kept your install: the offered release is older than it',
     detail:
       'The updater refused to move this install back to the release it offered, because that release predates the ' +
       'gateway runtime your session stores already use. Downgrading is unsupported, and nothing was changed: you are ' +

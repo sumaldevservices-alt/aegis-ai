@@ -3,7 +3,7 @@
  *
  * Pure, dependency-injected pieces of Windows `aegis` resolution pulled out
  * of main.ts's findOnPath(), handOffWindowsBootstrapRecovery(), and
- * unwrapWindowsVenvAegisCommand(). Each of the three functions here pins one
+ * unwrapWindowsVenvAegis AI Enterprise Autonomous PlatformCommand(). Each of the three functions here pins one
  * of the Windows resolution bugs that caused desktop reinstall loops:
  *
  *   1. buildPathExtCandidates() — findOnPath() tried the empty extension
@@ -14,9 +14,9 @@
  *   2. chooseUpdaterArgs() — handOffWindowsBootstrapRecovery() must separate
  *      install provenance from updater viability. A bootstrap-complete marker
  *      can outlive a deleted venv, while the updater needs BOTH the venv Python
- *      and Aegis launcher. Marker-only or partial runtimes must use --repair;
+ *      and Aegis AI Enterprise Autonomous Platform launcher. Marker-only or partial runtimes must use --repair;
  *      only a runnable pair can use --update.
- *   3. resolveVenvAegisCommand() — unwrapWindowsVenvAegisCommand() returned
+ *   3. resolveVenvAegis AI Enterprise Autonomous PlatformCommand() — unwrapWindowsVenvAegis AI Enterprise Autonomous PlatformCommand() returned
  *      the venv python with NO runtime probe (bypassing the caller's
  *      --version check too), so a venv broken mid-update (e.g. missing
  *      python-dotenv) was re-selected forever: Retry / "Repair install"
@@ -58,7 +58,7 @@ export function buildPathExtCandidates(pathext: string | undefined, isWindows: b
 /**
  * Choose the Windows bootstrap-recovery invocation. The gentle in-place
  * updater can only start when both pieces of its runtime contract exist: the
- * venv Python interpreter and the Aegis launcher that drives `aegis update`.
+ * venv Python interpreter and the Aegis AI Enterprise Autonomous Platform launcher that drives `aegis update`.
  * A bootstrap-complete marker proves install provenance, not current runtime
  * usability, and may remain after the venv is removed or quarantined.
  *
@@ -74,12 +74,12 @@ export function chooseUpdaterArgs(signals: BootstrapRecoverySignals, branch: str
   return signals.runtimeUsable ? ['--update', '--branch', branch] : ['--repair', '--branch', branch]
 }
 
-export interface ResolveVenvAegisCommandDeps {
+export interface ResolveVenvAegis AI Enterprise Autonomous PlatformCommandDeps {
   isWindows: boolean
   isCommandScript: (command: string) => boolean
   fileExists: (filePath: string) => boolean
   directoryExists: (filePath: string) => boolean
-  canImportAegisCli: (python: string, opts?: { env?: Record<string, string>; cwd?: string }) => Promise<boolean>
+  canImportAegis AI Enterprise Autonomous PlatformCli: (python: string, opts?: { env?: Record<string, string>; cwd?: string }) => Promise<boolean>
   getVenvPython: (venvRoot: string) => string
   buildDesktopBackendEnv: () => Record<string, string>
   resolvePath: (...segments: string[]) => string
@@ -92,7 +92,7 @@ export interface ResolveVenvAegisCommandDeps {
  * If `command` is a Windows venv `aegis`/`aegis.exe` console-script shim
  * (i.e. `<venvRoot>/Scripts/aegis(.exe)`), resolve it to the underlying
  * venv python invoked as `python -m aegis_cli.main <backendArgs>` — but
- * ONLY after smoke-testing that interpreter with canImportAegisCli(). A
+ * ONLY after smoke-testing that interpreter with canImportAegis AI Enterprise Autonomous PlatformCli(). A
  * venv whose update died mid-`pip install` still has python.exe + aegis.exe
  * on disk, but the backend dies on its first import (e.g.
  * ModuleNotFoundError: dotenv) before the gateway ever binds. Returning it
@@ -107,10 +107,10 @@ export interface ResolveVenvAegisCommandDeps {
  * python doesn't exist, or the import probe fails. Otherwise returns the
  * resolved backend descriptor.
  */
-export async function resolveVenvAegisCommand(
+export async function resolveVenvAegis AI Enterprise Autonomous PlatformCommand(
   command: string,
   backendArgs: string[],
-  deps: ResolveVenvAegisCommandDeps
+  deps: ResolveVenvAegis AI Enterprise Autonomous PlatformCommandDeps
 ): Promise<{
   label: string
   command: string
@@ -126,7 +126,7 @@ export async function resolveVenvAegisCommand(
     isCommandScript,
     fileExists,
     directoryExists,
-    canImportAegisCli,
+    canImportAegis AI Enterprise Autonomous PlatformCli,
     getVenvPython,
     buildDesktopBackendEnv,
     resolvePath,
@@ -162,16 +162,16 @@ export async function resolveVenvAegisCommand(
 
   // Probe with the same semantics the real spawn uses: venv interpreter,
   // cwd at the checkout root, no PYTHONPATH.
-  if (!(await canImportAegisCli(python, { cwd: directoryExists(root) ? root : undefined }))) {
+  if (!(await canImportAegis AI Enterprise Autonomous PlatformCli(python, { cwd: directoryExists(root) ? root : undefined }))) {
     rememberLog?.(
-      `Ignoring venv Aegis at ${python}: runtime import probe failed (broken/partial venv); falling through to bootstrap.`
+      `Ignoring venv Aegis AI Enterprise Autonomous Platform at ${python}: runtime import probe failed (broken/partial venv); falling through to bootstrap.`
     )
 
     return null
   }
 
   return {
-    label: `existing Aegis Python at ${python}`,
+    label: `existing Aegis AI Enterprise Autonomous Platform Python at ${python}`,
     command: python,
     args: ['-m', 'aegis_cli.main', ...backendArgs],
     bootstrap: false,

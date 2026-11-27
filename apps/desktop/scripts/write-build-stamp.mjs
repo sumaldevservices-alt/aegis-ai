@@ -225,7 +225,7 @@ export function buildStampPayload(stamp, env = process.env, platform = process.p
   }
   const version = env.AEGIS_PAYLOAD_VERSION || releaseVersion(env.AEGIS_PAYLOAD_TAG) || null
   // The bundle's baked runtime defaults/clears, recorded as data so the smoke
-  // driver can predict the app's resolved Aegis home without reimplementing
+  // driver can predict the app's resolved Aegis AI Enterprise Autonomous Platform home without reimplementing
   // the banner. Only commit bundles carry one, but the field is harmless when
   // absent elsewhere.
   const bundleEnv = env.AEGIS_BUNDLE_ENV_JSON ? validateBundleEnvironment(JSON.parse(env.AEGIS_BUNDLE_ENV_JSON)) : undefined

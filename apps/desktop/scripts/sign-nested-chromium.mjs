@@ -1,5 +1,5 @@
 // Sign payload Chromium with our Developer ID before osx-sign seals
-// Aegis.app. Google's leftover signatures have no timestamp and no
+// Aegis AI Enterprise Autonomous Platform.app. Google's leftover signatures have no timestamp and no
 // hardened runtime, so Apple's notary rejects them.
 //
 // Do not codesign a file that lives inside a .framework: codesign then

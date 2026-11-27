@@ -96,7 +96,7 @@ export interface OAuthProviderStatus {
 export interface OAuthProvider {
   cli_command: string
   /** Shell command that clears an external provider's credentials, run in the
-   *  embedded terminal. Null when Aegis doesn't know how to remove it. */
+   *  embedded terminal. Null when Aegis AI Enterprise Autonomous Platform doesn't know how to remove it. */
   disconnect_command?: null | string
   disconnect_hint?: null | string
   disconnectable?: boolean
@@ -504,7 +504,7 @@ export interface TelegramOnboardingApplyResponse {
   restart_started?: boolean
 }
 
-export interface AegisConfig {
+export interface Aegis AI Enterprise Autonomous PlatformConfig {
   agent?: {
     reasoning_effort?: string
     personalities?: Record<string, unknown>
@@ -545,7 +545,7 @@ export interface AegisConfig {
   }
 }
 
-export type AegisConfigRecord = Record<string, unknown>
+export type Aegis AI Enterprise Autonomous PlatformConfigRecord = Record<string, unknown>
 
 export interface ModelInfoResponse {
   auto_context_length?: number
@@ -1204,7 +1204,7 @@ export interface ProfileSetupCommand {
 
 // The desktop appearance/interface overlay bundled into a profile export as
 // `desktop.json`. Everything optional — an archive exported by an older (or
-// non-desktop) Aegis simply carries none of it. See store/profile-share.ts.
+// non-desktop) Aegis AI Enterprise Autonomous Platform simply carries none of it. See store/profile-share.ts.
 export interface ProfileDesktopOverlay {
   /** Overlay schema version (1). */
   version?: number
@@ -1267,7 +1267,7 @@ export interface SkillInfo {
   name: string
   /** Total observed activity (use + view + patch). Absent on older backends. */
   usage?: number
-  /** 'agent' = learned/local (editable), 'bundled' = ships with Aegis, 'hub' = installed,
+  /** 'agent' = learned/local (editable), 'bundled' = ships with Aegis AI Enterprise Autonomous Platform, 'hub' = installed,
    * 'external' = mounted from skills.external_dirs (externally authored, still editable). */
   provenance?: 'agent' | 'bundled' | 'external' | 'hub'
   /** User lock: the AGENT may not change this skill (the user still can). Absent on older backends. */
@@ -1275,7 +1275,7 @@ export interface SkillInfo {
 }
 
 /** One entry of the built-in optional-skills catalog (optional-skills/ in the
- *  repo) — official skills that ship with Aegis but install on demand. */
+ *  repo) — official skills that ship with Aegis AI Enterprise Autonomous Platform but install on demand. */
 export interface OfficialSkillInfo {
   category: string
   description: string
@@ -1405,7 +1405,7 @@ export interface ToolsetModelsResponse {
  *  cua-driver runs on macOS, Windows, and Linux. `ready` is the single OS-aware
  *  readiness signal: on macOS both TCC grants (Accessibility + Screen
  *  Recording, which attach to cua-driver's own `com.trycua.driver` identity,
- *  not Aegis); elsewhere, driver health from `cua-driver doctor`. `null`
+ *  not Aegis AI Enterprise Autonomous Platform); elsewhere, driver health from `cua-driver doctor`. `null`
  *  means unknown (binary missing / probe failed). */
 export interface ComputerUsePermissionSource {
   attribution?: string

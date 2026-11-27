@@ -52,11 +52,11 @@ test('redactSecrets scrubs ?token= and ?ticket= URL params', () => {
   assert.ok(!redactSecrets('?token=supersecret').includes('supersecret'))
 })
 
-test('redactSecrets scrubs Authorization and X-Aegis-Session-Token headers', () => {
+test('redactSecrets scrubs Authorization and X-Aegis AI Enterprise Autonomous Platform-Session-Token headers', () => {
   assert.match(redactSecrets('Authorization: Bearer tok_9999'), /Authorization: Bearer <redacted>/)
   assert.ok(!redactSecrets('Authorization: Bearer tok_9999').includes('tok_9999'))
-  assert.match(redactSecrets('X-Aegis-Session-Token: hdr_888'), /X-Aegis-Session-Token: ?<redacted>/)
-  assert.ok(!redactSecrets('X-Aegis-Session-Token: hdr_888').includes('hdr_888'))
+  assert.match(redactSecrets('X-Aegis AI Enterprise Autonomous Platform-Session-Token: hdr_888'), /X-Aegis AI Enterprise Autonomous Platform-Session-Token: ?<redacted>/)
+  assert.ok(!redactSecrets('X-Aegis AI Enterprise Autonomous Platform-Session-Token: hdr_888').includes('hdr_888'))
 })
 
 test('redactSecrets handles null/undefined and non-secret text untouched', () => {

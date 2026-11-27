@@ -573,12 +573,12 @@ describe('the local default when a real aegis profile exists', () => {
     })
 
     const toDefault = (await handler({ text: 'please ask @default to review' })).text
-    const toAegis = (await handler({ text: 'please ask @aegis to review' })).text
+    const toAegis AI Enterprise Autonomous Platform = (await handler({ text: 'please ask @aegis to review' })).text
 
     // message_agent maps 'aegis' to the real aegis profile, so the default must never be handed it.
     expect(toDefault).toMatch(/@default = agent profile "default"/)
     expect(toDefault).not.toMatch(/message_agent target: "aegis"/)
-    expect(toAegis).toMatch(/@aegis = agent profile "aegis"/)
-    expect(toAegis).not.toMatch(/agent profile "default"/)
+    expect(toAegis AI Enterprise Autonomous Platform).toMatch(/@aegis = agent profile "aegis"/)
+    expect(toAegis AI Enterprise Autonomous Platform).not.toMatch(/agent profile "default"/)
   })
 })

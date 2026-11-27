@@ -183,13 +183,13 @@ export function createMinimizeToTray(options: Options) {
             height: process.platform === 'darwin' ? 18 : 24
           })
         )
-        tray.setToolTip('Aegis')
+        tray.setToolTip('Aegis AI Enterprise Autonomous Platform')
         tray.setContextMenu(
           Menu.buildFromTemplate([
-            { label: 'Show Aegis', click: restore },
+            { label: 'Show Aegis AI Enterprise Autonomous Platform', click: restore },
             { type: 'separator' },
             // Do not bypass the ordinary active-work confirmation or teardown.
-            { label: 'Quit Aegis', click: () => app.quit() }
+            { label: 'Quit Aegis AI Enterprise Autonomous Platform', click: () => app.quit() }
           ])
         )
 

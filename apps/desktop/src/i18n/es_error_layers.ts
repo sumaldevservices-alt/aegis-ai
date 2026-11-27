@@ -10,23 +10,23 @@ export const esErrorLayers: Pick<ThreadCopy, 'errorLayerBodies' | 'errorLayers'>
     disk: 'Disco lleno',
     endpoint: 'No se puede conectar con tu servidor de modelos',
     gateway: 'No se pudo enviar tu mensaje',
-    generic: 'Aegis no pudo terminar esta respuesta',
+    generic: 'Aegis AI Enterprise Autonomous Platform no pudo terminar esta respuesta',
     provider: 'El servicio de IA devolvió un error',
-    runtime: 'Aegis tuvo un problema',
+    runtime: 'Aegis AI Enterprise Autonomous Platform tuvo un problema',
     streaming: 'La respuesta se cortó'
   },
   errorLayerBodies: {
     auth: 'El servicio de IA rechazó tu inicio de sesión. Revisa las credenciales de este proveedor y vuelve a enviar el mensaje.',
     billing: 'Tu cuenta no tiene créditos para este proveedor. Recarga o cambia de proveedor y vuelve a enviarlo.',
-    disk: 'Tu disco está lleno, así que Aegis no pudo guardar esta conversación. Libera espacio y reinténtalo.',
+    disk: 'Tu disco está lleno, así que Aegis AI Enterprise Autonomous Platform no pudo guardar esta conversación. Libera espacio y reinténtalo.',
     endpoint:
-      'Aegis no puede conectar con tu servidor de modelos personalizado. Comprueba que esté en ejecución y vuelve a enviar el mensaje.',
+      'Aegis AI Enterprise Autonomous Platform no puede conectar con tu servidor de modelos personalizado. Comprueba que esté en ejecución y vuelve a enviar el mensaje.',
     gateway:
-      'Aegis tuvo un problema interno al iniciar esta respuesta. Vuelve a enviar el mensaje; si sigue ocurriendo, envía un diagnóstico.',
-    generic: 'Algo salió mal mientras Aegis respondía. Reinténtalo o copia los detalles si sigue ocurriendo.',
+      'Aegis AI Enterprise Autonomous Platform tuvo un problema interno al iniciar esta respuesta. Vuelve a enviar el mensaje; si sigue ocurriendo, envía un diagnóstico.',
+    generic: 'Algo salió mal mientras Aegis AI Enterprise Autonomous Platform respondía. Reinténtalo o copia los detalles si sigue ocurriendo.',
     provider: 'El servicio de IA no pudo completar esta solicitud. Reinténtalo en un momento o cambia de proveedor.',
     runtime:
-      'Aegis tuvo un problema interno al iniciar esta respuesta. Vuelve a enviar el mensaje; si sigue ocurriendo, envía un diagnóstico.',
+      'Aegis AI Enterprise Autonomous Platform tuvo un problema interno al iniciar esta respuesta. Vuelve a enviar el mensaje; si sigue ocurriendo, envía un diagnóstico.',
     streaming: 'La conexión se cortó antes de que terminara la respuesta. Reinténtalo para enviarla de nuevo.'
   }
 }

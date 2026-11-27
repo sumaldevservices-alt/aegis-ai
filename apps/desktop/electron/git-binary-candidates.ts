@@ -19,7 +19,7 @@ const UGIT_DIR = 'UGit'
 const UGIT_APP_PREFIX = 'app-'
 /** Where the UGit-bundled Git-for-Windows puts git.exe inside an app dir. */
 const UGIT_GIT_REL = path.join('resources', 'app', 'git', 'cmd', 'git.exe')
-/** PM-managed Git tool directories under the Aegis local application root. */
+/** PM-managed Git tool directories under the Aegis AI Enterprise Autonomous Platform local application root. */
 const AEGIS_TOOLS_DIR = path.join('aegis', 'tools')
 const MANAGED_GIT_PREFIX = 'git-'
 
@@ -57,7 +57,7 @@ export function ugitGitBinaries(localAppData: string, fs: GitCandidateFs): strin
 
 
 /**
- * Find Git installed by Aegis PM under `%LOCALAPPDATA%\aegis\tools`.
+ * Find Git installed by Aegis AI Enterprise Autonomous Platform PM under `%LOCALAPPDATA%\aegis\tools`.
  * PM versions the tool directory, so resolve the newest available executable
  * rather than assuming a particular Git release.
  */
@@ -81,7 +81,7 @@ export function managedGitBinaries(localAppData: string, fs: GitCandidateFs): st
 
 /**
  * resolveGitBinary's fixed Windows candidate list, in preference order:
- * the Aegis-bundled PortableGit first, then UGit's bundled copies, then the
+ * the Aegis AI Enterprise Autonomous Platform-bundled PortableGit first, then UGit's bundled copies, then the
  * standard Git-for-Windows locations.
  */
 export function windowsGitCandidates(env: WindowsGitEnv, fs: GitCandidateFs): string[] {

@@ -107,8 +107,8 @@ function decodePowerShellCommand(command) {
   return zlib.inflateRawSync(Buffer.from(deflated)).toString('utf8')
 }
 
-async function probeWindowsFiles(ssh, explicitAegisPath = '') {
-  const explicit = psLiteral(explicitAegisPath)
+async function probeWindowsFiles(ssh, explicitAegis AI Enterprise Autonomous PlatformPath = '') {
+  const explicit = psLiteral(explicitAegis AI Enterprise Autonomous PlatformPath)
 
   const script = [
     // Module auto-load / cold-start progress records get serialized by Windows
@@ -129,7 +129,7 @@ async function probeWindowsFiles(ssh, explicitAegisPath = '') {
     'if($explicit){Assert-NoReparse $explicit $false;$explicitPython=[IO.Path]::Combine([IO.Path]::GetDirectoryName($explicit), "python.exe");Assert-NoReparse $explicitPython $true}',
     // AEGIS_HOME is only trusted when it names a directory on the REMOTE: a stale User-scope
     // value (older install.ps1 persisted one) or a client path leaked over SSH otherwise fails
-    // assertSafeRemoteHome as "Unsafe remote Aegis home" (#118988).
+    // assertSafeRemoteHome as "Unsafe remote Aegis AI Enterprise Autonomous Platform home" (#118988).
     '$aegisHome=$env:AEGIS_HOME',
     'if(-not $aegisHome -or -not (Test-Path -LiteralPath $aegisHome -PathType Container)){$aegisHome=Join-Path $env:LOCALAPPDATA "aegis"}',
     'Assert-NoReparse $aegisHome $true',
@@ -155,9 +155,9 @@ async function probeWindowsFiles(ssh, explicitAegisPath = '') {
     '$candidates+=$fallbackProfileCandidate',
     '$aegis=$null',
     'foreach($candidate in $candidates){Assert-NoReparse $candidate $true;$candidatePython=[IO.Path]::Combine([IO.Path]::GetDirectoryName($candidate), "python.exe");Assert-NoReparse $candidatePython $true;try{$item=Get-Item -LiteralPath $candidate -Force -ErrorAction Stop;if(($item.Attributes -band [IO.FileAttributes]::ReparsePoint) -eq 0 -and -not $item.PSIsContainer){$pair=Test-Path -LiteralPath $candidatePython -PathType Leaf;if($pair -or (Split-Path -Leaf (Split-Path -Parent $candidate)) -ieq "bin"){$aegis=$item.FullName;break}}}catch [Management.Automation.ItemNotFoundException]{continue}}',
-    'if(-not $aegis){throw "Aegis is not installed on the remote Windows host."}',
+    'if(-not $aegis){throw "Aegis AI Enterprise Autonomous Platform is not installed on the remote Windows host."}',
     'Assert-NoReparse $aegis $false',
-    'if($explicit -and $aegis -ne $explicit){throw "The configured Aegis path is not an executable file."}',
+    'if($explicit -and $aegis -ne $explicit){throw "The configured Aegis AI Enterprise Autonomous Platform path is not an executable file."}',
     '$python=[IO.Path]::Combine([IO.Path]::GetDirectoryName($aegis), "python.exe")',
     'if(Test-Path -LiteralPath $python -PathType Leaf){Assert-NoReparse $python $false}else{$python=""}',
     '[ordered]@{os="Windows";arch=$env:PROCESSOR_ARCHITECTURE;aegisHome=$aegisHome;aegisPath=$aegis;launcherPath=$aegis;python=$python}|ConvertTo-Json -Compress'
@@ -181,8 +181,8 @@ async function probeWindowsFiles(ssh, explicitAegisPath = '') {
   return parsed
 }
 
-async function probeWindowsRemote(ssh, explicitAegisPath = '') {
-  const parsed = await probeWindowsFiles(ssh, explicitAegisPath)
+async function probeWindowsRemote(ssh, explicitAegis AI Enterprise Autonomous PlatformPath = '') {
+  const parsed = await probeWindowsFiles(ssh, explicitAegis AI Enterprise Autonomous PlatformPath)
 
   // Resolve only after the OS-only marker gate: never import a changing checkout.
   if (parsed.launcherPath) {
@@ -201,10 +201,10 @@ async function resolveWindowsLauncher(ssh: any, runtime: any) {
     WINDOWS_NO_REPARSE_PS,
     `Assert-NoReparse ${psLiteral(runtime.aegisPath)} $false`,
     `$lines=@(& ${psLiteral(runtime.aegisPath)} '--print-runtime-command');$code=$LASTEXITCODE`,
-    'if($code -ne 0){throw "The Aegis launcher does not support --print-runtime-command; refresh the Windows installation launcher."}',
+    'if($code -ne 0){throw "The Aegis AI Enterprise Autonomous Platform launcher does not support --print-runtime-command; refresh the Windows installation launcher."}',
     '$command=$lines[-1]|ConvertFrom-Json',
-    'if($command -isnot [array] -or $command.Count -lt 2 -or -not [IO.Path]::IsPathRooted([string]$command[0])){throw "Invalid Aegis runtime command"}',
-    'foreach($part in $command){if($part -isnot [string] -or $part.Contains([char]0)){throw "Invalid Aegis runtime argument"}}',
+    'if($command -isnot [array] -or $command.Count -lt 2 -or -not [IO.Path]::IsPathRooted([string]$command[0])){throw "Invalid Aegis AI Enterprise Autonomous Platform runtime command"}',
+    'foreach($part in $command){if($part -isnot [string] -or $part.Contains([char]0)){throw "Invalid Aegis AI Enterprise Autonomous Platform runtime argument"}}',
     'Assert-NoReparse ([string]$command[0]) $false',
     '[ordered]@{python=[string]$command[0];runtimeCommand=@($command)}|ConvertTo-Json -Depth 5 -Compress'
   ].join('\r\n')
@@ -220,7 +220,7 @@ async function resolveWindowsLauncher(ssh: any, runtime: any) {
     }
   } catch (cause: any) {
     if (TRANSPORT_KINDS.has(cause?.kind)) {throw cause}
-    const error: any = new Error('Refresh the remote Windows Aegis launcher: its boot-selecting runtime could not be resolved.')
+    const error: any = new Error('Refresh the remote Windows Aegis AI Enterprise Autonomous Platform launcher: its boot-selecting runtime could not be resolved.')
     error.kind = 'update-required'
     error.cause = cause
     throw error
@@ -252,7 +252,7 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
-public static class AegisMarkerNoFollow {
+public static class Aegis AI Enterprise Autonomous PlatformMarkerNoFollow {
   [DllImport("kernel32.dll", CharSet=CharSet.Unicode, SetLastError=true)]
   private static extern SafeFileHandle CreateFile(string name, uint access, uint share, IntPtr security, uint creation, uint flags, IntPtr template);
   public static FileStream OpenRead(string name) {
@@ -284,7 +284,7 @@ public static class AegisMarkerNoFollow {
     '$stream=$null;$memory=$null',
     'try{',
     'Assert-NoReparse $marker $true',
-    'if(-not (Test-Path -LiteralPath $marker -PathType Leaf)){$result="CLEAR"}else{$stream=[AegisMarkerNoFollow]::OpenRead($marker)',
+    'if(-not (Test-Path -LiteralPath $marker -PathType Leaf)){$result="CLEAR"}else{$stream=[Aegis AI Enterprise Autonomous PlatformMarkerNoFollow]::OpenRead($marker)',
     'Assert-NoReparse $marker $false',
     '$memory=New-Object IO.MemoryStream;$stream.CopyTo($memory);$bytes=$memory.ToArray()',
     'if($bytes.Length -le 4096){',
@@ -317,7 +317,7 @@ async function assertWindowsRemoteInstallUpdateClear(ssh, aegisHome, python = ''
         await ssh.exec(compressedPowerShellCommand(windowsUpdateMarkerProbeScript(aegisHome, python)))
       ).pop() || ''
   } catch (cause) {
-    const error: any = new Error('Could not prove that the remote Aegis install is clear for SSH startup.')
+    const error: any = new Error('Could not prove that the remote Aegis AI Enterprise Autonomous Platform install is clear for SSH startup.')
     error.kind = 'update-in-progress'
     error.cause = cause
     throw error
@@ -331,10 +331,10 @@ async function assertWindowsRemoteInstallUpdateClear(ssh, aegisHome, python = ''
 
   const error: any = new Error(
     live
-      ? `Remote Aegis update process ${live[1]} is still running; SSH startup is paused.`
+      ? `Remote Aegis AI Enterprise Autonomous Platform update process ${live[1]} is still running; SSH startup is paused.`
       : observation === 'HELD'
-        ? 'A process the remote Aegis update started still holds the install; SSH startup is paused.'
-        : 'The remote Aegis update marker is unreadable or malformed; refusing SSH startup.'
+        ? 'A process the remote Aegis AI Enterprise Autonomous Platform update started still holds the install; SSH startup is paused.'
+        : 'The remote Aegis AI Enterprise Autonomous Platform update marker is unreadable or malformed; refusing SSH startup.'
   )
 
   error.kind = 'update-in-progress'
@@ -362,7 +362,7 @@ function powerShellErrorDetail(value) {
     .replace(/&amp;/g, '&')
 }
 
-async function detectRemotePlatform(ssh, explicitAegisPath = '') {
+async function detectRemotePlatform(ssh, explicitAegis AI Enterprise Autonomous PlatformPath = '') {
   try {
     const output = (await ssh.exec('uname -s; uname -m')).trim().split('\n')
 
@@ -379,7 +379,7 @@ async function detectRemotePlatform(ssh, explicitAegisPath = '') {
   }
 
   try {
-    return await probeWindowsRemote(ssh, explicitAegisPath)
+    return await probeWindowsRemote(ssh, explicitAegis AI Enterprise Autonomous PlatformPath)
   } catch (cause: any) {
     if (TRANSPORT_KINDS.has(cause?.kind)) {
       throw cause
@@ -754,21 +754,21 @@ async function connectWindowsRemote(deps) {
     ssh,
     ownershipId,
     profile = '',
-    remoteAegisPath = '',
+    remoteAegis AI Enterprise Autonomous PlatformPath = '',
     reuseToken = '',
     devServer = '',
     signal,
     pickLocalPort,
     forward,
     cancelForward,
-    waitForAegis,
+    waitForAegis AI Enterprise Autonomous Platform,
     probeReuseProof,
     rememberLog = () => {},
     readyTimeoutMs = resolveReadyTimeoutMs()
   } = deps
 
   assertBootstrapNotSuperseded(signal)
-  const runtime = await probeWindowsRemote(ssh, remoteAegisPath)
+  const runtime = await probeWindowsRemote(ssh, remoteAegis AI Enterprise Autonomous PlatformPath)
   await assertWindowsRemoteInstallUpdateClear(ssh, runtime.aegisHome, runtime.python)
   const inspection = await helper(ssh, runtime, 'inspect', [runtime.aegisPath])
 
@@ -779,7 +779,7 @@ async function connectWindowsRemote(deps) {
   }
 
   if (!inspection.supported) {
-    const error: any = new Error('Update Aegis on the remote Windows host before connecting with Desktop SSH.')
+    const error: any = new Error('Update Aegis AI Enterprise Autonomous Platform on the remote Windows host before connecting with Desktop SSH.')
     error.kind = 'update-required'
     throw error
   }
@@ -935,7 +935,7 @@ async function connectWindowsRemote(deps) {
     localPort = await pickLocalPort()
     await forward(localPort, remotePort)
     const baseUrl = `http://127.0.0.1:${localPort}`
-    await waitForAegis(baseUrl, token)
+    await waitForAegis AI Enterprise Autonomous Platform(baseUrl, token)
     assertBootstrapNotSuperseded(signal)
     await helper(ssh, runtime, 'write-lock', [ownershipId], JSON.stringify({ ...owned, port: remotePort }))
 
@@ -975,7 +975,7 @@ function buildWindowsInteractiveCommand(remoteCwd = '') {
     )
   }
 
-  script.push('$host.UI.RawUI.WindowTitle="Aegis SSH"', 'powershell.exe -NoLogo')
+  script.push('$host.UI.RawUI.WindowTitle="Aegis AI Enterprise Autonomous Platform SSH"', 'powershell.exe -NoLogo')
 
   return powerShellCommand(script.join(';'))
 }

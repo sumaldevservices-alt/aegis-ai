@@ -1,13 +1,13 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { $connection } from '@/store/session'
 
 import { $cloudOwnsUpdates, cloudOwnsUpdates, updateTargetFor } from './cloud-updates'
 
-const remote = (baseUrl: string, remoteKind?: AegisConnection['remoteKind']): AegisConnection =>
-  ({ baseUrl, mode: 'remote', remoteKind }) as AegisConnection
+const remote = (baseUrl: string, remoteKind?: Aegis AI Enterprise Autonomous PlatformConnection['remoteKind']): Aegis AI Enterprise Autonomous PlatformConnection =>
+  ({ baseUrl, mode: 'remote', remoteKind }) as Aegis AI Enterprise Autonomous PlatformConnection
 
 afterEach(() => {
   $connection.set(null)
@@ -15,11 +15,11 @@ afterEach(() => {
   document.documentElement.removeAttribute('data-aegis-desktop-host')
 })
 
-describe('Aegis Cloud owns updates', () => {
+describe('Aegis AI Enterprise Autonomous Platform Cloud owns updates', () => {
   it('native Desktop connected to a Cloud agent: only the backend is Cloud-owned', () => {
     $connection.set(remote('https://lab.agents.nousresearch.com', 'cloud'))
     expect($cloudOwnsUpdates.get()).toEqual({ backend: true, client: false })
-    // The generic "Update Aegis" command then updates this machine's app.
+    // The generic "Update Aegis AI Enterprise Autonomous Platform" command then updates this machine's app.
     expect(updateTargetFor($connection.get())).toBe('client')
 
     // A Cloud agent saved as a plain URL remote is still Cloud's.

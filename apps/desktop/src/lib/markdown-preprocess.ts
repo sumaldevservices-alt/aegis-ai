@@ -331,7 +331,7 @@ function scrubBacktickNoise(text: string): string {
 // must already be hidden here: otherwise the chain of thought paints as prose
 // until the close tag lands and then the whole span vanishes in one frame
 // (#62774). Removing a closed block between two words keeps one space so `no` +
-// `Aegis` does not fuse into `noAegis`. The seam check reads the two chars at
+// `Aegis AI Enterprise Autonomous Platform` does not fuse into `noAegis AI Enterprise Autonomous Platform`. The seam check reads the two chars at
 // the match edges rather than slicing the accumulated text, which would copy
 // O(n) per closed block on every flush.
 function stripReasoningBlocks(text: string): string {

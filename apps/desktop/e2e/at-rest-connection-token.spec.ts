@@ -3,8 +3,8 @@
  *
  * The reported bug: configuring a remote gateway persisted the dashboard
  * session token as PLAINTEXT into `connection.json` under the app's userData
- * dir (macOS `~/Library/Application Support/Aegis/connection.json`, Windows
- * `AppData\Roaming\Aegis\connection.json`). Anything that can read the file
+ * dir (macOS `~/Library/Application Support/Aegis AI Enterprise Autonomous Platform/connection.json`, Windows
+ * `AppData\Roaming\Aegis AI Enterprise Autonomous Platform\connection.json`). Anything that can read the file
  * — a backup, a sync client, another local process, a support bundle — got a
  * live gateway credential.
  *
@@ -26,7 +26,7 @@
  * satisfied by a "fix" that drops the token on the floor; (2) alone is
  * satisfied by the bug itself. So (2) is verified through the app's own
  * connection test against a fake gateway that records the
- * `X-Aegis-Session-Token` header it receives — a dropped or mangled token
+ * `X-Aegis AI Enterprise Autonomous Platform-Session-Token` header it receives — a dropped or mangled token
  * cannot produce that header.
  *
  * (3) is orthogonal to (1) and invisible to it: safeStorage keeps the token
@@ -99,19 +99,19 @@ const MAX_SCAN_BYTES = 16 * 1024 * 1024
  * one worker at a time and both launches here are sequential; the
  * single-instance lock keys off userData, which is per-sandbox.
  */
-const STABLE_APP_NAME = 'AegisE2EAtRestStorage'
+const STABLE_APP_NAME = 'Aegis AI Enterprise Autonomous PlatformE2EAtRestStorage'
 
 // ─── Fake gateway ───────────────────────────────────────────────────────
 
 interface FakeGateway {
   url: string
-  /** Every `X-Aegis-Session-Token` value the app has sent us. */
+  /** Every `X-Aegis AI Enterprise Autonomous Platform-Session-Token` value the app has sent us. */
   sessionTokens: string[]
   close: () => Promise<void>
 }
 
 /**
- * A minimal stand-in for a remote Aegis gateway. It serves the public
+ * A minimal stand-in for a remote Aegis AI Enterprise Autonomous Platform gateway. It serves the public
  * `/api/status` probe (which the desktop connection test hits first, with the
  * session token in a header) and refuses the WebSocket upgrade immediately so
  * the second leg of the connection test fails fast instead of burning the
@@ -320,7 +320,7 @@ function expectOwnerOnlyMode(filePath: string, why: string): void {
  * hermetic). This is also a real user situation rather than an artificial one:
  * the boot-failure overlay's own recovery affordance is "Connection settings",
  * i.e. pointing the app at a remote gateway is exactly what a user does from
- * this state. BOOT_FAKE_ERROR short-circuits startAegis() *before* remote
+ * this state. BOOT_FAKE_ERROR short-circuits startAegis AI Enterprise Autonomous Platform() *before* remote
  * resolution, so no launch ever dials the fake gateway on its own.
  */
 async function launchAgainst(sandbox: Sandbox): Promise<{ app: ElectronApplication; page: Page }> {
@@ -365,7 +365,7 @@ interface SafeStorageCapability {
  * the `basic_text` backend, which encrypts with a hardcoded password — the
  * bytes on disk are not the plaintext, but they are not meaningfully
  * protected either. We record it rather than assert on it, because which
- * posture Aegis should take there (refuse to save vs. accept basic_text) is
+ * posture Aegis AI Enterprise Autonomous Platform should take there (refuse to save vs. accept basic_text) is
  * a product decision, not something this test should silently ratify.
  */
 async function readSafeStorageCapability(app: ElectronApplication): Promise<SafeStorageCapability> {

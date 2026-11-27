@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { expect, test } from 'vitest'
 
-import { AegisGateway } from './client'
+import { Aegis AI Enterprise Autonomous PlatformGateway } from './client'
 
 // R6: a clarification raised before this viewer attached arrives only in the resume snapshot.
 // The attach must deliver it to the question card and mark the session attached, so the
@@ -25,7 +25,7 @@ test('a cold attach delivers the snapshot prompt and marks the session attached'
       socket.send(JSON.stringify({ jsonrpc: '2.0', id: frame.id, result }))
     })
   })
-  const client = new AegisGateway()
+  const client = new Aegis AI Enterprise Autonomous PlatformGateway()
   const delivered: any[] = []
   client.onRequest(request => { delivered.push(request) })
 

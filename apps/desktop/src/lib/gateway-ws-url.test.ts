@@ -1,7 +1,7 @@
 import { GatewayReauthRequiredError, isGatewayReauthRequired, resolveGatewayWsUrl } from '@aegis/shared'
 import { describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 
 import { resolveDesktopGatewayWsUrl } from './gateway-ws-url'
 
@@ -17,11 +17,11 @@ describe('desktop connection scope', () => {
       connectionId: 'remote-device',
       profile: 'client-alias',
       wsUrl: 'wss://remote.invalid/api/ws?token=cached'
-    } as AegisConnection
+    } as Aegis AI Enterprise Autonomous PlatformConnection
   }
 
   function registeredConnection(authMode: (typeof authModes)[number]) {
-    return { ...aliasConnection(authMode), profile: 'remote-profile', registryScoped: true } as AegisConnection
+    return { ...aliasConnection(authMode), profile: 'remote-profile', registryScoped: true } as Aegis AI Enterprise Autonomous PlatformConnection
   }
 
   function fakeDesktop(withScopedMint = true) {
@@ -54,7 +54,7 @@ describe('desktop connection scope', () => {
 
   it('a registry-scoped flag without a connectionId still takes the legacy mint', async () => {
     const desktop = fakeDesktop()
-    const scopedWithoutId = { ...registeredConnection('token'), connectionId: undefined } as AegisConnection
+    const scopedWithoutId = { ...registeredConnection('token'), connectionId: undefined } as Aegis AI Enterprise Autonomous PlatformConnection
 
     await expect(resolveDesktopGatewayWsUrl(desktop, scopedWithoutId)).resolves.toContain('legacy.invalid')
     expect(desktop.getGatewayWsUrl).toHaveBeenCalledWith('remote-profile')

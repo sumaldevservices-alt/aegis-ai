@@ -1,7 +1,7 @@
 import { afterEach, expect, test, vi } from 'vitest'
 
 import type { GatewayRequest } from '@/app/session/hooks/use-prompt-actions/utils'
-import { AegisGateway } from '@/aegis'
+import { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import { closeSecondaryGateways, requestGatewayForAgent, retainGatewayForAgent } from '@/store/gateway'
 import { $activeGatewayProfile } from '@/store/profile'
 import { $sessions } from '@/store/session'
@@ -50,7 +50,7 @@ async function fixture() {
   } as never
   $sessions.set([{ id: 'stored', connection_id: 'owner', profile: 'background' }] as never)
   $activeGatewayProfile.set('foreground')
-  const ambient = new AegisGateway()
+  const ambient = new Aegis AI Enterprise Autonomous PlatformGateway()
   await ambient.connect(url('ambient'))
   await ambient.request('session.resume', { session_id: 'stored' })
   const ambientRequest = vi.fn(ambient.request.bind(ambient)) as unknown as GatewayRequest

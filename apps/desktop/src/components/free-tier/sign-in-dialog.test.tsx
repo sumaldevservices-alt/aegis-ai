@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, cleanup, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as AegisApi from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformApi from '@/aegis'
 import { $freeTierStatus } from '@/store/free-tier'
 import { $freeTierSignIn, noteFreeTierTurnComplete, openFreeTierSignIn } from '@/store/free-tier-sign-in'
 import { markOnboardingDecided, setOnboardingSurfaceActive } from '@/store/onboarding-presence'
@@ -18,7 +18,7 @@ const requestGateway = vi.fn(async (_method?: string): Promise<GatewayAnswer> =>
 // real implementation so the modules the dialog pulls in (the onboarding
 // DeviceCode cell, the model picker) still resolve their imports.
 vi.mock('@/aegis', async importOriginal => ({
-  ...(await importOriginal<typeof AegisApi>()),
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformApi>()),
   pollOAuthSession: (providerId: string, sessionId: string) => pollOAuthSession(providerId, sessionId),
   getGlobalModelOptions: async () => ({ providers: [] }),
   getNousHandoffStatus: async () => ({ lines: [], state: 'idle' }),
@@ -57,7 +57,7 @@ describe('FreeTierSignInDialog', () => {
     vi.useFakeTimers({ shouldAdvanceTime: true })
     pollOAuthSession.mockResolvedValueOnce({ session_id: 'session-1', status: 'pending' }).mockResolvedValue({
       account_email: 'someone@example.com',
-      model: 'Aegis-4-405B',
+      model: 'Aegis AI Enterprise Autonomous Platform-4-405B',
       reason: null,
       session_id: 'session-1',
       status: 'approved'
@@ -88,7 +88,7 @@ describe('FreeTierSignInDialog', () => {
     await waitFor(() => expect(screen.getByText('Signed in as')).toBeTruthy())
     expect(screen.getByText('someone@example.com')).toBeTruthy()
     expect(screen.getByText('Your account now carries inference and tools.')).toBeTruthy()
-    expect(screen.getByText('Aegis-4-405B')).toBeTruthy()
+    expect(screen.getByText('Aegis AI Enterprise Autonomous Platform-4-405B')).toBeTruthy()
   })
 
   describe('result screen', () => {
@@ -180,7 +180,7 @@ describe('FreeTierSignInDialog', () => {
         setOnboardingSurfaceActive('onboarding', false)
       })
 
-      await waitFor(() => expect(screen.getByText('Keep going with Aegis')).toBeTruthy())
+      await waitFor(() => expect(screen.getByText('Keep going with Aegis AI Enterprise Autonomous Platform')).toBeTruthy())
       expect(requestGateway).toHaveBeenCalledWith('free_tier.claim_nudge', undefined)
     })
 
@@ -196,7 +196,7 @@ describe('FreeTierSignInDialog', () => {
 
       await act(async () => noteFreeTierTurnComplete())
 
-      await waitFor(() => expect(screen.getByText('Keep going with Aegis')).toBeTruthy())
+      await waitFor(() => expect(screen.getByText('Keep going with Aegis AI Enterprise Autonomous Platform')).toBeTruthy())
     })
 
     it('Sign in continues into the normal sign-in flow', async () => {
@@ -215,7 +215,7 @@ describe('FreeTierSignInDialog', () => {
       await act(async () => screen.getByRole('button', { name: 'Not now' }).click())
 
       expect($freeTierSignIn.get()).toEqual({ status: 'closed' })
-      expect(screen.queryByText('Keep going with Aegis')).toBeNull()
+      expect(screen.queryByText('Keep going with Aegis AI Enterprise Autonomous Platform')).toBeNull()
     })
 
     it('an app connected without the trial: claims the connector offer and shows its copy', async () => {
@@ -230,7 +230,7 @@ describe('FreeTierSignInDialog', () => {
 
       await waitFor(() => expect(screen.getByText('Keep your connected apps')).toBeTruthy())
       expect(requestGateway).toHaveBeenCalledWith('free_tier.claim_nudge', { kind: 'connector' })
-      expect(screen.queryByText('Keep going with Aegis')).toBeNull()
+      expect(screen.queryByText('Keep going with Aegis AI Enterprise Autonomous Platform')).toBeNull()
     })
   })
 })

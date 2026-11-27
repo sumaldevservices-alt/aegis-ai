@@ -2,11 +2,11 @@ import type { ApprovalCopy } from './types_approval'
 
 export const enApproval: ApprovalCopy = {
   gatewayDisconnected:
-    'Aegis is offline right now. The command is still waiting for your answer (until the approval timeout). Reconnect, then send it again.',
+    'Aegis AI Enterprise Autonomous Platform is offline right now. The command is still waiting for your answer (until the approval timeout). Reconnect, then send it again.',
   sendFailed: 'Could not send your answer',
   reconnect: 'Reconnect',
   timedOutSystemLine:
-    'Approval timed out — the command was not run. Ask Aegis to try again, or raise the limit in Settings → Safety → Approval timeout.',
+    'Approval timed out — the command was not run. Ask Aegis AI Enterprise Autonomous Platform to try again, or raise the limit in Settings → Safety → Approval timeout.',
   openSafetySettings: 'Open Safety settings',
   run: 'Run',
   command: 'Command',
@@ -18,26 +18,26 @@ export const enApproval: ApprovalCopy = {
   reject: 'Reject',
   alwaysTitle: 'Always allow this command?',
   alwaysDescription: pattern =>
-    `This adds the “${pattern}” pattern to your permanent allowlist (~/.aegis/config.yaml). Aegis won’t ask again for commands like this — in this session or any future one.`,
+    `This adds the “${pattern}” pattern to your permanent allowlist (~/.aegis/config.yaml). Aegis AI Enterprise Autonomous Platform won’t ask again for commands like this — in this session or any future one.`,
   alwaysAllow: 'Always allow',
   deny: 'Deny',
   allow: 'Allow',
   allowHint: 'Until the sandbox is switched off',
   denyReason: 'Reason for denying',
-  denyReasonPlaceholder: 'Tell Aegis why (optional)',
+  denyReasonPlaceholder: 'Tell Aegis AI Enterprise Autonomous Platform why (optional)',
   access: {
     title: 'Folder access',
     readOnly: 'Read only',
     readWrite: 'Read and write',
     timedOut: folder =>
-      `The request timed out — access to the folder ${folder} was not granted. Ask Aegis to try again.`,
+      `The request timed out — access to the folder ${folder} was not granted. Ask Aegis AI Enterprise Autonomous Platform to try again.`,
     alwaysTitle: 'Always allow this folder?',
-    alwaysDescription: 'The folder is added to this profile’s sandbox. Aegis won’t ask again for it in any chat.'
+    alwaysDescription: 'The folder is added to this profile’s sandbox. Aegis AI Enterprise Autonomous Platform won’t ask again for it in any chat.'
   },
   network: {
     title: 'Website access',
-    timedOut: site => `The request timed out — access to ${site} was not granted. Ask Aegis to try again.`,
+    timedOut: site => `The request timed out — access to ${site} was not granted. Ask Aegis AI Enterprise Autonomous Platform to try again.`,
     alwaysTitle: 'Always allow this site?',
-    alwaysDescription: 'The site is added to this profile’s allowed sites. Aegis won’t ask again for it in any chat.'
+    alwaysDescription: 'The site is added to this profile’s allowed sites. Aegis AI Enterprise Autonomous Platform won’t ask again for it in any chat.'
   }
 }

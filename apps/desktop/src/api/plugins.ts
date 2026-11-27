@@ -1,6 +1,6 @@
 import { isStableOpen, reconnectBackoffDelayMs } from '@aegis/shared'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { hostHas } from '@/lib/host-capabilities'
 import { RECONNECT_ATTEMPT_TIMEOUT_MS, withTimeout } from '@/lib/with-timeout'
 
@@ -20,7 +20,7 @@ import { $apiRequestScope, getApiRequestConnection, getApiRequestProfile, aegisA
  *  openSecondary bounds the same *For/plain pair.
  *
  *  Exported for tests. */
-export async function activeConnection(): Promise<AegisConnection> {
+export async function activeConnection(): Promise<Aegis AI Enterprise Autonomous PlatformConnection> {
   const getConnectionFor = window.aegisDesktop.getConnectionFor
   const connectionId = getApiRequestConnection()
   const profile = getApiRequestProfile()
@@ -45,7 +45,7 @@ export async function activeConnection(): Promise<AegisConnection> {
 export interface PluginRestOptions {
   method?: string
   body?: unknown
-  /** Single-file multipart upload (see AegisApiRequest.upload). */
+  /** Single-file multipart upload (see Aegis AI Enterprise Autonomous PlatformApiRequest.upload). */
   upload?: { filename: string; contentType?: string; bytes: ArrayBuffer }
   timeoutMs?: number
 }
@@ -72,7 +72,7 @@ function pluginPathSuffix(caller: string, path: string): string {
  *  declared-capability seam; today the namespace IS the boundary. */
 export async function pluginRest<T>(pluginId: string, path: string, opts: PluginRestOptions = {}): Promise<T> {
   if (!window.aegisDesktop?.api) {
-    throw new Error('Aegis desktop bridge unavailable')
+    throw new Error('Aegis AI Enterprise Autonomous Platform desktop bridge unavailable')
   }
 
   const suffix = pluginPathSuffix('pluginRest', path)
@@ -97,7 +97,7 @@ type PluginSocketTarget = null | string | { refused: 'permission' }
 /** The URL a plugin socket dials, or null to stay on polling. A local gateway
  *  (`authMode: 'native'`, no static token) gets a fresh one-use URL from main:
  *  its native grant rides a request header main attaches to that one dial. */
-async function pluginSocketUrl(connection: AegisConnection, pluginId: string, suffix: string): Promise<PluginSocketTarget> {
+async function pluginSocketUrl(connection: Aegis AI Enterprise Autonomous PlatformConnection, pluginId: string, suffix: string): Promise<PluginSocketTarget> {
   if (connection.authMode === 'native') {
     const mint = window.aegisDesktop.getPluginWsUrl
 
@@ -179,7 +179,7 @@ export function pluginSocket(pluginId: string, path: string, onMessage: (data: u
       return
     }
 
-    let connection: AegisConnection
+    let connection: Aegis AI Enterprise Autonomous PlatformConnection
 
     try {
       connection = await activeConnection()

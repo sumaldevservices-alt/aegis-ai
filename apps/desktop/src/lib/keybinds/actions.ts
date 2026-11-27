@@ -217,7 +217,7 @@ export const KEYBIND_ACTIONS: readonly KeybindActionMeta[] = [
   { id: 'view.toggleRightSidebar', category: 'view', defaults: ['mod+j'] },
   // ⌘⇧S — "s" for status bar. VS Code ships
   // `workbench.action.toggleStatusbarVisibility` unbound (it's a chord-free
-  // gap in their View family) and Aegis has no chord dispatcher, so this
+  // gap in their View family) and Aegis AI Enterprise Autonomous Platform has no chord dispatcher, so this
   // takes the nearest free single combo instead of a ⌘K ⌘S two-stroke.
   { id: 'view.toggleStatusbar', category: 'view', defaults: ['mod+shift+s'] },
   // ⌥⌘T — "t" for tabs, reaching past ⇧ because ⌘⇧T is reopen-closed-tab

@@ -413,7 +413,7 @@ describe('installDesktopPluginFromGit', () => {
     'refuses a package named %s on a forced install and deletes nothing',
     async name => {
       // The folder name comes from the package's manifest: `..` would make a forced install replace
-      // the Aegis home that holds desktop-plugins/.
+      // the Aegis AI Enterprise Autonomous Platform home that holds desktop-plugins/.
       const repo = pluginRepo(name)
       const home = mkdtemp('aegis-home-')
       roots.push(home)

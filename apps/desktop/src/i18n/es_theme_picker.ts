@@ -7,7 +7,7 @@ export const esThemePicker: ThemePickerCopy = {
   customColor: 'Color personalizado',
   themeAccent: 'Predeterminado del tema',
   basic: 'Básico',
-  basicDetail: 'Para hablar con Aegis.',
+  basicDetail: 'Para hablar con Aegis AI Enterprise Autonomous Platform.',
   elite: 'Élite',
   eliteDetail: 'Para desarrolladores: terminal, archivos, diffs.',
   noPick: 'Sin elección'

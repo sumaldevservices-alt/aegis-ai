@@ -12,7 +12,7 @@ const sockets: Array<{ connect: ReturnType<typeof vi.fn> }> = []
 
 vi.mock('@/aegis', async importOriginal => ({
   ...(await importOriginal<Record<string, unknown>>()),
-  AegisGateway: class {
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     connect = vi.fn(async () => {
       this.connectionState = 'open'

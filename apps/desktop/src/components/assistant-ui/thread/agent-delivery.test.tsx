@@ -7,13 +7,13 @@ import { deliveryTargetFromCommand, replyTextFromResult } from './agent-delivery
 // (the canonical Bot Mode command shape) and the reply extraction.
 describe('delivery command detection', () => {
   it('matches the canonical delivery command', () => {
-    const cmd = 'aegis -p turqoise chat --in ~ -c "Bot Chat" -Q -q "Message from 🤖 Aegis (@aegis): hi there"'
+    const cmd = 'aegis -p turqoise chat --in ~ -c "Bot Chat" -Q -q "Message from 🤖 Aegis AI Enterprise Autonomous Platform (@aegis): hi there"'
 
     expect(deliveryTargetFromCommand(cmd)).toBe('turqoise')
   })
 
   it('matches with a cd prefix and timeout wrapper', () => {
-    const cmd = 'cd ~ && timeout 240 aegis -p mr-tester chat --in "~" -Q -q "Message from 🤖 Aegis: hello"'
+    const cmd = 'cd ~ && timeout 240 aegis -p mr-tester chat --in "~" -Q -q "Message from 🤖 Aegis AI Enterprise Autonomous Platform: hello"'
 
     expect(deliveryTargetFromCommand(cmd)).toBe('mr-tester')
   })
@@ -27,9 +27,9 @@ describe('delivery command detection', () => {
 
 describe('reply extraction', () => {
   it('strips session_id bookkeeping and keeps the reply', () => {
-    const output = 'session_id: 20260813_220347_f69ac6\nHi Aegis! Good to hear from you.'
+    const output = 'session_id: 20260813_220347_f69ac6\nHi Aegis AI Enterprise Autonomous Platform! Good to hear from you.'
 
-    expect(replyTextFromResult({ output })).toBe('Hi Aegis! Good to hear from you.')
+    expect(replyTextFromResult({ output })).toBe('Hi Aegis AI Enterprise Autonomous Platform! Good to hear from you.')
   })
 
   it('unwraps JSON-shaped terminal results', () => {

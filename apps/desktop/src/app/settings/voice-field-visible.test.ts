@@ -1,15 +1,15 @@
 import { describe, expect, it } from 'vitest'
 
-import type { AegisConfigRecord } from '@/types/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'
 
 import { voiceFieldVisible } from './helpers'
 
-const cfg = (over: Record<string, unknown> = {}): AegisConfigRecord =>
+const cfg = (over: Record<string, unknown> = {}): Aegis AI Enterprise Autonomous PlatformConfigRecord =>
   ({
     tts: { provider: 'edge', edge: {}, openai: {} },
     stt: { enabled: true, provider: 'local', local: {}, groq: {} },
     ...over
-  }) as unknown as AegisConfigRecord
+  }) as unknown as Aegis AI Enterprise Autonomous PlatformConfigRecord
 
 describe('voiceFieldVisible', () => {
   it('always shows top-level + non-provider keys', () => {
@@ -34,7 +34,7 @@ describe('voiceFieldVisible', () => {
   })
 
   it('falls back to backend defaults when provider is unset so model fields stay visible', () => {
-    const unset = { tts: {}, stt: { enabled: true } } as unknown as AegisConfigRecord
+    const unset = { tts: {}, stt: { enabled: true } } as unknown as Aegis AI Enterprise Autonomous PlatformConfigRecord
     expect(voiceFieldVisible('tts.edge.voice', unset)).toBe(true)
     expect(voiceFieldVisible('tts.openai.voice', unset)).toBe(false)
     expect(voiceFieldVisible('stt.local.model', unset)).toBe(true)

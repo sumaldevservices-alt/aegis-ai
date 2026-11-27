@@ -20,7 +20,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 const dialed: { connectionId: string; profile: string }[] = []
 const sent: { method: string; params: Record<string, unknown>; url: string }[] = []
 
-class FakeAegisGateway {
+class FakeAegis AI Enterprise Autonomous PlatformGateway {
   connectionState = 'closed'
   private url = ''
 
@@ -67,14 +67,14 @@ class FakeAegisGateway {
 
 vi.mock('@/aegis', async importOriginal => ({
   ...(await importOriginal<Record<string, unknown>>()),
-  AegisGateway: FakeAegisGateway,
+  Aegis AI Enterprise Autonomous PlatformGateway: FakeAegis AI Enterprise Autonomous PlatformGateway,
   setApiRequestConnection: vi.fn()
 }))
 
 // Loaded once at collection, outside every test's budget: vi.resetModules() keeps each module's
 // transformed code, so the fresh copy a test imports only re-evaluates it. session-states is the
 // graph a reopened secondary imports lazily (store/gateway.ts). Top-level await rather than a static
-// import: the mock above reads FakeAegisGateway, which a hoisted import would reach before it exists.
+// import: the mock above reads FakeAegis AI Enterprise Autonomous PlatformGateway, which a hoisted import would reach before it exists.
 await import('@/store/gateway')
 await import('@/store/session-states')
 

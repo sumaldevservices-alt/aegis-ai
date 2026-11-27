@@ -25,7 +25,7 @@ function rig() {
 
 describe('normalizeDictionaryWord', () => {
   it('accepts one word of letters, marks, digits, apostrophes and hyphens', () => {
-    expect(normalizeDictionaryWord('Aegis')).toBe('Aegis')
+    expect(normalizeDictionaryWord('Aegis AI Enterprise Autonomous Platform')).toBe('Aegis AI Enterprise Autonomous Platform')
     expect(normalizeDictionaryWord('  naïve  ')).toBe('naïve')
     expect(normalizeDictionaryWord("don't")).toBe("don't")
     expect(normalizeDictionaryWord('re-run')).toBe('re-run')
@@ -43,9 +43,9 @@ describe('normalizeDictionaryWord', () => {
       '1234',
       '--',
       '<script>',
-      '-Aegis',
-      "'Aegis'",
-      'Aegis-',
+      '-Aegis AI Enterprise Autonomous Platform',
+      "'Aegis AI Enterprise Autonomous Platform'",
+      'Aegis AI Enterprise Autonomous Platform-',
       'a/b',
       'x'.repeat(65),
       42,
@@ -62,19 +62,19 @@ describe('aegis:spellcheck:dictionary', () => {
   it("adds and removes a word on the sender's own session", async () => {
     const { call, session } = rig()
 
-    expect(await call({ op: 'add', word: ' Aegis ' })).toBe(true)
-    expect(session.addWordToSpellCheckerDictionary).toHaveBeenCalledWith('Aegis')
+    expect(await call({ op: 'add', word: ' Aegis AI Enterprise Autonomous Platform ' })).toBe(true)
+    expect(session.addWordToSpellCheckerDictionary).toHaveBeenCalledWith('Aegis AI Enterprise Autonomous Platform')
 
-    expect(await call({ op: 'remove', word: 'Aegis' })).toBe(true)
-    expect(session.removeWordFromSpellCheckerDictionary).toHaveBeenCalledWith('Aegis')
+    expect(await call({ op: 'remove', word: 'Aegis AI Enterprise Autonomous Platform' })).toBe(true)
+    expect(session.removeWordFromSpellCheckerDictionary).toHaveBeenCalledWith('Aegis AI Enterprise Autonomous Platform')
   })
 
   it('refuses an invalid word or an unknown op without touching the dictionary', async () => {
     const { call, session } = rig()
 
     expect(await call({ op: 'add', word: 'two words' })).toBe(false)
-    expect(await call({ op: 'list', word: 'Aegis' })).toBe(false)
-    expect(await call({ op: 'constructor', word: 'Aegis' })).toBe(false)
+    expect(await call({ op: 'list', word: 'Aegis AI Enterprise Autonomous Platform' })).toBe(false)
+    expect(await call({ op: 'constructor', word: 'Aegis AI Enterprise Autonomous Platform' })).toBe(false)
     expect(await call(undefined)).toBe(false)
 
     expect(session.addWordToSpellCheckerDictionary).not.toHaveBeenCalled()
@@ -86,6 +86,6 @@ describe('aegis:spellcheck:dictionary', () => {
 
     session.addWordToSpellCheckerDictionary.mockReturnValue(false)
 
-    expect(await call({ op: 'add', word: 'Aegis' })).toBe(false)
+    expect(await call({ op: 'add', word: 'Aegis AI Enterprise Autonomous Platform' })).toBe(false)
   })
 })

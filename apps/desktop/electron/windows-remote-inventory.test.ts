@@ -120,7 +120,7 @@ test('Connect refuses an older helper before token upload or backend spawn on a 
 
   await assert.rejects(() => connectWindowsRemote({
     ssh, ownershipId: 'a'.repeat(32), pickLocalPort: async () => 4444, forward: async () => {},
-    cancelForward: async () => {}, waitForAegis: async () => {}, probeReuseProof: async () => 'authenticated-ok'
+    cancelForward: async () => {}, waitForAegis AI Enterprise Autonomous Platform: async () => {}, probeReuseProof: async () => 'authenticated-ok'
   }), (error: any) => error.kind === 'update-required')
   assert.equal(writes, 0)
 })

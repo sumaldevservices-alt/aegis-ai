@@ -38,7 +38,7 @@ test('the ensure client never hands a dev renderer origin to the long-lived loca
 })
 
 test('a gateway started from the AppImage payload copy gets no paths into the app mount', async () => {
-  const mount = '/tmp/.mount_AegisAb12'
+  const mount = '/tmp/.mount_Aegis AI Enterprise Autonomous PlatformAb12'
   const keys = ['PATH', 'LD_LIBRARY_PATH', 'XDG_DATA_DIRS', 'GSETTINGS_SCHEMA_DIR', 'APPDIR', 'APPIMAGE']
   const printEnv = ['-e', `process.stdout.write(JSON.stringify(Object.fromEntries(${JSON.stringify(keys)}.map(k => [k, process.env[k] ?? null]))))`]
 
@@ -47,7 +47,7 @@ test('a gateway started from the AppImage payload copy gets no paths into the ap
     process.cwd(),
     '/home/x/.aegis',
     {
-      APPIMAGE: '/home/x/Aegis.AppImage',
+      APPIMAGE: '/home/x/Aegis AI Enterprise Autonomous Platform.AppImage',
       APPDIR: mount,
       LD_LIBRARY_PATH: `${mount}/usr/lib`,
       XDG_DATA_DIRS: `${mount}/usr/share/:/usr/share/`,
@@ -62,7 +62,7 @@ test('a gateway started from the AppImage payload copy gets no paths into the ap
     XDG_DATA_DIRS: '/usr/share/',
     GSETTINGS_SCHEMA_DIR: null,
     APPDIR: null,
-    APPIMAGE: '/home/x/Aegis.AppImage'
+    APPIMAGE: '/home/x/Aegis AI Enterprise Autonomous Platform.AppImage'
   })
 })
 
@@ -127,8 +127,8 @@ test.skipIf(process.platform === 'win32').each([0o700, 0o750, 0o701])('native HT
     const descriptor = { gatewayEndpoint: endpoint, baseUrl: endpoint.api_origin }
     const a = await nativeGatewayHttpHeaders(descriptor, endpoint.api_origin + '/api/config')
     const b = await nativeGatewayHttpHeaders(descriptor, endpoint.api_origin + '/api/config')
-    expect(a).toEqual({ 'X-Aegis-Gateway-Ticket': 'grant-1' })
-    expect(b).toEqual({ 'X-Aegis-Gateway-Ticket': 'grant-2' })
+    expect(a).toEqual({ 'X-Aegis AI Enterprise Autonomous Platform-Gateway-Ticket': 'grant-1' })
+    expect(b).toEqual({ 'X-Aegis AI Enterprise Autonomous Platform-Gateway-Ticket': 'grant-2' })
     expect(requests.map(r => r.params)).toEqual([1, 2].map(() => ({ profile_id: home, instance_id: 'owner', purpose: 'native-http' })))
     await expect(nativeGatewayHttpHeaders(descriptor, 'http://127.0.0.1:4567/api/config')).rejects.toThrow('origin')
     expect(requests).toHaveLength(2)
@@ -251,7 +251,7 @@ test('an ensure child that never reached the protocol boundary is diagnosed from
   await expect(ensureLocalGateway(async () => ({ code: 1, stdout: '', stderr: "Error: Profile 'gone' does not exist.\n" }))).rejects.toThrow(/exit 1\): Error: Profile 'gone' does not exist\./)
   // A protocol outcome is never re-diagnosed: `incompatible` stays the gateway's own verdict.
   await expect(ensureLocalGateway(async () => ({ code: 3, stdout: '{"endpoint":null,"reason_code":"runtime_protocol","state":"incompatible"}', stderr: 'noise' }))).rejects.toThrow('Gateway incompatible (runtime_protocol)')
-  await expect(ensureLocalGateway(async () => ({ code: 0, stdout: '', stderr: '' }))).rejects.toThrow(/produced no result \(exit 0\)\. Update Aegis/)
+  await expect(ensureLocalGateway(async () => ({ code: 0, stdout: '', stderr: '' }))).rejects.toThrow(/produced no result \(exit 0\)\. Update Aegis AI Enterprise Autonomous Platform/)
 })
 
 test('private dial credential is one-use and bound to the requesting native window', () => {
@@ -319,7 +319,7 @@ test('a redial whose re-ensure comes back without a gateway endpoint names that,
   expect(mint).toHaveBeenCalledTimes(1)
 })
 
-test('a ready owner running other code than this Aegis is restarted once, then re-ensured', async () => {
+test('a ready owner running other code than this Aegis AI Enterprise Autonomous Platform is restarted once, then re-ensured', async () => {
   // After `aegis update` the live gateway still serves the old code and answers model calls
   // 503 "Restart required"; attaching to it on every dial pinned the user to it forever.
   const { createStaleGatewayRestarter } = await import('./local-gateway')
@@ -660,7 +660,7 @@ test('a session write that names its owner only in the body gets a grant for tha
 
 test('an ensure refusal names its remedy instead of only a status pointer', async () => {
   // A gateway another install owns is refused, not replaced; ensure says what to do in `detail`.
-  const detail = "another Aegis install's gateway owns this profile; stop it there: aegis gateway stop"
+  const detail = "another Aegis AI Enterprise Autonomous Platform install's gateway owns this profile; stop it there: aegis gateway stop"
 
   await expect(ensureLocalGateway(async () => ({
     code: 3, stdout: JSON.stringify({ state: 'incompatible', reason_code: 'runtime_protocol', detail, endpoint: null })
@@ -669,7 +669,7 @@ test('an ensure refusal names its remedy instead of only a status pointer', asyn
 
 test('an elevated or other-session gateway is named with its remedy, not as authorization (#139845, #140252)', async () => {
   const cases = [
-    ['gateway_elevated', 'The running gateway (PID 23460) was started as administrator, so this non-elevated app cannot reach it. Stop it from an administrator prompt (aegis gateway stop), then start Aegis without elevation'],
+    ['gateway_elevated', 'The running gateway (PID 23460) was started as administrator, so this non-elevated app cannot reach it. Stop it from an administrator prompt (aegis gateway stop), then start Aegis AI Enterprise Autonomous Platform without elevation'],
     ['gateway_other_session', 'The running gateway (PID 23460) runs in another Windows logon session (session 0, e.g. a boot-time scheduled task), so this app cannot reach it. Stop it (aegis gateway stop from an administrator prompt) and let only one auto-start task launch the gateway']
   ]
 

@@ -4,7 +4,7 @@ import { atom, computed } from 'nanostores'
 import { setApiRequestLocalMode } from '@/api/client'
 import { lastVisibleMessageIsUser } from '@/app/chat/thread-loading'
 import type { ContextSuggestion } from '@/app/types'
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { browserFolderBasePath, readBrowserDefaultProjectDir } from '@/lib/browser-settings'
 import type { ChatMessage } from '@/lib/chat-messages'
 import {
@@ -60,7 +60,7 @@ const COMPOSER_SERVICE_TIER_KEY = 'aegis.desktop.composer.service-tier'
 // paint, but must not be written through the previous backend's storage key.
 let composerSelectionScope: string | null = ''
 
-function composerScopeForConnection(connection: AegisConnection | null): string | null {
+function composerScopeForConnection(connection: Aegis AI Enterprise Autonomous PlatformConnection | null): string | null {
   if (!connection) {
     return null
   }
@@ -344,7 +344,7 @@ export function setRememberedRoute(path: null | string, profile: string): void {
 
 let configuredDefaultProjectDir = ''
 
-function workspaceCwdKey(connection: AegisConnection | null = $connection.get()): string {
+function workspaceCwdKey(connection: Aegis AI Enterprise Autonomous PlatformConnection | null = $connection.get()): string {
   const profile = connection?.profile?.trim() || 'default'
 
   if (connection?.mode !== 'remote') {
@@ -977,7 +977,7 @@ export function applySessionTitle(storedSessionId: string | null | undefined, ti
   setUnlistedSessionOwnerRows(patch)
 }
 
-export const $connection = atom<AegisConnection | null>(null)
+export const $connection = atom<Aegis AI Enterprise Autonomous PlatformConnection | null>(null)
 export const $gatewayState = atom<ConnectionState>('idle')
 export const $sessions = atom<SessionInfo[]>([])
 // Cron-job sessions (source === 'cron') are fetched as their own list so the
@@ -1488,7 +1488,7 @@ function rescopeComposerSelection(nextScope: string | null): void {
 
 /** Publish an exact registry route before active-profile effects can persist a
  * forced default. A registry id is authority even while its descriptive
- * AegisConnection lookup is unavailable. */
+ * Aegis AI Enterprise Autonomous PlatformConnection lookup is unavailable. */
 /** The composer storage scope of the (connection, profile) owner. */
 export const composerScopeForOwner = (connectionId: string, profile: string): string =>
   `.registry.${encodeURIComponent(connectionId)}.${encodeURIComponent(profile.trim() || 'default')}`
@@ -1502,7 +1502,7 @@ export function clearComposerSelectionOwner(): void {
   rescopeComposerSelection(null)
 }
 
-export const setConnection = (next: Updater<AegisConnection | null>) => {
+export const setConnection = (next: Updater<Aegis AI Enterprise Autonomous PlatformConnection | null>) => {
   updateAtom($connection, next)
   // Repoint connection-scoped persistence (pins, manual session order,
   // remembered navigation) at the new backend's storage scope before any
@@ -1828,7 +1828,7 @@ export const setCurrentReasoningEffort = (next: Updater<string>) => {
 
 /** The level the route actually sends for `$currentReasoningEffort`
  *  (`session.info.reasoning_effort_wire`): '' when unknown, equal when verbatim,
- *  weaker when the route clamps a Aegis-internal step such as `ultra`. Never
+ *  weaker when the route clamps a Aegis AI Enterprise Autonomous Platform-internal step such as `ultra`. Never
  *  persisted — it describes the live route, not a user preference. */
 export const $currentReasoningEffortWire = atom('')
 
@@ -1839,7 +1839,7 @@ export const setCurrentReasoningEffortWire = (next: string) => {
 // The profile's `agent.reasoning_effort`, mirrored from config so surfaces that
 // need to render or apply "the default" resolve the user's configured level
 // instead of assuming DEFAULT_REASONING_EFFORT (lib/reasoning-effort). Empty
-// until config loads, and re-seeded on every profile switch by useAegisConfig.
+// until config loads, and re-seeded on every profile switch by useAegis AI Enterprise Autonomous PlatformConfig.
 export const $defaultReasoningEffort = atom('')
 
 export const setDefaultReasoningEffort = (next: string) => updateAtom($defaultReasoningEffort, next)

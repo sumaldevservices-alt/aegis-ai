@@ -69,7 +69,7 @@ vi.mock(import('@/store/terminal-backend-warning'), () => ({
 }))
 
 // End-to-end-ish repro of the "remote VPS → stuck on CONNECTING, no Settings"
-// bug that drives the REAL useGatewayBoot hook + REAL AegisGateway through a
+// bug that drives the REAL useGatewayBoot hook + REAL Aegis AI Enterprise Autonomous PlatformGateway through a
 // fake WebSocket we fully control. No Docker / no real port: from the desktop's
 // point of view a "remote VPS" is just a WebSocket that opens once and later
 // refuses to reopen, so that is exactly (and only) what we fake.
@@ -177,11 +177,11 @@ function fakeDesktop() {
 
 function Harness({
   beforeConnectionSwitch = () => undefined,
-  refreshAegisConfig = async () => undefined,
+  refreshAegis AI Enterprise Autonomous PlatformConfig = async () => undefined,
   refreshSessions
 }: {
   beforeConnectionSwitch?: () => void
-  refreshAegisConfig?: (force?: boolean, shouldPublish?: () => boolean) => Promise<void>
+  refreshAegis AI Enterprise Autonomous PlatformConfig?: (force?: boolean, shouldPublish?: () => boolean) => Promise<void>
   refreshSessions?: (shouldPublish?: () => boolean) => Promise<void>
 } = {}) {
   useGatewayBoot({
@@ -190,7 +190,7 @@ function Harness({
     handleServerRequest: () => false,
     onConnectionReady: () => undefined,
     onGatewayReady: () => undefined,
-    refreshAegisConfig,
+    refreshAegis AI Enterprise Autonomous PlatformConfig,
     refreshSessions: refreshSessions ?? (async () => undefined)
   })
 
@@ -802,9 +802,9 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
     expect($desktopBoot.get().error).toBeNull()
   })
 
-  it('INITIAL boot against a dead VPS: getConnection hangs (waitForAegis) → app sits in the connecting combo, then fails', async () => {
+  it('INITIAL boot against a dead VPS: getConnection hangs (waitForAegis AI Enterprise Autonomous Platform) → app sits in the connecting combo, then fails', async () => {
     // The report's actual path: a fresh launch pointed at an unreachable VPS.
-    // startAegis()'s remote branch awaits waitForAegis() for 45s before it
+    // startAegis AI Enterprise Autonomous Platform()'s remote branch awaits waitForAegis AI Enterprise Autonomous Platform() for 45s before it
     // throws, so the renderer's `await desktop.getConnection()` stays pending
     // that whole window. During it: gatewayState is still 'idle' (connect was
     // never reached) and boot.error is null → connecting=true → the fullscreen
@@ -829,10 +829,10 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
     expect($desktopBoot.get().error).toBeNull()
     // ^ connecting === true here → fullscreen CONNECTING, no Settings.
 
-    // After ~45s waitForAegis gives up and getConnection rejects → boot()
+    // After ~45s waitForAegis AI Enterprise Autonomous Platform gives up and getConnection rejects → boot()
     // catch → failDesktopBoot → the BootFailureOverlay recovery surface.
     await act(async () => {
-      rejectConn(new Error('Aegis backend did not become ready: timeout'))
+      rejectConn(new Error('Aegis AI Enterprise Autonomous Platform backend did not become ready: timeout'))
       await vi.advanceTimersByTimeAsync(0)
     })
 
@@ -1287,7 +1287,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
 
     ;(window as { aegisDesktop?: unknown }).aegisDesktop = desktop
 
-    const refreshAegisConfig = async (_force = false, shouldPublish?: () => boolean) => {
+    const refreshAegis AI Enterprise Autonomous PlatformConfig = async (_force = false, shouldPublish?: () => boolean) => {
       if (!shouldPublish) {
         return
       }
@@ -1304,7 +1304,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
       }
     }
 
-    render(<Harness refreshAegisConfig={refreshAegisConfig} />)
+    render(<Harness refreshAegis AI Enterprise Autonomous PlatformConfig={refreshAegis AI Enterprise Autonomous PlatformConfig} />)
     await flushAsync()
     expect($gatewayState.get()).toBe('open')
 
@@ -1682,9 +1682,9 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
 
   it('a getConnection() that hangs on INITIAL boot rejects on its own after the reconnect-attempt timeout, not only when main eventually gives up (#93454)', async () => {
     // boot()'s getConnection() had no bound of its own — only main's own
-    // eventual timeout (e.g. waitForAegis, ~45s) ever settled it. A wedge
+    // eventual timeout (e.g. waitForAegis AI Enterprise Autonomous Platform, ~45s) ever settled it. A wedge
     // that main never resolves (not even a rejection) must not hang
-    // "Starting Aegis…" forever; the renderer needs to own its own bound
+    // "Starting Aegis AI Enterprise Autonomous Platform…" forever; the renderer needs to own its own bound
     // here too, same as attemptReconnect() and softSwitch().
     const desktop = fakeDesktop()
     desktop.getConnection = vi.fn(() => new Promise(() => undefined))
@@ -1936,7 +1936,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
     // That used to promote into BootFailureOverlay and lock reading/drafting.
     act(() => {
       desktop.emitBootProgress({
-        error: 'Could not reach the remote Aegis gateway while refreshing its WebSocket ticket. Try reconnecting.',
+        error: 'Could not reach the remote Aegis AI Enterprise Autonomous Platform gateway while refreshing its WebSocket ticket. Try reconnecting.',
         message: 'Desktop boot failed',
         phase: 'backend.error',
         progress: 94,
@@ -1953,7 +1953,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
     // The version-skew report: gateway WS connects fine, but refreshSessions()
     // rejects (e.g. older backend 404s an endpoint the fallback didn't cover,
     // or a transient read error). That must NOT reject boot() into
-    // failDesktopBoot's "Aegis couldn't start" overlay — the socket is open
+    // failDesktopBoot's "Aegis AI Enterprise Autonomous Platform couldn't start" overlay — the socket is open
     // and the app is fully usable with an empty sidebar.
     const refreshSessions = vi.fn(async () => {
       throw new Error('404: {"detail":"No such API endpoint: /api/profiles/sessions/sidebar"}')
@@ -1980,7 +1980,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
 
   it('a backend exit while the boot overlay is up fails the overlay and does not add a dead-button toast', async () => {
     // reconnectGateway() is a no-op before boot completes, so a "Restart
-    // Aegis" toast here would do nothing when clicked; the overlay's own
+    // Aegis AI Enterprise Autonomous Platform" toast here would do nothing when clicked; the overlay's own
     // Retry is the recovery.
     const desktop = fakeDesktop()
     desktop.getConnection = vi.fn(() => new Promise<never>(() => undefined))
@@ -2023,8 +2023,8 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
     desktop.settings = {
       getDefaultProjectDir: vi.fn(async () => ({
         defaultLabel: 'C:\\Users\\sonny',
-        dir: 'C:\\Aegis',
-        resolvedCwd: 'C:\\Aegis'
+        dir: 'C:\\Aegis AI Enterprise Autonomous Platform',
+        resolvedCwd: 'C:\\Aegis AI Enterprise Autonomous Platform'
       })),
       pickDefaultProjectDir: vi.fn(async () => undefined),
       setDefaultProjectDir: vi.fn(async () => undefined)
@@ -2050,8 +2050,8 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
     render(<Harness />)
     await flushAsync()
 
-    expect(cwdAtConnect).toBe('C:\\Aegis')
-    expect($currentCwd.get()).toBe('C:\\Aegis')
+    expect(cwdAtConnect).toBe('C:\\Aegis AI Enterprise Autonomous Platform')
+    expect($currentCwd.get()).toBe('C:\\Aegis AI Enterprise Autonomous Platform')
   })
 
   it('FIX: primary sleep/wake reconnect dials the window backend, not the active secondary profile', async () => {
@@ -2100,7 +2100,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
 
   it('FIX #82679: a transient remote boot failure self-heals — the next attempt rebuilds the dropped connection', async () => {
     // The reported class: the app relaunches (or wakes) against a registered
-    // SSH/HTTP remote whose transport dropped. startAegis() rejects with a
+    // SSH/HTTP remote whose transport dropped. startAegis AI Enterprise Autonomous Platform() rejects with a
     // transient transport error ("Could not verify the existing SSH backend"),
     // main tags the boot progress `retryable`, and — before the fix — the app
     // parked on "Desktop boot failed" until the user re-entered the exact same
@@ -2149,7 +2149,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
     desktop.getBootProgress = vi.fn(async () => ({
       error: null,
       fakeMode: false,
-      message: 'Aegis is ready',
+      message: 'Aegis AI Enterprise Autonomous Platform is ready',
       phase: 'backend.ready',
       progress: 100,
       retryable: false,
@@ -2184,7 +2184,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
     desktop.getBootProgress = vi.fn(async () => ({
       error: null,
       fakeMode: false,
-      message: 'Aegis is ready',
+      message: 'Aegis AI Enterprise Autonomous Platform is ready',
       phase: 'backend.ready',
       progress: 100,
       retryable: false,
@@ -2209,7 +2209,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
     desktop.getBootProgress = vi.fn(async () => ({
       error: null,
       fakeMode: false,
-      message: 'Aegis is ready',
+      message: 'Aegis AI Enterprise Autonomous Platform is ready',
       phase: 'backend.ready',
       progress: 100,
       retryable: false,
@@ -2218,15 +2218,15 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
     }))
     ;(window as { aegisDesktop?: unknown }).aegisDesktop = desktop
 
-    const refreshAegisConfig = vi.fn(async () => {
+    const refreshAegis AI Enterprise Autonomous PlatformConfig = vi.fn(async () => {
       FakeWebSocket.instances[0]?.drop()
       throw new Error('post-connect initialization failed')
     })
 
-    render(<Harness refreshAegisConfig={refreshAegisConfig} />)
+    render(<Harness refreshAegis AI Enterprise Autonomous PlatformConfig={refreshAegis AI Enterprise Autonomous PlatformConfig} />)
     await flushAsync()
 
-    expect(refreshAegisConfig).toHaveBeenCalledTimes(1)
+    expect(refreshAegis AI Enterprise Autonomous PlatformConfig).toHaveBeenCalledTimes(1)
     expect($desktopBoot.get().error).toBeTruthy()
     expect(desktop.getConnection).toHaveBeenCalledTimes(1)
     await advanceBackoff()
@@ -2269,7 +2269,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
   })
 
   it('a failed cold boot keeps its recovery surface while main replays cold-boot progress behind it (#112899)', async () => {
-    // Main keeps startAegis() available after the renderer's boot concluded
+    // Main keeps startAegis AI Enterprise Autonomous Platform() available after the renderer's boot concluded
     // in failure; any later getConnection() caller re-enters it and replays
     // `backend.resolve` (running:true — hides BootFailureOverlay) then
     // `backend.remote` (error:null — the store's late-progress guard only
@@ -2278,10 +2278,10 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
     // ~45s readiness wait, indefinitely.
     const desktop = fakeDesktop()
     desktop.getConnection = vi.fn(async () => {
-      throw new Error('Aegis backend did not become ready: getaddrinfo ENOTFOUND gateway.tailnet.example')
+      throw new Error('Aegis AI Enterprise Autonomous Platform backend did not become ready: getaddrinfo ENOTFOUND gateway.tailnet.example')
     })
     desktop.getBootProgress = vi.fn(async () => ({
-      error: 'Aegis backend did not become ready: getaddrinfo ENOTFOUND gateway.tailnet.example',
+      error: 'Aegis AI Enterprise Autonomous Platform backend did not become ready: getaddrinfo ENOTFOUND gateway.tailnet.example',
       fakeMode: false,
       message: 'Desktop boot failed',
       phase: 'backend.error',
@@ -2303,7 +2303,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
         desktop.emitBootProgress({
           error: null,
           fakeMode: false,
-          message: 'Resolving Aegis backend',
+          message: 'Resolving Aegis AI Enterprise Autonomous Platform backend',
           phase: 'backend.resolve',
           progress: 8,
           running: true,
@@ -2312,7 +2312,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
         desktop.emitBootProgress({
           error: null,
           fakeMode: false,
-          message: 'Connecting to remote Aegis backend at https://gateway.tailnet.example:8443',
+          message: 'Connecting to remote Aegis AI Enterprise Autonomous Platform backend at https://gateway.tailnet.example:8443',
           phase: 'backend.remote',
           progress: 24,
           running: true,
@@ -2374,7 +2374,7 @@ describe('useGatewayBoot remote reconnect loop (real hook, fake socket)', () => 
       desktop.emitBootProgress({
         error: null,
         fakeMode: false,
-        message: 'Resolving Aegis backend',
+        message: 'Resolving Aegis AI Enterprise Autonomous Platform backend',
         phase: 'backend.resolve',
         progress: 8,
         running: true,

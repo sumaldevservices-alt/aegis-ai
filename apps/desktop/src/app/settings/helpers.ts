@@ -1,7 +1,7 @@
 import { foldPersonalityName } from '@/lib/personalities'
 import { asText, normalize } from '@/lib/text'
 import { localShowReasoning } from '@/store/reasoning-disclosure'
-import type { ConfigFieldSchema, AegisConfig, AegisConfigRecord, ToolsetInfo } from '@/types/aegis'
+import type { ConfigFieldSchema, Aegis AI Enterprise Autonomous PlatformConfig, Aegis AI Enterprise Autonomous PlatformConfigRecord, ToolsetInfo } from '@/types/aegis'
 
 import { BUILTIN_PERSONALITIES, ENUM_OPTIONS, PROVIDER_GROUPS, SECTIONS } from './constants'
 
@@ -94,7 +94,7 @@ function safeSet(target: Record<string, unknown>, key: string, value: unknown): 
   })
 }
 
-export function getNested(obj: AegisConfigRecord, path: string): unknown {
+export function getNested(obj: Aegis AI Enterprise Autonomous PlatformConfigRecord, path: string): unknown {
   let cur: unknown = obj
 
   for (const part of configPathParts(path)) {
@@ -128,8 +128,8 @@ const isPlainObject = (value: unknown): value is Record<string, unknown> =>
  * now-stale value. `PUT /api/config` deep-merges onto disk, so an omitted
  * key keeps whatever is currently there.
  */
-export function diffConfig(base: AegisConfigRecord, next: AegisConfigRecord): AegisConfigRecord {
-  const patch: AegisConfigRecord = {}
+export function diffConfig(base: Aegis AI Enterprise Autonomous PlatformConfigRecord, next: Aegis AI Enterprise Autonomous PlatformConfigRecord): Aegis AI Enterprise Autonomous PlatformConfigRecord {
+  const patch: Aegis AI Enterprise Autonomous PlatformConfigRecord = {}
 
   for (const key of Object.keys(next)) {
     const baseValue = base[key]
@@ -165,7 +165,7 @@ export function diffConfig(base: AegisConfigRecord, next: AegisConfigRecord): Ae
  * use this to confirm the destructive transition before applying it. Any edit
  * that keeps at least one toolset — or that never had one — returns false.
  */
-export function clearsEnabledToolsets(prev: AegisConfigRecord, next: AegisConfigRecord): boolean {
+export function clearsEnabledToolsets(prev: Aegis AI Enterprise Autonomous PlatformConfigRecord, next: Aegis AI Enterprise Autonomous PlatformConfigRecord): boolean {
   const prevToolsets = getNested(prev, 'toolsets')
   const nextToolsets = getNested(next, 'toolsets')
   const hadToolsets = Array.isArray(prevToolsets) && prevToolsets.length > 0
@@ -176,7 +176,7 @@ export function clearsEnabledToolsets(prev: AegisConfigRecord, next: AegisConfig
 
 // Voice renders only fields for the selected TTS/STT provider. Search and the
 // page share this rule so every indexed field can actually mount when opened.
-export function voiceFieldVisible(key: string, config: AegisConfigRecord): boolean {
+export function voiceFieldVisible(key: string, config: Aegis AI Enterprise Autonomous PlatformConfigRecord): boolean {
   const match = /^(tts|stt)\.([^.]+)\./.exec(key)
 
   if (!match) {
@@ -216,7 +216,7 @@ export function inferFieldSchema(value: unknown): ConfigFieldSchema {
 // Backend schema omits some declared keys; config presence is the availability signal.
 export function sectionFieldEntries(
   schema: Record<string, ConfigFieldSchema>,
-  config: AegisConfigRecord
+  config: Aegis AI Enterprise Autonomous PlatformConfigRecord
 ): Map<string, [string, ConfigFieldSchema][]> {
   return new Map(
     SECTIONS.map(s => [
@@ -231,7 +231,7 @@ export function sectionFieldEntries(
   )
 }
 
-export function setNested(obj: AegisConfigRecord, path: string, value: unknown): AegisConfigRecord {
+export function setNested(obj: Aegis AI Enterprise Autonomous PlatformConfigRecord, path: string, value: unknown): Aegis AI Enterprise Autonomous PlatformConfigRecord {
   const clone = structuredClone(obj)
   const parts = configPathParts(path)
   let cur: Record<string, unknown> = clone
@@ -264,12 +264,12 @@ export function setNested(obj: AegisConfigRecord, path: string, value: unknown):
 const LOCAL_SHOW_REASONING = 'display.platforms.cli.show_reasoning'
 
 /** The value a Settings field shows. A quoted Reasoning Blocks value reads as the gateway's `_norm_bool`. */
-export function configFieldValue(config: AegisConfigRecord, key: string): unknown {
+export function configFieldValue(config: Aegis AI Enterprise Autonomous PlatformConfigRecord, key: string): unknown {
   if (key !== 'display.show_reasoning') {
     return getNested(config, key)
   }
 
-  const value = localShowReasoning((config as AegisConfig).display)
+  const value = localShowReasoning((config as Aegis AI Enterprise Autonomous PlatformConfig).display)
 
   return typeof value === 'string' ? GATEWAY_TRUTHY.has(value.trim().toLowerCase()) : value
 }
@@ -277,13 +277,13 @@ export function configFieldValue(config: AegisConfigRecord, key: string): unknow
 const GATEWAY_TRUTHY = new Set(['true', '1', 'yes', 'on', 'raw', 'verbose'])
 
 /** The config after a Settings field edit. */
-export function setConfigField(config: AegisConfigRecord, key: string, value: unknown): AegisConfigRecord {
+export function setConfigField(config: Aegis AI Enterprise Autonomous PlatformConfigRecord, key: string, value: unknown): Aegis AI Enterprise Autonomous PlatformConfigRecord {
   const next = setNested(config, key, value)
 
   return key === 'display.show_reasoning' ? setNested(next, LOCAL_SHOW_REASONING, value) : next
 }
 
-function personalityOptions(config: AegisConfigRecord): string[] {
+function personalityOptions(config: Aegis AI Enterprise Autonomous PlatformConfigRecord): string[] {
   // The Python runtime (`aegis_cli.personality.available_personalities`) honours both
   // the root-level `personalities` block and `agent.personalities` (agent wins on a name
   // clash). Read both so a root-registered persona the CLI/gateway resolve also appears in
@@ -383,7 +383,7 @@ function isCommandProvider(value: unknown): boolean {
 // name the runtime would actually resolve as a command provider — built-ins are
 // excluded case-insensitively, matching the runtime's `provider.lower().strip()`
 // guard, so a ``providers.EDGE`` command block is not offered.
-function commandProviderNames(config: AegisConfigRecord, section: 'tts' | 'stt'): string[] {
+function commandProviderNames(config: Aegis AI Enterprise Autonomous PlatformConfigRecord, section: 'tts' | 'stt'): string[] {
   const builtins = section === 'tts' ? BUILTIN_TTS_PROVIDERS : BUILTIN_STT_PROVIDERS
   const names = new Set<string>()
 
@@ -413,7 +413,7 @@ const OPENAI_TTS1_VOICES = new Set(['alloy', 'ash', 'coral', 'echo', 'fable', 'n
 export function enumOptionsFor(
   key: string,
   value: unknown,
-  config: AegisConfigRecord,
+  config: Aegis AI Enterprise Autonomous PlatformConfigRecord,
   dynamicOptions?: string[]
 ): string[] | undefined {
   let opts = dynamicOptions ?? (key === 'display.personality' ? personalityOptions(config) : ENUM_OPTIONS[key])

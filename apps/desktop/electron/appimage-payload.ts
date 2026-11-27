@@ -398,7 +398,7 @@ async function copyBuild(host: PayloadCopyHost, build: string, partial: string):
     throw new Error(`the copy needs ${gib(needed)} GiB free in ${root}, which has ${gib(free)} GiB`)
   }
 
-  await host.progress?.('backend.payload', 'Preparing this Aegis version (first launch only)…', 28)
+  await host.progress?.('backend.payload', 'Preparing this Aegis AI Enterprise Autonomous Platform version (first launch only)…', 28)
   host.log(`[payload] unpacking the AppImage payload (${gib(expected.bytes)} GiB) to ${build}`)
   const started: number = Date.now()
   const target: string = path.join(partial, PAYLOAD_DIR)
@@ -447,7 +447,7 @@ export async function preparePayloadCopy(host: PayloadCopyHost): Promise<string 
 
   try {
     if (fs.existsSync(build)) {
-      throw new Error(`${build} exists without a completion marker; remove it to let Aegis copy the payload again`)
+      throw new Error(`${build} exists without a completion marker; remove it to let Aegis AI Enterprise Autonomous Platform copy the payload again`)
     }
 
     await fs.promises.mkdir(partial, { recursive: true })

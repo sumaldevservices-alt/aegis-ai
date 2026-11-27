@@ -117,7 +117,7 @@ const redactUrl = (raw: string): string => {
 
 // Reconnects after the first launch are discovery-only, except that a bounded number per window
 // re-ensure an owner that is not ready (gateway_bootstrap.py --recover): crashed, idle-exited,
-// stopped with `aegis gateway stop` while this TUI is open, or an older Aegis's gateway. Main's
+// stopped with `aegis gateway stop` while this TUI is open, or an older Aegis AI Enterprise Autonomous Platform's gateway. Main's
 // TUI owned its sidecar, so an open TUI comes back on its own; the budget keeps a crash-looping
 // owner from being respawned without pause.
 export const OWNER_RECOVERY_LIMIT = 3
@@ -604,7 +604,7 @@ export class GatewayClient extends EventEmitter {
       } })
       this.channel.detach(this.bootstrapError)
 
-      // No reconnect fixes this (Ink: the helper's interpreter cannot load Aegis, gateway_bootstrap.py
+      // No reconnect fixes this (Ink: the helper's interpreter cannot load Aegis AI Enterprise Autonomous Platform, gateway_bootstrap.py
       // `gateway unavailable:`), so report it once instead of retrying every 30 s forever (#138878).
       const terminal = this.options.terminalConnectFailure?.(this.bootstrapError)
 

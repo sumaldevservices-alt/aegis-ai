@@ -51,11 +51,11 @@ export default function ProgressScreen({ bootstrap }: ProgressProps) {
   }, [bootstrap.status])
 
   const isUpdate = mode === 'update'
-  const title = bootstrap.status === 'completed' ? 'Done' : isUpdate ? 'Updating Aegis' : 'Setting up Aegis Agent'
+  const title = bootstrap.status === 'completed' ? 'Done' : isUpdate ? 'Updating Aegis AI Enterprise Autonomous Platform' : 'Setting up Aegis AI Enterprise Autonomous Platform Agent'
 
   const description = isUpdate
-    ? 'Aegis is updating to the latest version — this only takes a moment.'
-    : 'This is a one-time setup. The Aegis installer is downloading dependencies and configuring your machine. Subsequent launches will skip this step.'
+    ? 'Aegis AI Enterprise Autonomous Platform is updating to the latest version — this only takes a moment.'
+    : 'This is a one-time setup. The Aegis AI Enterprise Autonomous Platform installer is downloading dependencies and configuring your machine. Subsequent launches will skip this step.'
 
   const pct = Math.round(progress.fraction * 100)
 

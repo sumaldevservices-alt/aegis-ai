@@ -87,7 +87,7 @@ function Harness() {
     ...cache,
     queryClient,
     hydrateFromStoredSession: noop,
-    refreshAegisConfig: noop,
+    refreshAegis AI Enterprise Autonomous PlatformConfig: noop,
     refreshSessions: noop
   })
   refresh = () =>

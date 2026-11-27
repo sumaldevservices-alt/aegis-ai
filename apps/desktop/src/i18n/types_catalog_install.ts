@@ -22,7 +22,7 @@ export interface CatalogInstallTranslations {
   securityHeading: string
   scan: { passed: string; warnings: string; failed: string }
   requirementsLabel: string
-  requiresAegis: (range: string) => string
+  requiresAegis AI Enterprise Autonomous Platform: (range: string) => string
   envVar: (name: string) => string
   credentialsHeading: string
   phase: Record<InstallPhase, string>

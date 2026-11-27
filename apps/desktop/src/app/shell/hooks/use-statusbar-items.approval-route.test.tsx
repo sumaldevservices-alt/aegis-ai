@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import { MemoryRouter } from 'react-router'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import type * as AegisModule from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformModule from '@/aegis'
 import { $activeGatewayProfile } from '@/store/profile'
 
 import { useStatusbarItems } from './use-statusbar-items'
@@ -17,8 +17,8 @@ import { useStatusbarItems } from './use-statusbar-items'
 const sockets = vi.hoisted(() => [] as Array<{ requests: Array<[string, unknown]>; wsUrl: string }>)
 
 vi.mock('@/aegis', async importOriginal => ({
-  ...(await importOriginal<typeof AegisModule>()),
-  AegisGateway: class {
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformModule>()),
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     record = { requests: [] as Array<[string, unknown]>, wsUrl: '' }
     constructor() {

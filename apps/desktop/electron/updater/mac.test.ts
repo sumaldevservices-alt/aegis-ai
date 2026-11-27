@@ -57,8 +57,8 @@ describe('macOS strategy', () => {
   })
 
   it.each([
-    ['App Translocation', '/private/var/folders/x/T/AppTranslocation/1F2E/d/Aegis.app', undefined],
-    ['a mounted disk image', '/Volumes/Aegis/Aegis.app', 'EROFS']
+    ['App Translocation', '/private/var/folders/x/T/AppTranslocation/1F2E/d/Aegis AI Enterprise Autonomous Platform.app', undefined],
+    ['a mounted disk image', '/Volumes/Aegis AI Enterprise Autonomous Platform/Aegis AI Enterprise Autonomous Platform.app', 'EROFS']
   ])('refuses before any download or teardown when run from %s', async (_label, bundlePath, code) => {
     const { deps, events } = fixture()
 
@@ -69,19 +69,19 @@ describe('macOS strategy', () => {
     })
 
     const strategy = new MacStrategy({ ...deps, bundlePath, access })
-    await expect(strategy.apply()).rejects.toThrow('drag Aegis into the Applications folder')
+    await expect(strategy.apply()).rejects.toThrow('drag Aegis AI Enterprise Autonomous Platform into the Applications folder')
     expect(events).toEqual([])
     expect(deps.emitProgress).toHaveBeenCalledWith(expect.objectContaining({ stage: 'error' }))
   })
 
   it('leaves a writable or admin-owned Applications folder to Squirrel', () => {
-    expect(macReadOnlyBundleReason('/Applications/Aegis.app', () => undefined)).toBeNull()
+    expect(macReadOnlyBundleReason('/Applications/Aegis AI Enterprise Autonomous Platform.app', () => undefined)).toBeNull()
 
     const eacces = () => {
       throw Object.assign(new Error('permission denied'), { code: 'EACCES' })
     }
 
-    expect(macReadOnlyBundleReason('/Applications/Aegis.app', eacces)).toBeNull()
+    expect(macReadOnlyBundleReason('/Applications/Aegis AI Enterprise Autonomous Platform.app', eacces)).toBeNull()
   })
 
   it.each(['downloadUpdate', 'prepareInstall'] as const)('keeps backends alive on %s failure', async failure => {

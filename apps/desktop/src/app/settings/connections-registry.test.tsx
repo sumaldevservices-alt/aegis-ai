@@ -209,7 +209,7 @@ describe('ConnectionsRegistrySection', () => {
 
     await screen.findByText('Homelab')
     fireEvent.click(screen.getByText('Add connection'))
-    fireEvent.click(screen.getByRole('button', { name: 'Aegis Cloud' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Aegis AI Enterprise Autonomous Platform Cloud' }))
     fireEvent.change(screen.getByPlaceholderText('Homelab'), { target: { value: 'Team cloud' } })
     fireEvent.change(screen.getByPlaceholderText('http://homelab.lan:9119'), {
       target: { value: 'https://team.aegis.cloud' }
@@ -244,7 +244,7 @@ describe('ConnectionsRegistrySection', () => {
     expect(save.mock.calls[0][0].token).toBeUndefined()
   })
 
-  it('saves a custom remote Aegis path for SSH connections', async () => {
+  it('saves a custom remote Aegis AI Enterprise Autonomous Platform path for SSH connections', async () => {
     render(<ConnectionsRegistrySection />)
 
     await waitFor(() => expect(screen.getByText('Homelab')).toBeTruthy())
@@ -262,11 +262,11 @@ describe('ConnectionsRegistrySection', () => {
       host: 'dev@build.test:2222',
       kind: 'ssh',
       label: 'Build host',
-      remoteAegisPath: '/opt/aegis/bin/aegis'
+      remoteAegis AI Enterprise Autonomous PlatformPath: '/opt/aegis/bin/aegis'
     })
   })
 
-  it('clears a saved remote Aegis path back to auto-detect', async () => {
+  it('clears a saved remote Aegis AI Enterprise Autonomous Platform path back to auto-detect', async () => {
     const sshRegistry: DesktopConnectionsRegistry = {
       ...registry,
       connections: [
@@ -276,7 +276,7 @@ describe('ConnectionsRegistrySection', () => {
           id: 'build-host',
           kind: 'ssh',
           label: 'Build host',
-          remoteAegisPath: '/opt/aegis/bin/aegis',
+          remoteAegis AI Enterprise Autonomous PlatformPath: '/opt/aegis/bin/aegis',
           tokenPreview: null,
           tokenSet: false,
           user: 'dev'
@@ -295,7 +295,7 @@ describe('ConnectionsRegistrySection', () => {
     fireEvent.click(screen.getByText('Save connection').closest('button')!)
 
     await waitFor(() => expect(save).toHaveBeenCalledTimes(1))
-    expect(save.mock.calls[0][0]).toMatchObject({ id: 'build-host', remoteAegisPath: '' })
+    expect(save.mock.calls[0][0]).toMatchObject({ id: 'build-host', remoteAegis AI Enterprise Autonomous PlatformPath: '' })
   })
 
   it('disables Local on create while the managed entry exists', async () => {

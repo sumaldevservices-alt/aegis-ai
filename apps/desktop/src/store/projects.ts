@@ -9,8 +9,8 @@ import {
   projectOwnerBySessionId,
   type SidebarProjectTree
 } from '@/app/chat/sidebar/projects/workspace-groups'
-import type { AegisGitBaseBranch, AegisGitBranch } from '@/global'
-import { getAegisConfig, aegisApi, type AegisGateway, type SessionInfo } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGitBaseBranch, Aegis AI Enterprise Autonomous PlatformGitBranch } from '@/global'
+import { getAegis AI Enterprise Autonomous PlatformConfig, aegisApi, type Aegis AI Enterprise Autonomous PlatformGateway, type SessionInfo } from '@/aegis'
 import { translateNow } from '@/i18n'
 import { desktopDefaultCwd, isDesktopFsRemoteMode, selectDesktopPaths, writeDesktopFileText } from '@/lib/desktop-fs'
 import { desktopGit, desktopGitFor, type GitOwnerRoute } from '@/lib/desktop-git'
@@ -309,7 +309,7 @@ async function gatewayRequest<T>(method: string, params: Record<string, unknown>
   }
 
   if (!gateway) {
-    throw new Error('Aegis gateway is not connected')
+    throw new Error('Aegis AI Enterprise Autonomous Platform gateway is not connected')
   }
 
   return gateway.request<T>(method, params)
@@ -348,7 +348,7 @@ function projectParams(
 }
 
 async function gatewayRequestOn<T>(
-  gateway: AegisGateway,
+  gateway: Aegis AI Enterprise Autonomous PlatformGateway,
   method: string,
   params: Record<string, unknown> = {}
 ): Promise<T> {
@@ -369,7 +369,7 @@ interface ProjectRowOwner {
 }
 
 interface ActiveProjectsContext extends ProjectRowOwner {
-  gateway: AegisGateway
+  gateway: Aegis AI Enterprise Autonomous PlatformGateway
   profile: string
 }
 
@@ -407,7 +407,7 @@ async function activeProjectsContext(profile = projectProfile()): Promise<Active
   }
 
   if (!gateway || !stillOnWritableProjectOwner({ connectionId, gateway, profile })) {
-    throw new Error('Active Aegis profile changed while connecting')
+    throw new Error('Active Aegis AI Enterprise Autonomous Platform profile changed while connecting')
   }
 
   return { connectionId, gateway, profile, stampLocal }
@@ -866,8 +866,8 @@ interface RepoScanState {
   runningSignature?: string
 }
 
-const repoScanStates = new WeakMap<AegisGateway, RepoScanState>()
-const scanningGatewayGenerations = new WeakMap<AegisGateway, number>()
+const repoScanStates = new WeakMap<Aegis AI Enterprise Autonomous PlatformGateway, RepoScanState>()
+const scanningGatewayGenerations = new WeakMap<Aegis AI Enterprise Autonomous PlatformGateway, number>()
 
 function syncReposScanning(): void {
   const gateway = activeGateway()
@@ -880,7 +880,7 @@ export async function scanAndRecordRepos(force = false): Promise<void> {
   if (isDesktopFsRemoteMode()) {
     // On a remote backend the desktop can't crawl the host filesystem.
     // Ask the host to scan its own discovery roots (`projects.discover_repos`
-    // with `scan: true` — added in #81723) so repos with zero Aegis
+    // with `scan: true` — added in #81723) so repos with zero Aegis AI Enterprise Autonomous Platform
     // sessions still surface, then refresh the tree so the sidebar picks up
     // the merged session-derived + scanned list.
     try {
@@ -938,7 +938,7 @@ export async function scanAndRecordRepos(force = false): Promise<void> {
   let generation: number | undefined
 
   try {
-    const policy = repoDiscoveryPolicyFromConfig(await getAegisConfig(context.profile))
+    const policy = repoDiscoveryPolicyFromConfig(await getAegis AI Enterprise Autonomous PlatformConfig(context.profile))
     const signature = repoDiscoveryPolicySignature(policy)
 
     if (!force && (state.completedSignature === signature || state.runningSignature === signature)) {
@@ -1467,7 +1467,7 @@ export function refreshWorktrees(): void {
 const gitFor = (owner?: GitOwnerRoute) => (owner ? desktopGitFor(owner) : desktopGit())
 
 // Spin up a fresh worktree the lightest way (`git worktree add -b`) under the
-// repo, returning where Aegis should start working. Git is the source of
+// repo, returning where Aegis AI Enterprise Autonomous Platform should start working. Git is the source of
 // truth; the caller starts a session in the returned path.
 export async function startWorkInRepo(
   repoPath: string,
@@ -1507,7 +1507,7 @@ export async function startWorkInRepo(
 // by hand first.
 // Empty on a non-repo. On a remote gateway the list comes from the backend's
 // /api/git/branches mirror, so it acts on the repo where sessions actually run.
-export async function listRepoBranches(repoPath: string, owner?: GitOwnerRoute): Promise<AegisGitBranch[]> {
+export async function listRepoBranches(repoPath: string, owner?: GitOwnerRoute): Promise<Aegis AI Enterprise Autonomous PlatformGitBranch[]> {
   const git = gitFor(owner)
 
   if (!git?.branchList || !repoPath) {
@@ -1521,7 +1521,7 @@ export async function listRepoBranches(repoPath: string, owner?: GitOwnerRoute):
 // new-worktree dialog. The remote default (origin/HEAD) is flagged so the
 // UI can preselect it. Empty on a non-repo; remote gateways serve it from the
 // backend's /api/git/base-branches mirror.
-export async function listBaseBranches(repoPath: string, owner?: GitOwnerRoute): Promise<AegisGitBaseBranch[]> {
+export async function listBaseBranches(repoPath: string, owner?: GitOwnerRoute): Promise<Aegis AI Enterprise Autonomous PlatformGitBaseBranch[]> {
   const git = gitFor(owner)
 
   if (!git?.baseBranchList || !repoPath) {

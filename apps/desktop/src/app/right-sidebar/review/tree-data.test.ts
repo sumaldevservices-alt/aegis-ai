@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 
-import type { AegisReviewFile } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformReviewFile } from '@/global'
 
 import { buildReviewTree, countAllNodes, flattenReviewRows } from './tree-data'
 
-const file = (path: string, added = 1, removed = 0): AegisReviewFile => ({
+const file = (path: string, added = 1, removed = 0): Aegis AI Enterprise Autonomous PlatformReviewFile => ({
   path,
   added,
   removed,

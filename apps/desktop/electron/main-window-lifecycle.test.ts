@@ -150,7 +150,7 @@ function pendingMovePrompt(): {
 } {
   let answer: (response: number) => void = () => undefined
   let markShown: () => void = () => undefined
-  const exe = '/Volumes/Aegis Agent/Aegis Agent.app/Contents/MacOS/Aegis Agent'
+  const exe = '/Volumes/Aegis AI Enterprise Autonomous Platform Agent/Aegis AI Enterprise Autonomous Platform Agent.app/Contents/MacOS/Aegis AI Enterprise Autonomous Platform Agent'
 
   // The guard reaches showMessageBox synchronously, so this must exist before it starts.
   const shown = new Promise<void>(resolve => {
@@ -173,7 +173,7 @@ function pendingMovePrompt(): {
         })
       }) as never
     },
-    appName: 'Aegis Agent',
+    appName: 'Aegis AI Enterprise Autonomous Platform Agent',
     isPackaged: true,
     installStamp: { payload: 'bundled', updateMechanism: 'electron-updater' },
     platform: 'darwin',
@@ -208,8 +208,8 @@ test('a second launch opens no window behind the Applications move prompt, and o
     })
 
   await prompt.shown
-  secondLaunch(['Aegis Agent'])
-  secondLaunch(['Aegis Agent', 'aegis://session/abc', '--close-preview'])
+  secondLaunch(['Aegis AI Enterprise Autonomous Platform Agent'])
+  secondLaunch(['Aegis AI Enterprise Autonomous Platform Agent', 'aegis://session/abc', '--close-preview'])
   assert.deepEqual(created, [])
   // Links still go to handleDeepLink, which queues them until the renderer is ready.
   assert.deepEqual(links, ['aegis://close-preview', 'aegis://session/abc'])
@@ -218,10 +218,10 @@ test('a second launch opens no window behind the Applications move prompt, and o
   prompt.answer(1)
   launchGuard = await prompt.result
   assert.equal(launchGuard.action, 'continue')
-  secondLaunch(['Aegis Agent'])
+  secondLaunch(['Aegis AI Enterprise Autonomous Platform Agent'])
   assert.deepEqual(created, ['window'])
 
   launchGuard = { action: 'relaunching', location: 'read-only-volume' }
-  secondLaunch(['Aegis Agent'])
+  secondLaunch(['Aegis AI Enterprise Autonomous Platform Agent'])
   assert.deepEqual(created, ['window'])
 })

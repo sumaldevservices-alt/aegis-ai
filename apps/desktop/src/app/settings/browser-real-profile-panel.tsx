@@ -1,12 +1,12 @@
 import { useCallback, useState } from 'react'
 
 import type { PreviewSigninsResult } from '@/global'
-import { type ProfileScope, saveAegisConfigRecord } from '@/aegis'
+import { type ProfileScope, saveAegis AI Enterprise Autonomous PlatformConfigRecord } from '@/aegis'
 import { useI18n } from '@/i18n'
 import { claimPreviewSigninsSync, syncPreviewSignins } from '@/lib/preview-signins'
 import { notify, notifyError } from '@/store/notifications'
 
-import { aegisConfigCacheWriter, useAegisConfigRecord } from '../hooks/use-config-record'
+import { aegisConfigCacheWriter, useAegis AI Enterprise Autonomous PlatformConfigRecord } from '../hooks/use-config-record'
 
 import { RowFootnoteAction, ToggleRow } from './primitives'
 
@@ -36,7 +36,7 @@ export function readUseRealProfile(record: Record<string, unknown> | undefined):
  * users reasonably never found ("no toggle in the browser section").
  *
  * Semantics mirror the config comment: turning it ON consents to snapshotting
- * the default browser's profile (cookies/logins) into a Aegis-owned copy;
+ * the default browser's profile (cookies/logins) into a Aegis AI Enterprise Autonomous Platform-owned copy;
  * turning it OFF deletes the snapshot store on next use. The toggle writes
  * config.yaml through the same deep-merging PUT /api/config every other
  * settings surface uses — applies to new sessions. It also signs the in-app
@@ -46,7 +46,7 @@ export function readUseRealProfile(record: Record<string, unknown> | undefined):
 export function BrowserRealProfilePanel({ profile }: BrowserRealProfilePanelProps) {
   const { t } = useI18n()
   const copy = t.settings.toolsets.browserRealProfile
-  const { data: config, writeScope } = useAegisConfigRecord(profile)
+  const { data: config, writeScope } = useAegis AI Enterprise Autonomous PlatformConfigRecord(profile)
   const setConfig = aegisConfigCacheWriter(profile)
   const [busy, setBusy] = useState(false)
 
@@ -101,7 +101,7 @@ export function BrowserRealProfilePanel({ profile }: BrowserRealProfilePanelProp
       try {
         // Sparse patch: PUT /api/config deep-merges, and echoing the cached
         // snapshot would overwrite keys other surfaces changed since it loaded.
-        await saveAegisConfigRecord({ browser: { use_real_profile: on } }, writeScope ?? profile)
+        await saveAegis AI Enterprise Autonomous PlatformConfigRecord({ browser: { use_real_profile: on } }, writeScope ?? profile)
 
         notify({
           kind: 'info',

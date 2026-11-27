@@ -33,9 +33,9 @@ export function hasValidBootstrapMarker(
 }
 
 // The active install at ~/.aegis/aegis-agent can be real and runnable even if
-// Desktop never wrote its first-run bootstrap marker (for example when Aegis
+// Desktop never wrote its first-run bootstrap marker (for example when Aegis AI Enterprise Autonomous Platform
 // was installed by the CLI first, or when a past desktop build forgot the
-// marker). Runtime usability is authoritative for "can we launch local Aegis
+// marker). Runtime usability is authoritative for "can we launch local Aegis AI Enterprise Autonomous Platform
 // right now?"; the marker is only provenance about how that install was
 // created. A missing/stale marker must never force a healthy local install into
 // the first-run bootstrap UI.

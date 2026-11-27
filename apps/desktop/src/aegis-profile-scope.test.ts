@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import {
-  checkAegisUpdate,
+  checkAegis AI Enterprise Autonomous PlatformUpdate,
   getActionStatus,
   getElevenLabsVoices,
   getMemoryProviderConfig,
@@ -11,7 +11,7 @@ import {
   setApiRequestProfile,
   speakText,
   transcribeAudio,
-  updateAegis
+  updateAegis AI Enterprise Autonomous Platform
 } from './aegis'
 
 // Contract: every backend-targeted action helper must carry the active gateway
@@ -54,8 +54,8 @@ describe('backend action helpers are profile-scoped', () => {
 
     void getStatus()
     void restartGateway()
-    void updateAegis()
-    void checkAegisUpdate()
+    void updateAegis AI Enterprise Autonomous Platform()
+    void checkAegis AI Enterprise Autonomous PlatformUpdate()
     void getActionStatus('gateway-restart')
 
     for (const call of api.mock.calls) {

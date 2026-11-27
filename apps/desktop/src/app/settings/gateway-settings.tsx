@@ -57,7 +57,7 @@ import { WebappGatewaySettings } from './webapp-gateway-settings'
 
 type Mode = 'local' | 'remote' | 'cloud' | 'ssh'
 type AuthMode = 'oauth' | 'token'
-// Aegis Cloud discovery lifecycle for the cloud-mode panel.
+// Aegis AI Enterprise Autonomous Platform Cloud discovery lifecycle for the cloud-mode panel.
 type CloudDiscoverStatus = 'idle' | 'loading' | 'done' | 'error'
 
 export interface GatewaySettingsState {
@@ -79,7 +79,7 @@ export interface GatewaySettingsState {
   sshUser: string
   sshPort: number | null
   sshKeyPath: string
-  sshRemoteAegisPath: string
+  sshRemoteAegis AI Enterprise Autonomous PlatformPath: string
   sshRemoteProfile: string
 }
 
@@ -100,7 +100,7 @@ const EMPTY_STATE: GatewaySettingsState = {
   sshUser: '',
   sshPort: null,
   sshKeyPath: '',
-  sshRemoteAegisPath: '',
+  sshRemoteAegis AI Enterprise Autonomous PlatformPath: '',
   sshRemoteProfile: ''
 }
 
@@ -315,7 +315,7 @@ function GatewayConnectionSettings({ embedded, standalone }: { embedded: boolean
   // so confirm resumes the right one.
   const [plainTextConfirm, setPlainTextConfirm] = useState<null | { apply: boolean }>(null)
 
-  // --- Aegis Cloud (cloud mode) state ---
+  // --- Aegis AI Enterprise Autonomous Platform Cloud (cloud mode) state ---
   // One portal session powers discovery + the silent per-agent cascade. These
   // track the cloud panel: whether we're signed in, the discovered agent list,
   // and which agent is mid-connect.
@@ -500,7 +500,7 @@ function GatewayConnectionSettings({ embedded, standalone }: { embedded: boolean
     state.sshUser,
     state.sshPort,
     state.sshKeyPath,
-    state.sshRemoteAegisPath,
+    state.sshRemoteAegis AI Enterprise Autonomous PlatformPath,
     state.sshRemoteProfile
   ])
 
@@ -521,7 +521,7 @@ function GatewayConnectionSettings({ embedded, standalone }: { embedded: boolean
           sshUser: state.sshUser.trim(),
           sshPort: state.sshPort,
           sshKeyPath: state.sshKeyPath.trim(),
-          sshRemoteAegisPath: state.sshRemoteAegisPath.trim(),
+          sshRemoteAegis AI Enterprise Autonomous PlatformPath: state.sshRemoteAegis AI Enterprise Autonomous PlatformPath.trim(),
           // A blank clears an existing remote-profile mapping.
           sshRemoteProfile: state.sshRemoteProfile.trim()
         }),
@@ -622,7 +622,7 @@ function GatewayConnectionSettings({ embedded, standalone }: { embedded: boolean
     await performSave(apply, false)
   }
 
-  // --- Aegis Cloud handlers ---
+  // --- Aegis AI Enterprise Autonomous Platform Cloud handlers ---
 
   // Pull the discovered agent list over the shared portal session. Tolerant of
   // a lapsed session: a needsCloudLogin error flips us back to signed-out.
@@ -1097,7 +1097,7 @@ function GatewayConnectionSettings({ embedded, standalone }: { embedded: boolean
         </div>
       </div>
 
-      {/* Aegis Cloud panel: one portal sign-in, then a discovered-agent picker
+      {/* Aegis AI Enterprise Autonomous Platform Cloud panel: one portal sign-in, then a discovered-agent picker
           whose selection drives the silent per-agent cascade + a cloud
           connection. Replaces the URL/token form while in cloud mode. */}
       {state.mode === 'cloud' && !state.envOverride ? (
@@ -1398,13 +1398,13 @@ function GatewayConnectionSettings({ embedded, standalone }: { embedded: boolean
             action={
               <Input
                 className={cn('h-8 font-mono', CONTROL_TEXT)}
-                onChange={event => setState(current => ({ ...current, sshRemoteAegisPath: event.target.value }))}
-                placeholder={g.sshAegisPathPlaceholder}
-                value={state.sshRemoteAegisPath}
+                onChange={event => setState(current => ({ ...current, sshRemoteAegis AI Enterprise Autonomous PlatformPath: event.target.value }))}
+                placeholder={g.sshAegis AI Enterprise Autonomous PlatformPathPlaceholder}
+                value={state.sshRemoteAegis AI Enterprise Autonomous PlatformPath}
               />
             }
-            description={g.sshAegisPathDesc}
-            title={g.sshAegisPathTitle}
+            description={g.sshAegis AI Enterprise Autonomous PlatformPathDesc}
+            title={g.sshAegis AI Enterprise Autonomous PlatformPathTitle}
           />
         </div>
       ) : null}

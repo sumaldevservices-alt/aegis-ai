@@ -31,7 +31,7 @@ import {
 } from '@/store/local-runtime-jobs'
 import type { LocalModelLoadProgress, LocalRuntimeJob } from '@/types/aegis'
 
-import type { AegisGateway } from '../aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '../aegis'
 import { startManualOnboarding } from '../store/onboarding'
 
 import { InlineNotice } from './notifications'
@@ -46,7 +46,7 @@ import { Skeleton } from './ui/skeleton'
 interface ModelPickerDialogProps {
   open: boolean
   onOpenChange: (open: boolean) => void
-  gw?: AegisGateway
+  gw?: Aegis AI Enterprise Autonomous PlatformGateway
   sessionId?: string | null
   currentModel: string
   currentProvider: string

@@ -1,12 +1,12 @@
-// Session-wire readiness for AegisGateway's dials. A native dial is canonical by provenance and
+// Session-wire readiness for Aegis AI Enterprise Autonomous PlatformGateway's dials. A native dial is canonical by provenance and
 // ready at once; a public dial is ready at the first `gateway.ready` its own socket delivers. The
 // gate owns each dial's settle, its timeout, the `open` it holds back from state subscribers, and
-// a request's cancellable wait; AegisGateway connects it to its transport events.
+// a request's cancellable wait; Aegis AI Enterprise Autonomous PlatformGateway connects it to its transport events.
 import type { ConnectionState } from '@aegis/shared'
 
 import { TimeoutError } from '@/lib/with-timeout'
 
-export const GATEWAY_NOT_CONNECTED_MESSAGE = 'Aegis gateway is not connected'
+export const GATEWAY_NOT_CONNECTED_MESSAGE = 'Aegis AI Enterprise Autonomous Platform gateway is not connected'
 
 // A public dial counts its readiness wait inside the shared client's 15 s connect budget, so a
 // peer that opens but never sends `gateway.ready` fails as fast as one that never opens.
@@ -53,7 +53,7 @@ export function remainingRequestBudget(deadline: number, signal?: AbortSignal): 
   if (deadline === Number.POSITIVE_INFINITY) { return 0 }
   const remaining = deadline - Date.now()
 
-  if (remaining <= 0) { throw new Error('Aegis gateway request timed out') }
+  if (remaining <= 0) { throw new Error('Aegis AI Enterprise Autonomous Platform gateway request timed out') }
 
   return remaining
 }
@@ -81,7 +81,7 @@ export class DialReadiness {
     this.dial = dial
 
     if (!dial.settled) {
-      dial.timer = setTimeout(() => this.settle(dial, new TimeoutError('Aegis gateway protocol readiness timed out')), GATEWAY_READINESS_TIMEOUT_MS)
+      dial.timer = setTimeout(() => this.settle(dial, new TimeoutError('Aegis AI Enterprise Autonomous Platform gateway protocol readiness timed out')), GATEWAY_READINESS_TIMEOUT_MS)
     }
 
     return dial.promise
@@ -110,7 +110,7 @@ export class DialReadiness {
   fail(): void {
     const dial = this.dial
 
-    this.settle(dial, new Error(dial.opened ? 'Aegis gateway connection closed before protocol readiness' : GATEWAY_NOT_CONNECTED_MESSAGE))
+    this.settle(dial, new Error(dial.opened ? 'Aegis AI Enterprise Autonomous Platform gateway connection closed before protocol readiness' : GATEWAY_NOT_CONNECTED_MESSAGE))
   }
 
   /** Fail the dial `promise` belongs to (a connect() whose transport rejected). */

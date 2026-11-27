@@ -7,7 +7,7 @@ import { useSearchParams } from 'react-router'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { SegmentedControl } from '@/components/ui/segmented-control'
-import { getElevenLabsVoices, getAegisConfigSchema, saveAegisConfig } from '@/aegis'
+import { getElevenLabsVoices, getAegis AI Enterprise Autonomous PlatformConfigSchema, saveAegis AI Enterprise Autonomous PlatformConfig } from '@/aegis'
 import { useI18n } from '@/i18n'
 import { triggerHaptic } from '@/lib/haptics'
 import { isSubmitEnter } from '@/lib/ime'
@@ -33,9 +33,9 @@ import { normalizeProfileKey } from '@/store/profile'
 import { repoDiscoveryPolicyFromConfig, repoDiscoveryPolicySignature, scanAndRecordRepos } from '@/store/projects'
 import { $settingsRequestProfile } from '@/store/settings-scope'
 import { $autoSpeakReplies, setAutoSpeakReplies } from '@/store/voice-prefs'
-import type { ConfigFieldSchema, AegisConfigRecord } from '@/types/aegis'
+import type { ConfigFieldSchema, Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'
 
-import { aegisConfigCacheWriter, useAegisConfigRecord } from '../hooks/use-config-record'
+import { aegisConfigCacheWriter, useAegis AI Enterprise Autonomous PlatformConfigRecord } from '../hooks/use-config-record'
 import { useOnProfileSwitch } from '../hooks/use-on-profile-switch'
 import { PanelEmpty } from '../overlays/panel'
 
@@ -126,14 +126,14 @@ function ConfigSettingsInner({
   // The editable draft is local (debounced autosave watches it), but it's seeded
   // from — and saved back through — the shared config cache, so edits are visible
   // in the MCP/model surfaces and reopening the page doesn't reload-flash.
-  const [config, setConfig] = useState<AegisConfigRecord | null>(null)
+  const [config, setConfig] = useState<Aegis AI Enterprise Autonomous PlatformConfigRecord | null>(null)
 
   const {
     data: loadedConfig,
     isError: configLoadFailed,
     refetch: refetchConfig,
     writeScope
-  } = useAegisConfigRecord(scopeProfile)
+  } = useAegis AI Enterprise Autonomous PlatformConfigRecord(scopeProfile)
 
   const desktopReadAloud = useStore($autoSpeakReplies)
 
@@ -150,7 +150,7 @@ function ConfigSettingsInner({
     // consumer); suffixed only for an explicit scope override.
     queryKey:
       scopeProfile == null ? ['aegis-config-schema'] : ['aegis-config-schema', normalizeProfileKey(scopeProfile)],
-    queryFn: () => getAegisConfigSchema(scopeProfile),
+    queryFn: () => getAegis AI Enterprise Autonomous PlatformConfigSchema(scopeProfile),
     staleTime: 5 * 60 * 1000
   })
 
@@ -168,7 +168,7 @@ function ConfigSettingsInner({
   // diffs the draft against this (not against disk) so a field the user
   // never touched — possibly changed out-of-band by `aegis config set`
   // while this page sat open — is never resent with its stale value.
-  const configBaselineRef = useRef<AegisConfigRecord | null>(null)
+  const configBaselineRef = useRef<Aegis AI Enterprise Autonomous PlatformConfigRecord | null>(null)
   // Serializes autosave requests so an older save that's still in flight can't
   // resolve after a newer one and re-advance the baseline / cache with stale
   // data — each save's diff+request only starts once the previous one lands.
@@ -238,7 +238,7 @@ function ConfigSettingsInner({
       saveQueueRef.current = saveQueueRef.current.then(async () => {
         try {
           const patch = diffConfig(configBaselineRef.current ?? {}, snapshot)
-          const result = await saveAegisConfig(patch, writeScope ?? scopeProfile)
+          const result = await saveAegis AI Enterprise Autonomous PlatformConfig(patch, writeScope ?? scopeProfile)
 
           if (!result.ok) {
             throw new Error(c.autosaveFailed)
@@ -288,13 +288,13 @@ function ConfigSettingsInner({
     // eslint-disable-next-line react-hooks/exhaustive-deps -- copy is stable; avoid re-scheduling autosave on locale change
   }, [config, onConfigSaved, saveVersion, writeScope, scopeProfile])
 
-  const applyConfig = (next: AegisConfigRecord) => {
+  const applyConfig = (next: Aegis AI Enterprise Autonomous PlatformConfigRecord) => {
     saveVersionRef.current += 1
     setConfig(next)
     setSaveVersion(saveVersionRef.current)
   }
 
-  const updateConfig = (next: AegisConfigRecord) => {
+  const updateConfig = (next: Aegis AI Enterprise Autonomous PlatformConfigRecord) => {
     // Guard the single most destructive config edit: clearing the entire
     // "Enabled Toolsets" list silently disables memory, terminal, web search,
     // delegation, and most tools, and a stray select-all + Backspace can do it.

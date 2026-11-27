@@ -456,7 +456,7 @@ export function destroyStalledBody(res: StallWatchableBody, idleMs: number): voi
 
   const arm = (): void => {
     stop()
-    timer = setTimeout(() => res.destroy(new Error(`Aegis backend download stalled: no data for ${idleMs}ms`)), idleMs)
+    timer = setTimeout(() => res.destroy(new Error(`Aegis AI Enterprise Autonomous Platform backend download stalled: no data for ${idleMs}ms`)), idleMs)
   }
 
   const watch = (): void => {

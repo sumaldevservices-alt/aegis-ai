@@ -29,7 +29,7 @@ const SUBMISSION_ID = '00000000-0000-4000-8000-000000000042'
 const NOTARY_TIMEOUT = `Error: HTTPError(statusCode: nil, error: Error Domain=NSURLErrorDomain Code=-1001 "The request timed out." UserInfo={NSErrorFailingURLStringKey=https://appstoreconnect.apple.com/notary/v2/submissions/${SUBMISSION_ID}?})`
 const CONNECTION_LOST = 'error is Error Domain=NSURLErrorDomain Code=-1005 "The network connection was lost."\nThe staple and validate action failed! Error 68.'
 const MISSING_TICKET = Object.assign(
-  new Error('CloudKit query for Aegis.dmg failed due to "Record not found".\nThe staple and validate action failed! Error 65.'),
+  new Error('CloudKit query for Aegis AI Enterprise Autonomous Platform.dmg failed due to "Record not found".\nThe staple and validate action failed! Error 65.'),
   { code: 65 }
 )
 
@@ -62,7 +62,7 @@ async function createBuilderFixture({
     projectDir: root,
     config: {
       appId: 'ai.aegis.fixture',
-      productName: 'Aegis Fixture',
+      productName: 'Aegis AI Enterprise Autonomous Platform Fixture',
       directories: { output: outDir },
       mac: {
         publish: [{ provider: 'generic', url: 'https://updates.example/releases/darwin/stable/', channel: 'stable' }]
@@ -77,8 +77,8 @@ async function createBuilderFixture({
   Object.assign(packager.platformSpecificBuildOptions, platformOptions)
   packager.codeSigningInfo = { value: Promise.resolve({ keychainFile: effectiveKeychain }) }
 
-  const dmgPath = path.join(outDir, 'AegisBundled-1.2.3-mac-arm64.dmg')
-  const zipPath = path.join(outDir, 'AegisBundled-1.2.3-mac-arm64.zip')
+  const dmgPath = path.join(outDir, 'Aegis AI Enterprise Autonomous PlatformBundled-1.2.3-mac-arm64.dmg')
+  const zipPath = path.join(outDir, 'Aegis AI Enterprise Autonomous PlatformBundled-1.2.3-mac-arm64.zip')
   fs.writeFileSync(dmgPath, preStapleBytes)
   fs.writeFileSync(zipPath, Buffer.from('signed-app-zip-bytes'))
 
@@ -109,7 +109,7 @@ async function createBuilderFixture({
 
 /** Sign the fixture's app through createMacSigner, as electron-builder does before afterSign and the DMG hook. */
 async function signAppWith(f, identity = IDENTITY_HASH) {
-  const appPath = path.join(f.outDir, 'Aegis Fixture.app')
+  const appPath = path.join(f.outDir, 'Aegis AI Enterprise Autonomous Platform Fixture.app')
   fs.mkdirSync(path.join(appPath, 'Contents', 'Resources', 'agent-payload'), { recursive: true })
   const signer = createMacSigner(
     { hardenedRuntime: true, entitlements: 'ent.plist', entitlementsInherit: 'ent.plist', ignore: () => false },
@@ -297,7 +297,7 @@ test('unsigned local builds skip outer DMG signing even when valid Developer ID 
 
 test('DMG reuses the exact identity and keychain recorded by createMacSigner when multiple certificates exist', async () => {
   const f = await createBuilderFixture()
-  const appPath = path.join(f.outDir, 'Aegis Fixture.app')
+  const appPath = path.join(f.outDir, 'Aegis AI Enterprise Autonomous Platform Fixture.app')
   fs.mkdirSync(path.join(appPath, 'Contents', 'Resources', 'agent-payload'), { recursive: true })
   const signer = createMacSigner(
     { hardenedRuntime: true, entitlements: 'ent.plist', entitlementsInherit: 'ent.plist', ignore: () => false },

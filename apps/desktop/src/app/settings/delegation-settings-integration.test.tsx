@@ -6,10 +6,10 @@ import { MemoryRouter } from 'react-router'
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { setApiRequestConnection, setApiRequestProfile } from '@/api/client'
-import type { AegisApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 import { $activeConnectionId } from '@/store/connections'
 import { $settingsRequestProfile } from '@/store/settings-scope'
-import type { AegisConfigRecord } from '@/types/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'
 
 import type { ConfigSettings as ConfigSettingsType } from './config-settings'
 
@@ -38,17 +38,17 @@ vi.mock('@/store/projects', () => ({
 
 const selectedProfile = $settingsRequestProfile as unknown as { set: (value: string) => void }
 const activeConnection = $activeConnectionId as unknown as { set: (value: string) => void }
-const requests: AegisApiRequest[] = []
+const requests: Aegis AI Enterprise Autonomous PlatformApiRequest[] = []
 
 // The Model page controller stays mounted on Subagents and reads the same owner's catalog, so assert owners, not counts.
 const catalogOwners = () => [
   ...new Set(requests.filter(r => r.path.startsWith('/api/model/options')).map(r => `${r.connectionId}/${r.profile}`))
 ]
 
-const saves: AegisApiRequest[] = []
-let config: AegisConfigRecord
+const saves: Aegis AI Enterprise Autonomous PlatformApiRequest[] = []
+let config: Aegis AI Enterprise Autonomous PlatformConfigRecord
 let catalogError = false
-let delayCatalog: ((request: AegisApiRequest) => Promise<unknown> | undefined) | undefined
+let delayCatalog: ((request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<unknown> | undefined) | undefined
 let ConfigSettings: typeof ConfigSettingsType
 beforeAll(async () => {
   Element.prototype.scrollIntoView = vi.fn()
@@ -68,7 +68,7 @@ beforeEach(() => {
   delayCatalog = undefined
   window.aegisDesktop = {
     ...window.aegisDesktop,
-    api: vi.fn(async (request: AegisApiRequest) => {
+    api: vi.fn(async (request: Aegis AI Enterprise Autonomous PlatformApiRequest) => {
       requests.push(request)
 
       if (request.path === '/api/config/schema') {
@@ -194,7 +194,7 @@ describe('real settings route and autosave integration', () => {
 
       fireEvent.click(screen.getByRole('button', { name: 'Apply' }))
       await waitFor(() => expect(saves).toHaveLength(1))
-      const route = (saves[0].body as { config: AegisConfigRecord }).config.delegation as Record<string, unknown>
+      const route = (saves[0].body as { config: Aegis AI Enterprise Autonomous PlatformConfigRecord }).config.delegation as Record<string, unknown>
       expect(route.base_url).toBe('')
       expect(route.api_key).toBe('')
       expect(route.api_mode).toBe('')

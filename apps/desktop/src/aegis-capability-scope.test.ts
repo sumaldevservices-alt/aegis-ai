@@ -5,7 +5,7 @@ import { getAuxiliaryModels, getGlobalModelInfo } from './api/models'
 import { getOfficialSkills, getSkillHubSources } from './api/skills'
 import { getTerminalBackends, getToolsetConfig, selectTerminalBackend } from './api/toolsets'
 import {
-  getAegisConfigRecord,
+  getAegis AI Enterprise Autonomous PlatformConfigRecord,
   getMcpCatalog,
   getSkillContent,
   getSkills,
@@ -58,7 +58,7 @@ describe('capability helpers are connection-scoped', () => {
 
     void getSkills()
     void getToolsets()
-    void getAegisConfigRecord()
+    void getAegis AI Enterprise Autonomous PlatformConfigRecord()
     void getMcpCatalog()
     void getUsageAnalytics(30)
 
@@ -105,7 +105,7 @@ describe('capability helpers are connection-scoped', () => {
   it('marks an explicitly scoped Settings / Capabilities read as foreground (#111651)', () => {
     // A scope-selector pick is a visible user action: its cold dial must take
     // the pool's reserved foreground slot instead of queueing behind hydration.
-    getAegisConfigRecord('coder')
+    getAegis AI Enterprise Autonomous PlatformConfigRecord('coder')
     expect(last()).toMatchObject({ profile: 'coder', priority: 'foreground' })
 
     void getSkills('coder')
@@ -153,7 +153,7 @@ describe('capability helpers are connection-scoped', () => {
   })
 
   it('keeps ambient config reads unprioritized for background hydration', () => {
-    getAegisConfigRecord()
+    getAegis AI Enterprise Autonomous PlatformConfigRecord()
     expect(last()).not.toHaveProperty('priority')
 
     void getGlobalModelInfo()

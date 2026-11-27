@@ -159,7 +159,7 @@ pub async fn get_bootstrap_status(
     })
 }
 
-/// Spawn the locally-built Aegis desktop binary, then close the installer
+/// Spawn the locally-built Aegis AI Enterprise Autonomous Platform desktop binary, then close the installer
 /// window. Caller resolves the binary path from `install_root`.
 ///
 /// Returns Err with a human-readable message if the binary doesn't exist
@@ -173,17 +173,17 @@ pub async fn launch_aegis_desktop(
     let install_root = PathBuf::from(install_root);
     let exe_path = resolve_aegis_desktop_exe(&install_root).ok_or_else(|| {
         format!(
-            "Couldn't find a built Aegis desktop at {}. The desktop build step \
+            "Couldn't find a built Aegis AI Enterprise Autonomous Platform desktop at {}. The desktop build step \
              may have been skipped or failed. Run `aegis desktop` from a \
              terminal to build and launch it.",
             install_root.join("apps").join("desktop").join("release").display()
         )
     })?;
 
-    tracing::info!(?exe_path, "launching Aegis desktop");
+    tracing::info!(?exe_path, "launching Aegis AI Enterprise Autonomous Platform desktop");
 
     // Detach from us — the installer is about to exit. On macOS launch the
-    // bundle through LaunchServices instead of exec'ing Contents/MacOS/Aegis
+    // bundle through LaunchServices instead of exec'ing Contents/MacOS/Aegis AI Enterprise Autonomous Platform
     // directly; this matches user double-click/open behavior and avoids cwd /
     // quarantine oddities after a self-update rebuild.
     let mut cmd = desktop_launch_command(&exe_path, &install_root);
@@ -211,13 +211,13 @@ pub(crate) fn resolve_aegis_desktop_exe(install_root: &std::path::Path) -> Optio
     let release_dir = install_root.join("apps").join("desktop").join("release");
     let candidates: &[(&str, &str)] = if cfg!(target_os = "windows") {
         &[
-            ("win-unpacked", "Aegis.exe"),
-            ("win-arm64-unpacked", "Aegis.exe"),
+            ("win-unpacked", "Aegis AI Enterprise Autonomous Platform.exe"),
+            ("win-arm64-unpacked", "Aegis AI Enterprise Autonomous Platform.exe"),
         ]
     } else if cfg!(target_os = "macos") {
         &[
-            ("mac/Aegis.app/Contents/MacOS", "Aegis"),
-            ("mac-arm64/Aegis.app/Contents/MacOS", "Aegis"),
+            ("mac/Aegis AI Enterprise Autonomous Platform.app/Contents/MacOS", "Aegis AI Enterprise Autonomous Platform"),
+            ("mac-arm64/Aegis AI Enterprise Autonomous Platform.app/Contents/MacOS", "Aegis AI Enterprise Autonomous Platform"),
         ]
     } else {
         // electron-builder names the x64 dir `linux-unpacked` and every other
@@ -237,7 +237,7 @@ pub(crate) fn resolve_aegis_desktop_app(install_root: &std::path::Path) -> Optio
     let exe = resolve_aegis_desktop_exe(install_root)?;
     #[cfg(target_os = "macos")]
     {
-        // .../Aegis.app/Contents/MacOS/Aegis -> .../Aegis.app
+        // .../Aegis AI Enterprise Autonomous Platform.app/Contents/MacOS/Aegis AI Enterprise Autonomous Platform -> .../Aegis AI Enterprise Autonomous Platform.app
         let app = exe.parent()?.parent()?.parent()?.to_path_buf();
         if app.extension().and_then(|e| e.to_str()) == Some("app") && app.is_dir() {
             return Some(app);
@@ -253,7 +253,7 @@ pub(crate) fn resolve_aegis_desktop_app(install_root: &std::path::Path) -> Optio
 
 /// True when a prior install completed (bootstrap-complete marker present) AND a
 /// launchable desktop app exists on disk. Used by the installer's launcher fast
-/// path so a bare re-open just opens Aegis instead of re-running setup.
+/// path so a bare re-open just opens Aegis AI Enterprise Autonomous Platform instead of re-running setup.
 pub(crate) fn aegis_is_installed(install_root: &std::path::Path) -> bool {
     install_root.join(".aegis-bootstrap-complete").exists()
         && resolve_aegis_desktop_exe(install_root).is_some()
@@ -457,7 +457,7 @@ fn spawn_detached_desktop(cmd: &mut std::process::Command) -> std::io::Result<st
 /// installer UI.
 pub(crate) fn spawn_installed_desktop(install_root: &std::path::Path) -> std::io::Result<()> {
     let exe = resolve_aegis_desktop_exe(install_root).ok_or_else(|| {
-        std::io::Error::new(std::io::ErrorKind::NotFound, "no built Aegis desktop app")
+        std::io::Error::new(std::io::ErrorKind::NotFound, "no built Aegis AI Enterprise Autonomous Platform desktop app")
     })?;
     let mut cmd = desktop_launch_command_std(&exe, install_root);
     spawn_detached_desktop(&mut cmd).map(|_child| ())
@@ -873,8 +873,8 @@ async fn run_bootstrap(
     }
 
     // 4. Resolve install_root. install.ps1 doesn't (yet) report this back
-    // explicitly; we infer it from $AegisHome which Stage-Repository clones
-    // the repo INTO at $AegisHome\aegis-agent. Mirrors aegis_constants.
+    // explicitly; we infer it from $Aegis AI Enterprise Autonomous PlatformHome which Stage-Repository clones
+    // the repo INTO at $Aegis AI Enterprise Autonomous PlatformHome\aegis-agent. Mirrors aegis_constants.
     let aegis_home = args
         .aegis_home
         .clone()
@@ -1136,16 +1136,16 @@ mod tests {
         if cfg!(target_os = "macos") {
             let macos_dir = release
                 .join("mac-arm64")
-                .join("Aegis.app")
+                .join("Aegis AI Enterprise Autonomous Platform.app")
                 .join("Contents")
                 .join("MacOS");
             std::fs::create_dir_all(&macos_dir).unwrap();
-            std::fs::write(macos_dir.join("Aegis"), b"#!/bin/sh\n").unwrap();
-            macos_dir.parent().unwrap().parent().unwrap().to_path_buf() // .../Aegis.app
+            std::fs::write(macos_dir.join("Aegis AI Enterprise Autonomous Platform"), b"#!/bin/sh\n").unwrap();
+            macos_dir.parent().unwrap().parent().unwrap().to_path_buf() // .../Aegis AI Enterprise Autonomous Platform.app
         } else if cfg!(target_os = "windows") {
             let dir = release.join("win-unpacked");
             std::fs::create_dir_all(&dir).unwrap();
-            let exe = dir.join("Aegis.exe");
+            let exe = dir.join("Aegis AI Enterprise Autonomous Platform.exe");
             std::fs::write(&exe, b"stub").unwrap();
             exe
         } else {
@@ -1159,7 +1159,7 @@ mod tests {
 
     // The relaunch / install target is derived from the rebuilt desktop app.
     // On macOS this MUST resolve to the .app bundle (what `open` relaunches and
-    // what the updater ditto's over /Applications/Aegis.app). A regression in
+    // what the updater ditto's over /Applications/Aegis AI Enterprise Autonomous Platform.app). A regression in
     // this derivation breaks the post-update auto-relaunch, so guard it.
     #[test]
     fn resolve_aegis_desktop_app_finds_built_bundle() {

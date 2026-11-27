@@ -1,19 +1,19 @@
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
-import type { DesktopConnectionsRegistry, AegisConnection } from '@/global'
-import type * as Aegis from '@/aegis'
+import type { DesktopConnectionsRegistry, Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
+import type * as Aegis AI Enterprise Autonomous Platform from '@/aegis'
 
 import { deferred } from '../test/deferred'
 
 vi.mock('@/app/contrib/hooks/use-background-sync', () => ({ resetLiveRuntimeTracking: vi.fn() }))
 vi.mock('@/aegis', async importOriginal => {
-  const actual = await importOriginal<typeof Aegis>()
+  const actual = await importOriginal<typeof Aegis AI Enterprise Autonomous Platform>()
 
   return {
     ...actual,
     getProfiles: vi.fn(async () => ({ profiles: [{ name: 'default' }] })),
     aegisApi: vi.fn(async () => ({ current: 'default', profiles: [{ name: 'default' }] })),
-    AegisGateway: class {
+    Aegis AI Enterprise Autonomous PlatformGateway: class {
       connectionState = 'closed'
       wsUrl = ''
       connect = async (url: string) => {
@@ -58,7 +58,7 @@ const registry: DesktopConnectionsRegistry = {
   ]
 }
 
-function descriptor(connectionId: string, profile = 'default'): AegisConnection {
+function descriptor(connectionId: string, profile = 'default'): Aegis AI Enterprise Autonomous PlatformConnection {
   return {
     connectionId,
     profile,
@@ -178,7 +178,7 @@ it('keeps a newer agent draft started while an ordinary switch is still bookkeep
   const first = selectConnection('local')
   await vi.waitFor(() => expect(window.aegisDesktop!.connections!.setLastUsed).toHaveBeenCalled())
   // The newer draft's source is still dialing, so local stays in the foreground.
-  const dial = deferred<AegisConnection>()
+  const dial = deferred<Aegis AI Enterprise Autonomous PlatformConnection>()
   getConnectionFor.mockImplementation(async ({ connectionId, profile }) =>
     connectionId === 'other' ? dial.promise : descriptor(connectionId, profile)
   )
@@ -196,7 +196,7 @@ it('keeps a newer agent draft started while an ordinary switch is still bookkeep
 })
 
 it('does not let a superseded dial clear a newer explicit draft', async () => {
-  const dial = deferred<AegisConnection>()
+  const dial = deferred<Aegis AI Enterprise Autonomous PlatformConnection>()
   getConnectionFor.mockImplementationOnce(() => dial.promise)
   const first = selectConnection('local')
   await vi.waitFor(() => expect(getConnectionFor).toHaveBeenCalled())

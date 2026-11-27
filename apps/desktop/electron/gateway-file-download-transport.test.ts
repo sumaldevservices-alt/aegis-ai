@@ -250,7 +250,7 @@ test('cookie connection timeout aborts before headers and never opens a dialog',
     { timeoutMs: 2000 }
   )
 
-  const rejected: Promise<void> = expect(pending).rejects.toThrow('Timed out connecting to Aegis backend after 2000ms')
+  const rejected: Promise<void> = expect(pending).rejects.toThrow('Timed out connecting to Aegis AI Enterprise Autonomous Platform backend after 2000ms')
   await vi.advanceTimersByTimeAsync(2000)
   await rejected
   expect(request.aborted).toBe(true)

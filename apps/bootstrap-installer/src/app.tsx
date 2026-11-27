@@ -8,9 +8,9 @@ import Welcome from './routes/welcome'
 import { $bootstrap, $route, initialize } from './store'
 
 /*
- * App shell — Aegis Setup.
+ * App shell — Aegis AI Enterprise Autonomous Platform Setup.
  *
- * No header chrome (the OS title bar already says "Aegis Setup"; an
+ * No header chrome (the OS title bar already says "Aegis AI Enterprise Autonomous Platform Setup"; an
  * in-window repeat of the H mark + words was redundant slop).
  *
  * Route state lives in a single $route atom — 4 screens, no react-router.

@@ -92,8 +92,8 @@ test('nonstable runtime pins userData before the app name can change', async ():
   const canary: ProductIdentity = await identityForVariant('bundled')
   const runtime: { applyDesktopIdentity: typeof applyDesktopIdentity } = await import('./product-identity')
   const root: string = fs.mkdtempSync(path.join(os.tmpdir(), 'identity-userdata-'))
-  const paths: Record<string, string> = { appData: root, userData: path.join(root, 'Aegis') }
-  let name: string = 'Aegis'
+  const paths: Record<string, string> = { appData: root, userData: path.join(root, 'Aegis AI Enterprise Autonomous Platform') }
+  let name: string = 'Aegis AI Enterprise Autonomous Platform'
 
   const app: Parameters<typeof applyDesktopIdentity>[0] = {
     getPath: (key: string): string => paths[key],
@@ -108,7 +108,7 @@ test('nonstable runtime pins userData before the app name can change', async ():
 
   try {
     assert.equal(runtime.applyDesktopIdentity(app, stable), null)
-    assert.equal(paths.userData, path.join(root, 'Aegis'))
+    assert.equal(paths.userData, path.join(root, 'Aegis AI Enterprise Autonomous Platform'))
     assert.equal(runtime.applyDesktopIdentity(app, canary), canary.displayName)
     assert.equal(paths.userData, path.join(paths.appData, canary.appNamePascal))
     assert.equal(name, canary.displayName)
@@ -118,9 +118,9 @@ test('nonstable runtime pins userData before the app name can change', async ():
 })
 
 test.each([
-  [undefined, 'Aegis', 'aegis', 'latest', 'canary'],
-  ['bundled', 'Aegis Agent', 'aegis', 'latest', 'canary'],
-  ['light', 'Aegis Light', 'aegis-light', 'light', 'light-canary']
+  [undefined, 'Aegis AI Enterprise Autonomous Platform', 'aegis', 'latest', 'canary'],
+  ['bundled', 'Aegis AI Enterprise Autonomous Platform Agent', 'aegis', 'latest', 'canary'],
+  ['light', 'Aegis AI Enterprise Autonomous Platform Light', 'aegis-light', 'light', 'light-canary']
 ] as const)(
   '%s separates stable, canary and independent commits',
   async (
@@ -287,8 +287,8 @@ test('commit builds cannot claim the official Store package; a canary builds one
   assert.equal(canary.store, true)
   assert.equal(canary.channel, null)
   assert.match(canary.displayName, /Canary$/)
-  assert.equal(canary.storeMsix?.identityName, 'NousResearchInc.AegisAgentCanary')
-  assert.notEqual(canary.storeMsix?.identityName, 'NousResearchInc.AegisAgent')
+  assert.equal(canary.storeMsix?.identityName, 'NousResearchInc.Aegis AI Enterprise Autonomous PlatformAgentCanary')
+  assert.notEqual(canary.storeMsix?.identityName, 'NousResearchInc.Aegis AI Enterprise Autonomous PlatformAgent')
   delete process.env.AEGIS_PAYLOAD_TAG
   process.env.AEGIS_BUILD_COMMIT = 'abcdef1234567890abcdef1234567890abcdef12'
   await assert.rejects(identityForVariant('store'), /Store.*release tags/)
@@ -297,7 +297,7 @@ test('commit builds cannot claim the official Store package; a canary builds one
 test('store carries the Partner Center MSIX identity and no other variant does', async (): Promise<void> => {
   const store: ProductIdentity = await identityForVariant('store')
   assert.deepEqual(store.storeMsix, {
-    identityName: 'NousResearchInc.AegisAgent',
+    identityName: 'NousResearchInc.Aegis AI Enterprise Autonomous PlatformAgent',
     publisher: 'CN=EE6D86E4-606F-4E38-B940-AD7248C9D519',
     publisherDisplayName: 'Nous Research Inc.'
   })

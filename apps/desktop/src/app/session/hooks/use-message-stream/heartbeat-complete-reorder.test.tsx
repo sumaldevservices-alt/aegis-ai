@@ -48,7 +48,7 @@ function mount() {
       updateSessionState: cache.updateSessionState,
       queryClient,
       hydrateFromStoredSession: hydrate,
-      refreshAegisConfig: noop,
+      refreshAegis AI Enterprise Autonomous PlatformConfig: noop,
       refreshSessions: noop
     })
 

@@ -1,6 +1,6 @@
 import { afterEach, expect, it } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 
 import { serverOwnsComposerQueue } from './composer-queue'
 import { $connectionWires, connectionWire, primaryWireSource, recordConnectionWire, recordSecondaryWire, UNNAMED_REMOTE_WIRE_KEY } from './connection-wire'
@@ -15,7 +15,7 @@ afterEach(() => {
 // A foregrounded secondary keeps `$connection` while the primary reconnects in the background. An
 // anonymous (local) primary's ready frame must not overwrite the foreground connection's wire.
 it('records an anonymous primary under the local source, not the foreground connection', () => {
-  $connection.set({ connectionId: 'vps', mode: 'remote', wsUrl: 'wss://vps.example/api/ws?ticket=public' } as AegisConnection)
+  $connection.set({ connectionId: 'vps', mode: 'remote', wsUrl: 'wss://vps.example/api/ws?ticket=public' } as Aegis AI Enterprise Autonomous PlatformConnection)
   setSessionOwnerHint('chat', { connectionId: 'vps', mode: 'remote', profile: 'default' })
   recordConnectionWire('vps', 'legacy')
 
@@ -45,7 +45,7 @@ it('keeps an unnamed remote primary apart from the local source', () => {
   expect(serverOwnsComposerQueue('native')).toBe(true)
 
   // A chat with no recorded owner on the unnamed remote window reads that remote's wire.
-  $connection.set({ mode: 'remote', wsUrl: 'wss://remote.example/api/ws?token=t' } as AegisConnection)
+  $connection.set({ mode: 'remote', wsUrl: 'wss://remote.example/api/ws?token=t' } as Aegis AI Enterprise Autonomous PlatformConnection)
   expect(serverOwnsComposerQueue('remote-chat')).toBe(false)
   recordConnectionWire({ mode: 'remote' }, 'canonical')
   expect(serverOwnsComposerQueue('remote-chat')).toBe(true)

@@ -80,7 +80,7 @@ function Harness({ messages }: { messages: ThreadMessage[] }) {
   )
 }
 
-const DELIVERY = 'Message from 🤖 Aegis (@aegis): please check the build'
+const DELIVERY = 'Message from 🤖 Aegis AI Enterprise Autonomous Platform (@aegis): please check the build'
 
 /** This bot's own `message_agent` dispatch to a teammate (a Bot Chat turn). */
 function dispatch(id: string, target: string): ThreadMessage {
@@ -111,7 +111,7 @@ describe('inter-agent collapse gate', () => {
       <Harness
         messages={[
           user('u1', 'ask aegis for the list'),
-          dispatch('a0', '@Aegis'),
+          dispatch('a0', '@Aegis AI Enterprise Autonomous Platform'),
           user('u2', DELIVERY),
           assistant('a1', 'here is the list aegis sent', false)
         ]}
@@ -140,12 +140,12 @@ describe('inter-agent collapse gate', () => {
       <Harness
         messages={[
           user('u1', 'ask aegis for the list'),
-          dispatch('a0', '@Aegis'),
+          dispatch('a0', '@Aegis AI Enterprise Autonomous Platform'),
           user('u2', DELIVERY),
           assistant('a1', 'here is the list aegis sent', false),
           user('u3', 'ok thanks'),
           assistant('a2', 'anytime', false),
-          user('u4', 'Message from 🤖 Aegis (@aegis): unsolicited: build broke'),
+          user('u4', 'Message from 🤖 Aegis AI Enterprise Autonomous Platform (@aegis): unsolicited: build broke'),
           assistant('a3', 'on it, checking the build', false)
         ]}
       />

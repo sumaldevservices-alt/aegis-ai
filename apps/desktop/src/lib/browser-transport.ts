@@ -1,6 +1,6 @@
-import { BROWSER_NATIVE_DIAL, buildAegisWebSocketUrl, normalizeBasePath } from '@aegis/shared'
+import { BROWSER_NATIVE_DIAL, buildAegis AI Enterprise Autonomous PlatformWebSocketUrl, normalizeBasePath } from '@aegis/shared'
 
-import type { AegisApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 import { readWebappSession, webappSignInRequired } from '@/lib/browser-launch-session'
 import { type BrowserHostGlobals, hasBrowserHostBootstrap } from '@/lib/platform'
 
@@ -12,7 +12,7 @@ export interface BrowserBootstrap {
   token: string
 }
 
-const SESSION_HEADER = 'X-Aegis-Session-Token'
+const SESSION_HEADER = 'X-Aegis AI Enterprise Autonomous Platform-Session-Token'
 const DEFAULT_TIMEOUT_MS = 30_000
 const REAUTH_EVENT = 'aegis:browser-reauth-required'
 
@@ -50,7 +50,7 @@ export function endpointUrl(path: string, basePath: string, profile?: null | str
   const url = new URL(`${normalizedBase}${suffix}`, window.location.origin)
 
   if (url.origin !== window.location.origin) {
-    throw new Error('Aegis API paths must remain on the Webapp origin')
+    throw new Error('Aegis AI Enterprise Autonomous Platform API paths must remain on the Webapp origin')
   }
 
   if (
@@ -58,7 +58,7 @@ export function endpointUrl(path: string, basePath: string, profile?: null | str
     url.pathname !== normalizedBase &&
     !url.pathname.startsWith(`${normalizedBase}/`)
   ) {
-    throw new Error('Aegis API paths must remain inside the configured base path')
+    throw new Error('Aegis AI Enterprise Autonomous Platform API paths must remain inside the configured base path')
   }
 
   if (profile && !url.searchParams.has('profile')) {
@@ -75,7 +75,7 @@ export function websocketUrl(
   credential: { ticket?: string },
   profile?: null | string
 ): string {
-  return buildAegisWebSocketUrl({
+  return buildAegis AI Enterprise Autonomous PlatformWebSocketUrl({
     authParam: credential.ticket ? ['ticket', credential.ticket] : undefined,
     basePath,
     params: profile ? { profile } : undefined,
@@ -206,7 +206,7 @@ export async function browserFetchBlob(
   return response.blob()
 }
 
-export async function browserApi<T>(bootstrap: BrowserBootstrap, request: AegisApiRequest): Promise<T> {
+export async function browserApi<T>(bootstrap: BrowserBootstrap, request: Aegis AI Enterprise Autonomous PlatformApiRequest): Promise<T> {
   const headers = new Headers()
   let body: BodyInit | undefined
 
@@ -240,7 +240,7 @@ export async function browserApi<T>(bootstrap: BrowserBootstrap, request: AegisA
   if (!text) {return null as T}
 
   if (/^\s*<(?:!doctype|html)/i.test(text)) {
-    throw new Error(`Aegis API returned HTML for ${request.path}`)
+    throw new Error(`Aegis AI Enterprise Autonomous Platform API returned HTML for ${request.path}`)
   }
 
   return JSON.parse(text) as T
@@ -285,7 +285,7 @@ export async function fileEndpointUrl(
 
     const ticket = String(result?.ticket || '')
 
-    if (!ticket) {throw new Error('Aegis did not return a file ticket')}
+    if (!ticket) {throw new Error('Aegis AI Enterprise Autonomous Platform did not return a file ticket')}
     url.searchParams.set('ticket', ticket)
   }
 
@@ -328,7 +328,7 @@ export async function ticketedWebsocketUrl(
 
   const ticket = String(result?.ticket || '').trim()
 
-  if (!ticket) {throw new Error(`Aegis did not return a ticket for ${path}`)}
+  if (!ticket) {throw new Error(`Aegis AI Enterprise Autonomous Platform did not return a ticket for ${path}`)}
 
   if (!gateway) {return websocketUrl(bootstrap.basePath, path, { ticket }, profile)}
 

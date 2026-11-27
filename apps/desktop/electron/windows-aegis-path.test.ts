@@ -1,6 +1,6 @@
 // Unit tests for the pure Windows `aegis` resolution helpers extracted from
 // main.ts's findOnPath(), handOffWindowsBootstrapRecovery(), and
-// unwrapWindowsVenvAegisCommand(). These pin the two Windows resolution bugs
+// unwrapWindowsVenvAegis AI Enterprise Autonomous PlatformCommand(). These pin the two Windows resolution bugs
 // that caused desktop reinstall loops:
 //   1. buildPathExtCandidates() — PATHEXT extensions must be tried BEFORE the
 //      empty extension, or an extensionless Git-Bash `aegis` shim shadows
@@ -8,15 +8,15 @@
 //   2. chooseUpdaterArgs() — must distinguish a runnable updater from stale
 //      install provenance. The bootstrap marker can outlive the venv, and a
 //      partial venv cannot run the updater; those states require --repair.
-//   3. resolveVenvAegisCommand() — must probe the venv python via
-//      canImportAegisCli() before trusting it, or a broken venv gets
+//   3. resolveVenvAegis AI Enterprise Autonomous PlatformCommand() — must probe the venv python via
+//      canImportAegis AI Enterprise Autonomous PlatformCli() before trusting it, or a broken venv gets
 //      re-selected forever instead of falling through to bootstrap.
 
 import assert from 'node:assert/strict'
 
 import { test } from 'vitest'
 
-import { buildPathExtCandidates, chooseUpdaterArgs, resolveVenvAegisCommand } from './windows-aegis-path'
+import { buildPathExtCandidates, chooseUpdaterArgs, resolveVenvAegis AI Enterprise Autonomous PlatformCommand } from './windows-aegis-path'
 
 test('buildPathExtCandidates: Windows tries PATHEXT extensions before the empty extension', () => {
   const extensions = buildPathExtCandidates('.COM;.EXE;.BAT;.CMD', true)
@@ -44,13 +44,13 @@ test('chooseUpdaterArgs preserves the target and requires a usable runtime, not 
   assert.deepEqual(chooseUpdaterArgs({ runtimeUsable: false }, 'release/1.2'), ['--repair', '--branch', 'release/1.2'])
 })
 
-function makeDeps(overrides: Partial<Parameters<typeof resolveVenvAegisCommand>[2]> = {}) {
+function makeDeps(overrides: Partial<Parameters<typeof resolveVenvAegis AI Enterprise Autonomous PlatformCommand>[2]> = {}) {
   return {
     isWindows: true,
     isCommandScript: () => false,
     fileExists: () => true,
     directoryExists: () => false,
-    canImportAegisCli: async () => true,
+    canImportAegis AI Enterprise Autonomous PlatformCli: async () => true,
     getVenvPython: (venvRoot: string) => `${venvRoot}/Scripts/python.exe`,
     buildDesktopBackendEnv: () => ({ FAKE_ENV: '1' }),
     resolvePath: (...segments: string[]) => segments.join('/').replace(/\/+/g, '/'),
@@ -61,41 +61,41 @@ function makeDeps(overrides: Partial<Parameters<typeof resolveVenvAegisCommand>[
   }
 }
 
-test('resolveVenvAegisCommand: returns null off Windows', async () => {
+test('resolveVenvAegis AI Enterprise Autonomous PlatformCommand: returns null off Windows', async () => {
   const deps = makeDeps({ isWindows: false })
 
-  assert.equal(await resolveVenvAegisCommand('/root/venv/Scripts/aegis.exe', [], deps), null)
+  assert.equal(await resolveVenvAegis AI Enterprise Autonomous PlatformCommand('/root/venv/Scripts/aegis.exe', [], deps), null)
 })
 
-test('resolveVenvAegisCommand: returns null for a .cmd/.bat script command', async () => {
+test('resolveVenvAegis AI Enterprise Autonomous PlatformCommand: returns null for a .cmd/.bat script command', async () => {
   const deps = makeDeps({ isCommandScript: () => true })
 
-  assert.equal(await resolveVenvAegisCommand('/root/venv/Scripts/aegis.cmd', [], deps), null)
+  assert.equal(await resolveVenvAegis AI Enterprise Autonomous PlatformCommand('/root/venv/Scripts/aegis.cmd', [], deps), null)
 })
 
-test('resolveVenvAegisCommand: returns null when the basename is not aegis/aegis.exe', async () => {
+test('resolveVenvAegis AI Enterprise Autonomous PlatformCommand: returns null when the basename is not aegis/aegis.exe', async () => {
   const deps = makeDeps()
 
-  assert.equal(await resolveVenvAegisCommand('/root/venv/Scripts/python.exe', [], deps), null)
+  assert.equal(await resolveVenvAegis AI Enterprise Autonomous PlatformCommand('/root/venv/Scripts/python.exe', [], deps), null)
 })
 
-test('resolveVenvAegisCommand: returns null when the parent dir is not Scripts', async () => {
+test('resolveVenvAegis AI Enterprise Autonomous PlatformCommand: returns null when the parent dir is not Scripts', async () => {
   const deps = makeDeps()
 
-  assert.equal(await resolveVenvAegisCommand('/root/venv/bin/aegis.exe', [], deps), null)
+  assert.equal(await resolveVenvAegis AI Enterprise Autonomous PlatformCommand('/root/venv/bin/aegis.exe', [], deps), null)
 })
 
-test('resolveVenvAegisCommand: returns null when the venv python does not exist on disk', async () => {
+test('resolveVenvAegis AI Enterprise Autonomous PlatformCommand: returns null when the venv python does not exist on disk', async () => {
   const deps = makeDeps({ fileExists: () => false })
 
-  assert.equal(await resolveVenvAegisCommand('/root/venv/Scripts/aegis.exe', [], deps), null)
+  assert.equal(await resolveVenvAegis AI Enterprise Autonomous PlatformCommand('/root/venv/Scripts/aegis.exe', [], deps), null)
 })
 
-test('resolveVenvAegisCommand: probes the venv python before trusting it (returns null on failed probe)', async () => {
+test('resolveVenvAegis AI Enterprise Autonomous PlatformCommand: probes the venv python before trusting it (returns null on failed probe)', async () => {
   let probed = false
 
   const deps = makeDeps({
-    canImportAegisCli: async (python: string) => {
+    canImportAegis AI Enterprise Autonomous PlatformCli: async (python: string) => {
       probed = true
       assert.equal(python, '/root/venv/Scripts/python.exe')
 
@@ -103,15 +103,15 @@ test('resolveVenvAegisCommand: probes the venv python before trusting it (return
     }
   })
 
-  const result = await resolveVenvAegisCommand('/root/venv/Scripts/aegis.exe', ['serve'], deps)
+  const result = await resolveVenvAegis AI Enterprise Autonomous PlatformCommand('/root/venv/Scripts/aegis.exe', ['serve'], deps)
 
   assert.equal(probed, true, 'must probe the venv interpreter; a broken venv must not be re-selected forever')
   assert.equal(result, null, 'a failed probe must fall through (return null) so the resolver reaches bootstrap')
 })
 
-test('resolveVenvAegisCommand: returns the resolved python backend descriptor when the probe passes', async () => {
+test('resolveVenvAegis AI Enterprise Autonomous PlatformCommand: returns the resolved python backend descriptor when the probe passes', async () => {
   const deps = makeDeps()
-  const result = await resolveVenvAegisCommand('/root/venv/Scripts/aegis.exe', ['serve', '--port', '0'], deps)
+  const result = await resolveVenvAegis AI Enterprise Autonomous PlatformCommand('/root/venv/Scripts/aegis.exe', ['serve', '--port', '0'], deps)
 
   assert.ok(result, 'a passing probe must return a backend descriptor, not null')
   assert.equal(result.command, '/root/venv/Scripts/python.exe')
@@ -122,9 +122,9 @@ test('resolveVenvAegisCommand: returns the resolved python backend descriptor wh
   assert.deepEqual(result.env, { FAKE_ENV: '1' })
 })
 
-test('resolveVenvAegisCommand: is case-insensitive on aegis.exe and the Scripts dir name', async () => {
+test('resolveVenvAegis AI Enterprise Autonomous PlatformCommand: is case-insensitive on aegis.exe and the Scripts dir name', async () => {
   const deps = makeDeps()
 
-  assert.ok(await resolveVenvAegisCommand('/root/venv/Scripts/AEGIS.EXE', [], deps))
-  assert.ok(await resolveVenvAegisCommand('/root/venv/SCRIPTS/aegis.exe', [], deps))
+  assert.ok(await resolveVenvAegis AI Enterprise Autonomous PlatformCommand('/root/venv/Scripts/AEGIS.EXE', [], deps))
+  assert.ok(await resolveVenvAegis AI Enterprise Autonomous PlatformCommand('/root/venv/SCRIPTS/aegis.exe', [], deps))
 })

@@ -5,8 +5,8 @@ import type {
   CustomEndpointUpdate,
   CustomEndpointValidationResponse,
   EnvVarInfo,
-  AegisConfig,
-  AegisConfigRecord,
+  Aegis AI Enterprise Autonomous PlatformConfig,
+  Aegis AI Enterprise Autonomous PlatformConfigRecord,
   LogsResponse,
   OAuthPollResponse,
   OAuthProvidersResponse,
@@ -129,8 +129,8 @@ export function getLogs(params: {
   })
 }
 
-export function getAegisConfig(profile?: string): Promise<AegisConfig> {
-  return aegisApi<AegisConfig>({
+export function getAegis AI Enterprise Autonomous PlatformConfig(profile?: string): Promise<Aegis AI Enterprise Autonomous PlatformConfig> {
+  return aegisApi<Aegis AI Enterprise Autonomous PlatformConfig>({
     ...profileScoped(profile),
     path: '/api/config',
     timeoutMs: STARTUP_REQUEST_TIMEOUT_MS
@@ -142,10 +142,10 @@ export function getAegisConfig(profile?: string): Promise<AegisConfig> {
 async function fetchBoundConfigRecord(
   profile: ProfileScope,
   request: { path: string; timeoutMs?: number }
-): Promise<AegisConfigRecord> {
+): Promise<Aegis AI Enterprise Autonomous PlatformConfigRecord> {
   const origin = capabilityScoped(profile ?? undefined)
 
-  const record = await window.aegisDesktop.api<AegisConfigRecord>({ ...origin, ...request })
+  const record = await window.aegisDesktop.api<Aegis AI Enterprise Autonomous PlatformConfigRecord>({ ...origin, ...request })
 
   if (record && typeof record === 'object') {
     bindConfigReadOrigin(record, origin)
@@ -154,31 +154,31 @@ async function fetchBoundConfigRecord(
   return record
 }
 
-export function getAegisConfigRecord(
+export function getAegis AI Enterprise Autonomous PlatformConfigRecord(
   profile?: ProfileScope,
   { includeDefaults = true }: { includeDefaults?: boolean } = {}
-): Promise<AegisConfigRecord> {
+): Promise<Aegis AI Enterprise Autonomous PlatformConfigRecord> {
   return fetchBoundConfigRecord(profile, {
     path: includeDefaults ? '/api/config' : '/api/config?include_defaults=false'
   })
 }
 
-export function getAegisConfigDefaults(): Promise<AegisConfigRecord> {
+export function getAegis AI Enterprise Autonomous PlatformConfigDefaults(): Promise<Aegis AI Enterprise Autonomous PlatformConfigRecord> {
   return fetchBoundConfigRecord(undefined, {
     path: '/api/config/defaults',
     timeoutMs: STARTUP_REQUEST_TIMEOUT_MS
   })
 }
 
-export function getAegisConfigSchema(profile?: null | string): Promise<ConfigSchemaResponse> {
+export function getAegis AI Enterprise Autonomous PlatformConfigSchema(profile?: null | string): Promise<ConfigSchemaResponse> {
   return aegisApi<ConfigSchemaResponse>({
     ...profileScoped(profile),
     path: '/api/config/schema'
   })
 }
 
-export function saveAegisConfig(
-  config: AegisConfigRecord,
+export function saveAegis AI Enterprise Autonomous PlatformConfig(
+  config: Aegis AI Enterprise Autonomous PlatformConfigRecord,
   profile?: ProfileScope,
   { preserveLanguage = false }: { preserveLanguage?: boolean } = {}
 ): Promise<{ ok: boolean }> {
@@ -190,10 +190,10 @@ export function saveAegisConfig(
   })
 }
 
-/** Capability-scoped counterpart of saveAegisConfig — writes the config of
+/** Capability-scoped counterpart of saveAegis AI Enterprise Autonomous PlatformConfig — writes the config of
  *  the profile/connection the Capabilities scope selector points at (possibly
- *  on another registered gateway), mirroring getAegisConfigRecord. */
-export function saveAegisConfigRecord(config: AegisConfigRecord, profile?: ProfileScope): Promise<{ ok: boolean }> {
+ *  on another registered gateway), mirroring getAegis AI Enterprise Autonomous PlatformConfigRecord. */
+export function saveAegis AI Enterprise Autonomous PlatformConfigRecord(config: Aegis AI Enterprise Autonomous PlatformConfigRecord, profile?: ProfileScope): Promise<{ ok: boolean }> {
   return window.aegisDesktop.api<{ ok: boolean }>({
     ...resolveConfigWriteScope(config, profile),
     path: '/api/config',

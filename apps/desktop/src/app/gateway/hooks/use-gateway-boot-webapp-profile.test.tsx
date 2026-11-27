@@ -37,7 +37,7 @@ function Harness() {
     handleServerRequest: () => false,
     onConnectionReady: () => undefined,
     onGatewayReady: () => undefined,
-    refreshAegisConfig: async () => undefined,
+    refreshAegis AI Enterprise Autonomous PlatformConfig: async () => undefined,
     refreshSessions: async () => undefined
   })
 

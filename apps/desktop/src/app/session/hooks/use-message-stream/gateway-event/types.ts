@@ -48,7 +48,7 @@ export interface GatewayEventDeps {
     runtimeSessionId?: string | null
   ) => Promise<void>
   queryClient: QueryClient
-  refreshAegisConfig: () => Promise<void>
+  refreshAegis AI Enterprise Autonomous PlatformConfig: () => Promise<void>
   scheduleSessionsRefresh: () => void
   sessionInterrupted: (sessionId: string) => boolean
   sessionStateByRuntimeIdRef: MutableRefObject<Map<string, ClientSessionState>>
@@ -82,7 +82,7 @@ export interface GatewayEventContext {
   occurredAt: number
   /** The event came from the active (connection, profile) source. */
   fromActiveSource: () => boolean
-  /** Coalesced trailing refreshAegisConfig (one per session.info burst). */
+  /** Coalesced trailing refreshAegis AI Enterprise Autonomous PlatformConfig (one per session.info burst). */
   scheduleConfigRefresh: () => void
 }
 

@@ -1,4 +1,4 @@
-import type { AegisGitBranch, AegisGitWorktree } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformGitBranch, Aegis AI Enterprise Autonomous PlatformGitWorktree } from '@/global'
 import type { ProjectInfo, SessionInfo } from '@/aegis'
 import { normalize } from '@/lib/text'
 
@@ -148,7 +148,7 @@ export const DEFAULT_BRANCH_LABEL = 'main'
  */
 export function laneSwitchTarget(
   group: Pick<SidebarSessionGroup, 'isGit' | 'isMain' | 'label' | 'path'>,
-  branches: readonly Pick<AegisGitBranch, 'isRemote' | 'name'>[]
+  branches: readonly Pick<Aegis AI Enterprise Autonomous PlatformGitBranch, 'isRemote' | 'name'>[]
 ): null | string {
   const label = group.label.trim()
 
@@ -220,7 +220,7 @@ export function sortWorktreeGroups(groups: SidebarSessionGroup[]): SidebarSessio
 
 /**
  * VISUAL enhancer only: inject empty lanes from a live `git worktree list` so a
- * repo shows its branches/worktrees even when they have no Aegis sessions yet.
+ * repo shows its branches/worktrees even when they have no Aegis AI Enterprise Autonomous Platform sessions yet.
  * The repo's real session lanes already come fully built from the backend
  * (`projects.project_sessions`); this never adds or moves session rows, and it
  * degrades to a no-op on remote backends (where the Electron probe returns
@@ -228,7 +228,7 @@ export function sortWorktreeGroups(groups: SidebarSessionGroup[]): SidebarSessio
  */
 export function mergeRepoWorktreeGroups(
   repo: Pick<SidebarWorkspaceTree, 'groups' | 'id' | 'path'>,
-  discoveredWorktrees?: AegisGitWorktree[]
+  discoveredWorktrees?: Aegis AI Enterprise Autonomous PlatformGitWorktree[]
 ): SidebarSessionGroup[] {
   // Branch-primary labels: a linked worktree's identity in every git UI (VS
   // Code, JetBrains, lazygit, …) is its CHECKED-OUT BRANCH, not the directory it

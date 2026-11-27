@@ -1,6 +1,6 @@
 # Bundled plugins
 
-Drop a `<name>/plugin.{ts,tsx}` here that default-exports a `AegisPlugin` and
+Drop a `<name>/plugin.{ts,tsx}` here that default-exports a `Aegis AI Enterprise Autonomous PlatformPlugin` and
 it registers automatically at boot (vite glob in `../contrib/plugins.ts`), with
 the same inventory + live enable/disable contract as runtime plugins.
 

@@ -129,7 +129,7 @@ describe('host.setProfileBackend', () => {
   it('rejects on a build without the bridge and names what this build supports', async () => {
     await expect(
       setProfileBackend({ plugin: 'acme', profile: 'work', token: 't', url: 'http://127.0.0.1:1' })
-    ).rejects.toThrow('This build of Aegis Desktop cannot run a profile through a plugin.')
+    ).rejects.toThrow('This build of Aegis AI Enterprise Autonomous Platform Desktop cannot run a profile through a plugin.')
     expect(profileBackendFeatures).toEqual({ beforeApply: true, prepare: true, purpose: true })
   })
 })

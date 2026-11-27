@@ -1,11 +1,11 @@
 /**
- * Transfer this agent into a Aegis Cloud agent: `aegis backup` on the source, stream the archive
+ * Transfer this agent into a Aegis AI Enterprise Autonomous Platform Cloud agent: `aegis backup` on the source, stream the archive
  * chunk by chunk to the cloud agent, which restores it with `aegis import --keep-host` (it keeps
- * its own Nous Portal sign-in, model and provider, Aegis Cloud tools and scheduler).
+ * its own Nous Portal sign-in, model and provider, Aegis AI Enterprise Autonomous Platform Cloud tools and scheduler).
  * Pure async over an injected `request`, so it is tested without Electron. Never opens a dialog.
  */
 
-import type { AegisApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 
 /** Which gateway and profile a call acts on. Captured once per flow, so a profile switch
  *  mid-transfer cannot split it across two profiles. */
@@ -15,7 +15,7 @@ export interface TransferEndpoint {
   profile: string
 }
 
-export type TransferRequestFn = <T>(owner: TransferEndpoint, request: AegisApiRequest) => Promise<T>
+export type TransferRequestFn = <T>(owner: TransferEndpoint, request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>
 
 export interface ActionStatus {
   exit_code: null | number
@@ -59,7 +59,7 @@ export class TransferRestoreError extends Error {
   }
 }
 
-/** A Aegis Cloud agent hosts one profile. */
+/** A Aegis AI Enterprise Autonomous Platform Cloud agent hosts one profile. */
 export const cloudEndpoint = (connectionId: string): TransferEndpoint => ({ connectionId, profile: 'default' })
 
 export const CHUNK_BYTES = 8 * 1024 * 1024
@@ -373,7 +373,7 @@ export async function transferAgent(
   const status = await request<null | { import_keep_host?: number }>(target, { path: '/api/status' })
 
   if (!status?.import_keep_host) {
-    throw new Error('This cloud agent needs a Aegis update before it can receive a transfer.')
+    throw new Error('This cloud agent needs a Aegis AI Enterprise Autonomous Platform update before it can receive a transfer.')
   }
 
   onProgress({ phase: 'backup' })

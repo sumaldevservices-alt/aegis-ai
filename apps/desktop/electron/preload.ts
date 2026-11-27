@@ -332,7 +332,7 @@ contextBridge.exposeInMainWorld('aegisDesktop', {
   oauthLoginConnectionConfig: (remoteUrl, options) =>
     ipcRenderer.invoke('aegis:connection-config:oauth-login', remoteUrl, options),
   oauthLogoutConnectionConfig: remoteUrl => ipcRenderer.invoke('aegis:connection-config:oauth-logout', remoteUrl),
-  // Aegis Cloud: one portal login powers discovery + silent per-agent sign-in
+  // Aegis AI Enterprise Autonomous Platform Cloud: one portal login powers discovery + silent per-agent sign-in
   // (cloud-auto-discovery Phase 3).
   cloud: {
     status: () => ipcRenderer.invoke('aegis:cloud:status'),

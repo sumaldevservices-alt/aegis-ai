@@ -1060,11 +1060,11 @@ describe('PreviewPane guest external handoff', () => {
   // #112941: a guest page's `_blank` anchor (Streamlit's "Ask Google" button)
   // reaches the OS browser only through the audited `aegis:openExternal` IPC.
   const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
-  const initialAegisDesktop = desktopWindow.aegisDesktop
+  const initialAegis AI Enterprise Autonomous PlatformDesktop = desktopWindow.aegisDesktop
 
   afterEach(() => {
-    if (initialAegisDesktop) {
-      desktopWindow.aegisDesktop = initialAegisDesktop
+    if (initialAegis AI Enterprise Autonomous PlatformDesktop) {
+      desktopWindow.aegisDesktop = initialAegis AI Enterprise Autonomous PlatformDesktop
     } else {
       delete desktopWindow.aegisDesktop
     }
@@ -1120,7 +1120,7 @@ describe('PreviewPane guest external handoff', () => {
 
 describe('PreviewPane off-screen guest', () => {
   const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
-  const initialAegisDesktop = desktopWindow.aegisDesktop
+  const initialAegis AI Enterprise Autonomous PlatformDesktop = desktopWindow.aegisDesktop
 
   const target = {
     kind: 'url',
@@ -1132,8 +1132,8 @@ describe('PreviewPane off-screen guest', () => {
   afterEach(() => {
     cleanup()
 
-    if (initialAegisDesktop) {
-      desktopWindow.aegisDesktop = initialAegisDesktop
+    if (initialAegis AI Enterprise Autonomous PlatformDesktop) {
+      desktopWindow.aegisDesktop = initialAegis AI Enterprise Autonomous PlatformDesktop
     } else {
       delete desktopWindow.aegisDesktop
     }

@@ -27,6 +27,6 @@ export default function setup(): void {
     }
   } catch (error: unknown) {
     // Electron tests that need no Python still run; only the contracts above fail, naming AEGIS_PYTHON.
-    console.warn(`vitest: could not resolve the Aegis test interpreter: ${String(error)}`)
+    console.warn(`vitest: could not resolve the Aegis AI Enterprise Autonomous Platform test interpreter: ${String(error)}`)
   }
 }

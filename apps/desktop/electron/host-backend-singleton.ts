@@ -55,7 +55,7 @@ export class SecondLocalBackendError extends Error {
 
   constructor(poolKey: string) {
     super(
-      `Refusing to start a second local Aegis backend for "${poolKey}": one backend serves every profile on this host. ` +
+      `Refusing to start a second local Aegis AI Enterprise Autonomous Platform backend for "${poolKey}": one backend serves every profile on this host. ` +
         'Set AEGIS_DESKTOP_ISOLATED_BACKEND=1 for a private backend.'
     )
     this.name = 'SecondLocalBackendError'

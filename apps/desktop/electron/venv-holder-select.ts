@@ -3,7 +3,7 @@
  *
  * Pure Windows venv-holder selection logic (testable without Electron).
  *
- * The pre-update handoff kills Aegis-OWNED venv daemons (the memory plugin's
+ * The pre-update handoff kills Aegis AI Enterprise Autonomous Platform-OWNED venv daemons (the memory plugin's
  * hindsight daemon) so the updater never races a mapped shim. External
  * holders (a user terminal running `aegis`, unrelated scripts) must NOT be
  * killed — current design reports them via scanVenvBlockers and ABORTS the
@@ -18,12 +18,12 @@ export function hasWindowsPathPrefix(exePath: string, venvScriptsDir: string): b
 }
 
 /**
- * True when a process is a Aegis-owned venv daemon: its exe lives under
+ * True when a process is a Aegis AI Enterprise Autonomous Platform-owned venv daemon: its exe lives under
  * `<venv>\Scripts\` (ordinal case-insensitive prefix) AND its cmdline
  * references `hindsight_api.main` (the memory daemon the memory plugin
- * spawns DETACHED — it outlives Aegis and holds venv shims mapped).
+ * spawns DETACHED — it outlives Aegis AI Enterprise Autonomous Platform and holds venv shims mapped).
  */
-export function isAegisOwnedVenvDaemon(
+export function isAegis AI Enterprise Autonomous PlatformOwnedVenvDaemon(
   exePath: string | null | undefined,
   cmdline: string | null | undefined,
   venvScriptsDir: string
@@ -36,9 +36,9 @@ export function isAegisOwnedVenvDaemon(
 }
 
 /**
- * True when a process is an external Aegis process holding this install's venv
+ * True when a process is an external Aegis AI Enterprise Autonomous Platform process holding this install's venv
  * (#62311): its exe lives under `<venv>\Scripts\` AND it is unambiguously a
- * Aegis program — the `aegis.exe` shim, `python -m aegis_cli...`, or
+ * Aegis AI Enterprise Autonomous Platform program — the `aegis.exe` shim, `python -m aegis_cli...`, or
  * `python -m aegis ...`. These are the autostart holders (the gateway Startup
  * item, the dashboard Scheduled Task) that neither the desktop's backend
  * teardown nor the hindsight-daemon sweep reach, and that keep the venv shim
@@ -47,7 +47,7 @@ export function isAegisOwnedVenvDaemon(
  * Deliberately NARROWER than a bare path/cmdline substring against the install
  * root (the approach that sank #62445): an unrelated process that merely
  * mentions the install root or borrows the venv interpreter for its own script
- * must NOT be tree-killed. Non-Aegis venv users still abort the hand-off via
+ * must NOT be tree-killed. Non-Aegis AI Enterprise Autonomous Platform venv users still abort the hand-off via
  * the shim-lock probe instead.
  */
 export function isExternalVenvHolder(

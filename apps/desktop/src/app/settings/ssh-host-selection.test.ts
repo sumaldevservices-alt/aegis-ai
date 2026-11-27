@@ -8,7 +8,7 @@ const state = {
   sshUser: 'operator',
   sshPort: 2222,
   sshKeyPath: '/keys/linux',
-  sshRemoteAegisPath: '/opt/aegis'
+  sshRemoteAegis AI Enterprise Autonomous PlatformPath: '/opt/aegis'
 }
 
 describe('selectSshHost', () => {
@@ -19,7 +19,7 @@ describe('selectSshHost', () => {
       sshUser: '',
       sshPort: null,
       sshKeyPath: '',
-      sshRemoteAegisPath: ''
+      sshRemoteAegis AI Enterprise Autonomous PlatformPath: ''
     })
   })
 

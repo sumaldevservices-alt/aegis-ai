@@ -197,7 +197,7 @@ export const ReactionBadge: FC<{
           <span
             className="reaction-pop leading-none"
             key={`${reaction.author}-${reaction.emoji}`}
-            title="Reacted by Aegis"
+            title="Reacted by Aegis AI Enterprise Autonomous Platform"
           >
             {reaction.emoji}
           </span>

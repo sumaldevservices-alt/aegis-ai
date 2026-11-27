@@ -22,7 +22,7 @@ vi.mock('@/app/contrib/hooks/use-background-sync', () => ({ resetLiveRuntimeTrac
 vi.mock('@/aegis', async importOriginal => ({
   ...(await importOriginal<Record<string, unknown>>()),
   getLatestSessionMessages: vi.fn(async () => ({ messages: [], session_id: 'work-chat' })),
-  AegisGateway: class {
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     connect = vi.fn(async () => {
       this.connectionState = 'open'

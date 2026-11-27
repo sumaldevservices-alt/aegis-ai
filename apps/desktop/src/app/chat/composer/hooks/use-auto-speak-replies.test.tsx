@@ -457,7 +457,7 @@ describe('useAutoSpeakReplies — final reply after tool calls', () => {
           activeSessionIdRef: cache.activeSessionIdRef,
           hydrateFromStoredSession: vi.fn(async () => undefined),
           queryClient: queryClient.current,
-          refreshAegisConfig: vi.fn(async () => undefined),
+          refreshAegis AI Enterprise Autonomous PlatformConfig: vi.fn(async () => undefined),
           refreshSessions: vi.fn(async () => undefined),
           sessionStateByRuntimeIdRef: cache.sessionStateByRuntimeIdRef,
           updateSessionState: cache.updateSessionState

@@ -1,6 +1,6 @@
 import { isGatewayReauthRequired, isStableOpen, LOCAL_CONNECTION_ID, reconnectBackoffDelayMs } from '@aegis/shared'
 
-import type { AegisTerminalExit, AegisTerminalSession, AegisTerminalState } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformTerminalExit, Aegis AI Enterprise Autonomous PlatformTerminalSession, Aegis AI Enterprise Autonomous PlatformTerminalState } from '@/global'
 
 import { readJson, writeJson } from './storage'
 
@@ -38,17 +38,17 @@ interface TerminalState {
   socket: WebSocket | null
   generation: number
   stopped: boolean
-  status: AegisTerminalState
+  status: Aegis AI Enterprise Autonomous PlatformTerminalState
   retry: number
   retryTimer: number
   openedAt: number | null
   cancelDial?: () => void
-  started?: Promise<AegisTerminalSession>
+  started?: Promise<Aegis AI Enterprise Autonomous PlatformTerminalSession>
   pendingData: Array<{ data: string; replay: boolean }>
   dataListeners: Set<DataListener>
-  exit: AegisTerminalExit | null
-  exitListeners: Set<(exit: AegisTerminalExit) => void>
-  stateListeners: Set<(state: AegisTerminalState) => void>
+  exit: Aegis AI Enterprise Autonomous PlatformTerminalExit | null
+  exitListeners: Set<(exit: Aegis AI Enterprise Autonomous PlatformTerminalExit) => void>
+  stateListeners: Set<(state: Aegis AI Enterprise Autonomous PlatformTerminalState) => void>
 }
 
 const META = '\u0000AEGIS_TERMINAL_META:'
@@ -132,13 +132,13 @@ interface DialContext {
   isPaused: () => boolean
   stopSocket: (state: TerminalState) => void
   emitData: (state: TerminalState, data: string, replay?: boolean) => void
-  setStatus: (state: TerminalState, status: AegisTerminalState) => void
+  setStatus: (state: TerminalState, status: Aegis AI Enterprise Autonomous PlatformTerminalState) => void
   forget: (state: TerminalState) => void
   finish: (state: TerminalState, signal: string | null) => void
   reconnect: (state: TerminalState) => void
 }
 
-async function dialTerminal(state: TerminalState, context: DialContext): Promise<AegisTerminalSession> {
+async function dialTerminal(state: TerminalState, context: DialContext): Promise<Aegis AI Enterprise Autonomous PlatformTerminalSession> {
   const { stopSocket, emitData, setStatus, forget, finish, reconnect } = context
   stopSocket(state)
   const generation = ++state.generation
@@ -316,7 +316,7 @@ export function createBrowserTerminal(options: BrowserTerminalOptions): Terminal
     }
   }
 
-  const setStatus = (state: TerminalState, status: AegisTerminalState) => {
+  const setStatus = (state: TerminalState, status: Aegis AI Enterprise Autonomous PlatformTerminalState) => {
     if (state.status === status) {return}
     state.status = status
     state.stateListeners.forEach(listener => listener(status))

@@ -1,4 +1,4 @@
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 
 export const TITLEBAR_HEIGHT = 34
 /** Browser touch chrome: the band (and the controls flush in it) are 44px
@@ -40,7 +40,7 @@ export const TITLEBAR_MAC_TRAFFIC_LIGHTS_Y_NUDGE = 'calc(var(--spacing) * 0.9)'
 export interface TitlebarChromeContext {
   darwinMajor?: number
   isFullscreen?: boolean
-  windowButtonPosition?: AegisConnection['windowButtonPosition']
+  windowButtonPosition?: Aegis AI Enterprise Autonomous PlatformConnection['windowButtonPosition']
 }
 
 export function titlebarControlsYNudge({
@@ -96,7 +96,7 @@ export const titlebarHeaderShadowClass =
   "after:pointer-events-none after:absolute after:left-0 after:right-0 after:top-full after:h-4 after:bg-linear-to-b after:from-(--ui-chat-surface-background) after:to-transparent after:content-['']"
 
 export function titlebarControlsPosition(
-  windowButtonPosition: AegisConnection['windowButtonPosition'] | undefined,
+  windowButtonPosition: Aegis AI Enterprise Autonomous PlatformConnection['windowButtonPosition'] | undefined,
   isFullscreen = false
 ) {
   const top = Math.max(0, TITLEBAR_CONTROLS_TOP)

@@ -61,7 +61,7 @@ export interface CheckoutStrategyDeps {
 
   emitUpdateProgress: (payload: { stage: string; message: string; percent: number | null }) => void
   rememberLog: (chunk: unknown) => void
-  startAegis: () => Promise<unknown>
+  startAegis AI Enterprise Autonomous Platform: () => Promise<unknown>
   stopBackendsForUpdate: () => Promise<void>
   repairMacUpdaterHelper: (updater: string) => void | Promise<void>
   preflightStateDb: (aegisHome: string, rememberLog: (chunk: string) => void) => void | Promise<void>
@@ -256,7 +256,7 @@ export function createCheckoutStrategy(deps: CheckoutStrategyDeps): CheckoutStra
     }
 
     return refuse(
-      'The updater could not take the update lock, so nothing was changed. Aegis keeps running on the previous version — try the update again.',
+      'The updater could not take the update lock, so nothing was changed. Aegis AI Enterprise Autonomous Platform keeps running on the previous version — try the update again.',
       'updater-spawn-failed'
     )
   }
@@ -284,7 +284,7 @@ export function createCheckoutStrategy(deps: CheckoutStrategyDeps): CheckoutStra
       }
 
       failure =
-        'The updater did not start, so nothing was changed. Aegis keeps running on the previous version — try the update again.\n\n' +
+        'The updater did not start, so nothing was changed. Aegis AI Enterprise Autonomous Platform keeps running on the previous version — try the update again.\n\n' +
         `Details: the hand-off script never took the update lock within ${Math.round((deps.handoffClaimTimeoutMs ?? HANDOFF_CLAIM_TIMEOUT_MS) / 1000)} s.`
     }
 
@@ -385,7 +385,7 @@ export function createCheckoutStrategy(deps: CheckoutStrategyDeps): CheckoutStra
     //
     // SKIPPED for pre-#74782 staged updaters: those have no self-PID
     // exclusion, so they read this very marker as a foreign live owner and
-    // abort with "Another Aegis update is already running (PID <itself>)" —
+    // abort with "Another Aegis AI Enterprise Autonomous Platform update is already running (PID <itself>)" —
     // an unbreakable loop, because the update that would replace the stale
     // binary is the one being refused. Losing the anti-respawn hardening is
     // strictly better than never updating again, and the updater still writes
@@ -524,7 +524,7 @@ export function createCheckoutStrategy(deps: CheckoutStrategyDeps): CheckoutStra
     deps.emitUpdateProgress({
       stage: 'restart',
       message:
-        'Updating Aegis — this window will close and the updater will open. Don’t reopen Aegis yourself; it restarts automatically when the update finishes.',
+        'Updating Aegis AI Enterprise Autonomous Platform — this window will close and the updater will open. Don’t reopen Aegis AI Enterprise Autonomous Platform yourself; it restarts automatically when the update finishes.',
       percent: 100
     })
     deps.repairMacUpdaterHelper(updater)
@@ -577,7 +577,7 @@ export function createCheckoutStrategy(deps: CheckoutStrategyDeps): CheckoutStra
       const planned = await planHandoff(scriptHandoff.scriptPath, updateStartedAt)
 
       if ('refusal' in planned) {
-        deps.startAegis().catch(() => {})
+        deps.startAegis AI Enterprise Autonomous Platform().catch(() => {})
 
         return planned.refusal
       }
@@ -649,7 +649,7 @@ export function createCheckoutStrategy(deps: CheckoutStrategyDeps): CheckoutStra
 
     if (failure) {
       deps.emitUpdateProgress({ stage: 'error', message: failure, percent: null })
-      deps.startAegis().catch(() => {})
+      deps.startAegis AI Enterprise Autonomous Platform().catch(() => {})
 
       return { ok: false, error: 'updater-spawn-failed', message: failure }
     }
@@ -764,7 +764,7 @@ export function createCheckoutStrategy(deps: CheckoutStrategyDeps): CheckoutStra
     deps.emitUpdateProgress({
       stage: 'restart',
       message:
-        'Updating Aegis — this window will close. Don’t reopen Aegis yourself; it restarts automatically when the update finishes.',
+        'Updating Aegis AI Enterprise Autonomous Platform — this window will close. Don’t reopen Aegis AI Enterprise Autonomous Platform yourself; it restarts automatically when the update finishes.',
       percent: 100
     })
 

@@ -59,12 +59,12 @@ test('structured storage_* error codes route to Maintenance', () => {
   expect($routeRequest.get()?.path).toBe('/command-center?section=maintenance')
 })
 
-test('405 method-not-allowed toasts a restart in plain words with a Restart Aegis action', () => {
+test('405 method-not-allowed toasts a restart in plain words with a Restart Aegis AI Enterprise Autonomous Platform action', () => {
   const before = $backendRestartRequest.get()
   notifyError(new Error('405 Method Not Allowed'), 'Request failed')
 
   expect(lastMessage()).not.toMatch(/405|Method Not Allowed|backend/i)
-  expect($notifications.get()[0]?.action?.label).toBe(en.notifications.actions.restartAegis)
+  expect($notifications.get()[0]?.action?.label).toBe(en.notifications.actions.restartAegis AI Enterprise Autonomous Platform)
   $notifications.get()[0]?.action?.onClick()
   expect($backendRestartRequest.get()).toBe(before + 1)
 })
@@ -138,7 +138,7 @@ test('code-skew 503 unwraps to a restart-required summary, not raw IPC JSON', ()
 
   expect(lastMessage()).not.toMatch(/aegis:api|systemctl|backend/i)
   const before = $backendRestartRequest.get()
-  expect($notifications.get()[0]?.action?.label).toBe(en.notifications.actions.restartAegis)
+  expect($notifications.get()[0]?.action?.label).toBe(en.notifications.actions.restartAegis AI Enterprise Autonomous Platform)
   $notifications.get()[0]?.action?.onClick()
   expect($backendRestartRequest.get()).toBe(before + 1)
 })
@@ -232,7 +232,7 @@ test('a launch-credentials refusal says the key changed and offers a new chat', 
 const sshTimeout = 'SSH operation to user@ssh.example.test timed out. It will be re-established on the next attempt.'
 
 const sshAuthFailed =
-  'SSH authentication to user@ssh.example.test failed. Aegis runs ssh non-interactively (BatchMode), so a key ' +
+  'SSH authentication to user@ssh.example.test failed. Aegis AI Enterprise Autonomous Platform runs ssh non-interactively (BatchMode), so a key ' +
   'requiring a passphrase or 2FA must be loaded into ssh-agent first. Original error: Permission denied (publickey).'
 
 const objectDetail = (message: string, kind: string) => `502: ${JSON.stringify({ detail: { message, kind } })}`

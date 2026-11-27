@@ -123,13 +123,13 @@ describe('toggleWakeWord', () => {
 
     await toggleWakeWord(
       requester(() => {
-        throw new Error('Aegis gateway unavailable')
+        throw new Error('Aegis AI Enterprise Autonomous Platform gateway unavailable')
       })
     )
 
     expect($wakeWord.get()).toMatchObject({
       listening: false,
-      notice: 'Aegis gateway unavailable',
+      notice: 'Aegis AI Enterprise Autonomous Platform gateway unavailable',
       pending: false
     })
   })

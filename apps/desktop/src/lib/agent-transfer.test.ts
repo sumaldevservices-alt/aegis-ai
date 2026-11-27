@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import type { AegisApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 
 import {
   base64Bytes,
@@ -26,7 +26,7 @@ const unb64 = (data: string) => Uint8Array.from(atob(data), c => c.charCodeAt(0)
 
 interface Call {
   owner: TransferEndpoint
-  req: AegisApiRequest
+  req: Aegis AI Enterprise Autonomous PlatformApiRequest
 }
 
 interface FakeOptions {
@@ -58,7 +58,7 @@ function fakeBackends(archive: Uint8Array, options: FakeOptions = {}) {
   const uploads = new Map<string, Uint8Array>()
   let uploadSeq = 0
 
-  type Handler = (req: AegisApiRequest, params: URLSearchParams, side: string, path: string) => unknown
+  type Handler = (req: Aegis AI Enterprise Autonomous PlatformApiRequest, params: URLSearchParams, side: string, path: string) => unknown
 
   const sourceChunk: Handler = (_req, params) => {
     if (sourceFailures > 0) {
@@ -134,7 +134,7 @@ function fakeBackends(archive: Uint8Array, options: FakeOptions = {}) {
     '/api/status': () => (keepHost ? { import_keep_host: 1, version: 'x' } : { version: 'old' })
   }
 
-  const request: TransferRequestFn = async <T>(owner: TransferEndpoint, req: AegisApiRequest) => {
+  const request: TransferRequestFn = async <T>(owner: TransferEndpoint, req: Aegis AI Enterprise Autonomous PlatformApiRequest) => {
     calls.push({ owner, req })
     const [path, query = ''] = req.path.split('?')
     const handler = routes[path] ?? (path.endsWith('/status') ? actionStatus : undefined)
@@ -197,7 +197,7 @@ describe('transferAgent', () => {
     const { calls, request } = fakeBackends(new Uint8Array([1, 2, 3]), { keepHost: false })
 
     await expect(transferAgent(request, SOURCE, TARGET, () => undefined, { timing: instant })).rejects.toThrow(
-      'This cloud agent needs a Aegis update before it can receive a transfer.'
+      'This cloud agent needs a Aegis AI Enterprise Autonomous Platform update before it can receive a transfer.'
     )
     expect(calls.map(c => c.req.path)).toEqual(['/api/status'])
   })
@@ -214,7 +214,7 @@ describe('transferAgent', () => {
   it('refuses a truncated archive instead of restoring it', async () => {
     const { calls, request } = fakeBackends(new Uint8Array([1, 2, 3]))
 
-    const truncated: TransferRequestFn = async <T>(owner: TransferEndpoint, req: AegisApiRequest) =>
+    const truncated: TransferRequestFn = async <T>(owner: TransferEndpoint, req: Aegis AI Enterprise Autonomous PlatformApiRequest) =>
       req.path.startsWith('/api/ops/backup/chunk')
         ? ({ data: b64(new Uint8Array([1])), done: true, offset: 0, size: 2 } as T)
         : request<T>(owner, req)
@@ -233,7 +233,7 @@ describe('transferAgent', () => {
       { chunk: 100 }
     )
 
-    const request: TransferRequestFn = async <T>(owner: TransferEndpoint, req: AegisApiRequest) => {
+    const request: TransferRequestFn = async <T>(owner: TransferEndpoint, req: Aegis AI Enterprise Autonomous PlatformApiRequest) => {
       const response = await backend.request<T>(owner, req)
 
       if (req.path === '/api/ops/transfer/chunk') {
@@ -292,7 +292,7 @@ describe('runBackup', () => {
   it('rejects a backup response without a path before polling', async () => {
     const calls: string[] = []
 
-    const request: TransferRequestFn = async <T>(_owner: TransferEndpoint, req: AegisApiRequest) => {
+    const request: TransferRequestFn = async <T>(_owner: TransferEndpoint, req: Aegis AI Enterprise Autonomous PlatformApiRequest) => {
       calls.push(req.path)
 
       return { name: 'backup' } as T

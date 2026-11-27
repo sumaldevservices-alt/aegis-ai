@@ -424,7 +424,7 @@ describe('quickComposerReducer', () => {
     const timeoutEvent = quickEntryResultEvent(timeout, 7)
 
     expect(timeoutEvent).toEqual({
-      message: 'Aegis has not confirmed the prompt yet — it may still be delivered.',
+      message: 'Aegis AI Enterprise Autonomous Platform has not confirmed the prompt yet — it may still be delivered.',
       submitId: 7,
       type: 'submit-unknown'
     })
@@ -462,14 +462,14 @@ describe('quickComposerReducer', () => {
 
 describe('Quick Entry settings bridge', () => {
   const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
-  const initialAegisDesktop = desktopWindow.aegisDesktop
+  const initialAegis AI Enterprise Autonomous PlatformDesktop = desktopWindow.aegisDesktop
   const initialState = $quickEntry.get()
 
   const status = (shortcut: string): QuickEntryStatus => ({ enabled: true, error: null, registered: true, shortcut })
 
   afterEach(() => {
-    if (initialAegisDesktop) {
-      desktopWindow.aegisDesktop = initialAegisDesktop
+    if (initialAegis AI Enterprise Autonomous PlatformDesktop) {
+      desktopWindow.aegisDesktop = initialAegis AI Enterprise Autonomous PlatformDesktop
     } else {
       delete desktopWindow.aegisDesktop
     }

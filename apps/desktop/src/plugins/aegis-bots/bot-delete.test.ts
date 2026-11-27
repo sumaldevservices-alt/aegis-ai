@@ -1,5 +1,5 @@
 /**
- * Deleting a bot deletes its Aegis profile, then everything plugin-local
+ * Deleting a bot deletes its Aegis AI Enterprise Autonomous Platform profile, then everything plugin-local
  * that would otherwise leave stale appearance/unread data behind.
  *
  * `host.deleteProfile` is preferred whenever the Desktop build ships it: it
@@ -13,7 +13,7 @@
  * under `vm`.
  */
 
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { ProfileRoute, RosterRow } from './types'
@@ -51,7 +51,7 @@ const { forgetSessionUnread, invalidateQueries, newChat, overrides, request, sta
 })
 
 vi.mock('@aegis/plugin-sdk', async importOriginal => {
-  const sdk = await importOriginal<typeof AegisSdk>()
+  const sdk = await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>()
 
   overrides.newChat = newChat
   overrides.request = request

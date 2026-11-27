@@ -1,12 +1,12 @@
 import type { GatewayWsUrlResult } from '@aegis/shared'
-import type { AegisSkin } from '@aegis/shared/skin'
+import type { Aegis AI Enterprise Autonomous PlatformSkin } from '@aegis/shared/skin'
 import type { TranslucencyState } from '@aegis/shared/translucency'
 
 import type { ChallengeOutcome } from '../electron/challenge-window'
 import type { ScreenshotApi } from '../electron/command-screenshot-types'
 import type { HudModifierApi } from '../electron/hud-modifier-types'
 import type { MachineProfile } from '../electron/machine-profile'
-import type { AegisNotification } from '../electron/notification-types'
+import type { Aegis AI Enterprise Autonomous PlatformNotification } from '../electron/notification-types'
 import type { KeepAwakeMode } from '../electron/power-save'
 import type { PresenceSnapshot } from '../electron/presence'
 import type { UpdateHoldWire } from '../electron/update-hold-types'
@@ -38,13 +38,13 @@ declare global {
       // Resolve a backend connection. Omit `profile` (or pass the primary) for
       // the window's backend; pass a named profile to dial/reuse that profile's
       // cached gateway descriptor.
-      getConnection: (profile?: string | null) => Promise<AegisConnection>
+      getConnection: (profile?: string | null) => Promise<Aegis AI Enterprise Autonomous PlatformConnection>
       // Registry-scoped backend resolution: dial (connectionId, profile). An
       // empty/local connectionId delegates to the legacy getConnection path.
       getConnectionFor?: (payload: {
         connectionId?: null | string
         profile?: null | string
-      }) => Promise<AegisConnection>
+      }) => Promise<Aegis AI Enterprise Autonomous PlatformConnection>
       // Registry-scoped fresh WS URL (same result contract as getGatewayWsUrl).
       getGatewayWsUrlFor?: (payload: {
         connectionId?: null | string
@@ -112,7 +112,7 @@ declare global {
       // `onBrowserPopoutClosed` so the caller can dock the tab again.
       openBrowserWindow?: (tabId: string) => Promise<{ ok: boolean; error?: string }>
       // Cross-window renderer relay (pop-out Browser ↔ chat windows). Electron
-      // main relays opaque payloads to the other Aegis renderer windows;
+      // main relays opaque payloads to the other Aegis AI Enterprise Autonomous Platform renderer windows;
       // renderer code keeps the destination exact and rejects anything not
       // addressed to its window.
       windowRelay?: {
@@ -278,7 +278,7 @@ declare global {
         options?: DesktopOauthLoginOptions
       ) => Promise<DesktopOauthLoginResult>
       oauthLogoutConnectionConfig: (remoteUrl: string) => Promise<DesktopOauthLogoutResult>
-      // Aegis Cloud: one portal login powers discovery + silent per-agent
+      // Aegis AI Enterprise Autonomous Platform Cloud: one portal login powers discovery + silent per-agent
       // sign-in (cloud-auto-discovery Phase 3).
       cloud: {
         status: () => Promise<DesktopCloudStatus>
@@ -304,8 +304,8 @@ declare global {
         // clear the preference.
         set: (name: string | null) => Promise<DesktopActiveProfile>
       }
-      api: <T>(request: AegisApiRequest) => Promise<T>
-      notify: (payload: AegisNotification) => Promise<boolean>
+      api: <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>
+      notify: (payload: Aegis AI Enterprise Autonomous PlatformNotification) => Promise<boolean>
       /** Whether main can show an OS notification at all (`aegis:notify` answers false when not). Missing
        *  on an older preload and in a browser. */
       notifySupported?: () => Promise<boolean>
@@ -324,20 +324,20 @@ declare global {
           title: string
         } | null
       } | null>
-      readFileDataUrl: (filePath: string) => Promise<string | AegisReadFileErrorResult>
+      readFileDataUrl: (filePath: string) => Promise<string | Aegis AI Enterprise Autonomous PlatformReadFileErrorResult>
       /** Remote non-image attach: higher dedicated cap than preview/Settings default. */
-      readFileDataUrlForAttach?: (filePath: string) => Promise<string | AegisReadFileErrorResult>
+      readFileDataUrlForAttach?: (filePath: string) => Promise<string | Aegis AI Enterprise Autonomous PlatformReadFileErrorResult>
       /** Settings → Chat: max size for local files loaded as data URLs (attach/preview). */
       dataUrlReadMax?: {
         get: () => Promise<{ defaultMaxMb: number; maxBytes: number; maxMb: number }>
         set: (maxMb: number) => Promise<{ defaultMaxMb: number; maxBytes: number; maxMb: number }>
       }
-      readFileText: (filePath: string) => Promise<AegisReadFileTextResult | AegisReadFileErrorResult>
+      readFileText: (filePath: string) => Promise<Aegis AI Enterprise Autonomous PlatformReadFileTextResult | Aegis AI Enterprise Autonomous PlatformReadFileErrorResult>
       /** Full-source read for runtime desktop plugins (readFileText truncates
        *  at the 512 KiB preview cap). Absent on older shells — callers fall
        *  back to readFileText and must reject a `truncated` result. */
-      readPluginSource?: (filePath: string) => Promise<AegisReadFileTextResult>
-      selectPaths: (options?: AegisSelectPathsOptions) => Promise<string[]>
+      readPluginSource?: (filePath: string) => Promise<Aegis AI Enterprise Autonomous PlatformReadFileTextResult>
+      selectPaths: (options?: Aegis AI Enterprise Autonomous PlatformSelectPathsOptions) => Promise<string[]>
       /** Native save dialog; returns the chosen path or null on cancel. */
       selectSavePath?: (options?: {
         defaultPath?: string
@@ -409,24 +409,24 @@ declare global {
        *  profile-scoped host storage. Native shells already expose real paths. */
       stageFileForAttach?: (file: File) => Promise<string>
       /** Source ownership returned when this browser stages a file on its host. */
-      getStagedFileForAttach?: (path: string) => AegisStagedUpload | undefined
+      getStagedFileForAttach?: (path: string) => Aegis AI Enterprise Autonomous PlatformStagedUpload | undefined
       /** Browser-picked display name; never replaces the host path or source identity. */
       getStagedFileDisplayName?: (path: string) => string | undefined
-      normalizePreviewTarget: (target: string, baseDir?: string) => Promise<AegisPreviewTarget | null>
-      /** Resolves to `AegisReadFileErrorResult` when the watched file was
+      normalizePreviewTarget: (target: string, baseDir?: string) => Promise<Aegis AI Enterprise Autonomous PlatformPreviewTarget | null>
+      /** Resolves to `Aegis AI Enterprise Autonomous PlatformReadFileErrorResult` when the watched file was
        *  already gone at call time (a restored tab probing a deleted path) —
        *  structured data instead of a rejection, matching the read handlers. */
-      watchPreviewFile: (url: string) => Promise<AegisPreviewWatch | AegisReadFileErrorResult>
+      watchPreviewFile: (url: string) => Promise<Aegis AI Enterprise Autonomous PlatformPreviewWatch | Aegis AI Enterprise Autonomous PlatformReadFileErrorResult>
       /** Watch a directory for entry churn (disk-plugin door); same watcher
        *  registry + onPreviewFileChanged channel as watchPreviewFile. Optional:
        *  older Electron shells predate it and fall back to the readdir poll. */
-      watchDirectory?: (dir: string) => Promise<AegisPreviewWatch>
+      watchDirectory?: (dir: string) => Promise<Aegis AI Enterprise Autonomous PlatformPreviewWatch>
       stopPreviewFileWatch: (id: string) => Promise<boolean>
-      setActiveWork?: (payload: AegisActiveWork) => void
+      setActiveWork?: (payload: Aegis AI Enterprise Autonomous PlatformActiveWork) => void
       /** Bounded functional stream deadlines; does not enable hidden-window painting. */
       scheduleStreamWorkWake?: (token: string, delayMs: number | null) => void
       onStreamWorkWake?: (callback: (token: string) => void) => () => void
-      setTitleBarTheme?: (payload: AegisTitleBarTheme) => void
+      setTitleBarTheme?: (payload: Aegis AI Enterprise Autonomous PlatformTitleBarTheme) => void
       setNativeTheme?: (mode: 'dark' | 'light' | 'system') => void
       /** Main-process fact: this OS can back glass with a native material. */
       glassSupported?: boolean
@@ -437,7 +437,7 @@ declare global {
       /** Dev-only launch flag (`--fresh-install`, unpackaged builds): onboarding treats this launch as a fresh install. */
       assumeFreshInstall?: boolean
       /** Sanitized local `display.skin`, available before any gateway connects. */
-      localSkin?: { profile: string; skin: AegisSkin } | null
+      localSkin?: { profile: string; skin: Aegis AI Enterprise Autonomous PlatformSkin } | null
       /** This machine's shared UI preferences store (#145213): preload IPC natively,
        *  `/api/ui-preferences` on the Webapp. */
       uiPreferences?: UiPreferencesBridge
@@ -534,7 +534,7 @@ declare global {
       }) => void
       /** Append one raw line to desktop.log (fire-and-forget, notifyError path). */
       logLine?: (line: string) => void
-      readDir: (path: string) => Promise<AegisReadDirResult>
+      readDir: (path: string) => Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>
       gitRoot?: (path: string) => Promise<string | null>
       // Reveal a path in the OS file manager (Finder / Explorer).
       revealPath?: (path: string) => Promise<boolean>
@@ -571,16 +571,16 @@ declare global {
         request: (
           pluginId: string,
           labels: { buttonLabel: string; title: string }
-        ) => Promise<AegisPluginFilesResult<{ folder: AegisPluginFolderGrant | null }>>
-        grants: (pluginId: string) => Promise<AegisPluginFolderGrant[]>
+        ) => Promise<Aegis AI Enterprise Autonomous PlatformPluginFilesResult<{ folder: Aegis AI Enterprise Autonomous PlatformPluginFolderGrant | null }>>
+        grants: (pluginId: string) => Promise<Aegis AI Enterprise Autonomous PlatformPluginFolderGrant[]>
         revoke: (pluginId: string, folderId?: string) => Promise<{ ok: true; removed: number }>
-        op: (pluginId: string, request: Record<string, unknown>) => Promise<AegisPluginFilesResult>
+        op: (pluginId: string, request: Record<string, unknown>) => Promise<Aegis AI Enterprise Autonomous PlatformPluginFilesResult>
         /** A grant was added or revoked in any window; returns an unsubscribe. */
         onChanged?: (callback: (change: { pluginId: string }) => void) => () => void
       }
       // Git-driven worktree management for the "Start work" flow.
       git?: {
-        worktreeList: (repoPath: string) => Promise<AegisGitWorktree[]>
+        worktreeList: (repoPath: string) => Promise<Aegis AI Enterprise Autonomous PlatformGitWorktree[]>
         worktreeAdd: (
           repoPath: string,
           options?: { name?: string; branch?: string; base?: string; existingBranch?: string }
@@ -593,25 +593,25 @@ declare global {
         branchSwitch: (repoPath: string, branch: string) => Promise<{ branch: string }>
         // The local branches, plus the remote-tracking refs that have no local
         // branch, for the "convert a branch into a worktree" picker.
-        branchList: (repoPath: string) => Promise<AegisGitBranch[]>
+        branchList: (repoPath: string) => Promise<Aegis AI Enterprise Autonomous PlatformGitBranch[]>
         // Local + remote-tracking branches for the "base branch" picker in the
         // new-worktree dialog. The remote default (origin/HEAD) is flagged so
         // the UI can preselect it.
-        baseBranchList: (repoPath: string) => Promise<AegisGitBaseBranch[]>
+        baseBranchList: (repoPath: string) => Promise<Aegis AI Enterprise Autonomous PlatformGitBaseBranch[]>
         // Compact working-tree status for the composer coding rail. Null on a
         // non-repo / remote backend (where the Electron probe can't run).
-        repoStatus: (repoPath: string) => Promise<AegisRepoStatus | null>
+        repoStatus: (repoPath: string) => Promise<Aegis AI Enterprise Autonomous PlatformRepoStatus | null>
         // Working-tree-vs-HEAD unified diff for one file (the preview's diff
         // view). Empty string when the file is unchanged or not in a repo.
         fileDiff: (repoPath: string, filePath: string) => Promise<string>
         // Codex-style review pane: changed files per scope, per-file diff, and
         // stage / unstage / revert.
         review: {
-          list: (repoPath: string, scope: AegisReviewScope, baseRef?: null | string) => Promise<AegisReviewList>
+          list: (repoPath: string, scope: Aegis AI Enterprise Autonomous PlatformReviewScope, baseRef?: null | string) => Promise<Aegis AI Enterprise Autonomous PlatformReviewList>
           diff: (
             repoPath: string,
             filePath: string,
-            scope: AegisReviewScope,
+            scope: Aegis AI Enterprise Autonomous PlatformReviewScope,
             baseRef?: null | string,
             staged?: boolean
           ) => Promise<string>
@@ -624,11 +624,11 @@ declare global {
           // commit message. Reads only; empty strings off-repo.
           commitContext: (repoPath: string) => Promise<{ diff: string; recent: string }>
           push: (repoPath: string) => Promise<{ ok: boolean }>
-          shipInfo: (repoPath: string) => Promise<AegisReviewShipInfo>
+          shipInfo: (repoPath: string) => Promise<Aegis AI Enterprise Autonomous PlatformReviewShipInfo>
           // The PR on each of the given branches — plus any known only by
           // number — for badging a list of sessions in one request instead of
           // one `pr view` per checkout.
-          prList: (repoPath: string, branches: string[], numbers?: number[]) => Promise<AegisRepoPullRequests>
+          prList: (repoPath: string, branches: string[], numbers?: number[]) => Promise<Aegis AI Enterprise Autonomous PlatformRepoPullRequests>
           createPr: (repoPath: string) => Promise<{ url: string }>
         }
         // Repo-first discovery: scan bounded roots for git repos (depth-capped).
@@ -648,9 +648,9 @@ declare global {
         /** Browser cleanup releases the viewer without terminating its shell. */
         detach?: (id: string) => Promise<boolean>
         closeSaved?: (restoreKey: string) => Promise<boolean>
-        onState?: (id: string, callback: (state: AegisTerminalState) => void) => () => void
+        onState?: (id: string, callback: (state: Aegis AI Enterprise Autonomous PlatformTerminalState) => void) => () => void
         onData: (id: string, callback: (payload: string, options?: { replay: boolean }) => void) => () => void
-        onExit: (id: string, callback: (payload: AegisTerminalExit) => void) => () => void
+        onExit: (id: string, callback: (payload: Aegis AI Enterprise Autonomous PlatformTerminalExit) => void) => () => void
         resize: (id: string, size: { cols: number; rows: number }) => Promise<boolean>
         start: (options?: {
           cols?: number
@@ -660,7 +660,7 @@ declare global {
           rows?: number
           restoreKey?: string
           resumeOnly?: boolean
-        }) => Promise<AegisTerminalSession>
+        }) => Promise<Aegis AI Enterprise Autonomous PlatformTerminalSession>
         write: (id: string, data: string) => Promise<boolean>
       }
       reachPreviewUrl?: (url: string) => Promise<string>
@@ -732,14 +732,14 @@ declare global {
       /** Delete a STANDALONE desktop plugin folder (`<desktop-plugins root>/<name>`);
        *  Electron re-checks containment and refuses unified-package halves. */
       removeDesktopPlugin?: (payload: { name: string }) => Promise<{ ok: boolean; path?: string; error?: string }>
-      onWindowStateChanged?: (callback: (payload: AegisWindowState) => void) => () => void
+      onWindowStateChanged?: (callback: (payload: Aegis AI Enterprise Autonomous PlatformWindowState) => void) => () => void
       onFocusSession?: (callback: (sessionId: string) => void) => () => void
       onNotificationAction?: (callback: (payload: { actionId: string; sessionId?: string }) => void) => () => void
       /** Plugin (and other session-less) notification body/action activation. */
       onNotificationActivate?: (
         callback: (payload: { actionId?: string; activate?: string; notifyId?: string; tag?: string }) => void
       ) => () => void
-      onPreviewFileChanged: (callback: (payload: AegisPreviewFileChanged) => void) => () => void
+      onPreviewFileChanged: (callback: (payload: Aegis AI Enterprise Autonomous PlatformPreviewFileChanged) => void) => () => void
       onBackendExit: (callback: (payload: BackendExit) => void) => () => void
       // Soft gateway-mode apply: primary backend was torn down without a window
       // reload. Wipe session lists (skeletons) and re-dial.
@@ -827,14 +827,14 @@ declare global {
   }
 }
 
-export interface AegisPluginFolderGrant {
+export interface Aegis AI Enterprise Autonomous PlatformPluginFolderGrant {
   id: string
   name: string
   path: string
   grantedAt: string
 }
 
-export type AegisPluginFilesResult<T extends object = Record<string, unknown>> =
+export type Aegis AI Enterprise Autonomous PlatformPluginFilesResult<T extends object = Record<string, unknown>> =
   ({ ok: true } & T) | { ok: false; error: string; message: string }
 
 export interface DesktopMarketplaceSearchItem {
@@ -859,9 +859,9 @@ export interface DesktopMarketplaceThemeResult {
   themes: DesktopMarketplaceThemeFile[]
 }
 
-export type AegisTerminalState = 'open' | 'reconnecting' | 'disconnected'
+export type Aegis AI Enterprise Autonomous PlatformTerminalState = 'open' | 'reconnecting' | 'disconnected'
 
-export interface AegisTerminalSession {
+export interface Aegis AI Enterprise Autonomous PlatformTerminalSession {
   /** Gateway the shell runs on (`local` = This device); Electron only. */
   connectionId?: null | string
   cwd: string
@@ -874,7 +874,7 @@ export interface AegisTerminalSession {
   persistent?: boolean
 }
 
-export interface AegisTerminalExit {
+export interface Aegis AI Enterprise Autonomous PlatformTerminalExit {
   code: number | null
   signal: string | null
 }
@@ -961,7 +961,7 @@ export interface DesktopVersionInfo {
 }
 
 /** Where an external build's backend came from. Mirrors the resolution ladder
- *  in `resolveAegisBackend()`: `git` / `source` / sealed stewards are the
+ *  in `resolveAegis AI Enterprise Autonomous PlatformBackend()`: `git` / `source` / sealed stewards are the
  *  Python install methods from `installation.tree.install_method()`; the
  *  Electron-only rungs (`aegis-root`, `path`, `system-python`, `bootstrap`)
  *  are resolution facts the backend cannot see. Each variant carries the
@@ -1148,7 +1148,7 @@ export interface PreviewSigninsResult {
   error?: string
 }
 
-export interface AegisConnection {
+export interface Aegis AI Enterprise Autonomous PlatformConnection {
   baseUrl: string
   customWindowControls?: boolean
   darwinMajor?: number
@@ -1163,7 +1163,7 @@ export interface AegisConnection {
   remoteHost?: string
   remoteIdentity?: string
   remoteKind?: 'cloud' | 'ssh' | 'url'
-  remoteAegisVersion?: string
+  remoteAegis AI Enterprise Autonomous PlatformVersion?: string
   nativeOverlayWidth: number
   source?: 'env' | 'local' | 'settings'
   token: string
@@ -1193,20 +1193,20 @@ export interface AegisConnection {
   windowButtonPosition: { x: number; y: number } | null
 }
 
-export interface AegisTitleBarTheme {
+export interface Aegis AI Enterprise Autonomous PlatformTitleBarTheme {
   background: string
   foreground: string
 }
 
 /** Turns in flight, so the main process can confirm before a quit kills them. */
-export interface AegisActiveWork {
+export interface Aegis AI Enterprise Autonomous PlatformActiveWork {
   count: number
   titles: string[]
   /** Speech output still consumes the frame-published transcript while streaming. */
   voiceActive?: boolean
 }
 
-export interface AegisWindowState {
+export interface Aegis AI Enterprise Autonomous PlatformWindowState {
   customWindowControls?: boolean
   darwinMajor?: number
   isFullscreen: boolean
@@ -1230,7 +1230,7 @@ export interface DesktopActiveProfile {
 
 export interface DesktopConnectionConfig {
   envOverride: boolean
-  // The saved connection mode. 'cloud' is a Aegis Cloud connection: it carries
+  // The saved connection mode. 'cloud' is a Aegis AI Enterprise Autonomous Platform Cloud connection: it carries
   // a remote-shaped block (remoteUrl = the selected agent's dashboardUrl,
   // remoteAuthMode 'oauth') but is remembered as cloud so settings reopens into
   // the cloud picker. Resolution treats cloud exactly as remote
@@ -1253,7 +1253,7 @@ export interface DesktopConnectionConfig {
   // encryption is opted out — plain text is the chosen mode there.
   remoteTokenPlainText: boolean
   remoteUrl: string
-  // For a 'cloud' connection: the persisted Aegis Cloud org (slug or id) the
+  // For a 'cloud' connection: the persisted Aegis AI Enterprise Autonomous Platform Cloud org (slug or id) the
   // connected instance was discovered under, so Settings → Gateway can reopen
   // into that org. Empty string for remote/local.
   cloudOrg: string
@@ -1261,7 +1261,7 @@ export interface DesktopConnectionConfig {
   sshUser: string
   sshPort: number | null
   sshKeyPath: string
-  sshRemoteAegisPath: string
+  sshRemoteAegis AI Enterprise Autonomous PlatformPath: string
   sshRemoteProfile: string
   // Per-profile scope only: the plugin that runs this profile's backend, or null.
   launcher?: null | { plugin: string }
@@ -1300,7 +1300,7 @@ export interface DesktopConnectionConfigInput {
   // user opt-in from the renderer.
   allowPlainTextToken?: boolean
   remoteUrl?: string
-  // For a 'cloud' connection: the selected Aegis Cloud org (slug or id) to
+  // For a 'cloud' connection: the selected Aegis AI Enterprise Autonomous Platform Cloud org (slug or id) to
   // persist so Settings can reopen into it. Ignored for remote/local modes.
   cloudOrg?: string
   cloudName?: string
@@ -1308,7 +1308,7 @@ export interface DesktopConnectionConfigInput {
   sshUser?: string
   sshPort?: number | null
   sshKeyPath?: string
-  sshRemoteAegisPath?: string
+  sshRemoteAegis AI Enterprise Autonomous PlatformPath?: string
   sshRemoteProfile?: string
   // For a URL-remote/cloud per-profile override: the profile name on the remote
   // host when it differs from this Desktop routing label.
@@ -1333,8 +1333,8 @@ export interface DesktopConnectionTestResult {
     | null
   error?: string | null
   host?: string
-  remoteAegisPath?: string
-  remoteAegisVersion?: string
+  remoteAegis AI Enterprise Autonomous PlatformPath?: string
+  remoteAegis AI Enterprise Autonomous PlatformVersion?: string
   remotePlatform?: string
 }
 
@@ -1356,7 +1356,7 @@ export interface DesktopRegistryConnection {
   user?: string
   port?: number
   keyPath?: string
-  remoteAegisPath?: string
+  remoteAegis AI Enterprise Autonomous PlatformPath?: string
   remoteProfile?: string
   tokenSet: boolean
   tokenPreview: null | string
@@ -1407,7 +1407,7 @@ export interface DesktopRegistryConnectionInput {
   user?: string
   port?: null | number
   keyPath?: string
-  remoteAegisPath?: string
+  remoteAegis AI Enterprise Autonomous PlatformPath?: string
   remoteProfile?: string
 }
 
@@ -1564,7 +1564,7 @@ export interface DesktopOauthLogoutResult {
   connected: boolean
 }
 
-// --- Aegis Cloud (cloud-auto-discovery Phase 3) ---
+// --- Aegis AI Enterprise Autonomous Platform Cloud (cloud-auto-discovery Phase 3) ---
 
 export interface DesktopCloudStatus {
   // The portal base URL the desktop talks to (default or env-overridden).
@@ -1574,7 +1574,7 @@ export interface DesktopCloudStatus {
   signedIn: boolean
 }
 
-// A discovered Aegis Cloud agent — the trimmed DTO from NAS GET /api/agents.
+// A discovered Aegis AI Enterprise Autonomous Platform Cloud agent — the trimmed DTO from NAS GET /api/agents.
 export interface DesktopCloudAgent {
   id: string
   name: string
@@ -1721,7 +1721,7 @@ export type DesktopBootstrapEvent =
       docsUrl: string
     }
 
-export interface AegisApiRequest {
+export interface Aegis AI Enterprise Autonomous PlatformApiRequest {
   path: string
   method?: string
   body?: unknown
@@ -1751,7 +1751,7 @@ export interface AegisApiRequest {
   priority?: 'foreground'
 }
 
-export interface AegisPreviewTarget {
+export interface Aegis AI Enterprise Autonomous PlatformPreviewTarget {
   binary?: boolean
   byteSize?: number
   kind: 'file' | 'url'
@@ -1766,7 +1766,7 @@ export interface AegisPreviewTarget {
   url: string
 }
 
-export interface AegisReadFileTextResult {
+export interface Aegis AI Enterprise Autonomous PlatformReadFileTextResult {
   binary?: boolean
   byteSize?: number
   language?: string
@@ -1782,21 +1782,21 @@ export interface AegisReadFileTextResult {
  *  file, or a path under a cleared /tmp, is an expected outcome that the
  *  renderer already displays as "preview unavailable". Other errors still
  *  reject as before. */
-export interface AegisReadFileErrorResult {
+export interface Aegis AI Enterprise Autonomous PlatformReadFileErrorResult {
   ok: false
   error: string
   message: string
   path?: string
 }
 
-export interface AegisPreviewWatch {
+export interface Aegis AI Enterprise Autonomous PlatformPreviewWatch {
   id: string
   path: string
 }
 
 // A real git worktree as reported by `git worktree list` (source of truth for
 // the "Start work" flow), as opposed to the session-cwd-derived grouping above.
-export interface AegisGitWorktree {
+export interface Aegis AI Enterprise Autonomous PlatformGitWorktree {
   path: string
   branch: null | string
   isMain: boolean
@@ -1810,7 +1810,7 @@ export interface AegisGitWorktree {
 // that a selection switches the main checkout, and does not make
 // `.worktrees/main`. `isRemote` means that a selection first makes a local
 // branch that tracks the remote one.
-export interface AegisGitBranch {
+export interface Aegis AI Enterprise Autonomous PlatformGitBranch {
   name: string
   checkedOut: boolean
   isDefault: boolean
@@ -1822,7 +1822,7 @@ export interface AegisGitBranch {
 // refs. `isRemote` distinguishes `origin/main` from a local `main` (the UI
 // may show a remote glyph); `isDefault` flags origin/HEAD so the dialog can
 // preselect it.
-export interface AegisGitBaseBranch {
+export interface Aegis AI Enterprise Autonomous PlatformGitBaseBranch {
   name: string
   isRemote: boolean
   isDefault: boolean
@@ -1830,7 +1830,7 @@ export interface AegisGitBaseBranch {
 
 // A single changed path from `git status --porcelain=v2`, classified by state
 // so the coding rail / switcher can group + open the right diff.
-export interface AegisRepoStatusFile {
+export interface Aegis AI Enterprise Autonomous PlatformRepoStatusFile {
   path: string
   staged: boolean
   unstaged: boolean
@@ -1840,7 +1840,7 @@ export interface AegisRepoStatusFile {
 
 // Compact working-tree status for the composer coding rail (parsed from
 // `git status --porcelain=v2 --branch`).
-export interface AegisRepoStatus {
+export interface Aegis AI Enterprise Autonomous PlatformRepoStatus {
   branch: null | string
   // The repo's trunk ("main" / "master" / …), so the UI can offer "branch off
   // the default" from anywhere. Null when no trunk is detected.
@@ -1859,16 +1859,16 @@ export interface AegisRepoStatus {
   added: number
   removed: number
   // Capped changed-file list (REPO_STATUS_FILE_CAP) for the diff/open actions.
-  files: AegisRepoStatusFile[]
+  files: Aegis AI Enterprise Autonomous PlatformRepoStatusFile[]
 }
 
 // Diff scope for the review pane, mirroring Codex: uncommitted working-tree
 // changes, all changes vs the branch base, or everything since the current
 // turn began.
-export type AegisReviewScope = 'branch' | 'lastTurn' | 'uncommitted'
+export type Aegis AI Enterprise Autonomous PlatformReviewScope = 'branch' | 'lastTurn' | 'uncommitted'
 
 // One changed file in the review pane (status letter, +/- lines, staged flag).
-export interface AegisReviewFile {
+export interface Aegis AI Enterprise Autonomous PlatformReviewFile {
   path: string
   added: number
   removed: number
@@ -1877,15 +1877,15 @@ export interface AegisReviewFile {
   staged: boolean
 }
 
-export interface AegisReviewList {
-  files: AegisReviewFile[]
+export interface Aegis AI Enterprise Autonomous PlatformReviewList {
+  files: Aegis AI Enterprise Autonomous PlatformReviewFile[]
   // The resolved base ref the scope diffed against (branch merge-base / turn
   // baseline), or null for the uncommitted scope.
   base: null | string
 }
 
 // The branch's PR (if any) as reported by `gh pr view`.
-export interface AegisReviewPr {
+export interface Aegis AI Enterprise Autonomous PlatformReviewPr {
   url: string
   state: string
   number: number
@@ -1893,7 +1893,7 @@ export interface AegisReviewPr {
 
 // One repo's PRs as reported by `gh pr list`, each tied to the branch it was
 // opened from — how a session row finds its own PR.
-export interface AegisBranchPullRequest {
+export interface Aegis AI Enterprise Autonomous PlatformBranchPullRequest {
   branch: string
   draft: boolean
   number: number
@@ -1903,43 +1903,43 @@ export interface AegisBranchPullRequest {
   url: string
 }
 
-export interface AegisRepoPullRequests {
+export interface Aegis AI Enterprise Autonomous PlatformRepoPullRequests {
   ghReady: boolean
-  prs: AegisBranchPullRequest[]
+  prs: Aegis AI Enterprise Autonomous PlatformBranchPullRequest[]
 }
 
 // gh availability/auth + the current branch's PR — drives the review pane's PR
 // button (disabled when gh isn't ready, "Open PR" vs "Create PR" otherwise).
-export interface AegisReviewShipInfo {
+export interface Aegis AI Enterprise Autonomous PlatformReviewShipInfo {
   ghReady: boolean
-  pr: AegisReviewPr | null
+  pr: Aegis AI Enterprise Autonomous PlatformReviewPr | null
 }
 
-export interface AegisReadDirEntry {
+export interface Aegis AI Enterprise Autonomous PlatformReadDirEntry {
   name: string
   path: string
   isDirectory: boolean
 }
 
-export interface AegisReadDirResult {
-  entries: AegisReadDirEntry[]
+export interface Aegis AI Enterprise Autonomous PlatformReadDirResult {
+  entries: Aegis AI Enterprise Autonomous PlatformReadDirEntry[]
   error?: string
 }
 
-export interface AegisPreviewFileChanged {
+export interface Aegis AI Enterprise Autonomous PlatformPreviewFileChanged {
   id: string
   path: string
   url: string
 }
 
 /** Backend-provided source identity, not an authorization token. */
-export interface AegisStagedUpload {
+export interface Aegis AI Enterprise Autonomous PlatformStagedUpload {
   install_id: string
   path: string
   profile_home: string
 }
 
-export interface AegisSelectPathsOptions {
+export interface Aegis AI Enterprise Autonomous PlatformSelectPathsOptions {
   title?: string
   defaultPath?: string
   directories?: boolean

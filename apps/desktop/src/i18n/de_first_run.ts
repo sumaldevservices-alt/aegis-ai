@@ -38,7 +38,7 @@ export const deFirstRun: FirstRunCopy = {
     notNow: 'Nicht jetzt'
   },
   intro: {
-    greeting: 'Hallo, ich bin Aegis.',
+    greeting: 'Hallo, ich bin Aegis AI Enterprise Autonomous Platform.',
     plan: 'Richten wir alles für Sie ein. Danach machen wir etwas Cooles.'
   },
   rerun: {

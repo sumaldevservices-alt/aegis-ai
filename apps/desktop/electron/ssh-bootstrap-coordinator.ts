@@ -9,7 +9,7 @@ function sshConfigFingerprint(scope, config) {
     config.user,
     config.port,
     config.keyPath,
-    config.remoteAegisPath,
+    config.remoteAegis AI Enterprise Autonomous PlatformPath,
     config.remoteProfile,
     config.effectiveConfigFingerprint
   ]

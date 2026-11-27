@@ -1,12 +1,12 @@
 /**
  * remote-lifecycle.ts
  *
- * Pure, electron-free remote Aegis dashboard lifecycle over SSH for Desktop
+ * Pure, electron-free remote Aegis AI Enterprise Autonomous Platform dashboard lifecycle over SSH for Desktop
  * SSH remote mode. Composes an SshConnection (injected) with HTTP probes
  * through the established tunnel (injected fetch) and the served-token adoption
  * step (injected). Knows how to:
  *
- *   - locate the Aegis install on the remote (login-shell probe),
+ *   - locate the Aegis AI Enterprise Autonomous Platform install on the remote (login-shell probe),
  *   - gate the remote platform to Linux/macOS via `uname`,
  *   - reuse an existing desktop-dedicated dashboard via a lockfile + an
  *     AUTHENTICATED /api/status probe (pid liveness alone is insufficient),
@@ -16,7 +16,7 @@
  *   - clean up a stale dashboard only when it is provably ours.
  *
  * No `import 'electron'` so it's unit-testable with `node --test`. main.ts wires
- * the real SshConnection, fetch, adoptServedDashboardToken, and waitForAegis in.
+ * the real SshConnection, fetch, adoptServedDashboardToken, and waitForAegis AI Enterprise Autonomous Platform in.
  *
  * The minted AEGIS_DASHBOARD_SESSION_TOKEN is the SPAWN credential. After
  * readiness the caller runs served-token adoption against the tunneled baseUrl
@@ -195,14 +195,14 @@ function expandRemotePath(p) {
 // (throws a path-naming error if not executable — never silently falls back to a
 // different install). A BLANK path auto-detects: login-shell `command -v` (a
 // non-login `ssh host cmd` PATH misses user installs), then known install paths.
-async function locateAegis(ssh, remoteAegisPath) {
+async function locateAegis AI Enterprise Autonomous Platform(ssh, remoteAegis AI Enterprise Autonomous PlatformPath) {
   const resolveLauncher = async (candidate: string) => {
     // Return the candidate path directly. The aegis binary or wrapper script
     // is executable and handles argument forwarding (e.g. `exec <python> <script> "$@"`)
     // correctly on its own. Previously, this function followed `exec` wrappers and
     // returned only the python interpreter, which broke:
     //   - version checking: `<python> --version` printed "Python x.y.z" instead of
-    //     the Aegis version, and
+    //     the Aegis AI Enterprise Autonomous Platform version, and
     //   - capability probing: `<python> serve --help` failed entirely.
     // See https://github.com/NousResearch/aegis-agent/issues/74411
     return candidate
@@ -219,13 +219,13 @@ async function locateAegis(ssh, remoteAegisPath) {
     }
   }
 
-  if (remoteAegisPath) {
-    if (await isExecutable(remoteAegisPath)) {
-      return resolveLauncher(remoteAegisPath)
+  if (remoteAegis AI Enterprise Autonomous PlatformPath) {
+    if (await isExecutable(remoteAegis AI Enterprise Autonomous PlatformPath)) {
+      return resolveLauncher(remoteAegis AI Enterprise Autonomous PlatformPath)
     }
 
     const err: any = new Error(
-      `The Aegis path you set is not an executable on the remote host: "${remoteAegisPath}". ` +
+      `The Aegis AI Enterprise Autonomous Platform path you set is not an executable on the remote host: "${remoteAegis AI Enterprise Autonomous PlatformPath}". ` +
         'Check the path (it must be the full path to the `aegis` binary on the remote, e.g. ' +
         '~/aegis-agent/.venv/bin/aegis), or clear it to auto-detect.'
     )
@@ -263,9 +263,9 @@ async function locateAegis(ssh, remoteAegisPath) {
   }
 
   const err: any = new Error(
-    'Aegis is not installed on the remote host (could not find a `aegis` executable). ' +
+    'Aegis AI Enterprise Autonomous Platform is not installed on the remote host (could not find a `aegis` executable). ' +
       'Install it on the remote with:  curl -fsSL https://aegis-agent.nousresearch.com/install.sh | sh  ' +
-      '— or set the Aegis path explicitly in the SSH connection settings.'
+      '— or set the Aegis AI Enterprise Autonomous Platform path explicitly in the SSH connection settings.'
   )
 
   err.kind = 'aegis-not-found'
@@ -273,9 +273,9 @@ async function locateAegis(ssh, remoteAegisPath) {
 }
 
 // Probe the resolved binary's version string (first line of `<aegis> --version`,
-// e.g. "Aegis Agent v0.18.2 ..."), or '' on failure. Surfaces WHICH aegis a
+// e.g. "Aegis AI Enterprise Autonomous Platform Agent v0.18.2 ..."), or '' on failure. Surfaces WHICH aegis a
 // connection uses, so a stale/unexpected install is visible.
-async function probeAegisVersion(ssh, aegisPath) {
+async function probeAegis AI Enterprise Autonomous PlatformVersion(ssh, aegisPath) {
   try {
     // Watchdogged: a hung remote CLI must die remotely instead of orphaning
     // when the local ssh child is SIGKILLed (#110478).
@@ -294,7 +294,7 @@ async function probeRemotePlatform(ssh) {
 
   if (!SUPPORTED_REMOTE_OS.has(osName)) {
     const err: any = new Error(
-      `Unsupported remote platform "${osName || 'unknown'}". Aegis Desktop SSH mode supports Linux, macOS, and Windows remote hosts.`
+      `Unsupported remote platform "${osName || 'unknown'}". Aegis AI Enterprise Autonomous Platform Desktop SSH mode supports Linux, macOS, and Windows remote hosts.`
     )
 
     err.kind = 'unsupported-platform'
@@ -307,13 +307,13 @@ async function probeRemotePlatform(ssh) {
 // The AEGIS_HOME the remote dashboard will use (explicit env wins, else
 // ~/.aegis). Recorded in the lockfile so a future reuse can tell it's the same
 // state store; best-effort.
-async function probeRemoteAegisHome(ssh) {
+async function probeRemoteAegis AI Enterprise Autonomous PlatformHome(ssh) {
   try {
     const out = (await ssh.exec('echo "${AEGIS_HOME:-$HOME/.aegis}"')).trim().split('\n').pop()
 
     return out || '~/.aegis'
   } catch (cause) {
-    const error: any = new Error('Could not resolve the remote Aegis home.')
+    const error: any = new Error('Could not resolve the remote Aegis AI Enterprise Autonomous Platform home.')
     error.kind = 'transient-transport-error'
     error.cause = cause
     throw error
@@ -355,7 +355,7 @@ async function assertRemoteInstallUpdateClear(ssh, aegisHome, aegisPath = '') {
         .split(/\r?\n/)
         .pop() || ''
   } catch (cause) {
-    const error: any = new Error('Could not prove that the remote Aegis install is clear for SSH startup.')
+    const error: any = new Error('Could not prove that the remote Aegis AI Enterprise Autonomous Platform install is clear for SSH startup.')
     error.kind = 'update-in-progress'
     error.cause = cause
     throw error
@@ -369,31 +369,31 @@ async function assertRemoteInstallUpdateClear(ssh, aegisHome, aegisPath = '') {
 
   const error: any = new Error(
     live
-      ? `Remote Aegis update process ${live[1]} is still running; SSH startup is paused.`
+      ? `Remote Aegis AI Enterprise Autonomous Platform update process ${live[1]} is still running; SSH startup is paused.`
       : observation === 'HELD'
-        ? 'A process the remote Aegis update started still holds the install; SSH startup is paused.'
-        : 'The remote Aegis update marker is unreadable, malformed, or locked; refusing SSH startup.'
+        ? 'A process the remote Aegis AI Enterprise Autonomous Platform update started still holds the install; SSH startup is paused.'
+        : 'The remote Aegis AI Enterprise Autonomous Platform update marker is unreadable, malformed, or locked; refusing SSH startup.'
   )
 
   error.kind = 'update-in-progress'
   throw error
 }
 
-async function listRemoteAegisProfiles(ssh, platform: any = null) {
+async function listRemoteAegis AI Enterprise Autonomous PlatformProfiles(ssh, platform: any = null) {
   if (platform?.os === 'Windows') {
     const { listWindowsRemoteProfiles } = await import('./windows-remote-inventory')
 
     return listWindowsRemoteProfiles(ssh, platform)
   }
 
-  const home = assertSafeRemoteHome(await probeRemoteAegisHome(ssh))
+  const home = assertSafeRemoteHome(await probeRemoteAegis AI Enterprise Autonomous PlatformHome(ssh))
   const dir = expandRemotePath(`${home}/profiles`)
   let listing = ''
 
   try {
     listing = await ssh.exec(`if [ -d ${dir} ]; then ls -1 ${dir}; fi`)
   } catch (cause) {
-    const error: any = new Error('Could not list remote Aegis profiles.')
+    const error: any = new Error('Could not list remote Aegis AI Enterprise Autonomous Platform profiles.')
     error.kind = 'transient-transport-error'
     error.cause = cause
     throw error
@@ -414,14 +414,14 @@ async function readRemoteInstallId(ssh, platform: any = null) {
   // pinned to `<root>/profiles/<name>` reports the same id as one pointed at the root — they are
   // one backend. Read-only: a missing file is left missing (minting identity is the install's job,
   // never a visiting client's) and simply means "no id", exactly as an older backend reports.
-  const root = remoteInstallRoot(assertSafeRemoteHome(await probeRemoteAegisHome(ssh)))
+  const root = remoteInstallRoot(assertSafeRemoteHome(await probeRemoteAegis AI Enterprise Autonomous PlatformHome(ssh)))
   const file = expandRemotePath(`${root}/install_id`)
   let out = ''
 
   try {
     out = await ssh.exec(`if [ -f ${file} ]; then cat ${file}; fi`)
   } catch (cause) {
-    const error: any = new Error('Could not read the remote Aegis install id.')
+    const error: any = new Error('Could not read the remote Aegis AI Enterprise Autonomous Platform install id.')
     error.kind = 'transient-transport-error'
     error.cause = cause
     throw error
@@ -443,7 +443,7 @@ function assertSafeRemoteHome(home) {
   const value = String(home || '').trim()
 
   if (!/^(\/|~\/)[A-Za-z0-9._/+-]+$/.test(value) || value.includes('..')) {
-    const error: any = new Error('Unsafe remote Aegis home.')
+    const error: any = new Error('Unsafe remote Aegis AI Enterprise Autonomous Platform home.')
     error.kind = 'unsafe-path'
     throw error
   }
@@ -992,7 +992,7 @@ finally:
 // live, unreadable, or checkout-held one, then keeps the
 // lock across the spawn and the initial lockfile publication. The descriptor
 // is close-on-exec and passed only to the outer shell; each detached child
-// closes it before execing Aegis. markerPath is expandRemotePath() output — a
+// closes it before execing Aegis AI Enterprise Autonomous Platform. markerPath is expandRemotePath() output — a
 // complete shell word ("$HOME"'/…' or '/abs/…') embedded raw so $HOME expands
 // remotely; a second shq() would hand python the quote characters. `aegis`
 // is the same kind of word (expandRemotePath of the located executable).
@@ -1161,7 +1161,7 @@ function buildSpawnCommand(aegisPath, profile, opts: any = {}) {
     `exec env AEGIS_DESKTOP=1${devServerEnv} ${aegis} ${profileArgs}${subCmd}`
 
   const detachedShell: string = `eval "exec $1>&-"; ${dashCmd} </dev/null >> ${logPath} 2>&1 & echo $!`
-  // The inner shell backgrounds Aegis and reports its PID; backgrounding the
+  // The inner shell backgrounds Aegis AI Enterprise Autonomous Platform and reports its PID; backgrounding the
   // launcher too adds its unrelated PID to the value published in the lock.
   const detachedSpawn: string = `child=$("$(command -v setsid || echo nohup)" sh -c ${shq(detachedShell)} aegis-update-child "$1")`
 
@@ -1247,7 +1247,7 @@ function remoteProfileMissingError(output) {
   const createCommand = match[2]?.trim()
 
   const err: any = new Error(
-    `The remote Aegis profile '${profile}' does not exist. ` +
+    `The remote Aegis AI Enterprise Autonomous Platform profile '${profile}' does not exist. ` +
       `Select an existing remote profile${createCommand ? ` or create it with: ${createCommand}` : '.'}`
   )
 
@@ -1312,8 +1312,8 @@ async function spawnRemoteDashboard(
 ) {
   if (!(await remoteSupportsSshOwnership(ssh, aegisPath))) {
     const err: any = new Error(
-      'The remote Aegis install does not support --ssh-session-token-file and --ssh-owner-nonce. ' +
-        'Update Aegis on the remote host to continue using Desktop SSH mode.'
+      'The remote Aegis AI Enterprise Autonomous Platform install does not support --ssh-session-token-file and --ssh-owner-nonce. ' +
+        'Update Aegis AI Enterprise Autonomous Platform on the remote host to continue using Desktop SSH mode.'
     )
 
     err.kind = 'update-required'
@@ -1475,7 +1475,7 @@ async function openForward(deps, remotePort, attempts = 3) {
 
 /**
  * Establish (or reuse) a remote dashboard and a tunnel to it. `deps` injects the
- * opened SshConnection, forward/pickLocalPort/waitForAegis, a token-gated
+ * opened SshConnection, forward/pickLocalPort/waitForAegis AI Enterprise Autonomous Platform, a token-gated
  * probeReuseProof, and adoptServedToken. Returns the connection descriptor
  * { baseUrl, token, tokenFingerprint, remotePort, localPort, pid, reused, platform }.
  */
@@ -1536,11 +1536,11 @@ async function connect(deps) {
   const {
     ssh,
     profile: requestedProfile = '',
-    remoteAegisPath = '',
+    remoteAegis AI Enterprise Autonomous PlatformPath = '',
     ownershipId,
     forward,
     pickLocalPort,
-    waitForAegis,
+    waitForAegis AI Enterprise Autonomous Platform,
     probeReuseProof,
     adoptServedToken,
     rememberLog = () => {},
@@ -1561,11 +1561,11 @@ async function connect(deps) {
   assertBootstrapNotSuperseded(signal)
   const platform = deps.platform ?? (await probeRemotePlatform(ssh))
   log(`remote platform ${platform.os}/${platform.arch}`)
-  const aegisHome = await probeRemoteAegisHome(ssh)
+  const aegisHome = await probeRemoteAegis AI Enterprise Autonomous PlatformHome(ssh)
   await assertRemoteInstallUpdateClear(ssh, aegisHome)
-  const aegisPath = await locateAegis(ssh, remoteAegisPath)
+  const aegisPath = await locateAegis AI Enterprise Autonomous Platform(ssh, remoteAegis AI Enterprise Autonomous PlatformPath)
   log(`located aegis at ${aegisPath}`)
-  const aegisVersion = await probeAegisVersion(ssh, aegisPath)
+  const aegisVersion = await probeAegis AI Enterprise Autonomous PlatformVersion(ssh, aegisPath)
 
   if (aegisVersion) {
     log(`remote aegis version: ${aegisVersion}`)
@@ -1584,7 +1584,7 @@ async function connect(deps) {
     )
 
     const error: any = new Error(
-      `The remote ownership record ${lpath} does not match this Aegis Desktop build (${lock.reason}). ` +
+      `The remote ownership record ${lpath} does not match this Aegis AI Enterprise Autonomous Platform Desktop build (${lock.reason}). ` +
         'It was probably written by a different or modified desktop build sharing this remote, or the file is corrupt. ' +
         'Refusing to reap or overwrite it — that could kill a live SSH backend owned by another build. ' +
         'If nothing else uses this remote, delete that file on the remote host and reconnect.'
@@ -1767,7 +1767,7 @@ async function connect(deps) {
     localPort = await openForward(deps, remotePort)
     assertBootstrapNotSuperseded(signal)
     const baseUrl = `http://127.0.0.1:${localPort}`
-    await waitForAegis(baseUrl, spawnToken)
+    await waitForAegis AI Enterprise Autonomous Platform(baseUrl, spawnToken)
     assertBootstrapNotSuperseded(signal)
 
     const token = await adoptOwnedServedToken(adoptServedToken, baseUrl, spawnToken, ssh, pid, 'remote dashboard')
@@ -1838,8 +1838,8 @@ export {
   fingerprintToken,
   isForwardBindCollision,
   isLockfileSkew,
-  listRemoteAegisProfiles,
-  locateAegis,
+  listRemoteAegis AI Enterprise Autonomous PlatformProfiles,
+  locateAegis AI Enterprise Autonomous Platform,
   LOCKFILE_SCHEMA_VERSION,
   lockfilePath,
   lockServesConnect,
@@ -1848,8 +1848,8 @@ export {
   openForward,
   ownershipDirectory,
   pidIsOurDashboard,
-  probeAegisVersion,
-  probeRemoteAegisHome,
+  probeAegis AI Enterprise Autonomous PlatformVersion,
+  probeRemoteAegis AI Enterprise Autonomous PlatformHome,
   probeRemotePlatform,
   PROTOCOL_VERSION,
   readLockfile,

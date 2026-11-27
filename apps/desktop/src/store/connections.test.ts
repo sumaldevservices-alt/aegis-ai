@@ -127,7 +127,7 @@ beforeEach(() => {
     $connection.set({
       connectionId: connectionId ?? undefined,
       mode: connectionId === 'local' ? 'local' : 'remote',
-      // The primary local descriptor from startAegis() historically carried
+      // The primary local descriptor from startAegis AI Enterprise Autonomous Platform() historically carried
       // no profile key at all (see the switch-back regression test at the
       // bottom of this file); every other route publishes its profile.
       ...(connectionId === 'local' ? {} : { profile }),
@@ -999,7 +999,7 @@ describe('selectConnection', () => {
     })
 
     // A later resync republishes a profile-less primary descriptor (the
-    // startAegis shape). The remembered pair is the authority for "what was
+    // startAegis AI Enterprise Autonomous Platform shape). The remembered pair is the authority for "what was
     // last used here" — picking away and back must still restore 'mac', and
     // the pick must not die in targetIsActive() on the descriptor gap.
     await selectConnection('homelab')

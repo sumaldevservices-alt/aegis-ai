@@ -23,7 +23,7 @@ const secondaryGateways: Array<{
 let promptAckStatus: null | string = null
 
 vi.mock('@/aegis', () => ({
-  AegisGateway: class {
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     eventHandler: ((event: { payload?: Record<string, unknown>; session_id?: string; type: string }) => void) | null =
       null

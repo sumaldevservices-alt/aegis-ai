@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from 'react'
 
-import type { AegisGateway } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import type { IconComponent } from '@/lib/icons'
 import type { EnvVarInfo } from '@/types/aegis'
 
@@ -22,7 +22,7 @@ export type SettingsView =
 export type EnvPatch = Partial<Pick<EnvVarInfo, 'is_set' | 'redacted_value'>>
 
 export interface SettingsPageProps {
-  gateway?: AegisGateway | null
+  gateway?: Aegis AI Enterprise Autonomous PlatformGateway | null
   onClose: () => void
   onConfigSaved?: () => void
   onMainModelChanged?: (provider: string, model: string) => void

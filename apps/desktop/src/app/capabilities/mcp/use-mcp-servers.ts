@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 
 import {
   getMcpCatalog,
-  type AegisGateway,
+  type Aegis AI Enterprise Autonomous PlatformGateway,
   type McpCatalogEntry,
   type McpCatalogResponse,
   type McpTestResult,
@@ -21,9 +21,9 @@ import { setDisabledTools, toggleToolInServer } from '@/lib/mcp-tool-filter'
 import { notify, notifyError } from '@/store/notifications'
 import { $activeGatewayProfile, normalizeProfileKey } from '@/store/profile'
 import { $activeSessionId } from '@/store/session'
-import type { AegisConfigRecord } from '@/types/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'
 
-import { aegisConfigCacheWriter, useAegisConfigRecord } from '../../hooks/use-config-record'
+import { aegisConfigCacheWriter, useAegis AI Enterprise Autonomous PlatformConfigRecord } from '../../hooks/use-config-record'
 import { useOnProfileSwitch } from '../../hooks/use-on-profile-switch'
 import { useProfileSwitchLatch } from '../../hooks/use-profile-switch-latch'
 import { seedOptions } from '../connectors/data/persist'
@@ -42,7 +42,7 @@ export interface McpServersController extends McpDraft, PublishedProbes {
   availableCatalog: McpCatalogEntry[]
   catalog: McpCatalogEntry[]
   catalogLoading: boolean
-  config: AegisConfigRecord | null
+  config: Aegis AI Enterprise Autonomous PlatformConfigRecord | null
   configError: unknown
   configFailed: boolean
   configLoading: boolean
@@ -62,7 +62,7 @@ export interface McpServersController extends McpDraft, PublishedProbes {
 }
 
 export interface UseMcpServersOptions {
-  gateway: AegisGateway | null
+  gateway: Aegis AI Enterprise Autonomous PlatformGateway | null
   profile?: ProfileScope
 }
 
@@ -82,7 +82,7 @@ export function useMcpServers({ gateway, profile }: UseMcpServersOptions): McpSe
     refetch: refetchConfigQuery,
     dataUpdatedAt: configUpdatedAt,
     errorUpdatedAt: configErroredAt
-  } = useAegisConfigRecord(profile)
+  } = useAegis AI Enterprise Autonomous PlatformConfigRecord(profile)
 
   const setConfig = aegisConfigCacheWriter(profile)
 

@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { ClientSessionState } from '@/app/types'
-import type { AegisReviewFile, AegisReviewShipInfo } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformReviewFile, Aegis AI Enterprise Autonomous PlatformReviewShipInfo } from '@/global'
 
 import {
   $reviewCommitDefault,
@@ -53,8 +53,8 @@ vi.mock('@/lib/oneshot', () => ({ requestOneShot: (args: unknown) => requestOneS
 // branch either.
 vi.mock('./coding-status', () => ({ refreshRepoStatus: vi.fn(), repoStatusForCwd: () => ({ get: () => null }) }))
 
-function file(path: string, over: Partial<AegisReviewFile> = {}): AegisReviewFile {
-  return { path, status: 'modified', staged: false, added: 1, removed: 0, ...over } as AegisReviewFile
+function file(path: string, over: Partial<Aegis AI Enterprise Autonomous PlatformReviewFile> = {}): Aegis AI Enterprise Autonomous PlatformReviewFile {
+  return { path, status: 'modified', staged: false, added: 1, removed: 0, ...over } as Aegis AI Enterprise Autonomous PlatformReviewFile
 }
 
 function deferred<T>() {
@@ -202,8 +202,8 @@ describe('refreshReview', () => {
   it('keeps a new repository loading when the previous request rejects during the debounce gap', async () => {
     vi.useFakeTimers()
 
-    const repoA = deferred<{ files: AegisReviewFile[] }>()
-    const repoB = deferred<{ files: AegisReviewFile[] }>()
+    const repoA = deferred<{ files: Aegis AI Enterprise Autonomous PlatformReviewFile[] }>()
+    const repoB = deferred<{ files: Aegis AI Enterprise Autonomous PlatformReviewFile[] }>()
 
     const review = stubReview({
       list: vi.fn((cwd: string) => (cwd === '/repo-a' ? repoA.promise : repoB.promise))
@@ -236,7 +236,7 @@ describe('refreshReview', () => {
   })
 
   it('does not let an older list response clear a newer direct selection', async () => {
-    const pendingList = deferred<{ files: AegisReviewFile[] }>()
+    const pendingList = deferred<{ files: Aegis AI Enterprise Autonomous PlatformReviewFile[] }>()
     stubReview({ list: vi.fn(() => pendingList.promise), diff: vi.fn(async () => 'new diff') })
     $reviewOpen.set(true)
 
@@ -251,8 +251,8 @@ describe('refreshReview', () => {
   })
 
   it('does not let an older finally clear a newer in-flight refresh spinner', async () => {
-    const first = deferred<{ files: AegisReviewFile[] }>()
-    const second = deferred<{ files: AegisReviewFile[] }>()
+    const first = deferred<{ files: Aegis AI Enterprise Autonomous PlatformReviewFile[] }>()
+    const second = deferred<{ files: Aegis AI Enterprise Autonomous PlatformReviewFile[] }>()
     let call = 0
     stubReview({ list: vi.fn(() => (++call === 1 ? first.promise : second.promise)) })
     $reviewOpen.set(true)
@@ -450,7 +450,7 @@ describe('view state', () => {
 
   it('keeps openReviewForPath ownership when a debounced refresh was already pending', async () => {
     vi.useFakeTimers()
-    const directList = deferred<{ files: AegisReviewFile[] }>()
+    const directList = deferred<{ files: Aegis AI Enterprise Autonomous PlatformReviewFile[] }>()
     const review = stubReview({ list: vi.fn(() => directList.promise), diff: vi.fn(async () => 'target diff') })
     $reviewOpen.set(true)
 
@@ -529,7 +529,7 @@ describe('ship flow', () => {
 
   it('createOrOpenPr opens the existing PR without creating a new one', async () => {
     const review = stubReview()
-    $reviewShipInfo.set({ ghReady: true, pr: { url: 'https://example.com/pr/9' } } as AegisReviewShipInfo)
+    $reviewShipInfo.set({ ghReady: true, pr: { url: 'https://example.com/pr/9' } } as Aegis AI Enterprise Autonomous PlatformReviewShipInfo)
 
     await createOrOpenPr()
 
@@ -555,7 +555,7 @@ describe('ship flow', () => {
 describe('refreshShipInfo', () => {
   it('resets ship info when there is no bridge', async () => {
     delete (window as unknown as { aegisDesktop?: unknown }).aegisDesktop
-    $reviewShipInfo.set({ ghReady: true, pr: { url: 'x' } } as AegisReviewShipInfo)
+    $reviewShipInfo.set({ ghReady: true, pr: { url: 'x' } } as Aegis AI Enterprise Autonomous PlatformReviewShipInfo)
 
     await refreshShipInfo()
 
@@ -568,7 +568,7 @@ describe('refreshShipInfo', () => {
         throw new Error('gh missing')
       })
     })
-    $reviewShipInfo.set({ ghReady: true, pr: { url: 'x' } } as AegisReviewShipInfo)
+    $reviewShipInfo.set({ ghReady: true, pr: { url: 'x' } } as Aegis AI Enterprise Autonomous PlatformReviewShipInfo)
 
     await refreshShipInfo()
 

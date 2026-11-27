@@ -2,7 +2,7 @@ import type { ReadableAtom } from 'nanostores'
 import type { ReactNode } from 'react'
 
 import type { SubmitTextOptions } from '@/app/session/hooks/use-prompt-actions/utils'
-import type { AegisGateway, ResolvedOwner } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGateway, ResolvedOwner } from '@/aegis'
 
 import type { DroppedFile } from '../hooks/use-composer-actions'
 
@@ -47,7 +47,7 @@ export interface ChatBarProps {
   freshDraftKey?: string
   maxRecordingSeconds?: number
   state: ChatBarState
-  gateway?: AegisGateway | null
+  gateway?: Aegis AI Enterprise Autonomous PlatformGateway | null
   queueSessionKey?: string | null
   sessionId?: string | null
   /** The tile's routed profile: scopes the slash palette while a draft has no session yet. */

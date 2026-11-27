@@ -9,7 +9,7 @@ import {
 } from './data-url-read-max'
 
 const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
-const initialAegisDesktop = desktopWindow.aegisDesktop
+const initialAegis AI Enterprise Autonomous PlatformDesktop = desktopWindow.aegisDesktop
 
 const get = vi.fn(async () => ({ defaultMaxMb: 16, maxBytes: 16 * 1024 * 1024, maxMb: 16 }))
 
@@ -27,7 +27,7 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-  desktopWindow.aegisDesktop = initialAegisDesktop
+  desktopWindow.aegisDesktop = initialAegis AI Enterprise Autonomous PlatformDesktop
 })
 
 describe('clampDataUrlReadMaxMb', () => {

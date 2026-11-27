@@ -20,7 +20,7 @@ function summary(allowed: boolean): DesktopUninstallSummary {
     code_removal_allowed: allowed,
     native_removal_instructions: allowed
       ? null
-      : 'Quit the app and drag Aegis Agent.app from /Applications to the Trash.',
+      : 'Quit the app and drag Aegis AI Enterprise Autonomous Platform Agent.app from /Applications to the Trash.',
     aegis_home: '/test/home',
     agent_installed: true,
     gui_installed: true,
@@ -65,7 +65,7 @@ it.each(['missing-policy', 'probe-failed', 'loading'] as const)(
       render(<UninstallSection />)
     })
     expect(getSummary).toHaveBeenCalledOnce()
-    expect(screen.queryByText('Uninstall Aegis')).toBeNull()
+    expect(screen.queryByText('Uninstall Aegis AI Enterprise Autonomous Platform')).toBeNull()
     expect(screen.queryByRole('button', { name: /Uninstall/ })).toBeNull()
     expect(screen.queryByText('Danger zone')).toBeNull()
     expect(run).not.toHaveBeenCalled()
@@ -99,7 +99,7 @@ it.each(['gui', 'lite', 'full'] as const)(
       </I18nProvider>
     )
     const zh: (typeof TRANSLATIONS)['zh']['settings']['uninstallSection'] = TRANSLATIONS.zh.settings.uninstallSection
-    await screen.findByText(zh.uninstallAegis)
+    await screen.findByText(zh.uninstallAegis AI Enterprise Autonomous Platform)
     fireEvent.click(screen.getByRole('button', { name: new RegExp(zh.options[mode].title) }))
     expect(screen.getByText(zh.confirmBody(zh.options[mode].consequence))).toBeTruthy()
     expect(run).not.toHaveBeenCalled()

@@ -56,7 +56,7 @@ describe('ugitGitBinaries (#61494)', () => {
 })
 
 describe('managedGitBinaries', () => {
-  test('finds the newest PM-managed Git under Aegis tools', () => {
+  test('finds the newest PM-managed Git under Aegis AI Enterprise Autonomous Platform tools', () => {
     const managed = path.join(LAD, 'aegis', 'tools', 'git-2.53.0+3-win32-x64', 'cmd', 'git.exe')
     const fs = fakeFs(
       { [path.join(LAD, 'aegis', 'tools')]: ['git-2.52.0+2-win32-x64', 'git-2.53.0+3-win32-x64'] },

@@ -43,7 +43,7 @@ interface RemoteGateway {
   close: () => Promise<void>
 }
 
-function findAegisBinary(): string {
+function findAegis AI Enterprise Autonomous PlatformBinary(): string {
   const venv = path.join(REPO_ROOT, '.venv', 'bin', 'aegis')
 
   if (fs.existsSync(venv)) {
@@ -96,7 +96,7 @@ async function startRemoteGateway(root: string, mockUrl: string, profiles: strin
   const url = `http://127.0.0.1:${port}`
 
   const child: ChildProcess = spawn(
-    findAegisBinary(),
+    findAegis AI Enterprise Autonomous PlatformBinary(),
     ['serve', '--host', '127.0.0.1', '--port', String(port), '--skip-build'],
     {
       cwd: REPO_ROOT,
@@ -127,7 +127,7 @@ async function startRemoteGateway(root: string, mockUrl: string, profiles: strin
 
     try {
       const response = await fetch(`${url}/api/status`, {
-        headers: { 'X-Aegis-Session-Token': REMOTE_TOKEN },
+        headers: { 'X-Aegis AI Enterprise Autonomous Platform-Session-Token': REMOTE_TOKEN },
       })
 
       if (response.ok) {

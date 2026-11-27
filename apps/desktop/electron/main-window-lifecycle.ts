@@ -71,7 +71,7 @@ export function handleSecondInstance<T extends MainWindowLike>(
     deps.handleDeepLink(url)
   }
 
-  // #130810: a second Start-menu / shortcut / Aegis.exe launch must never
+  // #130810: a second Start-menu / shortcut / Aegis AI Enterprise Autonomous Platform.exe launch must never
   // silently exit. Log it so a future silent exit stays diagnosable, then
   // restore a live primary with activation (restore + show + focus), or
   // re-create it when it was destroyed.
@@ -119,7 +119,7 @@ export function shouldQuitOnLastChatClosed({
  *
  * Unlike the ambient `focusWindow` in main.ts (showInactive, never steal
  * foreground per #83998), a second-instance / dock-activate / tray-click is
- * the user asking for Aegis back, so the window must come back activatable:
+ * the user asking for Aegis AI Enterprise Autonomous Platform back, so the window must come back activatable:
  * restore a minimized window, show a tray-hidden one with `show()` (not
  * `showInactive()` — the latter leaves a Windows hidden-minimized window
  * painted-but-dead, #119252), then take keyboard focus when unfocused.

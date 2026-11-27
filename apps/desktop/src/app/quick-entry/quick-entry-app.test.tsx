@@ -7,7 +7,7 @@ import type { QuickEntryStatePush } from '@/store/quick-entry'
 
 import { QuickEntryApp } from './quick-entry-app'
 
-const initialAegisDesktop = window.aegisDesktop
+const initialAegis AI Enterprise Autonomous PlatformDesktop = window.aegisDesktop
 
 describe('QuickEntryApp', () => {
   let pushState: ((payload: QuickEntryStatePush) => void) | undefined
@@ -31,7 +31,7 @@ describe('QuickEntryApp', () => {
 
   afterEach(() => {
     cleanup()
-    window.aegisDesktop = initialAegisDesktop
+    window.aegisDesktop = initialAegis AI Enterprise Autonomous PlatformDesktop
     vi.restoreAllMocks()
   })
 

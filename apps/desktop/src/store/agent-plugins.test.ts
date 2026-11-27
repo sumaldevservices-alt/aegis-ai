@@ -71,7 +71,7 @@ describe('installAgentPlugin', () => {
       if ('inspected_sha' in params) {
         throw new JsonRpcGatewayError(
           'invalid params for plugins.manage: inspected_sha: Extra inputs are not permitted — the client and the ' +
-            'Aegis backend are out of sync (different versions); run `aegis update` and restart both',
+            'Aegis AI Enterprise Autonomous Platform backend are out of sync (different versions); run `aegis update` and restart both',
           { code: 4000 }
         )
       }

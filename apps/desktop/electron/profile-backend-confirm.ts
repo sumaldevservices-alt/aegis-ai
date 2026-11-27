@@ -58,7 +58,7 @@ export function setProfileBackendConfirm(input: {
   const verb = url ? 'runs' : 'starts'
 
   const lines = [
-    `Chats in “${profile}” will run in a backend that ${plugin} ${verb} on this computer, instead of Aegis's own backend.`,
+    `Chats in “${profile}” will run in a backend that ${plugin} ${verb} on this computer, instead of Aegis AI Enterprise Autonomous Platform's own backend.`,
     ...(purpose ? [`${plugin} says: “${purpose}”`] : []),
     ...(url ? [`Address: ${url}`] : [])
   ]
@@ -76,7 +76,7 @@ export function clearProfileBackendConfirm(input: { plugin: string; profile: str
 
   return {
     buttons: ['Switch back', 'Cancel'],
-    detail: `Chats in “${profile}” will run in Aegis's own backend on this computer again.`,
+    detail: `Chats in “${profile}” will run in Aegis AI Enterprise Autonomous Platform's own backend on this computer again.`,
     message: `Stop the ${plugin} plugin from running the “${profile}” profile?`
   }
 }

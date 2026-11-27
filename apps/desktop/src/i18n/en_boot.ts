@@ -3,53 +3,53 @@ import type { Translations } from './types'
 // The boot screen's copy (including the update-hold screen), composed by en.ts.
 export const enBoot = {
   boot: {
-    ready: 'Aegis Desktop is ready',
+    ready: 'Aegis AI Enterprise Autonomous Platform Desktop is ready',
     desktopBootFailedWithMessage: message => `Desktop boot failed: ${message}`,
     steps: {
       connectingGateway: 'Connecting live desktop gateway',
-      loadingSettings: 'Loading Aegis settings',
+      loadingSettings: 'Loading Aegis AI Enterprise Autonomous Platform settings',
       loadingSessions: 'Loading recent sessions',
-      retryingRemoteBackend: 'Reconnecting to the remote Aegis backend…',
+      retryingRemoteBackend: 'Reconnecting to the remote Aegis AI Enterprise Autonomous Platform backend…',
       startingDesktopConnection: 'Starting desktop connection',
-      startingAegisDesktop: 'Starting Aegis Desktop…'
+      startingAegis AI Enterprise Autonomous PlatformDesktop: 'Starting Aegis AI Enterprise Autonomous Platform Desktop…'
     },
     errors: {
       backgroundExited:
         'The service that runs your chats closed unexpectedly. Restart it to keep going — your chats and settings are safe.',
-      backgroundExitedDuringStartup: 'Aegis stopped right after it started.',
-      backendStopped: 'Aegis stopped working in the background',
-      restartAegis: 'Restart Aegis',
+      backgroundExitedDuringStartup: 'Aegis AI Enterprise Autonomous Platform stopped right after it started.',
+      backendStopped: 'Aegis AI Enterprise Autonomous Platform stopped working in the background',
+      restartAegis AI Enterprise Autonomous Platform: 'Restart Aegis AI Enterprise Autonomous Platform',
       openLogs: 'Open logs',
-      desktopBootFailed: "Aegis couldn't start",
-      gatewayConnectionLost: 'Aegis lost its connection',
+      desktopBootFailed: "Aegis AI Enterprise Autonomous Platform couldn't start",
+      gatewayConnectionLost: 'Aegis AI Enterprise Autonomous Platform lost its connection',
       gatewayConnectionLostDetail:
         'Still trying to reconnect. You can keep reading and drafting. If this keeps up, reconnect now or check your connection settings.',
       reconnectNow: 'Reconnect now',
       connectionSettings: 'Connection settings',
-      gatewaySignInRequired: 'Your remote Aegis signed you out',
+      gatewaySignInRequired: 'Your remote Aegis AI Enterprise Autonomous Platform signed you out',
       gatewaySignInRequiredDetail: 'Sign in again to reconnect. Your chats and settings are safe.',
       signInAgain: 'Sign in again',
-      ipcBridgeUnavailable: "Aegis Desktop couldn't talk to its own background layer. Restart the app."
+      ipcBridgeUnavailable: "Aegis AI Enterprise Autonomous Platform Desktop couldn't talk to its own background layer. Restart the app."
     },
     // Plain causes for a local backend boot failure (`classifyBootFailure`);
     // the raw output stays behind "Show recent logs".
     causes: {
-      exitedEarly: "Aegis' background service stopped right after starting.",
-      timedOut: "Aegis' background service didn't answer in time.",
-      permission: "Aegis couldn't write to its data folder (permission problem).",
-      diskFull: 'The disk is full, so Aegis could not start.',
-      portInUse: 'Another program is using the network port Aegis needs.',
-      installMissing: "Part of Aegis' installation is missing. Choose Repair install to put it back."
+      exitedEarly: "Aegis AI Enterprise Autonomous Platform' background service stopped right after starting.",
+      timedOut: "Aegis AI Enterprise Autonomous Platform' background service didn't answer in time.",
+      permission: "Aegis AI Enterprise Autonomous Platform couldn't write to its data folder (permission problem).",
+      diskFull: 'The disk is full, so Aegis AI Enterprise Autonomous Platform could not start.',
+      portInUse: 'Another program is using the network port Aegis AI Enterprise Autonomous Platform needs.',
+      installMissing: "Part of Aegis AI Enterprise Autonomous Platform' installation is missing. Choose Repair install to put it back."
     },
     failure: {
-      title: "Aegis couldn't start",
+      title: "Aegis AI Enterprise Autonomous Platform couldn't start",
       description:
-        "Aegis' background service didn't come up. Try one of the recovery steps below. Nothing here deletes your chats or settings.",
+        "Aegis AI Enterprise Autonomous Platform' background service didn't come up. Try one of the recovery steps below. Nothing here deletes your chats or settings.",
       details: 'Details',
       remoteTitle: 'Remote gateway sign-in required',
       remoteDescription:
         'Your remote gateway session has expired. Sign in again to reconnect. Nothing here deletes your chats or settings.',
-      webappTitle: 'Sign in to Aegis',
+      webappTitle: 'Sign in to Aegis AI Enterprise Autonomous Platform',
       webappDescription: 'Run aegis webapp on this computer to sign this browser in.',
       retry: 'Retry',
       repairInstall: 'Repair install',
@@ -84,28 +84,28 @@ export const enBoot = {
       identityProvider: 'your identity provider'
     },
     updateHold: {
-      title: 'An earlier update still holds Aegis',
-      titleUnverified: "Aegis can't confirm the last update finished",
+      title: 'An earlier update still holds Aegis AI Enterprise Autonomous Platform',
+      titleUnverified: "Aegis AI Enterprise Autonomous Platform can't confirm the last update finished",
       description:
-        "Aegis is holding off on starting so it can't load files an update may still be changing. It starts by itself as soon as the hold ends.",
+        "Aegis AI Enterprise Autonomous Platform is holding off on starting so it can't load files an update may still be changing. It starts by itself as soon as the hold ends.",
       heldByProcess: pid =>
-        `The update (process ${pid}) exited, but a process it started still holds the Aegis install.`,
-      heldUnknown: 'An update exited, but a process it started still holds the Aegis install.',
-      unverified: "The update helper couldn't check who owns the Aegis install right now. Aegis keeps checking.",
+        `The update (process ${pid}) exited, but a process it started still holds the Aegis AI Enterprise Autonomous Platform install.`,
+      heldUnknown: 'An update exited, but a process it started still holds the Aegis AI Enterprise Autonomous Platform install.',
+      unverified: "The update helper couldn't check who owns the Aegis AI Enterprise Autonomous Platform install right now. Aegis AI Enterprise Autonomous Platform keeps checking.",
       since: time => `Waiting since ${time}`,
       lastChecked: time => `Last checked ${time}`,
       recoveryHint:
-        'This usually clears in a few minutes. If it does not: quit Aegis, end leftover git or aegis processes (or restart the computer), then open Aegis again.',
+        'This usually clears in a few minutes. If it does not: quit Aegis AI Enterprise Autonomous Platform, end leftover git or aegis processes (or restart the computer), then open Aegis AI Enterprise Autonomous Platform again.',
       checkAgain: 'Check again',
-      quit: 'Quit Aegis',
+      quit: 'Quit Aegis AI Enterprise Autonomous Platform',
       openLogs: 'Open logs',
       startAnyway: 'Start anyway…',
-      confirmTitle: 'Start Aegis while the update still holds it?',
+      confirmTitle: 'Start Aegis AI Enterprise Autonomous Platform while the update still holds it?',
       confirmBody:
-        "The leftover update process may still be changing Aegis' files. Starting now can load a half-updated install, which may not work until you run the update again. Aegis records this choice in its log and leaves the update marker in place.",
+        "The leftover update process may still be changing Aegis AI Enterprise Autonomous Platform' files. Starting now can load a half-updated install, which may not work until you run the update again. Aegis AI Enterprise Autonomous Platform records this choice in its log and leaves the update marker in place.",
       confirmKeepWaiting: 'Keep waiting',
       confirmStart: 'Start anyway',
-      startAnywayRefused: 'What holds the install changed before Aegis could start. Review it and try again.'
+      startAnywayRefused: 'What holds the install changed before Aegis AI Enterprise Autonomous Platform could start. Review it and try again.'
     }
   }
 } satisfies Pick<Translations, 'boot'>

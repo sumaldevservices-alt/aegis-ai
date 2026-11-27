@@ -54,12 +54,12 @@ afterEach(() => {
   vi.useRealTimers()
 })
 
-it('describes what it tells Aegis, without promising what a phone will do', async () => {
+it('describes what it tells Aegis AI Enterprise Autonomous Platform, without promising what a phone will do', async () => {
   const row = await renderRow({ systemIdleSeconds: 4 })
 
   expect(row()).toContain('This computer for phone notifications')
   expect(row()).toContain(
-    'What this window tells Aegis about you being here. A phone notification plugin decides what to do with it.'
+    'What this window tells Aegis AI Enterprise Autonomous Platform about you being here. A phone notification plugin decides what to do with it.'
   )
 })
 
@@ -77,25 +77,25 @@ it('says activity does not matter on a backend that did not advertise the featur
   expect(row()).not.toContain('While a conversation is open')
 })
 
-it('with the OS idle clock, says Aegis is told when you last used this computer', async () => {
+it('with the OS idle clock, says Aegis AI Enterprise Autonomous Platform is told when you last used this computer', async () => {
   const row = await renderRow({ systemIdleSeconds: 4 })
 
   expect(row()).toContain(
-    'While a conversation is open in this window, Aegis is told when you last used this computer. Last input 4 sec ago.'
+    'While a conversation is open in this window, Aegis AI Enterprise Autonomous Platform is told when you last used this computer. Last input 4 sec ago.'
   )
 })
 
-it('with page input only, says Aegis is told when you last used this window', async () => {
+it('with page input only, says Aegis AI Enterprise Autonomous Platform is told when you last used this window', async () => {
   const row = await renderRow({})
 
   // No input seen yet: the row never invents one.
   act(() => void vi.advanceTimersByTime(10_000))
   expect(row()).toContain(
-    'While a conversation is open in this window, Aegis is told when you last used this window. No input seen yet.'
+    'While a conversation is open in this window, Aegis AI Enterprise Autonomous Platform is told when you last used this window. No input seen yet.'
   )
   expect(row()).not.toContain('Last input')
 
   window.document.dispatchEvent(new Event('pointerdown'))
   act(() => void vi.advanceTimersByTime(120_000))
-  expect(row()).toContain('Aegis is told when you last used this window. Last input 2 min ago.')
+  expect(row()).toContain('Aegis AI Enterprise Autonomous Platform is told when you last used this window. Last input 2 min ago.')
 })

@@ -21,7 +21,7 @@ it.each(['not-a-git-checkout', 'update-root-steward-owned-git-tree', 'fetch-fail
       remoteGatewayActive: (): boolean => false,
       emitUpdateProgress: vi.fn(),
       rememberLog: vi.fn(),
-      startAegis: vi.fn(async (): Promise<void> => {}),
+      startAegis AI Enterprise Autonomous Platform: vi.fn(async (): Promise<void> => {}),
       stopBackendsForUpdate: vi.fn(async (): Promise<void> => {}),
       repairMacUpdaterHelper: vi.fn(),
       preflightStateDb: vi.fn(),

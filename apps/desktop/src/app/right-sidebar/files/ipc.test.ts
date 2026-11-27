@@ -4,16 +4,16 @@ import { Buffer } from 'node:buffer'
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisReadDirEntry, AegisReadDirResult } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformReadDirEntry, Aegis AI Enterprise Autonomous PlatformReadDirResult } from '@/global'
 
 import { clearProjectDirCache, readProjectDir } from './ipc'
 import { $showIgnoredRoots, setShowIgnoredFiles } from './prefs'
 
-const readDir = vi.fn<(path: string) => Promise<AegisReadDirResult>>()
+const readDir = vi.fn<(path: string) => Promise<Aegis AI Enterprise Autonomous PlatformReadDirResult>>()
 const readFileDataUrl = vi.fn<(path: string) => Promise<string>>()
 const gitRoot = vi.fn<(path: string) => Promise<string | null>>()
 
-function ok(entries: AegisReadDirEntry[]): AegisReadDirResult {
+function ok(entries: Aegis AI Enterprise Autonomous PlatformReadDirEntry[]): Aegis AI Enterprise Autonomous PlatformReadDirResult {
   return { entries }
 }
 

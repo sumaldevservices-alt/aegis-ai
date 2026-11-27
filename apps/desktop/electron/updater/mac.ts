@@ -18,20 +18,20 @@ export interface MacStrategyDeps {
   beforeInstall: () => Promise<void>
   onInstallFailure: () => Promise<void>
   emitProgress: (payload: { stage: string; message: string; percent: number | null }) => void
-  /** The running Aegis.app; Squirrel must be able to replace it in place. */
+  /** The running Aegis AI Enterprise Autonomous Platform.app; Squirrel must be able to replace it in place. */
   bundlePath?: string
   /** fs.accessSync stand-in for tests. */
   access?: (file: string, mode: number) => void
 }
 
 const READ_ONLY_LOCATION =
-  'Aegis can not install updates while it runs from this location (its disk image, or a temporary copy macOS made). ' +
-  'Quit Aegis, drag Aegis into the Applications folder in Finder (if it is already there, drag it out and back in), ' +
+  'Aegis AI Enterprise Autonomous Platform can not install updates while it runs from this location (its disk image, or a temporary copy macOS made). ' +
+  'Quit Aegis AI Enterprise Autonomous Platform, drag Aegis AI Enterprise Autonomous Platform into the Applications folder in Finder (if it is already there, drag it out and back in), ' +
   'then open it and install the update again.'
 
 /**
  * Squirrel.Mac can not replace a bundle on a read-only volume, and finds out only
- * after quitAndInstall: Aegis quit, nothing installed, and the next start offered
+ * after quitAndInstall: Aegis AI Enterprise Autonomous Platform quit, nothing installed, and the next start offered
  * the same update. App Translocation (a quarantined app run from Downloads) and a
  * mounted disk image are both read-only. Returns the user-facing reason, or null.
  */
@@ -99,7 +99,7 @@ export class MacStrategy implements UpdaterStrategy {
     this.applying = true
 
     const progress = ({ percent }: { percent: number }): void => {
-      this.deps.emitProgress({ stage: 'fetch', message: 'Downloading the Aegis update.', percent })
+      this.deps.emitProgress({ stage: 'fetch', message: 'Downloading the Aegis AI Enterprise Autonomous Platform update.', percent })
     }
 
     this.deps.updater.on('download-progress', progress)
@@ -131,7 +131,7 @@ export class MacStrategy implements UpdaterStrategy {
           await stop()
           this.deps.emitProgress({
             stage: 'restart',
-            message: 'Restarting Aegis to install the update.',
+            message: 'Restarting Aegis AI Enterprise Autonomous Platform to install the update.',
             percent: 100
           })
           this.deps.updater.quitAndInstall()

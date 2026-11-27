@@ -23,7 +23,7 @@ export interface MigrationDeps {
   readFileSync: (path: string, encoding: 'utf8') => string
   statSync: (path: string) => { size: number; mtimeMs: number }
   readdirSync: (path: string, options?: { withFileTypes?: boolean }) => Dirent[]
-  isAegisProcess: (pid: number) => boolean
+  isAegis AI Enterprise Autonomous PlatformProcess: (pid: number) => boolean
   now: () => number
   writeJson: (path: string, payload: MigrationDecision) => void
   isValidProfileName: (name: string) => boolean
@@ -47,7 +47,7 @@ export function profileGatewayPidPath(name: string, aegisHome: string, profilesR
   return name === 'default' ? `${aegisHome}/gateway.pid` : `${profilesRoot}/${name}/gateway.pid`
 }
 
-function resolveAegisHome(profilesRoot: string, aegisHome?: string): string {
+function resolveAegis AI Enterprise Autonomous PlatformHome(profilesRoot: string, aegisHome?: string): string {
   if (aegisHome) {
     return aegisHome
   }
@@ -107,9 +107,9 @@ export function readLegacyActiveProfile(
 export function findRunningGatewayProfiles(
   profilesRoot: string,
   allProfiles: string[],
-  deps: Pick<MigrationDeps, 'existsSync' | 'readFileSync' | 'isAegisProcess'> & { aegisHome?: string }
+  deps: Pick<MigrationDeps, 'existsSync' | 'readFileSync' | 'isAegis AI Enterprise Autonomous PlatformProcess'> & { aegisHome?: string }
 ): string[] {
-  const aegisHome = resolveAegisHome(profilesRoot, deps.aegisHome)
+  const aegisHome = resolveAegis AI Enterprise Autonomous PlatformHome(profilesRoot, deps.aegisHome)
   const running: string[] = []
 
   for (const name of allProfiles) {
@@ -133,7 +133,7 @@ export function findRunningGatewayProfiles(
       continue
     }
 
-    if (deps.isAegisProcess(pid)) {
+    if (deps.isAegis AI Enterprise Autonomous PlatformProcess(pid)) {
       running.push(name)
     }
   }

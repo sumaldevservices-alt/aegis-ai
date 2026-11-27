@@ -3,7 +3,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import type { DelegationRouting } from '@/api/delegation'
-import type { AegisApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 import { queryClient } from '@/lib/query-client'
 
 import { DelegationRoutingSection } from './routing-section'
@@ -11,7 +11,7 @@ import { SubagentModelGate } from './subagent-model-gate'
 
 // A stateful stand-in for the backend's /api/delegation routes (same shapes, same refusal).
 let routing: DelegationRouting
-const writes: AegisApiRequest[] = []
+const writes: Aegis AI Enterprise Autonomous PlatformApiRequest[] = []
 
 function backend(names: string[]): DelegationRouting['backends'] {
   return names.map(name => ({
@@ -37,7 +37,7 @@ beforeEach(() => {
   }
   window.aegisDesktop = {
     ...window.aegisDesktop,
-    api: async (request: AegisApiRequest) => {
+    api: async (request: Aegis AI Enterprise Autonomous PlatformApiRequest) => {
       if (request.path === '/api/delegation/routing') {
         return structuredClone(routing)
       }

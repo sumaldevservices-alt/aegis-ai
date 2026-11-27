@@ -1,9 +1,9 @@
 // The window's reporter through its real seams: the HashRouter route and session stores decide what
 // is in view, the composer's owner ladder and the gateway registry decide which connection owns it,
-// and real AegisGateway clients over in-memory sockets carry the frames.
+// and real Aegis AI Enterprise Autonomous PlatformGateway clients over in-memory sockets carry the frames.
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { AegisGateway } from '@/api/client'
+import { Aegis AI Enterprise Autonomous PlatformGateway } from '@/api/client'
 import { createSessionRpcDispatcher } from '@/app/contrib/session-rpc-dispatcher'
 import { captureSubmissionDestination } from '@/app/session/hooks/use-prompt-actions/submission-destination'
 import { group } from '@/components/pane-shell/tree/model'
@@ -78,7 +78,7 @@ const URL_ = 'ws://example.invalid/api/ws'
 
 async function openGateway(answer: Record<string, unknown> = { client_activity: true }) {
   Sock.answers[Sock.sockets.length] = answer
-  const gateway = new AegisGateway()
+  const gateway = new Aegis AI Enterprise Autonomous PlatformGateway()
   const connected = gateway.connect(URL_)
   const socket = Sock.sockets.at(-1)!
   socket.open()
@@ -167,7 +167,7 @@ describe('the report goes where a submit for the session in view goes', () => {
 
   describe('a session whose row names only a profile', () => {
     /** The composer's submit for `stored-1` on the window's real session dispatcher. */
-    async function submit(ambient: AegisGateway) {
+    async function submit(ambient: Aegis AI Enterprise Autonomous PlatformGateway) {
       const dispatch = createSessionRpcDispatcher({
         ambientRequest: (method, params) => ambient.request(method, params),
         runtimeIdByStoredSessionIdRef: { current: new Map([['stored-1', 'rt-1']]) },

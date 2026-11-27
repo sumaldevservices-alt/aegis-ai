@@ -139,7 +139,7 @@ test.runIf(process.platform !== 'win32')(
     const current: string = command('bundles', 'build-2')
 
     try {
-      for (const destination of [current, command('bundles', 'build-1'), command('opt', 'Aegis')]) {
+      for (const destination of [current, command('bundles', 'build-1'), command('opt', 'Aegis AI Enterprise Autonomous Platform')]) {
         fs.mkdirSync(path.dirname(destination), { recursive: true })
         fs.writeFileSync(destination, destination)
       }
@@ -150,9 +150,9 @@ test.runIf(process.platform !== 'win32')(
       assert.equal(fs.readlinkSync(path.join(binDir, 'aegis')), current)
 
       fs.unlinkSync(path.join(binDir, 'aegis'))
-      fs.symlinkSync(command('opt', 'Aegis'), path.join(binDir, 'aegis'))
+      fs.symlinkSync(command('opt', 'Aegis AI Enterprise Autonomous Platform'), path.join(binDir, 'aegis'))
       provisionCliLinks({ aegis: current }, binDir, (): void => {})
-      assert.equal(fs.readlinkSync(path.join(binDir, 'aegis')), command('opt', 'Aegis'))
+      assert.equal(fs.readlinkSync(path.join(binDir, 'aegis')), command('opt', 'Aegis AI Enterprise Autonomous Platform'))
     } finally {
       fs.rmSync(root, { recursive: true, force: true })
     }
@@ -208,9 +208,9 @@ const writable = (): void => undefined
 
 test('skips CLI links into a translocated or read-only macOS payload', (): void => {
   for (const [payloadRoot, access, location] of [
-    ['/Volumes/Aegis Agent/Aegis Agent.app/Contents/Resources/agent-payload', readOnly, 'read-only-volume'],
+    ['/Volumes/Aegis AI Enterprise Autonomous Platform Agent/Aegis AI Enterprise Autonomous Platform Agent.app/Contents/Resources/agent-payload', readOnly, 'read-only-volume'],
     [
-      '/private/var/folders/aa/bb/T/AppTranslocation/1111/d/Aegis Agent.app/Contents/Resources/agent-payload',
+      '/private/var/folders/aa/bb/T/AppTranslocation/1111/d/Aegis AI Enterprise Autonomous Platform Agent.app/Contents/Resources/agent-payload',
       writable,
       'app-translocation'
     ]
@@ -236,7 +236,7 @@ test('links a payload the move prompt flags or a root-owned one, keeps Linux as 
   // The prompt offers a move from Downloads, but links into it stay valid until the user moves the app.
   assert.equal(
     shouldProvisionBundledCliLinks(
-      '/Users/alice/Downloads/Aegis Agent.app/Contents/Resources/agent-payload',
+      '/Users/alice/Downloads/Aegis AI Enterprise Autonomous Platform Agent.app/Contents/Resources/agent-payload',
       log,
       'darwin',
       writable
@@ -245,7 +245,7 @@ test('links a payload the move prompt flags or a root-owned one, keeps Linux as 
   )
   assert.equal(
     shouldProvisionBundledCliLinks(
-      '/Applications/Aegis Agent.app/Contents/Resources/agent-payload',
+      '/Applications/Aegis AI Enterprise Autonomous Platform Agent.app/Contents/Resources/agent-payload',
       log,
       'darwin',
       permissionDenied
@@ -256,6 +256,6 @@ test('links a payload the move prompt flags or a root-owned one, keeps Linux as 
     shouldProvisionBundledCliLinks('/tmp/.mount_aegis/resources/agent-payload', log, 'linux', readOnly),
     true
   )
-  assert.equal(shouldProvisionBundledCliLinks('C:\\Aegis\\resources\\agent-payload', log, 'win32', writable), false)
+  assert.equal(shouldProvisionBundledCliLinks('C:\\Aegis AI Enterprise Autonomous Platform\\resources\\agent-payload', log, 'win32', writable), false)
   assert.deepEqual(logs, [])
 })

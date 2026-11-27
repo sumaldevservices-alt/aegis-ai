@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
-const initialAegisDesktop = desktopWindow.aegisDesktop
+const initialAegis AI Enterprise Autonomous PlatformDesktop = desktopWindow.aegisDesktop
 
 type ZoomBridge = NonNullable<Window['aegisDesktop']['zoom']>
 type ZoomPayload = Awaited<ReturnType<ZoomBridge['get']>>
@@ -15,8 +15,8 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-  if (initialAegisDesktop) {
-    desktopWindow.aegisDesktop = initialAegisDesktop
+  if (initialAegis AI Enterprise Autonomous PlatformDesktop) {
+    desktopWindow.aegisDesktop = initialAegis AI Enterprise Autonomous PlatformDesktop
   } else {
     delete desktopWindow.aegisDesktop
   }

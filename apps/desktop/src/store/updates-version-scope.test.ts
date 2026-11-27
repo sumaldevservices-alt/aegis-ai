@@ -53,7 +53,7 @@ vi.mock('@/store/connections', () => ({
   refreshConnectionsRegistry: () => Promise.resolve($mockConnectionsRegistry.get())
 }))
 
-vi.mock('@/aegis', () => ({ checkAegisUpdate: vi.fn(), updateAegis: vi.fn(), getActionStatus: vi.fn() }))
+vi.mock('@/aegis', () => ({ checkAegis AI Enterprise Autonomous PlatformUpdate: vi.fn(), updateAegis AI Enterprise Autonomous Platform: vi.fn(), getActionStatus: vi.fn() }))
 vi.mock('@/store/gateway-reconnect', () => ({ reconnectGateway: vi.fn() }))
 
 const { refreshDesktopVersion, $desktopVersion, startUpdatePoller, stopUpdatePoller } = await import('./updates')

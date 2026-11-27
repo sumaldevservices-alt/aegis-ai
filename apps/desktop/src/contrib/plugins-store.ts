@@ -20,7 +20,7 @@ export interface PluginRecord {
   status: PluginStatus
   /** One-liner from the plugin's own metadata (what it adds). */
   description?: string
-  /** Sensitive doors the plugin declared (`AegisPlugin.capabilities`). */
+  /** Sensitive doors the plugin declared (`Aegis AI Enterprise Autonomous PlatformPlugin.capabilities`). */
   capabilities?: string[]
   /** Load/registration failure message (status 'error'). */
   error?: string

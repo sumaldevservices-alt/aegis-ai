@@ -51,7 +51,7 @@ it('a queued send to a restarted legacy backend recovers the session and is sent
     if ('submission_id' in params!) {
       throw Object.assign(
         new Error(
-          'invalid params for prompt.submit: submission_id: Extra inputs are not permitted — the client and the Aegis backend are out of sync (different versions)'
+          'invalid params for prompt.submit: submission_id: Extra inputs are not permitted — the client and the Aegis AI Enterprise Autonomous Platform backend are out of sync (different versions)'
         ),
         { code: 4000 }
       )

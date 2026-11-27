@@ -59,17 +59,17 @@ function fakeFs(
 
 test('rewrites an archived node-pty root to the matching unpacked tree exactly once', () => {
   assert.equal(
-    writableNodePtyRoot('/Aegis.app/Contents/Resources/app.asar/dist/node_modules/node-pty'),
-    '/Aegis.app/Contents/Resources/app.asar.unpacked/dist/node_modules/node-pty'
+    writableNodePtyRoot('/Aegis AI Enterprise Autonomous Platform.app/Contents/Resources/app.asar/dist/node_modules/node-pty'),
+    '/Aegis AI Enterprise Autonomous Platform.app/Contents/Resources/app.asar.unpacked/dist/node_modules/node-pty'
   )
   assert.equal(
-    writableNodePtyRoot('/Aegis.app/Contents/Resources/app.asar.unpacked/dist/node_modules/node-pty'),
-    '/Aegis.app/Contents/Resources/app.asar.unpacked/dist/node_modules/node-pty'
+    writableNodePtyRoot('/Aegis AI Enterprise Autonomous Platform.app/Contents/Resources/app.asar.unpacked/dist/node_modules/node-pty'),
+    '/Aegis AI Enterprise Autonomous Platform.app/Contents/Resources/app.asar.unpacked/dist/node_modules/node-pty'
   )
 })
 
 test('uses the unpacked helper when resolution reports an app.asar node-pty root', () => {
-  const archivedRoot = '/Aegis.app/Contents/Resources/app.asar/dist/node_modules/node-pty'
+  const archivedRoot = '/Aegis AI Enterprise Autonomous Platform.app/Contents/Resources/app.asar/dist/node_modules/node-pty'
   const unpackedRoot = writableNodePtyRoot(archivedRoot)
   const helper = join(unpackedRoot, 'prebuilds', 'darwin-arm64', 'spawn-helper')
   const fs = fakeFs({ [helper]: { mode: 0o644 } }, { [join(unpackedRoot, 'prebuilds')]: ['darwin-arm64'] })

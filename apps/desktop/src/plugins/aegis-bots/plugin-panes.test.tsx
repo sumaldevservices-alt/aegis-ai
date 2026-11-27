@@ -16,7 +16,7 @@
  *    bot-scoped, so the tile must not sit beside a group chat.
  */
 
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import type { PluginContext } from '@aegis/plugin-sdk'
 import { atom } from 'nanostores'
 import type { ReactNode } from 'react'
@@ -39,7 +39,7 @@ const mocks = vi.hoisted(() => ({
 }))
 
 vi.mock('@aegis/plugin-sdk', async importOriginal => {
-  const original = await importOriginal<typeof AegisSdk>()
+  const original = await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>()
 
   return {
     ...original,

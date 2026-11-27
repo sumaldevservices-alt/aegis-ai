@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisGitBaseBranch } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformGitBaseBranch } from '@/global'
 import { $worktreeDialog } from '@/store/projects'
 
 import { BaseBranchPicker } from './base-branch-picker'
@@ -9,13 +9,13 @@ import { WorktreeDialog } from './worktree-dialog'
 
 type ActGlobal = typeof globalThis & { IS_REACT_ACT_ENVIRONMENT?: boolean }
 
-const MAIN: AegisGitBaseBranch = { isDefault: true, isRemote: true, name: 'origin/main' }
-const FEAT: AegisGitBaseBranch = { isDefault: false, isRemote: false, name: 'feat-x' }
+const MAIN: Aegis AI Enterprise Autonomous PlatformGitBaseBranch = { isDefault: true, isRemote: true, name: 'origin/main' }
+const FEAT: Aegis AI Enterprise Autonomous PlatformGitBaseBranch = { isDefault: false, isRemote: false, name: 'feat-x' }
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
 // The bridge answers after an IPC round trip, as the Electron one does.
-const listing = (answer: () => AegisGitBaseBranch[]) =>
+const listing = (answer: () => Aegis AI Enterprise Autonomous PlatformGitBaseBranch[]) =>
   vi.fn(async (_repoPath: string) => {
     await sleep(5)
 
@@ -60,7 +60,7 @@ describe('BaseBranchPicker loading', () => {
         throw new Error('404 Not Found')
       }
     ]
-  ])('lists the repo once on %s', async (_case, answer: () => AegisGitBaseBranch[]) => {
+  ])('lists the repo once on %s', async (_case, answer: () => Aegis AI Enterprise Autonomous PlatformGitBaseBranch[]) => {
     const baseBranchList = listing(answer)
     installGit({ baseBranchList })
 
@@ -71,11 +71,11 @@ describe('BaseBranchPicker loading', () => {
   })
 
   it('a list from the previous repo does not set the base of the next', async () => {
-    const land: Record<string, (list: AegisGitBaseBranch[]) => void> = {}
+    const land: Record<string, (list: Aegis AI Enterprise Autonomous PlatformGitBaseBranch[]) => void> = {}
 
     const baseBranchList = vi.fn(
       (repoPath: string) =>
-        new Promise<AegisGitBaseBranch[]>(resolve => {
+        new Promise<Aegis AI Enterprise Autonomous PlatformGitBaseBranch[]>(resolve => {
           land[repoPath] = resolve
         })
     )

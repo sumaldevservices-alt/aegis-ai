@@ -10,7 +10,7 @@ function makeDesktopRoot() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-exe-identity-'))
   fs.mkdirSync(path.join(root, 'assets'))
   fs.writeFileSync(path.join(root, 'assets', 'icon.ico'), 'icon')
-  const exe = path.join(root, 'Aegis.exe')
+  const exe = path.join(root, 'Aegis AI Enterprise Autonomous Platform.exe')
   fs.writeFileSync(exe, 'exe')
   return { exe, root }
 }

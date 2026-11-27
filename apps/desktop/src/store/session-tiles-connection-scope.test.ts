@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 
 import { $activeGatewayProfile } from './profile'
 import { $selectedStoredSessionId, setConnection } from './session'
@@ -13,21 +13,21 @@ const local = {
   connectionId: 'local',
   mode: 'local',
   profile
-} as unknown as AegisConnection
+} as unknown as Aegis AI Enterprise Autonomous PlatformConnection
 
 const remote = {
   baseUrl: 'https://homelab.example:8443',
   connectionId: 'homelab',
   mode: 'remote',
   profile
-} as unknown as AegisConnection
+} as unknown as Aegis AI Enterprise Autonomous PlatformConnection
 
 const otherRemote = {
   baseUrl: 'https://other.example:8443',
   connectionId: 'other-remote',
   mode: 'remote',
   profile
-} as unknown as AegisConnection
+} as unknown as Aegis AI Enterprise Autonomous PlatformConnection
 
 beforeEach(() => {
   window.localStorage.clear()

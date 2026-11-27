@@ -14,19 +14,19 @@ import path from 'node:path'
 import { test } from 'vitest'
 
 import {
-  canImportAegisCli,
+  canImportAegis AI Enterprise Autonomous PlatformCli,
   DEFAULT_PROBE_TIMEOUT_MS,
   execProbe,
   PROBE_TIMEOUT_MS,
   resolveProbeTimeoutMs,
-  shouldTrustAegisOverride,
-  verifyAegisCli
+  shouldTrustAegis AI Enterprise Autonomous PlatformOverride,
+  verifyAegis AI Enterprise Autonomous PlatformCli
 } from './backend-probes'
 
 // Resolve the host's own Node binary -- guaranteed to be on disk and
 // runnable. We use it as both a stand-in for "a python that doesn't
 // have aegis_cli" (since `node -c "import aegis_cli"` will exit
-// non-zero) and as a way to script verifyAegisCli's success path
+// non-zero) and as a way to script verifyAegis AI Enterprise Autonomous PlatformCli's success path
 // (a tiny script we write to disk that exits 0 on --version).
 const NODE_BIN = process.execPath
 
@@ -77,48 +77,48 @@ test('execProbe keeps the parent event loop available to the child', async () =>
   assert.ifError(unexpectedSocketError)
 })
 
-test('canImportAegisCli returns false when path is falsy', async () => {
-  assert.equal(await canImportAegisCli(''), false)
-  assert.equal(await canImportAegisCli(null), false)
-  assert.equal(await canImportAegisCli(undefined), false)
+test('canImportAegis AI Enterprise Autonomous PlatformCli returns false when path is falsy', async () => {
+  assert.equal(await canImportAegis AI Enterprise Autonomous PlatformCli(''), false)
+  assert.equal(await canImportAegis AI Enterprise Autonomous PlatformCli(null), false)
+  assert.equal(await canImportAegis AI Enterprise Autonomous PlatformCli(undefined), false)
 })
 
-test('canImportAegisCli returns false when interpreter cannot run -c', async () => {
+test('canImportAegis AI Enterprise Autonomous PlatformCli returns false when interpreter cannot run -c', async () => {
   // node IS an interpreter, but `node -c "import aegis_cli"` is a
   // SyntaxError -- different exit reason from a real Python's
   // ModuleNotFoundError, but the predicate is "exit 0 or not" and
   // both land on "not", which is exactly what we want for the
   // resolver fall-through.
-  assert.equal(await canImportAegisCli(NODE_BIN), false)
+  assert.equal(await canImportAegis AI Enterprise Autonomous PlatformCli(NODE_BIN), false)
 })
 
-test('canImportAegisCli returns false when binary does not exist', async () => {
+test('canImportAegis AI Enterprise Autonomous PlatformCli returns false when binary does not exist', async () => {
   const ghost = path.join(os.tmpdir(), 'aegis-probes-ghost-' + Date.now() + '.exe')
-  assert.equal(await canImportAegisCli(ghost), false)
+  assert.equal(await canImportAegis AI Enterprise Autonomous PlatformCli(ghost), false)
 })
 
-test('explicit Aegis override is authoritative', () => {
-  assert.equal(shouldTrustAegisOverride('/nix/store/abc/bin/aegis'), true)
+test('explicit Aegis AI Enterprise Autonomous Platform override is authoritative', () => {
+  assert.equal(shouldTrustAegis AI Enterprise Autonomous PlatformOverride('/nix/store/abc/bin/aegis'), true)
 })
 
-test('empty Aegis override is not authoritative', () => {
-  assert.equal(shouldTrustAegisOverride(''), false)
-  assert.equal(shouldTrustAegisOverride(undefined), false)
+test('empty Aegis AI Enterprise Autonomous Platform override is not authoritative', () => {
+  assert.equal(shouldTrustAegis AI Enterprise Autonomous PlatformOverride(''), false)
+  assert.equal(shouldTrustAegis AI Enterprise Autonomous PlatformOverride(undefined), false)
 })
 
-test('verifyAegisCli returns false when command is falsy', async () => {
-  assert.equal(await verifyAegisCli(''), false)
-  assert.equal(await verifyAegisCli(null), false)
-  assert.equal(await verifyAegisCli(undefined), false)
+test('verifyAegis AI Enterprise Autonomous PlatformCli returns false when command is falsy', async () => {
+  assert.equal(await verifyAegis AI Enterprise Autonomous PlatformCli(''), false)
+  assert.equal(await verifyAegis AI Enterprise Autonomous PlatformCli(null), false)
+  assert.equal(await verifyAegis AI Enterprise Autonomous PlatformCli(undefined), false)
 })
 
-test('verifyAegisCli returns false when binary does not exist', async () => {
+test('verifyAegis AI Enterprise Autonomous PlatformCli returns false when binary does not exist', async () => {
   const ghost = path.join(os.tmpdir(), 'aegis-probes-ghost-' + Date.now() + '.exe')
-  assert.equal(await verifyAegisCli(ghost), false)
+  assert.equal(await verifyAegis AI Enterprise Autonomous PlatformCli(ghost), false)
 })
 
-test('verifyAegisCli accepts an actual zero-exit executable', async (): Promise<void> => {
-  assert.equal(await verifyAegisCli(NODE_BIN), true)
+test('verifyAegis AI Enterprise Autonomous PlatformCli accepts an actual zero-exit executable', async (): Promise<void> => {
+  assert.equal(await verifyAegis AI Enterprise Autonomous PlatformCli(NODE_BIN), true)
 })
 
 // #74064: with shell:true the command line goes through a shell (cmd.exe on
@@ -128,7 +128,7 @@ test('verifyAegisCli accepts an actual zero-exit executable', async (): Promise<
 // test of the quoting, not a platform-conditional one. Windows gets its own
 // lane: there the quoted form goes through cmd.exe /s semantics instead.
 test.skipIf(process.platform === 'win32')(
-  'verifyAegisCli quotes a spaced executable path when probing through a shell',
+  'verifyAegis AI Enterprise Autonomous PlatformCli quotes a spaced executable path when probing through a shell',
   async (): Promise<void> => {
     const spacedDir = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis probe-'))
     const spacedCmd = path.join(spacedDir, 'aegis.cmd')
@@ -148,16 +148,16 @@ test.skipIf(process.platform === 'win32')(
       // expected: the shell could not run the truncated command
     }
 
-    // verifyAegisCli wraps the same failure: off-Windows the helper is a
+    // verifyAegis AI Enterprise Autonomous PlatformCli wraps the same failure: off-Windows the helper is a
     // no-op (POSIX sh truncates identically), so the spaced-path probe
     // reports the backend missing — exactly the #74064 symptom. The quoting
     // itself is covered by the windowsShellCommand unit tests and runs on
     // the Windows lane.
-    assert.equal(await verifyAegisCli(spacedCmd, { shell: true }), false)
+    assert.equal(await verifyAegis AI Enterprise Autonomous PlatformCli(spacedCmd, { shell: true }), false)
 
     // Direct execution (shell: false) never goes through a shell, so a
     // spaced path works as-is — the fix must not leak into the non-shell path.
-    assert.equal(await verifyAegisCli(spacedCmd, { shell: false }), true)
+    assert.equal(await verifyAegis AI Enterprise Autonomous PlatformCli(spacedCmd, { shell: false }), true)
 
     fs.rmSync(spacedDir, { recursive: true, force: true })
   }

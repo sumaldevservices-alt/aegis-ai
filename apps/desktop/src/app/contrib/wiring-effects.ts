@@ -75,7 +75,7 @@ export function useGatewayScopeRefresh(
   activeConnectionId: null | string,
   activeGatewayProfile: string,
   refreshCurrentModel: (force: boolean) => Promise<unknown>,
-  refreshAegisConfig: (force: boolean) => Promise<unknown>
+  refreshAegis AI Enterprise Autonomous PlatformConfig: (force: boolean) => Promise<unknown>
 ) {
   const gatewayScope = `${activeConnectionId ?? ''}\0${activeGatewayProfile}`
   const lastGatewayScopeRef = useRef(gatewayScope)
@@ -92,8 +92,8 @@ export function useGatewayScopeRefresh(
     // backend. These refreshes carry intent tokens so an in-flight picker
     // click still wins.
     void refreshCurrentModel(true)
-    void refreshAegisConfig(true)
+    void refreshAegis AI Enterprise Autonomous PlatformConfig(true)
     void refreshActiveProfile()
     resetProjectTreeState()
-  }, [gatewayScope, refreshCurrentModel, refreshAegisConfig])
+  }, [gatewayScope, refreshCurrentModel, refreshAegis AI Enterprise Autonomous PlatformConfig])
 }

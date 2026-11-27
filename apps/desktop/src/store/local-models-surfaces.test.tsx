@@ -4,12 +4,12 @@ import { act, cleanup, fireEvent, render, renderHook, type RenderResult, screen 
 import { MemoryRouter } from 'react-router'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
-import type { AegisApiRequest, AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest, Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import type { LocalCatalogModel, LocalModelsStatus, LocalRuntimeJob } from '@/types/aegis'
 
 vi.mock('@/aegis', async (): Promise<object> => ({
   ...(await import('@/api/local-models')),
-  getAegisConfigRecord: async (): Promise<object> => ({}),
+  getAegis AI Enterprise Autonomous PlatformConfigRecord: async (): Promise<object> => ({}),
   getGlobalModelOptions: async (): Promise<ModelOptionsResult> => ({ providers: [] })
 }))
 vi.mock('@/store/profile', async (): Promise<object> => {
@@ -26,7 +26,7 @@ vi.mock('@/store/profile', async (): Promise<object> => {
 vi.mock('@/store/session', async (): Promise<object> => {
   const { atom } = await import('nanostores')
 
-  return { $connection: atom<AegisConnection | null>(null), $defaultReasoningEffort: atom<string>('') }
+  return { $connection: atom<Aegis AI Enterprise Autonomous PlatformConnection | null>(null), $defaultReasoningEffort: atom<string>('') }
 })
 vi.mock('@/store/notifications', (): object => ({ notify: vi.fn(), notifyError: vi.fn() }))
 
@@ -103,7 +103,7 @@ const model: LocalCatalogModel = {
   fit_summary: 'fits'
 }
 
-const api = vi.fn(async (request: AegisApiRequest): Promise<unknown> => {
+const api = vi.fn(async (request: Aegis AI Enterprise Autonomous PlatformApiRequest): Promise<unknown> => {
   if (request.path.endsWith('/status')) {
     return structuredClone(status)
   }
@@ -315,7 +315,7 @@ it('follows an authoritative route change even when its descriptor is unchanged'
 it('discards late legacy completions and update notices without invalidating the new catalog', async (): Promise<void> => {
   setApiRequestConnection(null)
 
-  const connection: AegisConnection = {
+  const connection: Aegis AI Enterprise Autonomous PlatformConnection = {
     baseUrl: 'http://A',
     token: '',
     wsUrl: '',

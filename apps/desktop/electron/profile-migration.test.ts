@@ -10,7 +10,7 @@
  *   2. stale PID rejection — recycled PID must not pass as a running gateway
  *   3. fallback behavior — single-profile installs and missing files are no-ops
  *   4. remote-boot path — verified by code review (the migration is moved to the
- *      top of startAegis() in main.ts, before primaryProfileKey() is read); the
+ *      top of startAegis AI Enterprise Autonomous Platform() in main.ts, before primaryProfileKey() is read); the
  *      pure decision logic that the function relies on is covered below.
  */
 
@@ -146,7 +146,7 @@ function baseDeps(overrides: Record<string, unknown> = {}) {
     readFileSync: fs.readFileSync,
     statSync: fs.statSync,
     readdirSync: fs.readdirSync,
-    isAegisProcess: () => true,
+    isAegis AI Enterprise Autonomous PlatformProcess: () => true,
     now: () => NOW,
     writeJson: () => {},
     isValidProfileName,
@@ -210,7 +210,7 @@ test('findRunningGatewayProfiles returns [] when no pid files exist', () => {
   assert.deepEqual(
     findRunningGatewayProfiles('/home/u/.aegis/profiles', ['coder'], {
       ...fs,
-      isAegisProcess: () => true
+      isAegis AI Enterprise Autonomous PlatformProcess: () => true
     }),
     []
   )
@@ -226,7 +226,7 @@ test('findRunningGatewayProfiles drops stale (non-aegis) recycled PIDs', () => {
 
   const deps = {
     ...fs,
-    isAegisProcess: (pid: number) => pid === 1234
+    isAegis AI Enterprise Autonomous PlatformProcess: (pid: number) => pid === 1234
   }
 
   assert.deepEqual(findRunningGatewayProfiles('/home/u/.aegis/profiles', ['coder', 'writer'], deps), ['coder'])
@@ -240,7 +240,7 @@ test('findRunningGatewayProfiles tolerates malformed pid files', () => {
   assert.deepEqual(
     findRunningGatewayProfiles('/home/u/.aegis/profiles', ['coder'], {
       ...fs,
-      isAegisProcess: () => true
+      isAegis AI Enterprise Autonomous PlatformProcess: () => true
     }),
     []
   )
@@ -256,7 +256,7 @@ test('findRunningGatewayProfiles drops non-integer and non-positive PIDs', () =>
   assert.deepEqual(
     findRunningGatewayProfiles('/home/u/.aegis/profiles', ['coder', 'writer', 'extra'], {
       ...fs,
-      isAegisProcess: () => true
+      isAegis AI Enterprise Autonomous PlatformProcess: () => true
     }),
     []
   )
@@ -268,7 +268,7 @@ test('findRunningGatewayProfiles preserves order of allProfiles', () => {
     '/home/u/.aegis/profiles/writer/gateway.pid': { content: '{"pid":2}' }
   })
 
-  const deps = { ...fs, isAegisProcess: () => true }
+  const deps = { ...fs, isAegis AI Enterprise Autonomous PlatformProcess: () => true }
   assert.deepEqual(findRunningGatewayProfiles('/home/u/.aegis/profiles', ['coder', 'writer'], deps), [
     'coder',
     'writer'
@@ -513,7 +513,7 @@ test('migrateActiveProfileIfMissing prefers a single running gateway over heuris
 
   const deps = baseDeps({
     ...fs,
-    isAegisProcess: (pid: number) => pid === 42,
+    isAegis AI Enterprise Autonomous PlatformProcess: (pid: number) => pid === 42,
     writeJson: (_p: string, payload: unknown) => {
       written = payload
     }
@@ -562,7 +562,7 @@ test('findRunningGatewayProfiles sees default gateway.pid at aegisHome', () => {
     findRunningGatewayProfiles('/home/u/.aegis/profiles', ['default', 'coder'], {
       ...fs,
       aegisHome: '/home/u/.aegis',
-      isAegisProcess: pid => pid === 99
+      isAegis AI Enterprise Autonomous PlatformProcess: pid => pid === 99
     }),
     ['default']
   )
@@ -621,7 +621,7 @@ test('migrateActiveProfileIfMissing does not pin default when only default gatew
 
   const deps = baseDeps({
     ...fs,
-    isAegisProcess: (pid: number) => pid === 7,
+    isAegis AI Enterprise Autonomous PlatformProcess: (pid: number) => pid === 7,
     writeJson: (_p: string, payload: unknown) => {
       written = payload
     }

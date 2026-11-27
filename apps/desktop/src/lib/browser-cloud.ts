@@ -2,15 +2,15 @@ import type {
   DesktopCloudAgentSignInResult,
   DesktopCloudDiscoverResult,
   DesktopCloudStatus,
-  AegisApiRequest
+  Aegis AI Enterprise Autonomous PlatformApiRequest
 } from '@/global'
 import { signInSavedConnection } from '@/lib/browser-saved-connection-oauth'
 import type { BrowserSavedConnections } from '@/lib/browser-saved-connections'
 
-type Api = <T>(request: AegisApiRequest) => Promise<T>
+type Api = <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>
 
 /**
- * Aegis Cloud for the Webapp. Native Desktop lists cloud agents through its own portal browser
+ * Aegis AI Enterprise Autonomous Platform Cloud for the Webapp. Native Desktop lists cloud agents through its own portal browser
  * session; a browser tab has none, so the gateway serving it asks Nous Portal with its own sign-in
  * (`GET /api/cloud/agents`). Signing in to one agent is the serving gateway's saved-connection
  * OAuth, the flow Settings ▸ Gateway already runs here.
@@ -43,7 +43,7 @@ export function createBrowserCloudBridge({
         return { baseUrl: dashboardUrl, connected: false }
       }
 
-      const label = new URL(dashboardUrl).hostname.split('.')[0] || 'Aegis Cloud'
+      const label = new URL(dashboardUrl).hostname.split('.')[0] || 'Aegis AI Enterprise Autonomous Platform Cloud'
       const result = await signInSavedConnection(api, relays, dashboardUrl, { kind: 'cloud', label })
 
       return { baseUrl: dashboardUrl, connected: result.connected, connectionId: result.connectionId }

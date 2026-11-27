@@ -29,7 +29,7 @@ export function resolveVenvDir(updateRoot: string): string {
   return path.join(updateRoot, 'venv')
 }
 
-import { platformDefaultAegisHome } from './data-paths'
+import { platformDefaultAegis AI Enterprise Autonomous PlatformHome } from './data-paths'
 import { hiddenWindowsChildOptions } from './windows-child-options'
 
 /** Exact installation identity; PATH may refer to another checkout. */
@@ -123,7 +123,7 @@ const CMD_UNSAFE_PATH: RegExp = /["%&|<>^\r\n]/
 /** Published user-bin launchers, at fixed locations: a GUI launch's PATH may omit them. */
 function userBinLaunchers(isWindows: boolean, aegisHome: string, extraDirs: string[] = []): string[] {
   const names: string[] = isWindows ? ['aegis.exe', 'aegis.cmd'] : ['aegis']
-  const defaultHome: string = platformDefaultAegisHome(os.homedir(), process.env, isWindows ? 'win32' : 'linux')
+  const defaultHome: string = platformDefaultAegis AI Enterprise Autonomous PlatformHome(os.homedir(), process.env, isWindows ? 'win32' : 'linux')
 
   const dirs: string[] = isWindows
     ? [path.join(aegisHome || defaultHome, 'bin'), path.join(defaultHome, 'bin'), ...extraDirs]
@@ -138,7 +138,7 @@ function userBinLaunchers(isWindows: boolean, aegisHome: string, extraDirs: stri
  * A source install outside the canonical root (install.sh --dir, a
  * setup-aegis.sh clone) is reachable only through the user-bin launcher it
  * published. Return the install directory that launcher reports, when it is a
- * Aegis source tree; the caller still resolves and probes it by root.
+ * Aegis AI Enterprise Autonomous Platform source tree; the caller still resolves and probes it by root.
  */
 export function userLauncherInstallRoot(
   isWindows: boolean = process.platform === 'win32',
@@ -585,7 +585,7 @@ export function resolveStagedUpdaterBinary(
  * predating #74782 have no self-PID exclusion in `UpdateMarkerGuard::acquire`,
  * so when the desktop pre-writes the marker naming that very updater, the
  * updater reads its own claim as a foreign live owner and aborts with
- * "Another Aegis update is already running (PID <itself>, started 1s ago)" —
+ * "Another Aegis AI Enterprise Autonomous Platform update is already running (PID <itself>, started 1s ago)" —
  * the observed infinite "Install didn't finish" loop. Skipping the pre-write
  * for those binaries lets them acquire cleanly and run `aegis update`, which
  * pulls the permanent fixes. See shouldPrewriteUpdateMarker.
@@ -750,13 +750,13 @@ export interface ObserveUpdaterHandoffDeps {
 
 /**
  * User-facing copy for a hand-off that did not take (spawn error or early exit).
- * The lead sentence is plain: nothing changed and Aegis keeps running. The raw
+ * The lead sentence is plain: nothing changed and Aegis AI Enterprise Autonomous Platform keeps running. The raw
  * outcome message (exit code / signal / spawn error) stays on a trailing
  * "Details:" line for logs and support.
  */
 export function describeUpdaterHandoffFailure(outcome: Pick<UpdaterHandoffOutcome, 'message'>): string {
   const lead =
-    "The updater couldn't start, so nothing was changed and Aegis keeps running as before. " +
+    "The updater couldn't start, so nothing was changed and Aegis AI Enterprise Autonomous Platform keeps running as before. " +
     'Try again; if it keeps failing, open the logs and send them to support.'
 
   return outcome.message ? `${lead}\n\nDetails: ${outcome.message}` : lead

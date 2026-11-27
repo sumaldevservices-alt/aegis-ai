@@ -23,7 +23,7 @@ export const esDelegationRouting: DelegationRoutingTranslations = {
   pluginMissing: 'Rutas de modelo y Rutas de perfil provienen del plugin Advanced Delegation.',
   pluginDisabled: 'Advanced Delegation está instalado, pero desactivado para este perfil.',
   pluginNotLoaded:
-    'Advanced Delegation está activado, pero Aegis aún no lo ha cargado. Reinicia Aegis para terminar.',
+    'Advanced Delegation está activado, pero Aegis AI Enterprise Autonomous Platform aún no lo ha cargado. Reinicia Aegis AI Enterprise Autonomous Platform para terminar.',
   installPlugin: 'Instalar plugin',
   installUnavailable:
     'Advanced Delegation aún no está en el catálogo de plugins. Instálalo desde Capacidades › Plugins.',
@@ -33,11 +33,11 @@ export const esDelegationRouting: DelegationRoutingTranslations = {
   loadFailed: 'No se pudo cargar el enrutamiento de subagentes',
   blockedPill: 'No funciona',
   blockedDetail:
-    'Este modo está guardado, así que Aegis rechaza cada subagente en lugar de usar Predeterminado sin avisar.',
+    'Este modo está guardado, así que Aegis AI Enterprise Autonomous Platform rechaza cada subagente en lugar de usar Predeterminado sin avisar.',
   blockedMissing: 'Los subagentes no se iniciarán hasta que Advanced Delegation esté instalado.',
   blockedDisabled: 'Los subagentes no se iniciarán hasta que Advanced Delegation esté activado para este perfil.',
   blockedNotLoaded:
-    'Los subagentes no se iniciarán hasta que Aegis cargue Advanced Delegation. Reinicia Aegis para terminar.',
+    'Los subagentes no se iniciarán hasta que Aegis AI Enterprise Autonomous Platform cargue Advanced Delegation. Reinicia Aegis AI Enterprise Autonomous Platform para terminar.',
   blockedUnavailable: label =>
     `Los subagentes no se iniciarán hasta que ${label} pueda funcionar aquí. Su plugin indica que no puede.`,
   blockedUnregistered: name =>

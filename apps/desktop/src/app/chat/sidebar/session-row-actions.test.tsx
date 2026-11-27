@@ -2,7 +2,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { atom } from 'nanostores'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import type * as AegisModule from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformModule from '@/aegis'
 import type { SessionInfo } from '@/aegis'
 import type * as SessionStore from '@/store/session'
 import type * as SessionStatesStore from '@/store/session-states'
@@ -75,7 +75,7 @@ vi.mock('@/i18n', () => ({
 vi.mock('@/app/chat/profile-tag', () => ({ ProfileTag: () => null }))
 vi.mock('@/app/chat/session-drag', () => ({ startSessionDrag: vi.fn() }))
 vi.mock('@/aegis', async importOriginal => ({
-  ...(await importOriginal<typeof AegisModule>()),
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformModule>()),
   renameSession: vi.fn(),
   setSessionUnreadRemote: vi.fn(() => Promise.resolve({ ok: true }))
 }))

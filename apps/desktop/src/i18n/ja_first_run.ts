@@ -38,7 +38,7 @@ export const jaFirstRun: FirstRunCopy = {
     notNow: '今はしない'
   },
   intro: {
-    greeting: 'こんにちは、Aegis です。',
+    greeting: 'こんにちは、Aegis AI Enterprise Autonomous Platform です。',
     plan: 'まずはあなたに合わせて設定しましょう。そのあと、何かすごいものを作りましょう。'
   },
   rerun: {

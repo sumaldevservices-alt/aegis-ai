@@ -1,5 +1,5 @@
 import type { Translations } from '@/i18n'
-import { servedByAegisCloud } from '@/lib/aegis-cloud-host'
+import { servedByAegis AI Enterprise Autonomous PlatformCloud } from '@/lib/aegis-cloud-host'
 import { hostHas } from '@/lib/host-capabilities'
 import { NATIVE_NOTIFICATION_KINDS } from '@/store/native-notifications'
 import { canUseQuickEntry } from '@/store/quick-entry'
@@ -277,8 +277,8 @@ export const SETTINGS_MANIFEST = {
   },
   about: {
     updates: {
-      // A Webapp served by Aegis Cloud renders no Updates section.
-      available: () => !servedByAegisCloud(),
+      // A Webapp served by Aegis AI Enterprise Autonomous Platform Cloud renders no Updates section.
+      available: () => !servedByAegis AI Enterprise Autonomous PlatformCloud(),
       subpage: 'updates',
       keywords: ['update', 'auto update', 'download', 'release', 'version'],
       copy: t => ({ label: t.settings.about.updates })

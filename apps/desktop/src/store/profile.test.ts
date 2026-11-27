@@ -1,7 +1,7 @@
 import { atom } from 'nanostores'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import type { ProfileInfo } from '@/types/aegis'
 
 // Keep profile.ts's side-effecting imports inert: the gateway socket layer and
@@ -63,13 +63,13 @@ const profile = (name: string, isDefault = false): ProfileInfo => ({
   skill_count: 0
 })
 
-const remoteConn = (over: Partial<AegisConnection> = {}): AegisConnection =>
-  ({ baseUrl: 'https://aegis-roy.tail.ts.net', mode: 'remote', profile: 'vps-remote', ...over }) as AegisConnection
+const remoteConn = (over: Partial<Aegis AI Enterprise Autonomous PlatformConnection> = {}): Aegis AI Enterprise Autonomous PlatformConnection =>
+  ({ baseUrl: 'https://aegis-roy.tail.ts.net', mode: 'remote', profile: 'vps-remote', ...over }) as Aegis AI Enterprise Autonomous PlatformConnection
 
-const localConn = (over: Partial<AegisConnection> = {}): AegisConnection =>
-  ({ baseUrl: '', mode: 'local', profile: 'default', ...over }) as AegisConnection
+const localConn = (over: Partial<Aegis AI Enterprise Autonomous PlatformConnection> = {}): Aegis AI Enterprise Autonomous PlatformConnection =>
+  ({ baseUrl: '', mode: 'local', profile: 'default', ...over }) as Aegis AI Enterprise Autonomous PlatformConnection
 
-const getConnection = vi.fn<(profile?: string | null) => Promise<AegisConnection>>()
+const getConnection = vi.fn<(profile?: string | null) => Promise<Aegis AI Enterprise Autonomous PlatformConnection>>()
 
 beforeEach(() => {
   getConnection.mockReset()

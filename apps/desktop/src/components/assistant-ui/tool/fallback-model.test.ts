@@ -220,16 +220,16 @@ describe('buildToolView web-search query', () => {
   it('keeps the query separate from structured search results', () => {
     const view = buildToolView(
       part({
-        args: { query: 'Aegis Agent Desktop tool calls' },
-        result: { web: [{ snippet: 'Desktop docs', title: 'Aegis docs', url: 'https://example.com/docs' }] },
+        args: { query: 'Aegis AI Enterprise Autonomous Platform Agent Desktop tool calls' },
+        result: { web: [{ snippet: 'Desktop docs', title: 'Aegis AI Enterprise Autonomous Platform docs', url: 'https://example.com/docs' }] },
         toolName: 'web_search'
       }),
       ''
     )
 
-    expect(view.searchQuery).toBe('Aegis Agent Desktop tool calls')
+    expect(view.searchQuery).toBe('Aegis AI Enterprise Autonomous Platform Agent Desktop tool calls')
     expect(view.searchHits).toEqual([
-      { snippet: 'Desktop docs', title: 'Aegis docs', url: 'https://example.com/docs' }
+      { snippet: 'Desktop docs', title: 'Aegis AI Enterprise Autonomous Platform docs', url: 'https://example.com/docs' }
     ])
   })
 })

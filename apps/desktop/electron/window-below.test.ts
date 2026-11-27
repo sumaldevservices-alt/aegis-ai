@@ -40,10 +40,10 @@ describe('pickWindowBelow', () => {
   })
 
   it('skips our own other windows (same pid) while walking down', () => {
-    const secondAegisWindow = win(SELF_PID, 150, 150)
+    const secondAegis AI Enterprise Autonomous PlatformWindow = win(SELF_PID, 150, 150)
     const target = win(7, 160, 160)
 
-    const { below } = pickWindowBelow([win(SELF_PID, 100, 100), secondAegisWindow, target], SELF_PID, SELF_BOUNDS)
+    const { below } = pickWindowBelow([win(SELF_PID, 100, 100), secondAegis AI Enterprise Autonomous PlatformWindow, target], SELF_PID, SELF_BOUNDS)
 
     expect(below).toBe(target)
   })
@@ -185,10 +185,10 @@ describe('resolveOutsideAsar', () => {
   it('redirects a packaged specifier into app.asar.unpacked', () => {
     expect(
       resolveOutsideAsar(
-        'file:///Applications/Aegis.app/Contents/Resources/app.asar/dist/node_modules/get-windows/index.js'
+        'file:///Applications/Aegis AI Enterprise Autonomous Platform.app/Contents/Resources/app.asar/dist/node_modules/get-windows/index.js'
       )
     ).toBe(
-      'file:///Applications/Aegis.app/Contents/Resources/app.asar.unpacked/dist/node_modules/get-windows/index.js'
+      'file:///Applications/Aegis AI Enterprise Autonomous Platform.app/Contents/Resources/app.asar.unpacked/dist/node_modules/get-windows/index.js'
     )
   })
 
@@ -197,10 +197,10 @@ describe('resolveOutsideAsar', () => {
   it('redirects a Windows packaged path built with backslashes', () => {
     expect(
       resolveOutsideAsar(
-        'C:\\Users\\me\\AppData\\Local\\Aegis\\resources\\app.asar\\dist\\node_modules\\get-windows\\index.js'
+        'C:\\Users\\me\\AppData\\Local\\Aegis AI Enterprise Autonomous Platform\\resources\\app.asar\\dist\\node_modules\\get-windows\\index.js'
       )
     ).toBe(
-      'C:\\Users\\me\\AppData\\Local\\Aegis\\resources\\app.asar.unpacked\\dist\\node_modules\\get-windows\\index.js'
+      'C:\\Users\\me\\AppData\\Local\\Aegis AI Enterprise Autonomous Platform\\resources\\app.asar.unpacked\\dist\\node_modules\\get-windows\\index.js'
     )
   })
 

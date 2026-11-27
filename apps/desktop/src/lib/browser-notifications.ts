@@ -61,7 +61,7 @@ export interface BrowserNotifyPayload {
 
 /** Flash the tab, then show a browser notification when the user allowed it. */
 export function showBrowserNotification(payload: BrowserNotifyPayload): boolean {
-  const title = payload.title || 'Aegis'
+  const title = payload.title || 'Aegis AI Enterprise Autonomous Platform'
 
   flagTabAttention(title)
 

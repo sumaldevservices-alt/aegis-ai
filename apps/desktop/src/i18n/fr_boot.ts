@@ -3,21 +3,21 @@ import type { TranslationOverrides } from './define-locale'
 // The boot screen's copy (including the update-hold screen), composed by fr.ts.
 export const frBoot = {
   boot: {
-    ready: 'Aegis Desktop est prêt',
+    ready: 'Aegis AI Enterprise Autonomous Platform Desktop est prêt',
     desktopBootFailedWithMessage: message => `Échec du démarrage : ${message}`,
     steps: {
       connectingGateway: 'Connexion au gateway desktop',
-      loadingSettings: 'Chargement des paramètres Aegis',
+      loadingSettings: 'Chargement des paramètres Aegis AI Enterprise Autonomous Platform',
       loadingSessions: 'Chargement des sessions récentes',
-      retryingRemoteBackend: 'Reconnexion au backend Aegis distant…',
+      retryingRemoteBackend: 'Reconnexion au backend Aegis AI Enterprise Autonomous Platform distant…',
       startingDesktopConnection: 'Démarrage de la connexion desktop',
-      startingAegisDesktop: 'Démarrage de Aegis Desktop…'
+      startingAegis AI Enterprise Autonomous PlatformDesktop: 'Démarrage de Aegis AI Enterprise Autonomous Platform Desktop…'
     },
     errors: {
-      backgroundExited: "Le processus en arrière-plan de Aegis s'est arrêté.",
-      backgroundExitedDuringStartup: "Le processus en arrière-plan de Aegis s'est arrêté pendant le démarrage.",
+      backgroundExited: "Le processus en arrière-plan de Aegis AI Enterprise Autonomous Platform s'est arrêté.",
+      backgroundExitedDuringStartup: "Le processus en arrière-plan de Aegis AI Enterprise Autonomous Platform s'est arrêté pendant le démarrage.",
       backendStopped: 'Backend arrêté',
-      restartAegis: 'Redémarrer Aegis',
+      restartAegis AI Enterprise Autonomous Platform: 'Redémarrer Aegis AI Enterprise Autonomous Platform',
       openLogs: 'Ouvrir les journaux',
       desktopBootFailed: 'Échec du démarrage',
       gatewayConnectionLost: 'Connexion au gateway perdue',
@@ -32,16 +32,16 @@ export const frBoot = {
       ipcBridgeUnavailable: 'Le pont IPC du desktop est indisponible.'
     },
     causes: {
-      exitedEarly: "Le service en arrière-plan de Aegis s'est arrêté juste après son démarrage.",
-      timedOut: "Le service en arrière-plan de Aegis n'a pas répondu à temps.",
-      permission: "Aegis n'a pas pu écrire dans son dossier de données (problème d'autorisation).",
-      diskFull: "Le disque est plein ; Aegis n'a donc pas pu démarrer.",
-      portInUse: 'Un autre programme utilise le port réseau nécessaire à Aegis.',
+      exitedEarly: "Le service en arrière-plan de Aegis AI Enterprise Autonomous Platform s'est arrêté juste après son démarrage.",
+      timedOut: "Le service en arrière-plan de Aegis AI Enterprise Autonomous Platform n'a pas répondu à temps.",
+      permission: "Aegis AI Enterprise Autonomous Platform n'a pas pu écrire dans son dossier de données (problème d'autorisation).",
+      diskFull: "Le disque est plein ; Aegis AI Enterprise Autonomous Platform n'a donc pas pu démarrer.",
+      portInUse: 'Un autre programme utilise le port réseau nécessaire à Aegis AI Enterprise Autonomous Platform.',
       installMissing:
-        "Une partie de l'installation de Aegis est manquante. Choisissez Réparer l'installation pour la restaurer."
+        "Une partie de l'installation de Aegis AI Enterprise Autonomous Platform est manquante. Choisissez Réparer l'installation pour la restaurer."
     },
     failure: {
-      title: "Aegis n'a pas pu démarrer",
+      title: "Aegis AI Enterprise Autonomous Platform n'a pas pu démarrer",
       description:
         "Le gateway en arrière-plan n'a pas pu se lancer. Essayez l'une des étapes de récupération ci-dessous. Rien ici ne supprime vos conversations ou paramètres.",
       details: 'Détails',
@@ -79,31 +79,31 @@ export const frBoot = {
       identityProvider: "votre fournisseur d'identité"
     },
     updateHold: {
-      title: 'Une mise à jour précédente bloque encore Aegis',
-      titleUnverified: 'Aegis ne peut pas confirmer la fin de la dernière mise à jour',
+      title: 'Une mise à jour précédente bloque encore Aegis AI Enterprise Autonomous Platform',
+      titleUnverified: 'Aegis AI Enterprise Autonomous Platform ne peut pas confirmer la fin de la dernière mise à jour',
       description:
-        "Aegis attend avant de démarrer pour ne pas charger des fichiers qu'une mise à jour modifie peut-être encore. Il démarre tout seul dès que le blocage cesse.",
+        "Aegis AI Enterprise Autonomous Platform attend avant de démarrer pour ne pas charger des fichiers qu'une mise à jour modifie peut-être encore. Il démarre tout seul dès que le blocage cesse.",
       heldByProcess: pid =>
-        `La mise à jour (processus ${pid}) s'est terminée, mais un processus qu'elle a lancé bloque encore l'installation de Aegis.`,
+        `La mise à jour (processus ${pid}) s'est terminée, mais un processus qu'elle a lancé bloque encore l'installation de Aegis AI Enterprise Autonomous Platform.`,
       heldUnknown:
-        "Une mise à jour s'est terminée, mais un processus qu'elle a lancé bloque encore l'installation de Aegis.",
+        "Une mise à jour s'est terminée, mais un processus qu'elle a lancé bloque encore l'installation de Aegis AI Enterprise Autonomous Platform.",
       unverified:
-        "L'assistant de mise à jour n'a pas pu vérifier qui détient l'installation de Aegis. Aegis continue de vérifier.",
+        "L'assistant de mise à jour n'a pas pu vérifier qui détient l'installation de Aegis AI Enterprise Autonomous Platform. Aegis AI Enterprise Autonomous Platform continue de vérifier.",
       since: time => `En attente depuis ${time}`,
       lastChecked: time => `Dernière vérification ${time}`,
       recoveryHint:
-        "Cela se règle généralement en quelques minutes. Sinon : quittez Aegis, arrêtez les processus git ou aegis restants (ou redémarrez l'ordinateur), puis rouvrez Aegis.",
+        "Cela se règle généralement en quelques minutes. Sinon : quittez Aegis AI Enterprise Autonomous Platform, arrêtez les processus git ou aegis restants (ou redémarrez l'ordinateur), puis rouvrez Aegis AI Enterprise Autonomous Platform.",
       checkAgain: 'Vérifier à nouveau',
-      quit: 'Quitter Aegis',
+      quit: 'Quitter Aegis AI Enterprise Autonomous Platform',
       openLogs: 'Ouvrir les journaux',
       startAnyway: 'Démarrer quand même…',
-      confirmTitle: 'Démarrer Aegis alors que la mise à jour le bloque encore ?',
+      confirmTitle: 'Démarrer Aegis AI Enterprise Autonomous Platform alors que la mise à jour le bloque encore ?',
       confirmBody:
-        'Le processus de mise à jour restant modifie peut-être encore les fichiers de Aegis. Démarrer maintenant peut charger une installation à moitié mise à jour, qui risque de ne pas fonctionner avant une nouvelle mise à jour. Aegis consigne ce choix dans son journal et laisse le marqueur de mise à jour en place.',
+        'Le processus de mise à jour restant modifie peut-être encore les fichiers de Aegis AI Enterprise Autonomous Platform. Démarrer maintenant peut charger une installation à moitié mise à jour, qui risque de ne pas fonctionner avant une nouvelle mise à jour. Aegis AI Enterprise Autonomous Platform consigne ce choix dans son journal et laisse le marqueur de mise à jour en place.',
       confirmKeepWaiting: 'Continuer à attendre',
       confirmStart: 'Démarrer quand même',
       startAnywayRefused:
-        "Ce qui bloque l'installation a changé avant que Aegis puisse démarrer. Vérifiez et réessayez."
+        "Ce qui bloque l'installation a changé avant que Aegis AI Enterprise Autonomous Platform puisse démarrer. Vérifiez et réessayez."
     }
   }
 } satisfies Pick<TranslationOverrides, 'boot'>

@@ -9,7 +9,7 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 // eslint-disable-next-line no-restricted-imports -- Wire fixtures use the real client decoder, not a plugin capability.
 import { jsonRpcErrorFromFrame } from '@aegis/shared'
 import { afterEach } from 'vitest'
@@ -261,7 +261,7 @@ export function captureGroupRequests(request: ProfileRequest) {
 /** `@aegis/plugin-sdk` for a dialog or gate on the `local` connection's default profile, with its
  *  group requests going to `request` (contract-checked), Bot Mode words from `translate()` (read at
  *  render, since the plugin's bundle imports this module) and `host` overrides. */
-export async function localGatewaySdkMock(sdk: typeof AegisSdk, request: ProfileRequest, translate: () => unknown,
+export async function localGatewaySdkMock(sdk: typeof Aegis AI Enterprise Autonomous PlatformSdk, request: ProfileRequest, translate: () => unknown,
   host: Record<string, unknown> = {}) {
   const { en } = await import('@/i18n/en')
 

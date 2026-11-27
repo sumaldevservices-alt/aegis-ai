@@ -3,7 +3,7 @@ import { act, renderHook } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { $terminalFontFamily, setTerminalFontFamilyFromConfig } from '@/app/right-sidebar/terminal/terminal-font'
-import { getAegisConfig } from '@/aegis'
+import { getAegis AI Enterprise Autonomous PlatformConfig } from '@/aegis'
 import { persistString } from '@/lib/storage'
 import { $showReasoning, setShowReasoningFromConfig } from '@/store/reasoning-disclosure'
 import {
@@ -23,20 +23,20 @@ import { $showToolActivity, setShowToolActivityFromConfig } from '@/store/tool-a
 
 import { deferred } from '../../../test/deferred'
 
-import { useAegisConfig } from './use-aegis-config'
+import { useAegis AI Enterprise Autonomous PlatformConfig } from './use-aegis-config'
 
 vi.mock('@/aegis', () => ({
-  getAegisConfig: vi.fn(),
+  getAegis AI Enterprise Autonomous PlatformConfig: vi.fn(),
   setApiRequestProfile: vi.fn(),
-  getAegisConfigDefaults: vi.fn().mockResolvedValue({})
+  getAegis AI Enterprise Autonomous PlatformConfigDefaults: vi.fn().mockResolvedValue({})
 }))
 
 const WORKSPACE_CWD_KEY = 'aegis.desktop.workspace-cwd'
 
 const mockConfig = (config: Record<string, unknown>) =>
-  vi.mocked(getAegisConfig).mockResolvedValue(config as Awaited<ReturnType<typeof getAegisConfig>>)
+  vi.mocked(getAegis AI Enterprise Autonomous PlatformConfig).mockResolvedValue(config as Awaited<ReturnType<typeof getAegis AI Enterprise Autonomous PlatformConfig>>)
 
-describe('useAegisConfig refreshAegisConfig', () => {
+describe('useAegis AI Enterprise Autonomous PlatformConfig refreshAegis AI Enterprise Autonomous PlatformConfig', () => {
   beforeEach(() => {
     // Reset atoms and localStorage between tests
     setShowReasoningFromConfig(undefined)
@@ -55,32 +55,32 @@ describe('useAegisConfig refreshAegisConfig', () => {
   // missing key falls back to the DEFAULT_CONFIG default (on).
   it('mirrors display.show_reasoning and resets a missing key to the default', async () => {
     mockConfig({ display: { show_reasoning: 'false' } })
-    const { result } = renderHook(() => useAegisConfig({ activeSessionIdRef: { current: null } }))
+    const { result } = renderHook(() => useAegis AI Enterprise Autonomous PlatformConfig({ activeSessionIdRef: { current: null } }))
 
     await act(async () => {
-      await result.current.refreshAegisConfig()
+      await result.current.refreshAegis AI Enterprise Autonomous PlatformConfig()
     })
     expect($showReasoning.get()).toBe(false)
 
     mockConfig({})
     await act(async () => {
-      await result.current.refreshAegisConfig()
+      await result.current.refreshAegis AI Enterprise Autonomous PlatformConfig()
     })
     expect($showReasoning.get()).toBe(true)
   })
 
   it('mirrors display.tool_progress independently of show_reasoning', async () => {
     mockConfig({ display: { show_reasoning: false, tool_progress: 'off' } })
-    const { result } = renderHook(() => useAegisConfig({ activeSessionIdRef: { current: null } }))
+    const { result } = renderHook(() => useAegis AI Enterprise Autonomous PlatformConfig({ activeSessionIdRef: { current: null } }))
 
     await act(async () => {
-      await result.current.refreshAegisConfig()
+      await result.current.refreshAegis AI Enterprise Autonomous PlatformConfig()
     })
     expect($showToolActivity.get()).toBe(false)
 
     mockConfig({ display: { show_reasoning: false } })
     await act(async () => {
-      await result.current.refreshAegisConfig()
+      await result.current.refreshAegis AI Enterprise Autonomous PlatformConfig()
     })
     expect($showToolActivity.get()).toBe(true)
   })
@@ -89,16 +89,16 @@ describe('useAegisConfig refreshAegisConfig', () => {
   // composer reseed. The profile default must still be published, because the
   // model picker resolves "the default effort" from it when applying a model's
   // preset — otherwise selecting a model silently downgrades a configured
-  // `agent.reasoning_effort: high` to Aegis' built-in medium.
+  // `agent.reasoning_effort: high` to Aegis AI Enterprise Autonomous Platform' built-in medium.
   it('publishes the profile default effort even when a manual pick blocks the composer reseed', async () => {
     setCurrentModelSource('manual')
     setCurrentReasoningEffort('low')
 
     mockConfig({ agent: { reasoning_effort: 'high' } })
-    const { result } = renderHook(() => useAegisConfig({ activeSessionIdRef: { current: null } }))
+    const { result } = renderHook(() => useAegis AI Enterprise Autonomous PlatformConfig({ activeSessionIdRef: { current: null } }))
 
     await act(async () => {
-      await result.current.refreshAegisConfig()
+      await result.current.refreshAegis AI Enterprise Autonomous PlatformConfig()
     })
 
     expect($defaultReasoningEffort.get()).toBe('high')
@@ -110,10 +110,10 @@ describe('useAegisConfig refreshAegisConfig', () => {
     setCurrentCwd('/Users/example/repo/.worktrees/feature')
 
     mockConfig({ terminal: { cwd: '/Users/example/new-workspace' } })
-    const { result } = renderHook(() => useAegisConfig({ activeSessionIdRef: { current: null } }))
+    const { result } = renderHook(() => useAegis AI Enterprise Autonomous PlatformConfig({ activeSessionIdRef: { current: null } }))
 
     await act(async () => {
-      await result.current.refreshAegisConfig()
+      await result.current.refreshAegis AI Enterprise Autonomous PlatformConfig()
     })
 
     expect($currentCwd.get()).toBe('/Users/example/repo/.worktrees/feature')
@@ -123,26 +123,26 @@ describe('useAegisConfig refreshAegisConfig', () => {
     setCurrentCwd('/Users/example/repo/.worktrees/attached')
 
     mockConfig({ terminal: { cwd: '/Users/example/new-workspace' } })
-    const { result } = renderHook(() => useAegisConfig({ activeSessionIdRef: { current: 'session-1' } }))
+    const { result } = renderHook(() => useAegis AI Enterprise Autonomous PlatformConfig({ activeSessionIdRef: { current: 'session-1' } }))
 
     await act(async () => {
-      await result.current.refreshAegisConfig()
+      await result.current.refreshAegis AI Enterprise Autonomous PlatformConfig()
     })
 
     expect($currentCwd.get()).toBe('/Users/example/repo/.worktrees/attached')
   })
 
   it('does not let a stale forced config refresh overwrite newer draft selector intent', async () => {
-    const profileConfig = deferred<Awaited<ReturnType<typeof getAegisConfig>>>()
-    vi.mocked(getAegisConfig).mockReturnValueOnce(profileConfig.promise)
+    const profileConfig = deferred<Awaited<ReturnType<typeof getAegis AI Enterprise Autonomous PlatformConfig>>>()
+    vi.mocked(getAegis AI Enterprise Autonomous PlatformConfig).mockReturnValueOnce(profileConfig.promise)
 
-    const { result } = renderHook(() => useAegisConfig({ activeSessionIdRef: { current: null } }))
+    const { result } = renderHook(() => useAegis AI Enterprise Autonomous PlatformConfig({ activeSessionIdRef: { current: null } }))
 
     let pendingRefresh!: Promise<void>
     act(() => {
-      pendingRefresh = result.current.refreshAegisConfig(true)
+      pendingRefresh = result.current.refreshAegis AI Enterprise Autonomous PlatformConfig(true)
     })
-    expect(getAegisConfig).toHaveBeenCalled()
+    expect(getAegis AI Enterprise Autonomous PlatformConfig).toHaveBeenCalled()
 
     // The user turns Fast off and chooses a different effort while the profile
     // defaults are still loading. That newer picker intent owns the composer.
@@ -151,7 +151,7 @@ describe('useAegisConfig refreshAegisConfig', () => {
     setCurrentFastMode(false)
     profileConfig.resolve({
       agent: { reasoning_effort: 'low', service_tier: 'priority' }
-    } as Awaited<ReturnType<typeof getAegisConfig>>)
+    } as Awaited<ReturnType<typeof getAegis AI Enterprise Autonomous PlatformConfig>>)
 
     await act(async () => {
       await pendingRefresh
@@ -162,14 +162,14 @@ describe('useAegisConfig refreshAegisConfig', () => {
   })
 
   it('does not publish config after its switch loses ownership', async () => {
-    const staleConfig = deferred<Awaited<ReturnType<typeof getAegisConfig>>>()
-    vi.mocked(getAegisConfig).mockReturnValueOnce(staleConfig.promise)
-    const { result } = renderHook(() => useAegisConfig({ activeSessionIdRef: { current: null } }))
+    const staleConfig = deferred<Awaited<ReturnType<typeof getAegis AI Enterprise Autonomous PlatformConfig>>>()
+    vi.mocked(getAegis AI Enterprise Autonomous PlatformConfig).mockReturnValueOnce(staleConfig.promise)
+    const { result } = renderHook(() => useAegis AI Enterprise Autonomous PlatformConfig({ activeSessionIdRef: { current: null } }))
     let ownsSwitch = true
 
     let refresh!: Promise<void>
     act(() => {
-      refresh = result.current.refreshAegisConfig(false, () => ownsSwitch)
+      refresh = result.current.refreshAegis AI Enterprise Autonomous PlatformConfig(false, () => ownsSwitch)
     })
 
     ownsSwitch = false
@@ -177,7 +177,7 @@ describe('useAegisConfig refreshAegisConfig', () => {
       display: { show_reasoning: false },
       agent: { reasoning_effort: 'high', service_tier: 'priority' },
       terminal: { font_family: 'MesloLGS NF' }
-    } as Awaited<ReturnType<typeof getAegisConfig>>)
+    } as Awaited<ReturnType<typeof getAegis AI Enterprise Autonomous PlatformConfig>>)
 
     await act(async () => {
       await refresh
@@ -191,17 +191,17 @@ describe('useAegisConfig refreshAegisConfig', () => {
   })
 
   it('does not let an older profile config overwrite a newer profile', async () => {
-    const profileB = deferred<Awaited<ReturnType<typeof getAegisConfig>>>()
-    const profileC = deferred<Awaited<ReturnType<typeof getAegisConfig>>>()
-    vi.mocked(getAegisConfig).mockReturnValueOnce(profileB.promise).mockReturnValueOnce(profileC.promise)
+    const profileB = deferred<Awaited<ReturnType<typeof getAegis AI Enterprise Autonomous PlatformConfig>>>()
+    const profileC = deferred<Awaited<ReturnType<typeof getAegis AI Enterprise Autonomous PlatformConfig>>>()
+    vi.mocked(getAegis AI Enterprise Autonomous PlatformConfig).mockReturnValueOnce(profileB.promise).mockReturnValueOnce(profileC.promise)
 
-    const { result } = renderHook(() => useAegisConfig({ activeSessionIdRef: { current: null } }))
+    const { result } = renderHook(() => useAegis AI Enterprise Autonomous PlatformConfig({ activeSessionIdRef: { current: null } }))
 
     let refreshB!: Promise<void>
     let refreshC!: Promise<void>
     act(() => {
-      refreshB = result.current.refreshAegisConfig(true)
-      refreshC = result.current.refreshAegisConfig(true)
+      refreshB = result.current.refreshAegis AI Enterprise Autonomous PlatformConfig(true)
+      refreshC = result.current.refreshAegis AI Enterprise Autonomous PlatformConfig(true)
     })
 
     // A raw OpenAI tier word the composer cannot send (create would 4002) seeds Standard.
@@ -220,16 +220,16 @@ describe('useAegisConfig refreshAegisConfig', () => {
   })
 
   it('does not let an older profile response restore its terminal font', async () => {
-    const profileB = deferred<Awaited<ReturnType<typeof getAegisConfig>>>()
-    const profileC = deferred<Awaited<ReturnType<typeof getAegisConfig>>>()
-    vi.mocked(getAegisConfig).mockReturnValueOnce(profileB.promise).mockReturnValueOnce(profileC.promise)
-    const { result } = renderHook(() => useAegisConfig({ activeSessionIdRef: { current: null } }))
+    const profileB = deferred<Awaited<ReturnType<typeof getAegis AI Enterprise Autonomous PlatformConfig>>>()
+    const profileC = deferred<Awaited<ReturnType<typeof getAegis AI Enterprise Autonomous PlatformConfig>>>()
+    vi.mocked(getAegis AI Enterprise Autonomous PlatformConfig).mockReturnValueOnce(profileB.promise).mockReturnValueOnce(profileC.promise)
+    const { result } = renderHook(() => useAegis AI Enterprise Autonomous PlatformConfig({ activeSessionIdRef: { current: null } }))
 
     let refreshB!: Promise<void>
     let refreshC!: Promise<void>
     act(() => {
-      refreshB = result.current.refreshAegisConfig(true)
-      refreshC = result.current.refreshAegisConfig(true)
+      refreshB = result.current.refreshAegis AI Enterprise Autonomous PlatformConfig(true)
+      refreshC = result.current.refreshAegis AI Enterprise Autonomous PlatformConfig(true)
     })
 
     profileC.resolve({ terminal: { font_family: 'Hack Nerd Font' } })

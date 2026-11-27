@@ -23,7 +23,7 @@ vi.mock('node:child_process', async importOriginal => {
   return { ...actual, spawn: vi.fn(actual.spawn) }
 })
 
-const argv = ['/opt/Aegis/aegis', '--ozone-platform=x11', 'aegis://session/abc']
+const argv = ['/opt/Aegis AI Enterprise Autonomous Platform/aegis', '--ozone-platform=x11', 'aegis://session/abc']
 
 function restoreEnv(saved: NodeJS.ProcessEnv) {
   for (const key of Object.keys(process.env)) {
@@ -55,7 +55,7 @@ describe('Linux runtime --no-sandbox relaunch', () => {
       linuxNoSandboxRelaunch({
         platform: 'linux',
         runtimeNoSandbox: true,
-        argv: ['/opt/Aegis/aegis', ...relaunch!.args],
+        argv: ['/opt/Aegis AI Enterprise Autonomous Platform/aegis', ...relaunch!.args],
         env: {},
         launchedWithoutSandbox: true
       })
@@ -144,7 +144,7 @@ describe('Linux runtime --no-sandbox relaunch', () => {
 
       const launch = () => {
         const decision = decideLinuxGpuLaunch({
-          argv: ['/opt/Aegis/aegis'],
+          argv: ['/opt/Aegis AI Enterprise Autonomous Platform/aegis'],
           env: {},
           marker: readLinuxGpuMarker(userData),
           appVersion: '2.0.0',
@@ -199,7 +199,7 @@ describe('Linux runtime --no-sandbox relaunch', () => {
       const saved = { ...process.env }
       const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-appimage-relaunch-'))
       const report = path.join(dir, 'report')
-      const image = path.join(dir, 'Aegis.AppImage')
+      const image = path.join(dir, 'Aegis AI Enterprise Autonomous Platform.AppImage')
       const shortDir = '/run/user/1000/aegis-desktop'
       const events: string[] = []
 
@@ -271,7 +271,7 @@ describe('Linux runtime --no-sandbox relaunch', () => {
         runtimeNoSandbox: true,
         argv: [`${appDir}/aegis`],
         execPath: `${appDir}/aegis`,
-        env: { APPIMAGE: '/home/u/Apps/Aegis.AppImage', APPDIR: appDir },
+        env: { APPIMAGE: '/home/u/Apps/Aegis AI Enterprise Autonomous Platform.AppImage', APPDIR: appDir },
         launchedWithoutSandbox: false
       })
     ).toEqual({ args: ['--no-sandbox'], target: `${appDir}/aegis` })
@@ -281,15 +281,15 @@ describe('Linux runtime --no-sandbox relaunch', () => {
     const relaunch = linuxNoSandboxRelaunch({
       platform: 'linux',
       runtimeNoSandbox: true,
-      argv: ['/tmp/.mount_AegisX/aegis'],
-      execPath: '/tmp/.mount_AegisX/aegis',
-      env: { APPIMAGE: '/home/u/Apps/Aegis.AppImage', APPDIR: '/tmp/.mount_AegisX' },
+      argv: ['/tmp/.mount_Aegis AI Enterprise Autonomous PlatformX/aegis'],
+      execPath: '/tmp/.mount_Aegis AI Enterprise Autonomous PlatformX/aegis',
+      env: { APPIMAGE: '/home/u/Apps/Aegis AI Enterprise Autonomous Platform.AppImage', APPDIR: '/tmp/.mount_Aegis AI Enterprise Autonomous PlatformX' },
       launchedWithoutSandbox: false
     })
 
     expect(relaunch).toEqual({
       args: ['--no-sandbox'],
-      target: '/home/u/Apps/Aegis.AppImage'
+      target: '/home/u/Apps/Aegis AI Enterprise Autonomous Platform.AppImage'
     })
   })
 
@@ -299,20 +299,20 @@ describe('Linux runtime --no-sandbox relaunch', () => {
     const relaunch = linuxNoSandboxRelaunch({
       platform: 'linux',
       runtimeNoSandbox: true,
-      argv: ['/run/user/1000/.mount_AegisQ7x2Lp/aegis'],
-      execPath: '/run/user/1000/.mount_AegisQ7x2Lp/aegis',
-      env: { APPIMAGE: '/home/u/Apps/Aegis.AppImage' },
+      argv: ['/run/user/1000/.mount_Aegis AI Enterprise Autonomous PlatformQ7x2Lp/aegis'],
+      execPath: '/run/user/1000/.mount_Aegis AI Enterprise Autonomous PlatformQ7x2Lp/aegis',
+      env: { APPIMAGE: '/home/u/Apps/Aegis AI Enterprise Autonomous Platform.AppImage' },
       launchedWithoutSandbox: false
     })
 
     expect(relaunch).toEqual({
       args: ['--no-sandbox'],
-      target: '/home/u/Apps/Aegis.AppImage'
+      target: '/home/u/Apps/Aegis AI Enterprise Autonomous Platform.AppImage'
     })
   })
 
   // AppImage apps (terminals, IDEs) export APPIMAGE/APPDIR to everything they
-  // start; Aegis launched from one must relaunch itself, not that app.
+  // start; Aegis AI Enterprise Autonomous Platform launched from one must relaunch itself, not that app.
   it('relaunches this executable when APPIMAGE was inherited from another AppImage', () => {
     for (const env of [
       { APPIMAGE: '/home/u/Apps/Terminal.AppImage' },
@@ -324,13 +324,13 @@ describe('Linux runtime --no-sandbox relaunch', () => {
           platform: 'linux',
           runtimeNoSandbox: true,
           argv,
-          execPath: '/opt/Aegis/aegis',
+          execPath: '/opt/Aegis AI Enterprise Autonomous Platform/aegis',
           env,
           launchedWithoutSandbox: false
         })
       ).toEqual({
         args: ['--ozone-platform=x11', 'aegis://session/abc', '--no-sandbox'],
-        target: '/opt/Aegis/aegis'
+        target: '/opt/Aegis AI Enterprise Autonomous Platform/aegis'
       })
     }
   })

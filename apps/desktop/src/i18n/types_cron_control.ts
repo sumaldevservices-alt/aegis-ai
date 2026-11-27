@@ -13,7 +13,7 @@ export interface CronControlCopy {
   failedStop: string
   /** Header note for a job whose newest attempt was stopped. */
   lastCancelled: (reason: string) => string
-  /** Editor field: what to do with runs missed while Aegis was not running. */
+  /** Editor field: what to do with runs missed while Aegis AI Enterprise Autonomous Platform was not running. */
   catchUpLabel: string
   catchUpHint: string
   catchUpChoices: { default: string; run: string; skip: string }

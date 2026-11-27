@@ -14,7 +14,7 @@ export const ruConnectors = {
   },
   sessionImport: {
     title: 'Продолжить из другого приложения',
-    subtitle: 'Перенесите разговор в Aegis и продолжите с того места, где остановились.',
+    subtitle: 'Перенесите разговор в Aegis AI Enterprise Autonomous Platform и продолжите с того места, где остановились.',
     action: 'Импортировать сессию',
     readingFrom: 'Читаем с',
     connectedComputer: 'подключённого компьютера',
@@ -32,18 +32,18 @@ export const ruConnectors = {
     more: 'Загрузить ещё сессии',
     messages: 'сообщений',
     choose: 'Разговор, который стоит продолжить',
-    chooseHelp: 'Выберите сессию, чтобы прочитать историю перед импортом в Aegis.',
+    chooseHelp: 'Выберите сессию, чтобы прочитать историю перед импортом в Aegis AI Enterprise Autonomous Platform.',
     previewLoading: 'Открываем просмотр',
     previewError: 'Просмотр недоступен',
     previewHelp: 'Исходный файл мог переместиться или измениться. Обновите список и повторите попытку.',
     previewLimit: 'Просмотр сокращён для удобства чтения. Импортируется весь разговор.',
     you: 'Вы',
-    snapshot: 'Этот разговор уже есть в Aegis. Откройте существующую копию, чтобы продолжить.',
+    snapshot: 'Этот разговор уже есть в Aegis AI Enterprise Autonomous Platform. Откройте существующую копию, чтобы продолжить.',
     copyNotice:
       'Копируется текст разговора. Исходные файлы не меняются. Вывод инструментов и рассуждения не переносятся.',
     importing: 'Импорт…',
-    open: 'Открыть в Aegis',
-    continue: 'Продолжить в Aegis',
+    open: 'Открыть в Aegis AI Enterprise Autonomous Platform',
+    continue: 'Продолжить в Aegis AI Enterprise Autonomous Platform',
     importError: 'Не удалось импортировать разговор.'
   }
 } satisfies Pick<TranslationOverrides, 'connectors' | 'sessionImport'>

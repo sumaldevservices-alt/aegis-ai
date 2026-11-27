@@ -5,7 +5,7 @@
 // how the two halves drift.
 //
 // A .cjs module (not JSON) so the variant is decided at require time:
-// AEGIS_DESKTOP_VARIANT=light builds "Aegis Light". The whole config
+// AEGIS_DESKTOP_VARIANT=light builds "Aegis AI Enterprise Autonomous Platform Light". The whole config
 // derives from that one flag.
 // @ts-check
 'use strict'
@@ -208,7 +208,7 @@ module.exports = {
     // paste onto the stock removable-drive icon). It lives in packaging/ with
     // the background so the `files` whitelist keeps it out of the app bundle.
     icon: 'packaging/dmg-volume.icns',
-    title: 'Aegis Agent Installer',
+    title: 'Aegis AI Enterprise Autonomous Platform Agent Installer',
     // A prebuilt .tiff on purpose, not a PNG plus a @2x sibling: dmg-builder's
     // PNG path runs `tiffutil -cathidpicheck`, which on macOS 26 rewrites both
     // frames to 72 dpi and silently drops the 2x representation. A .tiff is
@@ -275,7 +275,7 @@ module.exports = {
     customManifestPath: store ? 'build/store-msix-manifest.xml'
       : releaseBuild || channelRequest || appNamePascal !== artifactNamePascal
         ? 'build/msix-manifest.xml' : 'assets/msix-manifest.xml',
-    // Aegis state is deliberately shared with unpackaged CLI/gateway
+    // Aegis AI Enterprise Autonomous Platform state is deliberately shared with unpackaged CLI/gateway
     // processes. Pair the manifest's disabled virtualization properties with
     // the restricted capability that permits unvirtualized AppData/HKCU writes.
     capabilities: ['unvirtualizedResources'],
@@ -285,8 +285,8 @@ module.exports = {
     category: 'Development',
     maintainer: 'Nous Research <support@nousresearch.com>',
     synopsis: light
-      ? 'Remote-only desktop client for Aegis Agent.'
-      : 'Native desktop shell for Aegis Agent.',
+      ? 'Remote-only desktop client for Aegis AI Enterprise Autonomous Platform Agent.'
+      : 'Native desktop shell for Aegis AI Enterprise Autonomous Platform Agent.',
     target: ['AppImage']
   }
 }

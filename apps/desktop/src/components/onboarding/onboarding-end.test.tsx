@@ -1,7 +1,7 @@
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { writeKey } from '@/lib/storage'
 import { $localModelOfferPending, LOCAL_MODEL_PENDING_KEY } from '@/store/local-model-offer'
 import { $localSetupEligibility } from '@/store/local-setup-offer'
@@ -31,7 +31,7 @@ const MODEL: LocalCatalogModel = {
   fit_summary: 'runs at its full 256K context'
 }
 
-const LOCAL: AegisConnection = {
+const LOCAL: Aegis AI Enterprise Autonomous PlatformConnection = {
   baseUrl: 'http://127.0.0.1:1',
   isFullscreen: false,
   logs: [],

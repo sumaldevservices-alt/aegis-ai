@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisRepoStatus } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformRepoStatus } from '@/global'
 
 import {
   $repoStatus,
@@ -15,7 +15,7 @@ import {
 } from './coding-status'
 import { $currentCwd, $selectedStoredSessionId } from './session'
 
-const sampleStatus: AegisRepoStatus = {
+const sampleStatus: Aegis AI Enterprise Autonomous PlatformRepoStatus = {
   branch: 'feature/login',
   defaultBranch: 'main',
   detached: false,
@@ -31,7 +31,7 @@ const sampleStatus: AegisRepoStatus = {
   files: []
 }
 
-const otherStatus: AegisRepoStatus = {
+const otherStatus: Aegis AI Enterprise Autonomous PlatformRepoStatus = {
   ...sampleStatus,
   branch: 'bb/other-worktree',
   added: 3,
@@ -41,7 +41,7 @@ const otherStatus: AegisRepoStatus = {
   unstaged: 1
 }
 
-function stubProbe(impl: (cwd: string) => Promise<AegisRepoStatus | null>) {
+function stubProbe(impl: (cwd: string) => Promise<Aegis AI Enterprise Autonomous PlatformRepoStatus | null>) {
   ;(window as unknown as { aegisDesktop?: unknown }).aegisDesktop = { git: { repoStatus: impl } }
 }
 
@@ -119,7 +119,7 @@ describe('refreshRepoStatus', () => {
   })
 
   it('never publishes an old worktree status onto the primary after the active cwd moves', async () => {
-    let resolveOld!: (status: AegisRepoStatus | null) => void
+    let resolveOld!: (status: Aegis AI Enterprise Autonomous PlatformRepoStatus | null) => void
     stubProbe(
       () =>
         new Promise(resolve => {
@@ -161,7 +161,7 @@ describe('refreshRepoStatus', () => {
   })
 
   it('runs one probe at a time and coalesces overlap into one trailing refresh per drain', async () => {
-    const resolvers: Array<(status: AegisRepoStatus | null) => void> = []
+    const resolvers: Array<(status: Aegis AI Enterprise Autonomous PlatformRepoStatus | null) => void> = []
     const calls: string[] = []
     let active = 0
     let maxActive = 0
@@ -268,7 +268,7 @@ describe('repoChangeKindForPath', () => {
     $repoStatusByCwd.set({
       '/repo': {
         ...sampleStatus,
-        files: [{ path: 'b.ts', untracked: true } as AegisRepoStatus['files'][number]]
+        files: [{ path: 'b.ts', untracked: true } as Aegis AI Enterprise Autonomous PlatformRepoStatus['files'][number]]
       }
     })
     expect(listener).toHaveBeenCalledTimes(1)
@@ -276,7 +276,7 @@ describe('repoChangeKindForPath', () => {
     $repoStatusByCwd.set({
       '/repo': {
         ...sampleStatus,
-        files: [{ path: 'a.ts', untracked: true } as AegisRepoStatus['files'][number]]
+        files: [{ path: 'a.ts', untracked: true } as Aegis AI Enterprise Autonomous PlatformRepoStatus['files'][number]]
       }
     })
     expect(listener).toHaveBeenCalledTimes(2)
@@ -289,11 +289,11 @@ describe('repoChangeKindForPath', () => {
     $repoStatusByCwd.set({
       '/repo-a': {
         ...sampleStatus,
-        files: [{ path: 'src/file1.ts', untracked: false, conflicted: false } as AegisRepoStatus['files'][number]]
+        files: [{ path: 'src/file1.ts', untracked: false, conflicted: false } as Aegis AI Enterprise Autonomous PlatformRepoStatus['files'][number]]
       },
       '/repo-b': {
         ...otherStatus,
-        files: [{ path: 'src/file2.ts', untracked: true, conflicted: false } as AegisRepoStatus['files'][number]]
+        files: [{ path: 'src/file2.ts', untracked: true, conflicted: false } as Aegis AI Enterprise Autonomous PlatformRepoStatus['files'][number]]
       }
     })
 
@@ -306,7 +306,7 @@ describe('repoChangeKindForPath', () => {
     $repoStatusByCwd.set({
       '/repo': {
         ...sampleStatus,
-        files: [{ path: 'brand_new_dir', untracked: true, conflicted: false } as AegisRepoStatus['files'][number]]
+        files: [{ path: 'brand_new_dir', untracked: true, conflicted: false } as Aegis AI Enterprise Autonomous PlatformRepoStatus['files'][number]]
       }
     })
 

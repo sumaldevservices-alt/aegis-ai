@@ -3,21 +3,21 @@ import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { createElement } from 'react'
 import { afterEach, expect, it, vi } from 'vitest'
 
-import type * as AegisApi from '@/aegis'
-import { bindConfigReadOrigin, getAegisConfigRecord } from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformApi from '@/aegis'
+import { bindConfigReadOrigin, getAegis AI Enterprise Autonomous PlatformConfigRecord } from '@/aegis'
 import { queryClient } from '@/lib/query-client'
 import { $connection } from '@/store/session'
 
 import {
   AEGIS_CONFIG_KEY,
   aegisConfigCacheWriter,
-  setAegisConfigCache,
-  useAegisConfigRecord
+  setAegis AI Enterprise Autonomous PlatformConfigCache,
+  useAegis AI Enterprise Autonomous PlatformConfigRecord
 } from './use-config-record'
 
 vi.mock('@/aegis', async importOriginal => ({
-  ...(await importOriginal<typeof AegisApi>()),
-  getAegisConfigRecord: vi.fn()
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformApi>()),
+  getAegis AI Enterprise Autonomous PlatformConfigRecord: vi.fn()
 }))
 
 afterEach(() => {
@@ -35,9 +35,9 @@ it('updates the write origin when a refetch replaces the displayed record', asyn
   const second = { display: { theme: 'light' } }
   bindConfigReadOrigin(first, { connectionId: 'connection-a', profile: 'worker' })
   bindConfigReadOrigin(second, { connectionId: 'connection-b', profile: 'worker' })
-  vi.mocked(getAegisConfigRecord).mockResolvedValueOnce(first).mockResolvedValueOnce(second)
+  vi.mocked(getAegis AI Enterprise Autonomous PlatformConfigRecord).mockResolvedValueOnce(first).mockResolvedValueOnce(second)
 
-  const { result } = renderHook(() => useAegisConfigRecord(), { wrapper })
+  const { result } = renderHook(() => useAegis AI Enterprise Autonomous PlatformConfigRecord(), { wrapper })
 
   // Before the first GET resolves the scope must be `undefined` (not `null`):
   // profileScoped(null) drops the active profile and targets the PRIMARY.
@@ -67,12 +67,12 @@ it('does not share one config record across two gateways', async () => {
     releaseDevbox = resolve
   })
 
-  vi.mocked(getAegisConfigRecord).mockImplementation(() =>
+  vi.mocked(getAegis AI Enterprise Autonomous PlatformConfigRecord).mockImplementation(() =>
     $connection.get()?.connectionId === 'devbox' ? devboxFetch : Promise.resolve(laptop)
   )
 
   useGateway('laptop')
-  const { result } = renderHook(() => useAegisConfigRecord(), { wrapper })
+  const { result } = renderHook(() => useAegis AI Enterprise Autonomous PlatformConfigRecord(), { wrapper })
 
   await waitFor(() => expect(result.current.data).toEqual(laptop))
 
@@ -105,11 +105,11 @@ it('a settings cache write after switching gateways does not replace the other g
   const writer = aegisConfigCacheWriter('default')
 
   useGateway('laptop')
-  setAegisConfigCache(laptop)
+  setAegis AI Enterprise Autonomous PlatformConfigCache(laptop)
   writer({ agent: { model: 'laptop-model' } })
 
   useGateway('devbox')
-  setAegisConfigCache(devbox)
+  setAegis AI Enterprise Autonomous PlatformConfigCache(devbox)
   writer({ agent: { model: 'devbox-model' } })
 
   const cached = queryClient.getQueriesData({ queryKey: AEGIS_CONFIG_KEY }).map(([, data]) => data)

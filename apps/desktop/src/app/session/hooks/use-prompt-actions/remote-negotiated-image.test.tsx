@@ -1,7 +1,7 @@
 import { cleanup } from '@testing-library/react'
 import { afterEach, expect, test, vi } from 'vitest'
 
-import { aegisApi, AegisGateway } from '@/api/client'
+import { aegisApi, Aegis AI Enterprise Autonomous PlatformGateway } from '@/api/client'
 import { $composerAttachments } from '@/store/composer'
 import { $connectionWires, recordConnectionWire } from '@/store/connection-wire'
 import { requestGatewayForAgent } from '@/store/gateway'
@@ -78,7 +78,7 @@ test.each(['public-canonical', 'public-legacy', 'native-canonical'] as const)('%
       type: 'gateway.ready', payload: canonical ? { session_authority: true } : {}
     } }))
   })
-  const client = new AegisGateway()
+  const client = new Aegis AI Enterprise Autonomous PlatformGateway()
   const ready = new Promise<void>(resolve => client.on('gateway.ready', () => resolve()))
   const { port } = server.address() as { port: number }
   // The public cases have no native_dial marker or locally patched resolver.

@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react'
 import { type NewSessionSplitHandler, startNewSessionDrag } from '@/app/chat/new-session-drag'
 import { Codicon } from '@/components/ui/codicon'
 import { ConfirmDialog } from '@/components/ui/confirm-dialog'
-import type { AegisGitWorktree } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformGitWorktree } from '@/global'
 import type { SessionInfo } from '@/aegis'
 import { useI18n } from '@/i18n'
 import { displayPath } from '@/lib/display-path'
@@ -52,7 +52,7 @@ export function EnteredProjectContent({
   /** `owner` is set for a project another gateway owns: the session starts there. */
   onNewSession?: (path: null | string, owner?: AgentProfileRoute) => void
   onNewSessionSplit?: NewSessionSplitHandler
-  repoWorktrees?: Record<string, AegisGitWorktree[]>
+  repoWorktrees?: Record<string, Aegis AI Enterprise Autonomous PlatformGitWorktree[]>
   liveSessions?: SessionInfo[]
   removedSessionIds?: ReadonlySet<string>
 }) {
@@ -126,7 +126,7 @@ function RepoFlatSection({
   renderRows: (sessions: SessionInfo[]) => React.ReactNode
   onNewSession?: (path: null | string) => void
   onNewSessionSplit?: NewSessionSplitHandler
-  discoveredWorktrees?: AegisGitWorktree[]
+  discoveredWorktrees?: Aegis AI Enterprise Autonomous PlatformGitWorktree[]
   liveSessions?: SessionInfo[]
   /** Another gateway's project: its worktrees are removed and switched on that gateway. */
   owner?: AgentProfileRoute

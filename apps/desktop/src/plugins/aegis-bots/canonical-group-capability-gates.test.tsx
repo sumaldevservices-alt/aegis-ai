@@ -1,4 +1,4 @@
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { host } from '@aegis/plugin-sdk'
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import type { WritableAtom } from 'nanostores'
@@ -22,7 +22,7 @@ import type { RosterRow } from './types'
 
 const { request, notify, openWorkspace, activation } = vi.hoisted(() => ({ request: vi.fn(), notify: vi.fn(), openWorkspace: vi.fn(), activation: { epoch: 1, listeners: new Set<() => void>() } }))
 vi.mock('@aegis/plugin-sdk', async importOriginal => {
-  const sdk = await importOriginal<typeof AegisSdk>()
+  const sdk = await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>()
   const { captureGroupRequests } = await import('./canonical-group-contract-test-utils')
   const { en } = await import('@/i18n/en')
 

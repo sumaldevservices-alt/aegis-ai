@@ -7,7 +7,7 @@
 // That's only true for a backend the app owns: an SSH-managed server the app
 // starts and stops. The local profile gateway is attached, not owned (`aegis
 // gateway ensure`): it keeps cron, messaging adapters and the in-flight turn
-// running after the app quits, exactly like a remote URL or Aegis Cloud
+// running after the app quits, exactly like a remote URL or Aegis AI Enterprise Autonomous Platform Cloud
 // backend, so those prompts say so instead of warning about lost work (#79579).
 
 const MAX_LISTED = 4
@@ -120,12 +120,12 @@ export function quitPromptFor(
       lines.length > 0 ? '' : null,
       backendOwned
         ? 'Quitting stops the agent mid-turn. Any work it has not finished writing is lost.'
-        : 'The agent keeps running on the gateway. Quitting only closes Aegis on this computer; reconnect later to see the results.'
+        : 'The agent keeps running on the gateway. Quitting only closes Aegis AI Enterprise Autonomous Platform on this computer; reconnect later to see the results.'
     ]
       .filter(line => line !== null)
       .join('\n')
       .trim(),
-    message: work.count === 1 ? 'Aegis is still working on 1 chat.' : `Aegis is still working on ${work.count} chats.`
+    message: work.count === 1 ? 'Aegis AI Enterprise Autonomous Platform is still working on 1 chat.' : `Aegis AI Enterprise Autonomous Platform is still working on ${work.count} chats.`
   }
 }
 

@@ -1,5 +1,5 @@
 import { host } from '@aegis/plugin-sdk'
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
@@ -24,7 +24,7 @@ import type { RosterRow } from './types'
 
 const { request, notify } = vi.hoisted(() => ({ request: vi.fn(), notify: vi.fn() }))
 vi.mock('@aegis/plugin-sdk', async importOriginal => (await import('./canonical-group-contract-test-utils'))
-  .localGatewaySdkMock(await importOriginal<typeof AegisSdk>(), request, () => translateBots, { notify }))
+  .localGatewaySdkMock(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>(), request, () => translateBots, { notify }))
 vi.mock('./group-chat-parts', async importOriginal => ({ ...await importOriginal<typeof GroupChatParts>(), GroupImageControls: () => null }))
 
 const words = CANONICAL_GROUP_LOCALES.en
@@ -49,7 +49,7 @@ const nas: Answer = method => method === 'groups.capabilities'
 const gateways = (local = home(method => method === 'groups.capabilities' ? { ...HOME, room_link: { enabled: false } } : undefined), peer = mini()) => answerGroupRequests(request, { local, mini: peer, nas })
 
 beforeEach(() => {
-  ;(host.state.gateway as ReturnType<typeof AegisSdk.atom<string>>).set('open')
+  ;(host.state.gateway as ReturnType<typeof Aegis AI Enterprise Autonomous PlatformSdk.atom<string>>).set('open')
   $canonicalGroupBindings.set({})
   $botMeta.set({})
   $groupChats.set({})
@@ -119,7 +119,7 @@ it('seats a Bot from another connection: the room on this gateway, the invitatio
   // Two default Bots: the one from Mac Mini joins under a handle and name that say where it runs.
   expect(create.members).toEqual([
     { member_id: 'default', profile: 'default', handle: 'aegis', target: { kind: 'local', profile: 'default' } },
-    { member_id: 'aegis-mac-mini', profile: 'default', handle: 'aegis-mac-mini', display_name: 'Aegis · Mac Mini',
+    { member_id: 'aegis-mac-mini', profile: 'default', handle: 'aegis-mac-mini', display_name: 'Aegis AI Enterprise Autonomous Platform · Mac Mini',
       target: { kind: 'peer', peer_id: 'install:3f2a0000000000000000000000000000', installation_id: 'install:3f2a0000000000000000000000000000', profile: 'default',
         capability_digest: MINI.room_link.catalog.catalog_digest } }])
   expect(calls.find(call => call[1] === 'groups.peer.invite')![2]).toEqual({
@@ -145,9 +145,9 @@ it.each([
   gateways(local, peer)
   await createWithMini(await openDialog())
   // The opened group chat's row says why; one notice names who is missing, so a failed seat is never silent.
-  expect(notify.mock.calls).toEqual([[{ kind: 'warning', message: words.createdNotJoined.replace('{names}', 'Aegis · Mac Mini') }]])
+  expect(notify.mock.calls).toEqual([[{ kind: 'warning', message: words.createdNotJoined.replace('{names}', 'Aegis AI Enterprise Autonomous Platform · Mac Mini') }]])
   const [binding] = Object.values($canonicalGroupBindings.get())
-  expect(peerJoinText($peerJoinErrors.get()[peerJoinKey(binding, 'aegis-mac-mini')], 'Aegis · Mac Mini', words)).toBe(why.replace('{name}', 'Aegis · Mac Mini'))
+  expect(peerJoinText($peerJoinErrors.get()[peerJoinKey(binding, 'aegis-mac-mini')], 'Aegis AI Enterprise Autonomous Platform · Mac Mini', words)).toBe(why.replace('{name}', 'Aegis AI Enterprise Autonomous Platform · Mac Mini'))
   expect(request.mock.calls.some(call => call[1] === 'groups.peer.register')).toBe(registers)
   expect(Object.values($canonicalGroupBindings.get())).toHaveLength(1)
   expect(request.mock.calls.filter(call => call[1] === 'groups.create')).toHaveLength(1)
@@ -156,9 +156,9 @@ it.each([
 })
 
 it.each([
-  ['uses classic groups', { driver: false, persistent_process: false }, 'Aegis on This device is too old to run group chats. Update Aegis there, then retry.'],
+  ['uses classic groups', { driver: false, persistent_process: false }, 'Aegis AI Enterprise Autonomous Platform on This device is too old to run group chats. Update Aegis AI Enterprise Autonomous Platform there, then retry.'],
   ['ends with Desktop', { ...HOME, persistent_process: false },
-    'Aegis on This device can’t seat bots from other computers yet. Update Aegis there and run its gateway (aegis gateway run), then retry.']
+    'Aegis AI Enterprise Autonomous Platform on This device can’t seat bots from other computers yet. Update Aegis AI Enterprise Autonomous Platform there and run its gateway (aegis gateway run), then retry.']
 ])('never makes a Desktop-driven group chat when the owner %s: it says what to change and offers Retry', async (_case, capabilities, words) => {
   gateways(home(method => method === 'groups.capabilities' ? capabilities : undefined))
   const { baseElement } = render(<CreateGroupChatDialog onClose={vi.fn()} open roster={roster} />)
@@ -370,9 +370,9 @@ it('retries a lost create reply with one immutable intent; changing the name or 
   // #150235: a lost reply says trying again is safe, in the dialog, instead of an error toast.
   expect(screen.getByText(words.createUncertain)).toBeTruthy()
   expect(notify).not.toHaveBeenCalled()
-  await act(async () => { (host.state.gateway as ReturnType<typeof AegisSdk.atom<string>>).set('closed') })
+  await act(async () => { (host.state.gateway as ReturnType<typeof Aegis AI Enterprise Autonomous PlatformSdk.atom<string>>).set('closed') })
   expect(screen.getByRole('dialog')).toBeTruthy()
-  await act(async () => { (host.state.gateway as ReturnType<typeof AegisSdk.atom<string>>).set('open') })
+  await act(async () => { (host.state.gateway as ReturnType<typeof Aegis AI Enterprise Autonomous PlatformSdk.atom<string>>).set('open') })
   await waitFor(() => expect(dialog.baseElement.querySelector('[data-group-engine="gateway-peer"]')).toBeTruthy())
   expect(name).toHaveProperty('value', 'Team')
   await submit()
@@ -408,7 +408,7 @@ it.each(['owner', 'lender'])('keeps the draft and a working Retry after a failed
   if (failing === 'owner') {
     offline = true
     await act(async () => { fireEvent.click(screen.getByRole('button', { name: 'Create group (2)' })) })
-  } else {expect(screen.getByText('Could not check Mac Mini. Make sure Aegis is running there, then retry.')).toBeTruthy()}
+  } else {expect(screen.getByText('Could not check Mac Mini. Make sure Aegis AI Enterprise Autonomous Platform is running there, then retry.')).toBeTruthy()}
 
   expect((screen.getByRole('button', { name: 'Create group (2)' }) as HTMLButtonElement).disabled).toBe(true)
   expect(dialog.baseElement.querySelector('[data-group-engine="desktop"]')).toBeNull()
@@ -442,7 +442,7 @@ it('describes one membership storage for every selection', async () => {
 
 
 it.each([
-  ['mixed', 'default-this-device', undefined, 'Aegis'],
+  ['mixed', 'default-this-device', undefined, 'Aegis AI Enterprise Autonomous Platform'],
   ['mixed', 'default-this-device', 'Custom name', 'Custom name'],
   ['mixed', 'aegis', undefined, undefined],
   ['local', 'default-this-device', undefined, undefined]

@@ -176,7 +176,7 @@ describe('ProviderConfigPanel', () => {
   })
 
   it('shows an inline error with retry when the load fails, then recovers', async () => {
-    getMemoryProviderConfig.mockRejectedValueOnce(new Error('Timed out connecting to Aegis backend'))
+    getMemoryProviderConfig.mockRejectedValueOnce(new Error('Timed out connecting to Aegis AI Enterprise Autonomous Platform backend'))
 
     await renderPanel()
 

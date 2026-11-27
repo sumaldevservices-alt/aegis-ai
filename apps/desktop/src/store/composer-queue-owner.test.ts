@@ -1,12 +1,12 @@
 import { afterEach, describe, expect, it } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 
 import { serverOwnsComposerQueue } from './composer-queue'
 import { $connectionWires, recordConnectionWire } from './connection-wire'
 import { $connection, _resetSessionOwnerHintsForTests, setSessionOwnerHint } from './session'
 
-const browser = (wsUrl: string) => ({ mode: 'remote', wsUrl }) as AegisConnection
+const browser = (wsUrl: string) => ({ mode: 'remote', wsUrl }) as Aegis AI Enterprise Autonomous PlatformConnection
 
 afterEach(() => $connection.set(null))
 
@@ -36,7 +36,7 @@ describe('composer queue ownership follows the negotiated wire', () => {
     _resetSessionOwnerHintsForTests({ storage: true })
   })
 
-  const remote = { connectionId: 'vps', mode: 'remote', wsUrl: 'wss://vps.example/api/ws?ticket=public' } as AegisConnection
+  const remote = { connectionId: 'vps', mode: 'remote', wsUrl: 'wss://vps.example/api/ws?ticket=public' } as Aegis AI Enterprise Autonomous PlatformConnection
 
   it('belongs to the owner of a public connection that negotiated the canonical wire', () => {
     $connection.set(remote)
@@ -65,7 +65,7 @@ describe('composer queue ownership follows the negotiated wire', () => {
 
   // Pre-existing on main: the webapp stamps Bot Chat owners `mode: 'remote'` on its own native dial.
   it('follows a native dial for a remote-stamped owner of the same connection before ready', () => {
-    $connection.set({ connectionId: 'served', mode: 'remote', wsUrl: 'wss://host.example/api/ws?native_dial=browser' } as AegisConnection)
+    $connection.set({ connectionId: 'served', mode: 'remote', wsUrl: 'wss://host.example/api/ws?native_dial=browser' } as Aegis AI Enterprise Autonomous PlatformConnection)
     setSessionOwnerHint('chat', { connectionId: 'served', mode: 'remote', profile: 'bot' })
     expect(serverOwnsComposerQueue('chat')).toBe(true)
   })

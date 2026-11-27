@@ -27,7 +27,7 @@ test('scrapeReadyPort explains a missing remote profile', async () => {
     (err: any) => {
       assert.equal(err.kind, 'remote-profile-missing')
       assert.equal(err.profile, 'operator')
-      assert.match(err.message, /remote Aegis profile 'operator' does not exist/)
+      assert.match(err.message, /remote Aegis AI Enterprise Autonomous Platform profile 'operator' does not exist/)
       assert.match(err.message, /aegis profile create operator/)
 
       return true

@@ -13,7 +13,7 @@ const mocks = vi.hoisted(() => ({
 }))
 
 vi.mock('@/aegis', () => ({
-  saveAegisConfigRecord: async (config: Record<string, unknown>) => {
+  saveAegis AI Enterprise Autonomous PlatformConfigRecord: async (config: Record<string, unknown>) => {
     mocks.order.push(`save:${JSON.stringify(config)}`)
 
     return mocks.save(config)
@@ -52,7 +52,7 @@ vi.mock('@/store/notifications', () => ({
 
 vi.mock('../hooks/use-config-record', () => ({
   aegisConfigCacheWriter: () => () => undefined,
-  useAegisConfigRecord: () => ({ data: mocks.loadedConfig, writeScope: { profile: 'work' } })
+  useAegis AI Enterprise Autonomous PlatformConfigRecord: () => ({ data: mocks.loadedConfig, writeScope: { profile: 'work' } })
 }))
 
 describe('BrowserRealProfilePanel in-app browser sign-ins', () => {

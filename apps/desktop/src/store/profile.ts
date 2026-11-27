@@ -1,7 +1,7 @@
 import { LOCAL_CONNECTION_ID, registryBackendScopeKey } from '@aegis/shared'
 import { atom, batch, computed } from 'nanostores'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { getProfiles, aegisApi, setApiRequestProfile, STARTUP_REQUEST_TIMEOUT_MS } from '@/aegis'
 import { hostHas } from '@/lib/host-capabilities'
 import { persistStore } from '@/lib/persist-store'
@@ -80,7 +80,7 @@ export const $profilesByConnection = atom<ReadonlyMap<string, ProfileInfo[]>>(ne
 // setConnection), not a source. Every local backend is this computer, and so
 // is a plugin-run profile's backend (this host answers its profile list): one
 // source, so switching between them never blanks the rail.
-function profileListSource(connection: AegisConnection | null): null | string {
+function profileListSource(connection: Aegis AI Enterprise Autonomous PlatformConnection | null): null | string {
   if (!connection) {
     return null
   }
@@ -641,7 +641,7 @@ const DESCRIPTOR_LOOKUP_TIMEOUT_MS = 20_000
 // and its decline path turned routine registry churn into dead profile
 // clicks (#89622) — reverted in #89785. Do not reintroduce fail-closed
 // switching at this seam.
-async function resolveConnectionForProfile(profile: string): Promise<AegisConnection | null> {
+async function resolveConnectionForProfile(profile: string): Promise<Aegis AI Enterprise Autonomous PlatformConnection | null> {
   const getConnection = window.aegisDesktop?.getConnection
 
   if (!getConnection) {
@@ -809,7 +809,7 @@ export async function ensureGatewayProfile(
 // getConnection (the local pool). Same best-effort, fail-open contract as
 // resolveConnectionForProfile: a failed lookup resolves null and keeps the
 // previous descriptor.
-async function resolveConnectionForAgent(connectionId: string, profile: string): Promise<AegisConnection | null> {
+async function resolveConnectionForAgent(connectionId: string, profile: string): Promise<Aegis AI Enterprise Autonomous PlatformConnection | null> {
   const getConnectionFor = window.aegisDesktop?.getConnectionFor
 
   if (!getConnectionFor) {

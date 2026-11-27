@@ -29,7 +29,7 @@ vi.mock('@/i18n', () => ({
 }))
 
 vi.mock('@/aegis', () => ({
-  AegisGateway: class {},
+  Aegis AI Enterprise Autonomous PlatformGateway: class {},
   PROMPT_SUBMIT_REQUEST_TIMEOUT_MS: 1_000,
   setApiRequestProfile: vi.fn(),
   transcribeAudio: vi.fn()

@@ -3,19 +3,19 @@ import type { TranslationOverrides } from './define-locale'
 // The boot screen's copy, composed by ru.ts.
 export const ruBoot = {
   boot: {
-    ready: 'Aegis Desktop готов',
+    ready: 'Aegis AI Enterprise Autonomous Platform Desktop готов',
     desktopBootFailedWithMessage: message => `Не удалось запустить приложение: ${message}`,
     steps: {
       connectingGateway: 'Подключение к шлюзу',
-      loadingSettings: 'Загрузка настроек Aegis',
+      loadingSettings: 'Загрузка настроек Aegis AI Enterprise Autonomous Platform',
       loadingSessions: 'Загрузка последних сеансов',
-      retryingRemoteBackend: 'Переподключение к удалённому бэкенду Aegis…',
+      retryingRemoteBackend: 'Переподключение к удалённому бэкенду Aegis AI Enterprise Autonomous Platform…',
       startingDesktopConnection: 'Запуск подключения приложения',
-      startingAegisDesktop: 'Запуск Aegis Desktop…'
+      startingAegis AI Enterprise Autonomous PlatformDesktop: 'Запуск Aegis AI Enterprise Autonomous Platform Desktop…'
     },
     errors: {
-      backgroundExited: 'Фоновый процесс Aegis завершён.',
-      backgroundExitedDuringStartup: 'Фоновый процесс Aegis завершился при запуске.',
+      backgroundExited: 'Фоновый процесс Aegis AI Enterprise Autonomous Platform завершён.',
+      backgroundExitedDuringStartup: 'Фоновый процесс Aegis AI Enterprise Autonomous Platform завершился при запуске.',
       backendStopped: 'Бэкенд остановлен',
       desktopBootFailed: 'Не удалось запустить приложение',
       gatewayConnectionLost: 'Соединение с шлюзом потеряно',
@@ -23,7 +23,7 @@ export const ruBoot = {
       ipcBridgeUnavailable: 'IPC-мост приложения недоступен.'
     },
     failure: {
-      title: 'Aegis не удалось запустить',
+      title: 'Aegis AI Enterprise Autonomous Platform не удалось запустить',
       description:
         'Фоновый шлюз не запустился. Попробуйте один из шагов восстановления ниже. Ничто из этого не удаляет ваши чаты и настройки.',
       remoteTitle: 'Требуется вход в удалённый шлюз',

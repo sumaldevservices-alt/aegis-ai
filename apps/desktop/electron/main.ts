@@ -7,7 +7,7 @@ import { closeGatewayTicketBridges, createGatewayTicketResolver } from './local-
 import { createPluginWsUrlHandler } from './plugin-ws-url'
 const localGatewayDials = createLocalGatewayDials()
 configurePythonGatewayTicketClient(createGatewayTicketResolver(
-  async () => ensureRuntime(await resolveAegisBackend([]), () => undefined), resolveAegisCwd))
+  async () => ensureRuntime(await resolveAegis AI Enterprise Autonomous PlatformBackend([]), () => undefined), resolveAegis AI Enterprise Autonomous PlatformCwd))
 import crypto from 'node:crypto'
 import fs from 'node:fs'
 import http from 'node:http'
@@ -78,13 +78,13 @@ import { createBackendConnectionState } from './backend-connection-state'
 import { assertDescriptorStillOwned, forgetFailedDescriptor } from './backend-descriptor-cache'
 import { BackendDialClaims } from './backend-dial-claim'
 import { buildDesktopBackendEnv, profileBackendParentEnv } from './backend-env'
-import { isReauthRequiredError, waitForAegisReady } from './backend-health'
+import { isReauthRequiredError, waitForAegis AI Enterprise Autonomous PlatformReady } from './backend-health'
 import {
   backendCommandMatches,
   createBackendOwnership,
   createBackendShutdownCoordinator
 } from './backend-ownership'
-import { canImportAegisCli, PROBE_TIMEOUT_MS, shouldTrustAegisOverride, verifyAegisCli } from './backend-probes'
+import { canImportAegis AI Enterprise Autonomous PlatformCli, PROBE_TIMEOUT_MS, shouldTrustAegis AI Enterprise Autonomous PlatformOverride, verifyAegis AI Enterprise Autonomous PlatformCli } from './backend-probes'
 import { recycleOwnedBackend } from './backend-recycle'
 import { isPidAliveWindows, waitForBackendRelease } from './backend-release-gate'
 import { createInstalledRuntimeGate } from './backend-resolution'
@@ -317,7 +317,7 @@ import {
   tightenSecretFileMode,
   writeSecretFileAtomic
 } from './hardening'
-import { isAegisProcess } from './aegis-process'
+import { isAegis AI Enterprise Autonomous PlatformProcess } from './aegis-process'
 import { assertNotPassiveSpawn } from './host-backend-singleton'
 import { requestHudClose } from './hud-close'
 import { cursorPointInWindow } from './hud-cursor'
@@ -365,7 +365,7 @@ import { ACTIVE_LOG_POLL_MS, planLogRotation, reclaimActiveLogIfOversized } from
 import { guardMacApplicationsLaunch, type MacApplicationsGuardResult } from './mac-applications-guard'
 import { resolveMacAppBundle } from './mac-bundle-location'
 import { registerMachineProfile } from './machine-profile'
-import { resolveMainAegisHome } from './main-aegis-home'
+import { resolveMainAegis AI Enterprise Autonomous PlatformHome } from './main-aegis-home'
 import { createMainProcessLagWatchdog } from './main-process-lag-watchdog'
 import { activateWindow, ensureMainWindow, handleSecondInstance, shouldQuitOnLastChatClosed } from './main-window-lifecycle'
 import {
@@ -676,7 +676,7 @@ import { startUpdateRelaunchWaiter } from './updater/relaunch-waiter'
 import { preflightStateDb } from './updater/state-db-preflight'
 import { createStoreStrategy } from './updater/store-client'
 import { filenameFromUrl } from './url-filename'
-import { isExternalVenvHolder, isAegisOwnedVenvDaemon } from './venv-holder-select'
+import { isExternalVenvHolder, isAegis AI Enterprise Autonomous PlatformOwnedVenvDaemon } from './venv-holder-select'
 import { fetchMarketplaceThemes, searchMarketplaceThemes } from './vscode-marketplace'
 import { createWakeIndicatorWindowController } from './wake-indicator-window'
 import { guardedWatch } from './watch-storm-breaker'
@@ -701,7 +701,7 @@ import {
   windowSize
 } from './window-state'
 import { hiddenWindowsChildOptions } from './windows-child-options'
-import { buildPathExtCandidates, chooseUpdaterArgs, resolveVenvAegisCommand } from './windows-aegis-path'
+import { buildPathExtCandidates, chooseUpdaterArgs, resolveVenvAegis AI Enterprise Autonomous PlatformCommand } from './windows-aegis-path'
 import {
   connectWindowsRemote,
   detectRemotePlatform,
@@ -728,7 +728,7 @@ import {
   buildDisableGpuRelaunchArgs,
   decideWindowsGpuStackCookieLaunch,
   gpuStackCookieFallbackMarker,
-  isAegisDesktopGpuOverrideOff,
+  isAegis AI Enterprise Autonomous PlatformDesktopGpuOverrideOff,
   markerAfterSuccessfulGpuStackCookieBoot,
   readGpuStackCookieMarker,
   shouldRelaunchForRendererStackCookieCrashLoop,
@@ -775,7 +775,7 @@ const isPrimaryInstance: boolean = acquireSingleInstanceLock()
 const relauncher = createAppRelauncher(app)
 
 if (!isPrimaryInstance) {
-  console.error('[aegis] another Aegis Desktop instance holds the single-instance lock; exiting')
+  console.error('[aegis] another Aegis AI Enterprise Autonomous Platform Desktop instance holds the single-instance lock; exiting')
   app.exit(0)
 }
 
@@ -1068,7 +1068,7 @@ if (IS_WINDOWS || process.platform === 'linux') {
   // engaged — icacls /T recurses the whole install tree, so healthy launches
   // skip it (the installer already granted the ACE at install time). Repair
   // targets the install dir only: granting AppContainer read on userData would
-  // expose Aegis sessions/config to every packaged app on the machine.
+  // expose Aegis AI Enterprise Autonomous Platform sessions/config to every packaged app on the machine.
   if (shouldAttemptAclRepair(priorMarker)) {
     const exeDir = path.dirname(process.execPath)
     const acl = grantAllApplicationPackagesAcl(exeDir, { execFileSync })
@@ -1240,7 +1240,7 @@ ipcMain.handle('aegis:embed-host:origin', () => embedHostOrigin())
 // `backgroundThrottling: false` on every chat window) pinned every renderer's
 // `document.visibilityState` to 'visible' forever — which silently turned all
 // the renderer's visibility-gated backstop polls and clock ticks into
-// always-on timers. A completely idle, minimized Aegis burned ~20% CPU
+// always-on timers. A completely idle, minimized Aegis AI Enterprise Autonomous Platform burned ~20% CPU
 // around the clock. Throttling is now a runtime dial scoped to streaming:
 // see createStreamThrottle() — visible chat windows are unthrottled while any
 // turn is in flight, including blurred or occluded windows. Hidden/minimized
@@ -1265,7 +1265,7 @@ if (INSTALL_STAMP) {
 
 const DESKTOP_PROFILE_CONFIG_PATH: string = path.join(app.getPath('userData'), 'active-profile.json')
 
-const AEGIS_HOME: string = resolveMainAegisHome(app.getPath('home'))
+const AEGIS_HOME: string = resolveMainAegis AI Enterprise Autonomous PlatformHome(app.getPath('home'))
 
 // #77311: `desktop.electron_flags` and the renderer heap ceiling
 // (`desktop.renderer_max_old_space_mb`) used to reach Chromium only through
@@ -1312,7 +1312,7 @@ if (isPrimaryInstance) {
   })
 }
 
-// ACTIVE_AEGIS_ROOT — the canonical mutable Aegis install. Same path
+// ACTIVE_AEGIS_ROOT — the canonical mutable Aegis AI Enterprise Autonomous Platform install. Same path
 // install.ps1 / install.sh use, so a desktop-only user and a CLI-only user end
 // up with identical layouts and can share one install.
 const ACTIVE_AEGIS_ROOT = path.join(AEGIS_HOME, 'aegis-agent')
@@ -1323,7 +1323,7 @@ const VENV_ROOT = path.join(ACTIVE_AEGIS_ROOT, 'venv')
 // (Phase 1D) after install.ps1 has completed all stages and the user has
 // finished initial configuration. Presence of this marker means the install
 // is in a known-good state and we can skip the bootstrap flow on subsequent
-// boots, going straight to `resolveAegisBackend()`. Missing or stale marker
+// boots, going straight to `resolveAegis AI Enterprise Autonomous PlatformBackend()`. Missing or stale marker
 // means we re-run the bootstrap; install.ps1's stages are idempotent so a
 // re-run on an already-good install just discovers everything in place.
 //
@@ -1339,8 +1339,8 @@ const DESKTOP_UPDATE_CONFIG_PATH = path.join(app.getPath('userData'), 'updates.j
 const DESKTOP_WINDOW_STATE_PATH = path.join(app.getPath('userData'), 'window-state.json')
 const DESKTOP_BACKEND_OWNERSHIP_PATH = path.join(app.getPath('userData'), 'backend-ownership.json')
 const DESKTOP_MANAGED_SSH_RECOVERY_PATH = path.join(app.getPath('userData'), 'managed-ssh-update-recovery.json')
-// active-profile.json records which Aegis profile the desktop launches its
-// local backend as. When set, startAegis() passes `aegis --profile <name>
+// active-profile.json records which Aegis AI Enterprise Autonomous Platform profile the desktop launches its
+// local backend as. When set, startAegis AI Enterprise Autonomous Platform() passes `aegis --profile <name>
 // dashboard …`, which deterministically pins AEGIS_HOME (see
 // _apply_profile_override in aegis_cli/main.py) and bypasses the sticky
 // ~/.aegis/active_profile file. Unset (null) preserves the legacy behavior:
@@ -1402,7 +1402,7 @@ const BOOT_FAKE_STEP_MS = (() => {
   return Math.max(120, raw)
 })()
 
-const APP_NAME: string = IDENTITY_APP_NAME || process.env.AEGIS_DESKTOP_APP_NAME || 'Aegis'
+const APP_NAME: string = IDENTITY_APP_NAME || process.env.AEGIS_DESKTOP_APP_NAME || 'Aegis AI Enterprise Autonomous Platform'
 const HUD_WINDOW_TITLE = `${APP_NAME} HUD`
 const TITLEBAR_HEIGHT = 34
 const MACOS_TRAFFIC_LIGHTS_HEIGHT = 14
@@ -1789,7 +1789,7 @@ if (IS_WINDOWS) {
   app.setAppUserModelId(IDENTITY_APP_NAME ? PRODUCT_IDENTITY.appId : 'com.nousresearch.aegis')
 }
 
-// Seed the native About panel with the best-known Aegis version. This is
+// Seed the native About panel with the best-known Aegis AI Enterprise Autonomous Platform version. This is
 // refreshed on every open via showAboutPanelFresh, so an in-place
 // `aegis update` mid-session is reflected without an app restart; the seed
 // covers the first open and any non-menu invocation path. Never seed empty:
@@ -1926,7 +1926,7 @@ let desktopLogFlushPromise = Promise.resolve()
 // Land a spawn failure in desktop.log.
 function logPoolSpawnFailure(label: string, error: unknown): void {
   rememberLog(
-    `Aegis backend for profile ${label} failed to start: ${error instanceof Error ? error.message : String(error)}`
+    `Aegis AI Enterprise Autonomous Platform backend for profile ${label} failed to start: ${error instanceof Error ? error.message : String(error)}`
   )
 }
 
@@ -1941,7 +1941,7 @@ const RENDERER_RELOAD_WINDOW_MS = 60_000
 const RENDERER_RELOAD_MAX = 3
 const rendererReloadTimesRef: { current: number[] } = { current: [] }
 // Latched bootstrap failure: when the first-launch install fails, we hold
-// onto the error so subsequent startAegis() calls (e.g. the renderer's
+// onto the error so subsequent startAegis AI Enterprise Autonomous Platform() calls (e.g. the renderer's
 // ensureGatewayOpen retrying after the WS won't open) return the same error
 // instead of re-running install.ps1 in a hot loop. Cleared explicitly by
 // the renderer's "Reload and retry" path or by quitting the app.
@@ -1995,7 +1995,7 @@ let bootProgressState = {
   error: null,
   fakeMode: BOOT_FAKE_MODE,
   isCloudBackendDown: false,
-  message: 'Waiting to start Aegis backend',
+  message: 'Waiting to start Aegis AI Enterprise Autonomous Platform backend',
   phase: 'idle',
   progress: 0,
   retryable: false,
@@ -2803,7 +2803,7 @@ async function waitForUpdateToFinish() {
 
         await advanceBootProgress(
           'backend.update-wait',
-          'An update is still running — Aegis will start automatically when it finishes. Its progress is in logs/update.log.',
+          'An update is still running — Aegis AI Enterprise Autonomous Platform will start automatically when it finishes. Its progress is in logs/update.log.',
           12
         )
 
@@ -2812,7 +2812,7 @@ async function waitForUpdateToFinish() {
 
       await advanceBootProgress(
         'backend.update-wait',
-        'An update is finishing — Aegis will start automatically when it completes…',
+        'An update is finishing — Aegis AI Enterprise Autonomous Platform will start automatically when it completes…',
         12
       )
     },
@@ -2857,7 +2857,7 @@ async function waitForUpdateToFinish() {
       log: rememberLog
     })
   ) {
-    await advanceBootProgress('backend.update-restart', 'Restarting Aegis to load the updated app…', 14)
+    await advanceBootProgress('backend.update-restart', 'Restarting Aegis AI Enterprise Autonomous Platform to load the updated app…', 14)
     // Park while the scheduled exit lands so this stale build never starts a
     // backend; the failsafe below only runs if the exit somehow does not.
     await new Promise(resolve => setTimeout(resolve, BUNDLE_SWAP_RELAUNCH_FAILSAFE_MS))
@@ -2921,13 +2921,13 @@ function isCommandScript(command) {
   return IS_WINDOWS && /\.(cmd|bat)$/i.test(command || '')
 }
 
-async function unwrapWindowsVenvAegisCommand(command, backendArgs) {
-  return resolveVenvAegisCommand(command, backendArgs, {
+async function unwrapWindowsVenvAegis AI Enterprise Autonomous PlatformCommand(command, backendArgs) {
+  return resolveVenvAegis AI Enterprise Autonomous PlatformCommand(command, backendArgs, {
     isWindows: IS_WINDOWS,
     isCommandScript,
     fileExists,
     directoryExists,
-    canImportAegisCli,
+    canImportAegis AI Enterprise Autonomous PlatformCli,
     getVenvPython,
     buildDesktopBackendEnv,
     resolvePath: (...segments) => path.resolve(...segments),
@@ -2982,7 +2982,7 @@ function looksLikeDesktopAppBinary(commandPath) {
   )
 }
 
-function isAegisSourceRoot(root) {
+function isAegis AI Enterprise Autonomous PlatformSourceRoot(root) {
   return directoryExists(root) && fileExists(path.join(root, 'aegis_cli', 'main.py'))
 }
 
@@ -3021,7 +3021,7 @@ async function findSystemPython() {
   //      miss real Python 3.13 installs (user-reported case).
   //
   // We also restrict ourselves to Python 3.11–3.13. 3.14 is the latest
-  // CPython but several Aegis deps (notably pywinpty's Rust-built
+  // CPython but several Aegis AI Enterprise Autonomous Platform deps (notably pywinpty's Rust-built
   // windows_x86_64_msvc crate) don't yet publish 3.14 wheels, and
   // `pip install -e .` falls back to source-build, which fails without
   // a Rust toolchain. install.ps1 sidesteps this by pinning to 3.11
@@ -3385,8 +3385,8 @@ function writeZoomState(zoomLevel) {
 function resolveUpdateRoot() {
   const candidates = [
     process.env.AEGIS_DESKTOP_AEGIS_ROOT && path.resolve(process.env.AEGIS_DESKTOP_AEGIS_ROOT),
-    !IS_PACKAGED && isAegisSourceRoot(SOURCE_REPO_ROOT) ? SOURCE_REPO_ROOT : null,
-    isAegisSourceRoot(ACTIVE_AEGIS_ROOT) ? ACTIVE_AEGIS_ROOT : null
+    !IS_PACKAGED && isAegis AI Enterprise Autonomous PlatformSourceRoot(SOURCE_REPO_ROOT) ? SOURCE_REPO_ROOT : null,
+    isAegis AI Enterprise Autonomous PlatformSourceRoot(ACTIVE_AEGIS_ROOT) ? ACTIVE_AEGIS_ROOT : null
   ].filter(Boolean)
 
   return candidates.find(isGitCheckout) || candidates[0] || ACTIVE_AEGIS_ROOT
@@ -3612,7 +3612,7 @@ function resolveCheckoutUpdateStrategy(): CheckoutStrategy {
 
     emitUpdateProgress,
     rememberLog,
-    startAegis,
+    startAegis AI Enterprise Autonomous Platform,
     stopBackendsForUpdate,
     repairMacUpdaterHelper: updater => repairMacUpdaterHelper(updater, { isMac: IS_MAC, log: rememberLog }),
     preflightStateDb: async (home: string, log: (message: string) => void): Promise<void> => {
@@ -3623,7 +3623,7 @@ function resolveCheckoutUpdateStrategy(): CheckoutStrategy {
       // too (4de06d1dbf7b). An unreadable answer keeps the snapshot.
       if (
         !(await readPreUpdateBackupEnabled(
-          resolveAegisBackend(['config', 'get', 'updates.pre_update_backup', '--json']),
+          resolveAegis AI Enterprise Autonomous PlatformBackend(['config', 'get', 'updates.pre_update_backup', '--json']),
           home
         ))
       ) {
@@ -3711,7 +3711,7 @@ async function restoreBundledBackend(): Promise<void> {
   }
 
   backendStartFailure = null
-  await startAegis()
+  await startAegis AI Enterprise Autonomous Platform()
 }
 
 // Set to true when the desktop is about to quit so a detached swap/install/
@@ -3743,7 +3743,7 @@ function resolveUpdaterBinary() {
 // Path to the venv shim whose lock decides whether `aegis update` can write
 // fresh entry points. On Windows this is the file the running backend
 // `aegis.exe` holds open; on POSIX it's never mandatory-locked.
-function venvAegisShimPath(updateRoot) {
+function venvAegis AI Enterprise Autonomous PlatformShimPath(updateRoot) {
   const venvDir = resolveVenvDir(updateRoot)
 
   return IS_WINDOWS ? path.join(venvDir, 'Scripts', 'aegis.exe') : path.join(venvDir, 'bin', 'aegis')
@@ -3779,7 +3779,7 @@ function isShimLocked(shimPath) {
   }
 }
 
-// Kill only Aegis-OWNED venv daemons (the memory plugin's hindsight daemon:
+// Kill only Aegis AI Enterprise Autonomous Platform-OWNED venv daemons (the memory plugin's hindsight daemon:
 // exe under venv\Scripts AND cmdline referencing hindsight_api.main). The
 // daemon is spawned DETACHED, so it outlives the backend tree-kill and keeps
 // venv files mapped. External holders (a user terminal running `aegis`,
@@ -3803,7 +3803,7 @@ function scanWindowsProcesses(): Array<{ ProcessId?: unknown; ExecutablePath?: s
   return Array.isArray(parsed) ? parsed : [parsed]
 }
 
-function killAegisOwnedVenvDaemons(updateRoot) {
+function killAegis AI Enterprise Autonomous PlatformOwnedVenvDaemons(updateRoot) {
   if (!IS_WINDOWS) {
     return
   }
@@ -3813,7 +3813,7 @@ function killAegisOwnedVenvDaemons(updateRoot) {
   let holders = []
 
   try {
-    holders = scanWindowsProcesses().filter(p => isAegisOwnedVenvDaemon(p?.ExecutablePath, p?.CommandLine, scriptsDir))
+    holders = scanWindowsProcesses().filter(p => isAegis AI Enterprise Autonomous PlatformOwnedVenvDaemon(p?.ExecutablePath, p?.CommandLine, scriptsDir))
   } catch {
     // Best-effort: the uninstall lock probe remains the backstop.
     return
@@ -3823,7 +3823,7 @@ function killAegisOwnedVenvDaemons(updateRoot) {
     const pid = Number(holder?.ProcessId)
 
     if (Number.isInteger(pid) && pid > 0) {
-      rememberLog(`[updates] stopping Aegis-owned venv daemon (hindsight) PID ${pid} before hand-off`)
+      rememberLog(`[updates] stopping Aegis AI Enterprise Autonomous Platform-owned venv daemon (hindsight) PID ${pid} before hand-off`)
 
       try {
         forceKillProcessTree(pid)
@@ -3836,12 +3836,12 @@ function killAegisOwnedVenvDaemons(updateRoot) {
   }
 }
 
-// Kill EXTERNAL Aegis processes that hold this install's venv shim (#62311):
+// Kill EXTERNAL Aegis AI Enterprise Autonomous Platform processes that hold this install's venv shim (#62311):
 // the gateway Startup item and dashboard Scheduled Task are launched outside
 // this app (Task Scheduler / autostart), so the backend teardown above never
 // sees them — yet they map venv files and made every update hand-off abort
 // with "venv shim still locked". Selection is deliberately narrow
-// (isExternalVenvHolder: exe under venv\Scripts AND unambiguously a Aegis
+// (isExternalVenvHolder: exe under venv\Scripts AND unambiguously a Aegis AI Enterprise Autonomous Platform
 // program) — unrelated processes that merely mention the install root or use
 // the venv interpreter for their own scripts are never killed; the shim-lock
 // probe still aborts the hand-off for those. Called before the release gate
@@ -3868,7 +3868,7 @@ function killExternalVenvHolders(updateRoot) {
 
     if (Number.isInteger(pid) && pid > 0) {
       rememberLog(
-        `[updates] stopping external Aegis venv holder (autostart gateway/dashboard) PID ${pid} before hand-off`
+        `[updates] stopping external Aegis AI Enterprise Autonomous Platform venv holder (autostart gateway/dashboard) PID ${pid} before hand-off`
       )
 
       try {
@@ -4254,22 +4254,22 @@ async function releaseBackendLock(updateRoot: string, tag: string): Promise<{ un
 
   // Uninstall deletes the whole runtime. Drain separately-running gateways
   // through the CLI, rather than targeting a gateway worker by PID.
-  stopGatewayBeforeUpdate(venvAegisShimPath(updateRoot), AEGIS_HOME)
+  stopGatewayBeforeUpdate(venvAegis AI Enterprise Autonomous PlatformShimPath(updateRoot), AEGIS_HOME)
 
-  // Reap Aegis-OWNED venv daemons the tree-kill above cannot reach: the
+  // Reap Aegis AI Enterprise Autonomous Platform-OWNED venv daemons the tree-kill above cannot reach: the
   // memory plugin's hindsight daemon is spawned DETACHED (it outlives the
   // backend) yet runs off venv\Scripts\pythonw.exe, keeping venv files
   // mapped past the backend teardown (#75477/#75478). Narrowly scoped
   // (venv-holder-select) — external holders are never killed here.
-  killAegisOwnedVenvDaemons(updateRoot)
+  killAegis AI Enterprise Autonomous PlatformOwnedVenvDaemons(updateRoot)
 
-  // External autostart Aegis processes (gateway Startup item, dashboard
+  // External autostart Aegis AI Enterprise Autonomous Platform processes (gateway Startup item, dashboard
   // Scheduled Task) also hold the venv shim and are invisible to the backend
   // teardown (#62311). Kill them before the gate AND re-scan inside each gate
   // pass, so a respawning holder loses the race instead of the update.
   killExternalVenvHolders(updateRoot)
 
-  const shim = venvAegisShimPath(updateRoot)
+  const shim = venvAegis AI Enterprise Autonomous PlatformShimPath(updateRoot)
 
   const gate = await waitForBackendRelease(
     initialPids,
@@ -4282,10 +4282,10 @@ async function releaseBackendLock(updateRoot: string, tag: string): Promise<{ un
         killExternalVenvHolders(updateRoot)
         const stragglers = []
 
-        const currentAegisProcess = backendConnectionState.getProcess()
+        const currentAegis AI Enterprise Autonomous PlatformProcess = backendConnectionState.getProcess()
 
-        if (currentAegisProcess && Number.isInteger(currentAegisProcess.pid)) {
-          stragglers.push(currentAegisProcess.pid)
+        if (currentAegis AI Enterprise Autonomous PlatformProcess && Number.isInteger(currentAegis AI Enterprise Autonomous PlatformProcess.pid)) {
+          stragglers.push(currentAegis AI Enterprise Autonomous PlatformProcess.pid)
         }
 
         return stragglers
@@ -4326,7 +4326,7 @@ async function releaseBackendLock(updateRoot: string, tag: string): Promise<{ un
 //
 // The desktop is a pure consumer: it does NOT git pull / pip install / rebuild
 // itself (the old open-coded git dance lived here and drifted from
-// `aegis update`). Instead we spawn the staged Aegis-Setup binary with
+// `aegis update`). Instead we spawn the staged Aegis AI Enterprise Autonomous Platform-Setup binary with
 // --update and quit, so it can run `aegis update` (which refuses while we
 // hold the venv shim) and rebuild the desktop with our exe already gone.
 //
@@ -4712,9 +4712,9 @@ function isPackagedInstallPath(dir) {
   })
 }
 
-function resolveAegisCwd() {
+function resolveAegis AI Enterprise Autonomous PlatformCwd() {
   // In a packaged build, `process.cwd()` resolves to the install root (e.g.
-  // `…/win-unpacked` on Windows or `/Applications/Aegis.app/Contents/...`
+  // `…/win-unpacked` on Windows or `/Applications/Aegis AI Enterprise Autonomous Platform.app/Contents/...`
   // on macOS). Sessions spawned there leave files inside the app bundle
   // and bewilder users when "where did my files go?" is the install dir.
   // The user-configurable default project directory wins over everything,
@@ -4752,7 +4752,7 @@ function sanitizeWorkspaceCwd(cwd) {
   const trimmed = typeof cwd === 'string' ? cwd.trim() : ''
 
   if (!trimmed || isPackagedInstallPath(trimmed)) {
-    return { cwd: resolveAegisCwd(), sanitized: Boolean(trimmed) }
+    return { cwd: resolveAegis AI Enterprise Autonomous PlatformCwd(), sanitized: Boolean(trimmed) }
   }
 
   try {
@@ -4765,7 +4765,7 @@ function sanitizeWorkspaceCwd(cwd) {
     // Fall through to the resolved default.
   }
 
-  return { cwd: resolveAegisCwd(), sanitized: Boolean(trimmed) }
+  return { cwd: resolveAegis AI Enterprise Autonomous PlatformCwd(), sanitized: Boolean(trimmed) }
 }
 
 // Persisted "Default project directory" — surfaced as a setting in the
@@ -4812,7 +4812,7 @@ function writeDefaultProjectDir(dir) {
 
 const installedRuntimeGate = createInstalledRuntimeGate(process.env, rememberLog)
 
-async function resolveAegisBackend(backendArgs: string[], progress?: typeof advanceBootProgress): Promise<ResolvedAegisBackend> {
+async function resolveAegis AI Enterprise Autonomous PlatformBackend(backendArgs: string[], progress?: typeof advanceBootProgress): Promise<ResolvedAegis AI Enterprise Autonomous PlatformBackend> {
   const payload = await runnableBundledPayload(rememberLog, progress)
 
   if (payload) {
@@ -4839,7 +4839,7 @@ async function resolveAegisBackend(backendArgs: string[], progress?: typeof adva
   const overrideRoot: string | undefined =
     process.env.AEGIS_DESKTOP_AEGIS_ROOT && path.resolve(process.env.AEGIS_DESKTOP_AEGIS_ROOT)
 
-  if (overrideRoot && isAegisSourceRoot(overrideRoot)) {
+  if (overrideRoot && isAegis AI Enterprise Autonomous PlatformSourceRoot(overrideRoot)) {
     const backend: SourceBackend | null = createSourcePythonBackend(
       overrideRoot,
       await findPythonForRoot(overrideRoot),
@@ -4854,8 +4854,8 @@ async function resolveAegisBackend(backendArgs: string[], progress?: typeof adva
   // 2. Development source -- when running `pnpm run dev` from a checkout, the
   //    cloned repo at SOURCE_REPO_ROOT takes precedence over ACTIVE and any
   //    installed `aegis` on PATH so local Python edits are actually exercised.
-  //    (In dev with no checkout, SOURCE_REPO_ROOT won't pass isAegisSourceRoot.)
-  if (!IS_PACKAGED && isAegisSourceRoot(SOURCE_REPO_ROOT)) {
+  //    (In dev with no checkout, SOURCE_REPO_ROOT won't pass isAegis AI Enterprise Autonomous PlatformSourceRoot.)
+  if (!IS_PACKAGED && isAegis AI Enterprise Autonomous PlatformSourceRoot(SOURCE_REPO_ROOT)) {
     const backend: SourceBackend | null = createSourcePythonBackend(
       SOURCE_REPO_ROOT,
       await findPythonForRoot(SOURCE_REPO_ROOT),
@@ -4881,16 +4881,16 @@ async function resolveAegisBackend(backendArgs: string[], progress?: typeof adva
     } else if (!isWindowsBinaryPathInWsl(aegisOverride, { isWsl: IS_WSL })) {
       aegisCommand = aegisOverride
     } else {
-      rememberLog(`Ignoring Windows Aegis override under WSL: ${aegisOverride}`)
+      rememberLog(`Ignoring Windows Aegis AI Enterprise Autonomous Platform override under WSL: ${aegisOverride}`)
     }
 
     if (aegisCommand) {
       if (looksLikeDesktopAppBinary(aegisCommand)) {
-        rememberLog(`Ignoring desktop app executable on PATH while resolving Aegis CLI: ${aegisCommand}`)
+        rememberLog(`Ignoring desktop app executable on PATH while resolving Aegis AI Enterprise Autonomous Platform CLI: ${aegisCommand}`)
         aegisCommand = null
       } else {
-        const unwrapped: Awaited<ReturnType<typeof unwrapWindowsVenvAegisCommand>> =
-          await unwrapWindowsVenvAegisCommand(aegisCommand, backendArgs)
+        const unwrapped: Awaited<ReturnType<typeof unwrapWindowsVenvAegis AI Enterprise Autonomous PlatformCommand>> =
+          await unwrapWindowsVenvAegis AI Enterprise Autonomous PlatformCommand(aegisCommand, backendArgs)
 
         if (unwrapped) {
           return unwrapped
@@ -4899,11 +4899,11 @@ async function resolveAegisBackend(backendArgs: string[], progress?: typeof adva
         const shellForProbe: boolean = isCommandScript(aegisCommand)
 
         if (
-          shouldTrustAegisOverride(aegisOverride) ||
-          (await verifyAegisCli(aegisCommand, { shell: shellForProbe }))
+          shouldTrustAegis AI Enterprise Autonomous PlatformOverride(aegisOverride) ||
+          (await verifyAegis AI Enterprise Autonomous PlatformCli(aegisCommand, { shell: shellForProbe }))
         ) {
           return {
-            label: `existing Aegis CLI at ${aegisCommand}`,
+            label: `existing Aegis AI Enterprise Autonomous Platform CLI at ${aegisCommand}`,
             command: aegisCommand,
             args: backendArgs,
             bootstrap: false,
@@ -4915,7 +4915,7 @@ async function resolveAegisBackend(backendArgs: string[], progress?: typeof adva
         }
 
         rememberLog(
-          `Ignoring existing Aegis CLI at ${aegisCommand}: --version probe failed; falling through to bootstrap.`
+          `Ignoring existing Aegis AI Enterprise Autonomous Platform CLI at ${aegisCommand}: --version probe failed; falling through to bootstrap.`
         )
       }
     }
@@ -4939,7 +4939,7 @@ async function resolveAegisBackend(backendArgs: string[], progress?: typeof adva
   if (activeBackend && !bootstrapRepairRequested) {
     if (!activeRuntime.hasValidMarker) {
       rememberLog(
-        `[bootstrap] Active Aegis runtime at ${ACTIVE_AEGIS_ROOT} is usable but the bootstrap marker is missing or stale; skipping first-run bootstrap.`
+        `[bootstrap] Active Aegis AI Enterprise Autonomous Platform runtime at ${ACTIVE_AEGIS_ROOT} is usable but the bootstrap marker is missing or stale; skipping first-run bootstrap.`
       )
     }
 
@@ -4962,14 +4962,14 @@ async function resolveAegisBackend(backendArgs: string[], progress?: typeof adva
       )
 
       if (userBackend) {
-        rememberLog(`[boot] Using Aegis install at ${userInstall.root} (published launcher ${userInstall.launcher})`)
+        rememberLog(`[boot] Using Aegis AI Enterprise Autonomous Platform install at ${userInstall.root} (published launcher ${userInstall.launcher})`)
 
         return userBackend
       }
 
-      rememberLog(`[bootstrap] Aegis install at ${userInstall.root} (from ${userInstall.launcher}) is not usable`)
+      rememberLog(`[bootstrap] Aegis AI Enterprise Autonomous Platform install at ${userInstall.root} (from ${userInstall.launcher}) is not usable`)
     } else {
-      rememberLog(`[bootstrap] no usable Aegis install at ${ACTIVE_AEGIS_ROOT} and no published user-bin launcher`)
+      rememberLog(`[bootstrap] no usable Aegis AI Enterprise Autonomous Platform install at ${ACTIVE_AEGIS_ROOT} and no published user-bin launcher`)
     }
   }
 
@@ -4980,12 +4980,12 @@ async function resolveAegisBackend(backendArgs: string[], progress?: typeof adva
   //    explaining what's missing.
   //
   //    We deliberately do NOT throw here -- throwing inside
-  //    resolveAegisBackend was the old "no payload" path and forced the
+  //    resolveAegis AI Enterprise Autonomous PlatformBackend was the old "no payload" path and forced the
   //    user into a dead end. With the bootstrap protocol, "no install yet"
   //    is a recoverable state the GUI can drive through.
   return {
     kind: 'bootstrap-needed',
-    label: 'Aegis Agent not installed yet; bootstrap required',
+    label: 'Aegis AI Enterprise Autonomous Platform Agent not installed yet; bootstrap required',
     command: null,
     args: backendArgs,
     bootstrap: true,
@@ -5000,7 +5000,7 @@ async function resolveAegisBackend(backendArgs: string[], progress?: typeof adva
   }
 }
 
-interface ResolvedAegisBackend {
+interface ResolvedAegis AI Enterprise Autonomous PlatformBackend {
   kind: string
   label: string
   command: string | null
@@ -5020,9 +5020,9 @@ interface ResolvedAegisBackend {
 }
 
 async function ensureRuntime(
-  backend: ResolvedAegisBackend,
+  backend: ResolvedAegis AI Enterprise Autonomous PlatformBackend,
   assertStillOwned: () => void
-): Promise<ResolvedAegisBackend> {
+): Promise<ResolvedAegis AI Enterprise Autonomous PlatformBackend> {
   localBackendLifecycle.assertCanStart()
   assertStillOwned()
 
@@ -5033,7 +5033,7 @@ async function ensureRuntime(
     return backend
   }
 
-  // backend.kind === 'bootstrap-needed' means resolveAegisBackend couldn't
+  // backend.kind === 'bootstrap-needed' means resolveAegis AI Enterprise Autonomous PlatformBackend couldn't
   // find anything to spawn. Hand off to the bootstrap runner which drives the
   // platform installer, writes the bootstrap-complete marker on success, then
   // we re-resolve to get the now-installed backend.
@@ -5048,7 +5048,7 @@ async function ensureRuntime(
     rememberLog('[bootstrap] REFUSING installer on a bundled install; payload missing or damaged — reinstall the app')
 
     const bundledError: Error & { isBootstrapFailure?: boolean } = new Error(
-      'This app bundles its own Aegis runtime, but the runtime files are missing or damaged. Reinstall Aegis Desktop to restore it.'
+      'This app bundles its own Aegis AI Enterprise Autonomous Platform runtime, but the runtime files are missing or damaged. Reinstall Aegis AI Enterprise Autonomous Platform Desktop to restore it.'
     )
 
     bundledError.isBootstrapFailure = true
@@ -5057,11 +5057,11 @@ async function ensureRuntime(
   }
 
   if (backend.kind === 'bootstrap-needed') {
-    rememberLog('[bootstrap] no Aegis install found; starting first-launch bootstrap')
+    rememberLog('[bootstrap] no Aegis AI Enterprise Autonomous Platform install found; starting first-launch bootstrap')
 
     if (await handOffWindowsBootstrapRecovery('bootstrap-needed')) {
       const handoffError: Error & { isBootstrapFailure?: boolean; bootstrapHandedOff?: boolean } = new Error(
-        'Aegis recovery was handed off to Aegis Setup. The desktop will restart when recovery completes.'
+        'Aegis AI Enterprise Autonomous Platform recovery was handed off to Aegis AI Enterprise Autonomous Platform Setup. The desktop will restart when recovery completes.'
       )
 
       handoffError.isBootstrapFailure = true
@@ -5125,7 +5125,7 @@ async function ensureRuntime(
     bootstrapAbortController = null
 
     if (bootstrapResult.cancelled) {
-      const cancelledError = new Error('Aegis install was cancelled.') as any
+      const cancelledError = new Error('Aegis AI Enterprise Autonomous Platform install was cancelled.') as any
       cancelledError.isBootstrapFailure = true
       cancelledError.bootstrapCancelled = true
       bootstrapFailure = cancelledError
@@ -5141,7 +5141,7 @@ async function ensureRuntime(
 
       bootstrapError.isBootstrapFailure = true
       bootstrapError.failedStage = bootstrapResult.failedStage || null
-      // Latch the failure so subsequent startAegis() calls return this
+      // Latch the failure so subsequent startAegis AI Enterprise Autonomous Platform() calls return this
       // same error without re-running install.ps1.  Cleared by the
       // aegis:bootstrap:reset IPC (renderer's "Reload and retry").
       bootstrapFailure = bootstrapError
@@ -5152,7 +5152,7 @@ async function ensureRuntime(
 
     // Resolve the newly published launcher after the installer completes.
     return ensureRuntime(
-      await installedRuntimeGate.afterInstall(() => resolveAegisBackend(backend.args)),
+      await installedRuntimeGate.afterInstall(() => resolveAegis AI Enterprise Autonomous PlatformBackend(backend.args)),
       assertStillOwned
     )
   }
@@ -5205,7 +5205,7 @@ function fetchJson(url, token, options: any = {}) {
         const timeoutMs = resolveTimeoutMs(options.timeoutMs, DEFAULT_FETCH_TIMEOUT_MS)
 
         if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
-          reject(new Error(`Unsupported Aegis backend URL protocol: ${parsed.protocol}`))
+          reject(new Error(`Unsupported Aegis AI Enterprise Autonomous Platform backend URL protocol: ${parsed.protocol}`))
 
           return
         }
@@ -5219,7 +5219,7 @@ function fetchJson(url, token, options: any = {}) {
               ...headersForRemoteRequest(url),
               ...(options.headers || {}),
               'Content-Type': contentType,
-              ...(nativeHeaders || { 'X-Aegis-Session-Token': token }),
+              ...(nativeHeaders || { 'X-Aegis AI Enterprise Autonomous Platform-Session-Token': token }),
               // RFC 8252 native flow authenticates the gated gateway with a bearer
               // token instead of the loopback session-token header. When
               // ``options.bearer`` is set we send Authorization: Bearer <token>;
@@ -5281,7 +5281,7 @@ function fetchJson(url, token, options: any = {}) {
 
         req.on('error', reject)
         req.setTimeout(timeoutMs, () => {
-          req.destroy(new Error(`Timed out connecting to Aegis backend after ${timeoutMs}ms`))
+          req.destroy(new Error(`Timed out connecting to Aegis AI Enterprise Autonomous Platform backend after ${timeoutMs}ms`))
         })
 
         // From here the request goes on the wire: a later transport error can no
@@ -5303,7 +5303,7 @@ function fetchJson(url, token, options: any = {}) {
 function fetchPublicJson(url, options: any = {}) {
   // Credential-free JSON GET/POST for public gateway endpoints
   // (``/api/status``, ``/api/auth/providers``). Unlike ``fetchJson`` it sends
-  // NO ``X-Aegis-Session-Token`` header — used by the auth-mode probe before
+  // NO ``X-Aegis AI Enterprise Autonomous Platform-Session-Token`` header — used by the auth-mode probe before
   // any credentials exist, and any time we must not leak a token to an
   // endpoint that doesn't need one.
   return withRetry(
@@ -5325,7 +5325,7 @@ function fetchPublicJson(url, options: any = {}) {
         const timeoutMs = resolveTimeoutMs(options.timeoutMs, DEFAULT_FETCH_TIMEOUT_MS)
 
         if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
-          reject(new Error(`Unsupported Aegis backend URL protocol: ${parsed.protocol}`))
+          reject(new Error(`Unsupported Aegis AI Enterprise Autonomous Platform backend URL protocol: ${parsed.protocol}`))
 
           return
         }
@@ -5386,7 +5386,7 @@ function fetchPublicJson(url, options: any = {}) {
 
         req.on('error', reject)
         req.setTimeout(timeoutMs, () => {
-          req.destroy(new Error(`Timed out connecting to Aegis backend after ${timeoutMs}ms`))
+          req.destroy(new Error(`Timed out connecting to Aegis AI Enterprise Autonomous Platform backend after ${timeoutMs}ms`))
         })
 
         // Past this point the request is on the wire — see fetchJson.
@@ -5594,7 +5594,7 @@ function decodedPathIfMissing(resolvedPath) {
 
 async function previewFileTarget(rawTarget, baseDir) {
   const raw = String(rawTarget || '').trim()
-  const base = baseDir ? path.resolve(expandUserPath(baseDir)) : resolveAegisCwd()
+  const base = baseDir ? path.resolve(expandUserPath(baseDir)) : resolveAegis AI Enterprise Autonomous PlatformCwd()
 
   // A plain backend target is a WSL/POSIX path; bridge it to a Windows-
   // accessible form before resolving so the existence checks below (and the
@@ -5926,7 +5926,7 @@ async function gatewayAuthProviders(baseUrl, headers = {}) {
 // an anonymous probe 401s forever against a live session, and it can never
 // see the 404 that identifies a backend predating /api/health (the auth gate
 // answers before the SPA catch-all). `probeIsCredentialed` tells
-// waitForAegisReady how to read a 401 — rejected session vs gated route.
+// waitForAegis AI Enterprise Autonomous PlatformReady how to read a 401 — rejected session vs gated route.
 async function buildReadinessHealthProbe(baseUrl, authMode, token) {
   if (authMode === 'oauth') {
     return {
@@ -5955,16 +5955,16 @@ async function buildReadinessHealthProbe(baseUrl, authMode, token) {
   return { probeHealth: fetchPublicJson, probeIsCredentialed: false }
 }
 
-// Boot-time readiness for a remote connection object. For a Aegis Cloud agent
-// whose own session cookie has expired, `waitForAegis` ends in the terminal
+// Boot-time readiness for a remote connection object. For a Aegis AI Enterprise Autonomous Platform Cloud agent
+// whose own session cookie has expired, `waitForAegis AI Enterprise Autonomous Platform` ends in the terminal
 // reauth error even though the portal session that can silently re-mint that
 // cookie is still live: the per-agent cascade (`cloudAgentSilentSignIn`) was
 // only ever driven by the settings UI, never by boot, so every relaunch needed
 // a manual "Use gateway" click. Run the cascade once and retry once; anything
 // that is not that exact case surfaces unchanged.
-async function waitForRemoteAegis(remote) {
+async function waitForRemoteAegis AI Enterprise Autonomous Platform(remote) {
   try {
-    await waitForAegis(remote.baseUrl, remote.token, undefined, remote.authMode, remote.headers)
+    await waitForAegis AI Enterprise Autonomous Platform(remote.baseUrl, remote.token, undefined, remote.authMode, remote.headers)
   } catch (error) {
     if (!shouldAttemptCloudBootCascade(remote, error)) {
       throw error
@@ -5986,11 +5986,11 @@ async function waitForRemoteAegis(remote) {
       throw error
     }
 
-    await waitForAegis(remote.baseUrl, remote.token, undefined, remote.authMode, remote.headers)
+    await waitForAegis AI Enterprise Autonomous Platform(remote.baseUrl, remote.token, undefined, remote.authMode, remote.headers)
   }
 }
 
-async function waitForAegis(
+async function waitForAegis AI Enterprise Autonomous Platform(
   baseUrl: string,
   token: string | null | undefined,
   signal?: AbortSignal,
@@ -6000,7 +6000,7 @@ async function waitForAegis(
 ): Promise<void> {
   const { probeHealth, probeIsCredentialed } = await buildReadinessHealthProbe(baseUrl, authMode, token)
 
-  return waitForAegisReady(baseUrl, {
+  return waitForAegis AI Enterprise Autonomous PlatformReady(baseUrl, {
     token,
     signal,
     fetchPublicJson,
@@ -6148,7 +6148,7 @@ function sendOpenFolderRequested() {
 
 // Tell the renderer the machine just woke. Sleep silently drops the
 // renderer's WebSocket to the local backend; the renderer reconnects on this
-// signal so the chat composer doesn't stay stuck on "Starting Aegis...".
+// signal so the chat composer doesn't stay stuck on "Starting Aegis AI Enterprise Autonomous Platform...".
 function sendPowerResume() {
   if (!mainWindow || mainWindow.isDestroyed()) {
     return
@@ -6751,7 +6751,7 @@ function installMediaPermissions() {
 // ---------------------------------------------------------------------------
 // OAuth remote-gateway auth.
 //
-// Hosted Aegis gateways gate the dashboard behind an OAuth provider (e.g.
+// Hosted Aegis AI Enterprise Autonomous Platform gateways gate the dashboard behind an OAuth provider (e.g.
 // Nous Research) instead of a static session token. The auth model is
 // fundamentally different from the token path:
 //
@@ -6842,8 +6842,8 @@ function getOauthSessionForUrl(url, { connectionId = '', pendingAuthMode = '', p
 // cookies.get() on a fresh cold start can resolve BEFORE the jar has finished
 // hydrating from disk and return an empty array — even though the user is
 // signed in. That false-negative used to make hasLiveOauthSession() report
-// "not signed in", which on the initial boot path (startAegis → the renderer's
-// single-shot boot() with no retry) surfaced as the "Aegis couldn't start"
+// "not signed in", which on the initial boot path (startAegis AI Enterprise Autonomous Platform → the renderer's
+// single-shot boot() with no retry) surfaced as the "Aegis AI Enterprise Autonomous Platform couldn't start"
 // OAuth overlay that vanishes the instant the user clicks Retry.
 //
 // We force the store to hydrate once, up front: flushStorageData() then a
@@ -6972,7 +6972,7 @@ async function hasLiveOauthSession(baseUrl) {
 
   // Cold-start false-negative guard. A `persist:` partition's cookie store
   // loads lazily, so the FIRST read on a fresh boot can come back empty even
-  // for a signed-in user — the exact race that produced the transient "Aegis
+  // for a signed-in user — the exact race that produced the transient "Aegis AI Enterprise Autonomous Platform
   // couldn't start / not signed in" overlay that Retry always cleared. Before
   // trusting a negative, force the store to hydrate and re-read a couple of
   // times with a short backoff. A genuinely signed-out user still resolves
@@ -7129,7 +7129,7 @@ function fetchJsonViaOauthSession(url, options: any = {}) {
       }
 
       if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
-        reject(new Error(`Unsupported Aegis backend URL protocol: ${parsed.protocol}`))
+        reject(new Error(`Unsupported Aegis AI Enterprise Autonomous Platform backend URL protocol: ${parsed.protocol}`))
 
         return
       }
@@ -7172,7 +7172,7 @@ function fetchJsonViaOauthSession(url, options: any = {}) {
           // already finished
         }
 
-        reject(new Error(`Timed out connecting to Aegis backend after ${timeoutMs}ms`))
+        reject(new Error(`Timed out connecting to Aegis AI Enterprise Autonomous Platform backend after ${timeoutMs}ms`))
       }, timeoutMs)
 
       request.on('response', (res: Electron.IncomingMessage): void => {
@@ -7516,7 +7516,7 @@ async function freshGatewayWsUrl(profile, webContentsId) {
   return connection.wsUrl
 }
 
-// --- Aegis Cloud discovery + silent per-agent sign-in (cloud-auto-discovery
+// --- Aegis AI Enterprise Autonomous Platform Cloud discovery + silent per-agent sign-in (cloud-auto-discovery
 // Phase 3) ---------------------------------------------------------------
 //
 // The "cloud" connection mode lets a user sign in to the Nous portal ONCE in
@@ -7540,7 +7540,7 @@ const { hasLivePortalSession, hasPortalAccessToken, renewPortalAccessSilently, o
     rememberLog
   })
 
-// Discover the hosted (Aegis Cloud) agents the signed-in user can see. Calls
+// Discover the hosted (Aegis AI Enterprise Autonomous Platform Cloud) agents the signed-in user can see. Calls
 // the NAS trimmed-summary endpoint over the partition-bound net, so the portal
 // session cookie is attached automatically (no bearer needed — NAS accepts the
 // cookie). Returns { agents } on success, or { needsOrgSelection: true, orgs }
@@ -7553,7 +7553,7 @@ async function discoverCloudAgents(org?: string) {
 
   if (!(await hasLivePortalSession())) {
     const err = new Error(
-      'You are not signed in to Aegis Cloud. Open Settings → Gateway, choose Aegis Cloud, and sign in.'
+      'You are not signed in to Aegis AI Enterprise Autonomous Platform Cloud. Open Settings → Gateway, choose Aegis AI Enterprise Autonomous Platform Cloud, and sign in.'
     ) as any
 
     err.needsCloudLogin = true
@@ -7604,7 +7604,7 @@ async function discoverCloudAgents(org?: string) {
       // recover it) — surface it as a re-login, not a generic failure.
       if (error && error.statusCode === 401) {
         const err = new Error(
-          'Your Aegis Cloud session has expired. Open Settings → Gateway and sign in again.'
+          'Your Aegis AI Enterprise Autonomous Platform Cloud session has expired. Open Settings → Gateway and sign in again.'
         ) as any
 
         err.needsCloudLogin = true
@@ -7699,7 +7699,7 @@ async function cloudAgentSilentSignIn(dashboardUrl, { background = false } = {})
   // interactive prompt rather than a silent cascade. Discovery already gates on
   // this, but a selection can arrive after the session lapsed.
   if (!(await hasLivePortalSession())) {
-    const err = new Error('Your Aegis Cloud session has expired. Sign in to Aegis Cloud again.') as any
+    const err = new Error('Your Aegis AI Enterprise Autonomous Platform Cloud session has expired. Sign in to Aegis AI Enterprise Autonomous Platform Cloud again.') as any
     err.needsCloudLogin = true
     throw err
   }
@@ -8331,7 +8331,7 @@ function sanitizeConnectionsRegistry(registry = readDesktopConnectionsRegistry()
 /**
  * Save (create or edit) a registry connection from a renderer payload.
  * Edits merge over the stored entry (mergeConnectionInput) so fields the
- * editor doesn't carry — cloud `org`, ssh `remoteAegisPath`/`remoteProfile` —
+ * editor doesn't carry — cloud `org`, ssh `remoteAegis AI Enterprise Autonomous PlatformPath`/`remoteProfile` —
  * survive a rename. Token handling mirrors coerceDesktopConnectionConfig: an
  * incoming plaintext token is encrypted (honoring the same allowPlainTextToken
  * opt-in seam as Settings → Gateway); an absent token field inherits the
@@ -8457,7 +8457,7 @@ function migrateActiveProfileIfMissing() {
     readFileSync: (p, enc) => fs.readFileSync(p, enc),
     statSync: p => fs.statSync(p),
     readdirSync: (p, opts) => fs.readdirSync(p, opts as { withFileTypes: true }),
-    isAegisProcess,
+    isAegis AI Enterprise Autonomous PlatformProcess,
     now: () => Date.now(),
     writeJson: (target, decision) => {
       // Mirror writeActiveDesktopProfile's atomic-write + parent-dir-create
@@ -8528,7 +8528,7 @@ async function sanitizeDesktopConnectionConfig(config = readDesktopConnectionCon
     remoteAuthMode: authMode,
     remoteOauthConnected,
     remoteUrl,
-    // The persisted Aegis Cloud org (slug/id) for a cloud connection, or '' for
+    // The persisted Aegis AI Enterprise Autonomous Platform Cloud org (slug/id) for a cloud connection, or '' for
     // remote/local. Lets Settings → Gateway reopen into the same org.
     cloudOrg: mode === 'cloud' ? String(block.org || '') : '',
     remoteTokenPreview: tokenPreview(remoteToken),
@@ -8543,7 +8543,7 @@ async function sanitizeDesktopConnectionConfig(config = readDesktopConnectionCon
     sshUser: (ssh || savedSsh)?.user || '',
     sshPort: (ssh || savedSsh)?.port || null,
     sshKeyPath: (ssh || savedSsh)?.keyPath || '',
-    sshRemoteAegisPath: (ssh || savedSsh)?.remoteAegisPath || '',
+    sshRemoteAegis AI Enterprise Autonomous PlatformPath: (ssh || savedSsh)?.remoteAegis AI Enterprise Autonomous PlatformPath || '',
     sshRemoteProfile: (ssh || savedSsh)?.remoteProfile || '',
     // The env override only forces the global/primary connection; a per-profile
     // scope is never overridden by AEGIS_DESKTOP_REMOTE_URL.
@@ -8564,7 +8564,7 @@ function coerceDesktopConnectionConfig(input: any = {}, existing = readDesktopCo
   // The block being edited: a per-profile entry or the global remote block.
   const rawExistingBlock = key ? existing.profiles?.[key] || {} : existing.remote || {}
   // Leaving a CLOUD connection unselects it: a cloud block's url/org/token
-  // describe a discovered Aegis Cloud instance, NOT a user-owned remote gateway,
+  // describe a discovered Aegis AI Enterprise Autonomous Platform Cloud instance, NOT a user-owned remote gateway,
   // so switching to local or remote must NOT inherit them (otherwise the stale
   // cloud URL lingers and re-selecting Cloud looks "already connected"). When the
   // saved block was cloud and the new mode is not cloud, start from an empty
@@ -8678,7 +8678,7 @@ function buildSshBlock(input: any, existingBlock: any = {}) {
     user: input.sshUser ?? existingBlock.user,
     port: input.sshPort ?? existingBlock.port,
     keyPath: input.sshKeyPath ?? existingBlock.keyPath,
-    remoteAegisPath: input.sshRemoteAegisPath ?? existingBlock.remoteAegisPath,
+    remoteAegis AI Enterprise Autonomous PlatformPath: input.sshRemoteAegis AI Enterprise Autonomous PlatformPath ?? existingBlock.remoteAegis AI Enterprise Autonomous PlatformPath,
     remoteProfile: input.sshRemoteProfile ?? existingBlock.remoteProfile
   })
 
@@ -8744,7 +8744,7 @@ async function buildRemoteConnection(
 
   if (!token) {
     throw new Error(
-      'Remote Aegis gateway is selected, but no session token is saved. ' +
+      'Remote Aegis AI Enterprise Autonomous Platform gateway is selected, but no session token is saved. ' +
         'Open Settings → Gateway and save a token, or switch back to Local.'
     )
   }
@@ -9347,19 +9347,19 @@ async function bootstrapSshConnectionInner(profile, sshConfig, reuseToken, sourc
       managedConnectionUpdateGate.assertCanDial(metadata.registryConnectionId, metadata.managedUpdateCorrelation || '')
     }
 
-    const platform = await detectRemotePlatform(ssh, sshConfig.remoteAegisPath || '')
+    const platform = await detectRemotePlatform(ssh, sshConfig.remoteAegis AI Enterprise Autonomous PlatformPath || '')
     const lifecycle = platform.os === 'Windows' ? connectWindowsRemote : remoteLifecycle.connect
     result = await lifecycle({
       ssh,
       platform,
       profile: resolveRemoteSshDashboardProfile(sshConfig.remoteProfile, profile),
-      remoteAegisPath: sshConfig.remoteAegisPath || '',
+      remoteAegis AI Enterprise Autonomous PlatformPath: sshConfig.remoteAegis AI Enterprise Autonomous PlatformPath || '',
       ownershipId: sshOwnershipKey(profile),
       reuseToken: reuseToken || '',
       forward: (localPort, remotePort) => ssh.forward(localPort, remotePort),
       cancelForward: (localPort, remotePort) => ssh.cancelForward(localPort, remotePort),
       pickLocalPort,
-      waitForAegis: (baseUrl, token) => waitForAegis(baseUrl, token, lease.signal, 'token'),
+      waitForAegis AI Enterprise Autonomous Platform: (baseUrl, token) => waitForAegis AI Enterprise Autonomous Platform(baseUrl, token, lease.signal, 'token'),
       probeReuseProof: sshProbeReuseProof,
       adoptServedToken: adoptServedDashboardToken,
       rememberLog: sshRememberLog,
@@ -9438,7 +9438,7 @@ async function bootstrapSshConnectionInner(profile, sshConfig, reuseToken, sourc
           metadata.registryConnectionId ||
           (typeof source === 'string' && source.startsWith('registry:') ? source.slice('registry:'.length) : ''),
         // Never infer primary ownership from a non-composite scope key: legacy
-        // per-profile pools also use bare keys. Only startAegis' explicit call
+        // per-profile pools also use bare keys. Only startAegis AI Enterprise Autonomous Platform' explicit call
         // site may label a registry-qualified SSH scope as the primary backend.
         primaryRegistryScope: metadata.primaryRegistryScope === true
       })
@@ -9464,13 +9464,13 @@ async function bootstrapSshConnectionInner(profile, sshConfig, reuseToken, sourc
 
   return {
     ...connection,
-    remoteAegisVersion: result.aegisVersion || '',
+    remoteAegis AI Enterprise Autonomous PlatformVersion: result.aegisVersion || '',
     ssh: {
       effectiveConfigFingerprint: sshConfig.effectiveConfigFingerprint,
       host: sshConfig.host,
       keyPath: sshConfig.keyPath,
       port: sshConfig.port,
-      remoteAegisPath: sshConfig.remoteAegisPath,
+      remoteAegis AI Enterprise Autonomous PlatformPath: sshConfig.remoteAegis AI Enterprise Autonomous PlatformPath,
       remoteProfile: sshConfig.remoteProfile,
       user: sshConfig.user
     }
@@ -9693,7 +9693,7 @@ function registryPrimaryIsRemote() {
 // True when the PRIMARY profile's backend resolves to a remote/cloud host —
 // i.e. resolveRemoteBackend(primaryProfileKey()) would return a descriptor
 // rather than null. Mirrors that function's precedence (per-profile override →
-// env → global) so a startAegis() failure can be classified as remote (never
+// env → global) so a startAegis AI Enterprise Autonomous Platform() failure can be classified as remote (never
 // latch — transient, must stay retryable) vs local (latch to break install
 // loops) BEFORE the throwing resolve/mint runs.
 function primaryBackendIsRemote() {
@@ -9719,7 +9719,7 @@ const globalRemoteSessions = createGlobalRemoteSessionRoute({
   requestPrimary: (path, method, body) => requestJsonForProfile(null, path, method, body as string),
   resolveGlobalRemote: () => resolveRemoteBackend(null),
   resolvePrimary: () => ensureBackend(null, { passive: true }),
-  waitReady: conn => waitForRemoteAegis(conn)
+  waitReady: conn => waitForRemoteAegis AI Enterprise Autonomous Platform(conn)
 })
 
 async function testDesktopConnectionConfig(input: any = {}) {
@@ -9730,7 +9730,7 @@ async function testDesktopConnectionConfig(input: any = {}) {
       user: input.sshUser,
       port: input.sshPort,
       keyPath: input.sshKeyPath,
-      remoteAegisPath: input.sshRemoteAegisPath
+      remoteAegis AI Enterprise Autonomous PlatformPath: input.sshRemoteAegis AI Enterprise Autonomous PlatformPath
     })
 
     if (!sshConfig) {
@@ -9751,7 +9751,7 @@ async function testDesktopConnectionConfig(input: any = {}) {
       for (;;) {
         try {
           await ssh.open()
-          const platform: any = await detectRemotePlatform(ssh, sshConfig.remoteAegisPath || '')
+          const platform: any = await detectRemotePlatform(ssh, sshConfig.remoteAegis AI Enterprise Autonomous PlatformPath || '')
           let aegisPath
           let aegisVersion
           let supported
@@ -9763,8 +9763,8 @@ async function testDesktopConnectionConfig(input: any = {}) {
             aegisVersion = inspection.version
             supported = inspection.supported
           } else {
-            aegisPath = await remoteLifecycle.locateAegis(ssh, sshConfig.remoteAegisPath || '')
-            aegisVersion = await remoteLifecycle.probeAegisVersion(ssh, aegisPath)
+            aegisPath = await remoteLifecycle.locateAegis AI Enterprise Autonomous Platform(ssh, sshConfig.remoteAegis AI Enterprise Autonomous PlatformPath || '')
+            aegisVersion = await remoteLifecycle.probeAegis AI Enterprise Autonomous PlatformVersion(ssh, aegisPath)
             supported = await remoteLifecycle.remoteSupportsSshOwnership(ssh, aegisPath)
           }
 
@@ -9772,7 +9772,7 @@ async function testDesktopConnectionConfig(input: any = {}) {
             return {
               reachable: false,
               sshError: 'update-required',
-              error: 'Update Aegis on the remote host before connecting with Desktop SSH.'
+              error: 'Update Aegis AI Enterprise Autonomous Platform on the remote host before connecting with Desktop SSH.'
             }
           }
 
@@ -9781,8 +9781,8 @@ async function testDesktopConnectionConfig(input: any = {}) {
             sshError: null,
             error: null,
             remotePlatform: `${platform.os}/${platform.arch}`,
-            remoteAegisPath: aegisPath,
-            remoteAegisVersion: aegisVersion,
+            remoteAegis AI Enterprise Autonomous PlatformPath: aegisPath,
+            remoteAegis AI Enterprise Autonomous PlatformVersion: aegisVersion,
             host: sshConfig.user ? `${sshConfig.user}@${sshConfig.host}` : sshConfig.host
           }
         } catch (error: any) {
@@ -9835,7 +9835,7 @@ async function testDesktopConnectionConfig(input: any = {}) {
       token = decryptDesktopSecret(block.token)
     }
   } else {
-    const remote = (await resolveRemoteBackend(key)) || (await startAegis())
+    const remote = (await resolveRemoteBackend(key)) || (await startAegis AI Enterprise Autonomous Platform())
     baseUrl = remote.baseUrl
     token = remote.token
     authMode = normAuthMode(remote.authMode)
@@ -9849,7 +9849,7 @@ async function testDesktopConnectionConfig(input: any = {}) {
   // connects — a separate transport with separate server-side guards (Host/
   // Origin, ws-ticket/token auth). Validating only the HTTP side produced a
   // false-positive "reachable" while the real boot still failed with "Could not
-  // connect to Aegis gateway". Mirror the renderer's connect here so the test
+  // connect to Aegis AI Enterprise Autonomous Platform gateway". Mirror the renderer's connect here so the test
   // reflects the full path the app actually uses.
   const wsUrl = await resolveTestWsUrl(baseUrl, authMode, token, {
     mintTicket: url => mintGatewayWsTicket(url, testHeaders)
@@ -9897,12 +9897,12 @@ function resetBootProgressForReconnect() {
 
 // Reset routing and UI state only. Local callers must await physical teardown.
 // Remote revalidation has no local child and can reset this state directly.
-function resetAegisConnectionState({ soft = false }: { soft?: boolean } = {}): void {
+function resetAegis AI Enterprise Autonomous PlatformConnectionState({ soft = false }: { soft?: boolean } = {}): void {
   backendStartFailure = null
   remoteReauthFailure = null
   globalRemoteSessions.reset()
   remoteLiveness.clear()
-  // The next startAegis() re-reads active-profile.json for its launch profile.
+  // The next startAegis AI Enterprise Autonomous Platform() re-reads active-profile.json for its launch profile.
   primaryProfilePin.clear()
   invalidatePrimaryConnection()
 
@@ -9921,7 +9921,7 @@ function invalidatePrimaryConnection() {
 
 // Re-home the primary backend: reset connection state, then wait for the live
 // dashboard process to actually exit (SIGKILL after 5s) so the next
-// startAegis() spawns fresh instead of racing the dying one. Shared by the
+// startAegis AI Enterprise Autonomous Platform() spawns fresh instead of racing the dying one. Shared by the
 // connection-config and profile switch flows.
 async function teardownPrimaryBackendAndWait({ soft = false }: { soft?: boolean } = {}): Promise<void> {
   const stopping = backendConnectionState.stopProcess(localBackendLifecycle.stop)
@@ -9931,7 +9931,7 @@ async function teardownPrimaryBackendAndWait({ soft = false }: { soft?: boolean 
   }
 
   try {
-    resetAegisConnectionState({ soft })
+    resetAegis AI Enterprise Autonomous PlatformConnectionState({ soft })
     await stopping
   } finally {
     if (soft) {
@@ -9970,7 +9970,7 @@ function broadcastConnectionsChanged(payload: { connectionId: string; reason: 'r
 }
 
 // The profile the primary (window) backend was actually LAUNCHED as. Pinned by
-// startAegis() and cleared when the primary is torn down; while a primary is
+// startAegis AI Enterprise Autonomous Platform() and cleared when the primary is torn down; while a primary is
 // live this must NOT follow active-profile.json (see primary-profile-pin.ts).
 const primaryProfilePin = new PrimaryProfilePin()
 
@@ -9987,7 +9987,7 @@ const launchedProfiles = createLaunchedProfileHost({
   isProfileName: name => PROFILE_NAME_RE.test(name),
   primaryProfile: primaryProfileKey,
   readConfig: readDesktopConnectionConfig,
-  startPrimary: () => startAegis()
+  startPrimary: () => startAegis AI Enterprise Autonomous Platform()
 })
 
 // Options describing the current connection setup for `resolveProfileBackendRoute`.
@@ -10090,7 +10090,7 @@ async function ensureBackend(
       joinPrimaryBoot(request, route, {
         primaryKey: primaryProfileKey,
         resolveRoute: next => resolveProfileBackendRoute(next, profileRouteOptions(next, opts.request)),
-        start: boot => startAegis(boot.key, boot.inheritsPrimary)
+        start: boot => startAegis AI Enterprise Autonomous Platform(boot.key, boot.inheritsPrimary)
       })
     )
 
@@ -10420,7 +10420,7 @@ async function connectRegistryBackend(
     source.headers
   )
 
-  await waitForRemoteAegis(connection)
+  await waitForRemoteAegis AI Enterprise Autonomous Platform(connection)
   poolEntry.remoteBaseUrl = connection.baseUrl
 
   // Remote/cloud backends live on another host too — disable the WSL path
@@ -10487,7 +10487,7 @@ async function restoreManagedPrimarySshBackend(source, profile, correlationId) {
   backendConnectionState.invalidate()
 
   try {
-    return await startAegis()
+    return await startAegis AI Enterprise Autonomous Platform()
   } finally {
     if (managedPrimaryRestoreOwners.get(source.id)?.correlationId === correlationId) {
       managedPrimaryRestoreOwners.delete(source.id)
@@ -10650,10 +10650,10 @@ async function openManagedSshUpdateTransport(
   await ssh.open()
 
   try {
-    const platform: any = await detectRemotePlatform(ssh, config.remoteAegisPath || '')
+    const platform: any = await detectRemotePlatform(ssh, config.remoteAegis AI Enterprise Autonomous PlatformPath || '')
 
     if (platform.os === 'Windows') {
-      const runtime = platform.aegisPath ? platform : await probeWindowsRemote(ssh, config.remoteAegisPath || '')
+      const runtime = platform.aegisPath ? platform : await probeWindowsRemote(ssh, config.remoteAegis AI Enterprise Autonomous PlatformPath || '')
 
       return {
         close: () => ssh.close(),
@@ -10667,8 +10667,8 @@ async function openManagedSshUpdateTransport(
       }
     }
 
-    const aegisPath = await remoteLifecycle.locateAegis(ssh, config.remoteAegisPath || '')
-    const aegisHome = await remoteLifecycle.probeRemoteAegisHome(ssh)
+    const aegisPath = await remoteLifecycle.locateAegis AI Enterprise Autonomous Platform(ssh, config.remoteAegis AI Enterprise Autonomous PlatformPath || '')
+    const aegisHome = await remoteLifecycle.probeRemoteAegis AI Enterprise Autonomous PlatformHome(ssh)
 
     return {
       close: () => ssh.close(),
@@ -10731,10 +10731,10 @@ async function drainManagedSshScope(scope) {
         // exact token first; only recreate the forward when cancellation was
         // confirmed, avoiding a duplicate-bind attempt that masks recovery.
         if (!forwardClosed) {
-          await waitForAegis(`http://127.0.0.1:${state.localPort}`, scope.reuseToken, undefined, 'token')
+          await waitForAegis AI Enterprise Autonomous Platform(`http://127.0.0.1:${state.localPort}`, scope.reuseToken, undefined, 'token')
         } else {
           await state.ssh.forward(state.localPort, state.remotePort)
-          await waitForAegis(`http://127.0.0.1:${state.localPort}`, scope.reuseToken, undefined, 'token')
+          await waitForAegis AI Enterprise Autonomous Platform(`http://127.0.0.1:${state.localPort}`, scope.reuseToken, undefined, 'token')
         }
 
         scope.forwardRestored = true
@@ -10951,7 +10951,7 @@ function assertPoolEntryStillOwned(poolKey: string, entry: any) {
 // Resolve the connection descriptor for a named profile that is not the
 // primary: attach to (or start) its canonical local gateway via
 // `aegis gateway ensure`, or verify and describe its remote. Mirrors the local
-// portion of startAegis() without the boot-progress UI, bootstrap, or
+// portion of startAegis AI Enterprise Autonomous Platform() without the boot-progress UI, bootstrap, or
 // first-run handling (those belong to the primary only). `opts.forceLocal`
 // skips remote resolution entirely (the registry 'local' entry means THIS
 // machine regardless of the v1 routing table); `opts.poolKey` is the
@@ -10971,7 +10971,7 @@ async function dialPoolBackend(profile, entry, opts: { forceLocal?: boolean; poo
   profileDeletionGate.assertCanStart(profile)
 
   if (remote) {
-    await waitForRemoteAegis(remote)
+    await waitForRemoteAegis AI Enterprise Autonomous Platform(remote)
 
     // Recorded on the entry so revalidation can probe this descriptor without
     // awaiting connectionPromise, which may still be pending for a sibling.
@@ -10991,7 +10991,7 @@ async function dialPoolBackend(profile, entry, opts: { forceLocal?: boolean; poo
 
   const connection = await launchedProfiles.startLocally(profile, ensureLocalGateway, async () => {
     const backend = await ensureRuntime(
-      await resolveAegisBackend(['--profile', profile, 'gateway', 'ensure', '--json']),
+      await resolveAegis AI Enterprise Autonomous PlatformBackend(['--profile', profile, 'gateway', 'ensure', '--json']),
       () => assertPoolEntryStillOwned(poolKey, entry)
     )
 
@@ -11001,7 +11001,7 @@ async function dialPoolBackend(profile, entry, opts: { forceLocal?: boolean; poo
     // Never another profile's dotenv credentials from the Desktop env (#68367).
     return runGatewayEnsure(
       { ...backend, env: desktopBackendSpawnEnv(backend.env || {}) },
-      resolveAegisCwd(),
+      resolveAegis AI Enterprise Autonomous PlatformCwd(),
       AEGIS_HOME,
       profileBackendParentEnv({ aegisHome: AEGIS_HOME, profile })
     )
@@ -11040,11 +11040,11 @@ const GATEWAY_RESTART_CLIENT_TIMEOUT_MS = 120_000
 // what answers.
 async function restartLocalGatewayOwner(ownerProfile: string): Promise<void> {
   const result = await runGatewayOwnerRestart(async args => {
-    const backend = await ensureRuntime(await resolveAegisBackend(args), () => undefined)
+    const backend = await ensureRuntime(await resolveAegis AI Enterprise Autonomous PlatformBackend(args), () => undefined)
 
     return runGatewayEnsure(
       { ...backend, env: desktopBackendSpawnEnv(backend.env || {}) },
-      resolveAegisCwd(),
+      resolveAegis AI Enterprise Autonomous PlatformCwd(),
       AEGIS_HOME,
       profileBackendParentEnv({ aegisHome: AEGIS_HOME, profile: ownerProfile }),
       { timeoutMs: GATEWAY_RESTART_CLIENT_TIMEOUT_MS, label: 'aegis gateway restart' }
@@ -11055,11 +11055,11 @@ async function restartLocalGatewayOwner(ownerProfile: string): Promise<void> {
   rememberLog(`[gateway] aegis --profile ${ownerProfile} gateway restart exited ${result.code}${reason ? `: ${reason}` : ''}`)
 }
 
-// A ready gateway whose boot commit differs from this Aegis (it outlived `aegis update`) is
+// A ready gateway whose boot commit differs from this Aegis AI Enterprise Autonomous Platform (it outlived `aegis update`) is
 // restarted once before attaching instead of being re-attached on every dial.
 const restartStaleLocalGateway = createStaleGatewayRestarter(restartLocalGatewayOwner, rememberLog)
 
-// Models-page "Restart Aegis": restart the local gateway behind `profile`'s cached descriptor.
+// Models-page "Restart Aegis AI Enterprise Autonomous Platform": restart the local gateway behind `profile`'s cached descriptor.
 // A remote/SSH descriptor has no gatewayEndpoint, so nothing local is touched for it.
 async function restartAttachedLocalGateway(profile: string): Promise<void> {
   const pending = profile === primaryProfileKey()
@@ -11112,7 +11112,7 @@ async function stopAllPoolBackends() {
  * root — it is machine-scoped and shared with the surviving gateway and
  * other installs; image locks there are the updater's pause/resume job.
  * Runs after the graceful backend teardown, skips the pids it owned and
- * every live Aegis runtime process, so it is only the net for what
+ * every live Aegis AI Enterprise Autonomous Platform runtime process, so it is only the net for what
  * detached. Best effort throughout; see package-process-reap.ts.
  */
 function reapInstallRootedStragglers(excludePids: number[]): void {
@@ -11145,7 +11145,7 @@ function reapInstallRootedStragglers(excludePids: number[]): void {
 }
 
 // Closing Desktop never stops the detached gateway: only processes this app
-// still owns are torn down, and the straggler reap protects every live Aegis
+// still owns are torn down, and the straggler reap protects every live Aegis AI Enterprise Autonomous Platform
 // runtime tree (package-process-reap.ts).
 const backendShutdown = createBackendShutdownCoordinator(async (): Promise<void> => {
   const ownedChildren = IS_WINDOWS ? collectOwnedBackendChildren() : []
@@ -11247,7 +11247,7 @@ async function prepareProfileRenameRequest(request) {
       mainWindow?.reload()
     },
     restartPrimaryBackend: async () => {
-      await startAegis()
+      await startAegis AI Enterprise Autonomous Platform()
     },
     teardownPoolBackendAndWait,
     teardownPrimaryBackendAndWait,
@@ -11272,21 +11272,21 @@ function latchedBootFailure(): Error | null {
   return bootstrapFailure ?? backendStartFailure ?? remoteReauthFailure ?? null
 }
 
-async function startAegis(requestedProfile?: string, inheritsPrimary = false) {
+async function startAegis AI Enterprise Autonomous Platform(requestedProfile?: string, inheritsPrimary = false) {
   // Only the single-instance lock holder may reap/spawn/claim the desktop
   // backend. A lock-losing instance must stay inert even if some path reaches
   // here (e.g. the deferred-quit window before `ready`): its reapOrphans()
   // otherwise SIGTERMs the running instance's live backend (#87295).
   if (!isPrimaryInstance) {
     rememberLog('[boot] non-primary instance: skipping backend machinery')
-    throw new Error('Aegis Desktop is already running in another window.')
+    throw new Error('Aegis AI Enterprise Autonomous Platform Desktop is already running in another window.')
   }
 
   await reapOrphanedBackendsOnce()
   localBackendLifecycle.assertCanStart()
 
   // Latched-failure short-circuit: once bootstrap has failed in this
-  // process, every subsequent startAegis() call re-throws the same error
+  // process, every subsequent startAegis AI Enterprise Autonomous Platform() call re-throws the same error
   // without re-running install.ps1. This prevents the renderer's
   // ensureGatewayOpen retries (and any other getConnection callers) from
   // restarting a 5-10 minute install loop while the user is still reading
@@ -11297,7 +11297,7 @@ async function startAegis(requestedProfile?: string, inheritsPrimary = false) {
   // its "Sign in" button clickable, instead of re-driving boot on every retry.
   //
   // Deliberately silent: this runs on every proxied request while a failure is
-  // latched (ensureBackend -> startAegis), so a log line here would flood the
+  // latched (ensureBackend -> startAegis AI Enterprise Autonomous Platform), so a log line here would flood the
   // bounded rememberLog ring and evict the lines that explain the original
   // failure. The supervisor logs the refusal once in runPrimaryRecoverySpawn.
   const latched = latchedBootFailure()
@@ -11309,7 +11309,7 @@ async function startAegis(requestedProfile?: string, inheritsPrimary = false) {
   // E2E: simulate a boot failure without breaking the real backend. The boot
   // progresses a few steps, then fails with the given error message.
   if (BOOT_FAKE_ERROR) {
-    await advanceBootProgress('backend.resolve', 'Resolving Aegis backend', 8)
+    await advanceBootProgress('backend.resolve', 'Resolving Aegis AI Enterprise Autonomous Platform backend', 8)
     const error = new Error(BOOT_FAKE_ERROR) as any
     error.isBootstrapFailure = true
     bootstrapFailure = error
@@ -11363,7 +11363,7 @@ async function startAegis(requestedProfile?: string, inheritsPrimary = false) {
         signal: localBackendLifecycle.signal,
         assertCurrentAttempt: () => backendConnectionState.assertCurrentAttempt(connectionAttempt),
         advanceBootProgress,
-        waitForRemote: waitForRemoteAegis,
+        waitForRemote: waitForRemoteAegis AI Enterprise Autonomous Platform,
         readProfiles: descriptor => getJsonForBackend(descriptor, '/api/profiles', { timeoutMs: 8_000 }),
         readStatus: descriptor => getJsonForBackend(descriptor, '/api/status', { timeoutMs: 8_000 }),
         connectionProfile: desktopProfilePreferences.connectionProfile,
@@ -11378,7 +11378,7 @@ async function startAegis(requestedProfile?: string, inheritsPrimary = false) {
         windowState: getWindowState
       })
 
-    await advanceBootProgress('backend.resolve', 'Resolving Aegis backend', 8)
+    await advanceBootProgress('backend.resolve', 'Resolving Aegis AI Enterprise Autonomous Platform backend', 8)
     // Resolve for the desktop's primary profile so a per-profile remote
     // override on the active profile is honored (falls back to env / global).
 
@@ -11402,8 +11402,8 @@ async function startAegis(requestedProfile?: string, inheritsPrimary = false) {
     // Pin the desktop's chosen profile via the global --profile flag. This is
     // deterministic (it wins over the sticky ~/.aegis/active_profile file) and
     // resolves AEGIS_HOME the same way `aegis -p <name>` does on the CLI. A
-    // launch override is persisted into active-profile.json before startAegis,
-    // so Aegis.exe --profile <name> and aegis -p <name> desktop both land
+    // launch override is persisted into active-profile.json before startAegis AI Enterprise Autonomous Platform,
+    // so Aegis AI Enterprise Autonomous Platform.exe --profile <name> and aegis -p <name> desktop both land
     // here. `activeProfile` is the SAME decision that named routing above —
     // never re-read here (#108417). An unset preference keeps the legacy
     // launch so existing installs are unaffected.
@@ -11419,9 +11419,9 @@ async function startAegis(requestedProfile?: string, inheritsPrimary = false) {
         ensureRuntime(backend, () => backendConnectionState.assertCurrentAttempt(connectionAttempt)),
       prepareLocalBackend: () =>
         launchedProfiles.startLocally(activeProfile || primaryProfile, async () => {
-          await advanceBootProgress('backend.runtime', 'Resolving Aegis runtime', 28)
+          await advanceBootProgress('backend.runtime', 'Resolving Aegis AI Enterprise Autonomous Platform runtime', 28)
 
-          return resolveAegisBackend(backendArgs, advanceBootProgress)
+          return resolveAegis AI Enterprise Autonomous PlatformBackend(backendArgs, advanceBootProgress)
         }),
       resolveRemote: () => {
         // Classify immediately before each throwing resolve. This callback runs
@@ -11468,7 +11468,7 @@ async function startAegis(requestedProfile?: string, inheritsPrimary = false) {
 
     const connection = await ensureLocalGateway(() => runGatewayEnsure(
       { ...setup.backend, env: desktopBackendSpawnEnv(setup.backend.env || {}) },
-      resolveAegisCwd(),
+      resolveAegis AI Enterprise Autonomous PlatformCwd(),
       AEGIS_HOME,
       profileBackendParentEnv({ aegisHome: AEGIS_HOME, profile: primaryProfile })
     ), undefined, restartStaleLocalGateway)
@@ -11476,8 +11476,8 @@ async function startAegis(requestedProfile?: string, inheritsPrimary = false) {
     backendConnectionState.assertCurrentAttempt(connectionAttempt)
 
     backendStartFailure = null
-    rememberLog('[backend] Aegis gateway is ready')
-    updateBootProgress({ phase: 'backend.ready', message: 'Aegis gateway is ready', progress: 94, running: true, error: null })
+    rememberLog('[backend] Aegis AI Enterprise Autonomous Platform gateway is ready')
+    updateBootProgress({ phase: 'backend.ready', message: 'Aegis AI Enterprise Autonomous Platform gateway is ready', progress: 94, running: true, error: null })
     bootstrapRepairAttempt = 0
 
     // The primary descriptor names its own profile: a profile-less descriptor
@@ -11756,7 +11756,7 @@ function focusWindow(win) {
   }
 
   // #83998: show() and focus() both seize the Windows OS foreground,
-  // dismissing other apps' native save/confirm dialogs while Aegis streams
+  // dismissing other apps' native save/confirm dialogs while Aegis AI Enterprise Autonomous Platform streams
   // in the background. Reveal without activation, and only take the keyboard
   // when the window doesn't already have focus — a redundant focus() still
   // pumps SetForegroundWindow.
@@ -11782,7 +11782,7 @@ function spawnSecondaryWindow({
     height: SESSION_WINDOW_MIN_HEIGHT,
     minWidth: SESSION_WINDOW_MIN_WIDTH,
     minHeight: SESSION_WINDOW_MIN_HEIGHT,
-    title: 'Aegis',
+    title: 'Aegis AI Enterprise Autonomous Platform',
     titleBarStyle: 'hidden',
     titleBarOverlay: getTitleBarOverlayOptions(),
     trafficLightPosition: IS_MAC ? WINDOW_BUTTON_POSITION : undefined,
@@ -11887,7 +11887,7 @@ function spawnBrowserWindow(tabId) {
     height: BROWSER_WINDOW_HEIGHT,
     minWidth: BROWSER_WINDOW_MIN_WIDTH,
     minHeight: BROWSER_WINDOW_MIN_HEIGHT,
-    title: 'Aegis',
+    title: 'Aegis AI Enterprise Autonomous Platform',
     titleBarStyle: 'hidden',
     titleBarOverlay: getTitleBarOverlayOptions(),
     trafficLightPosition: IS_MAC ? WINDOW_BUTTON_POSITION : undefined,
@@ -11999,7 +11999,7 @@ function createInstanceWindow(
     ...nextInstanceBounds(source),
     minWidth: WINDOW_MIN_WIDTH,
     minHeight: WINDOW_MIN_HEIGHT,
-    title: 'Aegis',
+    title: 'Aegis AI Enterprise Autonomous Platform',
     titleBarStyle: 'hidden',
     titleBarOverlay: getTitleBarOverlayOptions(),
     trafficLightPosition: IS_MAC ? WINDOW_BUTTON_POSITION : undefined,
@@ -12080,7 +12080,7 @@ registerMachineProfile()
 
 // The pet overlay: a single transparent, frameless, always-on-top window that
 // hosts ONLY the floating mascot. Shift-clicking the in-window pet "pops it out"
-// here so it can leave the app's bounds and stay visible while Aegis is
+// here so it can leave the app's bounds and stay visible while Aegis AI Enterprise Autonomous Platform is
 // minimized (Codex-style task-completion glance). It carries no gateway
 // connection of its own — the main renderer is the single source of truth and
 // pushes pet state over IPC (aegis:pet-overlay:state); the overlay just renders
@@ -12128,7 +12128,7 @@ function spawnPetOverlayWindow(bounds) {
     // taskbar/alt-tab entry. On macOS, cmd-tab is app-level and this can make
     // the whole app look like it vanished when the only newly-created visible
     // window is a frameless overlay. Use NSPanel + Mission Control hiding below
-    // instead, leaving the main Aegis app as the Dock/cmd-tab anchor.
+    // instead, leaving the main Aegis AI Enterprise Autonomous Platform app as the Dock/cmd-tab anchor.
     skipTaskbar: !IS_MAC,
     hasShadow: false,
     alwaysOnTop: true,
@@ -12138,7 +12138,7 @@ function spawnPetOverlayWindow(bounds) {
     hiddenInMissionControl: IS_MAC,
     // Non-activating: the overlay must never become the app's key/main window,
     // or it (a frameless, taskbar-skipping panel) becomes the app's switcher
-    // anchor and the Aegis icon drops out of cmd/alt-tab — especially when the
+    // anchor and the Aegis AI Enterprise Autonomous Platform icon drops out of cmd/alt-tab — especially when the
     // main window is minimized. We flip this on only while the composer needs
     // the keyboard (see aegis:pet-overlay:set-focusable).
     focusable: false,
@@ -12181,7 +12181,7 @@ function spawnPetOverlayWindow(bounds) {
   try {
     // Electron docs: macOS may transform process type on each
     // setVisibleOnAllWorkspaces() call unless skipTransformProcessType=true,
-    // which briefly hides the Dock/cmd-tab presence. Keep Aegis in the normal
+    // which briefly hides the Dock/cmd-tab presence. Keep Aegis AI Enterprise Autonomous Platform in the normal
     // ForegroundApplication class so shift-clicking the pet never drops the app
     // out of app switchers.
     win.setVisibleOnAllWorkspaces(
@@ -12308,7 +12308,7 @@ function rehomePetOverlay() {
 // ── HUD mode ────────────────────────────────────────────────────────────────
 //
 // The chrome-free floating chat: a transparent, frameless, always-on-top
-// window showing only the composer and its scrollback, so Aegis can be driven
+// window showing only the composer and its scrollback, so Aegis AI Enterprise Autonomous Platform can be driven
 // while the user works in another app.
 //
 // Unlike the pet overlay / quick entry, this is a FULL app renderer with its
@@ -12326,7 +12326,7 @@ const hudWindows = new WeakSet<BrowserWindow>()
 // live main window exists at HUD-open time, visible or not: the HUD hides the
 // app window itself, so a main window minimized or behind another app when
 // the HUD opened still needs a surface back — arming only on `isVisible()`
-// left the user with NO Aegis window after the second toggle (#88513).
+// left the user with NO Aegis AI Enterprise Autonomous Platform window after the second toggle (#88513).
 let hudRestoreMainWindow = false
 
 // The session the HUD is currently on, reported by its renderer whenever the
@@ -13084,7 +13084,7 @@ function createWindow() {
     ),
     minWidth: WINDOW_MIN_WIDTH,
     minHeight: WINDOW_MIN_HEIGHT,
-    title: 'Aegis',
+    title: 'Aegis AI Enterprise Autonomous Platform',
     // Frameless title bar on every platform so the renderer can paint the
     // "hide sidebar" button (and other left-side titlebar tools) flush with
     // the top edge — matching the macOS layout where the traffic lights sit
@@ -13223,7 +13223,7 @@ function createWindow() {
               LINUX_GPU_SOFTWARE_ACTIVE ||
               linuxGpuFallbackActive ||
               alreadyHasDisableGpu(process.argv, process.env) ||
-              isAegisDesktopGpuOverrideOff(process.env)
+              isAegis AI Enterprise Autonomous PlatformDesktopGpuOverrideOff(process.env)
 
             const gpuChildPresent = app
               .getAppMetrics()
@@ -13335,7 +13335,7 @@ function createWindow() {
             windowsGpuStackCookieFallbackActive ||
             alreadyHasDisableGpu(process.argv, process.env),
           relaunchAttempted: windowsGpuStackCookieRelaunchAttempted,
-          gpuOverrideOff: isAegisDesktopGpuOverrideOff(process.env)
+          gpuOverrideOff: isAegis AI Enterprise Autonomous PlatformDesktopGpuOverrideOff(process.env)
         }
 
         if (shouldRelaunchForRendererStackCookieCrashLoop(stackCookieCrashLoop)) {
@@ -13450,7 +13450,7 @@ function createWindow() {
         const exit = details?.exitCode === undefined ? '' : `, exit code ${String(details.exitCode)}`
         rememberLog(`[renderer:main] renderer terminated while live (reason=${reason}${exit}); surfacing recovery page`)
         void loadRendererLoadErrorPage(mainWindow, {
-          title: 'Aegis desktop UI was terminated',
+          title: 'Aegis AI Enterprise Autonomous Platform desktop UI was terminated',
           errorDescription:
             `The desktop UI process was terminated unexpectedly (reason: ${reason}${exit}). ` +
             'Your sessions and the background gateway are unaffected — reload to continue.',
@@ -13510,7 +13510,7 @@ function createWindow() {
   // shared (backendConnectionState), so the renderer's getConnection() joins
   // this in-flight boot instead of duplicating it; early boot-progress events
   // the renderer misses are recovered by its getBootProgress() pull on mount.
-  const startup = defaultRoute ? connectDesktopProfileRoute(defaultRoute) : startAegis()
+  const startup = defaultRoute ? connectDesktopProfileRoute(defaultRoute) : startAegis AI Enterprise Autonomous Platform()
   startup.catch(error => rememberLog(error.stack || error.message))
 
   mainWindow.webContents.once('did-finish-load', () => {
@@ -13544,7 +13544,7 @@ async function connectDesktopProfileRoute(route: DesktopProfileRoute, sender?: E
   )
 
   // Every republish carries LIVE window state (#102451): the backend pool entry
-  // (and the getWindowState() snapshot startAegis baked into it) outlives
+  // (and the getWindowState() snapshot startAegis AI Enterprise Autonomous Platform baked into it) outlives
   // reloads, reconnects and sleep/wake, so a reply built only from the cached
   // descriptor overwrites the renderer's live fullscreen flag with the
   // mint-time snapshot. Reading the caller's state HERE keeps registry-scoped,
@@ -13613,7 +13613,7 @@ ipcMain.on('aegis:connection:active-route', (event, route) => recordWindowConnec
 // so the 'exit'/'error' handlers that would clear a dead connection promise never
 // fire — once the remote becomes unreachable across a sleep/wake the renderer
 // re-dials the same dead descriptor forever and the composer stays stuck on
-// "Starting Aegis…". Before the renderer's backoff loop reconnects, it asks us
+// "Starting Aegis AI Enterprise Autonomous Platform…". Before the renderer's backoff loop reconnects, it asks us
 // to confirm the cached PRIMARY backend is still reachable; if a remote one is
 // not, we drop the cache so the next getConnection() rebuilds it. Local backends
 // self-heal via their child 'exit' handler, so we never touch them here.
@@ -13636,7 +13636,7 @@ ipcMain.handle('aegis:connection:revalidate', async () => {
         currentConnectionPromise: () => backendConnectionState.getPromise(),
         log: rememberLog,
         probe: (connection, path, options) => fetchJsonForBackend(connection, path, options),
-        resetConnection: () => resetAegisConnectionState({ soft: true }),
+        resetConnection: () => resetAegis AI Enterprise Autonomous PlatformConnectionState({ soft: true }),
         tracker: remoteLiveness
       }),
       revalidatePool()
@@ -13777,10 +13777,10 @@ ipcMain.handle('aegis:window:openInTerminal', async (_event, sessionId, opts) =>
 
   try {
     const profile = typeof opts?.profile === 'string' ? opts.profile.trim() : ''
-    const backend = await resolveAegisBackend(tuiResumeArgs(sessionId.trim(), profile || undefined))
+    const backend = await resolveAegis AI Enterprise Autonomous PlatformBackend(tuiResumeArgs(sessionId.trim(), profile || undefined))
 
     if (!backend.command) {
-      return { ok: false, error: 'Aegis is not installed yet' }
+      return { ok: false, error: 'Aegis AI Enterprise Autonomous Platform is not installed yet' }
     }
 
     const { cwd } = sanitizeWorkspaceCwd(opts?.cwd)
@@ -13890,7 +13890,7 @@ ipcMain.handle('aegis:backend:recycle', async (_event, profile) => {
 })
 ipcMain.handle('aegis:bootstrap:reset', async () => {
   // Renderer's "Reload and retry" path. Clear the latched failure and
-  // reset connection state so the next startAegis() call restarts the
+  // reset connection state so the next startAegis AI Enterprise Autonomous Platform() call restarts the
   // full backend flow (including a fresh runBootstrap pass).
   rememberLog('[bootstrap] reset requested by renderer; clearing latched failure')
   await teardownPrimaryBackendAndWait()
@@ -13914,7 +13914,7 @@ ipcMain.handle('aegis:bootstrap:repair', async (): Promise<{ ok: boolean; bundle
     return { ok: false, error: 'bundled-immutable' }
   }
 
-  // Forceful repair: force the next startAegis() through the full installer
+  // Forceful repair: force the next startAegis AI Enterprise Autonomous Platform() through the full installer
   // (refreshing a broken/partial venv) and clear any latched failure + live
   // connection. The renderer reloads afterwards to re-drive the boot flow.
   //
@@ -13952,7 +13952,7 @@ ipcMain.handle('aegis:bootstrap:repair', async (): Promise<{ ok: boolean; bundle
   // The guard may decide the install is healthy enough that a restart
   // (without touching the venv) is the right answer. Translate that into
   // the existing flag: if the guard said "soft restart", we skip the
-  // "bypass active runtime" path inside startAegis() and fall through
+  // "bypass active runtime" path inside startAegis AI Enterprise Autonomous Platform() and fall through
   // to the normal restart branch, which just kills the current child
   // and respawns it against the same venv. See #74874 — this is what
   // breaks the infinite reinstall loop the user hit.
@@ -14002,7 +14002,7 @@ ipcMain.handle('aegis:bootstrap:get', async () => getBootstrapState())
 ipcMain.handle('aegis:local-backend:probe', async () => {
   // Resolution only. ensureRuntime/runBootstrap must not start from a hover
   // or a click that has not confirmed the install.
-  const backend = await resolveAegisBackend([])
+  const backend = await resolveAegis AI Enterprise Autonomous PlatformBackend([])
 
   return { bootstrapNeeded: backend?.kind === 'bootstrap-needed' }
 })
@@ -14200,7 +14200,7 @@ ipcMain.handle('aegis:connections:test', async (_event, id) => {
       sshUser: entry.user,
       sshPort: entry.port,
       sshKeyPath: entry.keyPath,
-      sshRemoteAegisPath: entry.remoteAegisPath
+      sshRemoteAegis AI Enterprise Autonomous PlatformPath: entry.remoteAegis AI Enterprise Autonomous PlatformPath
     })
 
     if (result?.reachable) {
@@ -14225,7 +14225,7 @@ ipcMain.handle('aegis:connections:test', async (_event, id) => {
   let testHeaders = {}
 
   if (entry.kind === 'local') {
-    const local = await startAegis()
+    const local = await startAegis AI Enterprise Autonomous Platform()
     baseUrl = local.baseUrl
     token = local.token
     authMode = normAuthMode(local.authMode)
@@ -14309,7 +14309,7 @@ async function probeSshProfileInventory(connection) {
     user: connection.user,
     port: connection.port,
     keyPath: connection.keyPath,
-    remoteAegisPath: connection.remoteAegisPath
+    remoteAegis AI Enterprise Autonomous PlatformPath: connection.remoteAegis AI Enterprise Autonomous PlatformPath
   })
 
   if (!sshConfig) {
@@ -14322,8 +14322,8 @@ async function probeSshProfileInventory(connection) {
   )
 
   try {
-    const platform = await ssh.open().then(() => detectRemotePlatform(ssh, sshConfig.remoteAegisPath || ''))
-    const profiles = await remoteLifecycle.listRemoteAegisProfiles(ssh, platform)
+    const platform = await ssh.open().then(() => detectRemotePlatform(ssh, sshConfig.remoteAegis AI Enterprise Autonomous PlatformPath || ''))
+    const profiles = await remoteLifecycle.listRemoteAegis AI Enterprise Autonomous PlatformProfiles(ssh, platform)
 
     if (profiles.length > 0) {
       sshRosterCache.set(connection.id, profiles)
@@ -14842,7 +14842,7 @@ ipcMain.handle('aegis:connection-config:oauth-login', async (_event, rawUrl, raw
 
       nativeAccessTokenCoordinator.storeTokens(baseUrl, tokens)
       // Confirmed sign-in — release the reauth latch so the next
-      // startAegis() re-dials instead of replaying the stale rejection.
+      // startAegis AI Enterprise Autonomous Platform() re-dials instead of replaying the stale rejection.
       remoteReauthFailure = null
 
       return { ok: true, baseUrl, connected: true, connectionId: loginConnectionId || undefined }
@@ -14904,7 +14904,7 @@ ipcMain.handle('aegis:connection-config:oauth-logout', async (_event, rawUrl) =>
   return { ok: true, connected }
 })
 
-// --- Aegis Cloud (cloud-auto-discovery Phase 3) ---
+// --- Aegis AI Enterprise Autonomous Platform Cloud (cloud-auto-discovery Phase 3) ---
 // One portal login in the OAuth partition powers both discovery and the silent
 // per-agent cascade. See the discovery/cascade helpers above.
 ipcMain.handle('aegis:cloud:status', async () => ({
@@ -15084,7 +15084,7 @@ registerPreviewSignins({
 
     return { profile: route.profile, local: connection.mode !== 'remote' }
   },
-  exportSignins: async profile => runSigninExport(await ensureRuntime(await resolveAegisBackend(['--profile', profile, 'browser', 'export-signins', '--json']), () => undefined), resolveAegisCwd(), AEGIS_HOME, profileBackendParentEnv({ aegisHome: AEGIS_HOME, profile }))
+  exportSignins: async profile => runSigninExport(await ensureRuntime(await resolveAegis AI Enterprise Autonomous PlatformBackend(['--profile', profile, 'browser', 'export-signins', '--json']), () => undefined), resolveAegis AI Enterprise Autonomous PlatformCwd(), AEGIS_HOME, profileBackendParentEnv({ aegisHome: AEGIS_HOME, profile }))
 })
 
 ipcMain.on('aegis:f12ShortcutActive', (event, active) => {
@@ -15544,7 +15544,7 @@ async function teardownConnectionScopedProfileBackend(connectionId, profile) {
   ])
 }
 
-async function handleAegisApiRequest(request) {
+async function handleAegis AI Enterprise Autonomous PlatformApiRequest(request) {
   // Registry-pinned request (request.connectionId): the renderer is working
   // against a REGISTERED gateway connection, so the data — cron jobs and their
   // run sessions included — lives in THAT host's state.db, not any local
@@ -15565,12 +15565,12 @@ async function handleAegisApiRequest(request) {
           kind: () => registryConnectionKind(registryConnectionId)
         }
       : undefined,
-    () => forwardAegisApiRequest(request, registryConnectionId)
+    () => forwardAegis AI Enterprise Autonomous PlatformApiRequest(request, registryConnectionId)
   )
 }
 
 // Every request the launched-profile host does not answer itself.
-async function forwardAegisApiRequest(request, registryConnectionId) {
+async function forwardAegis AI Enterprise Autonomous PlatformApiRequest(request, registryConnectionId) {
   if (registryConnectionId) {
     if (isAllProfilesSessionListRequest(request?.method, request?.path)) {
       const aggregate = await interceptSessionRequestForRemote(request, registryConnectionId)
@@ -15705,12 +15705,12 @@ ipcMain.handle('aegis:api', async (_event, request) => {
     }
 
     if (!mutatingProfile) {
-      return await handleAegisApiRequest(request)
+      return await handleAegis AI Enterprise Autonomous PlatformApiRequest(request)
     }
 
     const releaseProfileDeletion = profileDeletionGate.acquire(mutatingProfile)
 
-    return await handleAegisApiRequest(request).finally(releaseProfileDeletion)
+    return await handleAegis AI Enterprise Autonomous PlatformApiRequest(request).finally(releaseProfileDeletion)
   } catch (error) {
     // Electron logs "Error occurred in handler for 'aegis:api'" with a full
     // stack for EVERY rejected invoke, and there is no opt-out on the handler.
@@ -16195,7 +16195,7 @@ ipcMain.on('aegis:translucency:support', event => {
 // Feature-flag facts the renderer needs before first paint (same sendSync
 // pattern as translucency). Resolved in feature-flags.ts from the launch
 // argv and the artifact's channel: `--local` (from `aegis desktop --local`
-// or directly on Aegis.exe, a shortcut edit) gates the local-models GUI on
+// or directly on Aegis AI Enterprise Autonomous Platform.exe, a shortcut edit) gates the local-models GUI on
 // stable builds, and canary builds get the same surfaces by default. Launch
 // flags survive self-relaunches because collectRelaunchArgs only strips
 // internal flags.
@@ -16356,7 +16356,7 @@ ipcMain.handle('aegis:quick-entry:submit', (event, payload) => {
   }
 
   if (!mainWindow || mainWindow.isDestroyed()) {
-    return { code: 'no-primary', message: 'The primary Aegis window is unavailable.', ok: false, retryable: true }
+    return { code: 'no-primary', message: 'The primary Aegis AI Enterprise Autonomous Platform window is unavailable.', ok: false, retryable: true }
   }
 
   const target =
@@ -16497,12 +16497,12 @@ ipcMain.handle('aegis:openPreviewInBrowser', async (_event, url) => {
 
 // User-configurable default project directory. The renderer reads this on
 // settings mount and seeds the value into the picker; writing back persists
-// it via writeDefaultProjectDir so resolveAegisCwd picks it up on the next
+// it via writeDefaultProjectDir so resolveAegis AI Enterprise Autonomous PlatformCwd picks it up on the next
 // session spawn (no app restart needed).
 ipcMain.handle('aegis:setting:defaultProjectDir:get', async () => ({
   dir: readDefaultProjectDir(),
   defaultLabel: app.getPath('home'),
-  resolvedCwd: resolveAegisCwd()
+  resolvedCwd: resolveAegis AI Enterprise Autonomous PlatformCwd()
 }))
 
 ipcMain.handle('aegis:workspace:sanitize', async (_event, cwd) => sanitizeWorkspaceCwd(cwd))
@@ -16675,8 +16675,8 @@ ipcMain.handle('aegis:updates:channel:set', async (_event, name: unknown): Promi
   return resolveCheckoutUpdateStrategy().check({ force: true, setChannel: sourceChannelName(name) })
 })
 
-function resolveAegisVersion(scope: { connectionId?: string; profile?: string } = {}): Promise<string> {
-  return resolveGatewayVersion(path => handleAegisApiRequest({ ...scope, path, timeoutMs: 5000 }))
+function resolveAegis AI Enterprise Autonomous PlatformVersion(scope: { connectionId?: string; profile?: string } = {}): Promise<string> {
+  return resolveGatewayVersion(path => handleAegis AI Enterprise Autonomous PlatformApiRequest({ ...scope, path, timeoutMs: 5000 }))
 }
 
 // Renderer-bundle skew: `aegis update` moves the SOURCE TREE, but the UI
@@ -16700,11 +16700,11 @@ async function detectRendererSkew() {
   return checkRendererSkew(resolveUpdateRoot())
 }
 
-// Re-resolve the focused window's live Aegis version just before showing the native About
+// Re-resolve the focused window's live Aegis AI Enterprise Autonomous Platform version just before showing the native About
 // panel, so an in-place `aegis update` shows without a restart. macOS only (no-op elsewhere).
 function showAboutPanelFresh(): void {
   const scope = windowConnectionRoutes.versionScopeFor(BrowserWindow.getFocusedWindow() ?? mainWindow)
-  void Promise.all([detectRendererSkew(), resolveAegisVersion(scope)]).then(([skew, version]) => {
+  void Promise.all([detectRendererSkew(), resolveAegis AI Enterprise Autonomous PlatformVersion(scope)]).then(([skew, version]) => {
     const info: AppVersionInfo = appVersionInfo(INSTALL_STAMP, version, app.getVersion())
     // The product name already identifies canary and commit builds. Never pass
     // through empty/placeholder: the panel would render the bundle's 0.0.0 (#124581).
@@ -16721,7 +16721,7 @@ function showAboutPanelFresh(): void {
 ipcMain.handle('aegis:version', async (_event, scope?: { connectionId?: string; profile?: string }) => {
   const [skew, version, clientVersion] = await Promise.all([
     detectRendererSkew(),
-    resolveAegisVersion(scope),
+    resolveAegis AI Enterprise Autonomous PlatformVersion(scope),
     resolveDesktopClientVersion(INSTALL_STAMP, resolveUpdateRoot(), AEGIS_HOME, app.getVersion())
   ])
 
@@ -16751,7 +16751,7 @@ ipcMain.handle('aegis:version', async (_event, scope?: { connectionId?: string; 
     // Bundled artifacts always run their payload; light artifacts have no
     // runtime and only reach remote backends. External builds classify from
     // the install stamp (git/docker/nix), 'unknown' when it can't be told.
-    aegisRuntime: resolveAegisRuntime(),
+    aegisRuntime: resolveAegis AI Enterprise Autonomous PlatformRuntime(),
     // True when the bundle on disk is not the one this process loaded — a
     // plain app restart (no rebuild, no installer) clears the skew above.
     // Packaged only: a dev `--build-only` rewrites build/install-stamp.json
@@ -16761,7 +16761,7 @@ ipcMain.handle('aegis:version', async (_event, scope?: { connectionId?: string; 
   }
 })
 
-// The About page's "Restart Aegis" button (shown when bundleSwapPending):
+// The About page's "Restart Aegis AI Enterprise Autonomous Platform" button (shown when bundleSwapPending):
 // load the already-swapped bundle without asking the user to quit manually.
 // The relaunch re-executes by path, so the fresh process loads the bundle now there.
 ipcMain.handle('aegis:app:relaunch', async () => {
@@ -16828,7 +16828,7 @@ export function isInstallerCreatedCheckout(root: string | null = ACTIVE_AEGIS_RO
  *  the canonical-root checkout stamp plus the bootstrap marker, or the app
  *  stamp's `source`, so About's Runtime row names
  *  git/docker/nix/desktop-bootstrap instead of a bare "external". */
-function resolveAegisRuntime() {
+function resolveAegis AI Enterprise Autonomous PlatformRuntime() {
   const stamp = INSTALL_STAMP as InstallStamp | null
 
   if (stamp?.payload === 'light') {
@@ -16886,7 +16886,7 @@ function uninstallVenvPython(): string {
 function fallbackUninstallSummary(): UninstallSummaryDetails {
   return {
     aegis_home: AEGIS_HOME,
-    agent_installed: isAegisSourceRoot(ACTIVE_AEGIS_ROOT) && fileExists(uninstallVenvPython()),
+    agent_installed: isAegis AI Enterprise Autonomous PlatformSourceRoot(ACTIVE_AEGIS_ROOT) && fileExists(uninstallVenvPython()),
     gui_installed: true,
     source_built_artifacts: [],
     packaged_app_paths: [],
@@ -16972,7 +16972,7 @@ async function runDesktopUninstall(mode: string): Promise<DesktopUninstallResult
     return {
       ok: false,
       error: 'agent-missing',
-      message: `Can't run the uninstaller: no Aegis agent venv at ${VENV_ROOT}.`
+      message: `Can't run the uninstaller: no Aegis AI Enterprise Autonomous Platform agent venv at ${VENV_ROOT}.`
     }
   }
 
@@ -17091,7 +17091,7 @@ ipcMain.handle('aegis:vscode-theme:search', async (_event, query) => searchMarke
 
 // ---------------------------------------------------------------------------
 // aegis:// deep links (e.g. aegis://blueprint/morning-brief?time=08:00,
-// aegis://mcp/install?name=NAME&config=B64 — the vendor "Add to Aegis"
+// aegis://mcp/install?name=NAME&config=B64 — the vendor "Add to Aegis AI Enterprise Autonomous Platform"
 // button, or aegis://plugin/install?repo=owner/repo). Dev
 // (`AEGIS_DESKTOP_DEV_SERVER`) registers aegis-dev:// instead — bare
 // Electron or a stale OS handler often owns aegis:// on dev machines.
@@ -17252,14 +17252,14 @@ if (!isPrimaryInstance) {
   // Hard-exit, not app.quit(): the before-quit teardown coordinator defers a
   // plain quit (event.preventDefault + async backend shutdown), and in that
   // window `ready` still fires — the lock-losing instance then runs the full
-  // startup (shortcut registration, createWindow → startAegis), whose
+  // startup (shortcut registration, createWindow → startAegis AI Enterprise Autonomous Platform), whose
   // reapOrphans() SIGTERMs the running instance's live backend (#87295).
   // app.exit() terminates immediately, before `ready`, so a second launch
   // routes into the running window and never touches backend machinery.
   app.exit(0)
 } else {
   // Cold-start --profile must win over the stored preference before
-  // startAegis() reads active-profile.json. Only the instance that will
+  // startAegis AI Enterprise Autonomous Platform() reads active-profile.json. Only the instance that will
   // boot writes: a second launch must not retarget the running app. A missing
   // or invalid flag is a no-op, so the stored profile stays.
   try {
@@ -17310,7 +17310,7 @@ app.whenReady().then(async () => {
 
   // Post-update relaunch detection (App Installer arm): when the previous
   // version wrote the one-shot pending-relaunch marker before quitting into
-  // an OS package swap, consume it here — the renderer toasts "Aegis
+  // an OS package swap, consume it here — the renderer toasts "Aegis AI Enterprise Autonomous Platform
   // updated to vX.Y.Z" once its bridge is up. Same-version markers (update
   // never landed) are deleted silently.
   const relaunchInfo: ConsumedRelaunch = consumePendingRelaunch(app, app.getVersion())
@@ -17392,7 +17392,7 @@ app.whenReady().then(async () => {
     profileExists: profile => localProfileIsLive(AEGIS_HOME, profile)
   })
   // Seed this before the first window exists: a picker can open before
-  // startAegis() finishes resolving the configured backend.
+  // startAegis AI Enterprise Autonomous Platform() finishes resolving the configured backend.
   const primaryProfile = primaryProfileKey()
 
   setActiveGatewayProfile(primaryProfile)
@@ -17744,7 +17744,7 @@ app.on('before-quit', event => {
   hudWindow = null
 
   // Same for the Quick Entry composer — and release its global accelerator so a
-  // quitting Aegis never keeps another app's chord hostage.
+  // quitting Aegis AI Enterprise Autonomous Platform never keeps another app's chord hostage.
   closeQuickEntryWindow()
 
   // Quitting mid-install should stop the installer, not orphan it.

@@ -1,4 +1,4 @@
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 // eslint-disable-next-line no-restricted-imports -- Exercise the same serialized errors as the shared client.
 import { jsonRpcErrorFromFrame } from '@aegis/shared'
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
@@ -15,7 +15,7 @@ import { translateBotsIn } from './i18n-test-helper'
 
 const { request, locale } = vi.hoisted(() => ({ request: vi.fn(), locale: { value: 'en' } }))
 vi.mock('@aegis/plugin-sdk', async importOriginal =>
-  localGatewaySdkMock(await importOriginal<typeof AegisSdk>(), request, () => translateBotsIn(locale.value)))
+  localGatewaySdkMock(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>(), request, () => translateBotsIn(locale.value)))
 
 // Captured through AuthorityConnection.dispatch at gateway 62f2b28d15. The fixture generator
 // verifies the durable receipt is absent/present; neither state exposes that receipt to Desktop.

@@ -1,7 +1,7 @@
 import { act, cleanup, renderHook } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { installBrowserDesktopBridge } from '@/lib/browser-desktop-bridge'
 import { createClientSessionState } from '@/lib/chat-runtime'
 import { $sidebarShowArchived } from '@/store/layout'
@@ -48,7 +48,7 @@ function render(
         refreshActiveTranscript: noop,
         refreshCronJobs: noop,
         refreshCurrentModel,
-        refreshAegisConfig: noop,
+        refreshAegis AI Enterprise Autonomous PlatformConfig: noop,
         refreshMessagingSessions: noop,
         refreshSessions,
         requestGateway: gatewayRequest
@@ -156,9 +156,9 @@ describe('useBackgroundSync live-status poll with no session open', () => {
   // A profile picked on top of the shared primary socket (a Webapp tab's live pick, a global remote)
   // is a view of that socket: a request that names no profile is answered for the socket's own
   // profile, so the sidebar dot would show that profile's turns instead of the selected one's.
-  const sharedResearch = { profile: 'research', sharedPrimary: true } as AegisConnection
+  const sharedResearch = { profile: 'research', sharedPrimary: true } as Aegis AI Enterprise Autonomous PlatformConnection
 
-  async function polledParams(connection: AegisConnection | null) {
+  async function polledParams(connection: Aegis AI Enterprise Autonomous PlatformConnection | null) {
     $connection.set(connection)
     const request = vi.fn(async (_method: string, _params?: Record<string, unknown>) => ({ sessions: [] }))
     render('research', 'local', async () => undefined, request as typeof requestGateway)
@@ -193,7 +193,7 @@ describe('useBackgroundSync live-status poll with no session open', () => {
   })
 
   it('names no profile on a socket of the selected profile’s own', async () => {
-    expect(await polledParams({ profile: 'research' } as AegisConnection)).toEqual([{}])
+    expect(await polledParams({ profile: 'research' } as Aegis AI Enterprise Autonomous PlatformConnection)).toEqual([{}])
     cleanup()
     expect(await polledParams(null)).toEqual([{}])
   })
@@ -239,8 +239,8 @@ describe('useBackgroundSync live-status poll with no session open', () => {
     // descriptor to an unflagged local one.
     const getConnection = vi.fn(async (profile?: string) =>
       profile === 'research'
-        ? ({ mode: 'local', profile: 'research', sharedPrimary: true } as AegisConnection)
-        : ({ mode: 'local', profile: 'default' } as AegisConnection)
+        ? ({ mode: 'local', profile: 'research', sharedPrimary: true } as Aegis AI Enterprise Autonomous PlatformConnection)
+        : ({ mode: 'local', profile: 'default' } as Aegis AI Enterprise Autonomous PlatformConnection)
     )
 
     beforeEach(() => {
@@ -270,7 +270,7 @@ describe('useBackgroundSync live-status poll with no session open', () => {
     })
 
     it('names no profile and asks main nothing on the selected profile’s own local descriptor', async () => {
-      expect(await polledParams({ mode: 'local', profile: 'research' } as AegisConnection)).toEqual([{}])
+      expect(await polledParams({ mode: 'local', profile: 'research' } as Aegis AI Enterprise Autonomous PlatformConnection)).toEqual([{}])
       expect(getConnection).not.toHaveBeenCalled()
     })
   })
@@ -351,7 +351,7 @@ describe('useBackgroundSync keeps a quiet working turn live', () => {
     render('default', 'local', async () => undefined, request)
     await act(async () => undefined)
     request.mockImplementation(async () => {
-      throw new Error('Aegis gateway unavailable')
+      throw new Error('Aegis AI Enterprise Autonomous Platform gateway unavailable')
     })
 
     await act(async () => {

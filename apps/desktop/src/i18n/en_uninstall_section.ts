@@ -4,8 +4,8 @@ import type { UninstallSectionTranslations } from './types_uninstall_section'
 export const enUninstallSection: UninstallSectionTranslations = {
   dangerZone: 'Danger zone',
   checkingInstalled: 'Checking what’s installed…',
-  uninstallAegis: 'Uninstall Aegis',
-  managedBody: 'This install is managed by your system, so Aegis cannot remove itself.',
+  uninstallAegis AI Enterprise Autonomous Platform: 'Uninstall Aegis AI Enterprise Autonomous Platform',
+  managedBody: 'This install is managed by your system, so Aegis AI Enterprise Autonomous Platform cannot remove itself.',
   dataKept: path => `Your config, chats, and secrets live in ${path}. Removing the app does not delete them.`,
   openAppsSettings: 'Open Apps settings',
   chooseHowMuch:
@@ -19,18 +19,18 @@ export const enUninstallSection: UninstallSectionTranslations = {
   options: {
     gui: {
       title: 'Uninstall Chat GUI only',
-      description: 'Remove this desktop app. The Aegis agent, your config, and chats all stay.',
+      description: 'Remove this desktop app. The Aegis AI Enterprise Autonomous Platform agent, your config, and chats all stay.',
       consequence: 'the desktop Chat GUI (this app and its data)'
     },
     lite: {
       title: 'Uninstall GUI + agent, keep my data',
-      description: 'Remove the app and the Aegis agent, but keep config, chats, and secrets for a future reinstall.',
-      consequence: 'the Chat GUI and the Aegis agent (config, chats, and secrets are kept)'
+      description: 'Remove the app and the Aegis AI Enterprise Autonomous Platform agent, but keep config, chats, and secrets for a future reinstall.',
+      consequence: 'the Chat GUI and the Aegis AI Enterprise Autonomous Platform agent (config, chats, and secrets are kept)'
     },
     full: {
       title: 'Uninstall everything',
       description: 'Remove the app, the agent, and all user data — config, chats, scheduled jobs, secrets, logs.',
-      consequence: 'EVERYTHING — the Chat GUI, the Aegis agent, and all of your config, chats, secrets, and logs'
+      consequence: 'EVERYTHING — the Chat GUI, the Aegis AI Enterprise Autonomous Platform agent, and all of your config, chats, secrets, and logs'
     }
   }
 }

@@ -95,7 +95,7 @@ test('profile SSH identity includes port, key, paths, and remote profile', () =>
     user: 'aegis',
     port: 2222,
     keyPath: '/keys/a',
-    remoteAegisPath: '/srv/aegis',
+    remoteAegis AI Enterprise Autonomous PlatformPath: '/srv/aegis',
     remoteProfile: 'worker'
   }
 
@@ -119,14 +119,14 @@ test('profile SSH route fails closed when any dial field differs', () => {
     user: 'aegis',
     port: 2222,
     keyPath: '/keys/a',
-    remoteAegisPath: '/srv/aegis',
+    remoteAegis AI Enterprise Autonomous PlatformPath: '/srv/aegis',
     remoteProfile: 'worker'
   }
 
   const variants = [
     { ...ssh, port: 2200 },
     { ...ssh, keyPath: '/keys/b' },
-    { ...ssh, remoteAegisPath: '/opt/aegis' },
+    { ...ssh, remoteAegis AI Enterprise Autonomous PlatformPath: '/opt/aegis' },
     { ...ssh, remoteProfile: 'default' },
     { ...ssh, user: 'other' }
   ]
@@ -177,7 +177,7 @@ test('v1 profile SSH pool key is the profile, not conn:id::profile', () => {
     user: 'aegis',
     port: 2222,
     keyPath: '/keys/a',
-    remoteAegisPath: '/srv/aegis',
+    remoteAegis AI Enterprise Autonomous PlatformPath: '/srv/aegis',
     remoteProfile: 'worker'
   }
 
@@ -351,7 +351,7 @@ test('local config without overrides returns null', () => {
 //
 // "Make primary" on a registered remote gateway only writes connections.json;
 // the v1 config.mode stays 'local'. The route resolver must still expose that
-// remote transport, or startAegis() spawns a loopback `aegis serve` the
+// remote transport, or startAegis AI Enterprise Autonomous Platform() spawns a loopback `aegis serve` the
 // desktop never uses (duplicated MCP sets, port squat, respawn-on-poll).
 
 test('falls back to a REMOTE registry primary when the v1 mode is local (#91564/#90316)', () => {
@@ -378,7 +378,7 @@ test('falls back to a CLOUD registry primary when the v1 mode is local', () => {
       {
         id: 'cloud-1',
         kind: 'cloud',
-        label: 'Aegis Cloud',
+        label: 'Aegis AI Enterprise Autonomous Platform Cloud',
         url: 'https://agent.aegis.cloud',
         authMode: 'oauth',
         org: 'nous'

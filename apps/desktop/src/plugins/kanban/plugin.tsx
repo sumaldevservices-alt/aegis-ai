@@ -14,7 +14,7 @@ import './kanban.css'
 import {
   cn,
   Codicon,
-  type AegisPlugin,
+  type Aegis AI Enterprise Autonomous PlatformPlugin,
   host,
   type KeybindContribution,
   KEYBINDS_AREA,
@@ -78,7 +78,7 @@ function KanbanCount() {
   )
 }
 
-const plugin: AegisPlugin = {
+const plugin: Aegis AI Enterprise Autonomous PlatformPlugin = {
   id: 'kanban',
   name: 'Kanban',
   description: 'Multi-agent task board — board page, sidebar entry, and a live in-flight count in the status bar.',

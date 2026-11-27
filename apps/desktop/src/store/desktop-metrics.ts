@@ -663,7 +663,7 @@ export function completeFlow(flow: DesktopFlowId): void {
 
 /** The primary gateway socket dropped after a healthy boot. Classified a few
  *  seconds later: a backend process exit around it makes it `backend_exit`, a
- *  gateway switch starting in the window (Restart Aegis recycles the backend
+ *  gateway switch starting in the window (Restart Aegis AI Enterprise Autonomous Platform recycles the backend
  *  before the switch flag rises) cancels it. */
 export function noteBackendDrop(reason: 'timeout' | null, now = Date.now()): void {
   if (pendingDrop || $desktopMetricsGate.get() !== 'on') {
@@ -839,7 +839,7 @@ export function trackDesktopVisibleTime(maxSpanMs: number): () => void {
   }
 }
 
-/** Configured bots (Bot Mode roster = Aegis profiles) — a count, never names. */
+/** Configured bots (Bot Mode roster = Aegis AI Enterprise Autonomous Platform profiles) — a count, never names. */
 export function setDesktopBotCount(count: number): void {
   const observed = Math.max(0, Math.floor(finite(count)))
 

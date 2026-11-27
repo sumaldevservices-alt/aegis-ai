@@ -4,14 +4,14 @@
 // extensionless TypeScript directly). No Electron imports here; only node:path.
 //
 // data-paths.ts re-exports these names and adds the TypeScript-facing
-// `AegisHomeOptions` interface. Keep the two in lockstep: every behavior in
+// `Aegis AI Enterprise Autonomous PlatformHomeOptions` interface. Keep the two in lockstep: every behavior in
 // this file is exercised by data-paths.test.ts through the re-export.
 
 import path from 'node:path'
 
 /** A AEGIS_HOME rooted inside a `profiles/` directory names the profile's
  * parent (the home), not the profile directory itself. */
-function normalizeAegisHomeRoot(aegisHome, pathModule) {
+function normalizeAegis AI Enterprise Autonomous PlatformHomeRoot(aegisHome, pathModule) {
   if (!aegisHome) {
     return aegisHome
   }
@@ -23,7 +23,7 @@ function normalizeAegisHomeRoot(aegisHome, pathModule) {
   return resolved
 }
 
-export function platformDefaultAegisHome(home, env = process.env, platform = process.platform) {
+export function platformDefaultAegis AI Enterprise Autonomous PlatformHome(home, env = process.env, platform = process.platform) {
   const suffix = env.AEGIS_DATA_DIR_SUFFIX || ''
   if (platform === 'win32') {
     const base = (env.LOCALAPPDATA || '').trim() || path.win32.join(home, 'AppData', 'Local')
@@ -38,12 +38,12 @@ export function resolveDesktopUserData(defaultPath, env = process.env) {
     : defaultPath + (env.AEGIS_DATA_DIR_SUFFIX || '')
 }
 
-export function resolveDesktopAegisHome({ home, env = process.env, platform = process.platform, directoryExists = () => false, readWindowsHome = () => null }) {
+export function resolveDesktopAegis AI Enterprise Autonomous PlatformHome({ home, env = process.env, platform = process.platform, directoryExists = () => false, readWindowsHome = () => null }) {
   const paths = platform === 'win32' ? path.win32 : path.posix
   if (env.AEGIS_HOME) {
-    return normalizeAegisHomeRoot(env.AEGIS_HOME, paths)
+    return normalizeAegis AI Enterprise Autonomous PlatformHomeRoot(env.AEGIS_HOME, paths)
   }
-  // Fresh-install rehearsals must not touch the real Aegis home.
+  // Fresh-install rehearsals must not touch the real Aegis AI Enterprise Autonomous Platform home.
   if (env.AEGIS_DESKTOP_USER_DATA_DIR) {
     return paths.join(paths.resolve(env.AEGIS_DESKTOP_USER_DATA_DIR), 'aegis-home')
   }
@@ -51,10 +51,10 @@ export function resolveDesktopAegisHome({ home, env = process.env, platform = pr
     // Explorer can miss setx changes. An explicit empty value opts out of that fallback.
     const registryHome = readWindowsHome()
     if (registryHome) {
-      return normalizeAegisHomeRoot(registryHome, paths)
+      return normalizeAegis AI Enterprise Autonomous PlatformHomeRoot(registryHome, paths)
     }
   }
-  const defaultHome = platformDefaultAegisHome(home, env, platform)
+  const defaultHome = platformDefaultAegis AI Enterprise Autonomous PlatformHome(home, env, platform)
   // Keep the legacy migration for ordinary installs, not isolated suffix runs.
   if (platform === 'win32' && !env.AEGIS_DATA_DIR_SUFFIX) {
     const legacy = paths.join(home, '.aegis')

@@ -9,7 +9,7 @@ import { parseLocalRuntimeVersion, resolveLocalRuntimeVersion, type VersionProbe
 
 describe('local client version source', (): void => {
   it('parses the exact version line emitted by the local launcher', (): void => {
-    expect(parseLocalRuntimeVersion('Aegis Agent v0.21.5+6644.gb412ee9 (2026.9.24)\n')).toBe('0.21.5+6644.gb412ee9')
+    expect(parseLocalRuntimeVersion('Aegis AI Enterprise Autonomous Platform Agent v0.21.5+6644.gb412ee9 (2026.9.24)\n')).toBe('0.21.5+6644.gb412ee9')
     expect(parseLocalRuntimeVersion('gateway: v0.21.5+6634\n')).toBe('')
   })
 
@@ -21,7 +21,7 @@ describe('local client version source', (): void => {
       expect(options.maxBuffer).toBe(64 * 1024)
       expect(options.env.AEGIS_HOME).toBe('/isolated/home')
 
-      return 'Aegis Agent v0.21.5+6644.gb412ee9 (local)\n'
+      return 'Aegis AI Enterprise Autonomous Platform Agent v0.21.5+6644.gb412ee9 (local)\n'
     })
 
     await expect(resolveLocalRuntimeVersion('/isolated/aegis', '/isolated/home', {
@@ -66,7 +66,7 @@ describe('local client version source', (): void => {
         fs.mkdirSync(path.join(home, 'bin'), { recursive: true })
         fs.writeFileSync(
           path.join(home, 'bin', 'aegis'),
-          `#!/bin/sh\nsleep 1\nprintf '%s\\n' 'Aegis Agent v1.2.3 (2026.10.1)' 'Install directory: ${root}'\n`,
+          `#!/bin/sh\nsleep 1\nprintf '%s\\n' 'Aegis AI Enterprise Autonomous Platform Agent v1.2.3 (2026.10.1)' 'Install directory: ${root}'\n`,
           { mode: 0o755 }
         )
 

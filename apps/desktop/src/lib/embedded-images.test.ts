@@ -68,7 +68,7 @@ describe('extractImageRefs', () => {
   })
 
   it('lifts a backtick-quoted ref so a path with spaces survives intact', () => {
-    const ref = '@image:`/Users/me/Library/Application Support/Aegis/composer-images/a.png`'
+    const ref = '@image:`/Users/me/Library/Application Support/Aegis AI Enterprise Autonomous Platform/composer-images/a.png`'
     const result = extractImageRefs(`${ref}\nwhat is this?`)
 
     expect(result).toEqual({ cleanedText: 'what is this?', refs: [ref] })

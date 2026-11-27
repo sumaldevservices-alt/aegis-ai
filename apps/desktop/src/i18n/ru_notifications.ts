@@ -4,7 +4,7 @@ export const ruNotifications = {
   intro: 'Системные уведомления (не всплывающие внутри приложения). Настраивается для каждого устройства.',
   enableAll: 'Включить уведомления',
   enableAllDesc: 'Если выключено — все уведомления ниже будут заглушены.',
-  focusedHint: 'Оповещения о завершении срабатывают только пока Aegis в фоне.',
+  focusedHint: 'Оповещения о завершении срабатывают только пока Aegis AI Enterprise Autonomous Platform в фоне.',
   kinds: {
     approval: {
       label: 'Нужно одобрение',
@@ -12,11 +12,11 @@ export const ruNotifications = {
     },
     input: {
       label: 'Нужен ввод',
-      description: 'Aegis задал вопрос или требует пароль/секрет.'
+      description: 'Aegis AI Enterprise Autonomous Platform задал вопрос или требует пароль/секрет.'
     },
     turnDone: {
       label: 'Ответ готов',
-      description: 'Ход завершился, пока Aegis был в фоне.'
+      description: 'Ход завершился, пока Aegis AI Enterprise Autonomous Platform был в фоне.'
     },
     turnError: {
       label: 'Ход не удался',
@@ -32,7 +32,7 @@ export const ruNotifications = {
     },
     plugin: {
       label: 'Уведомления плагинов',
-      description: 'Плагин приложения отправил уведомление, пока Aegis был в фоне.'
+      description: 'Плагин приложения отправил уведомление, пока Aegis AI Enterprise Autonomous Platform был в фоне.'
     }
   },
   browserPermission: {
@@ -49,15 +49,15 @@ export const ruNotifications = {
   },
   phonePresence: {
     title: 'Этот компьютер для уведомлений на телефоне',
-    description: 'Что это окно сообщает Aegis о том, что вы здесь. Что с этим делать, решает плагин уведомлений на телефон.',
+    description: 'Что это окно сообщает Aegis AI Enterprise Autonomous Platform о том, что вы здесь. Что с этим делать, решает плагин уведомлений на телефон.',
     unsupported: 'На этом бэкенде уведомления на телефоне не зависят от вашей активности.',
     disconnected: 'Нет подключения.',
-    watchingComputer: (time: string) => `Пока в этом окне открыт разговор, Aegis узнаёт, когда вы последний раз пользовались этим компьютером. Последний ввод ${time} назад.`,
-    watchingWindow: (time: string) => `Пока в этом окне открыт разговор, Aegis узнаёт, когда вы последний раз пользовались этим окном. Последний ввод ${time} назад.`,
-    watchingWindowNoInput: 'Пока в этом окне открыт разговор, Aegis узнаёт, когда вы последний раз пользовались этим окном. Ввода пока не было.'
+    watchingComputer: (time: string) => `Пока в этом окне открыт разговор, Aegis AI Enterprise Autonomous Platform узнаёт, когда вы последний раз пользовались этим компьютером. Последний ввод ${time} назад.`,
+    watchingWindow: (time: string) => `Пока в этом окне открыт разговор, Aegis AI Enterprise Autonomous Platform узнаёт, когда вы последний раз пользовались этим окном. Последний ввод ${time} назад.`,
+    watchingWindowNoInput: 'Пока в этом окне открыт разговор, Aegis AI Enterprise Autonomous Platform узнаёт, когда вы последний раз пользовались этим окном. Ввода пока не было.'
   },
   test: 'Отправить тестовое уведомление',
-  testTitle: 'Aegis',
+  testTitle: 'Aegis AI Enterprise Autonomous Platform',
   testBody: 'Уведомления работают.',
   testSent:
     'Тест отправлен. Если ничего не появилось, проверьте разрешения на уведомления в системе и режим «Не беспокоить».',

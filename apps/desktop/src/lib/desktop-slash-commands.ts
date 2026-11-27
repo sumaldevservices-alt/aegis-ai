@@ -93,7 +93,7 @@ export type DesktopActionId =
 /** A command fulfilled by opening a desktop overlay picker. */
 export type DesktopPickerId = 'model' | 'session'
 
-/** Why a known Aegis command has no desktop UI surface. */
+/** Why a known Aegis AI Enterprise Autonomous Platform command has no desktop UI surface. */
 export type DesktopUnavailableReason = 'advanced' | 'composer-voice' | 'messaging' | 'settings' | 'terminal'
 
 /**
@@ -232,7 +232,7 @@ const DESKTOP_COMMAND_SPECS: readonly DesktopCommandSpec[] = [
     surface: action('handoff'),
     argumentMode: 'options'
   },
-  { name: '/profile', description: 'Switch the active Aegis profile', surface: action('profile') },
+  { name: '/profile', description: 'Switch the active Aegis AI Enterprise Autonomous Platform profile', surface: action('profile') },
   {
     name: '/skin',
     description: 'Switch desktop theme or cycle to the next one',
@@ -291,7 +291,7 @@ const DESKTOP_COMMAND_SPECS: readonly DesktopCommandSpec[] = [
     argumentMode: 'text'
   },
   // /bg (alias /background) must be an action (prompt.background RPC — the
-  // TUI's path), not exec: the slash worker's AegisCLI prints the completion
+  // TUI's path), not exec: the slash worker's Aegis AI Enterprise Autonomous PlatformCLI prints the completion
   // from a fire-and-forget thread after process_command already returned,
   // past the worker's stdout capture window, so the result never reached the
   // desktop conversation that started the task (#97635, #57444).
@@ -719,7 +719,7 @@ export function isSideTaskSlashCommand(text: string): boolean {
   return surface?.kind === 'action' && SIDE_TASK_ACTIONS.has(surface.action)
 }
 
-function isKnownAegisSlashCommand(command: string): boolean {
+function isKnownAegis AI Enterprise Autonomous PlatformSlashCommand(command: string): boolean {
   const normalized = normalizeCommand(command)
 
   if (SPEC_BY_NAME.has(normalized) || ALIAS_TO_CANONICAL.has(normalized)) {
@@ -731,7 +731,7 @@ function isKnownAegisSlashCommand(command: string): boolean {
 
 /**
  * An "extension" command is anything the backend surfaces that is NOT one of
- * Aegis' built-in slash commands — i.e. skill commands (`/gif-search`,
+ * Aegis AI Enterprise Autonomous Platform' built-in slash commands — i.e. skill commands (`/gif-search`,
  * `/codex`, …) and user-defined quick commands. These are user-activated, so
  * they appear in the desktop slash palette and execute when typed.
  */
@@ -742,7 +742,7 @@ export function isDesktopSlashExtensionCommand(command: string): boolean {
     return false
   }
 
-  return !isKnownAegisSlashCommand(normalized)
+  return !isKnownAegis AI Enterprise Autonomous PlatformSlashCommand(normalized)
 }
 
 /**
@@ -915,7 +915,7 @@ export function desktopSkinSlashCompletions(
  * skills someone reaches for daily under a hundred they have never opened.
  *
  * `pruneUnusedBuiltins` additionally drops bundled skills with no recorded
- * activity — the ones that ship with Aegis and were never asked for. It is
+ * activity — the ones that ship with Aegis AI Enterprise Autonomous Platform and were never asked for. It is
  * for BROWSING (a bare `/`) only: typing a query is a search, and a search
  * must never hide a match.
  *

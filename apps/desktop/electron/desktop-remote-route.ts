@@ -16,7 +16,7 @@ interface SshRouteConfig {
   keyPath?: string
   mode: 'ssh'
   port?: number
-  remoteAegisPath?: string
+  remoteAegis AI Enterprise Autonomous PlatformPath?: string
   remoteProfile?: string
   user?: string
 }
@@ -138,7 +138,7 @@ export function resolveDesktopRemoteRoute({
     if (!envToken) {
       throw new Error(
         'AEGIS_DESKTOP_REMOTE_URL is set but AEGIS_DESKTOP_REMOTE_TOKEN is not. ' +
-          'Both must be provided to connect to a remote Aegis backend.'
+          'Both must be provided to connect to a remote Aegis AI Enterprise Autonomous Platform backend.'
       )
     }
 

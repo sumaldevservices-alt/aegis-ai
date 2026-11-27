@@ -10,7 +10,7 @@ export interface PluginProfileRoute {
   primary?: true
   /** Desktop profile used to select the connection route. */
   profile: string
-  /** Backend Aegis profile served by that route. */
+  /** Backend Aegis AI Enterprise Autonomous Platform profile served by that route. */
   targetProfile: string
 }
 

@@ -18,7 +18,7 @@ const gatewayMocks = vi.hoisted(() => ({
 
 vi.mock('@/aegis', () => ({
   setApiRequestConnection: vi.fn(),
-  AegisGateway: class {
+  Aegis AI Enterprise Autonomous PlatformGateway: class {
     connectionState = 'closed'
     wsUrl = ''
     connect = async (wsUrl: string): Promise<void> => {

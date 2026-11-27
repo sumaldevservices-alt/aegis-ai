@@ -470,7 +470,7 @@ describe('renderRpcResult', () => {
 
   describe('session.status', () => {
     it('passes through the multi-line plain-text output verbatim', () => {
-      const output = 'Aegis TUI Status\n\nSession ID: s-1\nModel: nous-aegis-3 (unknown)'
+      const output = 'Aegis AI Enterprise Autonomous Platform TUI Status\n\nSession ID: s-1\nModel: nous-aegis-3 (unknown)'
       expect(renderRpcResult({ output }, 'status')).toBe(output)
     })
   })

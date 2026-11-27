@@ -5,7 +5,7 @@
  * so a remote/SSH/Cloud connection (another machine) never imports. Main decides "local" from the route's
  * resolved connection, never from a renderer flag.
  *
- * No cookie decryption here or in the backend: the user's real browser, running on the Aegis-owned profile
+ * No cookie decryption here or in the backend: the user's real browser, running on the Aegis AI Enterprise Autonomous Platform-owned profile
  * snapshot, decrypts its own store, and `aegis browser export-signins --json` (a local child of the owning
  * profile, which re-checks consent itself) reads it over CDP and writes the list to its stdout pipe. Values
  * go from that pipe straight into the partition's cookie jar; the renderer gets counts only. The identities
@@ -87,7 +87,7 @@ export function runSigninExport(
 ): Promise<ExportVerdict> {
   return new Promise(resolve => {
     if (!backend.command) {
-      resolve({ status: 'error', error: 'Aegis runtime is not available' })
+      resolve({ status: 'error', error: 'Aegis AI Enterprise Autonomous Platform runtime is not available' })
 
       return
     }
@@ -121,7 +121,7 @@ export function runSigninExport(
     })
     child.on('error', () => {
       clearTimeout(timer)
-      resolve({ status: 'error', error: 'could not run the Aegis sign-in export' })
+      resolve({ status: 'error', error: 'could not run the Aegis AI Enterprise Autonomous Platform sign-in export' })
     })
     child.on('close', code => {
       clearTimeout(timer)

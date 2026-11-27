@@ -280,7 +280,7 @@ function fromClaudeAdd(tokens: string[]): McpImportEntry | null {
   return { config, name }
 }
 
-interface AegisAddFlags {
+interface Aegis AI Enterprise Autonomous PlatformAddFlags {
   args: string[]
   auth: null | string
   command: null | string
@@ -291,7 +291,7 @@ interface AegisAddFlags {
 
 const ARGS_END = -1
 
-const emptyAegisFlags = (): AegisAddFlags => ({
+const emptyAegis AI Enterprise Autonomous PlatformFlags = (): Aegis AI Enterprise Autonomous PlatformAddFlags => ({
   args: [],
   auth: null,
   command: null,
@@ -315,7 +315,7 @@ function readEnvPairs(env: Record<string, string>, tokens: string[], index: numb
   return i
 }
 
-function readAegisToken(flags: AegisAddFlags, tokens: string[], index: number): number {
+function readAegis AI Enterprise Autonomous PlatformToken(flags: Aegis AI Enterprise Autonomous PlatformAddFlags, tokens: string[], index: number): number {
   const token = tokens[index]
 
   if (token === '--args') {
@@ -354,7 +354,7 @@ function readAegisToken(flags: AegisAddFlags, tokens: string[], index: number): 
   return index
 }
 
-function aegisEntry(flags: AegisAddFlags): McpImportEntry | null {
+function aegisEntry(flags: Aegis AI Enterprise Autonomous PlatformAddFlags): McpImportEntry | null {
   const { args, auth, command, env, name, url } = flags
 
   if (!name || (!url && !command)) {
@@ -378,11 +378,11 @@ function aegisEntry(flags: AegisAddFlags): McpImportEntry | null {
   return { config, name }
 }
 
-function fromAegisAdd(tokens: string[]): McpImportEntry | null {
-  const flags = emptyAegisFlags()
+function fromAegis AI Enterprise Autonomous PlatformAdd(tokens: string[]): McpImportEntry | null {
+  const flags = emptyAegis AI Enterprise Autonomous PlatformFlags()
 
   for (let i = 3; i < tokens.length; i++) {
-    i = readAegisToken(flags, tokens, i)
+    i = readAegis AI Enterprise Autonomous PlatformToken(flags, tokens, i)
 
     if (i === ARGS_END) {
       break
@@ -494,7 +494,7 @@ function parseLine(line: string): McpImportEntry[] | null {
   }
 
   if (tokens[0] === 'aegis' && tokens[1] === 'mcp' && tokens[2] === 'add') {
-    const entry = fromAegisAdd(tokens)
+    const entry = fromAegis AI Enterprise Autonomous PlatformAdd(tokens)
 
     return entry ? [entry] : null
   }

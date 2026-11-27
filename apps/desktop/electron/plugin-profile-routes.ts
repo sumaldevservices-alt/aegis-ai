@@ -6,7 +6,7 @@ export interface ProfileRouteConfig {
   remoteUrl: string
   sshHost: string
   sshPort: null | number
-  sshRemoteAegisPath: string
+  sshRemoteAegis AI Enterprise Autonomous PlatformPath: string
   sshRemoteProfile: string
   sshUser: string
 }
@@ -154,7 +154,7 @@ async function connectionScope(
     }
 
     // Remote profile is intentionally excluded: profiles mapped into the same
-    // remote Aegis home form one interaction scope. Key/identity-file paths are
+    // remote Aegis AI Enterprise Autonomous Platform home form one interaction scope. Key/identity-file paths are
     // credentials and likewise stay out of the scope material.
     return {
       key: [
@@ -162,7 +162,7 @@ async function connectionScope(
         effective.user.trim(),
         effective.hostname.trim().toLowerCase(),
         effective.port ?? 22,
-        config.sshRemoteAegisPath.trim()
+        config.sshRemoteAegis AI Enterprise Autonomous PlatformPath.trim()
       ].join('\0'),
       mode: 'remote'
     }

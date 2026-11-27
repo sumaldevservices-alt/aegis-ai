@@ -22,7 +22,7 @@
 import type { McpServersStatusResult } from '@aegis/shared'
 
 import { $apiRequestScope } from '@/api/client'
-import { getAegisConfigRecord, setMcpServerEnabled } from '@/aegis'
+import { getAegis AI Enterprise Autonomous PlatformConfigRecord, setMcpServerEnabled } from '@/aegis'
 import { translateNow } from '@/i18n'
 import { isLoopbackPreviewUrl } from '@/lib/local-preview'
 import { getServers, type McpServerEntry, serverEnabled } from '@/lib/mcp-servers'
@@ -193,7 +193,7 @@ async function sweep(): Promise<void> {
 
   try {
     ;[config, status] = await Promise.all([
-      getAegisConfigRecord(connectionId ? { connectionId, profile: profileKey } : undefined),
+      getAegis AI Enterprise Autonomous PlatformConfigRecord(connectionId ? { connectionId, profile: profileKey } : undefined),
       requestGatewayForAgent<McpServersStatusResult>(
         connectionId,
         profileKey,

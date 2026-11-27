@@ -32,7 +32,7 @@ function dataUrlReadMaxBytesFromMb(maxMb) {
 const SAFE_ENV_SUFFIXES = new Set(['dist', 'example', 'sample', 'template'])
 const SENSITIVE_EXTENSIONS = new Set(['.kdbx', '.p12', '.pem', '.pfx'])
 
-// Credential stores under a Aegis home or a profile home, relative POSIX paths.
+// Credential stores under a Aegis AI Enterprise Autonomous Platform home or a profile home, relative POSIX paths.
 // Mirrors agent/file_safety.py _CREDENTIAL_FILE_NAMES / _READ_DENIED_DIRS (the
 // canonical read guard) plus aegis_cli/home_data_layout.py SECRET_CACHE_STORES.
 const AEGIS_CREDENTIAL_FILES = new Set([
@@ -209,7 +209,7 @@ function encryptDesktopSecret(value, safeStorageApi, options: { allowPlainText?:
     }
 
     throw new Error(
-      'Secure token storage is unavailable (no OS keyring service was found), so Aegis Desktop cannot save remote gateway tokens. ' +
+      'Secure token storage is unavailable (no OS keyring service was found), so Aegis AI Enterprise Autonomous Platform Desktop cannot save remote gateway tokens. ' +
         'Either enable an OS keyring (e.g. GNOME Keyring or KWallet providing org.freedesktop.secrets) and try again, ' +
         'confirm the plain-text storage option when prompted in Settings → Gateway, ' +
         'or set AEGIS_DESKTOP_REMOTE_URL and AEGIS_DESKTOP_REMOTE_TOKEN in your environment.'
@@ -322,10 +322,10 @@ let aegisHomes: string[] = []
 const RELOCATED_STORES_TTL_MS = 1000
 let relocatedStoresCache: null | { at: number; stores: string[] } = null
 
-/** Register the Aegis home whose credential stores (and every profile's under
+/** Register the Aegis AI Enterprise Autonomous Platform home whose credential stores (and every profile's under
  *  `profiles/<name>/`) preview reads must refuse. Both the given spelling and
  *  its realpath are kept, since callers check the requested and the real path. */
-function setSensitiveAegisHome(aegisHome: null | string | undefined) {
+function setSensitiveAegis AI Enterprise Autonomous PlatformHome(aegisHome: null | string | undefined) {
   relocatedStoresCache = null
 
   if (!aegisHome) {
@@ -405,7 +405,7 @@ function relocatedCredentialStores(): string[] {
 }
 
 function aegisCredentialStoreReason(normalized: string): null | string {
-  const reason = 'Aegis credential stores are blocked.'
+  const reason = 'Aegis AI Enterprise Autonomous Platform credential stores are blocked.'
 
   for (const home of aegisHomes) {
     const rel = credentialStoreRel(normalized, normalizeSensitivePath(home).replace(/\/+$/, ''))
@@ -829,7 +829,7 @@ export {
   SAFE_STORAGE_ENCODING,
   SECRET_FILE_MODE,
   sensitiveFileBlockReason,
-  setSensitiveAegisHome,
+  setSensitiveAegis AI Enterprise Autonomous PlatformHome,
   TEXT_PREVIEW_SOURCE_MAX_BYTES,
   tightenSecretFileMode,
   writeSecretFileAtomic

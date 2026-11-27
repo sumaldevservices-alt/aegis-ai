@@ -1,6 +1,6 @@
 import { atom } from 'nanostores'
 
-import type { DesktopOauthLoginOptions, DesktopOauthLoginResult, AegisApiRequest } from '@/global'
+import type { DesktopOauthLoginOptions, DesktopOauthLoginResult, Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 import type { BrowserSavedConnections } from '@/lib/browser-saved-connections'
 
 /**
@@ -11,7 +11,7 @@ import type { BrowserSavedConnections } from '@/lib/browser-saved-connections'
  * loopback, and the address it shows is pasted here (`$webappOauthPending`) to finish.
  */
 
-type Api = <T>(request: AegisApiRequest) => Promise<T>
+type Api = <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>
 
 export interface WebappOauthPending {
   connectionId: string

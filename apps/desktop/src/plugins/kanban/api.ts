@@ -442,7 +442,7 @@ export const fetchBoards = () => call<BoardsResponse>('/boards')
 
 export const fetchProfiles = () => call<{ profiles: KanbanProfile[] }>('/profiles')
 
-/** First-class Aegis projects, for scoping a board's default workspace. */
+/** First-class Aegis AI Enterprise Autonomous Platform projects, for scoping a board's default workspace. */
 export const fetchProjects = () => call<{ projects: KanbanProject[] }>('/projects')
 
 export const fetchOrchestration = () => call<OrchestrationSettings>('/orchestration')

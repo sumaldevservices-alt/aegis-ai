@@ -66,7 +66,7 @@ describe('public catalog data', () => {
       maintainer: `${tier} maintainer`,
       overview: `Overview for ${tier}`,
       version: '1.2.3',
-      requiresAegis: '>=0.17',
+      requiresAegis AI Enterprise Autonomous Platform: '>=0.17',
       platforms: ['macos', 'linux'],
       docsUrl: `https://example.com/${tier}/docs`,
       capabilities: {
@@ -90,7 +90,7 @@ describe('public catalog data', () => {
         author: row.maintainer,
         overview: row.overview,
         version: row.version,
-        requiresAegis: row.requiresAegis,
+        requiresAegis AI Enterprise Autonomous Platform: row.requiresAegis AI Enterprise Autonomous Platform,
         platforms: row.platforms,
         docsUrl: row.docsUrl,
         sourceUrl: row.repo,

@@ -72,6 +72,6 @@ test('backends with no interpreter to name stay refused', async () => {
     { command: 'aegis', kind: 'command', shell: false },
     { command: '"python.cmd"', kind: 'python', shell: true }
   ]) {
-    await expect(ticketRuntimeFor(backend)).rejects.toThrow('requires the installed Aegis Python runtime')
+    await expect(ticketRuntimeFor(backend)).rejects.toThrow('requires the installed Aegis AI Enterprise Autonomous Platform Python runtime')
   }
 })

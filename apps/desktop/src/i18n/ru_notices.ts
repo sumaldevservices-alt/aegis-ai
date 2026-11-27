@@ -11,7 +11,7 @@ export const ruNotices = {
   butterbar: {
     goTo: (index, total) => `Показать уведомление ${index} из ${total}`,
     legal: {
-      before: 'Использование Aegis Agent регулируется нашими ',
+      before: 'Использование Aegis AI Enterprise Autonomous Platform Agent регулируется нашими ',
       terms: 'Условиями обслуживания',
       between: ' и ',
       privacy: 'Политикой конфиденциальности',
@@ -33,9 +33,9 @@ export const ruNotices = {
     desktopCommands: ruDesktopCommands
   },
   keepAwakeOffer: {
-    title: 'Компьютер ушёл в сон, пока Aegis работал',
+    title: 'Компьютер ушёл в сон, пока Aegis AI Enterprise Autonomous Platform работал',
     message:
-      'Aegis может не давать компьютеру засыпать, пока выполняется задача. Экран по-прежнему выключается, а от батареи компьютер всё равно может уснуть.',
+      'Aegis AI Enterprise Autonomous Platform может не давать компьютеру засыпать, пока выполняется задача. Экран по-прежнему выключается, а от батареи компьютер всё равно может уснуть.',
     action: 'Не засыпать во время работы'
   },
   billingBlock: {

@@ -248,10 +248,10 @@ test('primary SSH reuse rejects a descriptor with different effective dialing co
   )
 })
 
-test('primary SSH reuse rejects a descriptor with a different remote Aegis path', async () => {
+test('primary SSH reuse rejects a descriptor with a different remote Aegis AI Enterprise Autonomous Platform path', async () => {
   const registry = migrateV1ToRegistry({
     mode: 'ssh',
-    remote: { mode: 'ssh', host: 'build-host', remoteAegisPath: '/srv/aegis', user: 'alice' },
+    remote: { mode: 'ssh', host: 'build-host', remoteAegis AI Enterprise Autonomous PlatformPath: '/srv/aegis', user: 'alice' },
     profiles: {}
   })
 
@@ -267,7 +267,7 @@ test('primary SSH reuse rejects a descriptor with a different remote Aegis path'
         ssh: {
           effectiveConfigFingerprint: 'same-effective-config',
           host: 'build-host',
-          remoteAegisPath: '/opt/aegis',
+          remoteAegis AI Enterprise Autonomous PlatformPath: '/opt/aegis',
           remoteProfile: '',
           user: 'alice'
         }
@@ -288,7 +288,7 @@ test('registry primary reuses a matching primary backend descriptor', () => {
     lastUsed: 'aegis-vps',
     connections: [
       { id: LOCAL_CONNECTION_ID, kind: 'local', label: 'This device' },
-      { id: 'aegis-vps', kind: 'ssh', label: 'Aegis VPS', host: 'aegis-vps' }
+      { id: 'aegis-vps', kind: 'ssh', label: 'Aegis AI Enterprise Autonomous Platform VPS', host: 'aegis-vps' }
     ]
   })
 
@@ -570,7 +570,7 @@ test('resolvedConnectionId keeps same-host SSH routes distinct by port, key, pat
     host: 'work-host',
     keyPath: '/keys/a',
     kind: 'ssh' as const,
-    remoteAegisPath: '/srv/aegis',
+    remoteAegis AI Enterprise Autonomous PlatformPath: '/srv/aegis',
     remoteProfile: 'alpha',
     user: 'root'
   }
@@ -585,7 +585,7 @@ test('resolvedConnectionId keeps same-host SSH routes distinct by port, key, pat
       { ...base, id: 'ssh-base', label: 'SSH base' },
       { ...base, id: 'ssh-port', label: 'SSH port', port: 2222 },
       { ...base, id: 'ssh-key', keyPath: '/keys/b', label: 'SSH key' },
-      { ...base, id: 'ssh-path', label: 'SSH path', remoteAegisPath: '/opt/aegis' },
+      { ...base, id: 'ssh-path', label: 'SSH path', remoteAegis AI Enterprise Autonomous PlatformPath: '/opt/aegis' },
       { ...base, id: 'ssh-profile', label: 'SSH profile', remoteProfile: 'beta' }
     ]
   }
@@ -596,7 +596,7 @@ test('resolvedConnectionId keeps same-host SSH routes distinct by port, key, pat
   assert.equal(resolve(base), 'ssh-base')
   assert.equal(resolve({ ...base, port: 2222 }), 'ssh-port')
   assert.equal(resolve({ ...base, keyPath: '/keys/b' }), 'ssh-key')
-  assert.equal(resolve({ ...base, remoteAegisPath: '/opt/aegis' }), 'ssh-path')
+  assert.equal(resolve({ ...base, remoteAegis AI Enterprise Autonomous PlatformPath: '/opt/aegis' }), 'ssh-path')
   assert.equal(resolve({ ...base, remoteProfile: 'beta' }), 'ssh-profile')
   assert.equal(
     resolvedConnectionId(registry, {
@@ -1285,14 +1285,14 @@ test('merge preserves fields the editor does not carry (org, ssh extras)', () =>
     kind: 'ssh' as const,
     label: 'Box',
     port: 2222,
-    remoteAegisPath: '/opt/aegis',
+    remoteAegis AI Enterprise Autonomous PlatformPath: '/opt/aegis',
     remoteProfile: 'research',
     user: 'k'
   }
 
   const labelOnly = mergeConnectionInput({ id: 's', kind: 'ssh', label: 'Renamed box' }, ssh)
 
-  assert.equal(labelOnly.remoteAegisPath, '/opt/aegis')
+  assert.equal(labelOnly.remoteAegis AI Enterprise Autonomous PlatformPath, '/opt/aegis')
   assert.equal(labelOnly.remoteProfile, 'research')
   assert.equal(labelOnly.host, 'homelab.lan')
   assert.equal(labelOnly.user, 'k')
@@ -1494,7 +1494,7 @@ test('normalizeRegistry round-trips a valid registry unchanged in shape', () => 
       {
         id: 'cloud-1',
         kind: 'cloud',
-        label: 'Aegis Cloud',
+        label: 'Aegis AI Enterprise Autonomous Platform Cloud',
         url: 'https://a.aegis.cloud',
         authMode: 'oauth',
         org: 'nous'

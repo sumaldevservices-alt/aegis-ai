@@ -1,12 +1,12 @@
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import type * as AegisApi from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformApi from '@/aegis'
 import { getMemoryProviderConfig, getMemoryStatus, saveMemoryProviderConfig } from '@/aegis'
 import type { MemoryProviderConfig, MemoryProviderStatus, MemoryStatusResponse } from '@/types/aegis'
 
 vi.mock('@/aegis', async importOriginal => ({
-  ...(await importOriginal<typeof AegisApi>()),
+  ...(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformApi>()),
   getCuratorStatus: vi.fn(() => new Promise(() => {})),
   getMemoryProviderConfig: vi.fn(),
   getMemoryStatus: vi.fn(),

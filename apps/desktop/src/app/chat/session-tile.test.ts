@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { getSession } from '@/aegis'
 import { createClientSessionState } from '@/lib/chat-runtime'
 import { clearSessionDraft, stashSessionDraft } from '@/store/composer'
@@ -32,7 +32,7 @@ vi.mock('@/aegis', async importOriginal => ({
   getSession: vi.fn()
 }))
 
-function localConnection(): AegisConnection {
+function localConnection(): Aegis AI Enterprise Autonomous PlatformConnection {
   return {
     baseUrl: 'http://127.0.0.1:9119',
     isFullscreen: false,

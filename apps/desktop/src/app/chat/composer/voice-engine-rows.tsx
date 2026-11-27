@@ -13,7 +13,7 @@ import { $voiceLiveStatus, selectedVoiceChatMode, setVoiceChatMode } from '@/sto
 
 /**
  * Which engine the next voice conversation mounts: the chained
- * speech-to-text → Aegis → speech loop, or GPT-Live delegating to Aegis.
+ * speech-to-text → Aegis AI Enterprise Autonomous Platform → speech loop, or GPT-Live delegating to Aegis AI Enterprise Autonomous Platform.
  *
  * Radio rows, not a toggle: the user is choosing between two named things and
  * the checked row tells them which one the next press starts. Rendered inside

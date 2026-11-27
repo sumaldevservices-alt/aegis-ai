@@ -89,6 +89,6 @@ export function assertProfileMayRunLocally(aegisRoot: string, profile: null | st
   const runner = marker.plugin ? `runs through the ${marker.plugin} plugin` : 'runs through a plugin'
 
   throw new Error(
-    `Profile "${name}" ${runner}, but this app has no connection to it. Aegis won't start it on this computer.`
+    `Profile "${name}" ${runner}, but this app has no connection to it. Aegis AI Enterprise Autonomous Platform won't start it on this computer.`
   )
 }

@@ -15,7 +15,7 @@
  * plugin.js bundle under `vm`.
  */
 
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { GroupMember, ProfileRoute, RosterRow } from './types'
@@ -27,7 +27,7 @@ const { overrides, request, requestProfile } = vi.hoisted(() => ({
 }))
 
 vi.mock('@aegis/plugin-sdk', async importOriginal => {
-  const sdk = await importOriginal<typeof AegisSdk>()
+  const sdk = await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>()
 
   overrides.request = request
   overrides.requestProfile = requestProfile

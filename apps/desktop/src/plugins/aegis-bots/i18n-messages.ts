@@ -351,7 +351,7 @@ export type BotsMessages = {
     portalNotInstalled: string
     portalUnsupported: string
     portalUnavailable: string
-    /** Managed runtimes (Aegis Cloud): updates are the platform's job, not the user's. */
+    /** Managed runtimes (Aegis AI Enterprise Autonomous Platform Cloud): updates are the platform's job, not the user's. */
     portalUnavailableManaged: string
     managedNotIncludedTitle: string
     managedNotIncludedBody: string

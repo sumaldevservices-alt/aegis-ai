@@ -7,12 +7,12 @@ import {
   TERMINAL_FONT_SUGGESTIONS
 } from '@/app/right-sidebar/terminal/terminal-font'
 import { Button } from '@/components/ui/button'
-import { saveAegisConfig } from '@/aegis'
+import { saveAegis AI Enterprise Autonomous PlatformConfig } from '@/aegis'
 import { useI18n } from '@/i18n'
 import { notifyError } from '@/store/notifications'
-import type { AegisConfigRecord } from '@/types/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'
 
-import { setAegisConfigCache, useAegisConfigRecord } from '../hooks/use-config-record'
+import { setAegis AI Enterprise Autonomous PlatformConfigCache, useAegis AI Enterprise Autonomous PlatformConfigRecord } from '../hooks/use-config-record'
 import { useOnProfileSwitch } from '../hooks/use-on-profile-switch'
 import { useProfileSwitchLatch } from '../hooks/use-profile-switch-latch'
 
@@ -22,14 +22,14 @@ import { ListRow } from './primitives'
 
 const AUTOSAVE_DELAY_MS = 550
 
-function fontFamilyFromConfig(config: AegisConfigRecord): string {
+function fontFamilyFromConfig(config: Aegis AI Enterprise Autonomous PlatformConfigRecord): string {
   return normalizeTerminalFontFamily(getNested(config, 'terminal.font_family'))
 }
 
 export function TerminalFontSetting() {
   const { t } = useI18n()
   const copy = t.settings.appearance
-  const { data: loadedConfig, dataUpdatedAt, writeScope } = useAegisConfigRecord()
+  const { data: loadedConfig, dataUpdatedAt, writeScope } = useAegis AI Enterprise Autonomous PlatformConfigRecord()
   // draft === null ⇔ unseeded: nothing painted yet for this profile. The
   // profile-switch handler keeps it unseeded until a config refetch completes;
   // the timestamp is the freshness proof because React Query can reuse the
@@ -82,7 +82,7 @@ export function TerminalFontSetting() {
     }
 
     // The last successfully saved value IS what the shared config cache
-    // holds — successful saves write it back via setAegisConfigCache, so
+    // holds — successful saves write it back via setAegis AI Enterprise Autonomous PlatformConfigCache, so
     // rollback re-derives from there instead of mirroring into a ref.
     const rollback = fontFamilyFromConfig(loadedConfig)
 
@@ -91,7 +91,7 @@ export function TerminalFontSetting() {
 
       // Sparse patch: PUT /api/config deep-merges, and echoing the cached
       // snapshot would overwrite keys other surfaces changed since it loaded.
-      void saveAegisConfig(setNested({}, 'terminal.font_family', value), writeScope)
+      void saveAegis AI Enterprise Autonomous PlatformConfig(setNested({}, 'terminal.font_family', value), writeScope)
         .then(result => {
           if (!result.ok) {
             throw new Error(t.settings.config.autosaveFailed)
@@ -101,7 +101,7 @@ export function TerminalFontSetting() {
             return
           }
 
-          setAegisConfigCache(next)
+          setAegis AI Enterprise Autonomous PlatformConfigCache(next)
         })
         .catch(error => {
           if (saveVersionRef.current !== version) {

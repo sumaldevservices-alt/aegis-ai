@@ -4,7 +4,7 @@
 // but hidden and minimized windows need not paint it. A static
 // `backgroundThrottling: false` pins `document.visibilityState` to 'visible',
 // turning visibility-gated polls and clocks into always-on timers. An idle,
-// hidden Aegis burned ~20% CPU forever.
+// hidden Aegis AI Enterprise Autonomous Platform burned ~20% CPU forever.
 //
 // So throttling is a runtime dial instead: the renderers already report
 // "which chats are mid-turn" for the quit guard (`aegis:active-work`), and

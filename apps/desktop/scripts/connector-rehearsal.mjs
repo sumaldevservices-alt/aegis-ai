@@ -20,7 +20,7 @@ const sandbox = process.argv[2] ? path.resolve(process.argv[2]) : fs.mkdtempSync
 const port = 5194
 const url = `http://127.0.0.1:${port}`
 const python = process.env.AEGIS_DESKTOP_PYTHON
-if (!python || !fs.existsSync(python)) throw new Error('Set AEGIS_DESKTOP_PYTHON to your installed Aegis Python executable.')
+if (!python || !fs.existsSync(python)) throw new Error('Set AEGIS_DESKTOP_PYTHON to your installed Aegis AI Enterprise Autonomous Platform Python executable.')
 if (!fs.existsSync(path.join(desktop, 'dist/electron-main.mjs'))) throw new Error('Run node scripts/bundle-electron-main.mjs --dev first.')
 await new Promise((resolve, reject) => {
   const probe = net.createServer()
@@ -33,7 +33,7 @@ Object.assign(env, {
   HOME: sandbox, AEGIS_HOME: path.join(sandbox, '.aegis'), AEGIS_SHARED_AUTH_DIR: path.join(sandbox, '.aegis/shared'),
   AEGIS_DESKTOP_USER_DATA_DIR: path.join(sandbox, 'electron'), AEGIS_DESKTOP_CWD: path.join(sandbox, 'work'),
   AEGIS_DESKTOP_AEGIS_ROOT: root, AEGIS_DESKTOP_PYTHON: python,
-  AEGIS_DESKTOP_IGNORE_EXISTING: '1', AEGIS_DESKTOP_APP_NAME: 'Aegis Connector Rehearsal',
+  AEGIS_DESKTOP_IGNORE_EXISTING: '1', AEGIS_DESKTOP_APP_NAME: 'Aegis AI Enterprise Autonomous Platform Connector Rehearsal',
   AEGIS_DESKTOP_DEV_SERVER: url, AEGIS_DESKTOP_CDP_PORT: '9344'
 })
 const entry = path.join(desktop, 'dist/connector-rehearsal.mjs')

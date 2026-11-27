@@ -42,14 +42,14 @@ const runToolsetPostSetup = vi.fn()
 const getActionStatus = vi.fn()
 const startOAuthLogin = vi.fn()
 const pollOAuthSession = vi.fn()
-const getAegisConfigRecord = vi.fn()
-const getAegisConfigSchema = vi.fn()
-const saveAegisConfig = vi.fn()
-const saveAegisConfigRecord = vi.fn()
+const getAegis AI Enterprise Autonomous PlatformConfigRecord = vi.fn()
+const getAegis AI Enterprise Autonomous PlatformConfigSchema = vi.fn()
+const saveAegis AI Enterprise Autonomous PlatformConfig = vi.fn()
+const saveAegis AI Enterprise Autonomous PlatformConfigRecord = vi.fn()
 const getElevenLabsVoices = vi.fn()
 
 vi.mock('@/aegis', () => ({
-  // useAegisConfigRecord (via VoiceProviderFields) reads these from the barrel.
+  // useAegis AI Enterprise Autonomous PlatformConfigRecord (via VoiceProviderFields) reads these from the barrel.
   peekConfigReadOrigin: () => undefined,
   retainConfigReadOrigin: (next: unknown) => next,
   getToolsetConfig: (name: string) => getToolsetConfig(name),
@@ -66,10 +66,10 @@ vi.mock('@/aegis', () => ({
   getActionStatus: (name: string, lines?: number) => getActionStatus(name, lines),
   startOAuthLogin: (providerId: string) => startOAuthLogin(providerId),
   pollOAuthSession: (providerId: string, sessionId: string) => pollOAuthSession(providerId, sessionId),
-  getAegisConfigRecord: () => getAegisConfigRecord(),
-  getAegisConfigSchema: () => getAegisConfigSchema(),
-  saveAegisConfig: (config: unknown) => saveAegisConfig(config),
-  saveAegisConfigRecord: (config: unknown, profile?: unknown) => saveAegisConfigRecord(config, profile),
+  getAegis AI Enterprise Autonomous PlatformConfigRecord: () => getAegis AI Enterprise Autonomous PlatformConfigRecord(),
+  getAegis AI Enterprise Autonomous PlatformConfigSchema: () => getAegis AI Enterprise Autonomous PlatformConfigSchema(),
+  saveAegis AI Enterprise Autonomous PlatformConfig: (config: unknown) => saveAegis AI Enterprise Autonomous PlatformConfig(config),
+  saveAegis AI Enterprise Autonomous PlatformConfigRecord: (config: unknown, profile?: unknown) => saveAegis AI Enterprise Autonomous PlatformConfigRecord(config, profile),
   getElevenLabsVoices: () => getElevenLabsVoices(),
   // use-config-record keys its query cache by scope via profileScopeKey; a
   // scoped panel reaches it, so the full-replacement mock must provide it.
@@ -153,7 +153,7 @@ beforeEach(() => {
   selectToolsetProvider.mockResolvedValue({ ok: true, name: 'tts', provider: 'ElevenLabs' })
   setEnvVar.mockResolvedValue({ ok: true })
   deleteEnvVar.mockResolvedValue({ ok: true })
-  getAegisConfigRecord.mockResolvedValue({
+  getAegis AI Enterprise Autonomous PlatformConfigRecord.mockResolvedValue({
     tts: {
       provider: 'edge',
       edge: { voice: 'en-US-AriaNeural' },
@@ -161,9 +161,9 @@ beforeEach(() => {
       elevenlabs: { voice_id: 'pNInz6obpgDQGcFmaJgB', model_id: 'eleven_multilingual_v2' }
     }
   })
-  getAegisConfigSchema.mockResolvedValue({ fields: {}, category_order: [] })
-  saveAegisConfig.mockResolvedValue({ ok: true })
-  saveAegisConfigRecord.mockResolvedValue({ ok: true })
+  getAegis AI Enterprise Autonomous PlatformConfigSchema.mockResolvedValue({ fields: {}, category_order: [] })
+  saveAegis AI Enterprise Autonomous PlatformConfig.mockResolvedValue({ ok: true })
+  saveAegis AI Enterprise Autonomous PlatformConfigRecord.mockResolvedValue({ ok: true })
   getElevenLabsVoices.mockResolvedValue({ available: false, voices: [] })
 })
 
@@ -207,9 +207,9 @@ describe('ToolsetConfigPanel', () => {
     // closed Select.
     const voiceInput = screen.getByDisplayValue('alloy')
     fireEvent.change(voiceInput, { target: { value: 'marin' } })
-    await waitFor(() => expect(saveAegisConfigRecord).toHaveBeenCalled(), { timeout: 3000 })
+    await waitFor(() => expect(saveAegis AI Enterprise Autonomous PlatformConfigRecord).toHaveBeenCalled(), { timeout: 3000 })
 
-    const saved = saveAegisConfigRecord.mock.calls.at(-1)?.[0] as Record<
+    const saved = saveAegis AI Enterprise Autonomous PlatformConfigRecord.mock.calls.at(-1)?.[0] as Record<
       string,
       Record<string, Record<string, string>>
     >
@@ -217,7 +217,7 @@ describe('ToolsetConfigPanel', () => {
     expect(saved.tts.openai.voice).toBe('marin')
     // Unscoped panel (no Capabilities override) → profile rides as undefined,
     // preserving the active-profile default. A scoped panel forwards its scope.
-    expect(saveAegisConfigRecord.mock.calls.at(-1)?.[1]).toBeUndefined()
+    expect(saveAegis AI Enterprise Autonomous PlatformConfigRecord.mock.calls.at(-1)?.[1]).toBeUndefined()
   })
 
   it('autosaves the inline voice fields into the profile the panel is scoped to', async () => {
@@ -245,9 +245,9 @@ describe('ToolsetConfigPanel', () => {
     render(<ToolsetConfigPanel onConfiguredChange={vi.fn()} profile={scope} toolset="tts" />)
 
     fireEvent.change(await screen.findByDisplayValue('alloy'), { target: { value: 'marin' } })
-    await waitFor(() => expect(saveAegisConfigRecord).toHaveBeenCalled(), { timeout: 3000 })
+    await waitFor(() => expect(saveAegis AI Enterprise Autonomous PlatformConfigRecord).toHaveBeenCalled(), { timeout: 3000 })
 
-    const [saved, forwarded] = saveAegisConfigRecord.mock.calls.at(-1) as [
+    const [saved, forwarded] = saveAegis AI Enterprise Autonomous PlatformConfigRecord.mock.calls.at(-1) as [
       Record<string, Record<string, Record<string, string>>>,
       unknown
     ]
@@ -420,7 +420,7 @@ describe('ToolsetConfigPanel', () => {
           {
             name: 'Lightpanda',
             badge: 'local',
-            tag: 'Zig headless browser spawned by Aegis, text-only (no screenshots)',
+            tag: 'Zig headless browser spawned by Aegis AI Enterprise Autonomous Platform, text-only (no screenshots)',
             env_vars: [],
             post_setup: 'lightpanda',
             requires_nous_auth: false,
@@ -468,7 +468,7 @@ describe('ToolsetConfigPanel', () => {
           {
             name: 'Lightpanda',
             badge: 'local',
-            tag: 'Zig headless browser spawned by Aegis, text-only (no screenshots)',
+            tag: 'Zig headless browser spawned by Aegis AI Enterprise Autonomous Platform, text-only (no screenshots)',
             env_vars: [],
             post_setup: 'lightpanda',
             requires_nous_auth: false,
@@ -627,7 +627,7 @@ describe('ToolsetConfigPanel', () => {
             {
               name: 'Lightpanda',
               badge: 'free',
-              tag: 'Zig headless browser spawned by Aegis, text-only (no screenshots)',
+              tag: 'Zig headless browser spawned by Aegis AI Enterprise Autonomous Platform, text-only (no screenshots)',
               env_vars: [],
               post_setup: 'lightpanda',
               requires_nous_auth: false,
@@ -655,7 +655,7 @@ describe('ToolsetConfigPanel', () => {
             {
               name: 'Lightpanda',
               badge: 'free',
-              tag: 'Zig headless browser spawned by Aegis, text-only (no screenshots)',
+              tag: 'Zig headless browser spawned by Aegis AI Enterprise Autonomous Platform, text-only (no screenshots)',
               env_vars: [],
               post_setup: 'lightpanda',
               requires_nous_auth: false,

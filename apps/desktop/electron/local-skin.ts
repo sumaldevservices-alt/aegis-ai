@@ -4,7 +4,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import type { AegisSkin, SkinColors } from '@aegis/shared/skin'
+import type { Aegis AI Enterprise Autonomous PlatformSkin, SkinColors } from '@aegis/shared/skin'
 import { parse } from 'yaml'
 
 import { PROFILE_ID_ARG_RE } from '../../shared/src/profile-id'
@@ -120,7 +120,7 @@ export function localSkinHome(aegisHome: string, profile: null | string): string
   return name === 'default' ? aegisHome : path.join(aegisHome, 'profiles', name)
 }
 
-function skinFromFile(filePath: string, configuredName: string): AegisSkin | null {
+function skinFromFile(filePath: string, configuredName: string): Aegis AI Enterprise Autonomous PlatformSkin | null {
   const parsed = parseRecord(readText(filePath, MAX_SKIN_BYTES))
 
   if (!parsed) {
@@ -149,7 +149,7 @@ function skinFromFile(filePath: string, configuredName: string): AegisSkin | nul
  * renderer never gets arbitrary file paths or config contents, and a broken
  * local config simply leaves the normal desktop theme in place.
  */
-export function readLocalDisplaySkin(aegisHome: string, profile: null | string): AegisSkin | null {
+export function readLocalDisplaySkin(aegisHome: string, profile: null | string): Aegis AI Enterprise Autonomous PlatformSkin | null {
   const home = localSkinHome(aegisHome, profile)
   const config = parseRecord(readText(path.join(home, 'config.yaml'), MAX_CONFIG_BYTES))
   const display = config && isRecord(config.display) ? config.display : null
@@ -185,7 +185,7 @@ export function readLocalSkinPayload(
   aegisHome: string,
   routedProfile: null | string | undefined,
   fallbackProfile: null | string | undefined
-): { profile: string; skin: AegisSkin } | null {
+): { profile: string; skin: Aegis AI Enterprise Autonomous PlatformSkin } | null {
   const profile = localSkinProfileKey(routedProfile ?? fallbackProfile)
   const skin = readLocalDisplaySkin(aegisHome, profile)
 

@@ -1,18 +1,18 @@
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
-import type { DesktopConnectionsRegistry, AegisConnection } from '@/global'
-import type * as Aegis from '@/aegis'
+import type { DesktopConnectionsRegistry, Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
+import type * as Aegis AI Enterprise Autonomous Platform from '@/aegis'
 
 vi.mock('@/app/contrib/hooks/use-background-sync', () => ({ resetLiveRuntimeTracking: vi.fn() }))
 vi.mock('@/aegis', async importOriginal => {
-  const actual = await importOriginal<typeof Aegis>()
+  const actual = await importOriginal<typeof Aegis AI Enterprise Autonomous Platform>()
 
   return {
     ...actual,
     getProfiles: vi.fn(async () => ({ profiles: [{ name: 'default' }] })),
     getStarmapGraph: vi.fn(async () => ({ nodes: [], edges: [] })),
     aegisApi: vi.fn(async () => ({ current: 'default', profiles: [{ name: 'default' }] })),
-    AegisGateway: class {
+    Aegis AI Enterprise Autonomous PlatformGateway: class {
       connectionState = 'closed'
       wsUrl = ''
       connect = async (url: string) => {
@@ -62,7 +62,7 @@ const registry: DesktopConnectionsRegistry = {
   ]
 }
 
-function descriptor(connectionId: string, profile = 'default'): AegisConnection {
+function descriptor(connectionId: string, profile = 'default'): Aegis AI Enterprise Autonomous PlatformConnection {
   return {
     connectionId,
     profile,

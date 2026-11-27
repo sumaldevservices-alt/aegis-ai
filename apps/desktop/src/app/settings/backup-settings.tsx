@@ -60,7 +60,7 @@ type Phase =
   | { kind: 'undone'; agent: DesktopCloudAgent }
   | { kind: 'error'; message: string; retry: () => void; undo?: () => void }
 
-/** `aegis backup` of the whole Aegis home, saved to a file the user picks. */
+/** `aegis backup` of the whole Aegis AI Enterprise Autonomous Platform home, saved to a file the user picks. */
 function BackupCard({ copy, owner }: { copy: Copy; owner: TransferEndpoint }) {
   const [busy, setBusy] = useState(false)
   const [lastLine, setLastLine] = useState('')

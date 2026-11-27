@@ -78,7 +78,7 @@ export function createMacStrategy(deps: MacClientDeps): MacStrategy {
   return new MacStrategy({
     ...deps,
     updater,
-    // .../Aegis.app/Contents/MacOS/Aegis -> .../Aegis.app
+    // .../Aegis AI Enterprise Autonomous Platform.app/Contents/MacOS/Aegis AI Enterprise Autonomous Platform -> .../Aegis AI Enterprise Autonomous Platform.app
     bundlePath: path.resolve(process.execPath, '..', '..', '..'),
     prepareInstall: () => prepareMacInstall(nativeUpdater)
   })

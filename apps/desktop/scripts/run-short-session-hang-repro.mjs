@@ -1294,7 +1294,7 @@ async function executeRunInSandboxAttempt(target, index, warmup, mock, output, s
     {
       cwd: target.targetDesktop,
       env: sanitizedEnv({
-        AEGIS_DESKTOP_APP_NAME: `AegisShortSession-${target.label}-${process.pid}-${index}-${warmup ? 'w' : 'm'}-${attempt}`,
+        AEGIS_DESKTOP_APP_NAME: `Aegis AI Enterprise Autonomous PlatformShortSession-${target.label}-${process.pid}-${index}-${warmup ? 'w' : 'm'}-${attempt}`,
         AEGIS_DESKTOP_AEGIS_ROOT: target.targetRoot,
         AEGIS_DESKTOP_IGNORE_EXISTING: '1',
         AEGIS_DESKTOP_USER_DATA_DIR: userData,

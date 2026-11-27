@@ -84,7 +84,7 @@ describe('the @handle a bot answers to', () => {
 
 describe('renamed bots stay taggable', () => {
   it('drops reserved tokens so a rename cannot hijack a built-in tag', () => {
-    expect(mentionNameForms('Aegis')).toEqual([])
+    expect(mentionNameForms('Aegis AI Enterprise Autonomous Platform')).toEqual([])
     expect(mentionNameForms('@everyone')).toEqual([])
     expect(mentionNameForms('')).toEqual([])
   })

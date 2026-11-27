@@ -2,7 +2,7 @@ import { atom } from 'nanostores'
 import { afterEach, expect, it, vi } from 'vitest'
 
 import { setApiRequestConnection } from '@/api/client'
-import type { DesktopAgentRoster, AegisConnection } from '@/global'
+import type { DesktopAgentRoster, Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { $fleetRoster, _resetFleetRosterForTests } from '@/store/fleet-roster'
 import type { ProfileInfo } from '@/types/aegis'
 
@@ -25,13 +25,13 @@ const profile = (name: string): ProfileInfo => ({
   skill_count: 0
 })
 
-const descriptor = (connectionId: string): AegisConnection =>
+const descriptor = (connectionId: string): Aegis AI Enterprise Autonomous PlatformConnection =>
   ({
     connectionId,
     baseUrl: `https://${connectionId}.example.com`,
     mode: 'remote',
     profile: 'default'
-  }) as AegisConnection
+  }) as Aegis AI Enterprise Autonomous PlatformConnection
 
 function activate(connectionId: string) {
   setApiRequestConnection(connectionId)
@@ -141,7 +141,7 @@ it('keeps this host as the list source when a launched profile becomes active', 
   const list = [profile('default'), profile('work')]
   const api = vi.fn(async () => ({ profiles: list }))
   vi.stubGlobal('window', { aegisDesktop: { api } })
-  $connection.set({ baseUrl: 'http://127.0.0.1:9120', mode: 'local', profile: 'default' } as AegisConnection)
+  $connection.set({ baseUrl: 'http://127.0.0.1:9120', mode: 'local', profile: 'default' } as Aegis AI Enterprise Autonomous PlatformConnection)
   await refreshProfiles()
 
   // The sandbox launcher answers on its own loopback port, but main lists
@@ -151,12 +151,12 @@ it('keeps this host as the list source when a launched profile becomes active', 
     launcher: { plugin: 'openshell' },
     mode: 'remote',
     profile: 'work'
-  } as AegisConnection)
+  } as Aegis AI Enterprise Autonomous PlatformConnection)
 
   expect($profiles.get()).toBe(list)
   expect($profilesByConnection.get().get('local')).toBe(list)
 
   // A genuinely remote host is another source.
-  $connection.set({ baseUrl: 'https://box.example:9119', mode: 'remote', profile: 'default' } as AegisConnection)
+  $connection.set({ baseUrl: 'https://box.example:9119', mode: 'remote', profile: 'default' } as Aegis AI Enterprise Autonomous PlatformConnection)
   expect($profiles.get()).toEqual([])
 })

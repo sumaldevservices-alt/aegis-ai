@@ -1,5 +1,5 @@
 /**
- * Aegis Cloud for Settings ▸ Backup & Transfer: the Nous sign-in, the agent list, and a silent
+ * Aegis AI Enterprise Autonomous Platform Cloud for Settings ▸ Backup & Transfer: the Nous sign-in, the agent list, and a silent
  * sign-in to one agent saved as a gateway connection. All through `window.aegisDesktop.cloud`
  * (native: the portal browser session in Electron; Webapp: `lib/browser-cloud.ts`) and
  * `window.aegisDesktop.connections`, so a test rig stubs those bridge methods.
@@ -8,7 +8,7 @@
 import { aegisApiAs } from '@/api/client'
 import type { DesktopCloudAgent, DesktopCloudDiscoverResult, DesktopCloudStatus } from '@/global'
 import { runBackup, type TransferEndpoint, type TransferRequestFn } from '@/lib/agent-transfer'
-import { servedByAegisCloud } from '@/lib/aegis-cloud-host'
+import { servedByAegis AI Enterprise Autonomous PlatformCloud } from '@/lib/aegis-cloud-host'
 
 export const PORTAL_AGENTS_URL = 'https://portal.nousresearch.com/agents'
 
@@ -25,17 +25,17 @@ function bridge() {
   const desktop = typeof window === 'undefined' ? undefined : window.aegisDesktop
 
   if (!desktop?.api) {
-    throw new Error('Aegis desktop bridge unavailable')
+    throw new Error('Aegis AI Enterprise Autonomous Platform desktop bridge unavailable')
   }
 
   return desktop
 }
 
-/** Transfer is offered everywhere except a Webapp Aegis Cloud itself serves: that tab IS a cloud
+/** Transfer is offered everywhere except a Webapp Aegis AI Enterprise Autonomous Platform Cloud itself serves: that tab IS a cloud
  *  agent. */
-export const transferAvailable = (): boolean => !servedByAegisCloud()
+export const transferAvailable = (): boolean => !servedByAegis AI Enterprise Autonomous PlatformCloud()
 
-/** `aegis backup` of the whole Aegis home on `owner`, then a save of the archive. */
+/** `aegis backup` of the whole Aegis AI Enterprise Autonomous Platform home on `owner`, then a save of the archive. */
 export async function backup(owner: TransferEndpoint, onLine?: (line: string) => void): Promise<BackupResult> {
   const archive = await runBackup(transferRequest, owner, onLine)
   const save = bridge().saveGatewayFile
@@ -77,7 +77,7 @@ export async function connectCloudAgent(agent: DesktopCloudAgent, org?: string):
   const signIn = await desktop.cloud.agentSignIn(url)
 
   if (!signIn.connected) {
-    throw new Error('Sign-in to this agent did not finish. Sign in to Aegis Cloud again.')
+    throw new Error('Sign-in to this agent did not finish. Sign in to Aegis AI Enterprise Autonomous Platform Cloud again.')
   }
 
   if (signIn.connectionId) {

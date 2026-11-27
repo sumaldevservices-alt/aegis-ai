@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { DesktopConnectionsRegistry, DesktopProfileRoute, AegisConnection } from '@/global'
+import type { DesktopConnectionsRegistry, DesktopProfileRoute, Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { deferred } from '@/test/deferred'
 
 import { _resetConnectionsForTests, initializeConnectionsRegistry } from './connections'
@@ -27,7 +27,7 @@ const registry: DesktopConnectionsRegistry = {
   version: 2
 }
 
-function descriptor(connectionId: string, profile: string): AegisConnection {
+function descriptor(connectionId: string, profile: string): Aegis AI Enterprise Autonomous PlatformConnection {
   return {
     baseUrl: 'http://localhost:7070',
     connectionId,

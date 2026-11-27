@@ -217,7 +217,7 @@ function relativeTime(ms: number | undefined, u: Translations['updates']): strin
 }
 
 /**
- * The "Aegis Desktop / version / brand mark" hero shared by the About page
+ * The "Aegis AI Enterprise Autonomous Platform Desktop / version / brand mark" hero shared by the About page
  * and the updates overlay, including the bundle-out-of-sync warning. The
  * heading render is injectable so a dialog surface can emit a DialogTitle
  * for its accessible name while About keeps a plain h2.

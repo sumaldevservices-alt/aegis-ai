@@ -1,6 +1,6 @@
 import { map } from 'nanostores'
 
-import type { AegisGateway } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import { gatewayRouteState, requestGatewayForAgent } from '@/store/gateway'
 import type { AgentProfileRoute } from '@/store/profile'
 import type { ProjectInfo, ProjectsPayload } from '@/types/aegis'
@@ -96,15 +96,15 @@ interface OwnerRead {
   /** The socket reconnected while a read was in flight: that read may predate it, so read again. */
   rereadQueued: boolean
   /** The socket the published looks came over; until it matches the route's socket, a render reads. */
-  readOver: AegisGateway | null
+  readOver: Aegis AI Enterprise Autonomous PlatformGateway | null
   stopWatching: () => void
-  watching: AegisGateway | null
+  watching: Aegis AI Enterprise Autonomous PlatformGateway | null
 }
 
 const MAX_FAILED_READS = 3
 const reads = new Map<string, OwnerRead>()
 
-async function readOwner(route: AgentProfileRoute, read: OwnerRead, gateway: AegisGateway): Promise<void> {
+async function readOwner(route: AgentProfileRoute, read: OwnerRead, gateway: Aegis AI Enterprise Autonomous PlatformGateway): Promise<void> {
   const sentAt = writeSeq
 
   read.inFlight = true
@@ -133,7 +133,7 @@ async function readOwner(route: AgentProfileRoute, read: OwnerRead, gateway: Aeg
 }
 
 /** A socket that drops and reopens re-reads: the owner's window may have recoloured meanwhile. */
-function watchSocket(route: AgentProfileRoute, read: OwnerRead, gateway: AegisGateway): void {
+function watchSocket(route: AgentProfileRoute, read: OwnerRead, gateway: Aegis AI Enterprise Autonomous PlatformGateway): void {
   let dropped = false
 
   read.stopWatching()

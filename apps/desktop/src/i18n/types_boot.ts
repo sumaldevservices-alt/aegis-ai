@@ -8,13 +8,13 @@ export interface BootTranslations {
     loadingSessions: string
     retryingRemoteBackend: string
     startingDesktopConnection: string
-    startingAegisDesktop: string
+    startingAegis AI Enterprise Autonomous PlatformDesktop: string
   }
   errors: {
     backgroundExited: string
     backgroundExitedDuringStartup: string
     backendStopped: string
-    restartAegis: string
+    restartAegis AI Enterprise Autonomous Platform: string
     openLogs: string
     desktopBootFailed: string
     gatewayConnectionLost: string

@@ -2,8 +2,8 @@ import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-libra
 import { afterEach, expect, it, vi } from 'vitest'
 
 import { setApiRequestConnection } from '@/api/client'
-import type { AegisApiRequest } from '@/global'
-import type { AegisConfigRecord } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/aegis'
 import { $gateway } from '@/store/gateway'
 import { $activeGatewayProfile } from '@/store/profile'
 import { $connection, $gatewayState } from '@/store/session'
@@ -46,16 +46,16 @@ afterEach(() => {
 // Regression for #113980: exercise the real provider, API origin binding and
 // profile routing, including an explicit pick before leaving and a fresh mount.
 it('reads and persists the owning profile through A → B → A and restart', async () => {
-  const configs: Record<string, AegisConfigRecord> = {
+  const configs: Record<string, Aegis AI Enterprise Autonomous PlatformConfigRecord> = {
     default: { display: { language: 'en' } },
     coder: { display: { language: 'zh', skin: 'mono' } }
   }
 
-  const api = vi.fn(async (request: AegisApiRequest) => {
+  const api = vi.fn(async (request: Aegis AI Enterprise Autonomous PlatformApiRequest) => {
     const key = request.profile || 'default'
 
     if (request.method === 'PUT') {
-      configs[key] = structuredClone((request.body as { config: AegisConfigRecord }).config)
+      configs[key] = structuredClone((request.body as { config: Aegis AI Enterprise Autonomous PlatformConfigRecord }).config)
 
       return { ok: true }
     }
@@ -91,12 +91,12 @@ it('reads and persists the owning profile through A → B → A and restart', as
 })
 
 it('isolates stale reads and failed saves when the same profile moves between connections', async () => {
-  let finishBoot!: (config: AegisConfigRecord) => void
-  let finishSaveRead!: (config: AegisConfigRecord) => void
+  let finishBoot!: (config: Aegis AI Enterprise Autonomous PlatformConfigRecord) => void
+  let finishSaveRead!: (config: Aegis AI Enterprise Autonomous PlatformConfigRecord) => void
   let rejectSave!: (reason: Error) => void
   let reads = 0
 
-  const api = vi.fn((request: AegisApiRequest) => {
+  const api = vi.fn((request: Aegis AI Enterprise Autonomous PlatformApiRequest) => {
     if (request.method === 'PUT') {
       return new Promise((_, reject) => {
         rejectSave = reject

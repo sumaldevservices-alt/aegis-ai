@@ -12,9 +12,9 @@ const gatewayMocks = vi.hoisted(() => ({
 }))
 
 vi.mock('@/aegis', async importOriginal => {
-  const actual = await importOriginal<typeof AegisModule>()
+  const actual = await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformModule>()
 
-  class FakeAegisGateway {
+  class FakeAegis AI Enterprise Autonomous PlatformGateway {
     connectionState = 'closed'
     wsUrl = ''
     request = vi.fn()
@@ -47,7 +47,7 @@ vi.mock('@/aegis', async importOriginal => {
     }
   }
 
-  return { ...actual, AegisGateway: FakeAegisGateway }
+  return { ...actual, Aegis AI Enterprise Autonomous PlatformGateway: FakeAegis AI Enterprise Autonomous PlatformGateway }
 })
 
 // A secondary's reopen does `await import('@/store/session-states')` (store/gateway.ts). Load that
@@ -55,8 +55,8 @@ vi.mock('@/aegis', async importOriginal => {
 // out on a loaded runner.
 import '@/store/session-states'
 
-import type * as AegisModule from '@/aegis'
-import type { AegisGateway } from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformModule from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import {
   backendTransitionFor,
   beginBackendTransition,
@@ -84,7 +84,7 @@ interface TestGateway {
   wsUrl?: string
 }
 
-const fakeGateway = { connectionState: 'open' } as unknown as AegisGateway
+const fakeGateway = { connectionState: 'open' } as unknown as Aegis AI Enterprise Autonomous PlatformGateway
 
 const remoteConnection = {
   authMode: 'oauth' as const,
@@ -181,8 +181,8 @@ async function activateRemoteGateway() {
   const desktop = installRemoteDesktop()
   const primary = makePrimaryGateway()
 
-  setPrimaryGateway(primary as unknown as AegisGateway, 'default')
-  $gateway.set(primary as unknown as AegisGateway)
+  setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'default')
+  $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
   await ensureGatewayForAgent('ssh-source', 'research')
 
   const gateway = $gateway.get() as unknown as TestGateway
@@ -269,8 +269,8 @@ describe('useGatewayRequest', () => {
     const primary = makePrimaryGateway()
     primary.request.mockRejectedValueOnce(new Error('connection closed')).mockResolvedValueOnce({ recovered: true })
 
-    setPrimaryGateway(primary as unknown as AegisGateway, 'default')
-    $gateway.set(primary as unknown as AegisGateway)
+    setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'default')
+    $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
     $gatewayState.set('open')
 
     const { result } = renderHook(() => useGatewayRequest())
@@ -289,8 +289,8 @@ describe('useGatewayRequest', () => {
     primary.connectionState = 'closed'
     primary.request.mockRejectedValueOnce(new Error('connection closed')).mockResolvedValueOnce({ recovered: true })
 
-    setPrimaryGateway(primary as unknown as AegisGateway, 'default')
-    $gateway.set(primary as unknown as AegisGateway)
+    setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'default')
+    $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
     $gatewayState.set('open')
 
     const { result } = renderHook(() => useGatewayRequest())
@@ -344,8 +344,8 @@ describe('useGatewayRequest', () => {
           rejectRequest = reject
         })
     )
-    setPrimaryGateway(primary as unknown as AegisGateway, 'default')
-    $gateway.set(primary as unknown as AegisGateway)
+    setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'default')
+    $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
     $gatewayState.set('open')
     const { result } = renderHook(() => useGatewayRequest())
 
@@ -380,8 +380,8 @@ describe('useGatewayRequest', () => {
           finishRecovery = resolve
         })
     )
-    setPrimaryGateway(primary as unknown as AegisGateway, 'default')
-    $gateway.set(primary as unknown as AegisGateway)
+    setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'default')
+    $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
     $gatewayState.set('closed')
     const { result } = renderHook(() => useGatewayRequest())
     const pending = result.current.requestGateway('prompt.submit', { text: 'local-only' }).catch(error => error)
@@ -418,8 +418,8 @@ describe('useGatewayRequest', () => {
               outcome === 'resolves' ? resolve(localConnection) : reject(new Error('local backend unavailable'))
           })
       )
-      setPrimaryGateway(primary as unknown as AegisGateway, 'default')
-      $gateway.set(primary as unknown as AegisGateway)
+      setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'default')
+      $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
       $gatewayState.set('closed')
       const { result } = renderHook(() => useGatewayRequest())
       const pending = result.current.requestGateway('prompt.submit', { text: 'local-only' }).catch(error => error)
@@ -453,8 +453,8 @@ describe('useGatewayRequest', () => {
           releaseMint = () => resolve({ ok: true as const, wsUrl: 'ws://127.0.0.1:5151/api/ws?token=fresh-local' })
         })
     )
-    setPrimaryGateway(primary as unknown as AegisGateway, 'default')
-    $gateway.set(primary as unknown as AegisGateway)
+    setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'default')
+    $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
     $gatewayState.set('closed')
     const { result } = renderHook(() => useGatewayRequest())
     const pending = result.current.requestGateway('prompt.submit', { text: 'local-only' }).catch(error => error)
@@ -535,8 +535,8 @@ describe('useGatewayRequest', () => {
     const primary = makePrimaryGateway()
     primary.request.mockRejectedValueOnce(new Error('connection closed')).mockResolvedValueOnce({ recovered: true })
 
-    setPrimaryGateway(primary as unknown as AegisGateway, 'default')
-    $gateway.set(primary as unknown as AegisGateway)
+    setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'default')
+    $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
     $gatewayState.set('closed')
 
     const { result } = renderHook(() => useGatewayRequest())
@@ -571,8 +571,8 @@ describe('useGatewayRequest', () => {
 
       const primary = makePrimaryGateway()
       primary.request.mockRejectedValueOnce(new Error('connection closed')).mockResolvedValueOnce({ recovered: true })
-      setPrimaryGateway(primary as unknown as AegisGateway, connection.profile)
-      $gateway.set(primary as unknown as AegisGateway)
+      setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, connection.profile)
+      $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
       $activeGatewayProfile.set(connection.profile)
       $gatewayState.set('closed')
 
@@ -603,7 +603,7 @@ describe('useGatewayRequest', () => {
     const dropped = {
       connectionState: 'closed',
       request: vi.fn().mockRejectedValue(new Error('connection closed'))
-    } as unknown as AegisGateway
+    } as unknown as Aegis AI Enterprise Autonomous PlatformGateway
 
     const getConnection = vi.fn(() => new Promise(() => undefined))
 
@@ -635,9 +635,9 @@ describe('a planned sandbox restart of a plugin-run profile', () => {
     $profileRemoteOverrides.set({
       work: { host: '127.0.0.1:47972', launcher: { plugin: 'openshell' }, url: 'http://127.0.0.1:47972' }
     })
-    setPrimaryGateway(primary as unknown as AegisGateway, 'work')
+    setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'work')
     $activeGatewayRoute.set('work')
-    $gateway.set(primary as unknown as AegisGateway)
+    $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
     $gatewayState.set('open')
 
     return primary
@@ -699,8 +699,8 @@ describe('a planned sandbox restart of a plugin-run profile', () => {
     primary.request.mockRejectedValueOnce(silent).mockResolvedValueOnce({ token: 'a second run' })
 
     if (!launched) {
-      setPrimaryGateway(primary as unknown as AegisGateway, 'default')
-      $gateway.set(primary as unknown as AegisGateway)
+      setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'default')
+      $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
       $gatewayState.set('open')
     }
 
@@ -720,7 +720,7 @@ describe('a write the old backend already received, cut off during a planned tra
   afterEach(() => $activeGatewayRoute.set('default'))
 
   const HEARTBEAT_CUT = 'WebSocket heartbeat acknowledgement timed out'
-  const CLOSED_CUT = 'Aegis gateway connection closed'
+  const CLOSED_CUT = 'Aegis AI Enterprise Autonomous Platform gateway connection closed'
 
   // The primary socket of a plugin-run profile. The first request reaches the backend the profile is
   // on now, which runs it; its answer is lost in the cut. Everything after reaches the backend the
@@ -743,9 +743,9 @@ describe('a write the old backend already received, cut off during a planned tra
     $profileRemoteOverrides.set({
       work: { host: '127.0.0.1:47972', launcher: { plugin: 'some-plugin' }, url: 'http://127.0.0.1:47972' }
     })
-    setPrimaryGateway(primary as unknown as AegisGateway, 'work')
+    setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'work')
     $activeGatewayRoute.set('work')
-    $gateway.set(primary as unknown as AegisGateway)
+    $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
     $gatewayState.set('open')
 
     return { primary, ran }
@@ -837,9 +837,9 @@ describe('a write the old backend already received, cut off during a planned tra
     $profileRemoteOverrides.set({
       work: { host: '127.0.0.1:47972', launcher: { plugin: 'some-plugin' }, url: 'http://127.0.0.1:47972' }
     })
-    setPrimaryGateway(primary as unknown as AegisGateway, 'work')
+    setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'work')
     $activeGatewayRoute.set('work')
-    $gateway.set(primary as unknown as AegisGateway)
+    $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
     $gatewayState.set('open')
     beginBackendTransition('work', 'restarting', { source: 'launcher' })
 
@@ -865,14 +865,14 @@ describe('a write the old backend already received, cut off during a planned tra
 
       // The socket was already down: the request was refused before anything was written to it.
       primary.request
-        .mockRejectedValueOnce(new Error('Aegis gateway is not connected'))
+        .mockRejectedValueOnce(new Error('Aegis AI Enterprise Autonomous Platform gateway is not connected'))
         .mockResolvedValueOnce({ ok: true })
       $profileRemoteOverrides.set({
         work: { host: '127.0.0.1:47972', launcher: { plugin: 'some-plugin' }, url: 'http://127.0.0.1:47972' }
       })
-      setPrimaryGateway(primary as unknown as AegisGateway, 'work')
+      setPrimaryGateway(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway, 'work')
       $activeGatewayRoute.set('work')
-      $gateway.set(primary as unknown as AegisGateway)
+      $gateway.set(primary as unknown as Aegis AI Enterprise Autonomous PlatformGateway)
       $gatewayState.set('open')
       beginBackendTransition('work', kind, { source })
 

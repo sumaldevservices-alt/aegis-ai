@@ -6,7 +6,7 @@
  *
  * The one fake per external edge: the git server (a local bare repo behind a
  * url.insteadOf rewrite) and the LLM provider (e2e/core/provider.ts). Nothing
- * inside Aegis is mocked.
+ * inside Aegis AI Enterprise Autonomous Platform is mocked.
  *
  * Synchronisation rule (same as e2e/core): wait on an observable fact — a log
  * line, a pid, a file, a DOM state — with a deadline, never a fixed sleep.
@@ -151,7 +151,7 @@ export function packagedExe(facts: InstallFacts): string {
   const name = fs.readdirSync(dir).find(entry => /^aegis$/i.test(entry))
 
   if (!name) {
-    throw new Error(`no packaged Aegis executable in ${dir}: ${fs.readdirSync(dir).join(', ')}`)
+    throw new Error(`no packaged Aegis AI Enterprise Autonomous Platform executable in ${dir}: ${fs.readdirSync(dir).join(', ')}`)
   }
 
   return path.join(dir, name)
@@ -420,11 +420,11 @@ export async function waitFor<T>(
 
 /** Copy of the first-run chooser / bootstrap installer overlay (the screens a healthy install must never show). */
 export const FIRST_RUN_SCREENS = [
-  'Set up Aegis Desktop',
-  'Aegis needs a one-time install',
-  'Setting up Aegis Agent',
-  'Install Aegis locally',
-  'Use Aegis on this computer'
+  'Set up Aegis AI Enterprise Autonomous Platform Desktop',
+  'Aegis AI Enterprise Autonomous Platform needs a one-time install',
+  'Setting up Aegis AI Enterprise Autonomous Platform Agent',
+  'Install Aegis AI Enterprise Autonomous Platform locally',
+  'Use Aegis AI Enterprise Autonomous Platform on this computer'
 ]
 
 /**

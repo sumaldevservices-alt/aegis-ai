@@ -21,20 +21,20 @@ describe('ownAppImage', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-appdir-link-'))
 
     try {
-      const mount = path.join(root, 'var-home', '.mount_AegisQ7x2Lp')
+      const mount = path.join(root, 'var-home', '.mount_Aegis AI Enterprise Autonomous PlatformQ7x2Lp')
       fs.mkdirSync(mount, { recursive: true })
       fs.writeFileSync(path.join(mount, 'aegis'), '')
-      fs.mkdirSync(path.join(root, 'other', '.mount_AegisQ7x2Lp'), { recursive: true })
+      fs.mkdirSync(path.join(root, 'other', '.mount_Aegis AI Enterprise Autonomous PlatformQ7x2Lp'), { recursive: true })
       fs.symlinkSync(path.join(root, 'var-home'), path.join(root, 'home'))
       fs.symlinkSync(path.join(root, 'other'), path.join(root, 'elsewhere'))
       const exe = fs.realpathSync(path.join(mount, 'aegis'))
-      const appImage = '/home/u/Apps/Aegis.AppImage'
+      const appImage = '/home/u/Apps/Aegis AI Enterprise Autonomous Platform.AppImage'
 
-      expect(ownAppImage(exe, { APPIMAGE: appImage, APPDIR: path.join(root, 'home', '.mount_AegisQ7x2Lp') })).toBe(
+      expect(ownAppImage(exe, { APPIMAGE: appImage, APPDIR: path.join(root, 'home', '.mount_Aegis AI Enterprise Autonomous PlatformQ7x2Lp') })).toBe(
         appImage
       )
       expect(
-        ownAppImage(exe, { APPIMAGE: appImage, APPDIR: path.join(root, 'elsewhere', '.mount_AegisQ7x2Lp') })
+        ownAppImage(exe, { APPIMAGE: appImage, APPDIR: path.join(root, 'elsewhere', '.mount_Aegis AI Enterprise Autonomous PlatformQ7x2Lp') })
       ).toBeUndefined()
     } finally {
       fs.rmSync(root, { recursive: true, force: true })
@@ -58,7 +58,7 @@ describe('spawnRelaunch', () => {
     async () => {
       const saved = { ...process.env }
       const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'aegis-relaunch-fds-'))
-      const image = path.join(dir, 'Aegis.AppImage')
+      const image = path.join(dir, 'Aegis AI Enterprise Autonomous Platform.AppImage')
       const report = path.join(dir, 'fds')
       const held = path.join(dir, 'held')
       const events: string[] = []
@@ -99,7 +99,7 @@ describe('spawnRelaunch', () => {
         )
         fs.writeFileSync(held, '')
         // This mount's AppRun prepended it to PATH; the mount is gone soon after the child starts.
-        const mount = path.join(dir, '.mount_AegisQ7x2Lp')
+        const mount = path.join(dir, '.mount_Aegis AI Enterprise Autonomous PlatformQ7x2Lp')
 
         const helper = spawnRelaunch(image, [], {
           ...process.env,
@@ -135,8 +135,8 @@ describe('spawnRelaunch', () => {
 
       return { on: () => undefined, unref: () => undefined } as unknown as ChildProcess
     }) as typeof spawn)
-    const mount = '/run/user/1000/.mount_AegisQ7x2Lp'
-    const image = '/home/u/Apps/Aegis.AppImage'
+    const mount = '/run/user/1000/.mount_Aegis AI Enterprise Autonomous PlatformQ7x2Lp'
+    const image = '/home/u/Apps/Aegis AI Enterprise Autonomous Platform.AppImage'
 
     spawnRelaunch(
       image,
@@ -157,7 +157,7 @@ describe('spawnRelaunch', () => {
   // and uninstall unable to find the image file.
   it.skipIf(process.platform !== 'linux')('keeps APPDIR for an executable inside it', async () => {
     const appDir = path.join(os.tmpdir(), 'appimage_extracted_0123abcd')
-    const env: NodeJS.ProcessEnv = { APPDIR: appDir, APPIMAGE: '/apps/Aegis.AppImage', PATH: `${appDir}/usr/bin:/bin` }
+    const env: NodeJS.ProcessEnv = { APPDIR: appDir, APPIMAGE: '/apps/Aegis AI Enterprise Autonomous Platform.AppImage', PATH: `${appDir}/usr/bin:/bin` }
     const realSpawn = (await vi.importActual<typeof childProcess>('node:child_process')).spawn
     let childEnv: NodeJS.ProcessEnv | undefined
     vi.mocked(spawn).mockImplementationOnce((_file, _args, options) => {
@@ -188,7 +188,7 @@ describe('spawnRelaunch', () => {
 
         const env: NodeJS.ProcessEnv = {
           APPDIR: appDir,
-          APPIMAGE: '/apps/Aegis.AppImage',
+          APPIMAGE: '/apps/Aegis AI Enterprise Autonomous Platform.AppImage',
           PATH: `${appDir}/usr/bin:/bin`
         }
 
@@ -200,18 +200,18 @@ describe('spawnRelaunch', () => {
           return realSpawn('true', [], { stdio: 'pipe' })
         })
 
-        expect(ownAppImage(exe, env)).toBe('/apps/Aegis.AppImage')
+        expect(ownAppImage(exe, env)).toBe('/apps/Aegis AI Enterprise Autonomous Platform.AppImage')
         spawnRelaunch(exe, [], env).stdin!.end()
 
         expect(childEnv).toMatchObject(env)
-        expect(ownAppImage(exe, childEnv!)).toBe('/apps/Aegis.AppImage')
+        expect(ownAppImage(exe, childEnv!)).toBe('/apps/Aegis AI Enterprise Autonomous Platform.AppImage')
       } finally {
         fs.rmSync(root, { recursive: true, force: true })
       }
     }
   )
 
-  // Started from another app's AppImage (an AppImage terminal), Aegis inherits
+  // Started from another app's AppImage (an AppImage terminal), Aegis AI Enterprise Autonomous Platform inherits
   // that app's APPDIR/APPIMAGE and its mount on PATH and EDITOR; app.relaunch
   // kept them, so a restart must not strip half of that env.
   it.skipIf(process.platform !== 'linux')("keeps another app's AppImage env intact", async () => {
@@ -232,7 +232,7 @@ describe('spawnRelaunch', () => {
       return realSpawn('true', [], { stdio: 'pipe' })
     })
 
-    spawnRelaunch('/opt/Aegis/aegis', [], env).stdin!.end()
+    spawnRelaunch('/opt/Aegis AI Enterprise Autonomous Platform/aegis', [], env).stdin!.end()
 
     expect(childEnv).toEqual(env)
   })
@@ -273,15 +273,15 @@ describe('spawnRelaunch', () => {
 
 describe('mountFreeEnv', () => {
   const env = {
-    APPIMAGE: '/home/x/Aegis.AppImage',
-    APPDIR: '/tmp/.mount_AegisAb12',
-    LD_LIBRARY_PATH: '/tmp/.mount_AegisAb12/usr/lib',
-    PATH: '/tmp/.mount_AegisAb12:/usr/bin'
+    APPIMAGE: '/home/x/Aegis AI Enterprise Autonomous Platform.AppImage',
+    APPDIR: '/tmp/.mount_Aegis AI Enterprise Autonomous PlatformAb12',
+    LD_LIBRARY_PATH: '/tmp/.mount_Aegis AI Enterprise Autonomous PlatformAb12/usr/lib',
+    PATH: '/tmp/.mount_Aegis AI Enterprise Autonomous PlatformAb12:/usr/bin'
   }
 
   it('keeps the env whole for a command that still runs from the mount', () => {
     expect(
-      mountFreeEnv(env, '/tmp/.mount_AegisAb12/resources/agent-payload/bin/aegis', '/tmp/.mount_AegisAb12/aegis')
+      mountFreeEnv(env, '/tmp/.mount_Aegis AI Enterprise Autonomous PlatformAb12/resources/agent-payload/bin/aegis', '/tmp/.mount_Aegis AI Enterprise Autonomous PlatformAb12/aegis')
     ).toBe(env)
   })
 
@@ -290,16 +290,16 @@ describe('mountFreeEnv', () => {
       mountFreeEnv(
         env,
         '/home/x/.local/share/aegis/bundles/k/agent-payload/bin/aegis',
-        '/tmp/.mount_AegisAb12/aegis'
+        '/tmp/.mount_Aegis AI Enterprise Autonomous PlatformAb12/aegis'
       )
     ).toEqual({
-      APPIMAGE: '/home/x/Aegis.AppImage',
+      APPIMAGE: '/home/x/Aegis AI Enterprise Autonomous Platform.AppImage',
       PATH: '/usr/bin'
     })
   })
 
   it('leaves a mount inherited from another AppImage alone', () => {
-    // A .deb Aegis started from a terminal AppImage inherits the terminal's APPIMAGE and APPDIR.
+    // A .deb Aegis AI Enterprise Autonomous Platform started from a terminal AppImage inherits the terminal's APPIMAGE and APPDIR.
     const terminal = {
       APPIMAGE: '/home/x/Term.AppImage',
       APPDIR: '/tmp/.mount_TermCd34',
@@ -307,7 +307,7 @@ describe('mountFreeEnv', () => {
       EDITOR: '/tmp/.mount_TermCd34/usr/bin/nvim'
     }
 
-    expect(mountFreeEnv(terminal, '/opt/Aegis/resources/agent-payload/bin/aegis', '/opt/Aegis/aegis')).toBe(
+    expect(mountFreeEnv(terminal, '/opt/Aegis AI Enterprise Autonomous Platform/resources/agent-payload/bin/aegis', '/opt/Aegis AI Enterprise Autonomous Platform/aegis')).toBe(
       terminal
     )
   })

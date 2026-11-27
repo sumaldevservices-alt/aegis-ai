@@ -6,7 +6,7 @@
 //   check()  ask the OS whether an update is available (via the bundled
 //            payload python's winrt), surfacing UNKNOWN honestly;
 //   apply()  stage the descriptor, tear down, open it, and quit with
-//            a pending-relaunch marker so Aegis comes back by itself.
+//            a pending-relaunch marker so Aegis AI Enterprise Autonomous Platform comes back by itself.
 //
 // Pure-injectable: the impure pieces (python runner, shell, quit, relaunch
 // marker) are injected, so vitest covers the arm without a payload.
@@ -156,7 +156,7 @@ export class AppInstallerStrategy {
 
     this.deps.emitUpdateProgress({
       stage: 'restart',
-      message: 'Applying the Aegis update — the window will close and the App Installer will finish.',
+      message: 'Applying the Aegis AI Enterprise Autonomous Platform update — the window will close and the App Installer will finish.',
       percent: 100
     })
 
@@ -171,7 +171,7 @@ export class AppInstallerStrategy {
             this.deps.emitUpdateProgress({
               stage: 'restart',
               percent: 100,
-              message: 'Automatic relaunch could not be registered. Reopen Aegis after App Installer finishes.'
+              message: 'Automatic relaunch could not be registered. Reopen Aegis AI Enterprise Autonomous Platform after App Installer finishes.'
             })
         }
       },

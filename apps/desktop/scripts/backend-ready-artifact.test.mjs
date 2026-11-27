@@ -43,8 +43,8 @@ it('resolves the asar path per platform, including the branded macOS bundle', ()
   expect(resolvePackagedAsarPath({
     appOutDir: '/out/mac',
     electronPlatformName: 'darwin',
-    packager: { appInfo: { productFilename: 'Aegis Preview' } }
-  })).toBe(path.join('/out/mac', 'Aegis Preview.app', 'Contents', 'Resources', 'app.asar'))
+    packager: { appInfo: { productFilename: 'Aegis AI Enterprise Autonomous Platform Preview' } }
+  })).toBe(path.join('/out/mac', 'Aegis AI Enterprise Autonomous Platform Preview.app', 'Contents', 'Resources', 'app.asar'))
   expect(() => resolvePackagedAsarPath({ electronPlatformName: 'linux' }))
     .toThrow('missing appOutDir')
 })

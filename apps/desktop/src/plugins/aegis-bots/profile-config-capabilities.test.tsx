@@ -13,7 +13,7 @@
  * the wrong machine — so those builds must fail closed to "staged only".
  */
 
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { cleanup, render, screen } from '@testing-library/react'
 import type { ReactNode } from 'react'
@@ -59,7 +59,7 @@ const sdk = vi.hoisted(() => {
 // be live at the moment `vi.resetModules()` re-evaluates the editor — a value
 // baked into the factory would freeze the first test's build for the rest.
 vi.mock('@aegis/plugin-sdk', async importOriginal => {
-  const original = await importOriginal<typeof AegisSdk>()
+  const original = await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>()
 
   const mocked: Record<string, unknown> = {
     ...original,

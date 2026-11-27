@@ -197,7 +197,7 @@ function allowedUninstallModes(kind: InstallKind): string[] {
 function nativeRemovalInstructions(kind, platform, appPath = null) {
   if (kind === 'nix') {
     return (
-      'This Aegis desktop app was installed by Nix. Uninstall it the same way you installed it: ' +
+      'This Aegis AI Enterprise Autonomous Platform desktop app was installed by Nix. Uninstall it the same way you installed it: ' +
       'remove aegis-agent from your flake or profile, then rebuild.'
     )
   }
@@ -205,7 +205,7 @@ function nativeRemovalInstructions(kind, platform, appPath = null) {
   if (kind === 'external') {
     // Deleting a package manager's files by hand leaves the package registered with missing files.
     return (
-      'Another package manager installed this Aegis desktop app. ' +
+      'Another package manager installed this Aegis AI Enterprise Autonomous Platform desktop app. ' +
       'Uninstall it with that package manager, the same way you installed it.'
     )
   }
@@ -216,7 +216,7 @@ function nativeRemovalInstructions(kind, platform, appPath = null) {
 
   if (platform === 'darwin') {
     // Name the running bundle: channel builds ship under different .app names.
-    const bundle = appPath ? path.posix.basename(String(appPath)) : 'the Aegis app'
+    const bundle = appPath ? path.posix.basename(String(appPath)) : 'the Aegis AI Enterprise Autonomous Platform app'
     const folder = appPath ? path.posix.dirname(String(appPath)) : 'Applications'
 
     return `Quit the app and drag ${bundle} from ${folder} to the Trash.`
@@ -230,7 +230,7 @@ function nativeRemovalInstructions(kind, platform, appPath = null) {
     return `Delete the app directory at ${appPath}.`
   }
 
-  return 'Delete the Aegis AppImage (or app directory) from wherever you saved it.'
+  return 'Delete the Aegis AI Enterprise Autonomous Platform AppImage (or app directory) from wherever you saved it.'
 }
 
 /**
@@ -262,8 +262,8 @@ function modeRemovesUserData(mode: string) {
  * Resolve the on-disk app bundle/dir to remove for the running desktop app,
  * given the path to the running executable (`process.execPath`) and platform.
  *
- *   macOS:   …/Aegis.app/Contents/MacOS/Aegis  → …/Aegis.app
- *   Windows: …\Aegis\Aegis.exe                 → …\Aegis  (install dir)
+ *   macOS:   …/Aegis AI Enterprise Autonomous Platform.app/Contents/MacOS/Aegis AI Enterprise Autonomous Platform  → …/Aegis AI Enterprise Autonomous Platform.app
+ *   Windows: …\Aegis AI Enterprise Autonomous Platform\Aegis AI Enterprise Autonomous Platform.exe                 → …\Aegis AI Enterprise Autonomous Platform  (install dir)
  *   Linux:   AppImage → APPIMAGE when we run from it; unpacked → the *-unpacked dir
  *
  * Returns null when we can't confidently identify a removable bundle (e.g.
@@ -282,10 +282,10 @@ function resolveRemovableAppPath(execPath, platform, env: any = {}) {
   const p = platform === 'win32' ? path.win32 : path.posix
 
   if (platform === 'darwin') {
-    // …/Aegis.app/Contents/MacOS/Aegis → strip 3 segments to the .app
+    // …/Aegis AI Enterprise Autonomous Platform.app/Contents/MacOS/Aegis AI Enterprise Autonomous Platform → strip 3 segments to the .app
     const macOsDir = p.dirname(exe) // …/Contents/MacOS
     const contents = p.dirname(macOsDir) // …/Contents
-    const appBundle = p.dirname(contents) // …/Aegis.app
+    const appBundle = p.dirname(contents) // …/Aegis AI Enterprise Autonomous Platform.app
 
     if (appBundle.endsWith('.app')) {
       return appBundle
@@ -295,10 +295,10 @@ function resolveRemovableAppPath(execPath, platform, env: any = {}) {
   }
 
   if (platform === 'win32') {
-    // NSIS per-user installs Aegis.exe directly in the install dir.
+    // NSIS per-user installs Aegis AI Enterprise Autonomous Platform.exe directly in the install dir.
     const dir = p.dirname(exe)
 
-    if (/[\\/]Aegis$/i.test(dir) || /[\\/]aegis-desktop$/i.test(dir)) {
+    if (/[\\/]Aegis AI Enterprise Autonomous Platform$/i.test(dir) || /[\\/]aegis-desktop$/i.test(dir)) {
       return dir
     }
 
@@ -409,7 +409,7 @@ function buildWindowsCleanupScript({
   const pid = Number(desktopPid) || 0
   // cmd.exe has no string escaping inside quotes; strip embedded quotes (paths
   // under %LOCALAPPDATA% never contain them). `&`/`^` in a path would still be
-  // a problem, but Aegis install paths don't use them.
+  // a problem, but Aegis AI Enterprise Autonomous Platform install paths don't use them.
   const q = s => `"${String(s).replace(/"/g, '')}"`
 
   const lines = [

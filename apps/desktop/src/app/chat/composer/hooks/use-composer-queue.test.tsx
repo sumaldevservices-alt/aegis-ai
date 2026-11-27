@@ -1,7 +1,7 @@
 import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { clearComposerTerminalSelections, setComposerTerminalSelection } from '@/store/composer'
 import {
   $parkedQueueSessions,
@@ -117,7 +117,7 @@ describe('useComposerQueue park integration', () => {
   })
 
   it('admits native Queue through submit and retains an uncertain draft without a local replay', async () => {
-    $connection.set({ mode: 'local', wsUrl: 'ws://localhost/api/ws?native_dial=unminted' } as AegisConnection)
+    $connection.set({ mode: 'local', wsUrl: 'ws://localhost/api/ws?native_dial=unminted' } as Aegis AI Enterprise Autonomous PlatformConnection)
     const draftRef = { current: 'durable queue' }
     const clearDraft = vi.fn(() => { draftRef.current = '' })
     const onSubmit = vi.fn<ChatBarProps['onSubmit']>().mockResolvedValue(false)
@@ -143,7 +143,7 @@ describe('useComposerQueue park integration', () => {
   })
 
   it('does not clear the next session draft when a queue ACK arrives after navigation', async () => {
-    $connection.set({ mode: 'local', wsUrl: 'ws://localhost/api/ws?native_dial=unminted' } as AegisConnection)
+    $connection.set({ mode: 'local', wsUrl: 'ws://localhost/api/ws?native_dial=unminted' } as Aegis AI Enterprise Autonomous PlatformConnection)
     let accept!: (value: boolean) => void
     const clearDraft = vi.fn()
     const draftRef = { current: 'same text' }
@@ -299,7 +299,7 @@ describe('useComposerQueue park integration', () => {
   // draw it in the thread as the next turn's prompt: a visible row between the
   // paused reply and its continuation, so the reply read "Response stopped".
   it('keeps a send made while the reply is paused in the local queue, then sends it after the pause', async () => {
-    $connection.set({ mode: 'local', wsUrl: 'ws://localhost/api/ws?native_dial=unminted' } as AegisConnection)
+    $connection.set({ mode: 'local', wsUrl: 'ws://localhost/api/ws?native_dial=unminted' } as Aegis AI Enterprise Autonomous PlatformConnection)
     markReplyPaused(SESSION_KEY)
 
     try {
@@ -845,7 +845,7 @@ describe('useComposerQueue scope', () => {
     act(() => {
       hook.result.current.exitQueuedEdit('save')
     })
-    await act(async () => replies[0]!.reject(new Error('Aegis gateway is not connected')))
+    await act(async () => replies[0]!.reject(new Error('Aegis AI Enterprise Autonomous Platform gateway is not connected')))
 
     expect(hook.result.current.queueEdit?.entryId).toBe('adm-1')
     expect(draftRef.current).toBe('new words')

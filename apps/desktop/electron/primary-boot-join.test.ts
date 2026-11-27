@@ -63,7 +63,7 @@ test('a renderer retry after a failed remote boot still restores a served profil
   const request = rendererRequest(undefined, pin)
   assert.deepEqual(request, { key: 'windows-only', inheritsPrimary: true })
 
-  // startAegis(request.key, { inheritsPrimary }) gates restoration on this.
+  // startAegis AI Enterprise Autonomous Platform(request.key, { inheritsPrimary }) gates restoration on this.
   const restorable = () => primaryProfileRestorable(request.key, request.inheritsPrimary, null, {})
 
   pin.pin(request.key)

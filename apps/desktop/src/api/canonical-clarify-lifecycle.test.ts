@@ -10,7 +10,7 @@ import { resetServerRequestsForTests } from '@/store/server-requests'
 import type { SessionResumeResult } from '@/types/aegis'
 
 import { CanonicalDesktopProtocol } from './canonical-protocol'
-import { AegisGateway } from './client'
+import { Aegis AI Enterprise Autonomous PlatformGateway } from './client'
 
 beforeEach(() => {
   $clarifyRequests.set({})
@@ -36,7 +36,7 @@ test.each([
     return { status: 'resolved' } as never
   })
 
-  const client = new AegisGateway()
+  const client = new Aegis AI Enterprise Autonomous PlatformGateway()
   const previousGateway = $gateway.get()
   $gateway.set(client)
 

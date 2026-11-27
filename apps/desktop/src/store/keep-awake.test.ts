@@ -5,7 +5,7 @@ import { storedString, writeKey } from '@/lib/storage'
 const KEY = 'aegis.desktop.keepAwakeMode.v1'
 const LEGACY_KEY = 'aegis.desktop.keepAwake.v1'
 const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
-const initialAegisDesktop = desktopWindow.aegisDesktop
+const initialAegis AI Enterprise Autonomous PlatformDesktop = desktopWindow.aegisDesktop
 const setKeepAwakeBridge = vi.fn()
 
 /** The atom reads storage at import time, so migration tests need a fresh module. */
@@ -23,7 +23,7 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-  desktopWindow.aegisDesktop = initialAegisDesktop
+  desktopWindow.aegisDesktop = initialAegis AI Enterprise Autonomous PlatformDesktop
 })
 
 describe('keep-awake store', () => {

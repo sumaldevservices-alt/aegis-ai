@@ -78,13 +78,13 @@ test('nativeRemovalInstructions names the steward per kind and OS', () => {
 
   assert.match(nativeRemovalInstructions('bundled', 'win32'), /Installed apps/)
   assert.equal(
-    nativeRemovalInstructions('bundled', 'darwin', '/Applications/Aegis Agent Canary.app'),
-    'Quit the app and drag Aegis Agent Canary.app from /Applications to the Trash.'
+    nativeRemovalInstructions('bundled', 'darwin', '/Applications/Aegis AI Enterprise Autonomous Platform Agent Canary.app'),
+    'Quit the app and drag Aegis AI Enterprise Autonomous Platform Agent Canary.app from /Applications to the Trash.'
   )
-  assert.match(nativeRemovalInstructions('bundled', 'darwin'), /drag the Aegis app from Applications to the Trash/)
+  assert.match(nativeRemovalInstructions('bundled', 'darwin'), /drag the Aegis AI Enterprise Autonomous Platform app from Applications to the Trash/)
   assert.match(
-    nativeRemovalInstructions('bundled', 'linux', '/home/x/Apps/Aegis.AppImage'),
-    /\/home\/x\/Apps\/Aegis\.AppImage/
+    nativeRemovalInstructions('bundled', 'linux', '/home/x/Apps/Aegis AI Enterprise Autonomous Platform.AppImage'),
+    /\/home\/x\/Apps\/Aegis AI Enterprise Autonomous Platform\.AppImage/
   )
   assert.match(
     nativeRemovalInstructions('bundled', 'linux', '/opt/aegis/linux-unpacked'),
@@ -111,12 +111,12 @@ test('mode predicates classify what each mode removes', () => {
 
 test('resolveRemovableAppPath finds the .app bundle on macOS', () => {
   assert.equal(
-    resolveRemovableAppPath('/Applications/Aegis.app/Contents/MacOS/Aegis', 'darwin'),
-    '/Applications/Aegis.app'
+    resolveRemovableAppPath('/Applications/Aegis AI Enterprise Autonomous Platform.app/Contents/MacOS/Aegis AI Enterprise Autonomous Platform', 'darwin'),
+    '/Applications/Aegis AI Enterprise Autonomous Platform.app'
   )
   assert.equal(
-    resolveRemovableAppPath('/Users/x/Applications/Aegis.app/Contents/MacOS/Aegis', 'darwin'),
-    '/Users/x/Applications/Aegis.app'
+    resolveRemovableAppPath('/Users/x/Applications/Aegis AI Enterprise Autonomous Platform.app/Contents/MacOS/Aegis AI Enterprise Autonomous Platform', 'darwin'),
+    '/Users/x/Applications/Aegis AI Enterprise Autonomous Platform.app'
   )
 })
 
@@ -135,28 +135,28 @@ test('resolveRemovableAppPath: dev-run .app resolves (safety is shouldRemoveAppB
 
 test('resolveRemovableAppPath finds the install dir on Windows', () => {
   assert.equal(
-    resolveRemovableAppPath('C:\\Users\\x\\AppData\\Local\\Programs\\Aegis\\Aegis.exe', 'win32'),
-    'C:\\Users\\x\\AppData\\Local\\Programs\\Aegis'
+    resolveRemovableAppPath('C:\\Users\\x\\AppData\\Local\\Programs\\Aegis AI Enterprise Autonomous Platform\\Aegis AI Enterprise Autonomous Platform.exe', 'win32'),
+    'C:\\Users\\x\\AppData\\Local\\Programs\\Aegis AI Enterprise Autonomous Platform'
   )
   assert.equal(
-    resolveRemovableAppPath('C:\\Users\\x\\AppData\\Local\\aegis-desktop\\Aegis.exe', 'win32'),
+    resolveRemovableAppPath('C:\\Users\\x\\AppData\\Local\\aegis-desktop\\Aegis AI Enterprise Autonomous Platform.exe', 'win32'),
     'C:\\Users\\x\\AppData\\Local\\aegis-desktop'
   )
 })
 
 test('resolveRemovableAppPath returns null for an unrecognized Windows dir', () => {
-  assert.equal(resolveRemovableAppPath('C:\\Temp\\foo\\Aegis.exe', 'win32'), null)
+  assert.equal(resolveRemovableAppPath('C:\\Temp\\foo\\Aegis AI Enterprise Autonomous Platform.exe', 'win32'), null)
 })
 
 test('resolveRemovableAppPath uses APPIMAGE on Linux when set', () => {
   assert.equal(
-    resolveRemovableAppPath('/tmp/.mount_AegisXXXX/aegis', 'linux', { APPIMAGE: '/home/x/Apps/Aegis.AppImage' }),
-    '/home/x/Apps/Aegis.AppImage'
+    resolveRemovableAppPath('/tmp/.mount_Aegis AI Enterprise Autonomous PlatformXXXX/aegis', 'linux', { APPIMAGE: '/home/x/Apps/Aegis AI Enterprise Autonomous Platform.AppImage' }),
+    '/home/x/Apps/Aegis AI Enterprise Autonomous Platform.AppImage'
   )
 })
 
 // AppImage apps (terminals, IDEs) export APPIMAGE to everything they start;
-// uninstalling an unpacked Aegis launched from one must never rm -rf that app.
+// uninstalling an unpacked Aegis AI Enterprise Autonomous Platform launched from one must never rm -rf that app.
 test('resolveRemovableAppPath ignores an APPIMAGE inherited from another AppImage', () => {
   assert.equal(
     resolveRemovableAppPath('/opt/aegis/linux-unpacked/aegis', 'linux', { APPIMAGE: '/home/x/Apps/Other.AppImage' }),
@@ -178,8 +178,8 @@ test('resolveRemovableAppPath returns null for an empty exe path', () => {
 // --- shouldRemoveAppBundle ---
 
 test('shouldRemoveAppBundle requires packaged AND a resolved path', () => {
-  assert.equal(shouldRemoveAppBundle(true, '/Applications/Aegis.app'), true)
-  assert.equal(shouldRemoveAppBundle(false, '/Applications/Aegis.app'), false)
+  assert.equal(shouldRemoveAppBundle(true, '/Applications/Aegis AI Enterprise Autonomous Platform.app'), true)
+  assert.equal(shouldRemoveAppBundle(false, '/Applications/Aegis AI Enterprise Autonomous Platform.app'), false)
   assert.equal(shouldRemoveAppBundle(true, null), false)
   assert.equal(shouldRemoveAppBundle(false, null), false)
 })
@@ -268,7 +268,7 @@ test('buildWindowsCleanupScript waits (bounded) for PID, runs uninstall, rmdir b
     pythonPath: 'C:\\aegis',
     agentRoot: 'C:\\aegis',
     uninstallArgs: ['-m', 'aegis_cli.uninstall', '--mode', 'full'],
-    appPath: 'C:\\Users\\x\\AppData\\Local\\Programs\\Aegis',
+    appPath: 'C:\\Users\\x\\AppData\\Local\\Programs\\Aegis AI Enterprise Autonomous Platform',
     aegisHome: 'C:\\Users\\x\\AppData\\Local\\aegis'
   })
 
@@ -282,7 +282,7 @@ test('buildWindowsCleanupScript waits (bounded) for PID, runs uninstall, rmdir b
   assert.match(script, /findstr \/r \/c:" %PID% "/)
   // Removal is a retry loop (Windows releases dir handles lazily).
   assert.match(script, /:rmloop/)
-  assert.match(script, /rmdir \/s \/q "C:\\Users\\x\\AppData\\Local\\Programs\\Aegis" >nul 2>&1/)
+  assert.match(script, /rmdir \/s \/q "C:\\Users\\x\\AppData\\Local\\Programs\\Aegis AI Enterprise Autonomous Platform" >nul 2>&1/)
   assert.match(script, /if %tries% geq 10 goto rmdone/)
   assert.match(script, /del "%~f0"/)
 })

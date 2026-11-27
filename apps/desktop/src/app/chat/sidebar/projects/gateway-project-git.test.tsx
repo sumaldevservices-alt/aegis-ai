@@ -2,7 +2,7 @@ import { cleanup, fireEvent, render, renderHook, screen, waitFor } from '@testin
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { SidebarProvider } from '@/components/ui/sidebar'
-import type { AegisApiRequest } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 import { $dismissedWorktreeIds, dismissWorktree } from '@/store/layout'
 import { $startWorkSessionRequest, $worktreeDialog } from '@/store/projects'
 
@@ -38,7 +38,7 @@ function installBridge() {
     worktreeList: vi.fn(async () => [])
   }
 
-  const api = vi.fn(async (request: AegisApiRequest) => {
+  const api = vi.fn(async (request: Aegis AI Enterprise Autonomous PlatformApiRequest) => {
     if (request.path.startsWith('/api/git/base-branches')) {
       return { branches: [{ isDefault: true, isRemote: true, name: 'origin/main' }] }
     }

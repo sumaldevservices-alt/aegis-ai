@@ -12,7 +12,7 @@
  *  - `/my-page?item=x` / `#/my-page?item=x` (hash-router paths)
  */
 
-export type AegisOpenTarget = string | { href: string } | { path: string; params?: Record<string, string> }
+export type Aegis AI Enterprise Autonomous PlatformOpenTarget = string | { href: string } | { path: string; params?: Record<string, string> }
 
 const AEGIS_PROTOCOL = 'aegis:'
 
@@ -66,7 +66,7 @@ function isPluginDeepLinkHost(host: string): boolean {
 }
 
 /** Normalize a string target to a hash-router path, or null. */
-export function normalizeAegisOpenString(raw: string): string | null {
+export function normalizeAegis AI Enterprise Autonomous PlatformOpenString(raw: string): string | null {
   const trimmed = raw.trim()
 
   if (!trimmed) {
@@ -121,13 +121,13 @@ export function normalizeAegisOpenString(raw: string): string | null {
 }
 
 /** Resolve any supported activate/open target to a hash-router path, or null. */
-export function resolveAegisOpenPath(target: AegisOpenTarget | null | undefined): string | null {
+export function resolveAegis AI Enterprise Autonomous PlatformOpenPath(target: Aegis AI Enterprise Autonomous PlatformOpenTarget | null | undefined): string | null {
   if (target == null) {
     return null
   }
 
   if (typeof target === 'string') {
-    return normalizeAegisOpenString(target)
+    return normalizeAegis AI Enterprise Autonomous PlatformOpenString(target)
   }
 
   if (typeof target !== 'object') {
@@ -135,11 +135,11 @@ export function resolveAegisOpenPath(target: AegisOpenTarget | null | undefined)
   }
 
   if ('href' in target && typeof target.href === 'string') {
-    return normalizeAegisOpenString(target.href)
+    return normalizeAegis AI Enterprise Autonomous PlatformOpenString(target.href)
   }
 
   if ('path' in target && typeof target.path === 'string') {
-    const base = normalizeAegisOpenString(target.path)
+    const base = normalizeAegis AI Enterprise Autonomous PlatformOpenString(target.path)
 
     if (!base) {
       return null
@@ -155,23 +155,23 @@ export function resolveAegisOpenPath(target: AegisOpenTarget | null | undefined)
  * Build a navigate path from a parsed deep-link payload
  * (`aegis://<kind>/<name>?…` → kind/name/params).
  */
-export function pathFromAegisDeepLink(kind: string, name: string, params: Record<string, string> = {}): string | null {
+export function pathFromAegis AI Enterprise Autonomous PlatformDeepLink(kind: string, name: string, params: Record<string, string> = {}): string | null {
   if (!kind || !name) {
     return null
   }
 
   if (kind === 'open') {
-    return resolveAegisOpenPath({ path: `/${name.replace(/^\//, '')}`, params })
+    return resolveAegis AI Enterprise Autonomous PlatformOpenPath({ path: `/${name.replace(/^\//, '')}`, params })
   }
 
   if (!isPluginDeepLinkHost(kind)) {
     return null
   }
 
-  return resolveAegisOpenPath({ path: `/${kind}/${name.replace(/^\//, '')}`, params })
+  return resolveAegis AI Enterprise Autonomous PlatformOpenPath({ path: `/${kind}/${name.replace(/^\//, '')}`, params })
 }
 
 /** Convenience for `aegis://open/<name>?…` payloads. */
 export function pathFromOpenDeepLink(name: string, params: Record<string, string> = {}): string | null {
-  return pathFromAegisDeepLink('open', name, params)
+  return pathFromAegis AI Enterprise Autonomous PlatformDeepLink('open', name, params)
 }

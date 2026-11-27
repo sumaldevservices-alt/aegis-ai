@@ -4,8 +4,8 @@ import type {
   DesktopConnectionsRegistry,
   DesktopRegistryConnection,
   DesktopRosterAgent,
-  AegisApiRequest,
-  AegisConnection
+  Aegis AI Enterprise Autonomous PlatformApiRequest,
+  Aegis AI Enterprise Autonomous PlatformConnection
 } from '@/global'
 import { createServedProfiles, SERVED_SET_READ_TIMEOUT_MS, type ServedProfiles } from '@/lib/browser-served-profiles'
 import { browserApi, type BrowserBootstrap, websocketUrl } from '@/lib/browser-transport'
@@ -25,7 +25,7 @@ import { BACKEND_BOOT_WAIT_TIMEOUT_MS, withTimeout } from '@/lib/with-timeout'
  * profile routes, Bot Mode and group-chat records name the same gateway on both hosts.
  */
 
-type Api = <T>(request: AegisApiRequest) => Promise<T>
+type Api = <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => Promise<T>
 
 type ChangeReason = 'removed' | 'saved' | 'updated'
 
@@ -101,7 +101,7 @@ export interface BrowserSavedConnections {
   bootstrapFor: (connectionId: null | string | undefined) => BrowserBootstrap
   /** A fresh socket URL on *connectionId* for *path*, admitted by a relay ticket minted for this dial. */
   socketUrl: (connectionId: string, path: RelayedSocketPath, profile?: null | string) => Promise<string>
-  connection: (connectionId: string, profile?: null | string) => AegisConnection
+  connection: (connectionId: string, profile?: null | string) => Aegis AI Enterprise Autonomous PlatformConnection
   rosterAgents: (connectionId: string) => Promise<DesktopRosterAgent[]>
   /** Whether *connectionId* serves *profile*, from the set its last inventory read reported. */
   serves: (connectionId: string, profile?: null | string) => boolean
@@ -150,13 +150,13 @@ export function createBrowserSavedConnections({
     const read = await api<DesktopConnectionsRegistry | null>({ path: ROUTE })
 
     if (!Array.isArray(read?.connections)) {
-      throw new Error('Aegis did not return the saved connections')
+      throw new Error('Aegis AI Enterprise Autonomous Platform did not return the saved connections')
     }
 
     return publish(read)
   }
 
-  const mutated = async <T extends { registry: DesktopConnectionsRegistry }>(request: AegisApiRequest) => {
+  const mutated = async <T extends { registry: DesktopConnectionsRegistry }>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => {
     const result = await api<T>(request)
     publish(result.registry)
 
@@ -188,7 +188,7 @@ export function createBrowserSavedConnections({
     const ticket = String(minted?.ticket || '').trim()
 
     if (!ticket) {
-      throw new Error('Aegis did not return a relay ticket')
+      throw new Error('Aegis AI Enterprise Autonomous Platform did not return a relay ticket')
     }
 
     const url = new URL(websocketUrl(relayed.basePath, path, {}, profile))
@@ -197,7 +197,7 @@ export function createBrowserSavedConnections({
     return url.toString()
   }
 
-  const connection = (connectionId: string, profile?: null | string): AegisConnection => {
+  const connection = (connectionId: string, profile?: null | string): Aegis AI Enterprise Autonomous PlatformConnection => {
     const row = gateway(connectionId)
     const relayed = bootstrapFor(connectionId)
 
@@ -240,7 +240,7 @@ export function createBrowserSavedConnections({
     let set = served.get(key)
 
     if (!set) {
-      const relayed: Api = <T>(request: AegisApiRequest) => browserApi<T>(bootstrapFor(connectionId), request)
+      const relayed: Api = <T>(request: Aegis AI Enterprise Autonomous PlatformApiRequest) => browserApi<T>(bootstrapFor(connectionId), request)
 
       set = createServedProfiles(
         relayed,

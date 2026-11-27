@@ -63,7 +63,7 @@ test('quitPromptFor summarizes past the list cap and counts untitled work', () =
 
 // #79579: only a backend the app owns (started over SSH) dies with it. The
 // local profile gateway is attached (`aegis gateway ensure`), and a remote URL
-// or Aegis Cloud backend is supervised elsewhere: all keep the turn running
+// or Aegis AI Enterprise Autonomous Platform Cloud backend is supervised elsewhere: all keep the turn running
 // after the app quits, so the prompt must not claim the work is lost.
 test('backendOwnedByApp: the local gateway is attached, not owned', () => {
   assert.equal(backendOwnedByApp({ ownedBackendCount: 0, primaryRouteKind: null }), false)

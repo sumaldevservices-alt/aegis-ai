@@ -102,7 +102,7 @@ export const ruOverrides = {
   boot: ruBoot.boot,
   notifications: {
     sharedProfileWarning:
-      'Другая установка Aegis использует этот профиль. Обе установки используют общие настройки и данные, поэтому изменения могут конфликтовать. Можно продолжить работу или закрыть другую установку перед внесением изменений.',
+      'Другая установка Aegis AI Enterprise Autonomous Platform использует этот профиль. Обе установки используют общие настройки и данные, поэтому изменения могут конфликтовать. Можно продолжить работу или закрыть другую установку перед внесением изменений.',
     region: 'Уведомления',
     hide: 'Скрыть',
     show: 'Показать',
@@ -115,13 +115,13 @@ export const ruOverrides = {
     copyDetailFailed: 'Не удалось скопировать подробность уведомления',
     backendOutOfDateTitle: 'Устаревший бэкенд',
     backendOutOfDateMessage:
-      'Ваш бэкенд Aegis старше этой сборки приложения и может работать некорректно. Обновите их, чтобы они совпали.',
+      'Ваш бэкенд Aegis AI Enterprise Autonomous Platform старше этой сборки приложения и может работать некорректно. Обновите их, чтобы они совпали.',
     desktopOutOfDateTitle: 'Устаревшее приложение',
     desktopOutOfDateMessage:
-      'Это приложение Aegis старше подключённого бэкенда и может работать некорректно. Обновите приложение, чтобы они совпали.',
+      'Это приложение Aegis AI Enterprise Autonomous Platform старше подключённого бэкенда и может работать некорректно. Обновите приложение, чтобы они совпали.',
     updateDesktopApp: 'Обновить приложение',
     installMethodUnsupportedTitle: 'Неподдерживаемый способ установки',
-    updateAegis: 'Обновить Aegis',
+    updateAegis AI Enterprise Autonomous Platform: 'Обновить Aegis AI Enterprise Autonomous Platform',
     updateReadyTitle: 'Обновление готово',
     updateReadyMessage: count =>
       `Доступно ${count} ${count % 10 === 1 && count % 100 !== 11 ? 'новое изменение' : count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 12 || count % 100 > 14) ? 'новых изменения' : 'новых изменений'}.`,
@@ -144,7 +144,7 @@ export const ruOverrides = {
       diskFull: 'Диск заполнен — освободите место и повторите.',
       gatewayAuthFailed: 'Аутентификация шлюза не удалась — проверьте API_SERVER_KEY.',
       methodNotAllowed:
-        'Бэкенд приложения отклонил запрос (405 Method Not Allowed). Попробуйте перезапустить Aegis Desktop.',
+        'Бэкенд приложения отклонил запрос (405 Method Not Allowed). Попробуйте перезапустить Aegis AI Enterprise Autonomous Platform Desktop.',
       microphonePermission: 'Доступ к микрофону запрещён.',
       openaiRejectedApiKey: 'OpenAI отклонил API-ключ.',
       openaiTtsNeedsKey: 'Для TTS OpenAI нужен VOICE_TOOLS_OPENAI_KEY или OPENAI_API_KEY.'
@@ -186,8 +186,8 @@ export const ruOverrides = {
       denyAction: 'Запретить',
       inputTitle: 'Требуется ввод',
       inputTitleNamed: session => `Требуется ввод — ${session}`,
-      inputBody: 'Aegis ожидает ваш ответ.',
-      turnDoneTitle: 'Aegis завершил',
+      inputBody: 'Aegis AI Enterprise Autonomous Platform ожидает ваш ответ.',
+      turnDoneTitle: 'Aegis AI Enterprise Autonomous Platform завершил',
       turnDoneBody: '',
       turnErrorTitle: 'Ход не удался',
       backgroundDoneTitle: 'Фоновая задача завершена',
@@ -354,7 +354,7 @@ export const ruOverrides = {
     billing: {
       keepGoingOnCredits: {
         title: 'Продолжать за кредиты',
-        description: 'Тратить кредиты, когда включённый объём закончится. Выключено: Aegis ждёт сброса.',
+        description: 'Тратить кредиты, когда включённый объём закончится. Выключено: Aegis AI Enterprise Autonomous Platform ждёт сброса.',
         approveInBrowser:
           'Чтобы изменить это, одобрите удалённые траты в браузере. Изменение применится сразу после одобрения.',
         openAgain: 'Открыть снова',
@@ -436,7 +436,7 @@ export const ruOverrides = {
     exportConfig: 'Экспорт конфигурации',
     importConfig: 'Импорт конфигурации',
     resetToDefaults: 'Сбросить к значениям по умолчанию',
-    resetConfirm: 'Сбросить все настройки к значениям Aegis по умолчанию?',
+    resetConfirm: 'Сбросить все настройки к значениям Aegis AI Enterprise Autonomous Platform по умолчанию?',
     exportFailed: 'Не удалось экспортировать',
     resetFailed: 'Не удалось сбросить',
     pluginPages: ruPluginSettings.pluginPages,
@@ -473,7 +473,7 @@ export const ruOverrides = {
       advanced: 'Дополнительно'
     },
     searchPlaceholder: {
-      about: 'О Aegis Desktop',
+      about: 'О Aegis AI Enterprise Autonomous Platform Desktop',
       config: 'Поиск настроек…',
       gateway: 'Подключение шлюза…',
       keys: 'Поиск API-ключей…',
@@ -492,7 +492,7 @@ export const ruOverrides = {
       title: 'Внешний вид',
       intro: 'Только для приложения. Режим — это яркость, тема — палитра и оформление чата.',
       colorMode: 'Цветовой режим',
-      colorModeDesc: 'Выберите фиксированный режим или позвольте Aegis следовать настройкам системы.',
+      colorModeDesc: 'Выберите фиксированный режим или позвольте Aegis AI Enterprise Autonomous Platform следовать настройкам системы.',
       toolViewTitle: 'Отображение вызовов инструментов',
       toolViewDesc: 'Режим «Продукт» скрывает сырые данные инструментов, «Технический» показывает полный вход/выход.',
       hideCodeDiffsTitle: 'Скрывать изменения кода',
@@ -568,7 +568,7 @@ export const ruOverrides = {
       modelPricingTitle: 'Цены моделей',
       modelPricingDesc: 'Показывать в выборе модели цены за миллион токенов: ввод, вывод и чтение из кэша.',
       reactionsTitle: 'Реакции на сообщения',
-      reactionsDesc: 'Эмодзи-тапбеки в стиле iMessage — реагируйте на сообщения, и Aegis сможет реагировать на ваши.',
+      reactionsDesc: 'Эмодзи-тапбеки в стиле iMessage — реагируйте на сообщения, и Aegis AI Enterprise Autonomous Platform сможет реагировать на ваши.',
       composerPopoutTitle: 'Плавающий композер',
       composerPopoutDesc:
         'Позволяет вытягивать композер из его док-зоны. Когда выключено, он остаётся закреплённым внизу.',
@@ -606,9 +606,9 @@ export const ruOverrides = {
       pet: {
         title: 'Питомец',
         intro:
-          'Заберите анимированного питомца из petdex, который парит над приложением и реагирует на действия Aegis — «бегает», пока выполняются инструменты, радуется успеху и хмурится при ошибках.',
+          'Заберите анимированного питомца из petdex, который парит над приложением и реагирует на действия Aegis AI Enterprise Autonomous Platform — «бегает», пока выполняются инструменты, радуется успеху и хмурится при ошибках.',
         restartHint:
-          'Питомцам нужен быстрый перезапуск — текущее приложение запустилось до появления этой функции. Выйдите из Aegis и откройте снова, затем вернитесь сюда.',
+          'Питомцам нужен быстрый перезапуск — текущее приложение запустилось до появления этой функции. Выйдите из Aegis AI Enterprise Autonomous Platform и откройте снова, затем вернитесь сюда.',
         scaleTitle: 'Размер',
         scaleDesc: 'Меняет размер парящего питомца. Применяется мгновенно везде.',
         roamTitle: 'Блуждание',
@@ -831,7 +831,7 @@ export const ruOverrides = {
       timezone: 'Идентификатор часового пояса IANA. Пустое значение — системный часовой пояс.',
       agent: {
         imageInputMode: 'Управляет тем, как вложения изображений отправляются модели.',
-        maxTurns: 'Верхний предел ходов с вызовами инструментов, после которого Aegis останавливает запуск.'
+        maxTurns: 'Верхний предел ходов с вызовами инструментов, после которого Aegis AI Enterprise Autonomous Platform останавливает запуск.'
       },
       terminal: {
         cwd: 'Папка проекта по умолчанию для инструментов и терминала.',
@@ -845,9 +845,9 @@ export const ruOverrides = {
       codeExecution: {
         mode: 'Насколько строго выполнение кода ограничено текущим проектом.'
       },
-      fileReadMaxChars: 'Максимальное число символов, которые Aegis может прочитать из одного запроса к файлу.',
+      fileReadMaxChars: 'Максимальное число символов, которые Aegis AI Enterprise Autonomous Platform может прочитать из одного запроса к файлу.',
       approvals: {
-        mode: 'Как Aegis обрабатывает команды, требующие явного подтверждения.',
+        mode: 'Как Aegis AI Enterprise Autonomous Platform обрабатывает команды, требующие явного подтверждения.',
         timeout: 'Как долго запросы подтверждения ждут перед тайм-аутом.'
       },
       security: {
@@ -901,14 +901,14 @@ export const ruOverrides = {
       },
       updates: {
         nonInteractiveLocalChanges:
-          'Когда Aegis обновляет себя из приложения (без запроса в терминале), сохранять локальные правки исходников (stash) или выбрасывать (discard). Обновления из терминала всегда спрашивают.'
+          'Когда Aegis AI Enterprise Autonomous Platform обновляет себя из приложения (без запроса в терминале), сохранять локальные правки исходников (stash) или выбрасывать (discard). Обновления из терминала всегда спрашивают.'
       }
     }),
     about: { updates: 'Обновления', channel: ruUpdateChannel },
     config: {
       minimizeToTrayTitle: 'Сворачивать в трей',
       minimizeToTrayDesc:
-        'Сворачивание окон или закрытие главного окна скрывает их в системном трее (строке меню macOS), оставляя Aegis работать. Для выхода выберите «Выйти из Aegis» в меню трея или нажмите Cmd+Q. По умолчанию выключено; действует только на этом устройстве.',
+        'Сворачивание окон или закрытие главного окна скрывает их в системном трее (строке меню macOS), оставляя Aegis AI Enterprise Autonomous Platform работать. Для выхода выберите «Выйти из Aegis AI Enterprise Autonomous Platform» в меню трея или нажмите Cmd+Q. По умолчанию выключено; действует только на этом устройстве.',
       minimizeToTrayUnavailable:
         'Системный трей недоступен. Окна будут сворачиваться и закрываться как обычно. Выключите и снова включите настройку, чтобы повторить попытку.',
       none: 'Нет',
@@ -919,7 +919,7 @@ export const ruOverrides = {
       searchPlaceholder: 'Поиск…',
       noResults: 'Ничего не найдено',
       systemDefault: 'Системное по умолчанию',
-      loading: 'Загрузка конфигурации Aegis…',
+      loading: 'Загрузка конфигурации Aegis AI Enterprise Autonomous Platform…',
       emptyTitle: 'Настраивать нечего',
       emptyDesc: 'В этом разделе нет настраиваемых параметров.',
       failedLoad: 'Не удалось загрузить настройки',
@@ -957,27 +957,27 @@ export const ruOverrides = {
       description:
         'Нажмите и отпустите ⌘ + Option на Mac или Ctrl + Alt на Windows/Linux, чтобы вызвать HUD из любого приложения. По умолчанию выключено; действует только на этом устройстве.',
       permission:
-        'Разрешите Aegis в Системных настройках → Конфиденциальность и безопасность → Мониторинг ввода, затем повторите попытку. Жест не записывает нажатия клавиш и не снимает экран.',
+        'Разрешите Aegis AI Enterprise Autonomous Platform в Системных настройках → Конфиденциальность и безопасность → Мониторинг ввода, затем повторите попытку. Жест не записывает нажатия клавиш и не снимает экран.',
       unavailable:
-        'Вспомогательная программа жеста HUD не запустилась или неожиданно остановилась. Повторите попытку или перезапустите Aegis. Обычное сочетание HUD по-прежнему работает внутри Aegis.',
+        'Вспомогательная программа жеста HUD не запустилась или неожиданно остановилась. Повторите попытку или перезапустите Aegis AI Enterprise Autonomous Platform. Обычное сочетание HUD по-прежнему работает внутри Aegis AI Enterprise Autonomous Platform.',
       missingHelper:
-        'В этой установке Aegis отсутствует вспомогательная программа жеста HUD. Обновите или переустановите Aegis и повторите попытку.',
+        'В этой установке Aegis AI Enterprise Autonomous Platform отсутствует вспомогательная программа жеста HUD. Обновите или переустановите Aegis AI Enterprise Autonomous Platform и повторите попытку.',
       unsupportedSession:
         'Этот сеанс рабочего стола не поддерживает глобальные нажатия модификаторов. В Linux требуется X11; Wayland не поддерживается.'
     },
     screenshot: {
       enabledTitle: 'Сочетание клавиш для снимка окна',
       enabledDesc:
-        'Нажмите обе клавиши Command одновременно в любом приложении, чтобы снять его переднее окно и прикрепить снимок к текущему черновику Aegis. Автоматической отправки нет. По умолчанию выключено; действует только на этом Mac. Окно может содержать конфиденциальные данные — проверьте вложение перед отправкой.',
+        'Нажмите обе клавиши Command одновременно в любом приложении, чтобы снять его переднее окно и прикрепить снимок к текущему черновику Aegis AI Enterprise Autonomous Platform. Автоматической отправки нет. По умолчанию выключено; действует только на этом Mac. Окно может содержать конфиденциальные данные — проверьте вложение перед отправкой.',
       statusTitle: 'Состояние сочетания для снимка окна',
       checking: 'Проверка сочетания для снимка окна…',
       disabled: 'Сочетание для снимка окна выключено.',
       starting: 'Запускается отслеживание сочетания. Оно пока не готово.',
       ready: 'Сочетание готово. Снимки прикрепляются к текущему черновику без отправки.',
       inputPermission:
-        'Разрешение на мониторинг ввода позволяет Aegis распознавать обе клавиши Command, когда активно другое приложение. Разрешите Aegis доступ в Системных настройках → Конфиденциальность и безопасность → Мониторинг ввода, затем вернитесь сюда и повторите попытку.',
+        'Разрешение на мониторинг ввода позволяет Aegis AI Enterprise Autonomous Platform распознавать обе клавиши Command, когда активно другое приложение. Разрешите Aegis AI Enterprise Autonomous Platform доступ в Системных настройках → Конфиденциальность и безопасность → Мониторинг ввода, затем вернитесь сюда и повторите попытку.',
       screenPermission:
-        'Разрешение на запись экрана позволяет Aegis снимать переднее окно приложения при использовании этого сочетания. Разрешите Aegis доступ в Системных настройках → Конфиденциальность и безопасность → Запись экрана, затем вернитесь сюда и повторите попытку. Перезапустите Aegis, если macOS попросит.',
+        'Разрешение на запись экрана позволяет Aegis AI Enterprise Autonomous Platform снимать переднее окно приложения при использовании этого сочетания. Разрешите Aegis AI Enterprise Autonomous Platform доступ в Системных настройках → Конфиденциальность и безопасность → Запись экрана, затем вернитесь сюда и повторите попытку. Перезапустите Aegis AI Enterprise Autonomous Platform, если macOS попросит.',
       openSettings: 'Открыть Системные настройки',
       retry: 'Повторить',
       unavailable: 'Сочетание для снимка окна недоступно. Повторите попытку или выключите его.',
@@ -992,7 +992,7 @@ export const ruOverrides = {
     quickEntry: {
       enabledTitle: 'Быстрый ввод',
       enabledDesc:
-        'Глобальным горячим ключом вызывайте маленький композер откуда угодно и отправляйте запрос, не открывая Aegis.',
+        'Глобальным горячим ключом вызывайте маленький композер откуда угодно и отправляйте запрос, не открывая Aegis AI Enterprise Autonomous Platform.',
       shortcutTitle: 'Горячий ключ быстрого ввода',
       shortcutDesc: 'Нужен хотя бы один модификатор, например CommandOrControl+Shift+Space.',
       active: 'Горячий ключ активен.',
@@ -1023,7 +1023,7 @@ export const ruOverrides = {
     connections: {
       title: 'Зарегистрированные шлюзы',
       intro:
-        'Управляйте этим устройством и всеми шлюзами Aegis, до которых можно дотянуться через удалённые, SSH или Cloud-соединения.',
+        'Управляйте этим устройством и всеми шлюзами Aegis AI Enterprise Autonomous Platform, до которых можно дотянуться через удалённые, SSH или Cloud-соединения.',
       stagedNote:
         'Все шлюзы остаются подключёнными. Профили, чаты, мессенджеры и cron-задачи остаются за своим шлюзом, а «Сеансы» могут показывать их все сразу.',
       launchModeTitle: 'При запуске возвращаться к «Сеансам» на последнем шлюзе',
@@ -1050,15 +1050,15 @@ export const ruOverrides = {
       updateAllRunning: 'Обновление всех инстансов…',
       updateAllDone: 'Обновления разосланы',
       updateAllFailed: 'Не удалось разослать обновления',
-      updateSkippedCloud: 'Управляется Aegis Cloud',
+      updateSkippedCloud: 'Управляется Aegis AI Enterprise Autonomous Platform Cloud',
       kindLocal: 'Локальный',
       kindRemote: 'Удалённый шлюз',
-      kindCloud: 'Aegis Cloud',
+      kindCloud: 'Aegis AI Enterprise Autonomous Platform Cloud',
       kindSsh: 'SSH',
-      kindLocalDesc: 'Рантайм Aegis, которым управляет это приложение.',
-      kindRemoteDesc: 'Шлюз Aegis, доступный по HTTP(S) — LAN, Tailscale или интернет.',
-      kindCloudDesc: 'Хостинговая инстанция, обнаруженная через ваш аккаунт Aegis Cloud.',
-      kindSshDesc: 'Установка Aegis, доступная по SSH.',
+      kindLocalDesc: 'Рантайм Aegis AI Enterprise Autonomous Platform, которым управляет это приложение.',
+      kindRemoteDesc: 'Шлюз Aegis AI Enterprise Autonomous Platform, доступный по HTTP(S) — LAN, Tailscale или интернет.',
+      kindCloudDesc: 'Хостинговая инстанция, обнаруженная через ваш аккаунт Aegis AI Enterprise Autonomous Platform Cloud.',
+      kindSshDesc: 'Установка Aegis AI Enterprise Autonomous Platform, доступная по SSH.',
       labelTitle: 'Имя',
       labelDesc:
         'Обязательно. Показывается везде, где фигурирует эта инстанция; должно быть уникальным (напр. «Домашняя лаборатория», «Рабочий ноутбук»).',
@@ -1067,7 +1067,7 @@ export const ruOverrides = {
       sshHostTitle: 'SSH-хост',
       headersTitle: 'Дополнительные заголовки шлюза',
       headersDesc:
-        'Отправляются с каждым HTTP- и WebSocket-запросом к этому шлюзу — например, для прокси доступа вроде Cloudflare Access (CF-Access-Client-Id / CF-Access-Client-Secret). Значения хранятся зашифрованными. Заголовки, которыми управляет Aegis (Authorization, Cookie, Host…), игнорируются.',
+        'Отправляются с каждым HTTP- и WebSocket-запросом к этому шлюзу — например, для прокси доступа вроде Cloudflare Access (CF-Access-Client-Id / CF-Access-Client-Secret). Значения хранятся зашифрованными. Заголовки, которыми управляет Aegis AI Enterprise Autonomous Platform (Authorization, Cookie, Host…), игнорируются.',
       headerValuePlaceholder: 'Значение',
       headerValueSaved: 'Сохранено — оставьте пустым, чтобы не менять',
       headerAdd: 'Добавить заголовок',
@@ -1078,7 +1078,7 @@ export const ruOverrides = {
       sameBackendHint: label => `Тот же бэкенд, что и «${label}»`,
       localAddHint: 'Локальное недоступно: управляемое локальное соединение уже существует (их всегда только одно).',
       cloudAddHint:
-        'Подсказка: вход в Aegis Cloud выше автоматически обнаруживает ваших агентов — эту форму используйте только для ручной регистрации известного URL инстанса.',
+        'Подсказка: вход в Aegis AI Enterprise Autonomous Platform Cloud выше автоматически обнаруживает ваших агентов — эту форму используйте только для ручной регистрации известного URL инстанса.',
       save: 'Сохранить соединение',
       saving: 'Сохранение…',
       cancel: 'Отмена',
@@ -1090,23 +1090,23 @@ export const ruOverrides = {
       title: 'Подключение шлюза',
       envOverride: 'переопределение переменными окружения',
       intro:
-        'По умолчанию — локальный. Используйте удалённый, когда приложение должно управлять бэкендом Aegis в другом месте. Соединения шлюзов — на уровне машины; профили обнаруживаются из подключённых шлюзов.',
+        'По умолчанию — локальный. Используйте удалённый, когда приложение должно управлять бэкендом Aegis AI Enterprise Autonomous Platform в другом месте. Соединения шлюзов — на уровне машины; профили обнаруживаются из подключённых шлюзов.',
       envOverrideTitle: 'Переменные окружения управляют этой сессией приложения.',
       envOverrideDesc:
         'Сбросьте AEGIS_DESKTOP_REMOTE_URL и AEGIS_DESKTOP_REMOTE_TOKEN, чтобы использовать сохранённую настройку ниже.',
       modeTitle: 'Режим подключения',
       localTitle: 'Локальный шлюз',
-      localDesc: 'Запускает приватный бэкенд Aegis на localhost. Это значение по умолчанию, работает офлайн.',
+      localDesc: 'Запускает приватный бэкенд Aegis AI Enterprise Autonomous Platform на localhost. Это значение по умолчанию, работает офлайн.',
       remoteTitle: 'Удалённый шлюз',
-      remoteDesc: 'Подключает это приложение к удалённому бэкенду Aegis.',
+      remoteDesc: 'Подключает это приложение к удалённому бэкенду Aegis AI Enterprise Autonomous Platform.',
       remoteAuthHint:
         'Хостинговые шлюзы используют OAuth или логин/пароль; самохостинговые могут использовать токен сессии.',
-      cloudTitle: 'Aegis Cloud',
-      cloudDesc: 'Войдите в Aegis Cloud один раз и выбирайте агентов из своего аккаунта — без вставки URL.',
-      cloudSignInTitle: 'Aegis Cloud',
-      cloudSignIn: 'Войти в Aegis Cloud',
-      cloudSignedIn: 'Вы вошли в Aegis Cloud',
-      cloudNeedsSignIn: 'Войдите в Aegis Cloud, чтобы обнаружить агентов в вашем аккаунте.',
+      cloudTitle: 'Aegis AI Enterprise Autonomous Platform Cloud',
+      cloudDesc: 'Войдите в Aegis AI Enterprise Autonomous Platform Cloud один раз и выбирайте агентов из своего аккаунта — без вставки URL.',
+      cloudSignInTitle: 'Aegis AI Enterprise Autonomous Platform Cloud',
+      cloudSignIn: 'Войти в Aegis AI Enterprise Autonomous Platform Cloud',
+      cloudSignedIn: 'Вы вошли в Aegis AI Enterprise Autonomous Platform Cloud',
+      cloudNeedsSignIn: 'Войдите в Aegis AI Enterprise Autonomous Platform Cloud, чтобы обнаружить агентов в вашем аккаунте.',
       cloudSignedInDesc: 'Вы вошли. Выберите агента ниже; сессия обновляется автоматически.',
       cloudAgentsTitle: 'Ваши агенты',
       cloudOrgPickerTitle: 'Выберите организацию',
@@ -1127,11 +1127,11 @@ export const ruOverrides = {
       cloudUseSaved: 'Использовать шлюз',
       cloudActive: 'Активен в этом окне',
       cloudConnecting: 'Подключение…',
-      cloudDiscoverFailed: 'Не удалось загрузить агентов Aegis Cloud',
+      cloudDiscoverFailed: 'Не удалось загрузить агентов Aegis AI Enterprise Autonomous Platform Cloud',
       cloudConnectFailed: 'Не удалось подключиться к этому агенту',
-      cloudSignInFailed: 'Не удалось войти в Aegis Cloud',
-      cloudSignedOutTitle: 'Выход из Aegis Cloud',
-      cloudSignedOutMessage: 'Сессия Aegis Cloud сброшена.',
+      cloudSignInFailed: 'Не удалось войти в Aegis AI Enterprise Autonomous Platform Cloud',
+      cloudSignedOutTitle: 'Выход из Aegis AI Enterprise Autonomous Platform Cloud',
+      cloudSignedOutMessage: 'Сессия Aegis AI Enterprise Autonomous Platform Cloud сброшена.',
       cloudConnectedTitle: 'Подключено',
       cloudConnectedPill: 'Подключено',
       cloudConnectedTo: name => `Подключено к ${name}.`,
@@ -1179,9 +1179,9 @@ export const ruOverrides = {
       enterUrlFirst: 'Сначала введите удалённый URL.',
       restartingTitle: 'Перезапуск соединения шлюза',
       savedTitle: 'Настройки шлюза сохранены',
-      restartingMessage: 'Aegis Desktop переподключится с сохранёнными настройками — оболочка останется открытой.',
+      restartingMessage: 'Aegis AI Enterprise Autonomous Platform Desktop переподключится с сохранёнными настройками — оболочка останется открытой.',
       savedMessage: 'Сохранено для следующего перезапуска.',
-      connectedTo: (baseUrl, version) => `Подключено к ${baseUrl}${version ? ` · Aegis ${version}` : ''}`,
+      connectedTo: (baseUrl, version) => `Подключено к ${baseUrl}${version ? ` · Aegis AI Enterprise Autonomous Platform ${version}` : ''}`,
       reachableTitle: 'Удалённый шлюз доступен',
       signedOutTitle: 'Вы вышли',
       signedOutMessage: 'Сессия удалённого шлюза сброшена.',
@@ -1193,7 +1193,7 @@ export const ruOverrides = {
       saveFailed: 'Не удалось сохранить настройки шлюза',
       sshTitle: 'Подключение по SSH',
       sshDesc:
-        'Aegis запускается на удалённой машине по SSH и туннелируется в это приложение — ничего не нужно запускать или открывать самим. Требуется рабочая SSH-аутентификация по ключу на хост.',
+        'Aegis AI Enterprise Autonomous Platform запускается на удалённой машине по SSH и туннелируется в это приложение — ничего не нужно запускать или открывать самим. Требуется рабочая SSH-аутентификация по ключу на хост.',
       sshTrustHint:
         'Первый предъявленный ключ хоста доверяется и фиксируется; последующие изменения приведут к отказу.',
       sshHostTitle: 'Хост',
@@ -1209,27 +1209,27 @@ export const ruOverrides = {
       sshPortDesc: 'Пусто = 22 или порт из ~/.ssh/config.',
       sshKeyTitle: 'Файл ключа',
       sshKeyDesc: 'Путь к закрытому ключу. Пусто = ssh-agent или ~/.ssh/config.',
-      sshAegisPathTitle: 'Путь к Aegis (необязательно)',
-      sshAegisPathDesc: 'Полный путь к бинарнику aegis на удалённой машине. Пусто = автоопределение.',
-      sshAegisPathPlaceholder: 'автоопределение',
+      sshAegis AI Enterprise Autonomous PlatformPathTitle: 'Путь к Aegis AI Enterprise Autonomous Platform (необязательно)',
+      sshAegis AI Enterprise Autonomous PlatformPathDesc: 'Полный путь к бинарнику aegis на удалённой машине. Пусто = автоопределение.',
+      sshAegis AI Enterprise Autonomous PlatformPathPlaceholder: 'автоопределение',
       sshTestConnection: 'Проверить SSH',
       sshConnect: 'Подключиться',
       sshButtonsHint: '«Сохранить» применится при следующем запуске. «Подключиться» переподключится сейчас.',
-      sshReachable: (host, platform) => `Доступен: ${host} (${platform}) — Aegis найден`,
+      sshReachable: (host, platform) => `Доступен: ${host} (${platform}) — Aegis AI Enterprise Autonomous Platform найден`,
       sshIncompleteHost: 'Введите SSH-хост перед подключением.',
       sshErrUnreachable: 'Не удалось достичь этого хоста по SSH. Проверьте хост, порт и сеть.',
       sshErrAuth:
-        'SSH-аутентификация не удалась. Загрузите ключ в ssh-agent (ssh-add) или задайте IdentityFile в ~/.ssh/config — Aegis запускает ssh в неинтерактивном режиме.',
+        'SSH-аутентификация не удалась. Загрузите ключ в ssh-agent (ssh-add) или задайте IdentityFile в ~/.ssh/config — Aegis AI Enterprise Autonomous Platform запускает ssh в неинтерактивном режиме.',
       sshErrHostKey:
         'Ключ хоста ИЗМЕНИЛСЯ с последнего подключения. Убедитесь, что это ожидаемо, затем выполните ssh-keygen -R <host> и переподключитесь.',
       sshErrNotInstalled:
-        'Aegis не установлен на удалённой машине. Установите его там (curl -fsSL https://aegis-agent.nousresearch.com/install.sh | sh) или задайте путь к Aegis.',
+        'Aegis AI Enterprise Autonomous Platform не установлен на удалённой машине. Установите его там (curl -fsSL https://aegis-agent.nousresearch.com/install.sh | sh) или задайте путь к Aegis AI Enterprise Autonomous Platform.',
       sshErrPlatform:
-        'Неподдерживаемая удалённая платформа. SSH-режим Aegis Desktop поддерживает удалённые хосты Linux, macOS и Windows.',
+        'Неподдерживаемая удалённая платформа. SSH-режим Aegis AI Enterprise Autonomous Platform Desktop поддерживает удалённые хосты Linux, macOS и Windows.',
       sshErrTimeout: 'SSH-соединение истекло. Хост может быть недоступен или «спит».',
-      sshErrUpdateRequired: 'Перед подключением через SSH обновите Aegis на удалённой машине.',
+      sshErrUpdateRequired: 'Перед подключением через SSH обновите Aegis AI Enterprise Autonomous Platform на удалённой машине.',
       sshErrInteractiveAuth:
-        'Tailscale SSH требует интерактивной проверки в браузере. Выполните `ssh <host> true` в терминале, завершите проверку и повторите попытку — Aegis запускает SSH неинтерактивно.',
+        'Tailscale SSH требует интерактивной проверки в браузере. Выполните `ssh <host> true` в терминале, завершите проверку и повторите попытку — Aegis AI Enterprise Autonomous Platform запускает SSH неинтерактивно.',
       sshErrUnknown: 'SSH-соединение не удалось.'
     },
     keys: {
@@ -1277,7 +1277,7 @@ export const ruOverrides = {
       noOutput: 'Вывода пока нет.',
       deepLinkTitle: 'Добавить MCP-сервер?',
       deepLinkDescription:
-        'Ссылка запросила добавить этот MCP-сервер в Aegis. Проверьте конфигурацию ниже — она пришла из ссылки, а не из Aegis.',
+        'Ссылка запросила добавить этот MCP-сервер в Aegis AI Enterprise Autonomous Platform. Проверьте конфигурацию ниже — она пришла из ссылки, а не из Aegis AI Enterprise Autonomous Platform.',
       deepLinkStdioWarning:
         'Этот сервер запускает локальный процесс на вашей машине командой, показанной ниже. Продолжайте только если доверяете источнику.',
       deepLinkConfirm: 'Добавить сервер',
@@ -1295,7 +1295,7 @@ export const ruOverrides = {
       connectAccount: 'Подключить аккаунт',
       haveApiKey: 'Ввести API-ключ вместо этого?',
       intro:
-        'Войдите по подписке — копировать API-ключ не нужно. Aegis проведёт вход в браузере прямо здесь, в приложении.',
+        'Войдите по подписке — копировать API-ключ не нужно. Aegis AI Enterprise Autonomous Platform проведёт вход в браузере прямо здесь, в приложении.',
       connected: 'Подключено',
       collapse: 'Свернуть',
       connectAnother: 'Подключить другой провайдер',
@@ -1316,7 +1316,7 @@ export const ruOverrides = {
       noKeysMatch: 'Провайдеры, подходящие под поиск, не найдены.',
       localEndpoint: {
         title: 'Локальный / свой эндпоинт',
-        description: 'Направьте Aegis на любой OpenAI-совместимый эндпоинт (Zyphra, vLLM, llama.cpp, Ollama и т. д.).'
+        description: 'Направьте Aegis AI Enterprise Autonomous Platform на любой OpenAI-совместимый эндпоинт (Zyphra, vLLM, llama.cpp, Ollama и т. д.).'
       },
       loading: 'Загрузка провайдеров…'
     },
@@ -1574,7 +1574,7 @@ export const ruOverrides = {
     loadFailed: 'Не удалось загрузить граф памяти',
     loading: 'Загрузка…',
     emptyTitle: 'Пока ничего не изучено',
-    emptyDesc: 'По мере того как Aegis создаёт навыки и память для вашей работы, они появятся здесь.',
+    emptyDesc: 'По мере того как Aegis AI Enterprise Autonomous Platform создаёт навыки и память для вашей работы, они появятся здесь.',
     share: 'Поделиться картой',
     shareHint:
       'Скопируйте код, чтобы поделиться этой картой, или вставьте код для загрузки. Включает только раскладку, а не вашу память или текст навыков.',
@@ -1655,7 +1655,7 @@ export const ruOverrides = {
       placeholder: 'Поиск питомцев…',
       loading: 'Загрузка галереи petdex…',
       error: 'Не удалось подключиться к галерее petdex.',
-      staleBackend: 'Перезапустите Aegis, чтобы использовать питомцев — бэкенд старше этой функции.',
+      staleBackend: 'Перезапустите Aegis AI Enterprise Autonomous Platform, чтобы использовать питомцев — бэкенд старше этой функции.',
       empty: 'Совпадающих питомцев нет.',
       turnOff: 'Отключить',
       turnOn: 'Включить',
@@ -1682,8 +1682,8 @@ export const ruOverrides = {
       hatchComposing: 'Собираем по частям…',
       hatchSaving: 'Почти готово…',
       namePlaceholder: 'Имя для вашего питомца',
-      staleBackend: 'Обновите Aegis, чтобы генерировать питомцев.',
-      backgroundHint: 'Можно закрыть — Aegis уведомит, когда будет готово.',
+      staleBackend: 'Обновите Aegis AI Enterprise Autonomous Platform, чтобы генерировать питомцев.',
+      backgroundHint: 'Можно закрыть — Aegis AI Enterprise Autonomous Platform уведомит, когда будет готово.',
       slowProviderHint: 'Это может занять несколько минут',
       remix: 'Ремикс',
       remixConfirmTitle: 'Сделать ремикс из этого облика?',
@@ -1713,7 +1713,7 @@ export const ruOverrides = {
     sections: { maintenance: 'Обслуживание', sessions: 'Сеансы', system: 'Система', usage: 'Использование' },
     nav: {
       newChat: { title: 'Новый сеанс', detail: 'Начать новый сеанс' },
-      settings: { title: 'Настройки', detail: 'Настройка Aegis desktop' },
+      settings: { title: 'Настройки', detail: 'Настройка Aegis AI Enterprise Autonomous Platform desktop' },
       capabilities: { title: 'Возможности', detail: 'Навыки, инструменты и MCP-серверы' },
       messaging: { title: 'Сообщения', detail: 'Настройка Telegram, Slack, Discord и других' },
       artifacts: { title: 'Артефакты', detail: 'Просмотр сгенерированных результатов' }
@@ -1735,7 +1735,7 @@ export const ruOverrides = {
     noSessions: 'Сеансов пока нет.',
     gatewayRunning: 'Шлюз сообщений работает',
     gatewayStopped: 'Шлюз сообщений остановлен',
-    aegisActiveSessions: (version, count) => `Aegis ${version} · Активные сеансы: ${count}`,
+    aegisActiveSessions: (version, count) => `Aegis AI Enterprise Autonomous Platform ${version} · Активные сеансы: ${count}`,
     restartGateway: 'Перезапустить шлюз',
     openBrowser: 'Переключить браузер',
     toggleBrowser: 'Переключить браузер',
@@ -1744,7 +1744,7 @@ export const ruOverrides = {
     sharedGatewayRestartDescription: bots => `Все боты на этом устройстве переподключатся: ${bots}`,
     sharedGatewayRestartConfirm: 'Перезапустить все',
     sharedGatewayRestarted: count => `Общий шлюз перезапущен (ботов: ${count})`,
-    updateAegis: 'Обновить Aegis',
+    updateAegis AI Enterprise Autonomous Platform: 'Обновить Aegis AI Enterprise Autonomous Platform',
     reloadWindow: 'Перезагрузить окно',
     actionRunning: 'выполняется',
     actionDone: 'готово',
@@ -1786,7 +1786,7 @@ export const ruOverrides = {
       debugShareDesc: 'Загрузка сводки (версии, ключи конфигурации, счётчики ошибок; без текста журналов), получение ссылки (автоудаление через 6 ч)',
       debugShareConfirm: 'Загрузить отладочный отчёт в публичный paste-сервис?',
       debugShareConfirmDesc:
-        'Загружает сводку в публичный paste-сервис: версии Aegis, Python и ОС, имена подключённых платформ и наборов инструментов, ключи конфигурации (без значений) и счётчики предупреждений/ошибок. Строк журналов и текста сообщений в ней нет. Пасты автоматически удаляются через 6 часов; если paste.rs недоступен, резервный dpaste.com хранит их публично 1 день, и удалить их раньше нельзя.',
+        'Загружает сводку в публичный paste-сервис: версии Aegis AI Enterprise Autonomous Platform, Python и ОС, имена подключённых платформ и наборов инструментов, ключи конфигурации (без значений) и счётчики предупреждений/ошибок. Строк журналов и текста сообщений в ней нет. Пасты автоматически удаляются через 6 часов; если paste.rs недоступен, резервный dpaste.com хранит их публично 1 день, и удалить их раньше нельзя.',
       debugShareRunning: 'Загрузка отладочного отчёта...',
       debugShareLinks: 'Ссылки для шаринга',
       debugShareFailed: 'Ошибка шаринга отладки',
@@ -1824,14 +1824,14 @@ export const ruOverrides = {
       sectionTitle: 'Доступно для установки',
       badges: { official: 'Официальный', verified: 'Проверенный' },
       notInstalled: 'Не установлен',
-      intro: (name: string) => `${name} — плагин из каталога Aegis. Установка включит его, затем здесь можно ввести учётные данные.`,
+      intro: (name: string) => `${name} — плагин из каталога Aegis AI Enterprise Autonomous Platform. Установка включит его, затем здесь можно ввести учётные данные.`,
       disclosure: 'Раскрытие:',
       install: 'Установить',
       installing: 'Установка…',
       installed: (name: string) => `${name} установлен`,
       installedDetail: 'Введите учётные данные, чтобы подключить его.',
       installFailed: (name: string) => `Не удалось установить ${name}`,
-      lazyOff: 'Автоматическая установка плагинов отключена (security.allow_lazy_installs), поэтому Aegis не устанавливает его отсюда.',
+      lazyOff: 'Автоматическая установка плагинов отключена (security.allow_lazy_installs), поэтому Aegis AI Enterprise Autonomous Platform не устанавливает его отсюда.',
       runCommand: 'Установите из терминала:',
     },
     search: 'Поиск в сообщениях...',
@@ -1919,7 +1919,7 @@ export const ruOverrides = {
     relayLink: {
       title: 'Team Gateway',
       badge: 'Токен бота не нужен',
-      intro: (platform: string) => `${platform} связывается с этим агентом через общий бот Aegis. Привяжите свой аккаунт ${platform} и напишите боту, чтобы говорить с агентом.`,
+      intro: (platform: string) => `${platform} связывается с этим агентом через общий бот Aegis AI Enterprise Autonomous Platform. Привяжите свой аккаунт ${platform} и напишите боту, чтобы говорить с агентом.`,
       link: (platform: string) => `Привязать ${platform}`,
       linkAnother: (platform: string) => `Привязать ещё один аккаунт ${platform}`,
       linkedAccounts: 'Привязанные аккаунты',
@@ -1945,11 +1945,11 @@ export const ruOverrides = {
     telegramQr: {
       title: 'Выберите способ подключения Telegram-бота',
       subtitle:
-        'Оба способа подключают бота под вашим контролем и сохраняют его данные только в этой установке Aegis.',
+        'Оба способа подключают бота под вашим контролем и сохраняют его данные только в этой установке Aegis AI Enterprise Autonomous Platform.',
       quickSetup: 'Быстрая настройка',
       recommended: 'Рекомендуется',
       quickHelp:
-        'Отсканируйте QR-код и подтвердите в Telegram. Aegis создаст бота и определит ваш Telegram ID автоматически.',
+        'Отсканируйте QR-код и подтвердите в Telegram. Aegis AI Enterprise Autonomous Platform создаст бота и определит ваш Telegram ID автоматически.',
       createWithQr: 'Создать по QR',
       starting: 'Запуск…',
       replaceWarning:
@@ -2152,7 +2152,7 @@ export const ruOverrides = {
     failedImport: 'Не удалось импортировать профиль',
     failedExport: 'Не удалось экспортировать профиль',
     exportNeedsHost: name =>
-      `Браузер не может сохранить архив профиля. На хосте Aegis выполните: aegis profile export ${name}`,
+      `Браузер не может сохранить архив профиля. На хосте Aegis AI Enterprise Autonomous Platform выполните: aegis profile export ${name}`,
     allProfiles: 'Все профили',
     showAllProfiles: 'Показать все профили',
     notServedHere: 'Здесь не обслуживается',
@@ -2162,10 +2162,10 @@ export const ruOverrides = {
     manageProfiles: 'Управлять профилями…',
     connectGateway: 'Управлять шлюзами…',
     fleet: {
-      localDevice: 'Это устройство (локальный бэкенд — установит Aegis, если его нет, иначе откроет новую сессию)',
-      installDeviceTitle: 'Установить Aegis на это устройство?',
+      localDevice: 'Это устройство (локальный бэкенд — установит Aegis AI Enterprise Autonomous Platform, если его нет, иначе откроет новую сессию)',
+      installDeviceTitle: 'Установить Aegis AI Enterprise Autonomous Platform на это устройство?',
       installDeviceDesc:
-        'Aegis будет установлен локально, затем откроется новая сессия на этом компьютере. Установка не начнётся, пока вы не подтвердите.',
+        'Aegis AI Enterprise Autonomous Platform будет установлен локально, затем откроется новая сессия на этом компьютере. Установка не начнётся, пока вы не подтвердите.',
       installDeviceConfirm: 'Установить локально',
       connectExistingInstead: 'Вместо этого подключить существующий'
     },
@@ -2176,7 +2176,7 @@ export const ruOverrides = {
     setAsDefault: 'Сделать по умолчанию',
     defaultProfile: 'Профиль по умолчанию',
     defaultSet: name => `${name} теперь используется по умолчанию`,
-    defaultDescription: 'Используется при запуске Aegis и для новых чатов. Профили существующих сессий не меняются.',
+    defaultDescription: 'Используется при запуске Aegis AI Enterprise Autonomous Platform и для новых чатов. Профили существующих сессий не меняются.',
     failedSetDefault: 'Не удалось установить профиль по умолчанию',
     setColor: color => `Установить цвет ${color}`,
     autoColor: 'Авто',
@@ -2214,7 +2214,7 @@ export const ruOverrides = {
     deleteDescMid: ' и сотрёт его ',
     deleteDescSuffix: ' каталог. Это действие необратимо.',
     deleting: 'Удаление...',
-    createDesc: 'Профили — это независимые среды Aegis: отдельные настройки, навыки и SOUL.md.',
+    createDesc: 'Профили — это независимые среды Aegis AI Enterprise Autonomous Platform: отдельные настройки, навыки и SOUL.md.',
     nameLabel: 'Имя',
     cloneFrom: 'Клонировать из',
     cloneFromNone: 'Нет (пустой)',
@@ -2248,7 +2248,7 @@ export const ruOverrides = {
     failedRename: 'Не удалось переименовать профиль'
   },
   modelAssignment: {
-    saveFailed: 'Aegis не сохранил это изменение модели.'
+    saveFailed: 'Aegis AI Enterprise Autonomous Platform не сохранил это изменение модели.'
   },
 
   cron: {
@@ -2311,7 +2311,7 @@ export const ruOverrides = {
     everyHourAt: minute => `Каждый час на :${minute}`,
     newCron: 'Новый cron',
     emptyDescNew:
-      'Запланируйте промпт, который будет выполняться по cron-выражению. Aegis выполнит его и доставит результаты в выбранное вами место.',
+      'Запланируйте промпт, который будет выполняться по cron-выражению. Aegis AI Enterprise Autonomous Platform выполнит его и доставит результаты в выбранное вами место.',
     emptyDescSearch: 'Попробуйте более широкий запрос.',
     emptyTitleNew: 'Запланированных задач пока нет',
     emptyTitleSearch: 'Нет совпадений',
@@ -2592,12 +2592,12 @@ export const ruOverrides = {
     switchingProfileSlow: 'Подключение ещё идёт. Сообщения, отправленные сейчас, дождутся его и уйдут этому агенту.',
     switchProfileFailed: profile => `Не удалось переключиться на ${profile}`,
     willSendTo: profile => `Будет отправлено в ${profile}`,
-    placeholderStarting: 'Запуск Aegis...',
-    placeholderReconnecting: 'Переподключение к Aegis…',
+    placeholderStarting: 'Запуск Aegis AI Enterprise Autonomous Platform...',
+    placeholderReconnecting: 'Переподключение к Aegis AI Enterprise Autonomous Platform…',
     placeholderFollowUp: 'Отправить продолжение',
     newSessionPlaceholders: [
       'Что будем делать?',
-      'Дайте Aegis задачу',
+      'Дайте Aegis AI Enterprise Autonomous Platform задачу',
       'О чём вы думаете?',
       'Опишите, что нужно',
       'Что обсудим?',
@@ -2678,7 +2678,7 @@ export const ruOverrides = {
       '/journey': 'Открыть граф памяти — навыки и воспоминания во времени',
       '/queue': 'Добавить, просмотреть, изменить, удалить, переместить или очистить запросы в очереди',
       '/steer': 'Добавить сообщение после следующего вызова инструмента без прерывания',
-      '/goal': 'Задать постоянную цель, над которой Aegis работает до завершения',
+      '/goal': 'Задать постоянную цель, над которой Aegis AI Enterprise Autonomous Platform работает до завершения',
       '/heartbeat': 'Задать повторяющийся запрос для этого сеанса в состоянии простоя',
       '/refine': 'Проанализировать беседу и сохранить выводы в памяти или навыках',
       '/review': 'Запустить независимого субагента для проверки обсуждаемой работы',
@@ -2690,7 +2690,7 @@ export const ruOverrides = {
       '/egress': 'Показать состояние исходящего прокси Docker',
       '/context': 'Показать использование контекста, категории, статистику сжатия и скорость обработки',
       '/whoami': 'Показать права доступа к слеш-командам',
-      '/profile': 'Переключить активный профиль Aegis',
+      '/profile': 'Переключить активный профиль Aegis AI Enterprise Autonomous Platform',
       '/codex-runtime': 'Переключить среду Codex app-server для моделей OpenAI/Codex',
       '/personality': 'Выбрать готовую личность',
       '/battery': 'Переключить цветной индикатор батареи в строке состояния',
@@ -2717,7 +2717,7 @@ export const ruOverrides = {
       '/subscription': 'Показать план Nous и изменить его в браузере',
       '/topup': 'Показать баланс Nous и управлять оплатой',
       '/platform': 'Приостановить, возобновить или перечислить сбоящие платформы шлюза',
-      '/version': 'Показать версию Aegis Agent',
+      '/version': 'Показать версию Aegis AI Enterprise Autonomous Platform Agent',
       '/debug': 'Отладочный отчёт (версии, ключи конфигурации, счётчики ошибок; без текста журналов): сначала уведомление о конфиденциальности; /debug upload делится ссылками',
       '/model': 'Переключить модель для этого сеанса'
     },
@@ -2732,7 +2732,7 @@ export const ruOverrides = {
       'composer.history': 'переключать поповер / историю'
     },
     attachUrlTitle: 'Прикрепить URL',
-    attachUrlDesc: 'Aegis загрузит страницу и добавит её как контекст для этого хода.',
+    attachUrlDesc: 'Aegis AI Enterprise Autonomous Platform загрузит страницу и добавит её как контекст для этого хода.',
     urlPlaceholder: 'https://example.com/post',
     urlHintPre: 'Укажите полный URL, например ',
     attach: 'Прикрепить',
@@ -2953,7 +2953,7 @@ export const ruOverrides = {
       createPr: 'Создать PR',
       openPr: 'Открыть PR',
       ghMissing: 'Установите GitHub CLI (gh) и войдите, чтобы открывать PR',
-      agentShip: 'Попросить Aegis открыть PR',
+      agentShip: 'Попросить Aegis AI Enterprise Autonomous Platform открыть PR',
       agentShipUnavailable: 'Чат, которому принадлежат эти изменения, не на экране.',
       agentShipPrompt:
         'Проверьте текущие изменения, закоммитьте их с ясным conventional-commit сообщением, запушьте ветку и создайте pull request.',
@@ -2965,23 +2965,23 @@ export const ruOverrides = {
     }
   },
   updates: {
-    discontinuedTitle: 'Эта сборка Aegis больше не поддерживается',
+    discontinuedTitle: 'Эта сборка Aegis AI Enterprise Autonomous Platform больше не поддерживается',
     discontinuedBody:
-      'Эта сборка Aegis больше не поддерживается и может перестать работать — удалите её. Ваши данные останутся на диске.',
+      'Эта сборка Aegis AI Enterprise Autonomous Platform больше не поддерживается и может перестать работать — удалите её. Ваши данные останутся на диске.',
     channels: { stable: 'Стабильный', canary: 'Тестовый' },
     bundleSwapPending: 'Перезапустите, чтобы завершить обновление',
     bundleSwapPendingDesc:
-      'Обновлённое приложение уже установлено — достаточно перезапустить Aegis, чтобы загрузить его. Чаты и настройки не пострадают.',
-    bundleSwapPendingAction: 'Перезапустить Aegis',
+      'Обновлённое приложение уже установлено — достаточно перезапустить Aegis AI Enterprise Autonomous Platform, чтобы загрузить его. Чаты и настройки не пострадают.',
+    bundleSwapPendingAction: 'Перезапустить Aegis AI Enterprise Autonomous Platform',
     stages: {
       idle: 'Готовимся…',
       prepare: 'Готовимся…',
       fetch: 'Скачиваем…',
       pull: 'Почти готово…',
       pydeps: 'Завершаем…',
-      update: 'Обновляем Aegis…',
+      update: 'Обновляем Aegis AI Enterprise Autonomous Platform…',
       rebuild: 'Пересобираем desktop-приложение…',
-      restart: 'Перезапускаем Aegis…',
+      restart: 'Перезапускаем Aegis AI Enterprise Autonomous Platform…',
       done: 'Обновление завершено',
       manual: 'Обновление из терминала',
       guiSkew: 'Обновите desktop-приложение',
@@ -2991,9 +2991,9 @@ export const ruOverrides = {
     checkFailedTitle: 'Не удалось проверить обновления',
     tryAgain: 'Попробовать снова',
     notAvailableTitle: 'Обновление недоступно',
-    unsupportedMessage: 'Эта версия Aegis не может обновлять себя из приложения.',
+    unsupportedMessage: 'Эта версия Aegis AI Enterprise Autonomous Platform не может обновлять себя из приложения.',
     connectionRetry: 'Проверьте соединение и попробуйте снова.',
-    gitUnusable: 'Aegis не удалось запустить Git на этом компьютере, поэтому проверить обновления не получилось.',
+    gitUnusable: 'Aegis AI Enterprise Autonomous Platform не удалось запустить Git на этом компьютере, поэтому проверить обновления не получилось.',
     latestBody: 'У вас последняя версия.',
     versionDetailsDistributionStore: 'Microsoft Store',
     versionDetailsClient: 'Это устройство',
@@ -3001,9 +3001,9 @@ export const ruOverrides = {
     latestBodyBackend: 'Бэкенд работает на последней версии.',
     allSetTitle: 'Всё готово',
     availableTitle: 'Доступно новое обновление',
-    availableBody: 'Новая версия Aegis готова к установке.',
+    availableBody: 'Новая версия Aegis AI Enterprise Autonomous Platform готова к установке.',
     availableTitleBackend: 'Доступно обновление бэкенда',
-    availableBodyBackend: 'Новая версия подключённого бэкенда Aegis готова к установке.',
+    availableBodyBackend: 'Новая версия подключённого бэкенда Aegis AI Enterprise Autonomous Platform готова к установке.',
     availableBodyNoChangelog: 'Новая версия готова. Заметки о выпуске недоступны для этого типа установки.',
     updateNow: 'Обновить сейчас',
     maybeLater: 'Возможно позже',
@@ -3012,31 +3012,31 @@ export const ruOverrides = {
     manualTitle: 'Обновление из терминала',
     manualUnavailableTitle: 'Обновление здесь недоступно',
     manualBody:
-      'Aegis установлен из командной строки, поэтому обновления тоже выполняются там. Вставьте это в терминал:',
-    manualPickedUp: 'Aegis подхватит новую версию при следующем запуске.',
-    manualBodyBackend: 'Бэкенд Aegis управляется вне этого приложения. Выполните это на сервере, где он размещён:',
+      'Aegis AI Enterprise Autonomous Platform установлен из командной строки, поэтому обновления тоже выполняются там. Вставьте это в терминал:',
+    manualPickedUp: 'Aegis AI Enterprise Autonomous Platform подхватит новую версию при следующем запуске.',
+    manualBodyBackend: 'Бэкенд Aegis AI Enterprise Autonomous Platform управляется вне этого приложения. Выполните это на сервере, где он размещён:',
     manualPickedUpBackend: 'Бэкенд загрузит новую версию после завершения обновления.',
     guiSkewTitle: 'Обновите desktop-приложение',
     guiSkewBody:
-      'Бэкенд обновлён, но пакет этого desktop-приложения не изменился. Обновите или переустановите desktop-приложение Aegis (ваш AppImage / .deb / .rpm), чтобы версии совпали.',
+      'Бэкенд обновлён, но пакет этого desktop-приложения не изменился. Обновите или переустановите desktop-приложение Aegis AI Enterprise Autonomous Platform (ваш AppImage / .deb / .rpm), чтобы версии совпали.',
     copy: 'Копировать',
     copied: 'Скопировано',
     done: 'Готово',
     applyingBody:
-      'Обновлятор Aegis возьмёт процесс на себя в своём окне и автоматически перезапустит Aegis, когда закончит. Пожалуйста, не открывайте Aegis вручную во время обновления.',
+      'Обновлятор Aegis AI Enterprise Autonomous Platform возьмёт процесс на себя в своём окне и автоматически перезапустит Aegis AI Enterprise Autonomous Platform, когда закончит. Пожалуйста, не открывайте Aegis AI Enterprise Autonomous Platform вручную во время обновления.',
     applyingBodyBackend:
-      'Удалённый бэкенд применяет обновление и перезапустится. Aegis переподключится автоматически, когда он снова заработает.',
-    applyingClose: 'Это окно закроется во время обновления, затем Aegis откроется сам.',
+      'Удалённый бэкенд применяет обновление и перезапустится. Aegis AI Enterprise Autonomous Platform переподключится автоматически, когда он снова заработает.',
+    applyingClose: 'Это окно закроется во время обновления, затем Aegis AI Enterprise Autonomous Platform откроется сам.',
     errorTitle: 'Обновление не завершилось',
     errorBody: 'Не переживайте — ничего не потеряно. Можно попробовать снова прямо сейчас.',
-    blockerTitle: 'Закрыть локальные предпросмотры, чтобы обновить Aegis?',
+    blockerTitle: 'Закрыть локальные предпросмотры, чтобы обновить Aegis AI Enterprise Autonomous Platform?',
     blockerBody:
-      'Aegis нужно остановить эти локальные предпросмотры перед обновлением. Ваши файлы не будут изменены или удалены.',
-    foreignBlockerTitle: 'Закрыть другие процессы, чтобы обновить Aegis',
+      'Aegis AI Enterprise Autonomous Platform нужно остановить эти локальные предпросмотры перед обновлением. Ваши файлы не будут изменены или удалены.',
+    foreignBlockerTitle: 'Закрыть другие процессы, чтобы обновить Aegis AI Enterprise Autonomous Platform',
     foreignBlockerBody:
-      'Aegis не может безопасно закрыть эти процессы автоматически. Закройте приложение, терминал или службу, которой принадлежит каждый из них, и повторите обновление.',
+      'Aegis AI Enterprise Autonomous Platform не может безопасно закрыть эти процессы автоматически. Закройте приложение, терминал или службу, которой принадлежит каждый из них, и повторите обновление.',
     mixedBlockerBody:
-      'Aegis может закрыть локальные предпросмотры, перечисленные ниже. Остальные процессы нужно закрыть вручную, прежде чем обновление сможет продолжиться.',
+      'Aegis AI Enterprise Autonomous Platform может закрыть локальные предпросмотры, перечисленные ниже. Остальные процессы нужно закрыть вручную, прежде чем обновление сможет продолжиться.',
     closePreviewsAndUpdate: 'Закрыть предпросмотры и обновить',
     closePreviewsAndCheckAgain: 'Закрыть предпросмотры и проверить снова',
     localPreview: 'Локальный предпросмотр',
@@ -3089,7 +3089,7 @@ export const ruOverrides = {
     justNowSuffix: ' · только что',
     bundleOutOfSync: 'Сборка приложения устарела',
     bundleOutOfSyncDesc:
-      'Рантайм Aegis обновлён, но само приложение — ещё старая сборка: новые функции интерфейса (например, Bot Mode) не появятся до обновления. Запустите обновление ниже, чтобы пересобрать приложение. Если предупреждение не исчезнет, переустановите с последнего установщика.',
+      'Рантайм Aegis AI Enterprise Autonomous Platform обновлён, но само приложение — ещё старая сборка: новые функции интерфейса (например, Bot Mode) не появятся до обновления. Запустите обновление ниже, чтобы пересобрать приложение. Если предупреждение не исчезнет, переустановите с последнего установщика.',
     bundleOutOfSyncAction: 'Скачать установщик',
     checkingShort: 'Проверка…'
   },
@@ -3101,7 +3101,7 @@ export const ruOverrides = {
       skipped: 'Пропущено',
       failed: 'Ошибка'
     },
-    oneTimeTitle: 'Aegis требует одноразовой установки',
+    oneTimeTitle: 'Aegis AI Enterprise Autonomous Platform требует одноразовой установки',
     unsupportedDesc: platform =>
       `Автоматическая установка при первом запуске пока недоступна на ${platform}. Откройте Терминал и выполните команду ниже, затем перезапустите это приложение. При следующих запусках этот шаг будет пропущен.`,
     installCommand: 'Команда установки',
@@ -3109,23 +3109,23 @@ export const ruOverrides = {
     viewDocs: 'Открыть документацию по установке',
     installTo: 'Будет установлено в',
     retryAfterRun: 'Я выполнил — попробовать снова',
-    setupChoiceTitle: 'Настройка Aegis Desktop',
+    setupChoiceTitle: 'Настройка Aegis AI Enterprise Autonomous Platform Desktop',
     setupChoiceDesc:
-      'Подключите это приложение к уже работающему шлюзу Aegis или установите Aegis локально на этот компьютер.',
-    connectExistingTitle: 'Подключиться к существующему Aegis',
+      'Подключите это приложение к уже работающему шлюзу Aegis AI Enterprise Autonomous Platform или установите Aegis AI Enterprise Autonomous Platform локально на этот компьютер.',
+    connectExistingTitle: 'Подключиться к существующему Aegis AI Enterprise Autonomous Platform',
     connectExistingShort: 'Подключить существующий',
     connectExistingDesc:
       'Используйте удалённый бэкенд с сессионным токеном или входом через браузер. Локальная установка не начнётся.',
-    installLocalTitle: 'Установить Aegis локально',
-    installLocalDesc: 'Скачайте Aegis, создайте его Python-окружение и запустите бэкенд на этом компьютере.',
-    localStartUnavailable: 'Не удалось начать локальную установку. Перезапустите Aegis Desktop и попробуйте снова.',
-    remoteSetupTitle: 'Подключиться к существующему Aegis',
-    remoteSetupDesc: 'Введите URL вашего шлюза. Aegis Desktop определит, нужен токен или вход через браузер.',
+    installLocalTitle: 'Установить Aegis AI Enterprise Autonomous Platform локально',
+    installLocalDesc: 'Скачайте Aegis AI Enterprise Autonomous Platform, создайте его Python-окружение и запустите бэкенд на этом компьютере.',
+    localStartUnavailable: 'Не удалось начать локальную установку. Перезапустите Aegis AI Enterprise Autonomous Platform Desktop и попробуйте снова.',
+    remoteSetupTitle: 'Подключиться к существующему Aegis AI Enterprise Autonomous Platform',
+    remoteSetupDesc: 'Введите URL вашего шлюза. Aegis AI Enterprise Autonomous Platform Desktop определит, нужен токен или вход через браузер.',
     remoteUrlTitle: 'URL шлюза',
-    remoteUrlDesc: 'Используйте базовый URL шлюза Aegis, включая https:// для удалённых.',
+    remoteUrlDesc: 'Используйте базовый URL шлюза Aegis AI Enterprise Autonomous Platform, включая https:// для удалённых.',
     remoteUrlPlaceholder: 'https://gateway.example.com/aegis',
     probing: 'Определяем аутентификацию шлюза...',
-    probeError: 'Не удалось подключиться к этому шлюзу Aegis.',
+    probeError: 'Не удалось подключиться к этому шлюзу Aegis AI Enterprise Autonomous Platform.',
     identityProvider: 'ваш провайдер аутентификации',
     authTitle: 'Аутентификация',
     authNeedsOauth: provider => `Сначала войдите через ${provider}, чтобы проверить этот шлюз.`,
@@ -3145,12 +3145,12 @@ export const ruOverrides = {
     applyRemote: 'Применить и переподключиться',
     backToSetup: 'Назад',
     failedTitle: 'Установка не удалась',
-    settingUpTitle: 'Настройка Aegis Agent',
+    settingUpTitle: 'Настройка Aegis AI Enterprise Autonomous Platform Agent',
     finishingTitle: 'Завершаем',
     failedDesc:
-      'Один из шагов установки завершился ошибкой. На Windows это может произойти, если запущена другая инстанция Aegis CLI или desktop. Остановите все работающие инстанции Aegis и повторите. Подробности — ниже или в журнале desktop.',
+      'Один из шагов установки завершился ошибкой. На Windows это может произойти, если запущена другая инстанция Aegis AI Enterprise Autonomous Platform CLI или desktop. Остановите все работающие инстанции Aegis AI Enterprise Autonomous Platform и повторите. Подробности — ниже или в журнале desktop.',
     activeDesc:
-      'Это одноразовая настройка. Установщик Aegis скачивает зависимости и настраивает вашу машину. При следующих запусках этот шаг будет пропущен.',
+      'Это одноразовая настройка. Установщик Aegis AI Enterprise Autonomous Platform скачивает зависимости и настраивает вашу машину. При следующих запусках этот шаг будет пропущен.',
     progress: (completed, total) => `Выполнено ${completed} из ${total} шагов`,
     currentStage: stage => ` — сейчас: ${stage}`,
     fetchingManifest: 'Загружаем манифест установщика...',
@@ -3285,13 +3285,13 @@ export const ruOverrides = {
       update: 'обновление',
       updateInProgress: 'Обновление выполняется',
       commitsBehind: (count, branch) => `${count} ${RU_NOUN(count, 'коммит', 'коммита', 'коммитов')} позади ${branch}`,
-      desktopVersion: version => `Aegis Desktop v${version}`,
+      desktopVersion: version => `Aegis AI Enterprise Autonomous Platform Desktop v${version}`,
       backendVersion: version => `Бэкенд v${version}`,
       clientLabel: version => `клиент v${version}`,
       connectionSsh: host => `SSH: ${host}`,
       connectionRemote: host => `Удалённый: ${host}`,
       connectionCloud: host => `Облако: ${host}`,
-      connectionCloudTooltip: host => `Aegis Cloud · ${host}`,
+      connectionCloudTooltip: host => `Aegis AI Enterprise Autonomous Platform Cloud · ${host}`,
       connectionSshTooltip: host => `SSH · ${host}`,
       connectionRemoteTooltip: host => `Удалённый · ${host}`,
       backendLabel: version => `бэкенд v${version}`,
@@ -3458,7 +3458,7 @@ export const ruOverrides = {
     binaryTitle: 'Похоже на бинарный файл',
     binaryBody: label => `Предпросмотр ${label} может показать нечитаемый текст.`,
     largeTitle: 'Этот файл большой',
-    largeBody: (label, size) => `${label} — ${size}. Aegis покажет только первые 512 КБ.`,
+    largeBody: (label, size) => `${label} — ${size}. Aegis AI Enterprise Autonomous Platform покажет только первые 512 КБ.`,
     previewAnyway: 'Предпросмотр всё равно',
     truncated: 'Показаны первые 512 КБ.',
     noInlineTitle: 'Нет inline-предпросмотра',
@@ -3498,12 +3498,12 @@ export const ruOverrides = {
   },
   interfaceMode: {
     title: 'Режим интерфейса',
-    hint: 'Меняет то, что показано, а не то, что умеет Aegis.',
+    hint: 'Меняет то, что показано, а не то, что умеет Aegis AI Enterprise Autonomous Platform.',
     sessionNote:
       'Задано простым режимом. Изменение здесь действует до конца сеанса; переключитесь в расширенный, чтобы сделать его своим.',
     simple: {
       label: 'Простой',
-      description: 'Для общения с Aegis. Боковая панель и чат; без терминала, файлов и панелей diff.'
+      description: 'Для общения с Aegis AI Enterprise Autonomous Platform. Боковая панель и чат; без терминала, файлов и панелей diff.'
     },
     advanced: {
       label: 'Расширенный',
@@ -3607,7 +3607,7 @@ export const ruOverrides = {
       errorRateLimitResetBody: (provider, time) => `Вы достигли лимита запросов ${provider}. Он сбросится в ${time}.`,
       loadingSession: 'Загрузка сеанса',
       showEarlier: 'Показать ранние сообщения',
-      loadingResponse: 'Aegis загружает ответ',
+      loadingResponse: 'Aegis AI Enterprise Autonomous Platform загружает ответ',
       resumeWhenBackgroundDone: count =>
         count === 1
           ? 'Продолжится, когда фоновая задача завершится'
@@ -3695,7 +3695,7 @@ export const ruOverrides = {
       envRequired: 'Сначала заполните обязательные учётные данные',
       sendFailed: 'Не удалось отправить ответ на настройку MCP',
       reloadFailed: 'Сервер сохранён, но перезагрузка MCP-инструментов не удалась — они загрузятся в следующем сеансе',
-      gatewayDisconnected: 'Шлюз Aegis не подключён'
+      gatewayDisconnected: 'Шлюз Aegis AI Enterprise Autonomous Platform не подключён'
     },
     tool: {
       copyCode: 'Копировать код',
@@ -3813,7 +3813,7 @@ export const ruOverrides = {
     }
   },
   prompts: {
-    gatewayDisconnected: 'Шлюз Aegis не подключён',
+    gatewayDisconnected: 'Шлюз Aegis AI Enterprise Autonomous Platform не подключён',
     sudoSendFailed: 'Не удалось отправить пароль sudo',
     secretSendFailed: 'Не удалось отправить секрет',
     sudoTitle: 'Пароль администратора',
@@ -3821,10 +3821,10 @@ export const ruOverrides = {
       'Проверьте команду перед вводом пароля sudo. Пароль отправляется агенту, который её выполняет, и кэшируется на время сеанса.',
     sudoCommandUnavailable: 'Агент не предоставил команду. Отмените запрос, если не можете проверить её в разговоре.',
     sudoInstallDesc:
-      'Aegis нужен ваш пароль sudo, чтобы установить пакеты Bot Screen (TigerVNC + Xfce) на хосте шлюза. Он отправляется только на этот хост.',
+      'Aegis AI Enterprise Autonomous Platform нужен ваш пароль sudo, чтобы установить пакеты Bot Screen (TigerVNC + Xfce) на хосте шлюза. Он отправляется только на этот хост.',
     sudoPlaceholder: 'пароль sudo',
     secretTitle: 'Требуется секрет',
-    secretDesc: 'Aegis нужны учётные данные, чтобы продолжить.',
+    secretDesc: 'Aegis AI Enterprise Autonomous Platform нужны учётные данные, чтобы продолжить.',
     secretPlaceholder: 'значение секрета'
   },
   desktop: {
@@ -3888,8 +3888,8 @@ export const ruOverrides = {
     sessionExportFailed: 'Не удалось экспортировать сеанс',
     imageSaved: 'Изображение сохранено',
     downloadStarted: 'Загрузка началась',
-    restartToUseSaveImage: 'Перезапустите Aegis Desktop, чтобы использовать «Сохранить изображение».',
-    restartToSaveImages: 'Перезапустите Aegis Desktop, чтобы сохранять изображения',
+    restartToUseSaveImage: 'Перезапустите Aegis AI Enterprise Autonomous Platform Desktop, чтобы использовать «Сохранить изображение».',
+    restartToSaveImages: 'Перезапустите Aegis AI Enterprise Autonomous Platform Desktop, чтобы сохранять изображения',
     imageDownloadFailed: 'Загрузка изображения не удалась',
     openImage: 'Открыть изображение',
     downloadImage: 'Скачать изображение',
@@ -3945,8 +3945,8 @@ export const ruOverrides = {
   },
   freeTier: {
     offer: {
-      heading: 'Продолжайте с Aegis',
-      body: 'Вы пользуетесь бесплатным лимитом. Если продолжите работать с Aegis, скоро начнёте упираться в ограничения. Войдите с бесплатной учётной записью Nous, чтобы получить больший лимит.',
+      heading: 'Продолжайте с Aegis AI Enterprise Autonomous Platform',
+      body: 'Вы пользуетесь бесплатным лимитом. Если продолжите работать с Aegis AI Enterprise Autonomous Platform, скоро начнёте упираться в ограничения. Войдите с бесплатной учётной записью Nous, чтобы получить больший лимит.',
       signIn: 'Войти',
       notNow: 'Не сейчас'
     }

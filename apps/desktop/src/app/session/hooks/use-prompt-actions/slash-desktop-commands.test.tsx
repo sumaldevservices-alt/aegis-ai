@@ -9,7 +9,7 @@ import { resolveDesktopCommand } from '@/lib/desktop-slash-commands'
 import { $connection } from '@/store/session'
 import { dropSessionState } from '@/store/session-states'
 
-import { useAegisConfig } from '../use-aegis-config'
+import { useAegis AI Enterprise Autonomous PlatformConfig } from '../use-aegis-config'
 
 import { actRender, Harness, type HarnessHandle, RUNTIME_SESSION_ID } from './index-test-utils'
 import { clearSingleFlightSessionResumeState } from './single-flight-resume'
@@ -21,8 +21,8 @@ import { formatHistory } from './slash-desktop-commands'
 vi.mock('@/aegis', () => ({
   getLatestSessionMessages: vi.fn(async () => ({ messages: [], session_id: 'session' })),
   getProfiles: vi.fn(async () => ({ profiles: [] })),
-  getAegisConfig: vi.fn(async () => ({ display: { timestamps: false } })),
-  getAegisConfigDefaults: vi.fn(async () => ({})),
+  getAegis AI Enterprise Autonomous PlatformConfig: vi.fn(async () => ({ display: { timestamps: false } })),
+  getAegis AI Enterprise Autonomous PlatformConfigDefaults: vi.fn(async () => ({})),
   getSession: vi.fn(),
   PROMPT_SUBMIT_REQUEST_TIMEOUT_MS: 1_800_000,
   setApiRequestProfile: vi.fn(),
@@ -374,7 +374,7 @@ describe('/history', () => {
     expect(callsOf(requestGateway, 'slash.exec')).toEqual([])
     const text = renderedText(handle)
     expect(text).toContain('You: first question')
-    expect(text).toContain('Aegis: first answer')
+    expect(text).toContain('Aegis AI Enterprise Autonomous Platform: first answer')
     expect(text).not.toContain('tool noise')
   })
 
@@ -388,9 +388,9 @@ describe('/history', () => {
     ] as never)
 
     expect(history).toContain('You: ARCHIVED QUESTION')
-    expect(history).toContain('Aegis: ARCHIVED ANSWER')
+    expect(history).toContain('Aegis AI Enterprise Autonomous Platform: ARCHIVED ANSWER')
     expect(history).toContain('You: /skill question')
-    expect(history).toContain('Aegis: VISIBLE ANSWER')
+    expect(history).toContain('Aegis AI Enterprise Autonomous Platform: VISIBLE ANSWER')
     expect(history).not.toContain('MODEL ONLY')
   })
 })
@@ -496,12 +496,12 @@ describe('/timestamps, /palette, /worktree, /snapshot', () => {
   it('/timestamps is a window override that survives an ordinary config refresh', async () => {
     const { $displayTimestamps } = await import('@/store/display-timestamps')
     $displayTimestamps.set(false)
-    const config = renderHook(() => useAegisConfig({ activeSessionIdRef: { current: RUNTIME_SESSION_ID } }))
+    const config = renderHook(() => useAegis AI Enterprise Autonomous PlatformConfig({ activeSessionIdRef: { current: RUNTIME_SESSION_ID } }))
     const handle = await mount(gateway(() => undefined))
 
     await handle.submitText('/timestamps on')
     await act(async () => {
-      await config.result.current.refreshAegisConfig()
+      await config.result.current.refreshAegis AI Enterprise Autonomous PlatformConfig()
     })
 
     expect($displayTimestamps.get()).toBe(true)

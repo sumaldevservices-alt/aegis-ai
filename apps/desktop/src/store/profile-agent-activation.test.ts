@@ -1,7 +1,7 @@
 import { atom } from 'nanostores'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 
 import { deferred } from '../test/deferred'
 
@@ -56,16 +56,16 @@ const {
   setCurrentProvider
 } = await import('./session')
 
-const agentConn = (over: Partial<AegisConnection> = {}): AegisConnection =>
-  ({ baseUrl: 'https://homelab.invalid', mode: 'remote', profile: 'research', ...over }) as AegisConnection
+const agentConn = (over: Partial<Aegis AI Enterprise Autonomous PlatformConnection> = {}): Aegis AI Enterprise Autonomous PlatformConnection =>
+  ({ baseUrl: 'https://homelab.invalid', mode: 'remote', profile: 'research', ...over }) as Aegis AI Enterprise Autonomous PlatformConnection
 
-const localConn = (over: Partial<AegisConnection> = {}): AegisConnection =>
-  ({ baseUrl: '', mode: 'local', profile: 'default', ...over }) as AegisConnection
+const localConn = (over: Partial<Aegis AI Enterprise Autonomous PlatformConnection> = {}): Aegis AI Enterprise Autonomous PlatformConnection =>
+  ({ baseUrl: '', mode: 'local', profile: 'default', ...over }) as Aegis AI Enterprise Autonomous PlatformConnection
 
-const getConnection = vi.fn<(profile?: string | null) => Promise<AegisConnection>>()
+const getConnection = vi.fn<(profile?: string | null) => Promise<Aegis AI Enterprise Autonomous PlatformConnection>>()
 
 const getConnectionFor =
-  vi.fn<(payload: { connectionId?: null | string; profile?: null | string }) => Promise<AegisConnection>>()
+  vi.fn<(payload: { connectionId?: null | string; profile?: null | string }) => Promise<Aegis AI Enterprise Autonomous PlatformConnection>>()
 
 beforeEach(() => {
   const localStorage = window.localStorage
@@ -392,7 +392,7 @@ describe('ensureGatewayAgent commit hook (beforeActivate) — the Sessions switc
     vi.useFakeTimers()
 
     try {
-      getConnectionFor.mockImplementationOnce(() => new Promise<AegisConnection>(() => undefined))
+      getConnectionFor.mockImplementationOnce(() => new Promise<Aegis AI Enterprise Autonomous PlatformConnection>(() => undefined))
 
       const activation = ensureGatewayAgent('homelab', 'research')
       await vi.advanceTimersByTimeAsync(20_000)

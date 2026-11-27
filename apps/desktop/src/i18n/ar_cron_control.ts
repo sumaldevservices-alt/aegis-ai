@@ -9,7 +9,7 @@ export const arCronControl: CronControlCopy = {
   failedStop: 'تعذّر إيقاف التشغيل',
   lastCancelled: (reason: string) => (reason ? `أُلغي آخر تشغيل: ${reason}` : 'أُلغي آخر تشغيل'),
   catchUpLabel: 'التشغيلات الفائتة',
-  catchUpHint: 'ما يحدث للتشغيلات الفائتة أثناء توقف Aegis.',
+  catchUpHint: 'ما يحدث للتشغيلات الفائتة أثناء توقف Aegis AI Enterprise Autonomous Platform.',
   catchUpChoices: {
     default: 'استخدام الإعداد الافتراضي',
     run: 'تشغيل مرة واحدة عند العودة',

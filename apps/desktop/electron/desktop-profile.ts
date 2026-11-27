@@ -318,7 +318,7 @@ export function createDesktopProfilePreferences(
     }
   }
 
-  // userData outlives AEGIS_HOME: a reinstall that wiped the Aegis home, or a
+  // userData outlives AEGIS_HOME: a reinstall that wiped the Aegis AI Enterprise Autonomous Platform home, or a
   // `aegis profile delete` while the app was closed, never reaches
   // afterProfileRequest. A remembered local profile that is gone would launch
   // `--profile <gone>` on every boot, which the backend refuses, so apply the

@@ -19,8 +19,8 @@ const fixture = vi.hoisted(() => ({ activate: vi.fn<() => Promise<void>>() }))
 vi.mock('@/aegis', () => ({
   getLatestSessionMessages: vi.fn(async () => ({ messages: [], session_id: 'session' })),
   getProfiles: vi.fn(async () => ({ profiles: [{ name: 'alpha' }, { name: 'beta' }] })),
-  getAegisConfig: vi.fn(async () => ({ display: { timestamps: false } })),
-  getAegisConfigDefaults: vi.fn(async () => ({})),
+  getAegis AI Enterprise Autonomous PlatformConfig: vi.fn(async () => ({ display: { timestamps: false } })),
+  getAegis AI Enterprise Autonomous PlatformConfigDefaults: vi.fn(async () => ({})),
   getSession: vi.fn(),
   PROMPT_SUBMIT_REQUEST_TIMEOUT_MS: 1_800_000,
   setApiRequestProfile: vi.fn(),

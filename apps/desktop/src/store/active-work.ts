@@ -11,14 +11,14 @@
 
 import { computed } from 'nanostores'
 
-import type { AegisActiveWork } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformActiveWork } from '@/global'
 import { $sessions } from '@/store/session'
 import { $workingSessionIds } from '@/store/session-states'
 import { $voiceStreamPaintOwners } from '@/store/voice-stream-paint'
 
 const $activeWork = computed(
   [$workingSessionIds, $sessions, $voiceStreamPaintOwners],
-  (workingIds, sessions, voiceOwners): AegisActiveWork => {
+  (workingIds, sessions, voiceOwners): Aegis AI Enterprise Autonomous PlatformActiveWork => {
     const titleById = new Map(sessions.map(session => [session.id, session.title?.trim() ?? '']))
 
     return {

@@ -127,7 +127,7 @@ function Where() {
 }
 
 describe('ConnectorOffer named-account notice', () => {
-  it('says which name Aegis chose once the account connected, and Rename opens that account (by id) on the Connectors tab', () => {
+  it('says which name Aegis AI Enterprise Autonomous Platform chose once the account connected, and Rename opens that account (by id) on the Connectors tab', () => {
     const request = {
       ...REQUEST,
       settled: true,
@@ -146,7 +146,7 @@ describe('ConnectorOffer named-account notice', () => {
       </I18nProvider>
     )
 
-    expect(screen.getAllByText('Aegis named this Gmail account work.')).toHaveLength(1)
+    expect(screen.getAllByText('Aegis AI Enterprise Autonomous Platform named this Gmail account work.')).toHaveLength(1)
 
     fireEvent.click(screen.getByRole('button', { name: 'Rename' }))
 

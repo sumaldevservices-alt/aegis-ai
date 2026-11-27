@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { $apiRequestScope } from '@/api/client'
 import { useDesktopMetrics } from '@/app/contrib/hooks/use-desktop-metrics'
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import {
   $desktopMetricsGate,
   bindDesktopMetrics,
@@ -61,7 +61,7 @@ const initialOwner = {
   requestScope: $apiRequestScope.get()
 }
 
-const sourceConnection: AegisConnection = {
+const sourceConnection: Aegis AI Enterprise Autonomous PlatformConnection = {
   baseUrl: 'http://profile.invalid',
   connectionId: 'source-server',
   isFullscreen: false,

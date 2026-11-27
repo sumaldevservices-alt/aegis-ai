@@ -1,13 +1,13 @@
 interface ProductIdentity {
-  /** True when this artifact is Aegis Light (remote-only client). */
+  /** True when this artifact is Aegis AI Enterprise Autonomous Platform Light (remote-only client). */
   light: boolean
   /** True for a Store-submission build (Windows Store packaging identity). */
   store: boolean
-  /** Display name. e.g. "Aegis Light" */
+  /** Display name. e.g. "Aegis AI Enterprise Autonomous Platform Light" */
   displayName: string
   /** OS-level app identity. e.g. "com.nousresearch.aegis-light" */
   appId: string
-  /** app name in pascal case. e.g. "AegisLight" */
+  /** app name in pascal case. e.g. "Aegis AI Enterprise Autonomous PlatformLight" */
   appNamePascal: string
   /** Artifact prefix stays compatible with release archive consumers. */
   artifactNamePascal: string
@@ -15,7 +15,7 @@ interface ProductIdentity {
   windowsExecutableName: string
   /** Exposed payload CLI command. */
   cliName: string
-  /** OS-level app identity w/ org prefix. e.g. "NousResearch.AegisLight" */
+  /** OS-level app identity w/ org prefix. e.g. "NousResearch.Aegis AI Enterprise Autonomous PlatformLight" */
   msixAppIdWithOrg: string
   /** R2 identity token on channel builds; absent on legacy products. */
   readonly token?: string

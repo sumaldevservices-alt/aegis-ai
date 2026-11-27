@@ -81,7 +81,7 @@ export function isWindowsStackCookieExit(exitCode: unknown): boolean {
   return n === WINDOWS_STACK_COOKIE_EXIT || n >>> 0 === 0xc0000409
 }
 
-export function isAegisDesktopGpuOverrideOff(env: NodeJS.ProcessEnv = process.env): boolean {
+export function isAegis AI Enterprise Autonomous PlatformDesktopGpuOverrideOff(env: NodeJS.ProcessEnv = process.env): boolean {
   const override = String(env.AEGIS_DESKTOP_DISABLE_GPU || '')
     .trim()
     .toLowerCase()
@@ -287,7 +287,7 @@ export function decideWindowsGpuStackCookieLaunch(
     return { enable: false, reason: null, nextMarker: { state: 'booting' } }
   }
 
-  if (isAegisDesktopGpuOverrideOff(env)) {
+  if (isAegis AI Enterprise Autonomous PlatformDesktopGpuOverrideOff(env)) {
     const nextMarker: GpuStackCookieMarker = marker?.state === 'fallback' ? marker : { state: 'booting' }
 
     return { enable: false, reason: null, nextMarker }

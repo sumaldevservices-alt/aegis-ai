@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import type * as React from 'react'
 import { useMemo } from 'react'
 
-import type { AegisGateway } from '@/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import { quickModelOptions } from '@/lib/chat-runtime'
 import { currentModelCapabilities, modelOptionsQueryKey, requestModelOptions } from '@/lib/model-options'
 
@@ -15,7 +15,7 @@ interface ChatBarStateOptions {
   contextSuggestions: ChatBarState['tools']['suggestions']
   currentModel: string
   currentProvider: string
-  gateway: AegisGateway | null
+  gateway: Aegis AI Enterprise Autonomous PlatformGateway | null
   gatewayOpen: boolean
   modelMenuContent?: React.ReactNode
   modelOptionsOwnerConnectionId?: string

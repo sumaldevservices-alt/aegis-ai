@@ -1,6 +1,6 @@
 import type { ModelCapabilities, ModelOptionProvider, ModelOptionsResult } from '@aegis/shared'
 
-import { getGlobalModelOptions, type AegisGateway } from '@/aegis'
+import { getGlobalModelOptions, type Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 
 type CatalogProviderIdentity = Partial<Pick<ModelOptionProvider, 'aliases' | 'name'>> &
   Pick<ModelOptionProvider, 'slug'>
@@ -105,7 +105,7 @@ interface ModelOptionsRequest {
    *  surfaces). Chat pickers default to true so only explicitly configured
    *  providers are listed (#56974). */
   explicitOnly?: boolean
-  gateway?: AegisGateway
+  gateway?: Aegis AI Enterprise Autonomous PlatformGateway
   /** Owner-routed RPC. When set, catalog reads hit this dispatcher instead of
    *  `gateway.request` — a tile's model menu must not query the ambient
    *  chrome socket (#93892). */

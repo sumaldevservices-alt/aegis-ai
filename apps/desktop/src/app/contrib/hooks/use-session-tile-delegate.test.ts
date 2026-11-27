@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { reasoningEffortPending } from '@/app/chat/session-view'
 import type { ClientSessionState } from '@/app/types'
-import type * as AegisModule from '@/aegis'
+import type * as Aegis AI Enterprise Autonomous PlatformModule from '@/aegis'
 import { textPart } from '@/lib/chat-messages'
 import { createClientSessionState } from '@/lib/chat-runtime'
 import { clearSessionDraft, stashSessionDraft, takeSessionDraft } from '@/store/composer'
@@ -21,7 +21,7 @@ import {
 import { useSessionTileDelegate } from './use-session-tile-delegate'
 
 vi.mock('@/aegis', async importActual => ({
-  ...(await importActual<typeof AegisModule>()),
+  ...(await importActual<typeof Aegis AI Enterprise Autonomous PlatformModule>()),
   getLatestSessionMessages: vi.fn(async () => ({ messages: [], session_id: '' })),
   getSession: vi.fn()
 }))

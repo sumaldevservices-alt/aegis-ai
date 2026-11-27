@@ -4,7 +4,7 @@ export const enNotifications = {
   intro: 'OS notifications (not in-app toasts). Per device.',
   enableAll: 'Enable notifications',
   enableAllDesc: 'Off silences every notification below.',
-  focusedHint: 'Completion alerts only fire while Aegis is in the background.',
+  focusedHint: 'Completion alerts only fire while Aegis AI Enterprise Autonomous Platform is in the background.',
   kinds: {
     approval: {
       label: 'Approval needed',
@@ -12,11 +12,11 @@ export const enNotifications = {
     },
     input: {
       label: 'Input needed',
-      description: 'Aegis asked a question or needs a password or secret.'
+      description: 'Aegis AI Enterprise Autonomous Platform asked a question or needs a password or secret.'
     },
     turnDone: {
       label: 'Response ready',
-      description: 'A turn finished while Aegis was in the background.'
+      description: 'A turn finished while Aegis AI Enterprise Autonomous Platform was in the background.'
     },
     turnError: {
       label: 'Turn failed',
@@ -32,7 +32,7 @@ export const enNotifications = {
     },
     plugin: {
       label: 'Plugin notifications',
-      description: 'A desktop plugin sent a notification while Aegis was in the background.'
+      description: 'A desktop plugin sent a notification while Aegis AI Enterprise Autonomous Platform was in the background.'
     }
   },
   browserPermission: {
@@ -49,15 +49,15 @@ export const enNotifications = {
   },
   phonePresence: {
     title: 'This computer for phone notifications',
-    description: 'What this window tells Aegis about you being here. A phone notification plugin decides what to do with it.',
+    description: 'What this window tells Aegis AI Enterprise Autonomous Platform about you being here. A phone notification plugin decides what to do with it.',
     unsupported: 'Phone notifications are not affected by activity on this backend.',
     disconnected: 'Not connected.',
-    watchingComputer: (time: string) => `While a conversation is open in this window, Aegis is told when you last used this computer. Last input ${time} ago.`,
-    watchingWindow: (time: string) => `While a conversation is open in this window, Aegis is told when you last used this window. Last input ${time} ago.`,
-    watchingWindowNoInput: 'While a conversation is open in this window, Aegis is told when you last used this window. No input seen yet.'
+    watchingComputer: (time: string) => `While a conversation is open in this window, Aegis AI Enterprise Autonomous Platform is told when you last used this computer. Last input ${time} ago.`,
+    watchingWindow: (time: string) => `While a conversation is open in this window, Aegis AI Enterprise Autonomous Platform is told when you last used this window. Last input ${time} ago.`,
+    watchingWindowNoInput: 'While a conversation is open in this window, Aegis AI Enterprise Autonomous Platform is told when you last used this window. No input seen yet.'
   },
   test: 'Send test notification',
-  testTitle: 'Aegis',
+  testTitle: 'Aegis AI Enterprise Autonomous Platform',
   testBody: 'Notifications are working.',
   testSent: 'Test sent. If nothing appears, check your OS notification permissions and Focus/Do Not Disturb.',
   testUnsupported: 'This system does not support native notifications.',

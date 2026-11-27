@@ -27,7 +27,7 @@ const LOCK_STATE_PLATFORMS = new Set<NodeJS.Platform>(['darwin', 'win32'])
 
 /**
  * Whether the OS idle clock counts only the user's input in every app. True on macOS and Windows.
- * Not on Linux: Wayland hides it, and under X11 Aegis itself resets it after every reply (releasing
+ * Not on Linux: Wayland hides it, and under X11 Aegis AI Enterprise Autonomous Platform itself resets it after every reply (releasing
  * its keep-awake blocker, and when the completion sound ends), which would read as the user coming back.
  */
 export function presenceIdleClockSupported(platform: NodeJS.Platform = process.platform): boolean {

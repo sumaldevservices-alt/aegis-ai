@@ -1,6 +1,6 @@
 import type { GatewayEvent } from '@aegis/shared'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import type { ScopedServerRequest } from '@/store/gateway'
 
 /** Hooks the gateway registry (store/gateway.ts) calls into its host. */
@@ -15,7 +15,7 @@ export interface RegistryConfig {
    *  `connectionId` tag the source the same way events are tagged. */
   onServerRequest?: (request: ScopedServerRequest) => void
   onActiveConnectionInvalidated?: (fallbackProfile: string, activationEpoch: number) => void
-  onActiveConnectionChanged?: (connection: AegisConnection) => void
+  onActiveConnectionChanged?: (connection: Aegis AI Enterprise Autonomous PlatformConnection) => void
   /**
    * Fires whenever applyActive() moves the active route to a (possibly
    * different) profile — including registry-internal eviction fallbacks

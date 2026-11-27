@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import type { AegisConfigRecord } from '@/types/aegis'
+import type { Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'
 
 import { BUILTIN_PERSONALITIES } from './constants'
 import { defineFieldCopy, fieldCopyForSchemaKey, schemaKeyToFieldCopyKey } from './field-copy'
@@ -100,7 +100,7 @@ describe('settings helpers', () => {
   })
 
   it('reads and writes nested config paths', () => {
-    const config: AegisConfigRecord = { display: { theme: 'mono' } }
+    const config: Aegis AI Enterprise Autonomous PlatformConfigRecord = { display: { theme: 'mono' } }
     const next = setNested(config, 'display.theme', 'slate')
 
     expect(getNested(next, 'display.theme')).toBe('slate')
@@ -109,7 +109,7 @@ describe('settings helpers', () => {
 
   it('Reasoning Blocks shows and writes the local key a local /reasoning saved', () => {
     // After a local `/reasoning hide`: the local key wins on every local surface.
-    const config: AegisConfigRecord = { display: { show_reasoning: true, platforms: { cli: { show_reasoning: false } } } }
+    const config: Aegis AI Enterprise Autonomous PlatformConfigRecord = { display: { show_reasoning: true, platforms: { cli: { show_reasoning: false } } } }
 
     expect(configFieldValue(config, 'display.show_reasoning')).toBe(false)
     const next = setConfigField(config, 'display.show_reasoning', true)
@@ -125,7 +125,7 @@ describe('settings helpers', () => {
 
   it('Reasoning Blocks reads a quoted local value as the gateway does', () => {
     const shown = (value: unknown) =>
-      configFieldValue({ display: { show_reasoning: true, platforms: { cli: { show_reasoning: value } } } } as AegisConfigRecord, 'display.show_reasoning')
+      configFieldValue({ display: { show_reasoning: true, platforms: { cli: { show_reasoning: value } } } } as Aegis AI Enterprise Autonomous PlatformConfigRecord, 'display.show_reasoning')
 
     for (const off of ['false', 'False', '0', 'no', 'off', ' false ']) {
       expect(shown(off)).toBe(false)
@@ -139,7 +139,7 @@ describe('settings helpers', () => {
   })
 
   it('rejects prototype-polluting config paths', () => {
-    const config: AegisConfigRecord = {}
+    const config: Aegis AI Enterprise Autonomous PlatformConfigRecord = {}
 
     expect(() => setNested(config, '__proto__.polluted', true)).toThrow('Unsafe config path')
     expect(() => setNested(config, 'constructor.prototype.polluted', true)).toThrow('Unsafe config path')
@@ -179,7 +179,7 @@ describe('settings helpers', () => {
   })
 
   describe('enumOptionsFor — backend selector dropdowns', () => {
-    const config: AegisConfigRecord = {}
+    const config: Aegis AI Enterprise Autonomous PlatformConfigRecord = {}
 
     it('narrows OpenAI TTS voice suggestions to what the selected model supports', () => {
       // gpt-4o-mini-tts (and unset/unknown models): full 13-voice set.
@@ -208,7 +208,7 @@ describe('settings helpers', () => {
     })
 
     it('surfaces user-defined command-type TTS providers (canonical providers nesting + legacy)', () => {
-      const withCustom: AegisConfigRecord = {
+      const withCustom: Aegis AI Enterprise Autonomous PlatformConfigRecord = {
         tts: {
           provider: 'neutts',
           // canonical location the runtime resolves first: tts.providers.<name>
@@ -241,7 +241,7 @@ describe('settings helpers', () => {
     })
 
     it('surfaces command-type STT providers too (canonical providers nesting)', () => {
-      const withCustom: AegisConfigRecord = {
+      const withCustom: Aegis AI Enterprise Autonomous PlatformConfigRecord = {
         stt: {
           provider: 'local',
           providers: { myasr: { type: 'command', command: 'curl …' } }
@@ -260,7 +260,7 @@ describe('settings helpers', () => {
     // STT), where filtering on ENUM_OPTIONS instead of the runtime's built-in set
     // would wrongly offer a provider that can never dispatch.
     it('never offers a built-in name as a command provider, even one absent from the dropdown list', () => {
-      const shadowing: AegisConfigRecord = {
+      const shadowing: Aegis AI Enterprise Autonomous PlatformConfigRecord = {
         tts: {
           provider: 'edge',
           providers: {
@@ -282,7 +282,7 @@ describe('settings helpers', () => {
     })
 
     it('never offers a built-in STT name absent from the dropdown list as a command provider', () => {
-      const shadowing: AegisConfigRecord = {
+      const shadowing: Aegis AI Enterprise Autonomous PlatformConfigRecord = {
         stt: {
           provider: 'local',
           providers: {
@@ -307,7 +307,7 @@ describe('settings helpers', () => {
       // The Python spec (`aegis_cli.personality.available_personalities`) overlays
       // the built-ins with the root `personalities` block then `agent.personalities`;
       // the dropdown must surface a root-registered persona the CLI/gateway resolve.
-      const config: AegisConfigRecord = { personalities: { root_persona: { prompt: 'hi' } } }
+      const config: Aegis AI Enterprise Autonomous PlatformConfigRecord = { personalities: { root_persona: { prompt: 'hi' } } }
       const opts = enumOptionsFor('display.personality', '', config)
 
       // Derive the expected built-ins from the source of truth, per the repo's
@@ -321,7 +321,7 @@ describe('settings helpers', () => {
     })
 
     it('merges root and agent personalities, deduping a clashing name', () => {
-      const config: AegisConfigRecord = {
+      const config: Aegis AI Enterprise Autonomous PlatformConfigRecord = {
         personalities: { root_persona: {}, shared: {} },
         agent: { personalities: { agent_persona: {}, shared: {} } }
       }
@@ -335,7 +335,7 @@ describe('settings helpers', () => {
 
     it('ignores a non-object or array `personalities` block', () => {
       for (const bad of [[], 'nope', 42, null]) {
-        const opts = enumOptionsFor('display.personality', '', { personalities: bad } as AegisConfigRecord)!
+        const opts = enumOptionsFor('display.personality', '', { personalities: bad } as Aegis AI Enterprise Autonomous PlatformConfigRecord)!
         // still the built-ins + empty sentinel, no crash on a malformed block
         expect(opts).toContain('')
 
@@ -350,9 +350,9 @@ describe('settings helpers', () => {
       // spellings; without matching that, the dropdown offers a case-variant duplicate,
       // a whitespace-padded name, or a neutral name the runtime canonicalises away —
       // rows the user can pick but that never load the definition shown (#123297).
-      const config: AegisConfigRecord = {
+      const config: Aegis AI Enterprise Autonomous PlatformConfigRecord = {
         personalities: { Catgirl: {}, '  Spaced  ': {}, none: {}, Default: {}, NEUTRAL: {} }
-      } as AegisConfigRecord
+      } as Aegis AI Enterprise Autonomous PlatformConfigRecord
 
       const opts = enumOptionsFor('display.personality', '', config)!
 
@@ -373,7 +373,7 @@ describe('settings helpers', () => {
   describe('sectionFieldEntries', () => {
     it('renders memory.provider from config even when the backend schema omits it', () => {
       const schema = { 'memory.memory_enabled': { type: 'boolean' as const } }
-      const config: AegisConfigRecord = { memory: { memory_enabled: true, provider: '' } }
+      const config: Aegis AI Enterprise Autonomous PlatformConfigRecord = { memory: { memory_enabled: true, provider: '' } }
 
       const memoryKeys = (sectionFieldEntries(schema, config).get('memory') ?? []).map(([key]) => key)
 
@@ -381,7 +381,7 @@ describe('settings helpers', () => {
     })
 
     it('infers the field type from the config value when the schema omits the key', () => {
-      const config: AegisConfigRecord = { memory: { provider: '', memory_enabled: true, memory_char_limit: 2200 } }
+      const config: Aegis AI Enterprise Autonomous PlatformConfigRecord = { memory: { provider: '', memory_enabled: true, memory_char_limit: 2200 } }
 
       const fields = new Map(sectionFieldEntries({}, config).get('memory') ?? [])
 
@@ -392,7 +392,7 @@ describe('settings helpers', () => {
 
     it('prefers the backend schema entry over inference when both exist', () => {
       const schema = { 'memory.provider': { type: 'select' as const, options: ['honcho'] } }
-      const config: AegisConfigRecord = { memory: { provider: 'honcho' } }
+      const config: Aegis AI Enterprise Autonomous PlatformConfigRecord = { memory: { provider: 'honcho' } }
 
       const field = new Map(sectionFieldEntries(schema, config).get('memory') ?? []).get('memory.provider')
 
@@ -407,8 +407,8 @@ describe('settings helpers', () => {
 
   describe('clearsEnabledToolsets', () => {
     it('flags a non-empty → empty transition', () => {
-      const prev: AegisConfigRecord = { toolsets: ['memory', 'terminal', 'web_search'] }
-      const next: AegisConfigRecord = { toolsets: [] }
+      const prev: Aegis AI Enterprise Autonomous PlatformConfigRecord = { toolsets: ['memory', 'terminal', 'web_search'] }
+      const next: Aegis AI Enterprise Autonomous PlatformConfigRecord = { toolsets: [] }
 
       expect(clearsEnabledToolsets(prev, next)).toBe(true)
     })
@@ -417,29 +417,29 @@ describe('settings helpers', () => {
       // PUT /api/config deep-merges the override onto the stored config, so an
       // import that omits `toolsets` keeps the existing list — no wipe happens,
       // so there is nothing to confirm.
-      const prev: AegisConfigRecord = { toolsets: ['memory'] }
-      const next: AegisConfigRecord = {}
+      const prev: Aegis AI Enterprise Autonomous PlatformConfigRecord = { toolsets: ['memory'] }
+      const next: Aegis AI Enterprise Autonomous PlatformConfigRecord = {}
 
       expect(clearsEnabledToolsets(prev, next)).toBe(false)
     })
 
     it('does not flag when at least one toolset remains', () => {
-      const prev: AegisConfigRecord = { toolsets: ['memory', 'terminal'] }
-      const next: AegisConfigRecord = { toolsets: ['memory'] }
+      const prev: Aegis AI Enterprise Autonomous PlatformConfigRecord = { toolsets: ['memory', 'terminal'] }
+      const next: Aegis AI Enterprise Autonomous PlatformConfigRecord = { toolsets: ['memory'] }
 
       expect(clearsEnabledToolsets(prev, next)).toBe(false)
     })
 
     it('does not flag when the list was already empty', () => {
-      const prev: AegisConfigRecord = { toolsets: [] }
-      const next: AegisConfigRecord = { toolsets: [] }
+      const prev: Aegis AI Enterprise Autonomous PlatformConfigRecord = { toolsets: [] }
+      const next: Aegis AI Enterprise Autonomous PlatformConfigRecord = { toolsets: [] }
 
       expect(clearsEnabledToolsets(prev, next)).toBe(false)
     })
 
     it('does not flag an unrelated edit that never touched toolsets', () => {
-      const prev: AegisConfigRecord = { model: 'a', toolsets: ['memory'] }
-      const next: AegisConfigRecord = { model: 'b', toolsets: ['memory'] }
+      const prev: Aegis AI Enterprise Autonomous PlatformConfigRecord = { model: 'a', toolsets: ['memory'] }
+      const next: Aegis AI Enterprise Autonomous PlatformConfigRecord = { model: 'b', toolsets: ['memory'] }
 
       expect(clearsEnabledToolsets(prev, next)).toBe(false)
     })
@@ -450,36 +450,36 @@ describe('settings helpers', () => {
       // The autosave baseline is a snapshot taken when Settings opened. A key
       // an agent set via `aegis config set` while the page sat open must not
       // come back in the patch just because it's still present in the draft.
-      const baseline: AegisConfigRecord = { fallback_providers: ['nara1'], timezone: 'UTC' }
-      const draft: AegisConfigRecord = { fallback_providers: ['nara1'], timezone: 'America/New_York' }
+      const baseline: Aegis AI Enterprise Autonomous PlatformConfigRecord = { fallback_providers: ['nara1'], timezone: 'UTC' }
+      const draft: Aegis AI Enterprise Autonomous PlatformConfigRecord = { fallback_providers: ['nara1'], timezone: 'America/New_York' }
 
       expect(diffConfig(baseline, draft)).toEqual({ timezone: 'America/New_York' })
     })
 
     it('includes a nested key only when it actually changed, leaving siblings out', () => {
-      const baseline: AegisConfigRecord = { display: { personality: 'default', show_reasoning: true } }
-      const draft: AegisConfigRecord = { display: { personality: 'default', show_reasoning: false } }
+      const baseline: Aegis AI Enterprise Autonomous PlatformConfigRecord = { display: { personality: 'default', show_reasoning: true } }
+      const draft: Aegis AI Enterprise Autonomous PlatformConfigRecord = { display: { personality: 'default', show_reasoning: false } }
 
       expect(diffConfig(baseline, draft)).toEqual({ display: { show_reasoning: false } })
     })
 
     it('sends a new key that was absent from the baseline', () => {
-      const baseline: AegisConfigRecord = {}
-      const draft: AegisConfigRecord = { timezone: 'UTC' }
+      const baseline: Aegis AI Enterprise Autonomous PlatformConfigRecord = {}
+      const draft: Aegis AI Enterprise Autonomous PlatformConfigRecord = { timezone: 'UTC' }
 
       expect(diffConfig(baseline, draft)).toEqual({ timezone: 'UTC' })
     })
 
     it('returns an empty object when the draft matches the baseline exactly', () => {
-      const baseline: AegisConfigRecord = { toolsets: ['memory'], display: { personality: 'default' } }
-      const draft: AegisConfigRecord = { toolsets: ['memory'], display: { personality: 'default' } }
+      const baseline: Aegis AI Enterprise Autonomous PlatformConfigRecord = { toolsets: ['memory'], display: { personality: 'default' } }
+      const draft: Aegis AI Enterprise Autonomous PlatformConfigRecord = { toolsets: ['memory'], display: { personality: 'default' } }
 
       expect(diffConfig(baseline, draft)).toEqual({})
     })
 
     it('treats an array as a whole value, not diffed element by element', () => {
-      const baseline: AegisConfigRecord = { toolsets: ['memory', 'terminal'] }
-      const draft: AegisConfigRecord = { toolsets: ['memory'] }
+      const baseline: Aegis AI Enterprise Autonomous PlatformConfigRecord = { toolsets: ['memory', 'terminal'] }
+      const draft: Aegis AI Enterprise Autonomous PlatformConfigRecord = { toolsets: ['memory'] }
 
       expect(diffConfig(baseline, draft)).toEqual({ toolsets: ['memory'] })
     })

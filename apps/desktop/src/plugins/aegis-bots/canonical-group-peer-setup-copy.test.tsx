@@ -1,5 +1,5 @@
 import { host } from '@aegis/plugin-sdk'
-import type * as AegisSdk from '@aegis/plugin-sdk'
+import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
@@ -18,7 +18,7 @@ import type { RosterRow } from './types'
 
 const { request } = vi.hoisted(() => ({ request: vi.fn() }))
 vi.mock('@aegis/plugin-sdk', async importOriginal => (await import('./canonical-group-contract-test-utils'))
-  .localGatewaySdkMock(await importOriginal<typeof AegisSdk>(), request, () => translateBots))
+  .localGatewaySdkMock(await importOriginal<typeof Aegis AI Enterprise Autonomous PlatformSdk>(), request, () => translateBots))
 vi.mock('./group-chat-parts', async importOriginal => ({ ...await importOriginal<typeof GroupChatParts>(), GroupImageControls: () => null }))
 
 const roster: RosterRow[] = [{ name: 'default', connectionId: 'local' }, peerRosterRow('mini', 'Mac Mini')]
@@ -48,7 +48,7 @@ const CODES = [...new Set([...REFUSALS.map(([code]) => code), 'canonical_driver_
 const rawCode = new RegExp(CODES.join('|'))
 
 beforeEach(() => {
-  ;(host.state.gateway as ReturnType<typeof AegisSdk.atom<string>>).set('open')
+  ;(host.state.gateway as ReturnType<typeof Aegis AI Enterprise Autonomous PlatformSdk.atom<string>>).set('open')
   $canonicalGroupBindings.set({})
   $botMeta.set({})
   $groupChats.set({})
@@ -96,7 +96,7 @@ it.each(Object.keys(CANONICAL_GROUP_LOCALES) as Array<keyof typeof CANONICAL_GRO
       const joined = code === 'peer_target_unsupported' ? words.peerJoinChanged : words.peerJoinFailed.replace('{reason}', words[key])
 
       if (key !== 'peerSetupGeneric') {
-        expect(peerJoinText(new PeerJoinError(code), 'Aegis · Mac Mini', words), `${locale} ${code}`).toBe(joined.replace('{name}', 'Aegis · Mac Mini'))
+        expect(peerJoinText(new PeerJoinError(code), 'Aegis AI Enterprise Autonomous Platform · Mac Mini', words), `${locale} ${code}`).toBe(joined.replace('{name}', 'Aegis AI Enterprise Autonomous Platform · Mac Mini'))
       }
     }
 

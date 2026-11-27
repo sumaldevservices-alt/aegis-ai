@@ -137,7 +137,7 @@ beforeEach(() => {
 describe('a membership write its machine dropped after the read', () => {
   it('fails the removal and keeps the seat: the machine still names the room', async () => {
     const room = await loadRoom()
-    const homelab = remoteBot('homelab', 'Homelab Aegis')
+    const homelab = remoteBot('homelab', 'Homelab Aegis AI Enterprise Autonomous Platform')
     const machine = new RemoteMachine(['Core'])
     serve({ homelab: machine })
     seed(room, [homelab], ['Core'], [programmer, reviewer, homelab])
@@ -152,7 +152,7 @@ describe('a membership write its machine dropped after the read', () => {
       }
     }
 
-    await expect(room.members.setGroupMembership(homelab, 'Core', false)).rejects.toThrow(/Homelab Aegis/)
+    await expect(room.members.setGroupMembership(homelab, 'Core', false)).rejects.toThrow(/Homelab Aegis AI Enterprise Autonomous Platform/)
 
     expect(machine.groups).toEqual(['Core'])
     expect(seatedKeys(room)).toEqual(['homelab::default', 'local::programmer', 'local::reviewer'])
@@ -160,7 +160,7 @@ describe('a membership write its machine dropped after the read', () => {
 
   it('still treats a gateway without the method as the older-gateway fallback', async () => {
     const room = await loadRoom()
-    const homelab = remoteBot('homelab', 'Homelab Aegis')
+    const homelab = remoteBot('homelab', 'Homelab Aegis AI Enterprise Autonomous Platform')
     const machine = new RemoteMachine(['Core'])
     serve({ homelab: machine })
     seed(room, [homelab], ['Core'], [programmer, reviewer, homelab])
@@ -178,7 +178,7 @@ describe('a membership write its machine dropped after the read', () => {
 describe('overlapping edits of one bot', () => {
   it('an older failed join never erases a newer acknowledged one', async () => {
     const room = await loadRoom()
-    const homelab = remoteBot('homelab', 'Homelab Aegis')
+    const homelab = remoteBot('homelab', 'Homelab Aegis AI Enterprise Autonomous Platform')
     const machine = new RemoteMachine([])
     serve({ homelab: machine })
     seed(room, [homelab], [], [programmer, reviewer])
@@ -202,7 +202,7 @@ describe('overlapping edits of one bot', () => {
     expect(reads).toBe(1)
     held.fail?.(transportClosed())
 
-    await expect(joinA).rejects.toThrow(/Homelab Aegis/)
+    await expect(joinA).rejects.toThrow(/Homelab Aegis AI Enterprise Autonomous Platform/)
     await expect(joinB).resolves.toBeUndefined()
 
     expect(machine.groups).toEqual(['B'])

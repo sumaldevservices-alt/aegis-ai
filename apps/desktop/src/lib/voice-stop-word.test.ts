@@ -29,7 +29,7 @@ describe('isVoiceStopCommand', () => {
     }
   })
 
-  it('matches stop commands addressed to Aegis', () => {
+  it('matches stop commands addressed to Aegis AI Enterprise Autonomous Platform', () => {
     for (const phrase of ['aegis stop', 'hey aegis stop', 'hey aegis, stop', 'ok stop', 'okay stop']) {
       expect(isVoiceStopCommand(phrase, { mode: 'default' })).toBe(true)
     }

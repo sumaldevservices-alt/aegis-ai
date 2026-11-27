@@ -9,7 +9,7 @@ import { closeGatewayTicketBridges, createGatewayTicketResolver } from './local-
 import { shortSocketTmpDir } from './local-gateway.test-helpers'
 import { bundledPayload, payloadTicketRuntime } from './payload-backend'
 
-/** A payload laid out the way the builder stamps it, the shape resolveAegisBackend() returns for
+/** A payload laid out the way the builder stamps it, the shape resolveAegis AI Enterprise Autonomous PlatformBackend() returns for
  * it (main.ts), and an owner socket that grants one ticket. */
 async function bundledPayloadFixture() {
   const home = await shortSocketTmpDir('gw-bundled-')

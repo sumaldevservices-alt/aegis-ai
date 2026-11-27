@@ -108,7 +108,7 @@ export async function confirmSendDiagnostics(): Promise<void> {
     const gateway = $gateway.get()
 
     if (!gateway) {
-      throw new Error('Aegis gateway unavailable')
+      throw new Error('Aegis AI Enterprise Autonomous Platform gateway unavailable')
     }
 
     const extraFiles = { ...(await collectLocalExtras()), ...current.extraFiles }

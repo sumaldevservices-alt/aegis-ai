@@ -1,4 +1,4 @@
-export interface AegisNotification {
+export interface Aegis AI Enterprise Autonomous PlatformNotification {
   title?: string
   body?: string
   silent?: boolean

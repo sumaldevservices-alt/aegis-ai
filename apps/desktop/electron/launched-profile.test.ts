@@ -269,7 +269,7 @@ describe('profiles_run_elsewhere marker', () => {
     write(path.join(root, PROFILES_RUN_ELSEWHERE_DIR, 'notes.json'), '')
 
     expect(() => assertProfileMayRunLocally(root, 'work')).toThrow(
-      'Profile "work" runs through the openshell plugin, but this app has no connection to it. Aegis won\'t start it on this computer.'
+      'Profile "work" runs through the openshell plugin, but this app has no connection to it. Aegis AI Enterprise Autonomous Platform won\'t start it on this computer.'
     )
     expect(() => assertProfileMayRunLocally(root, 'notes')).toThrow(/"notes" runs through a plugin,/)
   })

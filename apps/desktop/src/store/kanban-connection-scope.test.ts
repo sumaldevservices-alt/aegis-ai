@@ -1,14 +1,14 @@
 import { QueryObserver } from '@tanstack/react-query'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 
 // A connection switch must leave every profile-scoped query refetched against
 // the NEW gateway — see the $activeConnectionId.listen comment in
 // store/connections.ts for why the switch's own wipe is not enough.
 //
 // Real store chain (store/gateway + store/profile + store/connections), only
-// the AegisGateway socket class stubbed — same harness as
+// the Aegis AI Enterprise Autonomous PlatformGateway socket class stubbed — same harness as
 // plugin-socket-scope.test.ts.
 
 vi.mock('@/aegis', async importOriginal => {
@@ -17,7 +17,7 @@ vi.mock('@/aegis', async importOriginal => {
   return {
     ...actual,
     // Stub only the socket class so gateway activations don't dial real WS.
-    AegisGateway: class {
+    Aegis AI Enterprise Autonomous PlatformGateway: class {
       connectionState = 'closed'
       connect = async (_wsUrl: string): Promise<void> => {
         this.connectionState = 'open'
@@ -39,7 +39,7 @@ const { $activeGatewayProfile } = await import('@/store/profile')
 const { selectConnection, setConnectionsRegistry, _resetConnectionsForTests } = await import('@/store/connections')
 const { setConnection } = await import('@/store/session')
 
-const conn = (over: Partial<AegisConnection> = {}): AegisConnection =>
+const conn = (over: Partial<Aegis AI Enterprise Autonomous PlatformConnection> = {}): Aegis AI Enterprise Autonomous PlatformConnection =>
   ({
     authMode: 'oauth',
     baseUrl: 'https://pool.invalid',
@@ -47,7 +47,7 @@ const conn = (over: Partial<AegisConnection> = {}): AegisConnection =>
     token: 'fake-test-token',
     wsUrl: 'wss://pool.invalid/api/ws?token=fake-test-token',
     ...over
-  }) as AegisConnection
+  }) as Aegis AI Enterprise Autonomous PlatformConnection
 
 const registry = {
   connections: [

@@ -156,7 +156,7 @@ for (const [label, recorded, current, reused] of [
       forward: async () => {},
       cancelForward: async () => {},
       pickLocalPort: async () => 50001,
-      waitForAegis: async () => {},
+      waitForAegis AI Enterprise Autonomous Platform: async () => {},
       probeReuseProof: async () => 'authenticated-ok',
       adoptServedToken: async (_baseUrl: string, token: string) => token,
       readyTimeoutMs: 2000

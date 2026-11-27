@@ -5,7 +5,7 @@ import { afterEach, expect, it } from 'vitest'
 
 import { setApiRequestConnection } from '@/api/client'
 import { SidebarProvider } from '@/components/ui/sidebar'
-import type { AegisConnection } from '@/global'
+import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import { $connectionsRegistry } from '@/store/connection-registry-state'
 import { setPrimaryGatewayConnection } from '@/store/gateway'
 import { $sidebarRowMeta, setSidebarGrouping } from '@/store/layout'
@@ -82,7 +82,7 @@ it('names the Webapp gateway section after the host instead of its raw `local` i
   const sections = window.document.querySelectorAll('[data-gateway-section]')
   expect(sections).toHaveLength(1)
   const gateway = sections[0] as HTMLElement
-  expect(within(gateway).getByText('Aegis host')).toBeTruthy()
+  expect(within(gateway).getByText('Aegis AI Enterprise Autonomous Platform host')).toBeTruthy()
   expect(screen.queryByText('local')).toBeNull()
   expect(gateway.querySelectorAll('[data-gateway-group]')).toHaveLength(2)
   expect(within(gateway).getByText('listed title')).toBeTruthy()
@@ -159,7 +159,7 @@ it.each([
       setPrimaryGatewayConnection(
         primary ? { connectionId: primary === 'remote' ? 'remote-1' : 'local', mode: primary } : null
       )
-      $connection.set(active ? ({ mode: active } as AegisConnection) : null)
+      $connection.set(active ? ({ mode: active } as Aegis AI Enterprise Autonomous PlatformConnection) : null)
       setApiRequestConnection('local')
       $connectionsRegistry.set({
         version: 2,

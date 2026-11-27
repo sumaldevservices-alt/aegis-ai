@@ -379,7 +379,7 @@ function lostRewindReply(transcript = THREE_EXCHANGES) {
     if (loseReply) {
       loseReply = false
 
-      throw new Error('Aegis gateway connection lost')
+      throw new Error('Aegis AI Enterprise Autonomous Platform gateway connection lost')
     }
 
     return receipt
@@ -466,7 +466,7 @@ describe('a repeat after a lost rewind reply on a canonical session', () => {
     )
 
     await handle!.submitText('/undo')
-    expect(renderedText(handle!)).toContain('Aegis gateway connection lost')
+    expect(renderedText(handle!)).toContain('Aegis AI Enterprise Autonomous Platform gateway connection lost')
 
     await handle!.submitText('/undo')
 

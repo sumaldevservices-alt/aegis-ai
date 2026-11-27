@@ -19,7 +19,7 @@ import {
 } from './external-link'
 
 const desktopWindow = window as unknown as { aegisDesktop?: Window['aegisDesktop'] }
-const initialAegisDesktop = desktopWindow.aegisDesktop
+const initialAegis AI Enterprise Autonomous PlatformDesktop = desktopWindow.aegisDesktop
 
 function installDesktopBridge(partial: Partial<Window['aegisDesktop']> = {}) {
   desktopWindow.aegisDesktop = {
@@ -47,8 +47,8 @@ afterEach(() => {
   vi.restoreAllMocks()
   cleanup()
 
-  if (initialAegisDesktop) {
-    desktopWindow.aegisDesktop = initialAegisDesktop
+  if (initialAegis AI Enterprise Autonomous PlatformDesktop) {
+    desktopWindow.aegisDesktop = initialAegis AI Enterprise Autonomous PlatformDesktop
   } else {
     delete desktopWindow.aegisDesktop
   }
