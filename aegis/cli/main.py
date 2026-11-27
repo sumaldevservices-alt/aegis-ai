@@ -4,6 +4,7 @@ from rich.table import Table
 from aegis.core.config import load_config
 from aegis.tools.system import get_system_stats
 from aegis.tools.shell import run_shell
+from aegis.persistence.db import db
 
 app = typer.Typer(help="AEGIS: The AI sysadmin that never sleeps")
 console = Console()
@@ -36,6 +37,22 @@ def run(command: str):
         console.print(res.get("stdout", ""))
     else:
         console.print(f"[red]Error/Blocked:[/red] {res.get('error') or res.get('stderr')}")
+
+@app.command()
+def logs(limit: int = 20):
+    """View recent execution audit logs."""
+    rows = db.get_logs(limit)
+    table = Table(title="AEGIS Audit Trail")
+    table.add_column("Timestamp", style="dim")
+    table.add_column("Command", style="cyan")
+    table.add_column("Risk", style="yellow")
+    table.add_column("Success", style="green")
+    
+    for row in rows:
+        ts, cmd, risk, success = row
+        table.add_row(str(ts), str(cmd), str(risk), str(bool(success)))
+        
+    console.print(table)
 
 @app.command()
 def models():
