@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Relative, not `@aegis/shared`: esbuild bundles electron/ without tsconfig paths.
 import { isAegis AI Enterprise Autonomous PlatformCloudUrl } from '../../shared/src/aegis-cloud'
 

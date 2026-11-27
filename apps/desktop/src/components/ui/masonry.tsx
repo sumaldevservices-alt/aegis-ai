@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './masonry.css'
 
 import { Children, type ComponentProps, useLayoutEffect, useRef } from 'react'

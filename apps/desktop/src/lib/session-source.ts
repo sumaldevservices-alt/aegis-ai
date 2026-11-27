@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { normalize } from '@/lib/text'
 
 const SOURCE_LABELS: Record<string, string> = {

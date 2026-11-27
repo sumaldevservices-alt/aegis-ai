@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { VariantProps } from 'class-variance-authority'
 import type { ReactNode } from 'react'
 

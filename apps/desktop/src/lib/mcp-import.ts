@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Paste-anything MCP import: turns whatever a README tells the user to copy —
 // an mcp.json snippet, a bare `npx`/`docker` command, a `claude mcp add` line,
 // a plain server URL, or a Cursor install deeplink — into named mcp.json

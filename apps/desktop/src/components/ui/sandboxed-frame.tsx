@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type * as React from 'react'
 import { useCallback, useEffect, useLayoutEffect, useRef } from 'react'
 

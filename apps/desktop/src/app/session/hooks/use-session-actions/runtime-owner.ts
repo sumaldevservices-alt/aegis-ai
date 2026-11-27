@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Runtime-info ownership for applyRuntimeInfo: the status-bar approval chip
 // is keyed by the ACTIVE profile's name, so only the active gateway's runtime
 // may reconcile it. This mirrors the session.info event rule, except that a

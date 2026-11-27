@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type PetInfo } from '@/store/pet'
 
 // Sprite row → the PetInfo frame-count key it resolves to (directional walks and

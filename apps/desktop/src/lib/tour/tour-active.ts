@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom } from 'nanostores'
 
 /** Reactive twin of `isTourActive` for UI that must wait out a tour. Lives apart from

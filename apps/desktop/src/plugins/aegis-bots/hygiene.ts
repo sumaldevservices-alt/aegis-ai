@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Deleted-connection roster hygiene: the pure half of the #93492 sweep.
  *

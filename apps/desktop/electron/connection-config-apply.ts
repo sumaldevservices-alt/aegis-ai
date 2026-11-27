@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 interface ApplyConnectionConfigAtomicallyOptions<TConfig, TRegistry> {
   apply: () => Promise<void>
   nextConfig: TConfig

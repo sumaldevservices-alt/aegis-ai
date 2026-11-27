@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The update gate's marker probe (R6): a dead/malformed marker is routed
  * through the checkout script's `reclaim` helper — never deleted by Electron —

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A local stand-in for `SshConnection.exec` used by the remote-lifecycle
  * suites: runs the command through a POSIX shell and, like the real mux exec,

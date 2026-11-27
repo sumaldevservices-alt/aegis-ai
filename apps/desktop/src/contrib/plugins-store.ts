@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PLUGIN INVENTORY — the reactive record of every desktop plugin the app
  * knows about (bundled `src/plugins/*`, the in-repo runtime example, the

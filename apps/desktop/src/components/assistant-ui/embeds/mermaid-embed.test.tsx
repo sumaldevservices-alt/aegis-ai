@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { act, cleanup, render, waitFor } from '@testing-library/react'
 import type * as PeleLazy from 'pele/lazy'
 import { afterEach, describe, expect, it, vi } from 'vitest'

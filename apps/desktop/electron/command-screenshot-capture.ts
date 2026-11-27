@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { randomUUID } from 'node:crypto'
 
 import type { ScreenshotResult, ScreenshotWindow } from './command-screenshot-types'

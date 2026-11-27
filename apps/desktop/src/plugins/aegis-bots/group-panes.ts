@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The window-local state a group-chat room needs but never renders: the
  * per-composer drafts, and the registry of MAIN-window tabs a room is open in.

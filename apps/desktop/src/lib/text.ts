@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Canonical text micro-helpers. Do not redefine these per-page.
 
 export const asText = (v: unknown): string => (typeof v === 'string' ? v : v == null ? '' : String(v))

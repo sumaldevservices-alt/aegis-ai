@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bot Mode has to keep linking against an OLDER desktop SDK.
  *

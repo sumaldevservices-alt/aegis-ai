@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Resolved audio/video stream URLs, kept across remounts. Transcript rows
 // remount routinely (a finished turn re-renders its markdown, the render
 // budget recycles older rows, a reconnect re-resumes the chat). In the Webapp

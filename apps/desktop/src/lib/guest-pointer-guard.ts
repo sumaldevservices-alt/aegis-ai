@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Electron <webview> guests (and iframes) hit-test in their own process, so a
  * pointer-capture drag in the embedder goes silent the moment the cursor

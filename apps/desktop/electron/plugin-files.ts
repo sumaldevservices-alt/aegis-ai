@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The folder-scoped file door behind the plugin SDK's `ctx.files`. A plugin
 // names a folder handle (`'data'` = its own data folder, or the id of a folder
 // the user granted it through the app's picker) plus a RELATIVE path; this

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { memo, useEffect, useMemo, useRef, useState } from 'react'
 
 import { createRendererLoopPauseController } from '@/lib/renderer-loop-pause'

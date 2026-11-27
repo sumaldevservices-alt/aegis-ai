@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Sidebar "New session" drag — the NEW-session resolver over the shared
  * pointer drag session (pane-shell drag-session.ts). Same machinery and drop

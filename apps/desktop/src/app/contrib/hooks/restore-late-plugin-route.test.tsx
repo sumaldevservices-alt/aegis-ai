@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Remembered-route restore vs late disk plugins. A remembered plugin page is
  * session-shaped until its route registers; if the session list arrives first

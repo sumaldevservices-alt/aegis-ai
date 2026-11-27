@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { BrowserWindow, BrowserWindowConstructorOptions, Session } from 'electron'
 
 import { isExpectedOauthNavigationAbort } from './oauth-navigation'

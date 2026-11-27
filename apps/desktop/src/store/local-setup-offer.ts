@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Local-setup eligibility: whether this machine can run a model locally, read
  * once per backend connection from the local-models status + catalog.

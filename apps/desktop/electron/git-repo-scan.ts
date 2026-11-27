@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Repo-first discovery: walk bounded roots for Git repositories using only
 // Node's fs APIs. Electron owns this machine-local capability; the renderer
 // supplies the profile-scoped policy from Aegis AI Enterprise Autonomous Platform config.

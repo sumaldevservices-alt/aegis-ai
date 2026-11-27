@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The translucency contract both processes read (`@aegis/shared/translucency`)
  * plus the one piece that needs a BrowserWindow to mean anything: which backing

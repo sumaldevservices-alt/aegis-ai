@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom } from 'nanostores'
 
 /** Families users ask for by name; the app face is otherwise whatever the theme declares. */

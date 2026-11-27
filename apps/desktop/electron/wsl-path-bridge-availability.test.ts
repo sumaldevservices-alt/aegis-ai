@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * WSL availability gate (#128770): on a Windows host with no registered WSL
  * distribution, the bridge must never launch `wsl.exe` or touch a `\\wsl$` /

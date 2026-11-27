@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { persistentAtom } from '@/lib/persisted'
 
 // Device-level video playback speed. Choosing a speed in any transcript video

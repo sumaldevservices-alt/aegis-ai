@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bot Screen pane — live view of a bot's headless desktop with Take over / Hand back.
  *

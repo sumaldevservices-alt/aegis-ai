@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, computed } from 'nanostores'
 
 import { PANE_TOGGLE_REVEAL_EVENT } from '@/components/pane-shell'

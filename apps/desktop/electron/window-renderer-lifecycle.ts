@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Per-window renderer lifecycle diagnostics + crash recovery (#81290).
 //
 // The desktop app renders one Chromium renderer per window (primary, secondary

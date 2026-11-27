@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The two rows the Bots rail lists: one bot, and one group chat.
  *

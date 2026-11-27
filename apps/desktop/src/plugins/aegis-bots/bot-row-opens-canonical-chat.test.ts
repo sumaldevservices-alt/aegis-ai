@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A bot row click lands on the bot's canonical Bot Chat — the session the row
  * previews (`canonical_session`, resolved by name on every roster poll).

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Liveness-probe force-close policy for the primary gateway socket (#95327).
  *

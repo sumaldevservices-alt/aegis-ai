@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { IconComponent } from '@/lib/icons'
 import { cn } from '@/lib/utils'
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Raw palette table for every built-in Aegis AI Enterprise Autonomous Platform theme preset — the single source
  * of truth shared by the desktop app (which layers OKLCH synthesis, terminal

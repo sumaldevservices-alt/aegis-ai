@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isNewChatRoute, routeSessionId } from '../../routes'
 
 /**

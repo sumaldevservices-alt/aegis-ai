@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Launching the Aegis AI Enterprise Autonomous Platform TUI in the user's OWN terminal emulator.
 //
 // This is deliberately NOT the in-app terminal pane: the point of the verb is

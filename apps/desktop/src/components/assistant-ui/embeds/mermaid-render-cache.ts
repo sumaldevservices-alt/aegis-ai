@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Renders are keyed by (theme, code). `theme` is opaque here: any
 // JSON-serialisable diagram theme, so any palette change misses the cache.
 interface MermaidRenderCacheOptions<Theme> {

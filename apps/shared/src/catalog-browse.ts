@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Shared with the docs catalog: taxonomy order is independent of popularity. Keep keys in sync
  *  with CATALOG_CATEGORIES in aegis_cli/plugin_catalog.py and website/scripts/extract-plugins.py. */
 export const PLUGIN_CATEGORIES: Record<string, { label: string; icon: string; blurb: string }> = {

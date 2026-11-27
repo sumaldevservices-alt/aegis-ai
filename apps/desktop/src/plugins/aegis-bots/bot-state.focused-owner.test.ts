@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The roster highlight and the Routines tile follow the chat the user is
  * LOOKING AT — the focused session's OWNER (profile + connection) — not the

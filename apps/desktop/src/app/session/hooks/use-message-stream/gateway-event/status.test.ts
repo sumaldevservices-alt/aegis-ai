@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The gateway `error` event (tui_gateway/prompt_turn.py) carries only a
 // message — no error_surface. The dispatcher must still classify the two
 // refusals it can mean so the card and toast read like a classified turn:

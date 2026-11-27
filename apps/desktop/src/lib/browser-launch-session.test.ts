@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isGatewayReauthRequired } from '@aegis/shared'
 import { afterEach, expect, it, vi } from 'vitest'
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './timeline.css'
 
 import { useVirtualizer } from '@tanstack/react-virtual'

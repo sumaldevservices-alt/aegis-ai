@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A7 rule 3: Electron NEVER deletes or rewrites the update marker. Reading
  * and judging a dead marker — at boot, before a hand-off, before a bridge or

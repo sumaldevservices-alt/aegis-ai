@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Max size for local files Desktop loads as data URLs (composer attach, image
  * previews, etc.). Main owns the real cap + its JSON under userData — this

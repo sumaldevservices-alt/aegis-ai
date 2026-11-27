@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import crypto from 'node:crypto'
 
 export interface ProfileRouteConfig {

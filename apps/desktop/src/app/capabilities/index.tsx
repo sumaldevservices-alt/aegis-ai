@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './ui/page.css'
 
 import type * as React from 'react'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Electron flattens console arguments, so keep wake fields in the message itself.
  * The renderer console capture persists only this warning namespace to desktop.log. */
 export function logBotWake(

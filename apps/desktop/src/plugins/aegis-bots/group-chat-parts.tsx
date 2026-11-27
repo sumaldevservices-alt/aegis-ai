@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The leaf components a group-chat room composes: the room picture controls,
  * the mention-aware composer input, and the card a member's pending

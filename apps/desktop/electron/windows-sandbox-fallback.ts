@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Windows Chromium/Electron sandbox recovery for #38216.
  *

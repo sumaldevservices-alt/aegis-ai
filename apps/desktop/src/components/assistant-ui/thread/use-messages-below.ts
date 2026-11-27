@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ReactNode, type RefObject, useEffect } from 'react'
 
 import { publishThreadMessagesBelow } from '@/store/thread-scroll'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { profileHasRemoteConnection } from './connection-config'
 
 /**

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 type Version = Record<string, string | undefined>

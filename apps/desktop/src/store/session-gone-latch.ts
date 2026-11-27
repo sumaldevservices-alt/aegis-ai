@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { JsonRpcGatewayError } from '@aegis/shared'
 
 /** Session ids the gateway has told us are gone. A session-scoped RPC against a

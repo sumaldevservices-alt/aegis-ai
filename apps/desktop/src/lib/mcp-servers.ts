@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Shape helpers for the `mcp_servers` config map, shared by everything that
 // reads or writes it: the MCP tab editor, the paste-anything importer, and the
 // `aegis://mcp/install` deeplink dialog. These agree on what a server entry

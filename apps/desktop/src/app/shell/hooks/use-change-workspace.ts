@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useCallback, useMemo } from 'react'
 
 import { useI18n } from '@/i18n'

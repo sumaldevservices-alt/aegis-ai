@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Layout picker — the preset card grid inside the edit palette. Thumbnails
  * are a miniature render of each preset's layout tree; clicking a card

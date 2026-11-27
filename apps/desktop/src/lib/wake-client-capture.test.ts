@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Regression test for #119089: macOS Desktop remote-gateway client capture
 // went permanently deaf (platform capture error kills the continuous PCM
 // chain) while the ear still showed "listening" and no error ever surfaced.

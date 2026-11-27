@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { TranslationOverrides } from './define-locale'
 import { zhHantCronControl } from './zh-hant_cron_control'
 

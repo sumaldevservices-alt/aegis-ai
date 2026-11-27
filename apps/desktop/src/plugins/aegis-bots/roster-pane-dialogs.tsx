@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { ConfirmDialog, host } from '@aegis/plugin-sdk'
 import type { useI18n } from '@aegis/plugin-sdk'
 

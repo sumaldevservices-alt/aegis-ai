@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { JsonRpcGatewayError } from '@aegis/shared'
 import { useStore } from '@nanostores/react'
 import { act, cleanup, render } from '@testing-library/react'

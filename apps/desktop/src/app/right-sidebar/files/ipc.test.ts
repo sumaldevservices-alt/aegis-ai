@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /// <reference types="node" />
 
 import { Buffer } from 'node:buffer'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { createClient, type Message, type Variant } from 'dbus-native'
 
 // dbus-native 0.15 defaults plainValues to true, so a property Get returns the

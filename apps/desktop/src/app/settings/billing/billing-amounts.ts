@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Translations } from '@/i18n'
 import { en } from '@/i18n/en'
 

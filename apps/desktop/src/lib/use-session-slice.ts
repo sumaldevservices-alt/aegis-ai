@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useCallback, useRef, useSyncExternalStore } from 'react'
 
 interface SliceStore<T> {

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'
 import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 

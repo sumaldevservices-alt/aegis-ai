@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type RefObject, useLayoutEffect, useRef } from 'react'
 
 /**

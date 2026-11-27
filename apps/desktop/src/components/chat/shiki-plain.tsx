@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Matches highlighted markup so loading a grammar changes color, not layout. */
 export function PlainShiki({ code }: { code: string }) {
   return (

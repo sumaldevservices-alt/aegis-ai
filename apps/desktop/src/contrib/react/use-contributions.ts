@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useCallback, useSyncExternalStore } from 'react'
 
 import { registry } from '../registry'

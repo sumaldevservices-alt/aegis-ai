@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Setup cards read the chat's conversation tokens, so the setup chat's larger scale reaches them too.
 // Relative sizes follow main's setup cards: label and detail one rung under the options, prose above.
 

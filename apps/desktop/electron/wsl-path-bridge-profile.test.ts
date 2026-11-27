@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Profile-scoped eligibility for the WSL path bridge (#66447).
  *

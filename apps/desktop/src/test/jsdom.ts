@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // jsdom implements no layout and no animation, so component libraries that
 // call those APIs unconditionally throw on mount. These install inert
 // stand-ins: enough for the component to render, never enough to assert on. A

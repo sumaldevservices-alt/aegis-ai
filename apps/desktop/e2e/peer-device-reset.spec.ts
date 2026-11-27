@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A generic peer window inherits its initial owner, not a permanent New session
  * target. Exercise two real gateways; only inference uses the shared mock.

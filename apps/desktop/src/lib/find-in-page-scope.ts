@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Renderer-side find-in-page that scopes matches to the CURRENT VIEW — the
  * active chat surface — instead of the whole document.

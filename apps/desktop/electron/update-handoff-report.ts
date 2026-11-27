@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Report a detached update's result once, where boot passes the update gate.
 
 import path from 'node:path'

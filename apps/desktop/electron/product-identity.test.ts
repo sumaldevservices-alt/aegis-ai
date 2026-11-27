@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // product-identity.cjs is the single derivation of the desktop product
 // identity; electron/product-identity.ts re-exports it. These tests hold
 // the identity contract: the TS accessor resolves to the .cjs object, and

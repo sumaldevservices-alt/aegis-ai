@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Decide whether a window-level Space keydown should be ignored by the Star
  * Map playback toggle. Ignored when the key is not Space, when something

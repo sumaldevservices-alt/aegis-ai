@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const setTtsLease = vi.fn(async (_lease: string, _active: boolean) => ({ ok: true }))

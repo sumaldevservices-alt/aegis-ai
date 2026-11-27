@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The embedded terminal's PTY host: shell resolution, env scrubbing, session
 // registry, and the aegis:terminal:* IPC surface. Extracted from main.ts; the
 // factory owns the session map and returns the dispose helpers main.ts needs

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type DragEvent as ReactDragEvent, useCallback, useEffect, useRef, useState } from 'react'
 
 import { dragHasAttachments } from '@/app/chat/composer/inline-refs'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A named layout preset is GEOMETRY (splits, rails, weights, which zones are
  * open) — not a snapshot of the conversations that happened to be on screen

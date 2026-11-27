@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { setFlagsFromString } from 'node:v8'
 import { runInNewContext } from 'node:vm'
 

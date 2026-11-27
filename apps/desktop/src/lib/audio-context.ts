@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // One lazily-created AudioContext for the app's synthesized UI cues (wake
 // chime, turn-completion sound, thinking blips). Browsers cap how many
 // contexts a page may open, and these cues are short oscillator bursts that

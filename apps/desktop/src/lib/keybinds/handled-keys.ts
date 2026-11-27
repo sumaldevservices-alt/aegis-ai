@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Keydowns the window keybind dispatcher ran as a Aegis AI Enterprise Autonomous Platform action. It cancels
 // every chord it matches in capture, including one whose passthrough handler
 // then declines, so `defaultPrevented` alone doesn't say an action ran. xterm

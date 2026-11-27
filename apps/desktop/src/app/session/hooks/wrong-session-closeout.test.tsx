@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment jsdom
 /**
  * Integration invariant for #86106 / #86359: a background chat's delayed

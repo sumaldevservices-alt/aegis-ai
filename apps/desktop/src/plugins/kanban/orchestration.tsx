@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Orchestration settings — the dashboard's dispatcher-knobs panel, flat-styled:
  * orchestrator profile, default assignee, auto-decompose, and the profile

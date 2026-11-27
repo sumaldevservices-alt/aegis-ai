@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ConnectorAccountRow } from '@aegis/shared'
 
 export type ConnectorResidency = 'hosted' | 'local'

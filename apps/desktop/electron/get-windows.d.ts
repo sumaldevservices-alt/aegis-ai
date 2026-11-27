@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Type declarations for get-windows.
 //
 // get-windows ships no bundled types. An interrupted install can still leave it

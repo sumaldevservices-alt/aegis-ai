@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import fs from 'node:fs'
 
 // `aegis serve` announces AEGIS_BACKEND_READY; the legacy `aegis dashboard`

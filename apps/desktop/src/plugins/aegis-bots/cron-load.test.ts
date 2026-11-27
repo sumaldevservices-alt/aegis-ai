@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `loadRoutines` — the pane's one read, and the two things it must survive.
  *

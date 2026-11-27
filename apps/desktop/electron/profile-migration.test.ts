@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tests for electron/profile-migration.ts — pure migration-decision helpers for
  * the active-profile.json first-boot seeding.

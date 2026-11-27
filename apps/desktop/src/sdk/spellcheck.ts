@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // `host.spellcheck`: Chromium's custom spell-check dictionary, one word at a
 // time. The word gate and the session call live in main
 // (`electron/spellcheck-dictionary-ipc.ts`); this side only forwards and turns

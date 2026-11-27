@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Unit tests for the pure find-in-page helpers. The IPC handlers in
  * main.ts are the only consumer — the helpers below must keep the wire

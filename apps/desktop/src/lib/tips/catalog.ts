@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * THE TIP CATALOG — what the app tells you about itself when it's quiet.
  *

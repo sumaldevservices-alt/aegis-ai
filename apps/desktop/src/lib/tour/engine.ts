@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * TOUR ENGINE — the one function that runs a tour action, on BOTH surfaces.
  *

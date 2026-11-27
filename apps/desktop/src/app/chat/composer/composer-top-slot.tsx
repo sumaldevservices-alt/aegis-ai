@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useMemo } from 'react'
 
 import { Slot as ContribSlot } from '@/contrib/react/slot'

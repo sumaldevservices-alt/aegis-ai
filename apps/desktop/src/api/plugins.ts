@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isStableOpen, reconnectBackoffDelayMs } from '@aegis/shared'
 
 import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'

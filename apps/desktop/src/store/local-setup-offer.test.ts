@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'

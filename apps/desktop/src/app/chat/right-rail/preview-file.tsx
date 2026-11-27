@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { fileUrlToNativePath } from '@aegis/shared'
 import { useStore } from '@nanostores/react'
 import type * as React from 'react'

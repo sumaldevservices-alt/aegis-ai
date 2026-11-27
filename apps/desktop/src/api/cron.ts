@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { stampRowsWithOwningConnection } from '@/lib/session-owner-stamp'
 import type {
   AutomationBlueprint,

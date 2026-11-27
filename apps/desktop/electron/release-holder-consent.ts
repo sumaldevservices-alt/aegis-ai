@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The Desktop half of the consented "close it and retry" for a Desktop app swap blocked by a
 // program outside Aegis AI Enterprise Autonomous Platform (#101789). The consent is bound to the ONE hand-off run the retry starts
 // (its run id reaches the swap as AEGIS_UPDATE_CORRELATION_ID) and to the exact processes the

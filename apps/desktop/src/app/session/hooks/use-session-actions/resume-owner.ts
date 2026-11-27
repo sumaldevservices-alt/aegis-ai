@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { SessionInfo } from '@/aegis'
 import { isActivePrimary, openGatewayForAgent, openGatewayForProfile } from '@/store/gateway'
 import { $showAllProfiles, ensureGatewayAgent, ensureGatewayProfile, normalizeProfileKey } from '@/store/profile'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PREVIEW ACT ENGINE — the one function that performs an interaction inside a
  * page, so the agent can drive the in-app browser instead of only reading it.

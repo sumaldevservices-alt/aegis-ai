@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { ALL_PROFILES, normalizeProfileKey } from '@/store/profile'
 import type { SessionInfo } from '@/types/aegis'
 

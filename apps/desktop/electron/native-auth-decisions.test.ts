@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Regression tests for electron/native-auth-decisions.ts — the pure decision
  * seams behind the RFC 8252 native-app auth flow, each of which was a real

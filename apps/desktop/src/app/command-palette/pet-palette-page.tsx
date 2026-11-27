@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Cmd-K "Pets…" page — browse the petdex gallery, adopt/switch, toggle off.
  *

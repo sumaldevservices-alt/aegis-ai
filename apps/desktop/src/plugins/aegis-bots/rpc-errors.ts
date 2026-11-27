@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** JSON-RPC method-not-found (`tui_gateway/rpc_dispatch.py`): the backend predates the call.
  *  The message match covers errors that lost their frame across the IPC bridge. */
 export function rpcMethodMissing(error: unknown): boolean {

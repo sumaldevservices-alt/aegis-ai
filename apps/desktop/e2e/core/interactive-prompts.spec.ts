@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * C20 core: blocking interactive prompts round-trip through the real chain.
  *

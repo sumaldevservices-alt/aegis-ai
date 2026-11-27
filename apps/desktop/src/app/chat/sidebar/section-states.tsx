@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useStore } from '@nanostores/react'
 
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'

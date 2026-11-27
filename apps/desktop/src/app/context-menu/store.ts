@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom } from 'nanostores'
 
 import type { TerminalMenuHandle } from '@/app/right-sidebar/terminal/terminal-context-menu'

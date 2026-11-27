@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { PersistedTurn } from '@aegis/shared'
 
 import { transcriptRowIds } from '@/app/session/hooks/use-session-actions/pending-turn-identity'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 const DEFAULT_MAX_INPUT_BYTES = 16 * 1024 * 1024
 
 function loadImage(url: string): Promise<HTMLImageElement> {

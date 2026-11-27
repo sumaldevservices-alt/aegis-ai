@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Copy for a profile a plugin runs in a sandbox on this computer (host.setProfileBackend). */
 export interface SandboxCopy {
   /** While the plugin starts the profile's sandbox (this computer's backend keeps serving it). */

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PREVIEW TILES — every open preview (a file, a URL, an artifact) rendered as a
  * layout-tree pane, the preview analog of session and route tiles.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tests for connection-registry.ts::profileMetadataFromApiProfiles — the projection of a remote
  * connection's `/api/profiles` into the cross-connection roster metadata (#139548).

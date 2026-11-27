@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A `display.*` method-not-found from a Portal-managed (Aegis AI Enterprise Autonomous Platform Cloud) backend must not be
  * rendered as "Update the bot's Aegis AI Enterprise Autonomous Platform": the user cannot update a managed release, and the

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { LOCAL_CONNECTION_ID } from '@aegis/shared'
 
 import type { DesktopOauthLoginOptions, Aegis AI Enterprise Autonomous PlatformApiRequest, Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'

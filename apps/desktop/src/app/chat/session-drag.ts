@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Sidebar session drag — the session RESOLVER over the shared pointer drag
  * session (pane-shell drag-session.ts). Same machinery as a pane drag

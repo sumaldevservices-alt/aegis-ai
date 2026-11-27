@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `Promise.all(items.map(fn))` with a concurrency cap: at most `limit` calls run
  * at once, results stay in input order. Keeps a many-repo probe from spawning a

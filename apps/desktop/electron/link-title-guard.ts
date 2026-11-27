@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Destination admission for the link-title pipeline (#126885).
 //
 // The renderer's title prefetch fires for every http(s) link a conversation or

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PREVIEW INPUT REGISTRY — real input into the preview pane's guest page, the
  * difference between the agent DRIVING the browser and merely poking its DOM.

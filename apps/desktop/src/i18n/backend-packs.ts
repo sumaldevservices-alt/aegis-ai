@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Backend-delivered language packs. A Aegis AI Enterprise Autonomous Platform language-pack plugin (or a user
  * overlay under `$AEGIS_HOME/locales/`) ships `<lang>.desktop.yaml`; the

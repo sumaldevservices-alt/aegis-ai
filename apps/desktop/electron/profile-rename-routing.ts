@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { profileNameFromPath } from './profile-delete-routing'
 
 export interface ProfileRenameRequest {

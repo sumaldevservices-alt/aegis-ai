@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * E2E test for PERSISTED unread state — the green "Finished — unread" dot
  * must survive an app restart.

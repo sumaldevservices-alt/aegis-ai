@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { MediaImageDimensions } from '@/lib/media'
 
 type ToolLike = {

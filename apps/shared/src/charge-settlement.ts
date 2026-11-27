@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { refusalPolicy } from './billing-policy.js'
 import type { BillingChargeStatusResponse } from './billing-types.js'
 

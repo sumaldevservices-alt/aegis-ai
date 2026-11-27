@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { getLocalModelsJobs, getLocalModelsStatus } from '@/aegis'
 import type { Translations } from '@/i18n/types'
 import { queryClient } from '@/lib/query-client'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Whole-percent used for a usage-window allowance. Same rule as the portal
  * (`formatUsedPercentLabel`) and the CLI (`format_percent_used`): floor, any

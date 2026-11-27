@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { readJson, writeJson } from '@/lib/storage'
 import { $tipShownAt, setTipsEnabled } from '@/store/tips'
 import { setToursEnabled } from '@/store/tours'

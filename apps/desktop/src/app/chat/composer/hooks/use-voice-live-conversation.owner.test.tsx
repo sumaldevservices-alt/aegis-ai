@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment jsdom
 import { act, cleanup, renderHook } from '@testing-library/react'
 import type { ReactNode } from 'react'

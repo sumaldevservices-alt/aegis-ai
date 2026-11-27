@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, test } from 'vitest'
 
 import { UpdateOperation } from './operation'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Mirror a reactive list of "tiles" into layout-tree pane contributions:
  * register a pane per tile, refresh its title in place, and dispose panes whose

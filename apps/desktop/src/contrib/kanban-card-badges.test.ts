@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The Kanban card-badge contract (#140026): plugins contribute small text
  * badges per card through `KANBAN_CARD_AREAS.badges`; the host validates,

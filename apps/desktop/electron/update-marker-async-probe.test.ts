@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Review 5411222842: the update gate judges a marker on Electron's main
  * thread every poll while one exists, so its creation-time and process-state

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tells the `aegis desktop` launcher that the main window is on screen.
  *

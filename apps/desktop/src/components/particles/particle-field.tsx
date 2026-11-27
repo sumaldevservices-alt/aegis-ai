@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './particle-field.css'
 
 import { type CSSProperties, type ReactNode, useEffect, useMemo, useRef, useState } from 'react'

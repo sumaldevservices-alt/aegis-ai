@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { $gateway } from '@/store/gateway'
 import { approvalKindFields, isCommandApproval, receiveApprovalRequest, replayPendingApproval } from '@/store/prompts'
 import type { SessionResumeResult } from '@/types/aegis'

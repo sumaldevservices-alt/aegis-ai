@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, expect, test, vi } from 'vitest'
 
 vi.mock('@/aegis', () => ({

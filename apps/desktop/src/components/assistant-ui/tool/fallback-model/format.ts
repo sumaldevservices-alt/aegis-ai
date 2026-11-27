@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { extractToolErrorMessage } from '@/lib/tool-result-summary'
 
 export function isRecord(value: unknown): value is Record<string, unknown> {

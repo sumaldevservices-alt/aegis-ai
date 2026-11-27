@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // A "session genuinely doesn't exist" failure (deleted, or an id from a wiped /
 // rotated backend) — the REST transcript 404s with `Session not found`. Distinct
 // from a transient/wedged backend (ECONNREFUSED, timeout), which must still

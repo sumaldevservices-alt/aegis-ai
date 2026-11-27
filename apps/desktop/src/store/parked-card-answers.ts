@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, computed, type ReadableAtom } from 'nanostores'
 
 import { isOnboardingChat, onboardingChatStore } from './onboarding-session'

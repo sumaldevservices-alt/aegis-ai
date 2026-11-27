@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Locating the dev Electron binary for the e2e fixtures.
  *

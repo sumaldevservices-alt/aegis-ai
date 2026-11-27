@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { RefObject } from 'react'
 
 import type { SpeechStreamSession } from '@/lib/voice-playback'

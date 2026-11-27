@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Completion sound bank for agent turn-end cues.
 // Fourteen curated presets for A/B in Settings → Appearance, plus variant 0
 // ("None") to turn the cue off. Default is variant 1.

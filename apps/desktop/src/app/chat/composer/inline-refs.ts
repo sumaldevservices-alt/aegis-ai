@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { formatRefValue } from '@/components/assistant-ui/directive-text'
 import { translateNow } from '@/i18n'
 import { contextPath } from '@/lib/chat-runtime'

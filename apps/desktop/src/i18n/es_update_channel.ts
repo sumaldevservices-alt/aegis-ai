@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const esUpdateChannel = {
   title: 'Canal de actualizaciones',
   description: 'Estable instala solo versiones publicadas. Cada commit sigue la rama main a medida que llegan cambios.',

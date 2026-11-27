@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A `Map` with a ceiling. The renderer stays open for days, so a module-level
  * cache keyed by anything user-driven (a URL, a connection id, an equation)

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { $activeSessionId, requestSessionResume } from './session'
 import {
   healsByStoredId,

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PROFILE DOT STATE — the profile rail's per-profile rollup of the shared
  * session dot state ($sessionDotStateById), so a profile that finished (or

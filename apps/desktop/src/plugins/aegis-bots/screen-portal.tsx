@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Screen portal — the compact "this bot's computer" box that sits above a
  * bot's routines and on a gateway/profile group in the Sessions sidebar.

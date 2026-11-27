@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Cross-window transcript freshness. Each desktop window owns its own gateway
 // transport for a session, so a turn that completes in window A never streams
 // into window B. This bus pings peers with the stored session id so a window

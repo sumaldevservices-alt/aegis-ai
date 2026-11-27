@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { DEFAULT_REASONING_EFFORT, isReasoningEffort, type ReasoningEffort } from '@aegis/shared'
 
 import { normalize } from '@/lib/text'

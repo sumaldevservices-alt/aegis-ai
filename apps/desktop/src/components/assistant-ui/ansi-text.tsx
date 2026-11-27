@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { memo, useMemo } from 'react'
 
 import { ansiColorClass, hasAnsiCodes, parseAnsi } from '@/lib/ansi'

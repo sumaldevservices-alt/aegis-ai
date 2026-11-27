@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Desktop-side /rollback /agents /config /history /save /export /import /timestamps lines
 // (en_desktop_commands.ts is the source).
 export const zhHantDesktopCommands = {

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { $gateway } from '@/store/gateway'
 import { $activeSessionId } from '@/store/session'
 import { ambientRequestFor } from '@/store/session-gone-latch'

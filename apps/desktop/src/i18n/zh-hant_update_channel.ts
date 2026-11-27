@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const zhHantUpdateChannel = {
   title: '更新頻道',
   description: '穩定版只安裝已發布的版本。每個提交會隨 main 分支的變更持續更新。',

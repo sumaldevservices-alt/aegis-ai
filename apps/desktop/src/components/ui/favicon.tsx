@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ReactNode, useEffect, useState } from 'react'
 
 import { Loader2 } from '@/lib/icons'

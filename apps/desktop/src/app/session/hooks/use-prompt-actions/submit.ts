@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type PromptSubmitResult, randomUuid } from '@aegis/shared'
 import { type MutableRefObject, useCallback } from 'react'
 

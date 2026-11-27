@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // While its chat is paused for an automatic continuation (store/paused-replies.ts),
 // the newest reply reads "Continuing…" instead of "Response stopped": the turn
 // was stopped only so its interrupter could apply a change and go on with it.

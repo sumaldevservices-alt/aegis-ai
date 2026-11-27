@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isImeComposing } from './ime'
 
 // Pure logic for the find-in-page bar (⌘F). Kept out of the component so the

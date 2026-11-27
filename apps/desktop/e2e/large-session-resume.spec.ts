@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import * as path from 'node:path'
 
 import { type TestInfo } from '@playwright/test'

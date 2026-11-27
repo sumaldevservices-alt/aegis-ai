@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Group node renderer — a ZONE: header strip (tabs when stacked, minimize
  * chevron) + the active pane's content, resolved from the contribution

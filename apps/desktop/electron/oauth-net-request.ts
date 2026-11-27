@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Helpers for Electron net.request calls that ride the OAuth session partition.
  *

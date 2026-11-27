@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { StaleAuxAssignment } from '@/aegis'
 import { getApiRequestProfile, profileScopeKey } from '@/aegis'
 import { readKey, writeKey } from '@/lib/storage'

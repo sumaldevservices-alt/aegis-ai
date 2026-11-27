@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A queued prompt must remain local until the current inference turn settles.
  *

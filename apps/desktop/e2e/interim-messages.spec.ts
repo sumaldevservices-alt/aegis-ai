@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * E2E test for the interim-assistant-message preservation fix (#65919).
  *

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ReactNode, type RefObject, useLayoutEffect, useRef } from 'react'
 
 const GROUP = '[data-slot="aui_message-group"]'

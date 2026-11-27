@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // A runtime `--no-sandbox` is too late on Linux (#131055, #139542, #143569).
 //
 // Chromium forks its zygote into the sandbox (user-namespace or setuid lane)

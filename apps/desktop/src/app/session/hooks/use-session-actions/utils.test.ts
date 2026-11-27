@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import { textWithoutReferenceLines } from '@/components/assistant-ui/reference-kinds'

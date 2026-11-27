@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tests for electron/native-oauth-login.ts — the loopback-listener
  * orchestration of the RFC 8252 native login, with all I/O injected (fake

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { normalizeWs as normalizedText } from './parts'
 import type { ChatMessage, ChatMessagePart } from './types'
 

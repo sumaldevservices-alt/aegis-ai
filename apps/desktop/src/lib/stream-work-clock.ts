@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { randomUuid } from '@aegis/shared'
 
 type StreamWorkBridge = Required<

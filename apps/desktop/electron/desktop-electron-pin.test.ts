@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Regression: the desktop Electron dependency must be an exact, consistent pin.
  *

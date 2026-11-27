@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ResolvedOwner, setSttLease } from '@/aegis'
 
 // The desktop's voice-input sessions — push-to-talk dictation and the voice

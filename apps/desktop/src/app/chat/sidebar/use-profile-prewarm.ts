@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useCallback, useEffect, useRef } from 'react'
 
 import { prewarmProfileBackend } from '@/store/profile'

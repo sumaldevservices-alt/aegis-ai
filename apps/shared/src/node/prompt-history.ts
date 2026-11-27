@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The Aegis AI Enterprise Autonomous Platform prompt history file (`<AEGIS_HOME>/.aegis_history`, the classic CLI's format), with
 // AEGIS_HOME read once at import.
 import { appendFileSync, existsSync, mkdirSync, readFileSync } from 'node:fs'

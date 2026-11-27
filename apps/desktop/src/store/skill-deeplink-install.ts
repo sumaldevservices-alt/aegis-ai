@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { getApiRequestConnection, getApiRequestProfile, type ProfileScope } from '@/aegis'
 import { translateNow } from '@/i18n'
 

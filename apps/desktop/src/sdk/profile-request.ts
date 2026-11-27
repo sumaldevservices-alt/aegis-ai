@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { requestGatewayForAgent, requestGatewayForProfile, type SpawnPriority } from '@/store/gateway'
 import { $profiles } from '@/store/profile'
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // Bot-relay socket retention (#93594): the desktop bot relay RPCs every

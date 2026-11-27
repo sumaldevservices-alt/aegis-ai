@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Cross-surface event: toggle-reveal a collapsed pane. Dispatched by the
  * keybinds (⌘B / ⌘G / titlebar toggles on narrow viewports) with the pane id

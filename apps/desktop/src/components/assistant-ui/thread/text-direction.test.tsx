@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Appearance → Text direction. Auto is the shipped per-block first-strong
 // behavior and must leave the DOM exactly as it was; RTL/LTR stamp one `dir`
 // on each chat prose surface and both composers, replacing the list/quote

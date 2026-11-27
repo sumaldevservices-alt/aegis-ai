@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type PluginRestOptions, type PluginStorage, queryClient } from '@aegis/plugin-sdk'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 

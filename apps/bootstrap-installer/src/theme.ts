@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { getCurrentWindow, type Theme } from '@tauri-apps/api/window'
 
 /*

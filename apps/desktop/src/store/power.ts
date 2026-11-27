@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * AC ↔ battery mirror of the main process's powerMonitor.
  *

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { commandFocusedPreview, PREVIEW_BROWSER_ATTR, registerPreviewNav } from './preview-nav'

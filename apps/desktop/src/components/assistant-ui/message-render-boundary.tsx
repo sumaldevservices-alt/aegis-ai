@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Component, type ReactNode } from 'react'
 
 // `@assistant-ui/store`'s index-keyed child-scope lookup (`useClientLookup`)

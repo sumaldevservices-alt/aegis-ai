@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 const STORAGE_KEY = 'aegis.desktop.keybinds'

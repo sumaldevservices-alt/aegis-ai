@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { PlanGauge, SessionStats, SessionUsagePayload, Usage } from './gateway-contract.generated.js'
 
 /** The owner's `session.usage` tick (`SessionUsagePayload`, canonical counters at the top level or the classic sidecar ticker's nested `usage`) or its `session.stats` reply (`SessionStats`). */

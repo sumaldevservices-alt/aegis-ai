@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { compactNumber } from '@aegis/shared'
 import { useStore } from '@nanostores/react'
 import { memo } from 'react'

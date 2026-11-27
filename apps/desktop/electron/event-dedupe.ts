@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Cross-window de-dupe for one-shot side-effects (OS notifications, the turn-end
 // sound, spoken replies). Every desktop window is its own renderer process, so N
 // open windows each independently react to the same backend event. The main

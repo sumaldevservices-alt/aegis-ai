@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Does this zone show its tab strip? One resolver, one precedence order, so
  * every caller gets the same answer and the rule can be read in one place.

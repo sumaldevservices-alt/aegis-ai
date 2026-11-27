@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { aegisApi } from '@/api/client'
 import type { ComposerAttachment } from '@/store/composer'
 import { $activeGatewayProfile } from '@/store/profile'

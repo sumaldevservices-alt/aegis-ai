@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The background tab flash must leave nothing behind once the user is back:
 // title, favicon and interval all reset however they return, and an icon that
 // finishes loading after the return must not re-badge the tab.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The pane paints a cache of backend truth. A start or stop made outside this
  * window (CLI, gateway auto-start, another Desktop) reaches the renderer only

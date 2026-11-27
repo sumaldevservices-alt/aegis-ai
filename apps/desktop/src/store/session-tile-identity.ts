@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { normalizeProfileKey } from './profile'
 import { isSessionOwnerRoute, type SessionOwnerScope } from './session-request-router'
 import type { SessionTile } from './session-states'

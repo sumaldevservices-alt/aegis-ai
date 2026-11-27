@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Real-filesystem witnesses for the failure-atomic save contract (#96597).
 //
 // The unit tests in gateway-file-download.test.ts prove the pump's control flow

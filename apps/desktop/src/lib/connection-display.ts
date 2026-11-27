@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DesktopRegistryConnection } from '@/global'
 
 export const CONNECTION_SEARCH_THRESHOLD = 8

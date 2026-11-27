@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The plugin authoring contract types; the SDK barrel re-exports them.
 
 export type { ClearProfileBackendInput, SetProfileBackendInput } from './profile-backend'

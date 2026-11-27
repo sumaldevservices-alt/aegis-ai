@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** A promise plus the handle that settles it.
  *
  *  For tests that need a call to stay in flight — asserting the pending UI,

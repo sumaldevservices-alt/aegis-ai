@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './tooltip.css'
 
 import { Tooltip as TooltipPrimitive } from 'radix-ui'

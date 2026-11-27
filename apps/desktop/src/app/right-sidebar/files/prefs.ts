@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { connectionScopedAtom } from '@/lib/connection-scoped'
 import { cleanPath, comparisonPath } from '@/lib/path-compare'
 import { Codecs } from '@/lib/persisted'

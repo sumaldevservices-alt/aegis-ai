@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Two remote hosts can share the same `~/.aegis` path, so a `display.*` event
  * matched on `profile_key` alone would let host B's take-over repaint host A's

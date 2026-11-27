@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * New Bot creates its profile LAZILY. Two contracts hang off that:
  *

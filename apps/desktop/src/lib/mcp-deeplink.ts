@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Parser/validator for the `aegis://mcp/install?name=NAME&config=B64` deep
  * link (the "Add to Aegis AI Enterprise Autonomous Platform" button MCP vendors embed, mirroring Cursor's

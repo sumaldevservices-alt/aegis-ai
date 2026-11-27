@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The checkout script's marker helper (A7 rule 3, SPEC section 6): protocol
  * negotiation from the script text, the exact command line, and the one-line

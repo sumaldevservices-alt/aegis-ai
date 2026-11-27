@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Shared position lookups over `s.thread.messages`, built once per array.
 //
 // Every mounted message row re-runs its `useAuiState` selectors on each thread

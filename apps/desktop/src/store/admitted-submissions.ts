@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The input ids (client submission ids) the owner's pending snapshots list per composer queue key,
 // as this page saw them. A send the owner admitted but has not run yet (queued behind a running
 // turn or an unresolved one) has no stored row, so only this listing shows that it landed.

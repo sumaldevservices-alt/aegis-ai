@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Message reactions (iMessage-style tapbacks) — opt-in.
  *

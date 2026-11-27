@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
 import { $connection } from '@/store/session'

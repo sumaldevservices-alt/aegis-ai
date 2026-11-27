@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEvent } from '@aegis/shared'
 // A stopped mark says the reply ended there. A host plugin can pause a running
 // turn (session.interrupt) to apply a grant and then continue the same reply

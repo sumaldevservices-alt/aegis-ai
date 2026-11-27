@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Narrow the persisted sidebar project filter to ids the ACTIVE tree resolves.
  * The filter's storage is shared across profiles and outlives project

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import '@xterm/xterm/css/xterm.css'
 
 import { Button } from '@/components/ui/button'

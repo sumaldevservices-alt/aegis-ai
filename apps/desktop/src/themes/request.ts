@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Imperative theme switching, for callers with no component to hang a hook on.
  *

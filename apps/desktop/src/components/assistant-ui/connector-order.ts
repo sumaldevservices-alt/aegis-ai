@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The onboarding apps step's order: the most used apps lead; apps turned off and a hidden few are left out.
 const CONNECTOR_LEAD_ORDER = [
   'gmail',

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, describe, expect, it } from 'vitest'
 
 import type { AgentPluginRow } from '@/store/agent-plugins'

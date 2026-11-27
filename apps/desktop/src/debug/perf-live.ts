@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Live interaction profiler — for driving the app by hand and seeing what the
 // app actually does under YOUR sessions, not a synthetic scenario's.
 //

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 //! Aegis AI Enterprise Autonomous Platform Setup — Tauri entrypoint.
 //!
 //! Spawns a single window pointed at the React frontend (apps/bootstrap-installer/src/).

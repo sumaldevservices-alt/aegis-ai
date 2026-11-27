@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Curation for the desktop "Skills & Tools → Toolsets" list.
 //
 // `GET /api/tools/toolsets` returns the full CONFIGURABLE_TOOLSETS set with no

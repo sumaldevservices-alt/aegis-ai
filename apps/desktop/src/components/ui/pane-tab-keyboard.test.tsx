@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { act, cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import { type KeyboardEvent, type KeyboardEventHandler, useRef, useState } from 'react'
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'

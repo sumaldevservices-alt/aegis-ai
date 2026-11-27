@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Copy for the "Waiting on teammates" strip above a Bot Chat's composer
  * (`teammate-waits.tsx`). Its own bundle so the strip's keys sit together; wired

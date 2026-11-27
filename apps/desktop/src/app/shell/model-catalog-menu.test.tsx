@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 vi.mock('@/store/profile', async (): Promise<object> => {
   const { atom } = await import('nanostores')
 

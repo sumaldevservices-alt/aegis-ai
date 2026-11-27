@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { arThemePicker } from './ar_theme_picker'
 import type { TranslationOverrides } from './define-locale'
 

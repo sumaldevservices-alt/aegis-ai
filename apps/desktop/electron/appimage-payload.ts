@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * An AppImage mounts itself at a new /tmp/.mount_* on every launch and unmounts on quit, so CLI
  * links, the gateway and service units must not run the agent payload from there. The first launch

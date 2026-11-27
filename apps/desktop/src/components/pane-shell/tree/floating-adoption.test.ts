@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // A `placement: 'floating'` pane must never enter the layout tree. Adoption is

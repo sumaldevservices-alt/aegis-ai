@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { LOCAL_CONNECTION_ID, registryBackendScopeKey } from '@aegis/shared'
 import { atom, batch, computed } from 'nanostores'
 

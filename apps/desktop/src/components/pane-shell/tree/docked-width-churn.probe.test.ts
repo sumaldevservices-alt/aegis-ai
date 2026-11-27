@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Docked-path probe for issue #122761 (NOT part of the shipped suite — a
  * one-shot verification script run from the fix worktree's vitest config).

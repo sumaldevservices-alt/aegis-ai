@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, it } from 'vitest'
 
 import { CANONICAL_GROUP_LOCALES } from './canonical-group-locales'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { LOCAL_CONNECTION_ID } from '@aegis/shared'
 import { useStore } from '@nanostores/react'
 import type { ReactNode } from 'react'

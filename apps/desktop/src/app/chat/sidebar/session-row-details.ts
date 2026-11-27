@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { SessionListDensity } from '@/store/session-list-density'
 import type { SessionInfo } from '@/types/aegis'
 

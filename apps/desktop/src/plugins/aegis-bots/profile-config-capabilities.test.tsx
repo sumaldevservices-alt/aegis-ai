@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The bot editor's Advanced section renders the REAL core Capabilities
  * surfaces — CapabilitiesView (installed skills + hub installs + detail),

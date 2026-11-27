@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // A chat's queue that is not on screen drains in the background (use-background-queue-drain.ts).
 // While its profile's backend is away on purpose (store/backend-transition.ts: a restart holds a
 // message in the queue), the queue waits there too, and other profiles' queues keep draining.

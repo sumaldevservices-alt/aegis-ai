@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ConnectionState, JSON_RPC_METHOD_NOT_FOUND, JsonRpcGatewayError } from '@aegis/shared'
 import { atom } from 'nanostores'
 import { describe, expect, it, vi } from 'vitest'

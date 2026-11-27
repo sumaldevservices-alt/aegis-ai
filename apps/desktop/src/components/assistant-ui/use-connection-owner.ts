@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useEffect, useState } from 'react'
 
 import { type ConnectionOwner, connectionOwnerFor } from '@/store/connection-request'

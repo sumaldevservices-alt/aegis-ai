@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The cross-connection bot relay — the Desktop-as-router loops that let a bot
  * on one gateway reach a bot on another (Aug 2026 ruling: connections ARE the

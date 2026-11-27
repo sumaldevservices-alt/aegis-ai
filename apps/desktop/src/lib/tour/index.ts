@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * TOURS — highlight-and-narrate walkthroughs for any surface.
  *

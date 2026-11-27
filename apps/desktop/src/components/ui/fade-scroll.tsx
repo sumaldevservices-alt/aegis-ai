@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type CSSProperties, type ReactNode, useLayoutEffect, useRef } from 'react'
 
 import { cn } from '@/lib/utils'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A `/skill` invocation expands into a model-facing message that embeds the
  * whole skill body. That payload is for the agent — the UI shows the

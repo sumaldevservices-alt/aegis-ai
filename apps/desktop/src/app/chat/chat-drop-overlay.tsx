@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useRef } from 'react'
 
 import type { DragKind } from '@/app/chat/hooks/use-file-drop-zone'

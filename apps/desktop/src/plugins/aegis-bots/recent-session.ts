@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * "Open recent session" (aegis-agent#93054): a bot row's left click always
  * lands on the canonical Bot Chat — that is the bot's stable identity and

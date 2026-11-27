@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Send Diagnostics — the consent-gated debug-bundle upload dialog.
 //
 // Rendered globally (wiring.tsx, beside ConfirmHost) and driven by the

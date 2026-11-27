@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // A real gateway activation can move the activation epoch WITHOUT moving the
 // connectionId / profile / gateway atoms (the primary fast path in
 // ensureGatewayForProfile). Group-capability consumers key their answer on that

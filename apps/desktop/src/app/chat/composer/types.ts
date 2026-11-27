@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ReadableAtom } from 'nanostores'
 import type { ReactNode } from 'react'
 

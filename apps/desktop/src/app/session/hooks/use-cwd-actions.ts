@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type MutableRefObject, useCallback } from 'react'
 
 import { translateNow, useI18n } from '@/i18n'

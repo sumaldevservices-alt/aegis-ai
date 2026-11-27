@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { QUESTION_CARD_TOOLS } from '@/lib/chat-messages'
 import { isSilentTool } from '@/lib/tool-render-class'
 

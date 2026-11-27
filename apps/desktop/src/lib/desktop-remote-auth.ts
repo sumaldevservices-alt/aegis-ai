@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DesktopAuthProvider } from '@/global'
 
 export interface RemoteAuthProviderShape {

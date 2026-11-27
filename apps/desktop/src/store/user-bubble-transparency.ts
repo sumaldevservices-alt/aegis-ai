@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Message bubble transparency — how much of your own bubble's fill shows.
  *

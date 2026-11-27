@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Comparing two paths for identity or containment, across host spellings.
  *
  *  A cwd reaches us from the backend, a picker, a session row and a project

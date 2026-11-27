@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * How a resume snapshot is reconciled with the transcript already on screen.
  *

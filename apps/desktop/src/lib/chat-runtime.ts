@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ThreadMessage } from '@assistant-ui/react'
 import type { ModelOptionsResult } from '@aegis/shared'
 import { SLASH_COMMAND_RE } from '@aegis/shared'

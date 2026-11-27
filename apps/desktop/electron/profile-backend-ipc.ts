@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isDeepStrictEqual } from 'node:util'
 
 import { BrowserWindow, dialog, type IpcMain, type IpcMainInvokeEvent } from 'electron'

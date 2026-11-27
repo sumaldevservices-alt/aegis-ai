@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Revive-buffer text handling for the GUI terminal: the ANSI escape scanner the
 // boot-gap stripper and snapshot cleanup share, and the pure functions that
 // decide which part of a serialized buffer is persisted for relaunch restore.

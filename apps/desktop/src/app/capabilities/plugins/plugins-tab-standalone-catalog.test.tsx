@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // A desktop-only catalog entry (Accent Picker) installed as a standalone desktop plugin: no agent row
 // carries its catalog_name, so the card matches it through the entry the installer recorded on disk
 // (`packageOrigin.catalogName`, read from `.aegis-origin.json`). Before that it kept its Install "+".

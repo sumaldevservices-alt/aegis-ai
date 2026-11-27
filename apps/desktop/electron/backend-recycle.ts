@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Recycle the backend behind a code-skew 503 ("Restart required" after `aegis update`).
  *

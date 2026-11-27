@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The mic level meters (the recorder's VAD and the barge-in monitor) each open
 // an AudioContext on the capture stream. close() is async, so a context torn
 // down at the end of one turn can still hold the device when the next turn

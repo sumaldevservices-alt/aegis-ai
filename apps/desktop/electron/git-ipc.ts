@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // IPC surface for git-driven features: worktree management ("Start work"),
 // the composer coding rail's repo status, the Codex-style review pane, and
 // repo-first project discovery. Extracted from main.ts; the git/gh binary

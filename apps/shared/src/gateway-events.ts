@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Wire types for the `tui_gateway` JSON-RPC surface shared by the Ink TUI, Desktop and the
  * web dashboard.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * HUD windowing profile — one object for every operation that used to
  * special-case OS / Ozone / compositor.

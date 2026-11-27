@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ConnectionRequestPayload, FreeTierChallengePayload, ToolLabel } from '@aegis/shared'
 
 import type { ToolResultMetadata } from '@/lib/tool-result-metadata'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Registered context-menu ownership for the Star Map canvas.
  *

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * E2E: sidebar full-text search is keyed to the sidebar's profile.
  *

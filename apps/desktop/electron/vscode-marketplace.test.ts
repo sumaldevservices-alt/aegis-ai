@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import assert from 'node:assert'
 import zlib from 'node:zlib'
 

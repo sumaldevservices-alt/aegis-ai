@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Whether an `/api/status` answer is the trimmed body the gateway's Webapp gives a caller it does
  * not count as signed in. `/api/status` is public, so the gate never refreshes on it: a signed-in

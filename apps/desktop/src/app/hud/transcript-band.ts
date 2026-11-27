@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type RefObject, useEffect, useState } from 'react'
 
 import { hudTranscriptHeight } from './layout'

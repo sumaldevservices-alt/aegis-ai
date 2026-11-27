@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Desktop log line formatting shared by every desktop log surface:
  * `desktop.log`, the in-app "RECENT LOGS" view, and crash forensics.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Settings > About > Uninstall; `Translations.settings.uninstallSection`.
 export interface UninstallSectionTranslations {
   dangerZone: string

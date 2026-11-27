@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { MutableRefObject } from 'react'
 
 import type { ClientSessionState, SessionRedirectResponse } from '@/app/types'

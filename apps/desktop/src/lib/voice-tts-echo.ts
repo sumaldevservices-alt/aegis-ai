@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // TTS self-echo guard for the voice-conversation barge monitor — a port of
 // tools/voice_mode_transcript.is_tts_echo (the CLI's fix for the
 // TTS -> STT -> TTS loop). Over speakers, Aegis AI Enterprise Autonomous Platform' own reply bleeds into the

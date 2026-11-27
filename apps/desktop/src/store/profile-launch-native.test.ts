@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterAll, expect, it, vi } from 'vitest'
 
 import { activeGatewayProfileKey } from '@/store/gateway'

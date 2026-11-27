@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Thread deliberately keeps cwd/gateway/sessionId OUT of the messageComponents
 // memo deps: those values change on every session switch, and reminting the
 // component types mid-switch remounts the whole outgoing transcript. The

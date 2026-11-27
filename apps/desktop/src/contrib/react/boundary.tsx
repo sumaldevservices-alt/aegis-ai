@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { createElement, type ReactNode } from 'react'
 
 import { ErrorBoundary } from '@/components/error-boundary'

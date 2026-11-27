@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { parseMarkdownIntoBlocks } from '@assistant-ui/react-streamdown'
 
 /**

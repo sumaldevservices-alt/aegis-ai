@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Read-only stored-transcript resume — the no-owner recovery path (#94724).
  *

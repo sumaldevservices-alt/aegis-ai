@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The GitHub edge for the Desktop update suite: a local stand-in for the two
  * api.github.com resources the source update check reads, answered from the

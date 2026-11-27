@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useEffect, useState } from 'react'
 
 import { listPreparedImageDrafts } from '@/app/session/hooks/use-prompt-actions/prepared-submissions'

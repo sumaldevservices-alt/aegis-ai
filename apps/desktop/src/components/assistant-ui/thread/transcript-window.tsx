@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { createContext, type ReactNode, useContext, useMemo } from 'react'
 
 import type { ChatMessage } from '@/lib/chat-messages'

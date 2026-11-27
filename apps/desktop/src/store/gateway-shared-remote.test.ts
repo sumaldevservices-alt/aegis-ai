@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // The global-remote share (backend routing case 3): every profile is served

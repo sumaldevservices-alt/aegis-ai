@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { TranslationOverrides } from './define-locale'
 
 /** Chinese copy for the Plugins tab: updating an installed plugin and the folders it may use. */

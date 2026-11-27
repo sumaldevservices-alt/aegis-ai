@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { ipcMain } from 'electron'
 
 import { type ChallengeWindowDependencies, createChallengeWindows, parseChallengeRequest } from './challenge-window'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Fragment, memo, type ReactNode, useEffect, useId, useState } from 'react'
 
 import { Button } from '@/components/ui/button'

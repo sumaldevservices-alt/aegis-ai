@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tests for electron/connection-registry.ts — the v2 multi-connection
  * registry: label rules (required, unique, @handle disambiguation), input

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Unit tests for the pure zoom helpers: clamping garbage input, the
  * percent <-> zoom-level conversion the settings UI relies on, and the

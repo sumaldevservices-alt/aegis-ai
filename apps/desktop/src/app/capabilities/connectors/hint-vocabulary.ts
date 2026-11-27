@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export type VocabularyTone = 'danger' | 'neutral' | 'notice' | 'unknown'
 
 export type VocabularyKey =

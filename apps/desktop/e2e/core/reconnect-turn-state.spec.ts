@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * NF2: after a lost connection Desktop shows the turn's REAL state, and a
  * follow-up never hangs behind a turn whose outcome is unknown (#134889 NF2).

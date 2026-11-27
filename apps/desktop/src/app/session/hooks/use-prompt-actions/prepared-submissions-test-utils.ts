@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { ENTRY_PREFIX, type PreparedSubmission } from './prepared-submissions'
 
 // The browser journal as localStorage holds it: one key per entry.

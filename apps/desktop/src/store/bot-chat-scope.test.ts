@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `$botChatSessionIds` is the store a surface must SUBSCRIBE to when it asks
  * `isBotChatSession`.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Quick Entry (renderer side) — the mini composer's own state, and the
  * primary window's bridge back into the real prompt-submit path.

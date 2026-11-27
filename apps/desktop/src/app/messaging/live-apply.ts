@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { MessagingPlatformUpdateResponse } from '@/aegis'
 
 /** Whether the running gateway applied a save itself. A backend that sends `live` answers for every

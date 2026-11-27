@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The gateway tags every event — and therefore every native notification —
 // with the *runtime* session id (the key under which the session lives in the
 // gateway's in-memory `_sessions` map). The chat route, however, is keyed by

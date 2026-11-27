@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { FreeTierChallengePayload, FreeTierChallengeResultParams } from '@aegis/shared'
 
 /**

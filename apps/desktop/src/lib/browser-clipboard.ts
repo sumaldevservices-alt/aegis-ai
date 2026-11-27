@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { IMAGE_EXTENSION_BY_MIME } from '@/lib/browser-uploads'
 import { copyTextThroughSelection } from '@/lib/clipboard'
 

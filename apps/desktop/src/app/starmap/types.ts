@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { SimulationLinkDatum, SimulationNodeDatum } from 'd3-force'
 
 import type { StarmapGraph, StarmapNode } from '@/types/aegis'

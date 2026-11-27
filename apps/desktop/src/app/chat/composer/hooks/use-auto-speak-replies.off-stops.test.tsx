@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Turning read-aloud off must silence the reply it is reading right now, in this
 // window and when another window flips the switch (Discord report: "the off
 // toggle does nothing"). A reply started by hand from its message button is not

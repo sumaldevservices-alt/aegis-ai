@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Aegis AI Enterprise Autonomous PlatformGitBranch, Aegis AI Enterprise Autonomous PlatformGitWorktree } from '@/global'
 import type { ProjectInfo, SessionInfo } from '@/aegis'
 import { normalize } from '@/lib/text'

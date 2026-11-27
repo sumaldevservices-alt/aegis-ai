@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Harness for the Desktop install/update suite: a REAL local install (made by
  * scripts/install.sh + `aegis desktop --build-only` in the upgrade suite's

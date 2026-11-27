@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { KANBAN_CARD_AREAS, type KanbanCardBadgeContribution } from '@aegis/plugin-sdk'
 /**
  * The board paints plugin card badges (#140026): the REAL board page, the REAL

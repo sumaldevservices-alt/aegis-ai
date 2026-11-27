@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Image avatars: the device-upload path and the gateway's `image.generate`
  * backend (probe + generation). Kept apart from `avatar.tsx` so the roster's

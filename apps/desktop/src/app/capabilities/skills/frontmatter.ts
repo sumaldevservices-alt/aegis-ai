@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Frontmatter parse for display: the YAML block between the leading `---`
 // fences, flattened to top-level `key: value` rows (nested blocks render as
 // their raw indented text). Display-only — never fed back to the backend.

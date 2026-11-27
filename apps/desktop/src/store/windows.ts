@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { notifyError } from './notifications'
 
 // Window flag set by the Electron main process when it opens a standalone

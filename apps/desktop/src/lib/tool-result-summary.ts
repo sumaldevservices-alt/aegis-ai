@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Heuristic JSON → human summary for tool results. Default view; technical
 // mode still gets the raw JSON section.
 

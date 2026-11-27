@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * WATCH OVERLAY — paints the agent's actions onto the live preview page so a
  * person can follow along: the field of things it can reach, a box round the

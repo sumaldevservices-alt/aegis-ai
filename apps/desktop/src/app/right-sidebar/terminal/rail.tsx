@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useStore } from '@nanostores/react'
 
 import { ConnectionGlyph } from '@/app/chat/sidebar/connection-glyph'

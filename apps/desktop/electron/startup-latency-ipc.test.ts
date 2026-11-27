@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, test, vi } from 'vitest'
 
 const handlers = new Map<string, (...args: unknown[]) => unknown>()

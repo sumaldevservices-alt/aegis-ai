@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Popped-out in-app Browser windows. Same query-before-hash contract as
 // session-windows / hud-url: `?win=browser` MUST sit in the search string
 // before the '#', or HashRouter swallows it as part of the route.

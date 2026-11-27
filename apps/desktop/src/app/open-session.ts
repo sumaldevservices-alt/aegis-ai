@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * One door for "open this session" — every surface (sidebar, ⌘K, notifications,
  * session switcher, refs, cron/artifacts) goes through here so a chat that's

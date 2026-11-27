@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // install-stamp.ts — the typed build-time install stamp.
 //
 // scripts/write-build-stamp.mjs writes build/install-stamp.json during

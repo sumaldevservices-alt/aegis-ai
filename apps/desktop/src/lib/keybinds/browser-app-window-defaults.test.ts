@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
 // The Alt (and ⌃⌘) browser defaults exist because a browser TAB acts on these

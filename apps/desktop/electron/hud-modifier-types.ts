@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface HudModifierStatus {
   enabled: boolean
   state: 'disabled' | 'starting' | 'ready' | 'input-permission' | 'unavailable'

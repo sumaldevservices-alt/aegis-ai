@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Pure path/URL predicates for the main-process opener. Kept out of
 // external-open.ts so `classifyOpenTarget`-style decisions stay testable
 // without electron, and so protocol-relative `//host/path` can never silently

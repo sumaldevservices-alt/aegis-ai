@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Reshow clock for the local-models campaign tips in the rotation (today: the
  * engine update). A tip ignored (timed out) may return, but on a much longer

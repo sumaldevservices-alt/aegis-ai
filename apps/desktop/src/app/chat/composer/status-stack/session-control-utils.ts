@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useCallback, useEffect, useState, useSyncExternalStore } from 'react'
 
 import { usePaneVisible } from '@/components/pane-shell/pane-visibility'

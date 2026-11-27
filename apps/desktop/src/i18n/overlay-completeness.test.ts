@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 

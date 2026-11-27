@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Pull a Windows-host clipboard image from inside WSL2 via PowerShell (WSLg
 // bridges text but not images). Returns PNG bytes or null; exec injectable.
 

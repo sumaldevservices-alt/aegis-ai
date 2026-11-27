@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Aegis AI Enterprise Autonomous Platform' reasoning levels, in ascending order — mirrors the backend's
  *  VALID_REASONING_EFFORTS (aegis_constants.py). `none` is not a level: it's
  *  thinking disabled. */

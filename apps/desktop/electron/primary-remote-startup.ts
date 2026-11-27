@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 interface ResolvedPrimaryRemote {
   authMode?: 'oauth' | 'token'
   baseUrl: string

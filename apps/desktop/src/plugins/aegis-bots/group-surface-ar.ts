@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { GROUP_CHAT_LOCALES } from './group-chat-locales'
 import type { BotsMessages } from './i18n-messages'
 import { ROSTER_CHROME } from './roster-chrome-locales'

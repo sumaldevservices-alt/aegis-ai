@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import ignore from 'ignore'
 
 import type { Aegis AI Enterprise Autonomous PlatformReadDirEntry, Aegis AI Enterprise Autonomous PlatformReadDirResult } from '@/global'

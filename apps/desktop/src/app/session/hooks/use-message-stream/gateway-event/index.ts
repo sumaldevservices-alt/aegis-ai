@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type GatewayEvent, registryBackendScopeKey } from '@aegis/shared'
 import { useCallback, useEffect, useRef } from 'react'
 

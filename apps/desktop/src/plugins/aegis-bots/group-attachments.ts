@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Group-chat attachments: turning picked, pasted, or dropped files into the
  * data-URL payloads a room's members are shown.

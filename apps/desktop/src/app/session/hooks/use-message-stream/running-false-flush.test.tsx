@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEvent } from '@aegis/shared'
 // A turn can settle on `session.info running=false` alone (lost or reordered
 // message.complete, reconnect gap, provider crash). Text still waiting on the

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './e2e/run-tmp'
 import './e2e/fix-electron-tracing'
 

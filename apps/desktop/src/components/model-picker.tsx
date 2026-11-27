@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ModelOptionProvider, ModelPricing, PlanUsage, PlanUsageGauge } from '@aegis/shared'
 import {
   gaugeTitle,

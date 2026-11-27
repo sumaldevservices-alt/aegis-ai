@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ConnectorAccountRow, ConnectorAccountsRenameParams, ConnectorAccountsResult } from '@aegis/shared'
 import { JsonRpcGatewayError } from '@aegis/shared'
 import { QueryClientProvider, useQuery } from '@tanstack/react-query'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The phone-presence row says what this window does while a conversation is open in it, plus the
 // evidence it has now. It is read on the Settings route, where no conversation is ever in view, so
 // every case below renders it there.

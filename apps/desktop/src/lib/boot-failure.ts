@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import collapseBold from '@nous-research/ui/fonts/Collapse-Bold.woff2?url'
 
 import { isTransparentWindow } from './transparent-windows'

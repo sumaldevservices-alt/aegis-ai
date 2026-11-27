@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Copy for one built-in auxiliary-model slot row (Settings → Models → Auxiliary models). */
 export interface AuxTaskCopy {
   label: string

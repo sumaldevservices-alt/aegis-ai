@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Which URLs Desktop hands to a browser when asked to open something
  * externally. Electron's `openExternalUrl` (shell.openExternal) and the

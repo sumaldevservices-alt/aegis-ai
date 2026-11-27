@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { act, renderHook } from '@testing-library/react'
 import type { WritableAtom } from 'nanostores'
 import { isValidElement, type ReactNode } from 'react'

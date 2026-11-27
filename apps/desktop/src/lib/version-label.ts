@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The one short form every surface names a version by: `<release>+<distance>`
  * (`0.21.5+1913`), matching `aegis --version` minus its commit. The commit

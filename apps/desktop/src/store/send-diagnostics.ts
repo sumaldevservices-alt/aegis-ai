@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // "Send Diagnostics" — the error card's consent-gated debug-bundle upload.
 //
 // Flow: an error card (or any surface) calls requestSendDiagnostics() with

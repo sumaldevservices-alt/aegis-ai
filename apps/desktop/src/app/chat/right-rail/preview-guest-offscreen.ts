@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A Browser guest that is mounted but OFF SCREEN — an inactive tab, a
  * collapsed side, or a hidden session's kept-alive page — must not act like

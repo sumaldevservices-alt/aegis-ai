@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // La section projets de la barre latérale, composée par fr.ts.
 import type { TranslationOverrides } from './define-locale'
 export const frProjects: NonNullable<TranslationOverrides['sidebar']>['projects'] = {

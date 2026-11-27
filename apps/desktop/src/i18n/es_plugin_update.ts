@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { PluginUpdateTranslations } from './types_plugin_update'
 
 /** Copy for updating an installed plugin (Plugins tab): catalog re-pin consent and the security-scan override. */

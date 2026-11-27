@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The contribution-driven shell package. `controller` registers panes /
 // layouts / chrome and mounts the app root; `wiring` is the data controller +
 // memoized pane surfaces; `panes` holds the real-data pane bodies + statusbar

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { animate, AnimatePresence, motion, useIsPresent, useMotionValue, useReducedMotion } from 'motion/react'
 import { type ReactNode, useEffect, useLayoutEffect, useRef, useState } from 'react'
 

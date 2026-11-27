@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 'use client'
 
 import { type ReactNode, useCallback, useRef, useState } from 'react'

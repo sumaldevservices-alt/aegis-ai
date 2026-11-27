@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useStore } from '@nanostores/react'
 import { cleanup, render, waitFor } from '@testing-library/react'
 import { useEffect, useRef } from 'react'

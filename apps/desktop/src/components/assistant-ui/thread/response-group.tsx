@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { ThreadPrimitive, useAuiState } from '@assistant-ui/react'
 import { type ComponentProps, createContext, useMemo } from 'react'
 

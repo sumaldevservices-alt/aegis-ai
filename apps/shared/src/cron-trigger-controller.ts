@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface CronTriggerRunResult<T> {
   started: boolean
   value: T | null

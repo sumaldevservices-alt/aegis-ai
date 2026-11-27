@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The "where can it stand" layer of the floating pet's wander: it measures the
  * live DOM for walkable surfaces and answers pure questions about them. Split

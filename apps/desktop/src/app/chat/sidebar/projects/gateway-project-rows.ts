@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { NewSessionSplitHandler } from '@/app/chat/new-session-drag'
 import type { AgentProfileRoute } from '@/store/profile'
 import type { SessionInfo } from '@/types/aegis'

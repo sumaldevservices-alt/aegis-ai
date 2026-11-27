@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The plugin-facing gateway event tap. The wiring fans every inbound gateway
  * event through here BEFORE its own dispatch; plugins subscribe by type (or

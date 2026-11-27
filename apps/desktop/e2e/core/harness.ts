@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Lane-private harness for the core Desktop suite: an isolated sandbox with a
  * fake HOME, a launch helper, a per-socket WebSocket recorder, a /proc-based

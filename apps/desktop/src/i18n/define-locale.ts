@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { mergeTranslations, type TranslationOverride } from '@aegis/shared/i18n'
 
 import { en } from './en'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bot Mode across two machines (#120730, the reported shape): the Desktop
  * runs its OWN local primary backend (Electron-spawned `aegis serve`, the

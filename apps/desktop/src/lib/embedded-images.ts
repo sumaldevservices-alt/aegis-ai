@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 const DATA_URL_RE = /^data:([\w./+-]+);base64,(.*)$/i
 const DATA_IMAGE_PREFIX = 'data:image/'
 const BASE64_MARKER = ';base64,'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { computed, type ReadableAtom } from 'nanostores'
 
 import type { SessionInfo } from '@/aegis'

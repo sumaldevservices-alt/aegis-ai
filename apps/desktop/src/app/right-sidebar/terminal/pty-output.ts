@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Line discipline for xterm instances fed by a real PTY.
 //
 // A PTY already emits CR LF where the program meant a new line, so the terminal

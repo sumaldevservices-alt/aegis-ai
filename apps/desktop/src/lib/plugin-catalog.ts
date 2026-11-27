@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The curated Aegis AI Enterprise Autonomous Platform plugin catalog as the Desktop sees it.
  *

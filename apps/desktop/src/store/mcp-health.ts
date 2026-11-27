@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Background MCP health checker. On gateway connect — and every 30 minutes
  * after — read the ACTIVE profile's MCP runtime state and nudge the user when

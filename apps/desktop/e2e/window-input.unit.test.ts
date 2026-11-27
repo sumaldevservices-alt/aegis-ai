@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { createRequire } from 'node:module'
 
 import { expect, test } from 'vitest'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { AppendMessage } from '@assistant-ui/react'
 import { JsonRpcGatewayError } from '@aegis/shared'
 import { afterEach, describe, expect, it, vi } from 'vitest'

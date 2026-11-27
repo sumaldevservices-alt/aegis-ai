@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 interface ConfigSubpageDefinition {
   id: string
   labelKey: string

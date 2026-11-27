@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, test } from '@playwright/test'
 
 import { MOCK_REPLY } from '../../../tests-js/scripts/mock-server'

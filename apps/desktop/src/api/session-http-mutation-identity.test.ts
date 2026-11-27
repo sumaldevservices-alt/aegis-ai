@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, test } from 'vitest'
 
 import { createSessionMutationClient } from '../../../shared/src/session-http-mutations'

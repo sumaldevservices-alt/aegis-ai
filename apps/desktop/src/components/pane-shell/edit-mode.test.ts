@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Layout edit mode force-shows toggle-hidden panes so they can be rearranged.
  * In Simple those panes rest by policy, so edit mode must arrange what Simple

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, computed, onStop, type ReadableAtom } from 'nanostores'
 
 import { persistStore } from '@/lib/persist-store'

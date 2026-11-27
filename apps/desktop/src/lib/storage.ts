@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // ── Persistence choke point ─────────────────────────────────────────────────
 // Every persisted read/write in the app funnels through readKey/writeKey, so a
 // single subscriber (telemetry, cross-window sync, an audit log) can observe all

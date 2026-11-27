@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ChatMessage } from '@/lib/chat-messages'
 import { setBusy, setMessages } from '@/store/session'
 

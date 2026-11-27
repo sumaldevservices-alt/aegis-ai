@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { AlertCircle } from 'lucide-react'
 import { useState } from 'react'
 import { type CSSProperties } from 'react'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Accent retinting — re-seed a theme's accent family from one color.
  *

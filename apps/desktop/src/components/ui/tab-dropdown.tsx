@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { compactNumber } from '@aegis/shared'
 import { Fragment } from 'react'
 

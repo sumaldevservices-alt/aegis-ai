@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, type WritableAtom } from 'nanostores'
 import { useEffect, useRef, useState } from 'react'
 

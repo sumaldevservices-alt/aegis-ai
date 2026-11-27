@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `applyAdvancedConfig` — the advanced editor's save, which persists ONLY the
  * dirty sections and reports per-section outcomes back to the dialog.

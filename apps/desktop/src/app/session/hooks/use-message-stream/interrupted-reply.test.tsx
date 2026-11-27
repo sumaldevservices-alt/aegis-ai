@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEvent } from '@aegis/shared'
 // #121594: Stop seals the live bubble at the click and drops every later
 // message.delta, but the agent keeps streaming until it honours the interrupt

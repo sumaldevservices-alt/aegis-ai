@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 'use client'
 
 import { type ComponentType, lazy, type LazyExoticComponent, type ReactNode, Suspense } from 'react'

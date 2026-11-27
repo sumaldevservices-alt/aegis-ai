@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export type GatewayAuthMode = 'oauth' | 'token' | (string & {})
 
 export interface GatewayWsConnection {

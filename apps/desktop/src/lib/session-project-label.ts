@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { liveSessionProjectId } from '@/app/chat/sidebar/projects/workspace-groups'
 import { pathLeaf } from '@/lib/display-path'
 import { $projectOwnerBySessionId } from '@/store/projects'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import processorUrl from './voice-level-processor.ts?worker&url'
 
 /** Functional voice detection follows captured audio, not the window's paint clock. */

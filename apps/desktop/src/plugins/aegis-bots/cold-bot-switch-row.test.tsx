@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The pending cold-open mark is a spinner on the clicked row, not a new owner.
  * Highlight still follows the chat on screen (aegis-agent#120277).

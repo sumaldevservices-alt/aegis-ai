@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Codicon, type CodiconProps } from '@/components/ui/codicon'
 import { cn } from '@/lib/utils'
 

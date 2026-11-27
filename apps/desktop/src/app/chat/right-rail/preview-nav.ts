@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Browser gestures that land on the app's own chrome — ⌘R with the address bar
  * focused, a mouse's back/forward buttons over the pane's frame.

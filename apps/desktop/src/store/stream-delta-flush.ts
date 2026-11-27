@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Lets a mid-turn boundary (an accepted steer) paint the session's buffered stream
  *  deltas before it seals the live bubble, so text the user had already been sent
  *  never lands on the far side of the boundary. The stream hook owns the buffer. */

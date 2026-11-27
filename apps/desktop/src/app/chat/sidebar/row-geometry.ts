@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { cn } from '@/lib/utils'
 
 // The sidebar row's measurements, in one place. The session row is canonical

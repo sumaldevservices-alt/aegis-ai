@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Multiplex-only invariants for the Desktop backend pool: one host backend
 // serves every profile, and the local pooled-spawn path is unreachable.
 import assert from 'node:assert/strict'

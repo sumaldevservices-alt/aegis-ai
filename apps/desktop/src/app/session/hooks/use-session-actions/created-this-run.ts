@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Stored ids created in THIS renderer run. A brand-new session lives only in the
 // gateway's in-memory map until its first turn persists a state.db row — so if a
 // respawning/flapping backend drops it, both resume RPC and the REST transcript

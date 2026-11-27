@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The `GroupSetter` shape pages take as an extension-point prop (CapabilitiesView,
 // MessagingView, ChatPreviewRail, …). The live implementation is the
 // registry-backed `registryGroupSetter` in app/contrib/panes.tsx.

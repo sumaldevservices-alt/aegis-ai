@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { BrowserWindow, ipcMain, webContents } from 'electron'
 
 import { notePreviewGuestHidden } from './preview-guest-offscreen'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Issue #119089: a dead client PCM chain must land the ear in an honest off
 // state with the reason visible — not a "listening" toggle that can never fire.
 import { beforeEach, describe, expect, it, vi } from 'vitest'

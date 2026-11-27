@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ToolCallMessagePartProps } from '@assistant-ui/react'
 import type { ConnectionTargetState, ConnectorsConnectResult } from '@aegis/shared'
 import { useStore } from '@nanostores/react'

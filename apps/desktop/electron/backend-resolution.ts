@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * AEGIS_DESKTOP_IGNORE_EXISTING=1 (`aegis desktop --ignore-existing`) keeps
  * Desktop off installed runtimes (ACTIVE_AEGIS_ROOT, or the install a

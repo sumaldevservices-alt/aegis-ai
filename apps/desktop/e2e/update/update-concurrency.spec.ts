@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Failure class: ABOUT PANEL / UPDATE UX — one update at a time, and the
  * panel tells the truth afterwards.

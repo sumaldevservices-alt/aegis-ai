@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Тексты секции проектов в боковой панели; подключается из ru.ts.
 import type { TranslationOverrides } from './define-locale'
 export const ruProjects: NonNullable<TranslationOverrides['sidebar']>['projects'] = {

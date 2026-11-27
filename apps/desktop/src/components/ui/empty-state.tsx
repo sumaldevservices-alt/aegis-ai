@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { cn } from '@/lib/utils'
 
 // Canonical centered empty state (title + description). The default for "no

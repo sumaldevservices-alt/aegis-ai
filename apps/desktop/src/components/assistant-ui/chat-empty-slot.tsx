@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { FC } from 'react'
 import { useMemo } from 'react'
 

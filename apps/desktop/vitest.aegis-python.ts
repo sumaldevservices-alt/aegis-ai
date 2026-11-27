@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * AEGIS_PYTHON for the electron contracts that drive real aegis_cli / pm code
  * (mac-sign, source-backend, checkout-source). CI exports the PM test

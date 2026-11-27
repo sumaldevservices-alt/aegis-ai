@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The native confirm behind the plugin SDK's host.setProfileBackend /
 // host.clearProfileBackend. Any desktop plugin can make that call and main
 // cannot tell plugins apart, so the dialog is the user's only check that a

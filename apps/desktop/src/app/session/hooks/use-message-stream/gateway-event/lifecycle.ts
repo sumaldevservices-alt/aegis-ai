@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEvent } from '@aegis/shared'
 import type { Aegis AI Enterprise Autonomous PlatformSkin } from '@aegis/shared/skin'
 

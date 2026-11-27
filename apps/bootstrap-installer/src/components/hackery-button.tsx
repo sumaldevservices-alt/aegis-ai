@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Loader2 } from 'lucide-react'
 
 import { cn } from '../lib/utils'

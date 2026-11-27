@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Per-key setTimeout registry for "let this linger, then drop it" UI state.
  *  Scheduling a key replaces its pending timer, and an entry removes itself
  *  when it fires, so the map never accumulates dead keys. */

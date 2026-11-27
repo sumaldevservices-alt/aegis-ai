@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Unit tests for the pet-overlay geometry helpers. These cover the logic that
  * protects the popped-out pet: a remembered spot on a since-unplugged monitor

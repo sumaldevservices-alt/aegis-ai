@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The boot screen's string surface (including the update-hold screen); `Translations.boot`.
 export interface BootTranslations {
   ready: string

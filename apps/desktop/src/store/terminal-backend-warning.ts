@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { getTerminalBackends, selectTerminalBackend } from '@/aegis'
 import { translateNow } from '@/i18n'
 import { notify, notifyError } from '@/store/notifications'

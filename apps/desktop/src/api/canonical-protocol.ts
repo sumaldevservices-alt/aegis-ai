@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Canonical session authority wire adapter, for private native dials and remote owners
 // advertising session_authority in gateway.ready. Remote legacy servers keep their
 // existing protocol; wire negotiation never changes the transport's auth credentials.

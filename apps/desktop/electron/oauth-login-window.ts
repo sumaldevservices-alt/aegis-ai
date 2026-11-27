@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The embedded gateway sign-in window (cookie-mode OAuth).
  *

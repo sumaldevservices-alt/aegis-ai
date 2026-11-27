@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { ar } from './ar'
 import { de } from './de'
 import { en } from './en'

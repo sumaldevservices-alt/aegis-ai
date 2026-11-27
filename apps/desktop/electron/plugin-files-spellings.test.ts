@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `ctx.files` refusals for a second spelling of a path: case on a
  * case-sensitive macOS volume, Unicode case folding, macOS named forks, WSL

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { EventEmitter } from 'node:events'
 import fs from 'node:fs'
 import http from 'node:http'

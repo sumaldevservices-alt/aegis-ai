@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 
 import type { UiPreferencesBridge, UiPreferencesSnapshot } from './ui-preferences/sync'

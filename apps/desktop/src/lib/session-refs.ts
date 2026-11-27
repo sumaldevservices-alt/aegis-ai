@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Pure helpers for `@session:<profile>/<id>` references.
  *

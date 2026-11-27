@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { SandboxCopy } from './types_sandbox'
 
 export const enSandbox: SandboxCopy = {

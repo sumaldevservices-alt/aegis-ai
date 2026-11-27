@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { runFreeTierChallenge } from '@/store/free-tier-challenge'
 import { activeGatewayConnectionId, requestGatewayForAgent } from '@/store/gateway'
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Translations } from './types'
 
 // The in-app browser pane's copy (`preview.web`), composed by en.ts.

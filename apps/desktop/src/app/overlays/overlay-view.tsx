@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type CSSProperties, type ReactNode, useEffect } from 'react'
 
 import { TITLEBAR_HEIGHT } from '@/app/shell/titlebar'

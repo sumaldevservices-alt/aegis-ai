@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Cadences for the floating-pet `pet.info` refresh timer.
 
 Event-capable backends rely on `pet.changed` for live updates but still need

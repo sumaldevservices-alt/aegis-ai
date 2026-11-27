@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { bareHost, type EmbedMatcher, type FrameEmbed } from './types'
 
 // `@lat,lng` (optionally `,<zoom>z`) as it appears in Google Maps URLs.

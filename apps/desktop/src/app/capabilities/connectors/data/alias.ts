@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { AccountRow } from '../types'
 
 /** The gateway's account-name format (`ConnectorAlias` in the connector contracts). */

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export function isExpectedOauthNavigationAbort(error: unknown): boolean {
   if (!error || typeof error !== 'object') {
     return false

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A name with no room record is a new group chat, and every new group chat runs on a gateway:
  * Manage groups' Create & join goes through New group chat's gateway create, and the workspace

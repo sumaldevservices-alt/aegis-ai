@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 interface WindowChromeEvents {
   on(event: string, listener: () => void): unknown
 }

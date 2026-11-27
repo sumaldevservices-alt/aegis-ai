@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The Pet tab: browse the petdex gallery and use a companion's first sprite
  * frame as the bot's profile picture.

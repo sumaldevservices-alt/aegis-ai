@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import * as React from 'react'
 
 import { type MenuKit, renderActionItem } from '@/components/ui/actions-menu'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Streaming into a long transcript must not re-render the settled history
 // (#126486, regression of #69120). A streamed delta replaces only the tail
 // ChatMessage; everything upstream of the thread keeps identity for settled

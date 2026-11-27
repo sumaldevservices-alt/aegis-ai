@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * E2E regression: desktop resume must hide agent-only transcript rows.
  *

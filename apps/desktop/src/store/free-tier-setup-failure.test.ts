@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, describe, expect, it } from 'vitest'
 
 import { $freeTierStatus, type FreeTierRequester, freeTierSetupFailure, provisionFreeTier } from '@/store/free-tier'

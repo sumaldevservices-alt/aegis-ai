@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * C2 core: transcript integrity across every transition that has shipped a
  * duplicate / vanishing / reordered message bug.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment node
 import fs from 'node:fs'
 import os from 'node:os'

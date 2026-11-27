@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 const featureFlags = {
   /** Local-models GUI surfaces (settings pane, pickers, statusbar, tips). */
   localModels: ({ argv }) =>

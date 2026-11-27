@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { CronJob, CronJobUpdates } from '@/types/aegis'
 
 import { truncateText } from './job-state'

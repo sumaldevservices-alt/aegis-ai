@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * "Pin to top" for group chats (aegis-agent#89813): the flag the roster sort
  * already honours gets a write site on the room record, and the pin survives

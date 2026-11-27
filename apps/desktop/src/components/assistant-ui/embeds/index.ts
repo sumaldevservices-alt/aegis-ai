@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export { extractAlert, MarkdownAlert } from './alert'
 export type { EmbedDescriptor } from './providers'
 export { detectEmbed, isEmbeddableUrl } from './providers'

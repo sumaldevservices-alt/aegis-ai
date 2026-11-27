@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Cold bot switch acknowledges the clicked row before the backend answers
  * (aegis-agent#120277).

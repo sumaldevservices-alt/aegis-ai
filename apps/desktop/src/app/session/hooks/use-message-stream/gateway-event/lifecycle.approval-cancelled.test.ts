@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { $approvalRequests, clearApprovalRequest, setApprovalRequest } from '@/store/prompts'

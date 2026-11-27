@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Who may run `ssh -O exit` on a shared ControlMaster socket.
 //
 // Every SshConnection built for the same scope/host/identity hashes to the

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, computed } from 'nanostores'
 
 import { findGroup, findGroupOfPane } from '@/components/pane-shell/tree/model'

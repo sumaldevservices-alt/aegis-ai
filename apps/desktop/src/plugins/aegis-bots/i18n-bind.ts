@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { PluginTranslate } from '@aegis/plugin-sdk'
 
 // Resolve leaves when read: a module-level translator keeps its identity

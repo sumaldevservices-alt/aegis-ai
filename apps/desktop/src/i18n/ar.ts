@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { arArtifacts } from './ar_artifacts'
 import { arAssistant } from './ar_assistant'
 import { arBoot } from './ar_boot'

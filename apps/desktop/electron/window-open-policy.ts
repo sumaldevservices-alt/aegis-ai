@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Window-open policy for every BrowserWindow's webContents.
  *

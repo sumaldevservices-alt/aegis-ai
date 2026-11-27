@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { CatalogTranslations } from './types_catalog'
 
 export const enCatalog: CatalogTranslations = {

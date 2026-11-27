@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { NativeNotificationInput } from '@/store/native-notifications'
 import { dismissNotification, type NotificationInput, type NotificationKind, notify } from '@/store/notifications'
 

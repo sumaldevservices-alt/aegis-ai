@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * KNOWN bugs for the core suite: merge-order-safe expected failures, the
  * Playwright twin of tests/e2e/core/_pending_fixes.py::known_failure.

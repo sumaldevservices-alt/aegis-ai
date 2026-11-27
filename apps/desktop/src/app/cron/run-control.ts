@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { CronJob } from '@/types/aegis'
 
 // Ledger statuses of an attempt that has not finished (cron/executions.py). The job list only

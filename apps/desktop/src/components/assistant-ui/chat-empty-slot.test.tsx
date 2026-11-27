@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The `chat.empty` slot mounts EVERY contributor, not just the first.
  *

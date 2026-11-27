@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Extended Playwright test fixture that auto-fails any test if an error
  * banner (notification toast with role="alert") appears in the DOM.

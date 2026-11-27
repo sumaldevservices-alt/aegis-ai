@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 const BASE64_CHUNK_SIZE = 0x8000
 
 export function bytesToBase64(value: ArrayBuffer | Uint8Array): string {

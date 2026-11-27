@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ChannelResolver, ChannelTarget } from './channel'
 import type { ChannelBuild } from './channel-protocol'
 

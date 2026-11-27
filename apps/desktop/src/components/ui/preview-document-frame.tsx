@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type IframeHTMLAttributes, useCallback, useEffect, useRef } from 'react'
 
 import { browserBootstrap, endpointUrl } from '@/lib/browser-transport'

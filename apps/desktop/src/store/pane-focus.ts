@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { setTerminalTakeover } from '@/app/right-sidebar/store'
 import { isLayoutNode, type LayoutNode } from '@/components/pane-shell/tree/model'
 import { applyLayoutPreset, LAYOUTS_AREA } from '@/components/pane-shell/tree/presets'

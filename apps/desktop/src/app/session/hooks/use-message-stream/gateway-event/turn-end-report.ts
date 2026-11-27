@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ClientSessionState } from '../../../../types'
 
 import type { GatewayEventContext } from './types'

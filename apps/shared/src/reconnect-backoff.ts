@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Exponential reconnect backoff shared by every Aegis AI Enterprise Autonomous Platform front-end socket
  * (desktop gateway/plugins, web events feed, web PTY, Ink TUI attach mode).

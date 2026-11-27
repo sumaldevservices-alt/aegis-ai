@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { appendFileSync, existsSync, readFileSync } from 'node:fs'
 
 // No windows, gateway, credentials, or real Aegis AI Enterprise Autonomous Platform home. This fixture exercises

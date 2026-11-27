@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { getSessionMessages } from '@/api/sessions'
 import type { SessionMessage } from '@/types/aegis'
 

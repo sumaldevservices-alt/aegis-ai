@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEvent } from '@aegis/shared'
 // A turn that ends WITHOUT its message.complete (turn crash, reconnect gap,
 // steer race) used to leave its streaming bubble pending:true forever. The

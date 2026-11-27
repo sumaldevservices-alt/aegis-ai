@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Per-session ledger of in-flight model picks, shared by every surface that
 // mounts useModelControls. A pick's own pre-pick snapshot is only the
 // OPTIMISTIC paint of whatever pick came before it, so rollback must target

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Stranded resume overlay (#106217 remainder): the full-window
 // "Couldn't load this session" state hides the composer and used to offer
 // only Retry — a wall with no way out. It must offer Start new session

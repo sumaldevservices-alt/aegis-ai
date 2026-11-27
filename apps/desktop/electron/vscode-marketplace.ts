@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * VS Code Marketplace color-theme fetcher (main process).
  *

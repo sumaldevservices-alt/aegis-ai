@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { spawn as nodeSpawn, type SpawnOptions } from 'node:child_process'
 import type { EventEmitter } from 'node:events'
 import type { Readable, Writable } from 'node:stream'

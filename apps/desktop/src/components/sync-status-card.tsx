@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * SyncStatusCard — the desktop warning surface for the latest pm/plugin sync
  * receipt (SPEC-05). The renderer calls `getSyncStatus` here and paints the

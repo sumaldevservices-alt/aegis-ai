@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Deleting a bot deletes its Aegis AI Enterprise Autonomous Platform profile, then everything plugin-local
  * that would otherwise leave stale appearance/unread data behind.

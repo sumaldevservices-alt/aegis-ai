@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The always-hidden reconciliation sweep: everything that walks Bot Mode's
  * own sessions on load and on each reconnect and pushes them back to hidden.

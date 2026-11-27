@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { resolveGatewayWsUrl } from '@aegis/shared'
 
 import { openGatewaySocket } from '@/api/canonical-protocol'

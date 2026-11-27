@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Shiki theme/color constants shared by the chat code-block renderer
 // (shiki-highlighter.tsx) and the lazy shiki chunk (shiki-block.tsx). Kept in
 // their own dependency-free module so the lazy chunk can import them without

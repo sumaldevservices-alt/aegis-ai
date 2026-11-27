@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * THE sRGB color primitive for every TypeScript surface (desktop themes, the
  * Ink TUI). Parse, mix, measure and fix colors here so tone ladders, contrast

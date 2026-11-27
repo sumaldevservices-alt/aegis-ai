@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ReloadMcpResult } from '@aegis/shared'
 
 import { translateNow } from '@/i18n'

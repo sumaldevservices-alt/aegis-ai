@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEvent } from '@aegis/shared'
 import { act, cleanup, render, waitFor } from '@testing-library/react'
 import { useEffect } from 'react'

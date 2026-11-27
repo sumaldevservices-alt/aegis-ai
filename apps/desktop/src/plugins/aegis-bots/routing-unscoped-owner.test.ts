@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A non-source-scoped bot row (`not_scoped`) belongs to the window's ACTIVE
  * source: the rich profiles.list rows come from that gateway. Its Bot Mode

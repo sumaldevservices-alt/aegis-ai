@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type MouseEvent as ReactMouseEvent, type RefObject, useState } from 'react'
 
 // Grab-to-pan for overflow containers — the shared primitive behind "scrub the

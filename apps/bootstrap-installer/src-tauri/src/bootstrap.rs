@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 //! Bootstrap orchestration.
 //!
 //! Direct port of `runBootstrap` from `apps/desktop/electron/bootstrap-runner.ts`.

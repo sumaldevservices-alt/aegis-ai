@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** `/api/profiles/<suffix>` collection routes, by method (aegis_cli/web_routers/profiles.py). Any
  *  other method on these paths is the per-profile `/api/profiles/{name}` route of a profile NAMED
  *  `active`, `import`, `sessions`, …, which are valid profile names. Mirror of the gateway's

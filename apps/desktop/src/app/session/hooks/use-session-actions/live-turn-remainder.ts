@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { appendAssistantTextPart, type ChatMessage, chatMessageText } from '@/lib/chat-messages'
 
 /** Whitespace normalization is for comparison only; cuts always address the original text. */

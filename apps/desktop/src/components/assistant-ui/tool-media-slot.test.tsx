@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment jsdom
 import { MessagePrimitive, type ThreadMessage, ThreadPrimitive } from '@assistant-ui/react'
 import { act, cleanup, render, screen, waitFor } from '@testing-library/react'

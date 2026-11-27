@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment jsdom
 import { act, cleanup, render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'

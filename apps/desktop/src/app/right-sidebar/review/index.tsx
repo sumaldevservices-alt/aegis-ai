@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useStore } from '@nanostores/react'
 
 import { FileDiffPanel } from '@/components/chat/diff-lines'

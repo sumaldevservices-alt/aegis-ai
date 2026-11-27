@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DesktopBootProgress, DesktopBootstrapState } from '@/global'
 
 function noopUnsubscribe(): () => void {

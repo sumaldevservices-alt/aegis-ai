@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEvent } from '@aegis/shared'
 // #81114: a Stop/interrupt seals the assistant bubble, but background work
 // keeps running and its completions still arrive. Those completions must

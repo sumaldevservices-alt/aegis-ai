@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Browser-hosted Desktop has no Electron `<webview>`, so a live web preview
  * mounts a sandboxed iframe instead. The frame is opaque to this renderer

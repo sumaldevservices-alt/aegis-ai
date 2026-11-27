@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Failure class: APP-DRIVEN UPDATE whose Desktop build fails.
  *

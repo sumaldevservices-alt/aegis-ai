@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { JsonRpcGatewayError, randomUuid } from '@aegis/shared'
 
 import { readJson, readKey, writeJson, writeKey } from '@/lib/storage'

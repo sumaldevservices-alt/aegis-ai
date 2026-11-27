@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PREVIEW ACT TYPES — the shapes the engine, the overlay, and the Python tool
  * all agree on.

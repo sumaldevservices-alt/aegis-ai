@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Translations } from './types'
 
 /** Display-only translations, in the stock JSONL's per-personality rotation order. */

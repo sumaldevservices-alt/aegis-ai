@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * One remote backend per SSH connection, every profile scoped per request.
  *

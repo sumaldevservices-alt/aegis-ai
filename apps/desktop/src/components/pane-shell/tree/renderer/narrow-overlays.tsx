@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Narrow-viewport edge overlays — the tree's take on the app's hover-reveal
  * collapse. Collapsible panes leave the grid below the sidebar-collapse

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { cleanup, render } from '@testing-library/react'
 import type { ComponentProps } from 'react'
 import { afterEach, expect, it, vi } from 'vitest'

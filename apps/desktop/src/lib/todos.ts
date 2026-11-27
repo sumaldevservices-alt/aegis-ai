@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export type TodoStatus = 'pending' | 'in_progress' | 'completed' | 'cancelled'
 
 export interface TodoItem {

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The right sidebar's copy (file tree, folder picker, terminals); `Translations.rightSidebar`.
 export interface RightSidebarTranslations {
   aria: string

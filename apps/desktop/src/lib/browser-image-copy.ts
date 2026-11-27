@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { translateNow } from '@/i18n'
 import { fetchBrowserImage } from '@/lib/browser-image-download'
 import { notifyError } from '@/store/notifications'

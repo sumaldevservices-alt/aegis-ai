@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A folder grant is minted only by the native picker main opens itself: the
  * renderer names the plugin and the picker labels, never a path.

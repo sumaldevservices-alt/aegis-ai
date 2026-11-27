@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './butterbar.css'
 
 import { useStore } from '@nanostores/react'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Live agent-terminal output, pushed from the backend as `agent.terminal.output`
 // events (see tui_gateway `_wire_agent_terminal_output`). Chunks route straight
 // to the matching read-only xterm, keyed by process id — no polling, no tail

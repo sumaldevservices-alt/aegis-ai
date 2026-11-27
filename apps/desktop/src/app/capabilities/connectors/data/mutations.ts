@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ConnectionAnswer, ConnectorAccountsResult, ConnectorPolicyGetResult } from '@aegis/shared'
 import { useCallback, useRef, useState } from 'react'
 

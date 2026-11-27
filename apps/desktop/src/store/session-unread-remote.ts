@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Persisted unread flag sync (backend read-state watermark via
  * PATCH /api/sessions/{id} → the store's sessions.set_read).

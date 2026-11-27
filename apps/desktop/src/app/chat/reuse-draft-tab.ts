@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { defaultNewSessionTarget } from '@/app/session/new-session-route'
 import { noteActiveTreeGroup, revealTreePane } from '@/components/pane-shell/tree/store'
 import { freshDraftScope, requestComposerDraftSync, takeSessionDraft } from '@/store/composer'

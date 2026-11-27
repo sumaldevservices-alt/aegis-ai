@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { normalizeChoices } from '@/store/clarify'
 
 import { parseMaybeObject } from '../tool/fallback-model/format'

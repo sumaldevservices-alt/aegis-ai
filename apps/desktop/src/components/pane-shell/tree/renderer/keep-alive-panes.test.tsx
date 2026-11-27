@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { act, cleanup, fireEvent, render } from '@testing-library/react'
 import { createElement, useEffect } from 'react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'

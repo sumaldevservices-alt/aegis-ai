@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { knownSessionOwner } from '@/store/session'
 import type { SessionOwnerRoute, SessionOwnerScope } from '@/store/session-request-router'
 import type { SessionTile } from '@/store/session-states'

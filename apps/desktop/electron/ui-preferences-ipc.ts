@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Wires the machine's UI preferences store (ui-preferences.ts) into Electron:
 // every app window hears about a change, whoever made it.
 import { BrowserWindow, ipcMain } from 'electron'

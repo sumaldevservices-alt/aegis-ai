@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { StatusResponse } from '@/types/aegis'
 
 /** Profiles a gateway restart would blip when the polled profile is carried by the shared

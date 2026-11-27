@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { mintLocalGatewayTicket } from './local-gateway';
 import { type GatewayEndpoint, localGatewayDial } from './local-gateway'
 

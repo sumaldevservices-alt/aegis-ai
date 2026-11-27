@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Unit tests for the Hyprland HUD overlay promote. The socket itself needs a
  * live compositor; what is covered here is the grammar (classic vs Lua), the

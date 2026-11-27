@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { SLASH_COMMAND_RE } from '@aegis/shared'
 
 /**

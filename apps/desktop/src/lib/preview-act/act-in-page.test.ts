@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { actEngineSource, actInPage, type PreviewActHolder } from './act-in-page'

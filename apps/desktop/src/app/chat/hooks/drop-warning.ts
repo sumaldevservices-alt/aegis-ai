@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** A drop item the composer could not attach: what was dropped, and why when it is known. */
 export interface DropFailure {
   name: string

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, it } from 'vitest'
 
 import { groupCreationEngine, groupExecutionMode } from './canonical-group-capabilities'

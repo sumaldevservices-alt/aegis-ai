@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Branching a chat another profile owns must not let that profile's runtime
 // overwrite the ACTIVE profile's approval chip: forkBranch passes the branch's
 // owner (the parent row's route) to applyRuntimeInfo, which only reconciles the

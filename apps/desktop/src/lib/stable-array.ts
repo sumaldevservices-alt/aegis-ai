@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Keep `prev`'s reference when it's element-equal to `next`, so a nanostores
  *  `computed` (notifies on `!==`) skips the emit when its projected list didn't
  *  actually change — e.g. status-id sets recomputed on every stream delta.

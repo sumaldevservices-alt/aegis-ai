@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Stand-ins for the two window-visibility signals the renderer reacts to:
 // Electron's `aegisDesktop.onWindowStateChanged` bridge and the DOM's own
 // `document.hidden`. Both are read-only under jsdom, and anything that pauses

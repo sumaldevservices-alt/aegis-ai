@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Presentational pieces of the Desktop-driven (legacy) room view that share the gateway-owned
  * room's parts, kept out of `group-chat-view.tsx` so that file does not grow.

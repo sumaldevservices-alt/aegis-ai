@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The `aegis:api` expected-404 seam, shared by the main-process handler and
 // preload so both sides agree on one literal.
 //

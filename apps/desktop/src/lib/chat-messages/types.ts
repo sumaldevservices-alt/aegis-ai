@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ThreadMessageLike } from '@assistant-ui/react'
 import { type BillingBlock, type MessageCompletePayload, type PersistedTurn, type ToolLabel } from '@aegis/shared'
 

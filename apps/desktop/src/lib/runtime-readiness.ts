@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface SetupStatusSnapshot {
   provider_configured?: boolean
   /** Additive launch-profile fields (newer backends only; absent on older

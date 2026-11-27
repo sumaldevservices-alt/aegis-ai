@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const jaModelMenu = {
   pickDeferred: (model: string) => `${model} は次のメッセージから適用されます`,
   search: 'モデルを検索',

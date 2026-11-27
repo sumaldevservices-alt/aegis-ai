@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * "Open recent session" on a bot row (aegis-agent#93054): opens the profile's
  * newest LISTED session as a tab in the bot's workspace — never in place of

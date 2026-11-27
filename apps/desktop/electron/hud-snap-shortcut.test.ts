@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it, vi } from 'vitest'
 
 import { createHudSnapShortcut, DEFAULT_HUD_SNAP_SHORTCUT } from './hud-snap-shortcut'

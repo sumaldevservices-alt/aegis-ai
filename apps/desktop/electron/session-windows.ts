@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Secondary "session windows" — one extra OS window per chat so a user can
 // work with multiple chats side by side. The pure, Electron-free pieces live
 // here so they can be unit-tested with node --test (mirroring how the rest of

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { enSandbox } from '@/i18n/en_sandbox'

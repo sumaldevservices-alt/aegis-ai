@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The Webapp tab is served BY a Aegis AI Enterprise Autonomous Platform Cloud agent (its own origin is the
  * agent). Cloud then owns every update: the app itself comes from that agent.

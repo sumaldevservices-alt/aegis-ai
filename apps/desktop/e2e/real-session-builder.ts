@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ChildProcessWithoutNullStreams, spawn } from 'node:child_process'
 import * as path from 'node:path'
 import { createInterface } from 'node:readline'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { MessagePrimitive, useAuiState } from '@assistant-ui/react'
 import { type FC, useState } from 'react'
 

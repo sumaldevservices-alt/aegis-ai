@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export type TooltipPlacement = 'control' | 'row' | 'toolbar' | 'left-rail' | 'right-rail'
 
 /** Preferred sides express intent; Radix still flips and shifts for available space. */

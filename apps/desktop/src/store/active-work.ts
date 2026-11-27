@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Mirror of "which chats are mid-turn" to the main process.
  *

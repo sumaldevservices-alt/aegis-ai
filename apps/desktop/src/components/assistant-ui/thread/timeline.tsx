@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useAui, useAuiState } from '@assistant-ui/react'
 import { useStore } from '@nanostores/react'
 import { type FC, useCallback, useEffect, useMemo, useRef, useState } from 'react'

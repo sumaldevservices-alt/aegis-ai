@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { WriteOptions } from '@/lib/storage'
 
 /** Persist a store: the value it loads with (its default, or a heal of what

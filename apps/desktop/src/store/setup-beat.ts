@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Open `setup_beat` requests: the onboarding chat's card for one beat, one per session.
  *

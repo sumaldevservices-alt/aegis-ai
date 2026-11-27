@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Button } from '@aegis/plugin-sdk'
 
 import type { CanonicalGroupEvent } from './canonical-group-history'

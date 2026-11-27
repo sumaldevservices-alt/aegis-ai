@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 interface TourStopCopy {
   title: string
   text: string

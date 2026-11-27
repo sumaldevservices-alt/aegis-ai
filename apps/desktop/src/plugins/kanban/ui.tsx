@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Shared kanban UI atoms: formatters, the identity avatar, the status menu,
  *  section chrome, and the masked scroller. Pure SDK + tokens. */
 

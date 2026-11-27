@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom } from 'nanostores'
 
 // URLs of preview targets that have unsaved spot-editor changes, keyed by

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './intro-copy.css'
 
 import { useStore } from '@nanostores/react'

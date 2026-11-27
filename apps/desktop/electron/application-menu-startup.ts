@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Orders the macOS application menu relative to the first BrowserWindow.
  *

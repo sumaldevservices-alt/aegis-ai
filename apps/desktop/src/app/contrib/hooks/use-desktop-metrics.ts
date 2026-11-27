@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Wires Desktop love/hate telemetry (store/desktop-metrics.ts) to the app's
  * existing state: the focused gateway + its collection switch, routes, open

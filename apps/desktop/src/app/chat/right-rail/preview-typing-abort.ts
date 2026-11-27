@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PREVIEW TYPING ABORT — the keystroke loop outlives the tool that started it.
  *

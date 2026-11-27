@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Real-process fixtures for the update-marker suites: sleeping owners, reaped
  * pids, and a claimant child that publishes a marker naming ITSELF (its own

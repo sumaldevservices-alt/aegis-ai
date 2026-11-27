@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ToolCallMessagePartProps } from '@assistant-ui/react'
 import { useStore } from '@nanostores/react'
 import { useMemo, useRef, useState } from 'react'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Pure helpers for window zoom. The main process owns webContents.setZoomLevel,
  * so the menu items, the Ctrl/Cmd shortcuts, and the settings UI all funnel

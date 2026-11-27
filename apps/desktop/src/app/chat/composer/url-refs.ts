@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bare-link recognition for the composer. A link the user pastes or types is the
  * same thing the "+ → Add URL" dialog inserts, so it becomes an `@url:`

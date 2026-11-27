@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Pure geometry helpers for the popped-out pet overlay — deciding where its
  * window may open and where it must be re-homed when the display topology

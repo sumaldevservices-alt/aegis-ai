@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, vi } from 'vitest'
 
 /** Observe a user-facing browser download, not a private cache-writing IPC. */

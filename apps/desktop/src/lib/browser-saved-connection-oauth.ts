@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom } from 'nanostores'
 
 import type { DesktopOauthLoginOptions, DesktopOauthLoginResult, Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'

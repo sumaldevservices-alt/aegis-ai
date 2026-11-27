@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Built-in app actions a plugin may run by id (`ctx.runAction`), through the
 // SAME handler the keyboard shortcut and the command palette dispatch. A
 // plugin that wants "toggle the browser panel" asks for the action, not for

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { TranslationOverride } from '@aegis/shared/i18n'
 
 import { esAuxTasks } from './es_aux_tasks'

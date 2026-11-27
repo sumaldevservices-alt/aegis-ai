@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Pure timeline helpers — no React/DOM; tested in thread-timeline-data.test.ts.
 import { PROCESS_NOTIFICATION_RE } from './content'
 

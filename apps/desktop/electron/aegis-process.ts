@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { execSync } from 'node:child_process'
 import fs from 'node:fs'
 

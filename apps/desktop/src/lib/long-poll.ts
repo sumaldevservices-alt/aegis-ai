@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The sign-in and handoff reads are long-polls: the backend holds each request until something
 // changes. An older backend answers at once, so a loop never asks again sooner than this after its
 // previous ask started.

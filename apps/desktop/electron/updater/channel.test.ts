@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { createHash } from 'node:crypto'
 import { createServer, type Server } from 'node:http'
 

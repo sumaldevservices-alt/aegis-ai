@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** The set_theme picker cards in the chat and their settled receipt. */
 export interface ThemePickerCopy {
   accent: string

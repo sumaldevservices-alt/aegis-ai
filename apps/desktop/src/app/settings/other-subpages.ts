@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { hostHas } from '@/lib/host-capabilities'
 
 import type { SettingsSubpage } from './subpages'

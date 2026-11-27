@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { JsonRpcGatewayClient, REPLAY_CURSOR_MAX } from './json-rpc-gateway'

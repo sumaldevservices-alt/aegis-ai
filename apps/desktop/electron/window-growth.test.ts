@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * window-state.json skips a window still at the bounds window sizing gave it,
  * but a user who moves or resizes it afterwards has placed it, and that

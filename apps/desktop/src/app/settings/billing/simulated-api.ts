@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { BillingApi, BillingResult } from './api'
 import type { BillingStateResponse, SubscriptionPreviewResponse, SubscriptionStateResponse } from './types'
 

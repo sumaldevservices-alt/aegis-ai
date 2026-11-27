@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Every gateway's default profile has a door in the condensed profile menu
  * (#106017, #131632). A second registered gateway puts the sidebar rail in fleet mode,

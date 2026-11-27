@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The Kanban board page — mounted at `/kanban` (a ROUTES_AREA contribution) in
  * the workspace pane or a split route tile. The desktop port of the dashboard

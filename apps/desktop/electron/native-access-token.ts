@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { NativeTokenSet } from './native-oauth'
 
 export interface NativeAccessTokenOptions {

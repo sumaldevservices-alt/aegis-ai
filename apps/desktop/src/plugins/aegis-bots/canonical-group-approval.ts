@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { CanonicalPendingAction } from './canonical-groups'
 
 const text = (value: unknown) => (typeof value === 'string' ? value.trim() : '')

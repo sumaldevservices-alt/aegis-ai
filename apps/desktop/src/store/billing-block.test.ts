@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { BillingBlock } from '@aegis/shared'
 import { beforeEach, expect, test, vi } from 'vitest'
 

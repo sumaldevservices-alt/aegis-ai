@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Locale scaffolding shared by the desktop and web i18n layers. Generic over the
 // translation catalog type: each app supplies its own `Translations`/`en` and
 // wraps `mergeTranslations` in a one-line `defineLocale`.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Linux NVIDIA EGL fallback for #40077 / #124255.
  *

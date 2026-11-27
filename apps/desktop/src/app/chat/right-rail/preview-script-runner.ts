@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PREVIEW SCRIPT RUNNER REGISTRY — the one way anything in the app reaches into
  * the preview pane's guest page, the script analog of preview-nav's handle

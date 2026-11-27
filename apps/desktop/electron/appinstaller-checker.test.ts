@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it, vi } from 'vitest'
 
 import { APPINSTALLER_CHECK_TIMEOUT_MS, type ExecFileImpl, runAppInstallerChecker } from './appinstaller-checker'

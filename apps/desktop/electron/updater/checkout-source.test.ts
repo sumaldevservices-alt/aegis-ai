@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { execFile, execFileSync, type SpawnOptions } from 'node:child_process'
 import * as fs from 'node:fs'
 import * as http from 'node:http'

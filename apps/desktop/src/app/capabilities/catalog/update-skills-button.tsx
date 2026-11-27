@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Button } from '@/components/ui/button'
 import type { ProfileScope } from '@/aegis'
 import { useI18n } from '@/i18n'

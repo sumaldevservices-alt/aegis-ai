@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { screen } from '@testing-library/dom'
 import { afterEach, expect, it, vi } from 'vitest'
 

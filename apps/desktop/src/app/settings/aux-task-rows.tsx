@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isReasoningEffort } from '@aegis/shared'
 import { useCallback, useMemo } from 'react'
 

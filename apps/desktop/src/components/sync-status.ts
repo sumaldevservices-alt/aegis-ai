@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Derive display state from a pm receipt — the pure logic behind the
  * sync-status surface. Receipts are optional-typed (older/newer receipts

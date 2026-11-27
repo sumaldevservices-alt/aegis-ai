@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Composer contribution surface — every seam of the composer is hook-into-able
  * through the SAME registry schema as every other surface (statusbar, titlebar,

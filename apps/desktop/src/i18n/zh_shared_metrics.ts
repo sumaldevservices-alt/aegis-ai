@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const zhSharedMetrics = {
   consentTitle: '分享使用统计？',
   dialogTitle: '使用统计',

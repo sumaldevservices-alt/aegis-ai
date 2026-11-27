@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment jsdom
 // The inline edit composer opens inside a chat pane whose composer surface is
 // registered with the shared floating-composer recipient tracker

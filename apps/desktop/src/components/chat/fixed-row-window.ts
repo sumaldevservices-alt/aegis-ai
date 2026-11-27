@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { RefObject, UIEvent } from 'react'
 import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, it, vi } from 'vitest'
 
 vi.mock('@aegis/plugin-sdk', async () => (await import('./group-test-utils')).pluginSdkMock({}))

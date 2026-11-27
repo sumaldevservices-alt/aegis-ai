@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * C2 core: the timings that turn one reply into two bubbles.
  *

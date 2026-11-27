@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Live-behavior test for FloatingPanes: mounts the REAL component into a real
  * DOM and drives real pointer/resize events. This is the closest thing to

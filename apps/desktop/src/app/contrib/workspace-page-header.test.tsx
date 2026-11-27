@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The workspace pane is the one host whose zone paints the page header
  * (#123597). These read the REAL `workspace` contribution registered by the

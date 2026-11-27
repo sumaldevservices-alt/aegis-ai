@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Regression: deleting a session from the Archived filter view left a ghost
 // row. Archived rows live in $archivedSessions (their own capped store —
 // they're excluded from $sessions by design), and removeSession only pruned

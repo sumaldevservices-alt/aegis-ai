@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type Codec, persistentAtom } from '@/lib/persisted'
 
 export type SessionListDensity = 'compact' | 'comfortable' | 'detailed'

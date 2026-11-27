@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isValidElement, type ReactElement, type ReactNode, useMemo } from 'react'
 
 import { ErrorBoundary } from '@/components/error-boundary'

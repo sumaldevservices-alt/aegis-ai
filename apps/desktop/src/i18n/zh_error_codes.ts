@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Translations } from './types'
 
 type ThreadCopy = Translations['assistant']['thread']

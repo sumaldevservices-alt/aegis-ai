@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ChatMessagePart, mergeFinalAssistantText } from '@/lib/chat-messages'
 
 /** One live bubble may hold several model responses when an equal interim

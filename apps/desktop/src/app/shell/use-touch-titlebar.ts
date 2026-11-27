@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { TITLEBAR_HEIGHT, TOUCH_TITLEBAR_HEIGHT } from '@/app/shell/titlebar'
 import { useMediaQuery } from '@/hooks/use-media-query'
 import { hostHas } from '@/lib/host-capabilities'

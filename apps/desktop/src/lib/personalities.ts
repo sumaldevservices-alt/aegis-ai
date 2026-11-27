@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Single source of truth for built-in personality names on the desktop.
 // Mirrors aegis_cli/personality.py BUILTIN_PERSONALITIES — the backend
 // single owner. Keep in sync when a built-in is added there.

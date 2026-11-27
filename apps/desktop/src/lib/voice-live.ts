@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type OwnerScope, ownerScoped, profileScoped } from '@/api/client'
 import { aegisApi } from '@/aegis'
 

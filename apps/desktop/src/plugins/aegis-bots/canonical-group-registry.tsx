@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, host, useQuery, useValue } from '@aegis/plugin-sdk'
 import { useEffect, useMemo } from 'react'
 

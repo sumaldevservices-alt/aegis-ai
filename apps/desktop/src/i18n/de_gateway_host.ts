@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayHostTranslations } from './types_gateway_host'
 
 // Settings → Gateways copy where the connection cannot change, spread into de.ts.

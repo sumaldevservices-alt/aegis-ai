@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { $profiles } from '@/store/profile'
 import { refreshProfileRemoteOverrides } from '@/store/profile-remote-override'
 import { beginSwitchTransition, endSwitchTransition } from '@/store/switch-transition'

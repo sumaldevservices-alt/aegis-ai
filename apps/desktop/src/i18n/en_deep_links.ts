@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayGroupOpenCopy, SkillDeepLinkCopy } from './types_deep_links'
 
 export const enSkillDeepLink: SkillDeepLinkCopy = {

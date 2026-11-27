@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ToolCallLike } from './run-summary'
 
 /** These calls render as activity, not file diffs or other deliverable cards. */

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ConnectionRequestPayload, ConnectionUpdatePayload, GatewayEvent } from '@aegis/shared'
 
 import { applyAccountConnectionUpdate } from '@/app/capabilities/connectors/data/account-operations'

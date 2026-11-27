@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Roster-display hiding: the session-only reveal toggle, the two per-row
  * predicates every surface reads, and the selection re-home a hide performs.

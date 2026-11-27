@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { TranslationOverride } from '@aegis/shared/i18n'
 
 import type { ModelSettingsTranslations } from './types_model_settings'

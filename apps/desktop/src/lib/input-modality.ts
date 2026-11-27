@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Which input device drove the most recent interaction.
  *
  *  Chromium's `:focus-visible` is not enough to tell a mouse pick from a Tab.

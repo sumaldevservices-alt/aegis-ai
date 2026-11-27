@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The shared client with only a `connect` (a non-Ink client): it dials the grant, reads the owner's
 // session.create contract before readiness, creates a session, and redials through `connect` with
 // the recovery flag when the socket drops.

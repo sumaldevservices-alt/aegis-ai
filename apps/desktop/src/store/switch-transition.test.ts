@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { backendTransitionFor, beginBackendTransition, resetBackendTransitionsForTests } from './backend-transition'

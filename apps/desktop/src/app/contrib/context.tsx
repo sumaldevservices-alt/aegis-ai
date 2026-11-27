@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { createContext, memo, useContext } from 'react'
 
 import { DecodeText } from '@/components/ui/decode-text'

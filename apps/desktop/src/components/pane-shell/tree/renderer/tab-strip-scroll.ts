@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Keeping the active tab (and the trailing "+") inside a scrolling tab strip.
  *

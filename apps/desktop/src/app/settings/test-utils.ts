@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { EnvVarInfo } from '@/types/aegis'
 
 /** An unset secret in `category`. The Keys tab and the settings search both

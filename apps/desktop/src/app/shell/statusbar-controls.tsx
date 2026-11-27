@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useStore } from '@nanostores/react'
 import { type ComponentProps, createContext, memo, type ReactNode, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'

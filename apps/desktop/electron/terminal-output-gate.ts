@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface TerminalExitPayload {
   code: number | null
   signal: string | null

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The plugin authoring contract. A plugin is a file that default-exports a
  * `Aegis AI Enterprise Autonomous PlatformPlugin`; it never touches the registry directly — it receives a

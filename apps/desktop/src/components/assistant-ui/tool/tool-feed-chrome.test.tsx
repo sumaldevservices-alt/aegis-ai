@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ThreadMessage } from '@assistant-ui/react'
 import type { GatewayEvent } from '@aegis/shared'
 import { act, cleanup, render, screen } from '@testing-library/react'

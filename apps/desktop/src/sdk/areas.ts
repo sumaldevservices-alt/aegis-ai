@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Contribution-area constants the SDK barrel re-exports whole: host-owned
 // areas with no feature module of their own, plus area contracts whose module
 // lives in core but has no other public door.

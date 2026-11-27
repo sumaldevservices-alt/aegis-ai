@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Spoken stop-word detection for the voice conversation loop.
 //
 // When someone is in a hands-free "Hey Aegis AI Enterprise Autonomous Platform" voice chat, the natural way to

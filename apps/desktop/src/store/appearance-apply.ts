@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * What `set_theme` and its picker cards change: accent, light/dark mode and
  * layout preset, validated as a whole before anything is applied so an

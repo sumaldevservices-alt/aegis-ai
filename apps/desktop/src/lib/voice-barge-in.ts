@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Full-duplex VAD monitor: watch the mic across the agent turn — while the
 // model is generating (no audio yet) AND while TTS plays — fire the moment the
 // user talks over either phase, and CAPTURE what they say. Detection alone

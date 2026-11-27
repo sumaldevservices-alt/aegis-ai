@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { fileUrlToNativePath, LOCAL_CONNECTION_ID } from '@aegis/shared'
 
 import { capabilityScoped, aegisApi, type OwnerScope, sessionFileOwnerScope } from '@/api/client'

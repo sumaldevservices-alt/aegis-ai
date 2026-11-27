@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Button, Tip, useValue } from '@aegis/plugin-sdk'
 import { useRef, useState } from 'react'
 

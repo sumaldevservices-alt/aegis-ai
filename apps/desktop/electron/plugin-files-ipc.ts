@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // IPC for the plugin SDK's folder-scoped file door (`ctx.files`). The only way
 // a folder grant is ever minted is `aegis:pluginFiles:request`: main opens
 // the native folder picker itself, attached to the window that asked, and

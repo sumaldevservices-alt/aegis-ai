@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The row menu labels its archive verb from the clicked row (Archive or
 // Unarchive), so the row itself must reach the handler. An archived search hit
 // is in no loaded list, and a handler that re-derived the state from those

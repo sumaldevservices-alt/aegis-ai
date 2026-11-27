@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { KeyboardEvent } from 'react'
 
 /** Use the form's enabled submit button so validation and pending state agree. */

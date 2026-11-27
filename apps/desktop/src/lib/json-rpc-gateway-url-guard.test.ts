@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // connect() must reject before WebSocket coerces garbage into
 // `ws://<origin>/[object%20Object]` (#68250 stale-emit boot loop).
 

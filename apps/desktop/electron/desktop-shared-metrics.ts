@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Main-process shared-metrics wiring, kept out of main.ts: the once-per-launch startup-latency
 // claim, the packaged self-update recorder and the consent-gated renderer-crash recorder the
 // renderer drains once a backend is attached.

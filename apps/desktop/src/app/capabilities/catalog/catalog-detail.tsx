@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ReactNode, useLayoutEffect, useRef } from 'react'
 
 import { ZoomableImage } from '@/components/chat/zoomable-image'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Transfer this agent into a Aegis AI Enterprise Autonomous Platform Cloud agent: `aegis backup` on the source, stream the archive
  * chunk by chunk to the cloud agent, which restores it with `aegis import --keep-host` (it keeps

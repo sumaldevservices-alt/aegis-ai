@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { type ChatMessage, type ChatMessagePart, chatMessageText, textPart, toChatMessages } from '@/lib/chat-messages'

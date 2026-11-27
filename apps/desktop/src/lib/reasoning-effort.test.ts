@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { DEFAULT_REASONING_EFFORT, REASONING_EFFORT_VALUES } from '@aegis/shared'
 import { describe, expect, it } from 'vitest'
 

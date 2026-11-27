@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Command-palette contribution surface — `palette` data contributions become
  * rows in the ⌘K root list, same schema as every other area. Contributions

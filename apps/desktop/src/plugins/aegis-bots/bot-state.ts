@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The window-local state Bot Mode's surfaces share: which roster row is
  * selected, which owner's chat is on screen, and the per-bot activity

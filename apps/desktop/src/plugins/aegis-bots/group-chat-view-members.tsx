@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Membership editing for an EXISTING group room (#91329, #110736): the
  * room-side "Manage members" picker, the per-Bot "Manage groups" toggle, and

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { REASONING_EFFORTS } from '@aegis/shared'
 import { type FormEvent, useState } from 'react'
 

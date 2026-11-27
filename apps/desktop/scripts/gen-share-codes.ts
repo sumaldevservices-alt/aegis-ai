@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Throwaway generator: deterministic fake star-map graphs → real share codes
 // (runs the actual encoder, so every string round-trips). Run with `pnpm exec tsx`.
 import { writeFileSync } from 'node:fs'

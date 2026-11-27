@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 function isActionIndex(value: unknown): value is number {
   return typeof value === 'number' && Number.isInteger(value)
 }

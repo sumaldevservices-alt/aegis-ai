@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The Bots roster lists gateway Group Chats by itself: no Refresh button and
  * no raw transport text. Rooms appear once the socket opens; a failed read

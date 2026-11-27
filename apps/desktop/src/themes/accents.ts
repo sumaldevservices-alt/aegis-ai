@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Accent swatches and the ids the agent and the picker use for them.
  *

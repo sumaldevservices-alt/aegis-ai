@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'

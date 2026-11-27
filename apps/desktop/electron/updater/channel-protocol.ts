@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /* The protocol decoder is the sole untrusted-JSON boundary. Unknown inputs and
  * primitive checks belong here; only validated domain objects leave this file. */
 /* oxlint-disable anti-slop/no-unknown-parameters, anti-slop/no-unknown-returns, anti-slop/no-runtime-typeof, anti-slop/no-reflect-get */

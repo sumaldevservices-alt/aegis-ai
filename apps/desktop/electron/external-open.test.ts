@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tests for electron/external-open.ts — the single route every external URL
  * open funnels through. All I/O is injected, so the "open failed → notify"

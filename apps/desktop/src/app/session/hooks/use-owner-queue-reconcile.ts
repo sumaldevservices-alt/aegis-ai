@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useEffect } from 'react'
 
 import { watchOwnerQueues } from '@/store/owner-queue-reconcile'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { ContribBoundary, ContribRender } from './boundary'
 import { useContributions } from './use-contributions'
 

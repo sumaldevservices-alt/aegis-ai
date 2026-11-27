@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The single source of truth for rebindable desktop hotkeys.
 //
 // Each entry is pure metadata: an id, a category, and the default combo(s).

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { TabStripMode } from '@/components/pane-shell/tree/model'
 import { type Codec, persistentAtom } from '@/lib/persisted'
 

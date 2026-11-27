@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { NO_PROJECT_ID } from '@/app/chat/sidebar/projects/workspace-groups'
 import { $defaultProfileRoute } from '@/store/default-profile'
 import { notifyError } from '@/store/notifications'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useI18n } from '@/i18n'
 
 import { OverlayBreadcrumbHeader } from '../overlays/overlay-breadcrumb-header'

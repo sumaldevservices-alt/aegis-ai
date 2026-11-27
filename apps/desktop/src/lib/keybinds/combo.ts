@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { keybindActionAllowedInEditableTarget } from './actions'
 
 // Keybind combo normalization + display.

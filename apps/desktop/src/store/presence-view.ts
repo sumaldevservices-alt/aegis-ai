@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Which session this window is presenting, and the live connection a submit for it would use.
  *

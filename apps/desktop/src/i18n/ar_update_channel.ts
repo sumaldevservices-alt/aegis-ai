@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const arUpdateChannel = {
   title: 'قناة التحديث',
   description: 'المستقر يثبّت الإصدارات المنشورة فقط. «كل التزام» يتبع فرع main مع وصول التغييرات.',

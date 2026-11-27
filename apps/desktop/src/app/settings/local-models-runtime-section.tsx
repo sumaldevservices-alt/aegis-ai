@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useIsMutating } from '@tanstack/react-query'
 import { type ReactElement, useState } from 'react'
 

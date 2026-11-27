@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // A move made by the real router reaches the window's presence reporter at once. HashRouter pushes
 // history without a `hashchange` event, so nothing else would tell the reporter before its next tick.
 import { act, cleanup, render } from '@testing-library/react'

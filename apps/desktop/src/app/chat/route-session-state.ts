@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { sessionMatchesStoredId } from '@/store/session'
 import type { SessionInfo } from '@/types/aegis'
 

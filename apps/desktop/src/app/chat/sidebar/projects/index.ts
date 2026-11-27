@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Public surface of the project/worktree sidebar, consumed by the sidebar root.
 export { EnteredProjectContent } from './entered-content'
 export { enteredProjectLiveRows } from './gateway-project-rows'

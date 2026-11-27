@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { applyPackagedHandoff } from './packaged-handoff'
 import type { RelaunchRegistration } from './relaunch'
 

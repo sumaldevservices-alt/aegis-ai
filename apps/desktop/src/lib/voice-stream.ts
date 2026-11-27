@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { openGatewaySocket } from '@/api/canonical-protocol'
 import type { ResolvedOwner } from '@/aegis'
 import { resolveSiblingWsUrl } from '@/lib/sibling-ws-url'

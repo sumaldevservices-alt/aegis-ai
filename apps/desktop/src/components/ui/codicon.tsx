@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Icon } from '@tabler/icons-react'
 import type * as React from 'react'
 

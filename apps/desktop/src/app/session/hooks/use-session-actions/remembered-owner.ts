@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { forgetSessionOwnerHintsForSession, getSessionOwnerHint } from '@/store/session'
 import { type SessionOwnerRoute, sessionOwnerRouteFromRow } from '@/store/session-request-router'
 

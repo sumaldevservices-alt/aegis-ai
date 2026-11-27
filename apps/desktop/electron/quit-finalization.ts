@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 const DEFAULT_TIMEOUT_MS = 10_000
 
 type TimerHandle = unknown

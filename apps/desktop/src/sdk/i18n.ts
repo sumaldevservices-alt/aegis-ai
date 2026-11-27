@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type AppLocaleRegistration, type LanguageOption, languageOptions, registerAppLocale } from '@/i18n'
 
 /** THE language-pack surface: add a whole UI language (or extend one) at

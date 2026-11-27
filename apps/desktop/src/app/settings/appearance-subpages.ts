@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const APPEARANCE_SUBPAGES = [
   { id: 'general', labelKey: 'appearanceGeneral' },
   { id: 'theme', labelKey: 'appearanceTheme' },

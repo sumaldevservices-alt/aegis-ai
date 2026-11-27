@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Bumped when the person opens a chat in this window (sidebar row, ⌘K, a
 // notification, the session switcher: every door goes through openSession).
 // Route effects that select a chat on their own (the cold-start route resume,

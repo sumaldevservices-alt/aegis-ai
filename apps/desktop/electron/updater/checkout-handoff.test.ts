@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { spawn } from 'node:child_process'
 import { EventEmitter } from 'node:events'
 import * as fs from 'node:fs'

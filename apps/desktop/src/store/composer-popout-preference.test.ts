@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 const GESTURES_KEY = 'aegis.desktop.composerPopout.gesturesEnabled'

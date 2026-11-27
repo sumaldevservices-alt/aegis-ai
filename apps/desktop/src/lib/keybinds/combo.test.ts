@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 // Host-native: jsdom never reports a Mac platform, so `IS_MAC` is false here.

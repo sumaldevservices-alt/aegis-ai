@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A Webapp tab that dies while a reply streams keeps that turn in its in-flight journal
  * (localStorage). On the next open, the owner's pending list (the reopen snapshot's admissions

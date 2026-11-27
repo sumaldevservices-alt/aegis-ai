@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // The tab verbs (⌘1…⌘9, ⌃Tab, ⌘W / ⌘T) target the zone under the POINTER when

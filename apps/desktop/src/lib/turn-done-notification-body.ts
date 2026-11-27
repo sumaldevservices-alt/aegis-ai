@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Native turn-done notification body (#88488).
 // Prefer the assistant reply. If that text is missing, use a generic
 // completion phrase — never the session title (usually the user's first

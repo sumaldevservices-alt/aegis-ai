@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { capabilityScoped, type ProfileScope } from './client'
 
 /** `delegation.backend` values the Settings editors know how to edit (any other plugin backend is a plain string). */

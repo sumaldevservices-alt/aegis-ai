@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './catalog.css'
 
 import { type CSSProperties, type ReactNode, useState } from 'react'

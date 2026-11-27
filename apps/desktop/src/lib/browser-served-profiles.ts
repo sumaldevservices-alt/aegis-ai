@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'
 import { browserLaunchProfileOrDefault } from '@/lib/platform'
 import { isSignedOutStatus } from '@/lib/signed-out-status'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Cross-window session-list sync. Each desktop window is its own renderer
 // process with its own gateway socket and session store, so a mutation in one
 // (e.g. a new chat started in the compact pop-out) never reaches another

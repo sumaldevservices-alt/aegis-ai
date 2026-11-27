@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * C2 core: a window that re-attaches to a turn that is still running.
  *

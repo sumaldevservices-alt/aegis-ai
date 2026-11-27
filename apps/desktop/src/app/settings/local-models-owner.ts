@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { createContext, useContext } from 'react'
 
 import type { LocalModelsOwner } from '@/store/local-runtime-jobs'

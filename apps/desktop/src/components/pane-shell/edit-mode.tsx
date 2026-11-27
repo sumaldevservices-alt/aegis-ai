@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Layout edit mode — the shared toggle for the tree renderer's FancyZones-style
  * rearrangement (see tree/renderer.tsx). The toggle hotkey is a `keybinds`

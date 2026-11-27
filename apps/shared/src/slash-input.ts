@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Appended by TUI pickers; converted to the backend's `--session` flag before `config.set`. */
 export const TUI_SESSION_MODEL_FLAG = '--tui-session'
 

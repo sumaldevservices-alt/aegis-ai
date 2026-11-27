@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A saved gateway the user removed stays removed after a relaunch, even with the
  * old userData connection.json still naming it (#142906, #150084), and removing a

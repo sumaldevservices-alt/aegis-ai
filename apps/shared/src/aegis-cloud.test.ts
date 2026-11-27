@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { isAegis AI Enterprise Autonomous PlatformCloudUrl } from './aegis-cloud'

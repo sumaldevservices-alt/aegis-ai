@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const WAKE_INDICATOR_WINDOW_WIDTH = 176
 export const WAKE_INDICATOR_WINDOW_HEIGHT = 52
 export const WAKE_INDICATOR_FADE_MS = 500

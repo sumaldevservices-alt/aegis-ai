@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { clearNotifications, notifyError } from '@/store/notifications'
 import { setResumeExhaustedSessionId, setResumeFailedSessionId, setResumeReattachSessionId } from '@/store/session'
 

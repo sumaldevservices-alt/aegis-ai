@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Plugin-scoped i18n for kanban — bundles shipped under the plugin id via
  * ctx.i18n.register (#67303), never touching core en.ts. usePluginI18n('kanban')

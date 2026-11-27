@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tab attention for the Webapp: while the tab is in the background and an
  * event that would raise an OS notification arrives, the tab title alternates

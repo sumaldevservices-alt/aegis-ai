@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'

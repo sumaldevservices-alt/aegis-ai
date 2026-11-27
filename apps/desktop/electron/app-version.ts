@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isCanaryTag } from './feature-flags'
 import type { InstallStamp } from './install-stamp'
 import { COMMIT_BUILD_UPDATE_MESSAGE } from './updater/external'

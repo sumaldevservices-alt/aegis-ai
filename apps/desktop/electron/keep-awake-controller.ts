@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Main's half of keep-awake: the one power-save blocker, its persisted mode,
  * and the one-time offer after a timed sleep interrupted a turn. Kept apart

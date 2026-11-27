@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const deSharedMetrics = {
   consentTitle: 'Nutzungsstatistiken teilen?',
   dialogTitle: 'Nutzungsstatistiken',

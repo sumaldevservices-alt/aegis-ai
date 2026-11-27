@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Name the stop the updater already recorded, instead of a bare "exit 1" dialog. */
 
 import fs from 'node:fs'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Match the image attachment byte budget without limiting browser-managed files.
 export const BROWSER_IMAGE_DOWNLOAD_MAX_BYTES = 25 * 1024 * 1024
 export const BROWSER_IMAGE_DOWNLOAD_TIMEOUT_MS = 30_000

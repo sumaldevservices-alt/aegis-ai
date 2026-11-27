@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Shared update-marker corpus consumer (A7 rule 7):
  * `tests/fixtures/update_marker_corpus.json` is authoritative for parsing and

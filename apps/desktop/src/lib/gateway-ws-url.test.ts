@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { GatewayReauthRequiredError, isGatewayReauthRequired, resolveGatewayWsUrl } from '@aegis/shared'
 import { describe, expect, it, vi } from 'vitest'
 

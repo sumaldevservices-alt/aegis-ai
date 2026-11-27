@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useCallback, useRef } from 'react'
 
 import { interceptsTypedVoiceStop } from '@/lib/voice-stop-word'

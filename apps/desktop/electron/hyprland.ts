@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // hyprland.ts — window enumeration for Hyprland, via the compositor's own IPC.
 //
 // `read_window_below` normally enumerates through `get-windows`, which on Linux

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { brandFor } from '@/lib/mcp-brands'
 import { cn } from '@/lib/utils'
 

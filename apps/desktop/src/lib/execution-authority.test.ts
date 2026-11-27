@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { JsonRpcGatewayClient } from '@aegis/shared'
 import type { GatewayEvent } from '@aegis/shared'
 import { describe, expect, it } from 'vitest'

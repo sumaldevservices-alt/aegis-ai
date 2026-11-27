@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `SectionNameDialog`'s Enter-to-submit handling must go through the shared
  * IME-aware predicate (`isSubmitEnter`), not a hand-rolled `isComposing`-only

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Resolves the error card's title/body for a failed turn from the i18n tables
 // (`assistant.thread.errorCodes` / `errorAuthKinds` / `errorLayers`), so the
 // inline card and the global gateway-error toast read the same words for the

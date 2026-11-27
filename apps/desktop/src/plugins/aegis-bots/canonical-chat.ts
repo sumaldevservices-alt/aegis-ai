@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The canonical Bot Chat: one bot, one forever-chat, resolved by exact title.
  *

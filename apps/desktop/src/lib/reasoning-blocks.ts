@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Reasoning-summary models (OpenAI's gpt-5.x family, and anything relaying the
  * Responses API onto the OpenAI chat wire) emit one delta per *completed*

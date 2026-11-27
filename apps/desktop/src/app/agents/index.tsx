@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { compactNumber } from '@aegis/shared'
 import { useStore } from '@nanostores/react'
 import { Fragment, type ReactNode, useEffect, useMemo, useState } from 'react'

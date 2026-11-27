@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useStore } from '@nanostores/react'
 
 import { ProfileGlyph } from '@/components/ui/profile-glyph'

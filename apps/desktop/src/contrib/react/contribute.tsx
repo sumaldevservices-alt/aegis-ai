@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Mount-scoped contribution — the "reverse portal" companion to `Slot`.
  *

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The edit composer's undo stack misses the two mutation paths Chromium runs
 // without a React-visible beforeinput: cutting selected text and dragging a
 // selection within the editor. Chromium fires the native `cut` / `drop`

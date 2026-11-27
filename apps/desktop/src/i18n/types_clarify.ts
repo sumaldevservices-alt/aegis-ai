@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** The clarify question card. */
 export interface ClarifyCopy {
   notReady: string

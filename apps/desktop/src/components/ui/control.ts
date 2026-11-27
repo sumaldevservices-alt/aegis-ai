@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { cva, type VariantProps } from 'class-variance-authority'
 
 // Single source of truth for non-composer form-control chrome — Input,

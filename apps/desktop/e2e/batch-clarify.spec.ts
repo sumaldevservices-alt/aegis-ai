@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * E2E batch clarify test — the multi-question clarify card must mount ONCE.
  *

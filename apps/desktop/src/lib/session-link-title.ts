@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Resolves `@session:<profile>/<id>` reference values to the session's title.
  *

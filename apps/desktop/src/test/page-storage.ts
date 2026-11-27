@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The object that holds `window.localStorage`'s methods, for spying on the page's storage reads
  * and writes. On Node 22 that is jsdom's `Storage.prototype`: a spy defined on the instance is kept

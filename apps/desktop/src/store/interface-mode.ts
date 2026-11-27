@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, computed, type ReadableAtom, type WritableAtom } from 'nanostores'
 
 import { createLayoutPersistence } from '@/lib/layout-persistence'

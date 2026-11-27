@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The theme colours the boot-failure notice (src/lib/boot-failure.ts) paints itself with when
 // the app could not load. Written as one snapshot, so a failed write can never pair one theme's
 // background with another's ink, and only when each colour stands alone: a `var()` resolves to

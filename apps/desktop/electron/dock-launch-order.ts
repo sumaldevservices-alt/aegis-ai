@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Order of the two startup steps that decide whether macOS shows a second
  * Dock icon.

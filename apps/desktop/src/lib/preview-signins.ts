@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { PreviewSigninsResult } from '@/global'
 
 /** The (connection, profile) a config record was read from: the same scope its toggle writes. */

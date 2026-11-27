@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { fileUrlToNativePath } from '@aegis/shared'
 
 import { isWindowsAbsolutePath } from '@/lib/path-compare'

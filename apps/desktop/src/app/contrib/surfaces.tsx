@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Wiring surfaces — each pane is its own memoized component. Every surface
  * reads the reactive state it renders from at the leaf (its own atom

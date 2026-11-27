@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Size cap for local files Desktop loads as data URLs (composer attach, image
  * preview, …).

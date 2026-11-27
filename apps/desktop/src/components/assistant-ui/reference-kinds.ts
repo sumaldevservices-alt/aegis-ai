@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The composer's reference vocabulary: one place that decides what a `@file:`,
  * a `@folder:`, a picked `/skill`, or any other reference LOOKS like — its

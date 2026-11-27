@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { translateNow } from '@/i18n'
 import { dispatchNativeNotification } from '@/store/native-notifications'
 import {

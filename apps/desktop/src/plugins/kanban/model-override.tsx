@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Per-task model override — the board's half of the composer's model picker.
  *

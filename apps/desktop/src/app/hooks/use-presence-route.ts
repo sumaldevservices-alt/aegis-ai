@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useEffect } from 'react'
 import { useLocation } from 'react-router'
 

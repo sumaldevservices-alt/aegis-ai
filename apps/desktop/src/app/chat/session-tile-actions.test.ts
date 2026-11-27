@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { JsonRpcGatewayError } from '@aegis/shared'
 import { renderHook } from '@testing-library/react'
 import { act } from 'react'

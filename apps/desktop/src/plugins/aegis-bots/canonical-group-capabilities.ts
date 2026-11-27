@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { gatewayActivationEpoch, host, useGatewayActivationEpoch, useValue } from '@aegis/plugin-sdk'
 import { useEffect, useState } from 'react'
 

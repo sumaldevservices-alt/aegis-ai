@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { firstStringField, normalize } from '@/lib/text'
 import type { SubagentProgress, SubagentStatus } from '@/store/subagents'
 

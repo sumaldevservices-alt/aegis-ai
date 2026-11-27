@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 type WindowRevealTarget = {
   isDestroyed: () => boolean
   isVisible: () => boolean

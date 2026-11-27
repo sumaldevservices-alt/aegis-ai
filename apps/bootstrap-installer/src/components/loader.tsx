@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ComponentProps, useEffect, useRef } from 'react'
 
 import { cn } from '../lib/utils'

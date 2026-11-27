@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Statusbar timer contract (#103123): both surfaces show "focused since".
  * Primary stamps `$sessionStartedAt` on every switch; tiles used to read the

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface RunnableBinaryOptions {
   /** Ordered candidate absolute paths, highest preference first. */
   candidates: string[]

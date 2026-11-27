@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ModelOptionsResult } from '@aegis/shared'
 import { type QueryClient } from '@tanstack/react-query'
 import { useCallback, useRef } from 'react'

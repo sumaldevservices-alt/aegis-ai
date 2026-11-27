@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type BrowserWindow, ipcMain, type IpcMainEvent, type Rectangle, screen } from 'electron'
 
 import type { WindowSizeMode } from './window-size-types'

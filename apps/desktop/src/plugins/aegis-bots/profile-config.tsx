@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The advanced profile editor: skills, toolsets, MCP servers, model and SOUL,
  * backed by `profiles.describe` / `profiles.configure`.

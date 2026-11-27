@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './glyph-spinner.css'
 
 import type { CSSProperties } from 'react'

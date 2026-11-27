@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** One sweep for every card's hover arc.
  *
  *  Each hovered (or focused) card runs the arc rotation on the document timeline

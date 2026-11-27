@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Rate breaker for raw fs.watch handles (#118974): a win32 event storm must
  * close the watcher and fall back to a slow snapshot poll.

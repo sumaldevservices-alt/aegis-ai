@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Fail-closed owner resolution for session-scoped RPCs.
  *

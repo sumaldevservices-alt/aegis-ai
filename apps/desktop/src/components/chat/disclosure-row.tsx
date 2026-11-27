@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ReactNode } from 'react'
 
 import { DisclosureCaret } from '@/components/ui/disclosure-caret'

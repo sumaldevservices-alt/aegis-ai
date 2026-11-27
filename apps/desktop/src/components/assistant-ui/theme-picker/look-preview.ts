@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useEffect, useState } from 'react'
 
 import { $terminalTakeover, setTerminalTakeover } from '@/app/right-sidebar/store'

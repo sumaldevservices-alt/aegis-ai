@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Reading a `file:` URL back into the path it names. Desktop meets these URLs
  * in agent output, preview targets and the media pipeline, in the renderer and

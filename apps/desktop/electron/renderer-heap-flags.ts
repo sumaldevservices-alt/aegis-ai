@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Renderer heap ceiling + `desktop.electron_flags` for packaged launches (#77311).
 //
 // Chromium only forwards `--js-flags` to renderer processes when the BROWSER

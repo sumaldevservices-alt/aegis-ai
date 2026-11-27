@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Live WebSocket validation for the remote-gateway "Test remote" button.
  *

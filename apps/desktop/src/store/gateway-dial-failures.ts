@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Dial failures the secondary redial ladder (store/gateway.ts reconnectSecondary)
 // treats as permanent for a scoped socket, and the stalled dials it budgets.
 

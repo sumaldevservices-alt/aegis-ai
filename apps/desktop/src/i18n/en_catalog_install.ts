@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { CatalogInstallTranslations } from './types_catalog_install'
 
 export const enCatalogInstall: CatalogInstallTranslations = {

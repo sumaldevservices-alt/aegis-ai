@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ToolCallMessagePartProps } from '@assistant-ui/react'
 import type { ConnectionOperationTarget, ConnectionRequestPayload } from '@aegis/shared'
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'

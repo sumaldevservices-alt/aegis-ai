@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { UpdaterApplyResultWire, UpdaterStrategy } from './index'
 
 /** Preserve one native selection across check/apply and one owner through handoff. */

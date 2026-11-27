@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Canonical Aegis AI Enterprise Autonomous Platform skin — the theme SDK's cross-surface contract.
  *

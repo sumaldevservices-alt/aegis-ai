@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { BROWSER_NATIVE_DIAL, buildAegis AI Enterprise Autonomous PlatformWebSocketUrl, normalizeBasePath } from '@aegis/shared'
 
 import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, it } from 'vitest'
 
 import { focusThread, memberOutcomes, memberStatus, roomCycle, type RoomLogEvent } from './group-room-status'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Typed results and events of the gateway's JSON-RPC methods, as a client reads them. */
 import type { UsageModelData } from './billing-types.js'
 import type {

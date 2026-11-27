@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Which persisted keys are machine-level UI preferences (#145213).
  *

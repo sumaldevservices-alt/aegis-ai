@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Stage the waiter outside the package and await its old-version snapshot.
 // A failed handshake cancels our child instead of leaving a delayed relaunch.
 

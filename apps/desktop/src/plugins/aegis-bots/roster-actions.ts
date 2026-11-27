@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The two roster actions that reach outside a component: the unread/toast
  * poll every roster refresh feeds, and the click path that fronts one exact

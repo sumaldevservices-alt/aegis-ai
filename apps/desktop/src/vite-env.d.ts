@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /// <reference types="vite/client" />
 
 // @novnc/novnc ships no typings (its export is core/rfb.js); the surface the Bot Screen pane uses.

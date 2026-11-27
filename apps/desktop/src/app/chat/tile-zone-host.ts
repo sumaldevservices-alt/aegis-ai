@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Zone eligibility for SESSION drops — the resolve-side half of the drop
  * contract shared with the zone overlay (hostsSessionDropTarget in

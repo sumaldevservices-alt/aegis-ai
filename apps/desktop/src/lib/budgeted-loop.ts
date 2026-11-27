@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Budgeted renderer loop — the one way to run a decorative rAF animation.
  *

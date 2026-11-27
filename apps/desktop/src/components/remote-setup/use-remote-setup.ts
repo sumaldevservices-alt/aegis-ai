@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useRef, useState } from 'react'
 
 import type { DesktopConnectionConfigInput, DesktopConnectionProbeResult, DesktopOauthLoginOptions } from '@/global'

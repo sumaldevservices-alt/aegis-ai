@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Loaded by src/entry.ts once the machine's shared UI preferences hydrated.
 import './styles.css'
 // Install the loopback browser host before any store/App modules evaluate.

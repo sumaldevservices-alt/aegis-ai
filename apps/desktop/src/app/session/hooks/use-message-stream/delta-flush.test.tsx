@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { QueryClient } from '@tanstack/react-query'
 import { act, cleanup, render } from '@testing-library/react'
 import { type MutableRefObject, useEffect, useRef } from 'react'

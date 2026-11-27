@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A plugin page route registered AFTER the workspace surface mounts must
  * become navigable. Regression for late-loaded desktop plugins (disk plugins

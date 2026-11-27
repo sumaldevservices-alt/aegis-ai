@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Shared budget for any renderer await that rides out a primary backend
  * cold boot (initial getConnection(), the registry restore's descriptor
  * wait). Matches the main-process spawn budget

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Unit tests for the Hyprland window provider. The socket itself needs a live
  * compositor, so what is covered here is everything that decides whether the

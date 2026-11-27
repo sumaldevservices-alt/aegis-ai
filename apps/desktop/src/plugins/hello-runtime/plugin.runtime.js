@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Runtime-loaded example — this file is NOT bundled as a module: it ships as
  * raw text (`?raw`) and goes through the real runtime pipeline (specifier

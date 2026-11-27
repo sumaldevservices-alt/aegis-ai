@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Live evidence rig for Bot Mode group rooms: drives a gateway-owned
  * (canonical) room and a legacy Desktop-driven room through working, settled

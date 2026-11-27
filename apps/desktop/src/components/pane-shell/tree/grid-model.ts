@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * FancyZones grid model — a faithful port of PowerToys'
  * `FancyZonesEditor/Models/GridLayoutModel.cs` + `FancyZonesEditor/GridData.cs`

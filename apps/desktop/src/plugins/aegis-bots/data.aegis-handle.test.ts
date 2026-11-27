@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * @aegis belongs to the default bot only while its source has no real
  * (pre-reservation) `aegis` profile. With one, the roster shows exactly one

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { BrowserWindow, ipcMain, Notification } from 'electron'
 
 import { createEventDeduper } from './event-dedupe'

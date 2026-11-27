@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useStore } from '@nanostores/react'
 import clsx from 'clsx'
 import { Check, ChevronRight, FileText, X } from 'lucide-react'

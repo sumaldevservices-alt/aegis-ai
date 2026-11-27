@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The two composer contributions Bot Mode registers, driven through the real
  * `plugin.register()`: @-mention completions and the mention middleware.

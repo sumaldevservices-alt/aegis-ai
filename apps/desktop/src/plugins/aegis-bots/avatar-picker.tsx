@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The avatar editor shared by Edit Profile and New Bot: shape grid + color
  * swatches, the Generate and Upload tabs, and the petdex Pet tab.

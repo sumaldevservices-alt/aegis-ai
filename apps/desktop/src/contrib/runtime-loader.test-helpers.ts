@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { vi } from 'vitest'
 
 /** The loader evaluates plugins via blob-URL `import()`, which vite's module runner can't resolve in tests:

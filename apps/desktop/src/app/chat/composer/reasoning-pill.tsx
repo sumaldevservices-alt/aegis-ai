@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { DEFAULT_REASONING_EFFORT } from '@aegis/shared'
 import { useStore } from '@nanostores/react'
 import { useState } from 'react'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // updater/index.ts — the desktop update strategy surface.
 //
 // Every install shape updates through a different owner:

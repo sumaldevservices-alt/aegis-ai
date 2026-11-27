@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface HudTranscriptHeightInput {
   /** Measured message rows, including the HUD sheet overhang. */
   contentHeight: number

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * E2E: every new Bot Mode group chat is created on and run by a gateway, including one that
  * seats a bot from a NAMED profile on a second computer's gateway.

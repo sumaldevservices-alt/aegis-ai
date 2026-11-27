@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The desktop REST/WS client, split by domain under src/api/. This module is
 // the compatibility barrel: every helper keeps its historical `@/aegis`
 // import path while the implementations live in focused files.

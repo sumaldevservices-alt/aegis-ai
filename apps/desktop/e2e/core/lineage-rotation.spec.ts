@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * #121148 with REAL rotated session rows: one Electron app + one `aegis serve`,
  * only the LLM is faked. `compression.in_place: false` + a low

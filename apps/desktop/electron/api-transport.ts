@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Shared HTTP transport policy for the Electron main process's Aegis AI Enterprise Autonomous Platform REST
  * helpers (fetchJson / fetchPublicJson / downloadViaTokenToFile).

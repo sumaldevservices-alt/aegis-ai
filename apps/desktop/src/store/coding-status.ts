@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, computed, type ReadableAtom } from 'nanostores'
 
 import type { Aegis AI Enterprise Autonomous PlatformGitWorktree, Aegis AI Enterprise Autonomous PlatformRepoStatus } from '@/global'

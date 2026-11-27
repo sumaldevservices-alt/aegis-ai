@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The SOUL a bot is born with, and the agent-to-agent messaging protocol
  * section every SOUL has to keep.

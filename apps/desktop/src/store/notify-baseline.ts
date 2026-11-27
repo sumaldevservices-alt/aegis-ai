@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Post-connect quiet window for native (OS) notifications.
 //
 // A socket opening replays state that already existed: a session parked on an

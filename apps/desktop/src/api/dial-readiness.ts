@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Session-wire readiness for Aegis AI Enterprise Autonomous PlatformGateway's dials. A native dial is canonical by provenance and
 // ready at once; a public dial is ready at the first `gateway.ready` its own socket delivers. The
 // gate owns each dial's settle, its timeout, the `open` it holds back from state subscribers, and

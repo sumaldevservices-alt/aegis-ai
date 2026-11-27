@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ChatMessage, QUESTION_CARD_TOOLS } from '@/lib/chat-messages'
 
 import type { ClientSessionState, PersistedDisplayTranscriptProvenance } from '../../../types'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Plugin-scoped i18n — the `ctx.storage` analog for locale bundles. A plugin
  * ships its own strings and registers them under its id; it never edits core

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useCallback, useEffect, useRef } from 'react'
 
 import { useResizeObserver } from '@/hooks/use-resize-observer'

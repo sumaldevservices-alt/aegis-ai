@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 interface SessionListResponse {
   sessions: unknown[]
   total: number

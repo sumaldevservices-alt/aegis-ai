@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Adapted from condensed-milk-pi's command dispatcher: split compounds first,
 // strip pipe tails (`| head`, `| tail`, ...), then clean redirects/env prefixes
 // before deciding which segment is meaningful. This is display-only; the full

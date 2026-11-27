@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tests for electron/update-marker.ts — the update marker (contract C1, v2)
  * that keeps a Desktop reopened mid-update from booting a backend onto the

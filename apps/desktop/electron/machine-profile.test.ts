@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { statSync } from 'node:fs'
 import * as os from 'node:os'
 

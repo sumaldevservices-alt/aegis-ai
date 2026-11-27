@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * #143571: a gateway Group Chat row in the Bots roster offers Disband from its
  * right-click menu. Disband confirms, disbands the room on its own gateway

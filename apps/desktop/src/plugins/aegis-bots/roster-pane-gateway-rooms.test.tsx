@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The Bots pane with only its gateway transport mocked. The bot list
  * (`profiles.list` / `host.agents`) failing must not hide gateway Group Chats

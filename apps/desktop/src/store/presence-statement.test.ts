@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // A report is a claim that the user is here AND this window can show them the reply. Whatever the
 // reporter last told a connection must be corrected the moment it stops being true; old samples
 // and clock changes never make it claim more than it knows.

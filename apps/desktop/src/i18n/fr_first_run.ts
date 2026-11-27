@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { FirstRunCopy } from './types_first_run'
 
 export const frFirstRun: FirstRunCopy = {

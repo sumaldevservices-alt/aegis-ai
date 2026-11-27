@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, expect, it } from 'vitest'
 
 import { sessionBackgroundResume } from './background-delegation'

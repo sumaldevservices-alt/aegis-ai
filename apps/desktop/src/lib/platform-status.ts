@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { StatusTone } from '@/components/status-dot'
 
 // One reading of a messaging platform's runtime state, shared by the Messaging

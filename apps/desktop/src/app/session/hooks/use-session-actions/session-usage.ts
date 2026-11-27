@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { setCurrentBranch, setCurrentUsage, setSessionStartedAt } from '@/store/session'
 import type { UsageStats } from '@/types/aegis'
 

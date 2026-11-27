@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Quitting with a turn in flight kills the backend mid-tool-call: the work is
 // lost, and anything the agent had half-written to disk stays half-written.
 // Renderers publish what they're running; the main process asks before it lets

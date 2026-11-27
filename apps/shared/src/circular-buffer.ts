@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export class CircularBuffer<T> {
   private buf: T[]
   private readonly capacity: number

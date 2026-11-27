@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A scripted gateway for the group-chat room-engine tests.
  *

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useEffect, useState } from 'react'
 
 /** Debounce a fast-changing value (search input, slider, …) so effects/queries

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEvent } from '@aegis/shared'
 // Every turn ends with two frames: message.complete, then the turn worker's
 // end-of-turn session.info (running=false), which core sends after it has

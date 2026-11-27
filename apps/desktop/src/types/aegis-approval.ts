@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // `ApprovalRequestParams` (tui_gateway/contracts/server_requests.py): the fields that make an approval a
 // sandbox's folder (`access`) or site (`network`) card. Absent, or `kind: 'command'`, is a command approval.
 export interface ApprovalKindFields {

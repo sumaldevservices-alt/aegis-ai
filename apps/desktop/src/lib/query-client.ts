@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ModelOptionProvider, ModelOptionsResult } from '@aegis/shared'
 import { QueryClient, type QueryKey, replaceEqualDeep } from '@tanstack/react-query'
 

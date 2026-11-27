@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Opening a skill install link. */
 export interface SkillDeepLinkCopy {
   installTitle: (name: string) => string

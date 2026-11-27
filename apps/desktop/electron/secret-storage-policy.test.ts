@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tests for electron/secret-storage-policy.ts — the "is OS-keychain
  * encryption enabled at all?" decision seam.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bound the nesting depth of raw inline HTML before it reaches `rehype-raw`.
  *

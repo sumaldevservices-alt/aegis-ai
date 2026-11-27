@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Mirror of what a member said and heard OUTSIDE the room engine. (#93813)
  *

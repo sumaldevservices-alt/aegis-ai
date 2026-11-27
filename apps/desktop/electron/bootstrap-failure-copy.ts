@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * User-facing copy for a failed first-run install (bootstrap).
  *

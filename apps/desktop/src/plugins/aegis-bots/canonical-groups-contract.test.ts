@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, expect, it, vi } from 'vitest'
 
 import type { captureGroupRequests } from './canonical-group-contract-test-utils'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { setShowReasoningFromConfig } from '@/store/reasoning-disclosure'
 
 // `/reasoning` typed into the composer — the Ink TUI's path

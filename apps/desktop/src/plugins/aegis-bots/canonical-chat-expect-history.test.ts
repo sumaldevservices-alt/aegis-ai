@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The roster's history wait must key off rows a transcript read can paint
  * (`live_message_count`), not the denormalized `message_count` total: a chat

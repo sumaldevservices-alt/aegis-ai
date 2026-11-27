@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Interface mode is a resolver input, never a preference writer. These tests
  * pin the precedence contract — sessionReveal ?? policy[mode] ?? userPref —

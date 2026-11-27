@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useState } from 'react'
 
 import { StatusRow } from '@/components/chat/status-row'

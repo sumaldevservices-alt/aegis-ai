@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * IDLE PULSE — keeps the preview overlay alive while the model reasons.
  *

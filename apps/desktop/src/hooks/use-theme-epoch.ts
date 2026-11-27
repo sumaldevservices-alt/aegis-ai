@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useEffect, useState } from 'react'
 
 // Theme repaints (themes/context.tsx) toggle `.dark` + rewrite inline custom

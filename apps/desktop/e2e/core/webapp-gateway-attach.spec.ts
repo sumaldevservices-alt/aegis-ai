@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The browser-hosted Desktop is served by the profile gateway's own listener, exactly like local
  * Electron Desktop talks to that gateway: one process runs every turn and owns the profile's store.

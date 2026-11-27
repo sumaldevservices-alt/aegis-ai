@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isRecord } from '@aegis/shared/i18n'
 import { atom } from 'nanostores'
 

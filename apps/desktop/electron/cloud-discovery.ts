@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { readJsonErrorBody, readStatusCode } from './api-transport'
 
 // The NAS (status, error code) pairs that mean the remembered team itself is

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Profile ids that cross into backend/TUI spawn argv must be non-empty
 // PROFILE_ID_RE slugs. Anything else (a numeric roster/DB id, an empty string,
 // a display label with spaces) must never reach `--profile <value>`: the CLI's

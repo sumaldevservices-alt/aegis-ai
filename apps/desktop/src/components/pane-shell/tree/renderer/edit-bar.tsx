@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Edit-mode palette — the floating, draggable "Layouts" card shown while
  * layout edit mode is on. It hosts the layout picker and the reset/done

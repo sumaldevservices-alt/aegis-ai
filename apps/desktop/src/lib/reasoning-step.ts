@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { DEFAULT_REASONING_EFFORT, isReasoningEffort } from '@aegis/shared'
 
 import { translateNow } from '@/i18n/runtime'

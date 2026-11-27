@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 interface CompletionPollOptions<T> {
   delayMs: number
   poll: () => Promise<T>

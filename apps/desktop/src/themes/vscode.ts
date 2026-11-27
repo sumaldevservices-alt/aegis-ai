@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * VS Code color-theme → DesktopTheme converter.
  *

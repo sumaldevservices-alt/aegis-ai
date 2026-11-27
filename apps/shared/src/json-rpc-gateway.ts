@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { CanonicalClientIdentity } from './gateway-contract.generated.js'
 import type { GatewayEvent, GatewayEventName } from './gateway-events.js'
 import {

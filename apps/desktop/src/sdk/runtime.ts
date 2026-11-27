@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Runtime SDK injection — the other half of the vscode-module model. Bundled
  * plugins resolve `@aegis/plugin-sdk` through the vite alias; RUNTIME-loaded

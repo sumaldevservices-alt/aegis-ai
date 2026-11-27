@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * First-run funnel telemetry (aegis.desktop.onboarding). Observes the
  * onboarding stores' own transitions — the provider picker, first-run

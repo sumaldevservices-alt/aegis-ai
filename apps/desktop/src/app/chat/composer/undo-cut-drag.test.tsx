@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment jsdom
 // The main chat composer shares useComposerUndo with the edit composer and has
 // the same two blind spots: Chromium runs a cut and an intra-editor text drag

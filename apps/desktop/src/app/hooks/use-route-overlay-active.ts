@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useLocation } from 'react-router'
 
 import { appViewForPath, isOverlayView } from '@/app/routes'

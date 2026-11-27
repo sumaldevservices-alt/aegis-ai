@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { computed, type ReadableAtom } from 'nanostores'
 
 import { LAYOUT_KEYS } from '@/lib/layout-persistence'

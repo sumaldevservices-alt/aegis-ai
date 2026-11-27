@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Edit profile and Duplicate read a bot's description from its own backend (#139548).
  *

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Pure derivation for the assistant message's "N files changed" card: fold a
 // turn's file-edit tool parts into one row per file. No React/DOM.
 

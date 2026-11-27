@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { mkdtemp, rm } from 'node:fs/promises'
 import path from 'node:path'
 

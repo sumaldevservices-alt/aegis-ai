@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Codecs, persistentAtom } from '@/lib/persisted'
 
 interface StatusDrawerScope {

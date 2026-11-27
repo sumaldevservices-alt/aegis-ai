@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // `host.warmProfile` and `host.dropLeftoverProfilePrefs`: profile verbs that
 // touch only this window's pool and storage, never the profile itself.
 

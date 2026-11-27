@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { EventEmitter } from 'node:events'
 
 import type { Session, WebContents } from 'electron'

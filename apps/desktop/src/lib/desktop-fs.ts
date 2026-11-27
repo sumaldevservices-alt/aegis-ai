@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { aegisApi, sessionFileOwnerScope } from '@/api/client'
 import type {
   Aegis AI Enterprise Autonomous PlatformConnection,

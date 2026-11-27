@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Wake-word activation chime. A short, bright, rising two-note "ding" that
 // plays the moment "Hey Aegis AI Enterprise Autonomous Platform" is detected, so it's obvious the wake
 // registered before voice capture starts. Deliberately distinct from the

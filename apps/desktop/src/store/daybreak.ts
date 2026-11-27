@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom } from 'nanostores'
 
 export type DaybreakRequester = (method: string, params?: Record<string, unknown>) => Promise<unknown>

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import '@/styles.css'
 
 import { createRoot } from 'react-dom/client'

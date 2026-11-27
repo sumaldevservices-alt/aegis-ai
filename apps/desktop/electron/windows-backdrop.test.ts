@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { applyWindowsBackdrop, type TranslucencyState, type WindowsBackgroundMaterial } from './translucency'

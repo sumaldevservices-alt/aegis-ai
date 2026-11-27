@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment jsdom
 // The update store's own entry points refuse a Cloud-owned target, so no button,
 // toast or flow left anywhere can start an update Aegis AI Enterprise Autonomous Platform Cloud owns.

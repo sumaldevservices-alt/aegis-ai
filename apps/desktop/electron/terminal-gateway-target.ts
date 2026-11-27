@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Where a terminal tab's shell runs. A tab records the gateway it was opened
 // on; this resolves that record against the registry and the live SSH pool so
 // the PTY spawns on THAT host no matter which gateway the window shows later.

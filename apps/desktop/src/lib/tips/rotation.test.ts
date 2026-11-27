@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The walk is one lap: a tip that has already been on screen — closed by the
  * timer, not only by the ✕ — is never offered again, and once every tip has

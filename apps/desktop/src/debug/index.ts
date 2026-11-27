@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Dev-only state diagnostics: one import, two counters.
 //
 //   window.__RENDER_COUNTS__  — what re-rendered, and why (props/state/parent)

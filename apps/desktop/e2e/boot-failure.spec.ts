@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * E2E boot-failure tests — verify the app shows an error overlay when the
  * backend can't start.

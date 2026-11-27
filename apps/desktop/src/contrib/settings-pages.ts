@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Settings ▸ Plugins — one home for every plugin's preferences, WoW-AddOns
  * style: each plugin gets an entry in the Settings rail, optionally with its

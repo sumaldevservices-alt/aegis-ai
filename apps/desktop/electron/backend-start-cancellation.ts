@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Cancel a startup wait, and check ownership before invoking its continuation. */
 export async function runBackendStartStep<T>(signal: AbortSignal | undefined, run: () => T | Promise<T>): Promise<T> {
   signal?.throwIfAborted()

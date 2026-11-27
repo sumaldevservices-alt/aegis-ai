@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { mergeUsage, usageFromTick } from '@aegis/shared'
 
 import { finalizeInterruptedMessages } from '@/lib/chat-messages'

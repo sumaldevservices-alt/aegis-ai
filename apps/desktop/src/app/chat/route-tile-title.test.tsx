@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A route tile opened BEFORE its plugin route registers must pick up the
  * contribution's title once registration lands. `paneMirror` recomputes titles

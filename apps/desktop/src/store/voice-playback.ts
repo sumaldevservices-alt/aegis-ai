@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom } from 'nanostores'
 
 export type VoicePlaybackSource = 'read-aloud' | 'voice-conversation'

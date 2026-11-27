@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Stop mid-stream: the reply on screen is the reply the session saved (#121594).
  *

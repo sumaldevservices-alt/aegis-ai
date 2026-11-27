@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useMemo } from 'react'
 
 import type { ProfileScope } from '@/aegis'

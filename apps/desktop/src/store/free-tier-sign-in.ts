@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { FreeTierClaimNudgeResult } from '@aegis/shared'
 import { atom } from 'nanostores'
 

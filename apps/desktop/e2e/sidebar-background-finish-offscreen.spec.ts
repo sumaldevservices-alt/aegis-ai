@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A session's running highlight must end when its background work ends, even
  * while the user is looking at another session.

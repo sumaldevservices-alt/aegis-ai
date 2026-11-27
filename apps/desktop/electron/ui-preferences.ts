@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Machine-level UI preferences (#145213): one JSON document beside the ROOT
 // Aegis AI Enterprise Autonomous Platform home, shared by native Desktop (this module, over the typed preload
 // capability) and every browser that opens this machine's Webapp (the Python

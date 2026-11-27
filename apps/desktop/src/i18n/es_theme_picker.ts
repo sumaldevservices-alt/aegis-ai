@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ThemePickerCopy } from './types_theme_picker'
 
 export const esThemePicker: ThemePickerCopy = {

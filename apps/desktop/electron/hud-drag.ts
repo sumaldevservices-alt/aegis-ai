@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * HUD composer-drag geometry — where to park the window so it stays under the
  * OS cursor, including across monitors.

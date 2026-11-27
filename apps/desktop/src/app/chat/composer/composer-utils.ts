@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Unstable_TriggerItem } from '@assistant-ui/core'
 import type { ConnectionState } from '@aegis/shared'
 

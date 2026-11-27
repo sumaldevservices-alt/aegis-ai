@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, it } from 'vitest'
 
 import { activatedTurnAdmission } from './resume-barrier-reread'

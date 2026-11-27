@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import path from 'node:path'
 
 /** The filesystem surface the candidate builders need — injectable for tests. */

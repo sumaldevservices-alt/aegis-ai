@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `ctx.files` refusals beyond plain containment: sensitive files moved out of
  * their names, kernel pseudo-filesystems, FIFOs, hard links, a folder or file

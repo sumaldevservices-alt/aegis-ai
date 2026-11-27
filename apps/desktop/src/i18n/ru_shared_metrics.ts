@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const ruSharedMetrics = {
   consentTitle: 'Делиться статистикой использования?',
   dialogTitle: 'Статистика использования',

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ConnectionTargetState } from '@aegis/shared'
 import { useEffect, useState } from 'react'
 

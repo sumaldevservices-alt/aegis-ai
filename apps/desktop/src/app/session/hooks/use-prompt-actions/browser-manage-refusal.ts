@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { hostHas } from '@/lib/host-capabilities'
 
 // A remote connection refuses /browser connect|disconnect: both drive the CDP

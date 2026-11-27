@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Which workspace surface the window is looking at — sessions, or one exact
  * bot inside Bot Mode. Owner keys are opaque exact strings supplied by callers;

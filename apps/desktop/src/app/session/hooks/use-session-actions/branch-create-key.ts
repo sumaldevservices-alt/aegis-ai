@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { SessionOwnerRoute } from '@/store/session-request-router'
 
 import type { BranchMessage } from './utils'

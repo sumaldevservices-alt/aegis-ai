@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { RightPanePerfEvent, RightPanePerfSnapshot } from './right-pane-events'
 
 const eventNames: RightPanePerfEvent[] = [

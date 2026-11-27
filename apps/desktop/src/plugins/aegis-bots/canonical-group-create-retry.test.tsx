@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A retry after a lost `groups.create` reply is the same request: display data that changed in
  * between (a Bot's title, a mirrored room taking the generated name) never mints a second room.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Neutral, unfinished state shared by pending tasks and goal criteria. */
 export function StatusPendingIcon() {
   return (

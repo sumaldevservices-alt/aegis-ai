@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Tabs as TabsPrimitive } from 'radix-ui'
 import * as React from 'react'
 

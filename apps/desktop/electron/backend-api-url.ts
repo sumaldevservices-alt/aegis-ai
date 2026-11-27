@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Join a Aegis AI Enterprise Autonomous Platform backend base URL with a renderer-supplied API path.
  *

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { GROUND_EPS, type Ledge, overlapsX, resolveLedge } from './roam-geometry'

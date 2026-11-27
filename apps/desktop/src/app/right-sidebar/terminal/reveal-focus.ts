@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { paletteToggle } from '@/app/command-palette/contrib'
 import { isPaneVisible, togglePaneVisible } from '@/components/pane-shell/tree/store'
 import { Terminal } from '@/lib/icons'

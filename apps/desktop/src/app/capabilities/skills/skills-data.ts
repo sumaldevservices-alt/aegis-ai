@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useQuery } from '@tanstack/react-query'
 
 import { getSkills, type ProfileScope, profileScopeKey } from '@/aegis'

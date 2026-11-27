@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // ── Content-addressed syntax-highlight cache (#95595) ────────────────────────
 // Switching to a warm session remounts the incoming transcript, and every
 // mounted code block used to be re-tokenized from scratch by shiki — N blocks

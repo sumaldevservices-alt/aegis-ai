@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { $activeGatewayProfile } from '@/store/profile'
 import { $connection } from '@/store/session'
 import {

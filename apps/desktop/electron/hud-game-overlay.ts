@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // hud-game-overlay.ts — is the HUD floating over a fullscreen app (a game)?
 //
 // Discord's in-game overlay behavior: while a fullscreen app owns the screen

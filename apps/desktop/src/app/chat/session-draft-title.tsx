@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { NEW_SESSION_TITLE } from '@/lib/chat-runtime'
 import { useStoreSelector } from '@/lib/use-session-slice'
 import { $draftTitles, draftTitleIn } from '@/store/composer'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The sidebar projects section's copy shape; `Translations.sidebar.projects`.
 export interface SidebarProjectsTranslations {
   showAllSessions: string

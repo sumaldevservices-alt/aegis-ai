@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // A store that reads its value once (a plain atom such as the favorite models)
 // keeps what it read when a newer machine value lands later (a first snapshot
 // past the boot bound, another window's change), and its next edit carries

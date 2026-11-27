@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useRef } from 'react'
 
 import { isWatchWindow } from '@/store/windows'

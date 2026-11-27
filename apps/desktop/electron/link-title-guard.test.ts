@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import assert from 'node:assert/strict'
 
 import { afterEach, describe, test } from 'vitest'

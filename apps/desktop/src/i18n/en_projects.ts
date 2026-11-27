@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The sidebar's projects-section copy, composed by en.ts.
 import type { Translations } from './types'
 export const enProjects: Translations['sidebar']['projects'] = {

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type SidebarSessionEntry } from '@/lib/session-branch-tree'
 import { calendarBucket, HOUR, localeWeekStartDay, MINUTE, SECOND, type SessionBucket } from '@/lib/time'
 

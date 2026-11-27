@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Keep-awake — hold a single machine-global power-save blocker.
  *

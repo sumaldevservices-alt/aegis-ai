@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { flushSync } from 'react-dom'
 
 import { $activeTreeGroup, $hoveredTreeGroup, noteActiveTreeGroup } from '@/components/pane-shell/tree/store'

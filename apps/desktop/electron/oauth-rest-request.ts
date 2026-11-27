@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { AsyncLocalStorage } from 'node:async_hooks'
 
 import { readJsonErrorBody, readStatusCode } from './api-transport'

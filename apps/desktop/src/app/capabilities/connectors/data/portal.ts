@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { openExternalLink } from '@/lib/external-link'
 
 import { FALLBACK_PORTAL_URL } from '../../../settings/billing/use-billing-state'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The window's ONE session-scoped RPC dispatcher, factored out of the contrib
  * wiring controller so the exact production routing (not a re-implementation)

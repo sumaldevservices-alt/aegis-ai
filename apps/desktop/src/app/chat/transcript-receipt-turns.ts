@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A refreshed page that holds a whole turn the window drew live supersedes the
  * window's copy of that turn, decided by the turn's completion receipt.

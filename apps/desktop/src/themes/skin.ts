@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Aegis AI Enterprise Autonomous Platform skin → DesktopTheme converter.
  *

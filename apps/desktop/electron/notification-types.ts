@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface Aegis AI Enterprise Autonomous PlatformNotification {
   title?: string
   body?: string

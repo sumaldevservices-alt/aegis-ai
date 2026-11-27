@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, describe, expect, it } from 'vitest'
 
 import { chatSurfaceRoot, clearSurfaceVar, COMPOSER_HEIGHT_VAR, setSurfaceVar } from './surface-vars'

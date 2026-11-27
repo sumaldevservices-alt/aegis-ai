@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Where a packaged macOS app bundle lives, as far as macOS can take it away. The Applications move
  * prompt (mac-applications-guard.ts) and bundled CLI provisioning (cli-provision.ts) both read it;

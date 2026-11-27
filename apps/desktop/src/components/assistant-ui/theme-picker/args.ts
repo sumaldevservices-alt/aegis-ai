@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ToolCallMessagePart } from '@assistant-ui/react'
 import type { ThemePicker } from '@aegis/shared'
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Shared-metrics report for PACKAGED self-updates (electron-updater, App
 // Installer, Store). Checkout hand-offs run `aegis update`, whose receipt the
 // backend already counts, so they never reach this module.

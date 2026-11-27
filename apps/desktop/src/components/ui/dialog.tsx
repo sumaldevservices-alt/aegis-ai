@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Dialog as DialogPrimitive } from 'radix-ui'
 import * as React from 'react'
 

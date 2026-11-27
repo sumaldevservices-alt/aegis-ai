@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Every Desktop RPC that carries a session_id must reach the backend that OWNS
 // that session. On a multiplexed local gateway the window's ambient socket is
 // the launch profile's authority, which refuses a secondary profile's session:

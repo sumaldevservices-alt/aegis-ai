@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Stream-aware background throttling for chat windows.
 //
 // Visible chat windows must paint the live transcript while blurred or occluded,

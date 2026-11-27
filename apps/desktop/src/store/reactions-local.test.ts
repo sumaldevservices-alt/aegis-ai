@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { handleDesktopBridgeEvent } from '@/app/session/hooks/use-message-stream/gateway-event/desktop-bridge'

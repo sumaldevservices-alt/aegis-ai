@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // #103288: one resolver picks the ssh client for every desktop spawn. Platform,
 // env and filesystem are passed as data; nothing touches process.platform.
 import { describe, expect, it } from 'vitest'

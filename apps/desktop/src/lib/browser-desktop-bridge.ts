@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { externalUrlTarget, LOCAL_CONNECTION_ID } from '@aegis/shared'
 
 import type { Aegis AI Enterprise Autonomous PlatformApiRequest } from '@/global'

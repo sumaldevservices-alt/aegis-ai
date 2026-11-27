@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Notification settings copy used when the desktop locale loads.
 export const zhNotifications = {
   title: '通知',

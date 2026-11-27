@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Unit tests for the HUD windowing profile. Ozone parsing and the capability
  * matrix live here: one profile, every operation reads the same flags.

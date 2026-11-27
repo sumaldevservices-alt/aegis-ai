@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Pure derivation of how the app names an update target: the label
  * (`v0.4.2`, `backend v0.4.2 (+12)`, `v0.4.2 · update`), its tooltip, and

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ProfileScope, profileScopeKey } from '@/aegis'
 import { activeGatewayConnectionId } from '@/store/gateway'
 

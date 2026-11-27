@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** The markup of a `data:text/html` URL, or null for any other src.
  *
  *  The Webapp page CSP has no room for guest inline scripts, and a `data:`

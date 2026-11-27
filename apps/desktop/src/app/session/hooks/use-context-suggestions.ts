@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type MutableRefObject, useCallback, useEffect } from 'react'
 
 import { $currentCwd, setContextSuggestions } from '@/store/session'

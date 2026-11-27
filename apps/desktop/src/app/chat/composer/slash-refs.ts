@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Slash-command recognition for text the composer did not watch being typed —
  * a paste, a restored draft, an undo step, a rebuilt line.

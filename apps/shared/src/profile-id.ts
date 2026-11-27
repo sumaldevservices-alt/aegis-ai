@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // THE profile-id grammar for TypeScript: the mirror of Python's
 // aegis_constants.PROFILE_ID_RE. Every Desktop (Electron + renderer), plugin
 // SDK and dashboard gate reads it from here instead of re-declaring the

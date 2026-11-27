@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * BOUND THE RETAINED TRANSCRIPT — release paged-through history from the store.
  *

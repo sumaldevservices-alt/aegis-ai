@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Unstable_TriggerAdapter } from '@assistant-ui/core'
 import { ComposerPrimitive } from '@assistant-ui/react'
 import type { ReactNode } from 'react'

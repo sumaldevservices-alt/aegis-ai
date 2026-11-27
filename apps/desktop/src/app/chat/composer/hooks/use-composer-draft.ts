@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useAui, useAuiState, useComposerRuntime } from '@assistant-ui/react'
 import { SLASH_COMMAND_RE } from '@aegis/shared'
 import { type RefObject, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'

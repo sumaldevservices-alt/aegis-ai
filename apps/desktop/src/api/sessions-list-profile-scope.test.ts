@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A Bot Mode list read names the selected bot's profile in its selector
  * (`recents_profile` / `profile`). The request's own profile must name the

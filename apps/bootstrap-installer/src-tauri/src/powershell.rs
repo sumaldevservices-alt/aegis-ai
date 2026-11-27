@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 //! Drives PowerShell (Windows) or bash (Unix) for install.ps1 / install.sh.
 //!
 //! Port of `spawnPowerShell` from bootstrap-runner.ts, with the same

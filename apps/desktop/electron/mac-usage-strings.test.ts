@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // TCC usage strings live in electron-builder.config.cjs's mac.extendInfo —
 // without them a hardened-runtime (signed) build is denied Contacts / Apple
 // Events access silently: macOS requires the usage description BEFORE it will

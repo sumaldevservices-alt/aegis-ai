@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Bug #118864: the footer's text accessor (getMessageText) joined EVERY
 // message in the response group, so the tail reply's Copy/Read-aloud included
 // sealed interim narration and mid-turn commentary. The default Copy/Read

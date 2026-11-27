@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * C2 core: a refreshed newest page merged onto a long chat's live turn.
  *

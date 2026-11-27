@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { BillingTranslations } from './types_billing'
 
 // Out-of-credits overlay copy (Nous vs. third-party providers), spread into en.ts.

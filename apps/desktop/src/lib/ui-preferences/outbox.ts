@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Local changes not yet confirmed by the machine's store, kept across reloads:
 // a change made right before the tab reloads or closes must still win over the
 // older store value on the next load, and be written then. One outbox PER TAB

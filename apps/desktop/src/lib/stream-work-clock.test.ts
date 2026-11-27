@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 
 import { chatMessageText } from '@/lib/chat-messages'

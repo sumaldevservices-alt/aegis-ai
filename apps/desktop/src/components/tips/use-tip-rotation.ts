@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The rotation's clock: a few minutes into a launch, then hours apart, offer a
  * tip if the app happens to be quiet.

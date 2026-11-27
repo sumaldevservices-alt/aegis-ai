@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bot metadata: the write path (`saveBotMeta`), the disk-load path
  * (`migrateBotMeta`), and the server-reconciliation overlay

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { extractReleaseHighlights, latestMergedPrTitles, updateNotesSource } from './update-notes'

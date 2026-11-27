@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { cleanup, render, screen } from '@testing-library/react'
 import { atom } from 'nanostores'
 import { MemoryRouter } from 'react-router'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Electron consumes the launch contract completed by the PM bundle builder. */
 import { createHash } from 'node:crypto'
 import os from 'node:os'

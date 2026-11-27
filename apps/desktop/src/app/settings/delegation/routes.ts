@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DelegationModelMap, DelegationModelRoute, DelegationProfileRoutes } from '@/aegis'
 
 /** The fields the route dialog edits; every other key of a stored route round-trips untouched. */

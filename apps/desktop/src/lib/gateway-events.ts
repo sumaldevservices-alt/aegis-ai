@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { StatusbarMenuItem } from '@/app/shell/statusbar-controls'
 
 const LOG_TAIL = 5

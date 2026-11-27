@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Regression coverage for an attached image in a durable session. The gateway
  * persists the turn, the builder exits, and desktop renders it from the session store

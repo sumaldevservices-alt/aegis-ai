@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { translateNow } from '@/i18n'
 import { surfaceModelSwitchConfirm } from '@/lib/guarded-model-switch'
 import { modelOptionsQueryKey } from '@/lib/model-options'

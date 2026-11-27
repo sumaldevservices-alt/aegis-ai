@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DesktopCommandNotices } from './types_desktop_commands'
 
 // Desktop-side /rollback /agents /config /history /save /export /import /timestamps lines.

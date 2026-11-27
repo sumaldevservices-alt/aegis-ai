@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A Desktop-driven room's engine (`engine: 'desktop'`, set when the room was
  * created across machines) survives a window reload: the room writer stores it

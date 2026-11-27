@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Mixed remote mode (app-global remote + an explicit override on the active
 // profile): the window's primary backend is that override, but the app-global
 // remote still owns every inherited profile's sessions, the default profile's

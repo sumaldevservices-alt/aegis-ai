@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom } from 'nanostores'
 
 // Mirrors `display.tool_progress`, independent of `display.show_reasoning`:

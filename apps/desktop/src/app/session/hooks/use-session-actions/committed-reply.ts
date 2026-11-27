@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { textWithoutReferenceLines } from '@/components/assistant-ui/reference-kinds'
 import { type ChatMessage, chatMessageText } from '@/lib/chat-messages'
 import { isLiveTailReplyId } from '@/lib/spoken-reply'

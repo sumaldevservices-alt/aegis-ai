@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { TranslationOverrides } from './define-locale'
 import { esDesktopCommands } from './es_desktop_commands'
 import { esSessionCommands } from './es_session_commands'

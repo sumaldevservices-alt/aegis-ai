@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isSessionNotOwnedError } from '@/app/session/hooks/use-prompt-actions/utils'
 import { runtimeTranslations, translateNow } from '@/i18n'
 import { textPart } from '@/lib/chat-messages'

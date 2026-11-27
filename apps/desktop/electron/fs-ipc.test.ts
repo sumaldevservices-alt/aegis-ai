@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `aegis:fs:reveal` answers what it did (#115167). `shell.showItemInFolder`
  * selects an existing item and silently no-ops on a missing one, and a remote

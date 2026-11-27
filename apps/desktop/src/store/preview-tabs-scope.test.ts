@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Regression: the right rail's tabs were persisted under ONE global key
 // (`aegis.desktop.previewTabs.v2` holding a bare array), so a preview opened in
 // one agent's chat appeared in every other agent's chat — Tess's model showed up

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Settings ▸ Backup & Transfer; `Translations.settings.backup`.
 export interface BackupTransferTranslations {
   intro: string

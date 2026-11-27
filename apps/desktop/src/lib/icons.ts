@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import {
   IconActivity as Activity,
   IconAlertCircle as AlertCircle,

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import '../catalog/catalog-discovery.css'
 
 import type { ReactNode } from 'react'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useMediaQuery } from './use-media-query'
 
 /** Narrower than this and the sidebar stops being a docked column: it renders

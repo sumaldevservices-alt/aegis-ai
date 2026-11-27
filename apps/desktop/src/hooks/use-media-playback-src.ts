@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useStore } from '@nanostores/react'
 import { type SyntheticEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 

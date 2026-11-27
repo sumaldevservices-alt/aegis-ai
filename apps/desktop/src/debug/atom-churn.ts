@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Dev-only nanostores churn counter — the state-side companion to
 // `render-counter.ts`. Render counts tell you WHAT re-rendered; this tells you
 // WHICH ATOM pushed the update, and whether the push was worth making.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { OpenDialogOptions } from 'electron'
 
 type DialogProperty = NonNullable<OpenDialogOptions['properties']>[number]

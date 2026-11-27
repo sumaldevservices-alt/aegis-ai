@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { normalize } from '@/lib/text'
 import type { SessionInfo } from '@/types/aegis'
 

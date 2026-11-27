@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // #77311: the renderer heap ceiling knob (`desktop.renderer_max_old_space_mb`)
 // and `desktop.electron_flags` must reach app.commandLine on packaged launches
 // that never go through the `aegis desktop` launcher.

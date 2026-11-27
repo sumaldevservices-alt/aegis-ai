@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Rasterise an SVG string to PNG and copy it to the clipboard. Self-contained
 // SVGs only (inline styles): Pele output with its palette written onto the
 // root qualifies. Falls back to copying the SVG markup as text where image

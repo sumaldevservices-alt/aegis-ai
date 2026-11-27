@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Settings > Memory & Context and Command Center > Maintenance:
 // the active (saved) memory provider, a selected-but-unsaved one, and the
 // built-in MEMORY.md / USER.md layer; `Translations.settings.memoryLayers`.

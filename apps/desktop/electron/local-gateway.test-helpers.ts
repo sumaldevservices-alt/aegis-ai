@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Temp homes for the local-gateway suites that bind real AF_UNIX control sockets.
  *

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // `desktop.ssh_connect_timeout` / `desktop.ssh_forward_timeout` (#132508).
 //
 // Desktop gives ssh 15s to connect and 15s to set up its port forward. The

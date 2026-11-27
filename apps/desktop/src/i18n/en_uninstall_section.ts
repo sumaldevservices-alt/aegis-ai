@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { UninstallSectionTranslations } from './types_uninstall_section'
 
 // Settings > About > Uninstall, composed by en.ts as `settings.uninstallSection`.

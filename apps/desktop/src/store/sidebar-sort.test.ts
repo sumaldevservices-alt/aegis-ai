@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import type { SessionInfo } from '@/aegis'

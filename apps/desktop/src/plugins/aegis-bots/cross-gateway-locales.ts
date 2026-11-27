@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Creating group chats whose bots may run on other computers: every new one is run by a gateway. Every Bot Mode locale. */
 export interface CrossGatewayGroupMessages {
   gatewayPeer: (owner: string, local?: boolean) => string

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 //! `marker.rs` tests (split out to keep the module under the size gate).
 
 use super::*;

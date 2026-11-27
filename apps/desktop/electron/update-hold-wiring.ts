@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Desktop wiring of an update hold (R8 D3): the marker probe the boot and
 // pool-backend gates share, the blocked boot screen's state, and its three IPC
 // ways out. The judgement itself lives in update-marker-gate.ts; main.ts keeps

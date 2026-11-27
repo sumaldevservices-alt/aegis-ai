@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Keep-awake — stop the machine sleeping during long, unattended runs.
  *

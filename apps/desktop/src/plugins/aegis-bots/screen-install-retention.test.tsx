@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * An INACTIVE registry-routed bot's pooled socket is disposed by the SDK as soon
  * as its request count hits zero — so `display.install.log/done` (and the

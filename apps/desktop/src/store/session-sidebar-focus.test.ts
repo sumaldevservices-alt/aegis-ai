@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Loaded for its primary-follow wiring: a new primary selection re-fronts the
 // workspace, which the last case asserts through the focus derivation.
 import '@/store/session-states'

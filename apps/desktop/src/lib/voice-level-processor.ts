@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Bundled as a separate worklet asset; these globals belong to AudioWorkletGlobalScope.
 declare abstract class AudioWorkletProcessor {
   readonly port: MessagePort

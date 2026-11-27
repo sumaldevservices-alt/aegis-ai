@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Shared harness for the New Bot dialog suites (create-agent-*.test.tsx).
  *

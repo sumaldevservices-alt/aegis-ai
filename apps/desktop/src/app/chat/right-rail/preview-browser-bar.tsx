@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * BROWSER BAR: back / forward / reload / address / pop-out (or pop-in) for a
  * URL preview.

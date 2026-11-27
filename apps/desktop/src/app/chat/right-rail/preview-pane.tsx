@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Side-effect import: watches the turn edge so the overlay keeps a pulse while
 // the model reasons. Lives here because the pane is what makes it reachable.
 import './preview-mind'

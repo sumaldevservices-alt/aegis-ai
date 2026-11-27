@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { DATA_IMAGE_URL_RE, dataUrlToBlob } from '@/lib/embedded-images'
 import { $reactionsEnabled } from '@/store/reactions-enabled'
 

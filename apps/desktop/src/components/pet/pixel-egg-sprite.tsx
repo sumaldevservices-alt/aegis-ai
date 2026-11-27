@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type CSSProperties, useEffect, useRef } from 'react'
 
 import eggSheetUrl from './pet-egg-sheet.png'

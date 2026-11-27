@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { capabilityScoped, aegisApi, type ProfileScope, sessionReadOwnerPin } from '@/api/client'
 
 import type { TimelineEntry } from './timeline-data'

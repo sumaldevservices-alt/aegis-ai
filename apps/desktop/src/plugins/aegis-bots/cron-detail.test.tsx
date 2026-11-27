@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bot Mode's cronjob rows were inert: the only interactive controls were the
  * enable switch and the hover-only delete button, so clicking a job to see

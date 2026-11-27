@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { LayoutNode } from '../model'
 
 import { TreeGroup } from './tree-group'

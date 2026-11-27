@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, it } from 'vitest'
 
 import { busyAt, type BusyMember, memberOutcomes, memberStatus, roomCycle, roomHandoffs, type RoomLogEvent, STALL_AFTER_S } from './group-room-status'

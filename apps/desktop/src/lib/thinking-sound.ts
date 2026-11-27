@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Ambient "thinking" sound for the desktop voice conversation. While the agent
 // works (status === 'thinking') no audio flows, which reads as "it died" during
 // long thinking/tool stretches. A calm, quiet, repeating pair of soft bubble

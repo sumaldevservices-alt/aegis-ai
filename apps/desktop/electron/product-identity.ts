@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // product-identity.ts — the typed build-time product identity.
 //
 // product-identity.cjs is the single derivation of every name-shaped

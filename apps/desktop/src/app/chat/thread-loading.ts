@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ChatMessage } from '@/lib/chat-messages'
 
 export type ThreadLoadingState = 'response' | 'session'

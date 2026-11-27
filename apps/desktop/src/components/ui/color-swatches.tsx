@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Codicon } from './codicon'
 
 interface ColorSwatchesProps {

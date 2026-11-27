@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Zone editor — the FancyZones grid editor experience, ported from PowerToys'
  * `GridEditor.xaml.cs` interactions onto the verbatim model port (grid-model.ts):

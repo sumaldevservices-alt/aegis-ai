@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bot avatars: the shape/color/eyes vocabulary, the deterministic blobatar
  * faces, the shared face clock that animates them, and `BotFace` — the one

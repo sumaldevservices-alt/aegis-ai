@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useActionBarReload } from '@assistant-ui/core/react'
 import {
   ActionBarPrimitive,

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Aegis AI Enterprise Autonomous PlatformApiRequest, Aegis AI Enterprise Autonomous PlatformSelectPathsOptions, Aegis AI Enterprise Autonomous PlatformStagedUpload } from '@/global'
 import { blobToDataUrl } from '@/lib/base64'
 import { type BrowserBootstrap, browserFetch, endpointUrl } from '@/lib/browser-transport'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { aegisApi } from '@/api/client'
 import { $profileRemoteOverrides } from '@/store/profile-remote-override'
 

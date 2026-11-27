@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { CAPABILITIES_ROUTE } from '../routes'
 
 // `plugins` used to redirect here too; it is a live Settings view again

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { PluginPreviewAccessTranslations } from './types_plugin_preview_access'
 
 /** Copy for the preview-script consent prompt and the per-plugin grant list (Capabilities ▸ Plugins). */

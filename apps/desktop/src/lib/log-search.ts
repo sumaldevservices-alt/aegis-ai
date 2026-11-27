@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Pure matching behind in-log search (LogTail + useLogSearch). Kept free of
 // React so the offsets, segment cuts, and severity column are testable alone.
 

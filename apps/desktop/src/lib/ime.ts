@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * IME-aware Enter handling, shared by every text field whose bare Enter
  * performs an action (submit, rename, commit, adopt, …).

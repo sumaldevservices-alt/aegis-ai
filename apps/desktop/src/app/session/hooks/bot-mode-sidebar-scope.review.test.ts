@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bot Mode sidebar scope edges (#126732 review): the sidebar re-scopes to a
  * selected bot only when that bot lives on the source the window's list and

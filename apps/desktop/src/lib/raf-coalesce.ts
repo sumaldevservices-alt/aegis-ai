@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Coalesce a stream of values (pointermove positions, resize deltas) to one
  *  `apply` per animation frame, so a drag can't drive several layouts per frame.
  *  `push` records the latest value and schedules a frame; `finish` commits the

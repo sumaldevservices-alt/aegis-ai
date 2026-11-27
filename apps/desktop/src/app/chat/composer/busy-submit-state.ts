@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { BusyInputMode } from '@/store/busy-input-mode'
 
 export type ComposerBusyAction = 'interrupt' | 'steer' | 'queue' | 'stop'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { IpcMain } from 'electron'
 
 /** What main knows about the user being at this computer, pushed on `aegis:presence`. */

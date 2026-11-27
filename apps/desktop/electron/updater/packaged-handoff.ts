@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { RelaunchRegistration } from './relaunch'
 
 import type { UpdaterApplyResultWire } from './index'

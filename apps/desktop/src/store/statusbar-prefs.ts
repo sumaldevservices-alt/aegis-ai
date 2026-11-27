@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Codecs, persistentAtom } from '@/lib/persisted'
 import { readKey } from '@/lib/storage'
 import { modeBound } from '@/store/interface-mode'

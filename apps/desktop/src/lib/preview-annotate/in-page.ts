@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Guest-page comment overlay. Injected as source into the preview webview —
  * no imports, no module constants, every value the body needs lives inside

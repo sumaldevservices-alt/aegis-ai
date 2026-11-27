@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Consume the detached update hand-off's result file (#82328 follow-up).
  *

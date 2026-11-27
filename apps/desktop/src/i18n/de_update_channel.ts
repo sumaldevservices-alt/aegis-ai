@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const deUpdateChannel = {
   title: 'Update-Kanal',
   description:

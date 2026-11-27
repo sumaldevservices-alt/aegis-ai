@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Two contracts with no coverage before the invalidation-scoping work split
 // AssistantMessage into InterAgentAssistantMessage + AssistantMessageBody:
 //

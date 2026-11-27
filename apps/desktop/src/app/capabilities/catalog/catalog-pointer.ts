@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Off for now: without it every card rests at its theme's gradient anchor. */
 export const CATALOG_POINTER_ENABLED = false
 

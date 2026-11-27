@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** The connected process owns its runtime version, not a checkout on disk.
  *  `displayVersion` carries the distance past the release tag (`0.21.5+1913`);
  *  a backend that predates it only reports the bare release. */

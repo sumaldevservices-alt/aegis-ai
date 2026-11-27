@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bot Mode's domain layer: the roster query, bot metadata storage, the
  * identity keys everything else is filed under, and needs-attention state.

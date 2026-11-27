@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The roster snapshot publish (`usePublishRosterSnapshot`) is the one place the
  * 5 s roster poll fans out into shared state: `$lastRoster`, workspace owner

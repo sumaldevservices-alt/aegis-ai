@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bare-path recognition for the composer. Walking into a folder from the `@`
  * popover (Tab) re-types the token as a bare `@apps/desktop/` so the next

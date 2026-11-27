@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Layout tree model — the Dockview-style structure that replaces the
  * rails/bands grammar. Two node kinds:

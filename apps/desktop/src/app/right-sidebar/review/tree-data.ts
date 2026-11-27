@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Aegis AI Enterprise Autonomous PlatformReviewFile } from '@/global'
 
 // A node in the review changed-files tree. Directories aggregate their

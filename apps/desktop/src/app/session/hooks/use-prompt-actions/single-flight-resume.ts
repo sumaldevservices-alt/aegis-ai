@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { ambientOwnerConnectionId, type ProfileScope } from '@/api/client'
 
 /**

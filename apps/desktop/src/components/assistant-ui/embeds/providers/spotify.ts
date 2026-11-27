@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { bareHost, type EmbedMatcher } from './types'
 
 // Spotify's embed has only two layouts: compact (≤152) and full (352). Any

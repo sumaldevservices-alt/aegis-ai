@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, expect, test, vi } from 'vitest'
 
 import type { GatewayRequest } from '@/app/session/hooks/use-prompt-actions/utils'

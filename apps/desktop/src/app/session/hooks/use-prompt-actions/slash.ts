@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { skillInvocationText } from '@aegis/shared'
 import { mergeUsage, parseCommandDispatch, parseSlashCommand, randomUuid } from '@aegis/shared'
 import { type MutableRefObject, useCallback, useRef } from 'react'

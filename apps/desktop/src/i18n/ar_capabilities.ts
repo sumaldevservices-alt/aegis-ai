@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { arPluginPreviewAccess } from './ar_plugin_preview_access'
 import { arPluginUpdateAll } from './ar_plugin_update_all'
 import type { TranslationOverrides } from './define-locale'

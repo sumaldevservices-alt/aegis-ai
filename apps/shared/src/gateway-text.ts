@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** User-facing text of the shared gateway client, in the Ink TUI catalog's shape: Ink's English catalog
  *  spreads these leaves in (`i18n/en/libText.ts`, `i18n/en/canonical.ts`) and passes its own `t`, so
  *  its locale packs translate them; any other client gets this English. Function leaves take

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 const platform = vi.hoisted(() => ({ browserHosted: false }))
 
 vi.mock('@/lib/platform', async (importOriginal): Promise<object> => ({

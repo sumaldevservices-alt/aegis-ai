@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * E2E onboarding tests — verify the provider picker appears when no
  * inference provider is configured.

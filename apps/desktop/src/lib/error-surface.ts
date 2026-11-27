@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Structured turn-error descriptor forwarded by the gateway (see
 // agent/error_surface.py). Names WHICH layer of the stack failed and the
 // classifier's failure code so the error card can say what happened in plain

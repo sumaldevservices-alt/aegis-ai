@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { KnownBillingRefusalCode } from '@aegis/shared/billing'
 import { describe, expect, it } from 'vitest'
 

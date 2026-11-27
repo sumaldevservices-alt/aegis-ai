@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { JsonRpcGatewayError } from '@aegis/shared'
 import { beforeEach, expect, test, vi } from 'vitest'
 

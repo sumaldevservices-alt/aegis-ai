@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, map } from 'nanostores'
 
 // The Capabilities Skills-list query key, imported rather than re-spelled so a

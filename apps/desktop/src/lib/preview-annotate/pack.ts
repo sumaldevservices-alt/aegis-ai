@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type AnnotateGroup, groupAnnotations } from './group'
 import { type CompactIdentity, formatIdentityLine } from './identity'
 import type { AnnotatePin } from './stack'

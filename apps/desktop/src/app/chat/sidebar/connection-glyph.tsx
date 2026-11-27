@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DesktopRegistryConnection } from '@/global'
 import { Cloud, Monitor, Network, Terminal } from '@/lib/icons'
 import { cn } from '@/lib/utils'

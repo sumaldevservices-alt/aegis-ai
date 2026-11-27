@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The group-chat room store: the room atoms, the durable record in plugin
  * storage, the bounded cross-client projection that rides the default

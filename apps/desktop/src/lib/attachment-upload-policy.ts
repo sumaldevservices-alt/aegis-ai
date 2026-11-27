@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** When a composer attachment must cross as BYTES rather than ride its path.
  *
  * Shared by the submit-time upload pipeline (`uploadComposerAttachment`) and

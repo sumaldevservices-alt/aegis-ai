@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment jsdom
 // Sending a message closes the `@`, `/` or `:` completion list that was open over its text, so the
 // next Enter or Tab acts on the new, empty draft instead of picking a row from the stale list.

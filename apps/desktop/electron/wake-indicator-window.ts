@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { pathToFileURL } from 'node:url'
 
 import { BrowserWindow, screen } from 'electron'

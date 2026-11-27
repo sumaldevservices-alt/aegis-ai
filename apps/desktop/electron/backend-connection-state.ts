@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export type BackendConnectionAttempt<TConnection> = {
   generation: number
   promise: Promise<TConnection> | null

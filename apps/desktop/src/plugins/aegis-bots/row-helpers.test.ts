@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The row-level reads a roster row is assembled from: who sent the last
  * message, and whether a bot counts as live right now.

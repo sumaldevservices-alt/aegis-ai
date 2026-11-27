@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
 import { Button } from '@/components/ui/button'

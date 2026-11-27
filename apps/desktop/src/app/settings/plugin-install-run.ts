@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { enableCatalogDesktopPlugin, enablePackageDesktopHalf } from '@/contrib/plugins-store'
 import { discoverRuntimePlugins } from '@/contrib/runtime-loader'
 import type { useI18n } from '@/i18n'

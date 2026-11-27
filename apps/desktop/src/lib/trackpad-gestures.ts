@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Trackpad / pointer gesture primitives shared across canvas + DOM surfaces.
 //
 // macOS quirk (Chromium/Electron): both pinch-zoom and "smart zoom" arrive as

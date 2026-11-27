@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Session lineage and sidebar integrity for branches. One real Electron app +
  * one real `aegis serve`; only the LLM is faked.

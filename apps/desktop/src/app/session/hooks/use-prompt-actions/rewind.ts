@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Shared rewind/interrupt core for the prompt verbs — the ONE implementation
  * of the submit primitive + the pure message math behind cancel / reload /

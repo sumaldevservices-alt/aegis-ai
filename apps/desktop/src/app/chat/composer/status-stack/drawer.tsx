@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './drawer.css'
 
 import type { ReactNode } from 'react'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { renderHook } from '@testing-library/react'
 import { createElement, type ReactNode } from 'react'
 import { MemoryRouter } from 'react-router'

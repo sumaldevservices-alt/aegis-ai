@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DesktopAgentRoster } from '@/global'
 import type { ProfileInfo } from '@/types/aegis'
 

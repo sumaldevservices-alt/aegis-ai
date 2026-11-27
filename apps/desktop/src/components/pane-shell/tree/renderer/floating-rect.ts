@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Floating-pane geometry — pure, so the clamping/anchoring rules are testable
  * without a DOM.

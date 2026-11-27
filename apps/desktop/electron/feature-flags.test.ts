@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // feature-flags.ts is the single resolver for which gated surfaces are on in
 // this artifact. These tests pin the flag table: local models ship on Windows,
 // macOS and Linux x64/arm64 on every channel; elsewhere the launch argv opts in with

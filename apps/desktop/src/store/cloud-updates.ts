@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Aegis AI Enterprise Autonomous Platform Cloud owns updates for its agents: it replaces the agent's image, so
  * no in-app updater may be offered there. Two shapes reach a Cloud agent:

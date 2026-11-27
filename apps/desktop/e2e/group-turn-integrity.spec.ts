@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import os from 'node:os'
 import path from 'node:path'
 

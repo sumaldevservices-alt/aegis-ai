@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { CatalogCardVariant } from './catalog-card'
 import type { CatalogEntry } from './catalog-data'
 

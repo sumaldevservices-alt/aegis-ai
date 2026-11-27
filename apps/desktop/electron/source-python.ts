@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { statSync } from 'node:fs'
 import path from 'node:path'
 

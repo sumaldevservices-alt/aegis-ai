@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom } from 'nanostores'
 
 import { previewArtifactKey, previewName } from '@/lib/preview-targets'

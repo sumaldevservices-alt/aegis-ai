@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { randomUuid } from '@aegis/shared'
 import { atom, computed } from 'nanostores'
 

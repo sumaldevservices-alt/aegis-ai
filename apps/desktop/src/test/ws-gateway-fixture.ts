@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // A real `ws` server for Aegis AI Enterprise Autonomous PlatformGateway dial tests (node environment only).
 import { type ConnectionState, JsonRpcGatewayClient } from '@aegis/shared'
 

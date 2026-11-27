@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 

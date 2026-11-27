@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { OnboardingStartResult } from '@aegis/shared'
 
 import { chatMessageText } from '@/lib/chat-messages'

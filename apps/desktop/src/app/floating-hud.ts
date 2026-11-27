@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Shared chrome for the top-center floating HUDs (command palette + session
 // switcher). They pin just under the title bar, centered, and lean on a crisp
 // border + shadow to separate from the app — no dimming/blurring backdrop.

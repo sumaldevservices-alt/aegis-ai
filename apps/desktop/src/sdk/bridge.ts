@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Typed capabilities bridge for desktop plugins (`host.skills`, `host.toolsets`,
  * `host.profiles`, `host.pluginDecisions`).

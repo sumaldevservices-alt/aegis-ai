@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ApprovalCopy } from './types_approval'
 
 export const ruApproval: Partial<ApprovalCopy> = {

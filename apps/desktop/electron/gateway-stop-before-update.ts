@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Windows uninstall delegates fleet draining to the CLI before deleting files. */
 
 import { execFileSync, type ExecFileSyncOptionsWithStringEncoding } from 'node:child_process'

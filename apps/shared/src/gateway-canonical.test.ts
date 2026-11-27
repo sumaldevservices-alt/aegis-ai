@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // A plain-HTTP page (the Webapp opened from another machine) has `crypto.getRandomValues` but no
 // `crypto.randomUUID`: session.create still gets a request_id there.
 import { afterEach, expect, it, vi } from 'vitest'

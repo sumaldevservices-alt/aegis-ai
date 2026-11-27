@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { act, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 

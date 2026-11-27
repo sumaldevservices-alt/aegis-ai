@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Resolve a Bot Mode message key against the plugin's own `en` bundle.
  *

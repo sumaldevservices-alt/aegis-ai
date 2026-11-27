@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Keep the live primary gateway socket alive across Vite HMR so editing UI never
 // drops the agent session. Stash on dispose, re-adopt on remount. globalThis +
 // self-accept so this module's own reload doesn't reset the cache. Prod strips

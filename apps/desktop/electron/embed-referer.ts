@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { session } from 'electron'
 
 const EMBED_SESSION_PARTITION = 'persist:aegis-embed'

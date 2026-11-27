@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { decideLivenessForceClose, LIVENESS_PROBE_FAILURE_STREAK, probeGatewayLiveness } from './gateway-liveness-policy'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // updater/external.ts — the steward-owned strategy.
 //
 // The stamp declares 'external' when the package owner handles updates

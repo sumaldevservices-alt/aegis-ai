@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bot Screen install card — installs the TigerVNC + Xfce packages on the bot's
  * gateway host from inside Aegis AI Enterprise Autonomous Platform Desktop.

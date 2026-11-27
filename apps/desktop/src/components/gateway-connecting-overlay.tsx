@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ConnectionState } from '@aegis/shared'
 import { useStore } from '@nanostores/react'
 import { useEffect, useRef, useState } from 'react'

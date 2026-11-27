@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { motion, useSpring, useTransform } from 'motion/react'
 import { useEffect } from 'react'
 

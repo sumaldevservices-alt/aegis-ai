@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { CANONICAL_GROUP_LOCALES } from './canonical-group-locales'
 import { GROUP_CHAT_CHROME, type GroupChatChromeMessages } from './group-chrome-locales'
 import { GROUP_CHAT_ERRORS, type GroupChatErrorMessages } from './group-error-locales'

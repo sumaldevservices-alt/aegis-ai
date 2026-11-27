@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment jsdom
 // A profile whose backend is away on purpose (a plugin starting, stopping or restarting it:
 // store/backend-transition.ts) must not take a message on the backend that is about to go away.

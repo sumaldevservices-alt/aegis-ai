@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * E2E tests for desktop sidebar states — background processes, subagents,
  * and session dot transitions.

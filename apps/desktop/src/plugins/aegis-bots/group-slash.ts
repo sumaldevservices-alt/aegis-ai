@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { host } from '@aegis/plugin-sdk'
 
 import { botsText } from './i18n'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { cleanup } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 

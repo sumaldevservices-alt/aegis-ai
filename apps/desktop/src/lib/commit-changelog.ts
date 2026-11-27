@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tiny user-facing changelog builder. Takes a list of raw commit summaries,
  * parses the Conventional Commits 1.0 header (`type(scope)!: subject`),

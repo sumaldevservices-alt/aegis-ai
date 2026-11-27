@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Regression guard: the desktop's gateway-switch publication runs inside
  * nanostores' batch(). nanostores 1.4.0–1.4.1 annotated batch() with

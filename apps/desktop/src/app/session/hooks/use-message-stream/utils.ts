@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ChatMessage, chatMessageText, type GatewayEventPayload, textPart } from '@/lib/chat-messages'
 import { normalizePersonalityValue } from '@/lib/chat-runtime'
 import type { ErrorSurface } from '@/lib/error-surface'

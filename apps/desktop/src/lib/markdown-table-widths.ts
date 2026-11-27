@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Column widths for markdown tables in the transcript.
 //
 // A markdown table has no id — it is re-parsed from text on every render, and

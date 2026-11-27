@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // A profile rename keeps its sessions: every localStorage family keyed by the old profile name must move
 // to the new one, or the restored tabs dial a backend that no longer exists and 404 forever (#111868).
 

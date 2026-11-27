@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { APPINSTALLER_CHECK_TIMEOUT_MS, runAppInstallerChecker } from '../appinstaller-checker'
 
 import { type StoreResult, StoreStrategy, type StoreStrategyDeps } from './store'

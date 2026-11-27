@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Lightweight fuzzy subsequence scorer for picker filtering.
 //
 // Matches a query as an ordered subsequence of the target (so `g4o` matches

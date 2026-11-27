@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `aegis:fs:desktopPluginsRoot` builds the app's plugin root from the profile homes. A home a sandbox can
  * write must not feed it: the handler asks the check `registerFsIpc` is given, for every profile.

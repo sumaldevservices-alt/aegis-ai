@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * User sections — the three invariants that make membership-on-the-bot safe:
  * filing persists through `saveBotMeta` (so it rides profile sync), every row

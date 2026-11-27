@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { IconComponent } from '@/lib/icons'
 import { normalize } from '@/lib/text'
 import type { ConfigFieldSchema, EnvVarInfo, Aegis AI Enterprise Autonomous PlatformConfigRecord } from '@/types/aegis'

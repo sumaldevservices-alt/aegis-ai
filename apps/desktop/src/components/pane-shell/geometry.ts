@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Pane geometry — AABB INTERSECTION → WINDOW-CONTROL AWARENESS. The native
  * window controls (macOS traffic lights top-left / Windows-WSLg overlay

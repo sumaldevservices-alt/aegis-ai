@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@aegis/plugin-sdk'
 
 import type { CanonicalGroupEvent } from './canonical-group-history'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Aegis AI Enterprise Autonomous Platform Cloud agents: their public host is `<label>.agents.nousresearch.com`
  * (staging `<label>.agents.staging-nousresearch.com`), the URL the portal gives

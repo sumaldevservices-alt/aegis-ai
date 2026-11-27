@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The presentation leaves every Bot Mode surface reads: the name a row shows,
  * the flattened one-line preview beside it, and the slug that identifies a

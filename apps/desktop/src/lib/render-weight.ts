@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isCardTool, isFileEditTool, isSilentTool } from '@/lib/tool-render-class'
 
 /**

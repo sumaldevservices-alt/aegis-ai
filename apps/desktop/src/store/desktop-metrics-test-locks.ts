@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { vi } from 'vitest'
 
 import type { captureDesktopMetricsGate, DesktopMetricsGate } from './desktop-metrics'

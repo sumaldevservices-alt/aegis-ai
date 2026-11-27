@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { hasCronRunVerdict, isCronRunReadOnly, recordCronRunVerdict } from '@/store/read-only-transcript'
 import { ownerLookupSessionRows, sessionMatchesStoredId } from '@/store/session'
 import type { SessionInfo } from '@/types/aegis'

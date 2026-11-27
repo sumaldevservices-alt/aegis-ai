@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `ctx.preview` — a plugin's door into the preview Browser's guest page.
  *

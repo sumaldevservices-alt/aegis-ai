@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Canonical time/date formatting. Shared `Intl` instances (created once, not
 // per-render) + relative-time helpers. Every surface that shows a timestamp or
 // an age pulls from here so the rendered strings stay consistent app-wide.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import {
   PROVIDER_FAILURE_TRIGGER,
   TOOL_THEN_FAILURE_TEXT,

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The standalone desktop-plugin root (`<AEGIS_HOME>/desktop-plugins`) and the
 // one-time migrations that make it the ONLY place desktop code loads from.
 //

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Long-lived keep-alive WebSocket from Electron main for every published
  * SSH-isolated backend (#106935).

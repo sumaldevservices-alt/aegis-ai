@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Notification settings types used by every desktop locale.
 export interface NotificationSettingsTranslations {
   title: string

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Unit tests for the HUD's Linux cursor conversion. These cover the two things
  * that decide whether the bar is clickable: landing on the right point, and

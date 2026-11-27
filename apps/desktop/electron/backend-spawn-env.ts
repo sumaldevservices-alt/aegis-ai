@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export function desktopBackendSpawnEnv(base: NodeJS.ProcessEnv): NodeJS.ProcessEnv {
   return {
     ...base,

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ComposerBusyAction } from './busy-submit-state'
 
 /*

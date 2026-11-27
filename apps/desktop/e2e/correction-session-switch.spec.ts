@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Regression coverage for a correction sent during a live response, then a
  * warm session switch away and back. The correction is an accepted user turn,

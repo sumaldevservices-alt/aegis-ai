@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it, vi } from 'vitest'
 
 vi.mock('@/store/session-control', () => ({ refreshSupportedSessionControlAfterTurn: vi.fn(async () => undefined) }))

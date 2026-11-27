@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Status-bar "backend health" pill. The serve/chat socket and the messaging
  * gateway are different processes; this derivation is the one place that

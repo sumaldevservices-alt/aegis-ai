@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * C5 core: boot handshake and backend process lifecycle.
  *

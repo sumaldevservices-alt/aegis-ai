@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import path from 'node:path'
 
 /** The file name a URL's path ends in, or ``fallback`` when it names none. */

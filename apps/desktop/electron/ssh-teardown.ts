@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { waitForTeardown } from './local-backend-lifecycle'
 
 /** Retain transports removed from routing until their remote kill has settled. */

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // HUD mode's renderer URL. The pure, Electron-free piece lives here so it can
 // be unit-tested (same split as session-windows.ts, and for the same reason:
 // the contract below is invisible until it breaks at runtime).

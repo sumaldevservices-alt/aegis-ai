@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Message SHAPE for Bot Mode's plugin-scoped i18n bundles (see `./i18n.ts`).
  */

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Electron is a GUI-subsystem process, so a direct git.exe spawn allocates its
 // own console even when Node's windowsHide is set. windowsHide is SW_HIDE and,
 // from a console-less parent, does not stop that flash (aegis_cli/_subprocess_compat.py).

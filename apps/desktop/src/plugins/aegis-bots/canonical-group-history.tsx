@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import * as sdk from '@aegis/plugin-sdk'
 import { Codicon, Tip } from '@aegis/plugin-sdk'
 import { Fragment, type ReactNode, useEffect, useMemo, useRef, useState } from 'react'

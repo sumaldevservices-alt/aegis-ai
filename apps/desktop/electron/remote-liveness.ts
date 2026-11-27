@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isMissingHealthEndpointError } from './backend-health'
 
 export const REMOTE_LIVENESS_TIMEOUT_MS = 10_000

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { randomBytes, timingSafeEqual } from 'node:crypto'
 
 // One-time grants behind host.setProfileBackend's `prepare` and

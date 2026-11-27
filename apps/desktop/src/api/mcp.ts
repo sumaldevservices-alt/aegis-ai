@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { McpCatalogResponse, McpServerSummary } from '@/types/aegis'
 
 import { capabilityScoped, aegisApi, type ProfileScope, profileScoped } from './client'

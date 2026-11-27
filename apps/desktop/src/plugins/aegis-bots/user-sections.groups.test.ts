@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Group chats file into user-made sections exactly like bots — with the one
  * structural difference the model encodes: a bot's membership is a field on

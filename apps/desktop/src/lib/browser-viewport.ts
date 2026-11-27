@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Fit the browser app to the visible area when a keyboard leaves layout height
  * unchanged. `interactive-widget=resizes-content` handles supporting browsers;
  * VisualViewport covers the others. Pan/zoom stays with the browser: a pinch

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * IDENTITY — deciding whether the element in front of us is one we already
  * have a handle on, and naming it if it is not.

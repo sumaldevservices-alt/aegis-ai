@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PREVIEW TAB OWNERSHIP — who a preview tab belongs to.
  *

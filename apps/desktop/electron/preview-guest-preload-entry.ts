@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Preload for the preview pane's `<webview>` guests. main.ts installs this
 // file via `will-attach-webview` on the `persist:aegis-preview` partition
 // only (see `installPreviewGuestPreload`), so no other webview inherits it.

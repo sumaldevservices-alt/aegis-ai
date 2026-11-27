@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface SessionCreateOverrides {
   /** Renderer-only handoff, fired at the stored-id assignment before navigation. */
   onComposerScopeAssigned?: (scope: string) => void

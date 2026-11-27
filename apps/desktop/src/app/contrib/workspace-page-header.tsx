@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Page-owned header controls (#123597). A page route can render in the
  * workspace pane, whose zone paints `WORKSPACE_PAGE_HEADER_AREA` as the page

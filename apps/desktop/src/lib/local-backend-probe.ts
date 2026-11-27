@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Whether This device would need the installer, resolved without starting it.
  * A missing bridge fails closed: neither a click nor the gateway keeper may

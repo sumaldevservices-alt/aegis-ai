@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { TranslationOverrides } from './define-locale'
 
 // The boot screen's copy (including the update-hold screen), composed by fr.ts.

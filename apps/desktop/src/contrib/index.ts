@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export { Slot } from './react/slot'
 export type { SlotProps } from './react/slot'
 

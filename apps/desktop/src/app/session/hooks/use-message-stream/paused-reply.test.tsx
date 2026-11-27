@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEvent } from '@aegis/shared'
 // A reply its interrupter will continue (a host plugin stopped the turn to apply
 // a grant: session.interrupt with `resume`) ends with message.complete

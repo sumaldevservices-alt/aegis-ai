@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { sanitizeComposerInput } from '@/lib/composer-input-sanitize'
 
 import { type ComposerAttachment, draftKey as scopeKey } from './composer'

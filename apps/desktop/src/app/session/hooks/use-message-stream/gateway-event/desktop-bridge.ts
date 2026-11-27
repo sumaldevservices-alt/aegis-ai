@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { writeAgentTerminalChunk } from '@/app/right-sidebar/terminal/agent-terminal-stream'
 import { closeAgentTerminalByProc } from '@/app/right-sidebar/terminal/terminals'
 import { revealDesktopPane } from '@/store/pane-focus'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 type Listener = (ev: unknown) => void
 
 // Minimal WebSocket stand-in implementing only what json-rpc-gateway.connect()

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ChatMessage } from '@/lib/chat-messages'
 import { $gateway } from '@/store/gateway'
 import { notifyError } from '@/store/notifications'

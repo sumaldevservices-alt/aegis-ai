@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ProfileScope, setModelAssignment } from '@/aegis'
 import { translateNow } from '@/i18n'
 import { dismissNotification, notify } from '@/store/notifications'

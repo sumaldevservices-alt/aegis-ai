@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // STA is mandatory: System.Windows.Forms.Clipboard throws ThreadStateException
 // off a single-threaded apartment. We emit base64 (not raw bytes) so the PNG
 // survives stdout's text decoding intact, and write with [Console]::Out.Write

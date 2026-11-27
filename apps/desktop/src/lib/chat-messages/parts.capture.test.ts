@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Regression for #84361: the bare-word capture branch absorbed trailing
 // sentence punctuation (`open MEDIA:/tmp/a.pdf.` captured `/tmp/a.pdf.`) and
 // accepted degenerate captures (a lone quote, `...`, a bare word with neither

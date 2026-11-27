@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // updater/updater.test.ts — resolution precedence + wire-shape contracts
 // for the strategy layer. Pure DI: no Electron, no payload.
 

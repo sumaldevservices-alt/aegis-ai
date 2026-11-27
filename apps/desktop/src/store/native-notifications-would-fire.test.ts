@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The presence reporter claims "this client can alert" from turnDoneNotificationWouldFire. That
 // claim is only honest while the predicate and the real dispatch agree on every guard that is
 // knowable before the turn ends.

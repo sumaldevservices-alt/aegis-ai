@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Unit tests for owner-routed preview/plugin file-watch delivery (#108189).
  * Secondary windows filter by their own watch id, so events must land on the

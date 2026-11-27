@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { FACET_ORDER, HINT_ORDER } from './hint-vocabulary'
 import type {
   ConflictDifference,

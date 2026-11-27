@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * #145333: a running turn stores its prompt and each finished tool round as it goes. In a chat
  * longer than one page, reopening it mid-turn merged the newest page, which already holds those

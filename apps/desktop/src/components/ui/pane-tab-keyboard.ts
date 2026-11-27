@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type FocusEvent, type KeyboardEvent, type RefObject, useLayoutEffect, useRef, useState } from 'react'
 
 /** Focus belongs to the strip, not its active pane. Keep it through tab closes

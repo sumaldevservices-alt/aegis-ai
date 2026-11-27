@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { EmojiPicker } from 'frimousse'
 import { type FC, useState } from 'react'
 

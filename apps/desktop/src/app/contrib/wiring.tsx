@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Real-featureset wiring for the contrib (layout tree) root — the minimal
  * subset of DesktopController's hook chain that makes the REAL surfaces work:

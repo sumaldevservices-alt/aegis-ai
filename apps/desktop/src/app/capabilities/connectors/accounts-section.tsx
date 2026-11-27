@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type Dispatch, type ReactNode, type SetStateAction, useState } from 'react'
 
 import { ListRow } from '@/app/settings/primitives'

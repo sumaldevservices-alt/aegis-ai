@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Clipboard keybindings for the GUI terminal.
 //
 // xterm renders to a canvas, so its selection is not a DOM selection and the

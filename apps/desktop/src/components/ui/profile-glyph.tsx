@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { profileColorSoft } from '@/lib/profile-color'
 import { profileShortLabel } from '@/lib/profile-short-label'
 import { cn } from '@/lib/utils'

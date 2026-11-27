@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The create dialog pre-creates the draft profile so the Capabilities tab has
  * a real backend to point at. Every tab that needs one races for it, so the

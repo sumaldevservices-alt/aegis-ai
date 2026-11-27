@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A cross-machine room's transcript names each line's speaker as that
  * speaker's OWN machine reports it, also once the speaker has left the room

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Screen hero — the big preview of a bot's computer at the top of its pane.
  *

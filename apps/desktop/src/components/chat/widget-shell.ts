@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Inline transcript widgets — the few tool results that render as a panel the
  * user reads or acts on (a clarify question, an artifact card) rather than as

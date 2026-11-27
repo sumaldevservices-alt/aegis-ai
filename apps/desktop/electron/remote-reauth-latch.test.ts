@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Regression suite for issue #95701: an expired remote OAuth session must
  * boot into ONE latched recovery overlay, not flicker between the connecting

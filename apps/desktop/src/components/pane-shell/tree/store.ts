@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Layout tree store: one persisted tree replaces paneStates side/band
  * overrides. The DEFAULT tree is declared by the app root (like config);

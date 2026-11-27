@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, type WritableAtom } from 'nanostores'
 
 import { activeConnectionScopeSuffix } from '@/lib/connection-scoped'

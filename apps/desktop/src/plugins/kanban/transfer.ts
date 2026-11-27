@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Board export / import flows — the same shape as the profile ones
  * (`src/store/profile-share.ts`): pick a path with the native dialog, hand

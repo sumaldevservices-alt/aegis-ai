@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The multi-source roster merge, driven through the real `useRoster` query.
  *

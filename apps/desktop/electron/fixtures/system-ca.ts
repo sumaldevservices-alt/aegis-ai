@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Synthetic self-signed CAs; no private keys are retained. Tests freeze time
 // between the expired root's 2025 expiry and the other roots' 2035 expiry.
 export const bundledRoot = `-----BEGIN CERTIFICATE-----

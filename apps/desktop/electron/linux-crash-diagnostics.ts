@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import path from 'node:path'
 
 // Every Chromium CHECK/LOG(FATAL) in the shell ends at the same instruction —

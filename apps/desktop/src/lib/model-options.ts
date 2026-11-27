@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ModelCapabilities, ModelOptionProvider, ModelOptionsResult } from '@aegis/shared'
 
 import { getGlobalModelOptions, type Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'

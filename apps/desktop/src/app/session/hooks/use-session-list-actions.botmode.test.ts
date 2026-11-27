@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * #126732: Telegram DM-topic threads surface in Bot Mode.
  *

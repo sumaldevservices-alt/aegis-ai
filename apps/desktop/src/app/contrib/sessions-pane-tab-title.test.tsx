@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The Sessions sidebar pane registers at module import, before `I18nProvider`
  * has fetched `display.language`, so its string `title` is whatever English

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type BillingBlock, mergeUsage } from '@aegis/shared'
 
 import { noteTurnSettled } from '@/app/session/hooks/use-session-actions/settled-turns'

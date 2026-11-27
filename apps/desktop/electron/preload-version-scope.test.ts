@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, it, vi } from 'vitest'
 
 const host = vi.hoisted(() => ({

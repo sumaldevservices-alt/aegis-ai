@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Clear a removed gateway's sign-in cookies (#98242). oauthJarsToClearOnRemoval
  * decides which jars; this runs it against Electron sessions. Kept free of

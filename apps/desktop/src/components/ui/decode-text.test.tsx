@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The decode scramble is decorative. Once a quiet-surface placeholder (empty
 // pane zone, contrib panes) has resolved and held, its interval must be gone:
 // a replaying default kept a 22 Hz setState ticker alive for as long as the

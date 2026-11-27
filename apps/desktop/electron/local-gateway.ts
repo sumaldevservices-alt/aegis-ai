@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { spawn } from 'node:child_process'
 import crypto from 'node:crypto'
 

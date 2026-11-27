@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Ownership helpers for the main-process descriptor cache (`backendPool` in
  * main.ts): keyed promises for gateway connection descriptors, never process

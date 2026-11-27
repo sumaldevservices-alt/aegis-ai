@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `composer.atCompletions` contributions merge into the `@` popover ahead of
  * the gateway's path results (#88060 — Bot Mode agent handles). Covers: rows

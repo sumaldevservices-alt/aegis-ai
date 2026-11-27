@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { requestGatewayForAgent } from '@/store/gateway'
 import {
   $activeGatewayProfile,

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { CronControlCopy } from './types_cron_control'
 
 export const frCronControl: CronControlCopy = {

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** First-run onboarding: the setup_beat cards and their receipts, Skip setup, the local-model offer
  *  at the end, and the Settings row that runs it again. */
 export interface FirstRunCopy {

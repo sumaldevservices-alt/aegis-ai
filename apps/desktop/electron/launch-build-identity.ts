@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Artifact identity for recovery witnesses, adapted from kokhlo's #131067. */
 import type { InstallStamp } from './install-stamp'
 

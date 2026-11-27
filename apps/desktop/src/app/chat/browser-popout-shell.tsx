@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type CSSProperties, useEffect } from 'react'
 
 import { PanelEmpty } from '@/app/overlays/panel'

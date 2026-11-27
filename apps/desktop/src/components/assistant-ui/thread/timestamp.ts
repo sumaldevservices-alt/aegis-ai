@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { fmtClock, fmtDayTime } from '@/lib/time'
 
 const fmtTimelineClock = new Intl.DateTimeFormat(undefined, {

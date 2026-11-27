@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export { BUNDLED_LOCALES, isBundledLocale, TRANSLATIONS } from './catalog'
 export {
   getConfigDisplayLanguage,

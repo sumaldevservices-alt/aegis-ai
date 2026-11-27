@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Guided tours (the `tour` tool) — on, with a switch to stop them.
  *

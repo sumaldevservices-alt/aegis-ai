@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, type Mock, test, vi } from 'vitest'
 
 import { registerDesktopUninstallIpc } from './desktop-uninstall'

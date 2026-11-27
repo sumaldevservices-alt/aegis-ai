@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ReactNode } from 'react'
 
 import { SCAFFOLD_META_CLASS, ScaffoldRow } from '@/components/chat/scaffold-row'

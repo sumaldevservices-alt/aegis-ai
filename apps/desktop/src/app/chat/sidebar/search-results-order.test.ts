@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Regression: pasting a session's exact id into the sidebar search buried the
 // id's own row under recency-sorted client matches. Cross-reference workflows
 // open sessions with a pointer line quoting another session's id, and the

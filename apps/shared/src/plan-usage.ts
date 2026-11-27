@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Usage-window plan chrome shared by every model picker (desktop dialog + composer menu, TUI).
  *

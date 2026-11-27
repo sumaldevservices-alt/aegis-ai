@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ModelOptionProvider, ModelOptionsResult } from '@aegis/shared'
 import { useStore } from '@nanostores/react'
 import { useQuery } from '@tanstack/react-query'

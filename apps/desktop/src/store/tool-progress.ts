@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, computed, onStop, type ReadableAtom } from 'nanostores'
 
 /** Latest live progress of a running tool call (`tool.progress`, from MCP `notifications/progress`). */

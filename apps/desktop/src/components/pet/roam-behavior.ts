@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Pure decision helpers for the floating pet's wander — the "what to do & when"
  * layer, split out from the geometry (`roam-geometry.ts`) and the RAF/DOM loop

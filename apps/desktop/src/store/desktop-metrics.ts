@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Desktop love/hate telemetry: which areas get used, which buttons get
  * pressed, what gets in the way, what gets turned off, and where first run

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Explicit-paste clipboard bridge (#123089): a native `paste` gesture over the
  * live screen must forward the client's text clipboard to noVNC's

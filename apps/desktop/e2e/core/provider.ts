@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Scripted, recording OpenAI-compatible provider for the core Desktop suite.
  *

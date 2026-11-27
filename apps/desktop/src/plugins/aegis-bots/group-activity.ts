@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The per-room activity feed: a bounded, runtime-only record of turn events
  * for the room view's collapsible Activity list.

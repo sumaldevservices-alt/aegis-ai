@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Unstable_TriggerAdapter, Unstable_TriggerItem } from '@assistant-ui/core'
 import { type MutableRefObject, type RefObject, useCallback, useEffect, useRef, useState } from 'react'
 

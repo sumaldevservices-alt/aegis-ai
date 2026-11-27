@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useEffect, useReducer, useRef } from 'react'
 
 import { isSubmitEnter } from '@/lib/ime'

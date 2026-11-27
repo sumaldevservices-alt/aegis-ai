@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom } from 'nanostores'
 
 import { releaseTypingFocus } from '@/components/ui/keyboard-first'

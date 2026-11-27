@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useStoreSelector } from '@/lib/use-session-slice'
 import { $sessions, sessionMatchesStoredId } from '@/store/session'
 

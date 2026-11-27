@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import '../fix-electron-tracing'
 
 import { defineConfig } from '@playwright/test'

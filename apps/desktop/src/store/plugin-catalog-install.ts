@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { $pluginRecords, installedDesktopCatalogEntries } from '@/contrib/plugins-store'
 import { translateNow } from '@/i18n'
 import { lookupPluginCatalogEntry, type PluginCatalogEntry, type PluginCatalogLookupError } from '@/lib/plugin-catalog'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Every CONNECTED registry gateway as a session source for the unified
  * session list: resolved descriptors straight from the backend pool, never

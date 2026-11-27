@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { sortCatalogPlugins } from '@aegis/shared'
 
 import { PLUGIN_TIER_ORDER, pluginTier } from './catalog-curation'

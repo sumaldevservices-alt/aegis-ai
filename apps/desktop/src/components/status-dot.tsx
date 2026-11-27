@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ComponentProps } from 'react'
 import { memo } from 'react'
 

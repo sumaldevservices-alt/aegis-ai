@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The regression that motivates this file: cmdk calls the root
  * `onValueChange` only in controlled mode (a set `value` prop). The palette

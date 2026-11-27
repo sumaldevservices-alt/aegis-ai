@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { fileUrlToNativePath } from '../../shared/src/file-url'
 
 import { httpStatusError, readStatusCode } from './api-transport'

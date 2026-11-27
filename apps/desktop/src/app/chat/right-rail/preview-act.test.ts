@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { types } from 'node:util'
 
 import { beforeEach, describe, expect, it, vi } from 'vitest'

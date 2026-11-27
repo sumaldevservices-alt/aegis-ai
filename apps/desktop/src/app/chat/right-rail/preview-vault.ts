@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PREVIEW VAULT BINDINGS — the renderer half of a vault fill into the in-app
  * browser (`tools/browser_vault_preview.py`).

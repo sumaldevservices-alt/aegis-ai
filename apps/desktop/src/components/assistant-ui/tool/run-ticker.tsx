@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Children, type CSSProperties, isValidElement, type ReactNode } from 'react'
 
 /**

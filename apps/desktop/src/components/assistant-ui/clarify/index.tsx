@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 'use client'
 
 import { type ToolCallMessagePartProps, useAuiState } from '@assistant-ui/react'

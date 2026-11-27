@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { SerializeAddon } from '@xterm/addon-serialize'
 
 import { cleanReviveSnapshot, isIdlePromptOnly, PERSISTENT_SESSION_SCROLLBACK } from './revive-snapshot'

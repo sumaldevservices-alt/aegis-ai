@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Unit tests for the pure window-state geometry helpers. These cover the logic
  * that protects the user: garbage rejection, off-screen fallback, oversized

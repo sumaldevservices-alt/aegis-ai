@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A socket drop while the answer after a tool streams must not leave the reply
  * on its first chunk.

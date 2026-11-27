@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment node
 import { JsonRpcGatewayClient } from '@aegis/shared'
 import { expect, test, vi } from 'vitest'

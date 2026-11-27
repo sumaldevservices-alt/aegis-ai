@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Drive the guest overlay and crop capture from the preview pane.
  * Overlay I/O only — stack/pack/flush live in lib/preview-annotate.

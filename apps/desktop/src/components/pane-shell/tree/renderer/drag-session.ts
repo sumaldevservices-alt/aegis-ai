@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * THE in-app drag primitive. One pointer-capture session (`startDragSession`)
  * owns the machinery every in-app drag shares — threshold, rAF-coalesced

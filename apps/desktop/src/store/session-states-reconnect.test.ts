@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { registryBackendScopeKey } from '@aegis/shared'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 

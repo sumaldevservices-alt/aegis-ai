@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { vi } from 'vitest'
 
 import { announceWebappWindow } from '@/lib/browser-window'

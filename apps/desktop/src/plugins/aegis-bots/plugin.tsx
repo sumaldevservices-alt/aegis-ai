@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Aegis AI Enterprise Autonomous Platform Bot Mode — a "one chat per agent" roster for the Aegis AI Enterprise Autonomous Platform desktop.
  *

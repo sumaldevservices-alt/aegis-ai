@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type Codec, Codecs, persistentAtom } from '@/lib/persisted'
 
 // Privacy gate for inline embeds. Loading an embed reaches out to a third party

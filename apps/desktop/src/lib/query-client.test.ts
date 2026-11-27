@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ModelOptionsResult } from '@aegis/shared'
 import { beforeEach, describe, expect, it } from 'vitest'
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ChatMessage, type GatewayEventPayload, QUESTION_CARD_TOOLS } from '@/lib/chat-messages'
 import { $clarifyRequests, type ClarifyRequest, clearClarifyRequest } from '@/store/clarify'
 import type { SessionResumeResult } from '@/types/aegis'

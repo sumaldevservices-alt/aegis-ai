@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ComponentProps, ReactNode } from 'react'
 import { createContext, useContext } from 'react'
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { ToolIcon, type ToolIconProps } from '@/components/ui/tool-icon'
 import { codiconForFilename, codiconForLanguage } from '@/lib/markdown-code'
 

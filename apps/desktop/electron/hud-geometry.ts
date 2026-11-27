@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const HUD_WIDTH = 620
 export const HUD_HEIGHT = 320
 export const HUD_BOTTOM_MARGIN = 72

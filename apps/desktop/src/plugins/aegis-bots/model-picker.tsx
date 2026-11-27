@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Provider + model dropdowns backed by the gateway's `model.options`
  * inventory, plus the bounded fetch that keeps a wedged bot socket from

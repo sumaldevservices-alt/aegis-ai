@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { batch } from 'nanostores'
 
 import { getApiRequestConnection, setApiRequestProfile } from '@/api/client'

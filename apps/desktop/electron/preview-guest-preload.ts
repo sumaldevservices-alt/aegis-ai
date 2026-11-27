@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Logic half of the preview pane's guest preload. The wiring half lives in
 // `preview-guest-preload-entry.ts` (the bundled preload itself); this split
 // keeps the handoff rules unit-testable in a plain Node environment.

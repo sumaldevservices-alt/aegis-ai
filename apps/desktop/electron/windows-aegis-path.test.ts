@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Unit tests for the pure Windows `aegis` resolution helpers extracted from
 // main.ts's findOnPath(), handOffWindowsBootstrapRecovery(), and
 // unwrapWindowsVenvAegis AI Enterprise Autonomous PlatformCommand(). These pin the two Windows resolution bugs

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type DragEvent as ReactDragEvent, useRef, useState } from 'react'
 
 import { triggerHaptic } from '@/lib/haptics'

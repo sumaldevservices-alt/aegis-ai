@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // updater/app-installer-strategy.test.ts — the apply-flow contract: the
 // relaunch registration (marker + detached waiter) completes BEFORE the OS
 // hand-off. Teardown finishes before the descriptor opens.

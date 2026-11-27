@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { EventEmitter } from 'node:events'
 
 import { createClient, type Message, Variant } from 'dbus-native'

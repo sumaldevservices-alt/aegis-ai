@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * "Waiting on teammates" — a compact card above a bot's Bot Chat composer listing
  * every `message_agent` delivery from THIS bot that has not settled yet: who it

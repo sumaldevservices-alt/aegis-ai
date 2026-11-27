@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Fallback for gateways that send no `code` on the error event. Every alternative here is a
 // sentence the backend actually produces today: `agent_init` raises "No LLM provider configured"
 // on a blank install and `missing_provider_credentials_message()` the "is set in config.yaml

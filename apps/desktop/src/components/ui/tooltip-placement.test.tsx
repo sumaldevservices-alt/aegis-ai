@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { cleanup, render, screen } from '@testing-library/react'
 import { createRef, type ReactElement, type ReactNode, type Ref } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'

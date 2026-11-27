@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useCallback, useEffect, useState } from 'react'
 
 import { PageLoader } from '@/components/page-loader'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { cva, type VariantProps } from 'class-variance-authority'
 import { Switch as SwitchPrimitive } from 'radix-ui'
 import * as React from 'react'

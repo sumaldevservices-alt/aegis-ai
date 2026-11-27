@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Regression coverage for #69578: harmless route-token churn during a send
  * must not make the desktop silently drop the prompt before prompt.submit.

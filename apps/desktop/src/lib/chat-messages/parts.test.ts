@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Regression for #96657: an unquoted MEDIA: path with interior spaces rendered
 // a card for the text before the first space and left the rest as prose.
 import { describe, expect, it } from 'vitest'

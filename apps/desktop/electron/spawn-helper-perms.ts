@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // node-pty ships its POSIX `spawn-helper` inside the published npm tarball with
 // mode 0644 (no exec bit). node-pty `posix_spawnp`s that helper on macOS/Linux,
 // so a non-executable helper fails every terminal spawn with

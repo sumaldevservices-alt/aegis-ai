@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PREVIEW ACT — performs the agent's interactions inside the preview pane's
  * guest page, so `drive_preview` drives whatever web app is open in the in-app

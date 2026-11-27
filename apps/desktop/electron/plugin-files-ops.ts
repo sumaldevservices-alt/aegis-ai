@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The operations behind `ctx.files` (plugin-files.ts owns grants and path
 // resolution). Each op gets a target already resolved inside its folder and
 // re-applies the per-op rules: size caps, sensitive names, no op on the folder

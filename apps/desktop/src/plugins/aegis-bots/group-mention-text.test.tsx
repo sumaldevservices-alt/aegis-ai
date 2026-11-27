@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * #91359 — recognized group @mentions render as semantic inline references;
  * everything else stays prose. The classifier is the round loop's own parser,

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @aegis/shared is what a third-party client builds against: it must typecheck on its own, and no
 // file of another workspace (ui-tui's Ink source above all) may enter its program, directly or through
 // a transitive import.

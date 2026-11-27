@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Link previews moved off the message root into the AssistantPreviewEmbeds
 // leaf, because the selector behind them (`'' while running`, the full
 // `messageContentText(content)` join once settled) flipped on every

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { setTtsLease } from '@/aegis'
 
 // The desktop's speech-output toggles — "Read replies aloud" and voice

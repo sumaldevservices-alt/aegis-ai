@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The chrome for user sections: the foldable heading (the roster's own
  * `RosterSectionHeader`, with a ⋯ menu and a right-click menu that drive the

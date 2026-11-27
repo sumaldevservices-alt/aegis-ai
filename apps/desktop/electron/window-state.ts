@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Pure geometry helpers for window-state.json — restoring the main window's
  * size, position, and maximized flag across launches. Side-effect-free so the

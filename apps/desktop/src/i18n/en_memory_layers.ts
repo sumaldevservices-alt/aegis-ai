@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { MemoryLayersTranslations } from './types_memory_layers'
 
 // Settings > Memory & Context and Command Center > Maintenance (#145175).

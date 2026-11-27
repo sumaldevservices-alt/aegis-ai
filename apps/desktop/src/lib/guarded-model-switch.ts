@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { translateNow } from '@/i18n'
 import { confirm } from '@/store/confirm'
 import { notify, notifyError } from '@/store/notifications'

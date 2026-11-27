@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { eventSourceMatchesOwner, gatewayEventSource } from './replay-gap-owner'

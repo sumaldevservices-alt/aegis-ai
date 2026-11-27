@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, test, vi } from 'vitest'
 
 import { createLocalGatewayDials, type GatewayEndpoint } from './local-gateway'

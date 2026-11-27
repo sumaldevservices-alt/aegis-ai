@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface QuitTeardownTask {
   /** Whether Electron must defer this quit until the task settles. */
   waitForCompletion: boolean

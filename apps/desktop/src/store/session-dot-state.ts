@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * SESSION DOT STATE — one map from session id to the single status a surface
  * should paint, so the sidebar, the pane tabs, and the switcher can never

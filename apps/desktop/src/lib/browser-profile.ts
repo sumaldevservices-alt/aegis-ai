@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DesktopProfileRoute } from '@/global'
 
 import { browserStartupProfileKey, readBrowserStartupProfile, requireProfileRoute } from './browser-startup-profile'

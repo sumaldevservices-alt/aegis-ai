@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * C2 core: switch back to a session whose reply completes while the switch-back
  * hydrate is in flight.

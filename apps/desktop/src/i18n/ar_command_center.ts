@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { arCronControl } from './ar_cron_control'
 import type { TranslationOverrides } from './define-locale'
 

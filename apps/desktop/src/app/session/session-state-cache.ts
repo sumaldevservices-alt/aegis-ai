@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ClientSessionState } from '../types'
 
 export const DEFAULT_WARM_SESSION_TRANSCRIPT_COUNT = 24

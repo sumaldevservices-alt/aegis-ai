@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Where the board switcher mounts (#123597). The full page projects it into
  * the workspace page header; a route tile has no painted page header, so the

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { compactNumber } from '@aegis/shared'
 
 import { getUsageAnalytics, type McpTestResult, type ProfileScope } from '@/aegis'

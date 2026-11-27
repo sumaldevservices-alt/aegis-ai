@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * #106935: Desktop main must hold a long-lived keep-alive WebSocket for every
  * published SSH-isolated backend. Idle-exit (#101626) treats accepted WS as

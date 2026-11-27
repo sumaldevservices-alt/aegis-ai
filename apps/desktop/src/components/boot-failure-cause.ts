@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Plain-language cause for a LOCAL backend boot failure. The main process
  * reports what it saw ("exited before it became ready (1)", "Timed out

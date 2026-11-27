@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, beforeAll, describe, expect, it } from 'vitest'
 
 import { registerLayoutPresets } from '@/app/contrib/layout-presets'

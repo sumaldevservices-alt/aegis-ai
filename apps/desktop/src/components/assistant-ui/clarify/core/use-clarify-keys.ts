@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type RefObject, useCallback, useEffect, useState } from 'react'
 
 import type { ClarifyQuestion } from '@/store/clarify'

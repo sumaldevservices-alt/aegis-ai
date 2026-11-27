@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Renderer entry. The whole app (every store that reads localStorage when its
 // module evaluates) enters through the dynamic import below, so nothing can
 // read a shared preference before this machine's store hydrated it (#145213),

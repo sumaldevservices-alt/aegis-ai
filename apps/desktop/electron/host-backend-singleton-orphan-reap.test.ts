@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // #81275 regression coverage: the duplicate-serve/orphan bug class (one
 // backend per host across reconnect storms; no PPID-1 orphans after a quit).
 //

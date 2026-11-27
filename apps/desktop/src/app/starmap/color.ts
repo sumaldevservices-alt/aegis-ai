@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { BLACK, MODE_DEFAULTS } from './constants'
 import { clamp } from './geometry'
 import type { Palette, Rgb } from './types'

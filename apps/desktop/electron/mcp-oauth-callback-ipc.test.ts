@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tests for electron/mcp-oauth-callback-ipc.ts — the client-side one-shot
  * loopback listener MCP OAuth uses against remote backends. Uses a REAL

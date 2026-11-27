@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useCallback, useEffect, useState } from 'react'
 
 import { useSessionView } from '@/app/chat/session-view'

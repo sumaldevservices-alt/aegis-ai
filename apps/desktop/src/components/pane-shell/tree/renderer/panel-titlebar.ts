@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type RefObject, useCallback, useLayoutEffect, useState } from 'react'
 
 import { TITLEBAR_CHROME_CHANGED_EVENT } from '@/app/shell/titlebar'

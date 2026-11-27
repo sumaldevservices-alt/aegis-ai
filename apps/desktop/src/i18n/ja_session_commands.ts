@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Typed /undo /retry /steer /queue lines (en_session_commands.ts is the source).
 export const jaSessionCommands = {
   undoUsage: '使い方: /undo [N]',

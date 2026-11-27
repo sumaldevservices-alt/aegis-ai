@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Path rules for the `ctx.files` door (plugin-files.ts): how a plugin-supplied
 // relative path is split, how containment is compared, and which folders can
 // never be granted. Pure helpers plus filesystem identity checks; no state.

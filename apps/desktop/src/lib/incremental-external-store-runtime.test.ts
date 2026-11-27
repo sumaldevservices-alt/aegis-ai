@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { fromThreadMessageLike, getAutoStatus, MessageRepository } from '@assistant-ui/core/internal'
 import type { ExportedMessageRepository, ThreadMessage } from '@assistant-ui/react'
 import { describe, expect, it, vi } from 'vitest'

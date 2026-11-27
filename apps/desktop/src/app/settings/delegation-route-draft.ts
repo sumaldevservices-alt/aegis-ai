@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ModelOptionProvider } from '@aegis/shared'
 import { useState } from 'react'
 

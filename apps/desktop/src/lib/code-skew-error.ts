@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** True when a backend error is the post-update stale-module 503 (#97046). */
 export function isCodeSkewRestartRequired(error: unknown): boolean {
   return /Restart required:/i.test(errorText(error))

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Stale model-pick ordering: a superseded selectModel (newer pick, or a chat
 // switch while config.set is in flight) must never roll the pill or a tile back.
 import { QueryClient } from '@tanstack/react-query'

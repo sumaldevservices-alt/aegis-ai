@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useCallback } from 'react'
 
 import { type CompletionEntry, type CompletionPayload, useLiveCompletionAdapter } from './use-live-completion-adapter'

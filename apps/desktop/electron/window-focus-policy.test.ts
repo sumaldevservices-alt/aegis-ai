@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Invariants for the Windows foreground-steal fix (#83998).
  *

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Full-window fallback for a routed session whose resume exhausted every
 // retry (#106217 remainder). The overlay covers the thread AND the composer
 // is hidden underneath it, so a Retry-only action row is a wall with no way

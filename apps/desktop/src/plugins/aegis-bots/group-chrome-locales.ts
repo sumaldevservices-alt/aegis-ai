@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { CANONICAL_GROUP_LOCALES } from './canonical-group-locales'
 
 export interface GroupChatChromeMessages {

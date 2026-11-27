@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ToolLabel } from '@aegis/shared'
 
 import { TOOL_LABELS_ARG } from '@/lib/connector-tools'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { translateNow } from '@/i18n/runtime'
 import { peekCachedSlashCompletion } from '@/lib/slash-completion-cache'
 

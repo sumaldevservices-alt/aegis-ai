@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Profile-delete routing logic for the `aegis:api` IPC handler.
 //
 // When the renderer issues DELETE /api/profiles/<name>, the handler must

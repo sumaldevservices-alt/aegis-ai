@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { capabilityScoped, aegisApi, type ProfileScope, sessionReadOwnerPin } from '@/api/client'

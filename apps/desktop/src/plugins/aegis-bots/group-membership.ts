@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Who is in a room: the membership keys, the ui_meta group lists each bot
  * carries, and the roster→member descriptor derivation the room engine and

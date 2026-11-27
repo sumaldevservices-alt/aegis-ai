@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import fs from 'node:fs'
 
 function isWslEnvironment(env = process.env, platform = process.platform, kernelRelease = null) {

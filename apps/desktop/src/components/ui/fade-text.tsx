@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ComponentProps, CSSProperties } from 'react'
 import { memo, useCallback, useRef, useState } from 'react'
 

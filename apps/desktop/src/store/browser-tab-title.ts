@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The browser tab title of the browser-hosted Desktop (Webapp).
  *

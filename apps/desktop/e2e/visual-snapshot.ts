@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Visual snapshot helper — wraps `toHaveScreenshot` so visual diffs are
  * reported without failing the test suite.

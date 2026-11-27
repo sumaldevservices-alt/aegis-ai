@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { GatewayReauthRequiredError } from '@aegis/shared'
 
 export const WEBAPP_LAUNCH_REQUIRED = 'Run aegis webapp on this computer to sign this browser in.'

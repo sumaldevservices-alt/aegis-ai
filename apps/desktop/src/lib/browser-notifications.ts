@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The Webapp's half of `aegisDesktop.notify`: what Electron's notification IPC
  * does in main, done with the browser's Notification API.

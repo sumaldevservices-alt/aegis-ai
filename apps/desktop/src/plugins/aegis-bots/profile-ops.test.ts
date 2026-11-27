@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Duplicating a bot: clone the profile (config/skills/SOUL/memory via
  * `clone_from`) and copy the LOOK, but never the things that belong to the

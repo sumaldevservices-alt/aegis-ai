@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, it, vi } from 'vitest'
 /** Gateway execution ownership survives local storage and room edits. */
 

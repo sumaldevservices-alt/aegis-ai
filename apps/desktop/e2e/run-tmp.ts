@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * One temp root per Playwright run, removed when the runner exits.
  *

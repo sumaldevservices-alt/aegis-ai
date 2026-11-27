@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useState } from 'react'
 
 import { composerPanelCard } from '@/components/chat/composer-dock'

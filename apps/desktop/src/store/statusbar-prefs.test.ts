@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 const LEGACY_VISIBLE_KEY = 'aegis.desktop.statusbarVisible'

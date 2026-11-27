@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useAuiState, useMessageRuntime } from '@assistant-ui/react'
 import { registryBackendScopeKey } from '@aegis/shared'
 import { useStore } from '@nanostores/react'

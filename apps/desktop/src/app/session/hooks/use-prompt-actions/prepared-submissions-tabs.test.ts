@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, expect, test, vi } from 'vitest'
 
 import { type PreparedSubmission, preparedSubmissionKey } from './prepared-submissions'

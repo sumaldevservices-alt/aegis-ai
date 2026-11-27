@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Inline per-profile MCP setup: the `mcp.servers.*` RPC wrapper, its
  * feature-detect, and the button a capability row renders.

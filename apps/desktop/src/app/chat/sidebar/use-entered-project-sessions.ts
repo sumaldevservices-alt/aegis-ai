@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { replaceEqualDeep } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 

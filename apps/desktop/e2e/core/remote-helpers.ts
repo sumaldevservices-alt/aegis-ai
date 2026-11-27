@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Remote-backend topology for the core suite: a real `aegis serve` the TEST
  * spawns (not the app) under its OWN sandbox HOME / AEGIS_HOME / cwd, reached

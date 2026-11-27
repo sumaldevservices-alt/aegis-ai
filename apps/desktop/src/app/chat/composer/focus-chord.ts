@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * ⌘/Ctrl+L moves focus to the composer from anywhere. This matches the
  * address-bar muscle memory of a browser. The other handlers of the chord

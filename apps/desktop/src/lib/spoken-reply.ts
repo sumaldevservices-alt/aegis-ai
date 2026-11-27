@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Spoken-reply identity for Desktop auto-speak / Read Aloud.
  *

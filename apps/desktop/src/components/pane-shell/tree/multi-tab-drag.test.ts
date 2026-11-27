@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { findGroup, findGroupOfPane, group, mergeZonesWithPane, movePanes, reorderPanesInGroup, split } from './model'

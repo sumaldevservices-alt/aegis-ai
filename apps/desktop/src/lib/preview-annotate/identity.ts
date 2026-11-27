@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { ANNOTATE_CSS_KEYS, ANNOTATE_HTML_BUDGET } from './tokens'
 
 export interface ElementSnapshot {

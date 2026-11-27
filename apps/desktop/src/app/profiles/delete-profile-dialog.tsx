@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ProfileScope } from '@/api/client'
 import { ConfirmDialog } from '@/components/ui/confirm-dialog'
 import { deleteProfile } from '@/aegis'

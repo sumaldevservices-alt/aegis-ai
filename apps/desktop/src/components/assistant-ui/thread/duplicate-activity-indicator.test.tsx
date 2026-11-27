@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Loading and activity indicators mount only on the thread's last message.
 // The tail-only gate from ba756333 keeps non-tail running bubbles silent,
 // including assistants followed only by a user or system row. The optimistic

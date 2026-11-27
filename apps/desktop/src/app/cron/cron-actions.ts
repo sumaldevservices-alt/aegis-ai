@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type CronJob, getApiRequestConnection, getCronJobs, triggerCronJob } from '@/aegis'
 import {
   beginCronJobsAction,

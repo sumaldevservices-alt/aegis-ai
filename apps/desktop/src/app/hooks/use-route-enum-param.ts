@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useCallback, useMemo } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 

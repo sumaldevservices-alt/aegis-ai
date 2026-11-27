@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ChildProcess, execFileSync, spawn } from 'node:child_process'
 
 import { createGlobalRemoteSessionRoute, probeRemoteAuthMode } from './global-remote-session-route'

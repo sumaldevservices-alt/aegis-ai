@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Open `theme.pick` requests (the set_theme picker card), one per session.
  *

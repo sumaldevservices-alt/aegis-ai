@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { MCP_DEEPLINK_MAX_CONFIG_BYTES, parseMcpInstallDeepLink } from './mcp-deeplink'

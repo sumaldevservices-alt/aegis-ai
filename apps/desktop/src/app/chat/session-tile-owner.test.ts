@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import { _resetSessionOwnerHintsForTests, setSessionOwnerHint } from '@/store/session'

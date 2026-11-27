@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { skillInvocationText } from '@aegis/shared'
 
 import { formatRefValue } from '@/components/assistant-ui/directive-text'

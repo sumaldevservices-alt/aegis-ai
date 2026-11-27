@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Per-tool MCP gating. A server's optional `tools.include` (whitelist) /
 // `tools.exclude` (denylist) decide which discovered tools the agent registers
 // — `include` wins, no filter means all. Mirrors `_register_server_tools` in

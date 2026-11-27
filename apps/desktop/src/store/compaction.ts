@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, computed } from 'nanostores'
 
 // Per-session flag while auto-compaction runs mid-turn. Without it the

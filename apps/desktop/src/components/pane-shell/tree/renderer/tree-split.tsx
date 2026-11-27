@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Split node renderer — a flex row/column whose 1px seams double as resize
  * sashes (the seam IS the boundary — junction-owned, never doubled). Sizing

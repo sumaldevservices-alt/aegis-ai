@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Targeted native lifecycle probe: compile this fixture with esbuild (external:
 // electron, dbus-native), then run Electron <fixture.cjs> <fresh userData> <icon>.
 // No backend, renderer dev server, CDP listener, or real user state is touched.

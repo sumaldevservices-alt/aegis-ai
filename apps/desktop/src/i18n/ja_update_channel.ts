@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const jaUpdateChannel = {
   title: 'アップデートチャンネル',
   description:

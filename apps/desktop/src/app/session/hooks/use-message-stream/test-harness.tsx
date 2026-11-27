@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEvent, GatewayEventName } from '@aegis/shared'
 import { QueryClient } from '@tanstack/react-query'
 import { act, render } from '@testing-library/react'

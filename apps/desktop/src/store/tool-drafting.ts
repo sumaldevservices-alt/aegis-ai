@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, computed } from 'nanostores'
 
 // The tool whose arguments the model is streaming right now, and when it

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Shared resolver for in-app navigation targets that must stay compatible with
  * `aegis://` deep links and `host.navigate('/path?…')`.

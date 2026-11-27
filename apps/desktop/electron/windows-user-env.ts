@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // windows-user-env.ts
 //
 // Read a User-scoped environment variable straight from the Windows registry

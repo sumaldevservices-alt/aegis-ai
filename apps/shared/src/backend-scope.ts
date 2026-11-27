@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Composite backend scope keys for the multi-connection registry — shared
  * between the Electron main process (backend pool keying) and the renderer

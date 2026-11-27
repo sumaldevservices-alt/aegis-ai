@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const jaSharedMetrics = {
   consentTitle: '利用統計を共有しますか？',
   dialogTitle: '利用統計',

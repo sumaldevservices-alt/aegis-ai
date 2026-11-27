@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Button, Codicon, ConfirmDialog, Input, Tip } from '@aegis/plugin-sdk'
 import { useState } from 'react'
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Clipboard text IPC for the renderer. Electron 44's clipboard calls follow the async W3C
 // clipboard API, so each handler settles only after the OS clipboard call does.
 

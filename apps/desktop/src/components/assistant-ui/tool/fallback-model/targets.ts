@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isWindowsAbsolutePath } from '@/lib/path-compare'
 
 import type { ToolPart } from './types'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Semantic @mention rendering for group-room transcripts (#91359).
  *

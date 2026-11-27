@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DesktopAgentRoster, DesktopConnectionKind, DesktopRegistryConnection } from '@/global'
 import { sortConnectionsForDisplay } from '@/lib/connection-display'
 import { sortByProfileOrder } from '@/lib/profile-order'

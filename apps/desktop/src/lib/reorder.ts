@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * THE reorder feel — one primitive for every horizontal drag-to-reorder strip
  * (profile rail squares, pane tab chips, and whatever comes next). Reorder

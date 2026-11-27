@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { onListedSubmissions } from './admitted-submissions'
 import { draftKey as scopeKey } from './composer'
 import { type ComposerDraftRetry, draftRetryTextMatches } from './composer-draft-retry'

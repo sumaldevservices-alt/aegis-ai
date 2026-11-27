@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { stickyGroupEngine } from './group-engine'
 import type { DurableGroupChat, GroupChat } from './types'
 

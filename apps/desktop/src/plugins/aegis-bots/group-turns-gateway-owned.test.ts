@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, expect, it, vi } from 'vitest'
 
 import type * as groupChat from './group-chat'

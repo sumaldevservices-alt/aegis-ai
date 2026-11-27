@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * HUD snap-to-pointer — global OS shortcut while the HUD is open.
  *

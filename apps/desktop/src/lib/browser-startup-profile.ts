@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { PROFILE_ID_ARG_RE } from '@aegis/shared/profile-id'
 
 import type { DesktopProfileRoute } from '@/global'

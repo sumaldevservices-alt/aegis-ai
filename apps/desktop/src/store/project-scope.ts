@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { persistentAtom } from '@/lib/persisted'
 
 // ── Project scope (the "you're inside a project" view, mirroring profile scope)─

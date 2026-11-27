@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export type FormatJsonResult = { ok: true; text: string } | { ok: false; error: string }
 
 export function tryFormatJson(raw: string): FormatJsonResult {

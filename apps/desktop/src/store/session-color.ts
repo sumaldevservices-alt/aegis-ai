@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { computed } from 'nanostores'
 
 import { sessionProjectColor } from '@/app/chat/sidebar/projects/workspace-groups'

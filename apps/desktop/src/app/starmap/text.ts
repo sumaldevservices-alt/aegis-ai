@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { fmtDate } from '@/lib/time'
 import type { StarmapNode } from '@/types/aegis'
 

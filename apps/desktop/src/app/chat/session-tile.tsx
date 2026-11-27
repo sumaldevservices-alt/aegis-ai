@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * SESSION TILES — a stored session rendered as a layout-tree pane BESIDE the
  * main thread (multi-session tiling). A tile IS the real chat surface: the

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useEffect, useRef } from 'react'
 
 /** Run a UI-only clock while this document is actually being viewed.

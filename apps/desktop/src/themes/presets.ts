@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Built-in desktop themes. Names match the CLI skins / dashboard presets.
  * Add new themes here — no code changes needed elsewhere.

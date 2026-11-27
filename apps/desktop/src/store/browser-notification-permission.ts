@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The Webapp's browser notification permission as one store, so every control
  * that can ask (the Allow button, Send test notification) and every row that

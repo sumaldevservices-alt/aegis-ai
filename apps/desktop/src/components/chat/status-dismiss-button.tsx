@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Button } from '@/components/ui/button'
 import { Codicon } from '@/components/ui/codicon'
 

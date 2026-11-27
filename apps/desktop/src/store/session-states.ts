@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * MULTI-SESSION VIEW STATE — the reactive face of the per-runtime session
  * cache (`sessionStateByRuntimeIdRef` in use-session-state-cache).

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Electron userData isolates installations that share AEGIS_HOME.
 // The marker survives a package swap and records the version that started it.
 // The separate waiter owns automatic relaunch. Cancelling an update stops

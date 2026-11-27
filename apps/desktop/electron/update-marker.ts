@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The update marker `AEGIS_HOME/.aegis-update-in-progress` (#50238), format v2.
  *

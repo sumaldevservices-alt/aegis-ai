@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Exactly one GET through Electron's `net.request`, never following a
  * redirect. `net.fetch(url, { redirect: 'manual' })` cannot be used for this:

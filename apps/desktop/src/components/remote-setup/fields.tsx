@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ReactElement, ReactNode } from 'react'
 
 import { ListRow, Pill } from '@/app/settings/primitives'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Raise a bot's Screen tab the moment the bot starts driving its desktop, so
  * you watch it work instead of finding out afterwards. Opt-in per bot

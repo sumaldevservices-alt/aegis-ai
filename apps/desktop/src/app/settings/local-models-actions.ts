@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type QueryClient, useQueryClient } from '@tanstack/react-query'
 
 import {

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Regression for #139350: optimistic pin cleanup must not race the fenced removal.
 import { act, cleanup, render } from '@testing-library/react'
 import type { MutableRefObject } from 'react'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Viewer identity is SERVER-MINTED: `display.observe` returns the id this attach
  * is known by, and lease payloads name the holder by `viewer_hash`

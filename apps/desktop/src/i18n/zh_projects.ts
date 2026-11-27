@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // 侧边栏项目分区的文案，由 zh.ts 组合。
 import type { TranslationOverrides } from './define-locale'
 export const zhProjects: NonNullable<TranslationOverrides['sidebar']>['projects'] = {

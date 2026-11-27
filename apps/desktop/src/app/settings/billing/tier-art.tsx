@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import automationArt from '@/assets/tiers/feature-automation.webp'
 import connectArt from '@/assets/tiers/feature-connect.webp'
 import memoryArt from '@/assets/tiers/feature-memory.webp'

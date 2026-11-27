@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { SessionCommandNotices } from './types_notices'
 
 // Typed /undo /retry /steer /queue lines: the Ink TUI's wording on the same gateway.

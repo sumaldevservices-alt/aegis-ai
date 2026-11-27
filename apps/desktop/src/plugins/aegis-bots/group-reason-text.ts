@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GroupReasonMessages } from './group-reason-locales'
 
 // The gateway's shared bot failure vocabulary plus group scheduling reasons.

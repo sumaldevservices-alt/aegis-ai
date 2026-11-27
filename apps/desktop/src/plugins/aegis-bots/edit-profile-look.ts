@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { BotMeta } from './types'
 
 /** What Edit Profile shows for a bot's look, as opened and as submitted. */

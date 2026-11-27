@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { BackupTransferTranslations } from './types_backup_transfer'
 
 // Settings ▸ Backup & Transfer, composed by en.ts as `settings.backup`.

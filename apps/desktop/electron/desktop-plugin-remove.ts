@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Uninstall of a STANDALONE desktop plugin: delete one folder directly under
 // the app-level `<AEGIS_HOME>/desktop-plugins` root. The renderer names the
 // folder, never a path — containment is by construction (single segment) and

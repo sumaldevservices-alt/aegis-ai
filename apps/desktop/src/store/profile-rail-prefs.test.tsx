@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment jsdom
 // Loaded once at collection, outside every hook's budget: vi.resetModules() keeps each module's
 // transformed code, so the fresh copy a test imports only re-evaluates it. Without this each

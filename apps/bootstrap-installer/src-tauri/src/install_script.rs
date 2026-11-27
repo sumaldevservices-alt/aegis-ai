@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 //! Resolves and downloads `scripts/install.ps1` (and `install.sh`).
 //!
 //! Resolution order:

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Kanban — the founding plugin use case, now pure SDK-consumer work: a
  * first-class `/kanban` board page + sidebar nav row + a live statusbar count,

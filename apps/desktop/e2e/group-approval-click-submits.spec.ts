@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { APPROVAL_COMMAND_TRIGGER, MOCK_REPLY } from '../../../tests-js/scripts/mock-server'
 
 import { type MockBackendFixture, setupMockBackend, waitForAppReady } from './fixtures'

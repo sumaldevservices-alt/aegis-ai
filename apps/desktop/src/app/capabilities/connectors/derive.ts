@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { connectorTitle } from '@/lib/connector-tools'
 
 import type {

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Board switcher. On the full page it is projected through
  * `WORKSPACE_PAGE_HEADER_AREA` into the workspace panel's tab-header space; in

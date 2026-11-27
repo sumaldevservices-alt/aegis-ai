@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { InstallPhase } from '@aegis/shared'
 
 /** Copy for the desktop catalog-install card (`manage_catalog`) and its Advanced dialog. */

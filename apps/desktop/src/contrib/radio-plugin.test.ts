@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isValidElement } from 'react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 

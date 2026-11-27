@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, computed } from 'nanostores'
 
 import { keyedTimeouts } from '@/lib/keyed-timeouts'

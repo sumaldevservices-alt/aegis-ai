@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, expect, it, vi } from 'vitest'
 
 const { notify } = vi.hoisted(() => ({ notify: vi.fn() }))

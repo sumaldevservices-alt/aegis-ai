@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Install targets shared by the public docs galleries and native catalog. */
 export interface SkillCatalogTarget {
   name: string

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { SLASH_COMMAND_RE } from '@aegis/shared'
 
 /** Matches `agent/title_generator.py`'s MAX_DERIVED_TITLE_CHARS, so a draft

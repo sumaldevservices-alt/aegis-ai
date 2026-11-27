@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { act, cleanup, renderHook } from '@testing-library/react'
 import { atom } from 'nanostores'
 import { StrictMode } from 'react'

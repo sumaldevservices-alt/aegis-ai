@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { normalizeBasePath } from '@aegis/shared'
 
 import { webappSessionKey } from '@/lib/browser-launch-session'

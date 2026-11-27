@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The group-chat room surface: the merged room view, its settings dialog, the
  * MAIN-window tab it opens into, and the two room-lifecycle mutations that

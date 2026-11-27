@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { observeCanonicalAdmissions } from '@/api/canonical-protocol'
 import { Codecs, persistentAtom } from '@/lib/persisted'
 import { isMessagingSource } from '@/lib/session-source'

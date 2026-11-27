@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { X509Certificate } from 'node:crypto'
 
 interface NodeTlsCaApi {

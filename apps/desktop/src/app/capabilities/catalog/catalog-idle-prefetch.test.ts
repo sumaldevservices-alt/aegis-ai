@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 const { prefetchQuery } = vi.hoisted(() => ({ prefetchQuery: vi.fn() }))

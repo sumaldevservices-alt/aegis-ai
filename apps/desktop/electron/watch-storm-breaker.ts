@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Rate breaker for raw fs.watch handles (#118974).
  *

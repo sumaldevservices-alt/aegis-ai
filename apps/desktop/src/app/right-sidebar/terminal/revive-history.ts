@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Terminal } from '@xterm/xterm'
 
 export interface ReviveHistory {

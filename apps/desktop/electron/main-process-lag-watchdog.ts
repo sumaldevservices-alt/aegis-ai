@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 type IntervalHandle = ReturnType<typeof setInterval>
 
 interface MainProcessLagWatchdogOptions {

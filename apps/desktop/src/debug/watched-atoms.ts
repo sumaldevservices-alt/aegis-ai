@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Dev-only: registers the stores worth attributing during a streaming turn.
 //
 // Deliberately NOT every atom in the app — a churn counter that reports 200

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { JsonRpcGatewayClient, type ServerRequest } from '@aegis/shared'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 

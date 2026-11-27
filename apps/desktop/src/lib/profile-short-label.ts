@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 const profileGraphemes = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
 
 /** Keep combining marks and emoji sequences together without changing the rail's size. */

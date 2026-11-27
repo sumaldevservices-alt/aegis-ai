@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The two room-membership entry points offer only what the room can seat:
  * Manage members uses New Group Chat's seatable predicate for add candidates,

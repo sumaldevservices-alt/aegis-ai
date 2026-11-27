@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ComponentProps, useEffect, useState } from 'react'
 
 import { ProfileGlyph } from '@/components/ui/profile-glyph'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * App-locale registry — the runtime half of the desktop catalog. `TRANSLATIONS`
  * is what ships in the binary; this registry layers languages that arrive

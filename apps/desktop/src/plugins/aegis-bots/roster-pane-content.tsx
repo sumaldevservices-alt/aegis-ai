@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Button, Codicon, DisclosureCaret, GlyphSpinner, PanelEmpty, RowButton } from '@aegis/plugin-sdk'
 import type { ReactNode, RefObject } from 'react'
 

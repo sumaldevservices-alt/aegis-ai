@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Egg-hatch visuals for the pet generation flow (Cmd-K → Pets → Generate).
  *

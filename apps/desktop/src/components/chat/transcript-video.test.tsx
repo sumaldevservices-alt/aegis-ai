@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Ported from block/buzz#7336: a rate picked in one video persists and seeds
 // every later player; garbage stored values fall back to 1x.
 

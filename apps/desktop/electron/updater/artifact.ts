@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { createHash } from 'node:crypto'
 import { createReadStream } from 'node:fs'
 import { lstat, open, rename, unlink } from 'node:fs/promises'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { TURN_DONE_BODY_FALLBACK, TURN_DONE_BODY_MAX, turnDoneNotificationBody } from './turn-done-notification-body'

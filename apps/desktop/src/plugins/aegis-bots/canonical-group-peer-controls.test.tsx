@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type * as Aegis AI Enterprise Autonomous PlatformSdk from '@aegis/plugin-sdk'
 // eslint-disable-next-line no-restricted-imports -- Exercise the same serialized errors as the shared client.
 import { jsonRpcErrorFromFrame } from '@aegis/shared'

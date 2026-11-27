@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * #154409: a transcript image the renderer has not decoded yet mounts in a
  * reserved 4:3 frame. A portrait image drew at full size past that frame and

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { applySessionControlUpdate } from '@/store/session-control'
 
 import type { GatewayEventContext } from './types'

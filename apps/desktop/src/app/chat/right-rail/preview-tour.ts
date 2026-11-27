@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PREVIEW TOUR — runs tour actions inside the preview pane's guest page, so a
  * tour can walk through ANY web app open in the in-app browser, not just

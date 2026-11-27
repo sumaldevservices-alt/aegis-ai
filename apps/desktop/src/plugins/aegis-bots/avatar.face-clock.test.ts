@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The shared face clock: ONE animation loop for every mounted math face.
  *

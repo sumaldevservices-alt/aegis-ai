@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { previewMarkdownHref } from '@/lib/preview-targets'
 
 /**

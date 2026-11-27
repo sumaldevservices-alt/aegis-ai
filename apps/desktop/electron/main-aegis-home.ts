@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The Aegis AI Enterprise Autonomous Platform home the desktop main process runs against, resolved once at boot.
 // Resolving it here also registers it with the file-preview read guard, so the
 // home's (and every profile's) credential stores are refused before any IPC

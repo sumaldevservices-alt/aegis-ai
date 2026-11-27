@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'
 import { ambientRequestFor } from '@/store/session-gone-latch'
 import { sessionOwnerIsKnown } from '@/store/session-owner-resolution'

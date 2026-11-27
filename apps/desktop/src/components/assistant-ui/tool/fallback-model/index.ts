@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { stripAnsi } from '@aegis/shared/ansi'
 
 import { type ToolTitleKey, translateNow } from '@/i18n'

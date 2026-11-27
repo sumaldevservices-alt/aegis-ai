@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useStore } from '@nanostores/react'
 import { Puzzle } from 'lucide-react'
 import { type ReactNode, useCallback, useEffect, useState } from 'react'

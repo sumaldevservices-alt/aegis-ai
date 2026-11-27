@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import path from 'node:path'
 
 /** True when `dir` lives inside a packaged app bundle / install tree. */

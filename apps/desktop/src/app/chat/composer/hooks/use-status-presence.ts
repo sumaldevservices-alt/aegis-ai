@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useSyncExternalStore } from 'react'
 
 import { $composerActionsBySession } from '@/store/composer-actions'

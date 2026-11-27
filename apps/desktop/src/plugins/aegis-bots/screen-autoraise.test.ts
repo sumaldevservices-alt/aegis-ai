@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Screen auto-raise contract: a live screen-tool call on an opted-in bot raises
  * its Screen tab once; a manual Close holds through the burst; no opt-in, a

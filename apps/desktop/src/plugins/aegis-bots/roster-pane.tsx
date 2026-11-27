@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { host, useI18n, useValue } from '@aegis/plugin-sdk'
 import { useEffect, useRef, useState } from 'react'
 

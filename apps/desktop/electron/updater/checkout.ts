@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Checkout update policy and handoff execution. The shell supplies process and UI dependencies.
 
 import { existsSync, readFileSync } from 'node:fs'

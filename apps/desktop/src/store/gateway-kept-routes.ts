@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Routes Desktop keeps connected for the window's lifetime (store/gateway-persistence).
 // A leaf module, so store/gateway can consult it without importing its consumer.
 // Counted per route: a route stays kept until every holder has released it.

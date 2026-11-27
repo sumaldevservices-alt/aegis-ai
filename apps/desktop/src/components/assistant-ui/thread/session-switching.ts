@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `data-session-switching` — the supported hook for styling a chat switch.
  *

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The identity layer every Bot Mode surface files a bot under: the @handle it
  * is tagged with, the friendly forms a rename makes taggable, the

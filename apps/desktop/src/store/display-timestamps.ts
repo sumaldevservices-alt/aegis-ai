@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `display.timestamps` — one config key for message timestamps everywhere.
  *

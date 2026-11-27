@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { mediaDisplayLabel, mediaMarkdownHref } from '@/lib/media'
 
 import type { ChatMessage, ChatMessagePart } from './types'

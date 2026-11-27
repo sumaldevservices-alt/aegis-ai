@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Measured-height CSS vars, scoped to one chat surface.
  *

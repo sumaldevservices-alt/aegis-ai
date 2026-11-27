@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Renderer console/error capture shared by every renderer-content window.
  *

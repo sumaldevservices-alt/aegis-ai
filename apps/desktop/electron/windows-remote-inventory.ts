@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { parseRemoteProfileListing } from './connection-registry'
 import { assertWindowsRemoteInstallUpdateClear, helper } from './windows-remote-lifecycle'
 import type { WindowsRuntime } from './windows-runtime-command'

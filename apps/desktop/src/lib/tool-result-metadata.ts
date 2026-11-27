@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Gateway display hints are not the tool's result. Keep them off the raw
  * payload so summaries cannot overwrite evidence, including false/null/"". */
 export interface ToolResultMetadata {

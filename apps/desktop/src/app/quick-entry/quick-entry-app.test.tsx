@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Regression coverage for #77429: native picker options must paint a readable surface. */
 
 import { act, cleanup, render, screen } from '@testing-library/react'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * First-run onboarding as this window runs it: one chat in the default profile, opened by the
  * backend's `onboarding.start`, ended by the answer to the first-task card or by Skip setup.

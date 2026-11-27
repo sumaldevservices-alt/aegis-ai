@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ModelOptionsResult } from '@aegis/shared'
 import { fuzzyRank, modelSearchText } from '@aegis/shared'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'

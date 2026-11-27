@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, expect, it, vi } from 'vitest'
 
 /** The real tree and side stores in a native Desktop renderer: the Electron

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import crypto from 'node:crypto'
 
 import { markExpectedTransition } from './crash-forensics'

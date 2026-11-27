@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { JsonRpcGatewayError } from '@aegis/shared'
 import type { GatewayEventName } from '@aegis/shared'
 import { act, cleanup, render, waitFor } from '@testing-library/react'

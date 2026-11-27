@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // app-updater.ts — the win32 update arm for bundled desktop installs.
 //
 //   win32  — the OS App Installer owns the apply. The package was installed

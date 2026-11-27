@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Settings → Gateways copy for a renderer that cannot change its connection: a Desktop whose
 // bridge exposes no gateway settings, and the Webapp, bound to the host that serves it. Plus
 // Settings → Web Access, which turns on the Webapp this machine's gateway serves.

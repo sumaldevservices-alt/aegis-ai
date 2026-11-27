@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { readKey, writeKey } from './storage'
 
 type ZoomState = { level: number; percent: number }

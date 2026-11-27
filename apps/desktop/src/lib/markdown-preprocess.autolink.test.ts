@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { tailBoundedRemend } from '@assistant-ui/react-streamdown'
 import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'

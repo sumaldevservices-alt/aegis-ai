@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { cleanup, renderHook } from '@testing-library/react'
 import { atom } from 'nanostores'
 import type { ReactNode } from 'react'

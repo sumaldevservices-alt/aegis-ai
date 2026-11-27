@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Disable F12 DevTools shortcut — a device-local preference.
  *

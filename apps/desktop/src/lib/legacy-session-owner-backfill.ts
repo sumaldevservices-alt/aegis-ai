@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * One-shot durable owner backfill for legacy NULL-profile session rows
  * (#94724 legacy-session migration).

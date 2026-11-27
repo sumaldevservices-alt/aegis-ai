@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { createDragDropManager, type DragDropManager } from 'dnd-core'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 

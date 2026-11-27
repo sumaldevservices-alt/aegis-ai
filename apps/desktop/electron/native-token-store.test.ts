@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tests for electron/native-token-store.ts — the encrypted-at-rest persistence
  * seam main.ts uses for RFC 8252 native OAuth tokens.

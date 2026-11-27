@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const frSharedMetrics = {
   consentTitle: 'Partager les statistiques d’utilisation ?',
   dialogTitle: 'Statistiques d’utilisation',

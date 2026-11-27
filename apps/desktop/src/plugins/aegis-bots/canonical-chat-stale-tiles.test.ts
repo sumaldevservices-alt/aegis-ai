@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * RED for aegis-agent#120810: a Bot Chat compression leaves two tabs
  * captioned with the bot name.

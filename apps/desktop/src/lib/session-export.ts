@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { SessionInfo } from '@/aegis'
 import { getAllSessionMessages } from '@/aegis'
 import { translateNow } from '@/i18n'

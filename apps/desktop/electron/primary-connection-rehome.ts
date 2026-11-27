@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface PrimaryConnectionRehomeOptions {
   clearLocalBootstrapFailure: () => void
   mode: string

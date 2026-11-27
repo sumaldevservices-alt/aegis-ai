@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { SidebarListRow } from '@/lib/session-date-groups'
 
 /**

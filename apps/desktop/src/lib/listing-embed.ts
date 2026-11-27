@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * LISTING EMBEDS — property/rental listings as native transcript cards.
  *

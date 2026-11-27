@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The update gate's marker probe (R6, SPEC section 6 "Electron gate").
  *

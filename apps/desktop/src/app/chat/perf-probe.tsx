@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Profiler, type ProfilerOnRenderCallback, type ReactNode } from 'react'
 
 import { $terminalTakeover, setTerminalTakeover } from '@/app/right-sidebar/store'

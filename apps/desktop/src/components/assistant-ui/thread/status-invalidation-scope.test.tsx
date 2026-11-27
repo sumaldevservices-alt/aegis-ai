@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The invalidation-scoping property, as a render-count contract.
 //
 // A streaming turn flips its message status many times a second, and at

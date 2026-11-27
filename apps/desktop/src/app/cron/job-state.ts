@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { CronJob } from '@/types/aegis'
 
 // Status-pip color per cron job state. Single source for the sidebar section and

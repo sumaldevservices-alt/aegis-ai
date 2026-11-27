@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useState } from 'react'
 
 import { JsonDocumentEditor } from '@/components/chat/json-document-editor'

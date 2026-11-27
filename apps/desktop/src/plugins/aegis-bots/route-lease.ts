@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { host } from '@aegis/plugin-sdk'
 
 /** Hold `route`'s pooled gateway socket open until the returned release runs, so the events that follow a

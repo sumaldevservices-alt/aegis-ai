@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 //! Event types streamed from Rust → React.
 //!
 //! These mirror `apps/desktop/electron/bootstrap-runner.ts`'s event shape

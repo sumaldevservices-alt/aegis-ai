@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isGatewayReauthRequired, isStableOpen, LOCAL_CONNECTION_ID, reconnectBackoffDelayMs } from '@aegis/shared'
 
 import type { Aegis AI Enterprise Autonomous PlatformTerminalExit, Aegis AI Enterprise Autonomous PlatformTerminalSession, Aegis AI Enterprise Autonomous PlatformTerminalState } from '@/global'

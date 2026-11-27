@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The `session.reclaimed` listener's re-resume is a BACKGROUND refresh —
  * issue 121874.

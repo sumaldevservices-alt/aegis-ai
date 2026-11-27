@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * When this renderer last settled a turn of each runtime session on screen
  * (message.complete), so a resume that was in flight meanwhile can tell its

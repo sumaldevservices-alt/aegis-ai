@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { LayoutNode } from '@/components/pane-shell/tree/model'
 
 import { TILE_PANE_PREFIX } from './session-focus'

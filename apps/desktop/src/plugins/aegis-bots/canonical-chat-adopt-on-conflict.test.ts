@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * ADOPT-BEFORE-MINT (#92473 part 2).
  *

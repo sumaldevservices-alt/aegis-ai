@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 interface ExecutionAuthority {
   epoch: string
   generation: number

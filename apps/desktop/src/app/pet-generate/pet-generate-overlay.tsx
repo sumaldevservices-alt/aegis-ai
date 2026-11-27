@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * "Hatch a Pet" — a dedicated, Pokédex-style overlay for pet generation.
  *

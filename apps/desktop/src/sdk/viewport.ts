@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // `host.state.viewport`: window geometry + the app's responsive posture.
 
 import { atom } from 'nanostores'

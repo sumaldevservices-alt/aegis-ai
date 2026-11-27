@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { openExternalLink } from '@/lib/external-link'
 
 // Optional-arg convenience over the canonical opener — the billing rows pass

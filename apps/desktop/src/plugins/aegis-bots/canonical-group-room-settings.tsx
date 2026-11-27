@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Button, Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, Input, randomUuid, Textarea } from '@aegis/plugin-sdk'
 import { useState } from 'react'
 

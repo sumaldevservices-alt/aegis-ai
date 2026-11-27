@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { act, cleanup, fireEvent, render, renderHook, screen } from '@testing-library/react'
 import { MotionGlobalConfig } from 'motion/react'
 import { createElement, type ReactElement, type ReactNode } from 'react'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { clearBotAttention, noteBotAttention } from './data'
 import { groupFailureReason, recordGroupActivity } from './group-activity'
 import {

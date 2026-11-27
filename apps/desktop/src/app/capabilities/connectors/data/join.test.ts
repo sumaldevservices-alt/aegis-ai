@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ConnectorCatalogRow } from '@aegis/shared'
 import { describe, expect, it } from 'vitest'
 

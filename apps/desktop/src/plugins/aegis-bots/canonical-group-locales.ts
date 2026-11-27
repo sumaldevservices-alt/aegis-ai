@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { GROUP_REASON_LOCALES, type GroupReasonMessages } from './group-reason-locales'
 
 export interface CanonicalGroupMessages extends GroupReasonMessages {

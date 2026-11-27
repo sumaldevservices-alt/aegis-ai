@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Plugin-scoped i18n for Bot Mode — bundles registered under the plugin id via
  * `ctx.i18n.register`, never touching core `en.ts`. Mirrors the kanban plugin:

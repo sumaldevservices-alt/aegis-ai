@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { PersistedTurn } from '@aegis/shared'
 
 import type { ErrorSurface } from '@/lib/error-surface'

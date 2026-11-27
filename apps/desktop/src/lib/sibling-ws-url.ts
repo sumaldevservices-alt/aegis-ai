@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Sibling WebSocket URLs beside `/api/ws` for a (connection, profile) route.
  *

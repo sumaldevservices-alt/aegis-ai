@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export type ParentWatchdogEnv = {
   AEGIS_PARENT_PID: string
   AEGIS_PARENT_START_MARKER?: string

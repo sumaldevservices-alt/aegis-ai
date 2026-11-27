@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The portal's one-shot `display.status` fetch is a network reply, not an
  * event: a snapshot it returns can predate a newer authoritative write that

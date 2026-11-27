@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { execFile } from 'node:child_process'
 
 import { appendUniquePathEntries, delimiterForPlatform, pathEnvKey } from './backend-env'

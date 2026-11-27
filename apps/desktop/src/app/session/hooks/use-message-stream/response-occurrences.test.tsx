@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEventName } from '@aegis/shared'
 import { act, cleanup } from '@testing-library/react'
 import { afterEach, expect, it } from 'vitest'

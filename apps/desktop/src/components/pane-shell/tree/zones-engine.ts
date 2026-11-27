@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * FancyZones runtime engine — verbatim port of the drag/highlight internals
  * from PowerToys `FancyZonesLib` (microsoft/PowerToys, MIT):

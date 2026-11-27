@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Desktop attaching to a local gateway that was already running (#134889 W3).
  *

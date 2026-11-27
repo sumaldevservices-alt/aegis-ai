@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ChildProcessWithoutNullStreams, spawn } from 'node:child_process'
 import { statSync } from 'node:fs'
 import path from 'node:path'

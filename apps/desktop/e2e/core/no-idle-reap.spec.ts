@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Support f502bc6f: a "This device" profile's local backend was SIGTERM'd by the Desktop pool idle
  * reaper (60 min with nothing streamed), leaving "This device · Backend offline". A local profile's

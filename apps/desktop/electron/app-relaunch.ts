@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ChildProcess } from 'node:child_process'
 
 import type { RelaunchOptions } from 'electron'

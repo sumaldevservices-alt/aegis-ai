@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Keep-alive visibility — the one policy every document-wide lookup must obey.
  *

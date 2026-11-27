@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ModelOptionProvider, ProviderLimit, ProviderUsageAccount, ProviderUsageWindow } from '@aegis/shared'
 
 import { DAY, fmtClock, fmtDayTime, startOfLocalDay } from '@/lib/time'

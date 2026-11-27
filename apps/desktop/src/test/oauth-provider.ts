@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { OAuthProvider } from '@/types/aegis'
 
 /** A logged-out PKCE provider. Onboarding branches on `flow` and

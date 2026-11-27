@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { isOfficialSkillSource } from '@aegis/shared'
 
 import curation from '../../../../../shared/src/catalog-curation.json'

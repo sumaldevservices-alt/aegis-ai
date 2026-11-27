@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { makeNousCloudBackendDownError } from './backend-health'
 import { gatewayTicketFailure, gatewayTicketTransportMessage } from './connection-config'
 import { oauthTicketFailureAuthMessage } from './native-auth-decisions'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // MCP fleet cost/usage math — pure functions behind the Capabilities page's
 // per-server cost overlay ("~4.2k tok, 3 uses/30d"). Display-only: nothing
 // here changes what schemas are sent to models.

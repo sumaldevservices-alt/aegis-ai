@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface ModelMenuTranslations {
   /** A pick made while a turn runs: the owner records it for the next turn. */
   pickDeferred: (model: string) => string

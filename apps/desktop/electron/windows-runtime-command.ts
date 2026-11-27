@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The published launcher owns PM activation. A Python guessed beside bin/aegis.exe does not.
 export interface WindowsRuntime {
   os?: string

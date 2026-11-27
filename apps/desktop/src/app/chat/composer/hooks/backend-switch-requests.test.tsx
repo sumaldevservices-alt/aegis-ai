@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment jsdom
 // While a profile's backend is in a planned transition (store/backend-transition.ts) the composer's
 // other ways of putting a message on a backend hold like Enter and Send do

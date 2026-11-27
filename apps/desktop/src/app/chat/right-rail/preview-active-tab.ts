@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * THE PREVIEW AN AGENT TOOL ACTS ON — one resolution shared by read_preview
  * (preview-reader.ts), drive_preview (the nav / input / script-runner

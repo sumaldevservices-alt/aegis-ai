@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Clean up detached package tools without touching shared runtimes.
  * Package-owned gpg-agent can outlive its parent and pin an MSIX silo,
  * preventing subsequent activation. A root claim never includes the shared

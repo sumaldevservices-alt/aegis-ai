@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { deflateSync, inflateSync } from 'fflate'
 
 import { capitalize } from '@/lib/text'

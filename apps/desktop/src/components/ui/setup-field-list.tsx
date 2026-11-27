@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Field, FieldHint } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { useI18n } from '@/i18n'

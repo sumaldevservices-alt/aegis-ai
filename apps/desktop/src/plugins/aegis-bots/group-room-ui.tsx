@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Presentational parts both room views share (gateway-owned `canonical-group-workspace.tsx`
  * and the Desktop-driven `group-chat-view.tsx`), so the two cannot drift apart. They read as

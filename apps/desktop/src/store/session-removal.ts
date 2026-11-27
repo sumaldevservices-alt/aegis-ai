@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom } from 'nanostores'
 
 // Client-side cache eviction (Apollo-style optimistic layer): ids the user just

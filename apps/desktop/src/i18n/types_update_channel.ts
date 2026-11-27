@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** About ▸ Updates: the source checkout's update channel selector. */
 export interface UpdateChannelCopy {
   title: string

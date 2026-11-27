@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Probe and install desktop runtime plugins from Git repositories.
  * Pure helpers are exported for unit tests; IPC handlers in main.ts call the

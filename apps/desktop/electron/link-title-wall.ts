@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The ladder between the curl tier and the hidden-Chromium tier of link-title
 // resolution: curl (tier 1) → hidden BrowserWindow (tier 2).
 //

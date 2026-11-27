@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Check completion cue ownership races without opening a real audio device.
 import { afterEach, expect, it, vi } from 'vitest'
 

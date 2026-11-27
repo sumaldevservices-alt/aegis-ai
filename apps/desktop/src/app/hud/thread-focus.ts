@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type RefObject, useEffect } from 'react'
 
 import { focusComposerInput } from '@/app/chat/composer/focus'

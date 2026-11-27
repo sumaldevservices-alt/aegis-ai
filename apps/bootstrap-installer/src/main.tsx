@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './styles.css'
 
 import { StrictMode } from 'react'

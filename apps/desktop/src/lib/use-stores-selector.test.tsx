@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `useStoresSelector` — the multi-store form of `useStoreSelector`.
  *

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { contrastRatio } from '@aegis/shared/color'
 import { describe, expect, it } from 'vitest'
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Room-level coordination: who speaks, in what order, for how long — the
  * @mention parse, the round-robin driver, the #93129 member holds, the stop

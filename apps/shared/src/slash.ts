@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The slash-command wire contract every TypeScript surface shares: how a typed
  * line splits into `name` + `arg`, and the `command.dispatch` response union

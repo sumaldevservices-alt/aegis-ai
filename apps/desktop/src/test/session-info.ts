@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { SessionInfo } from '@/types/aegis'
 
 /** A `SessionInfo` with every field at its zero value.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * ROUTE (PAGE) TILES — a full-page view rendered as a layout-tree pane BESIDE
  * the main thread, the page analog of session tiles. Built-in pages

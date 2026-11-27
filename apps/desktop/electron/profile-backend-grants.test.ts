@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { createProfileBackendGrants, PROFILE_BACKEND_GRANT_TTL_MS } from './profile-backend-grants'

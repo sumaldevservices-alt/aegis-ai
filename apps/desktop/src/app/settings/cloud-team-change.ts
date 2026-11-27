@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DesktopRegistryConnection } from '@/global'
 import { hostHas } from '@/lib/host-capabilities'
 

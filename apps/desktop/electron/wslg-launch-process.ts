@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { spawn, type StdioOptions } from 'node:child_process'
 import { closeSync, fstatSync } from 'node:fs'
 import * as inspector from 'node:inspector'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { LOCAL_CONNECTION_ID, normalizeBasePath } from '@aegis/shared'
 
 import { type BrowserHostGlobals, browserLaunchProfileOrDefault } from './platform'

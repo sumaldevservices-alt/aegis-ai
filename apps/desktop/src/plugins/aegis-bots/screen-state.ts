@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Per-bot Bot Screen cache: backend truth (`display.status`) plus the last
  * `display.lease` event, keyed by the bot's roster identity. Renderer-owned

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A desktop-only catalog plugin installed from its catalog card (Accent Picker, reported on X on
  * 2026-11-07): the install worked, but the card kept its "+", the plugin sat switched off (it ships

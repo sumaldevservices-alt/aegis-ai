@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 //! Update orchestration.
 //!
 //! Driven when the installer is launched as `Aegis AI Enterprise Autonomous Platform-Setup.exe --update` (see

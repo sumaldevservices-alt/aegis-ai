@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tests for electron/native-oauth.ts — the pure RFC 8252 native-app login
  * helpers (PKCE, capability detection, URL building, loopback callback

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 const META_SCAN_BYTES = 8192
 
 function charsetFromContentType(contentType: string): string {

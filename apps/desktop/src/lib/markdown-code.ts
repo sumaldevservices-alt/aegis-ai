@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { normalize } from '@/lib/text'
 
 const VALID_LANGUAGE_RE = /^[a-z0-9][a-z0-9+#-]*$/i

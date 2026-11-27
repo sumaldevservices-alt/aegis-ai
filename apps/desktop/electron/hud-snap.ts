@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * HUD snap-to-pointer math — where to park the window so a chosen anchor on
  * the bar (usually the composer center) sits under the OS cursor.

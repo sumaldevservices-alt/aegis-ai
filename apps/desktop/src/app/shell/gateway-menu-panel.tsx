@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ReactNode, useEffect, useRef, useState } from 'react'
 
 import { StatusDot } from '@/components/status-dot'

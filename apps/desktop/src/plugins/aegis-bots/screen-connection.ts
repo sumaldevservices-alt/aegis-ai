@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bot Screen — connection plumbing for a bot's Bot Desktop (the headless Xfce
  * screen its computer_use drives on the gateway host).

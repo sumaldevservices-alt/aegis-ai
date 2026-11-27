@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { useSessionActions } from '@/app/session/hooks/use-session-actions'
 import { $workspaceMode, $workspaceNewSessionTarget, $workspaceOwnerKey } from '@/components/pane-shell/workspace-scope'
 

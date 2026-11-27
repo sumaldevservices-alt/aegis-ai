@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Prune renderer-stored session references whose sessions no longer exist on
  * the backend.

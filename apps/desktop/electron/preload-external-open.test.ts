@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { expect, it, vi } from 'vitest'
 
 // Tripwire for the dead-wiring class: main broadcasts `aegis:external-open-

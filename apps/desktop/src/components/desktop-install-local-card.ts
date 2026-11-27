@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Presentation for an install offer or an already-selected local runtime. */
 export type LocalCardState = 'none' | 'installed' | 'bundled'
 

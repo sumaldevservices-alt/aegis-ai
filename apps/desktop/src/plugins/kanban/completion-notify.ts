@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Native kanban terminal-event notification (completion, blocker, failure).
  *

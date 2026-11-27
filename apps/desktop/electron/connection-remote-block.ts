@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { normalizeRemoteBaseUrl, normalizeRemoteHeaders, normalizeRemoteProfileName } from './connection-config'
 
 // Build + validate a `{ url, authMode, token }` remote block. OAuth gateways

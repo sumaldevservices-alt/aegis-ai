@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The window's reporter through its real seams: the HashRouter route and session stores decide what
 // is in view, the composer's owner ladder and the gateway registry decide which connection owns it,
 // and real Aegis AI Enterprise Autonomous PlatformGateway clients over in-memory sockets carry the frames.

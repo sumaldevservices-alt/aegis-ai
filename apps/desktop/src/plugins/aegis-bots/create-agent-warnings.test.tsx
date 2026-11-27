@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * New Bot creation warnings: a lazily created draft owns its `profiles.create`
  * warnings until the bot is adopted, then publishes them once as a persistent

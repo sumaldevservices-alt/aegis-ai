@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Foreground-focus policy for the Windows focus-steal bug (#83998).
  *

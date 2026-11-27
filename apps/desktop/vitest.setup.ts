@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { configure } from '@testing-library/react'
 import { afterEach } from 'vitest'
 

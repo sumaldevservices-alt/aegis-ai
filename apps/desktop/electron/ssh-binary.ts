@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Which ssh client the desktop spawns (#103288).
 //
 // Windows used to hard-code %SystemRoot%\System32\OpenSSH\ssh.exe for the

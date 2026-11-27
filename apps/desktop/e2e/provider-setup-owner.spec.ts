@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Provider setup must keep the Settings owner's gateway AND profile.
  * Two real serve backends; only OpenAI-compatible model discovery is a fixture.

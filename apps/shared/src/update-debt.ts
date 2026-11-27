@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Owed post-commit work of a dashboard-started `aegis update`, read from the
 // receipt summary the action status route attaches. Shared by the web
 // dashboard toast and the Desktop backend-apply store so both surfaces name

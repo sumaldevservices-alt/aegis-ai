@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { noteListedSubmissions } from './admitted-submissions'
 import { getQueuedPrompts, type QueuedPromptEntry, queuedSubmissionId, writeSessionQueue } from './composer-queue'
 import { $sessions, resolveComposerSessionKey } from './session'

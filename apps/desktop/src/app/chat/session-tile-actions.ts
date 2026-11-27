@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Prompt actions for a SESSION TILE — the same verbs the primary chat wires
  * (submit incl. slash, cancel, steer, edit, reload, restore, branch-hide

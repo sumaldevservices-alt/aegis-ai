@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The sealed payload's repo snapshot has no scripts/, so the relaunch waiter
 // must be shipped by the packaging config at the path main resolves.
 

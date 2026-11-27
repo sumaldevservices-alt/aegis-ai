@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `ctx.files` — the folder-scoped file door. A plugin reads and writes inside
  * its own data folder (`'data'`) and inside folders the user granted it

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * SPOTLIGHT BLUR — a blurred scrim that keeps the highlighted element crisp.
  *

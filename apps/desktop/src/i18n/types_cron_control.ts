@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Cron page: stopping a live run and the per-job missed-run (catch-up) policy. */
 export interface CronControlCopy {
   /** Detail action that stops the job's run in flight. */

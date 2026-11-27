@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { JSON_RPC_INTERNAL_ERROR } from '@aegis/shared'
 
 import type { ScopedServerRequest } from '@/store/gateway'

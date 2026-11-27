@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { resolveLocalReadPath } from './wsl-path-bridge'
 
 // Path preparation shared by the file-read boundaries that hand a backend-

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Lease ordering: `display.lease` events and `display.status` replies race on
  * the wire. A slower status reply describing an OLDER lease must never roll

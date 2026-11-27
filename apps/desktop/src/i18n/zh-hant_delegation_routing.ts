@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DelegationRoutingTranslations } from './types_delegation_routing'
 
 export const zhHantDelegationRouting: DelegationRoutingTranslations = {

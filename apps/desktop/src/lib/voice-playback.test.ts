@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Teardown contract for voice-playback (#91991): a barge-in (stopVoicePlayback)
 // must drain EVERY live playback — streaming sessions (WebSocket + AudioContext)
 // and data-URL audio elements — and a settled session must never resume or

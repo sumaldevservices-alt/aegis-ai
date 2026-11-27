@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Contribution } from '@/contrib/types'
 
 // Sidebar-nav preferences — the `sidebarNav.prefs` registry area. A plugin

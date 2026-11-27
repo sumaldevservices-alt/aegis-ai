@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * "Update all instances" never runs `aegis update` against a Aegis AI Enterprise Autonomous Platform Cloud
  * agent, however it was saved: as a Cloud connection or as a plain URL remote.

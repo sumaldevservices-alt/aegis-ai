@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Desktop self-update store. Tracks distance from the configured branch,
  * surfaces it as an ambient pill, and orchestrates the apply flow.

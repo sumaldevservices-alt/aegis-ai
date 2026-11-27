@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The one floating-list look. DropdownMenu, Select, and every Popover + cmdk
 // picker (`<PopoverContent variant="menu">` + `<Command variant="menu">`) paint
 // through these, so a list reads the same wherever it opens. Change the menu

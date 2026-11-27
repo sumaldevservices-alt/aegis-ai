@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Sign the in-app Browser tab (`persist:aegis-preview`) in with the user's real browser profile.
  *

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Curated brand glyphs for MCP server names — extracted from the mcp-tab's
  * avatar (its `MCP_BRAND_ICONS`) the moment a second surface (the composer

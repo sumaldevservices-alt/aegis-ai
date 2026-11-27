@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { fileURLToPath } from 'node:url'
 
 import { type Browser, chromium, expect, type Locator, type Page, test } from '@playwright/test'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Minimal ANSI SGR parser for rendering terminal output inside chat tool
 // cards. Only handles the SGR codes that show up in practice (color, bold,
 // reset); cursor motions and other CSI sequences are dropped silently.

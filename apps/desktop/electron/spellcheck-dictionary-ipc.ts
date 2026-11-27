@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Spell-check dictionary IPC: the custom context menu's native spell-check verbs
 // and the plugin SDK's `host.spellcheck` door. Every handler acts on the
 // SENDER's own session (or the named webview guest's), one word per call.

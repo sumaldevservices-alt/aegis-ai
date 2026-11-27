@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { host, randomUuid } from '@aegis/plugin-sdk'
 
 import { canonicalApprovalPreview } from './canonical-group-approval'

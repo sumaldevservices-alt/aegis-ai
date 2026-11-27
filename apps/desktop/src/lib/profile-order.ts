@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // User-defined rail order for named profile squares. Names absent from the
 // order alphabetise at the tail. Pure so both the active strip and the at-rest
 // fleet groups sort identically without pulling stores into fleet-rail.

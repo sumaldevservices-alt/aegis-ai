@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** The slice of the kanban REST contract the board renders. The backend
  *  (`plugins/kanban/dashboard/plugin_api.py`) returns much more per task; we
  *  type only what the UI reads so a schema addition never breaks the build. */

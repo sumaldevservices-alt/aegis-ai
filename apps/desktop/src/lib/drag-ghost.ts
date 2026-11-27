@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A flat, pointer-following drag chip — the shared "what am I holding"
  * affordance for in-app pointer drags. Plain DOM (no React) so it survives a

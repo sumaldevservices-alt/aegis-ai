@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Codicon } from '@aegis/plugin-sdk'
 
 import { groupMemberKey } from './group-membership'

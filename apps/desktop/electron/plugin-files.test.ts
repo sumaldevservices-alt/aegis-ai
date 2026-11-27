@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The folder-scoped plugin file door (`ctx.files`). Every refusal here is the
  * main process's own: the renderer (and the plugin in it) only names a folder

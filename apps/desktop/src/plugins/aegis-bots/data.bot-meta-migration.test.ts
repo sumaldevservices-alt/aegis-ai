@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The v1 -> v2 bot-metadata migration and the commit protocol that guards it.
  *

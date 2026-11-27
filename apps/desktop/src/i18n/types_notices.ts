@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DesktopCommandNotices } from './types_desktop_commands'
 
 // Shell notice strings: the remote-display toast, the butterbar, send-outcome toasts and the

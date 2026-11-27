@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PREVIEW READER — the read_preview tool's window into the preview pane, the
  * preview analog of the terminal's buffer registry (see right-sidebar/

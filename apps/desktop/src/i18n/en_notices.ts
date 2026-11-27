@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { enDesktopCommands } from './en_desktop_commands'
 import { enSessionCommands } from './en_session_commands'
 import type { Translations } from './types'

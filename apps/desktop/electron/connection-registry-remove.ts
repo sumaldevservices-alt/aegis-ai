@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { modeIsRemoteLike, normalizeRemoteBaseUrl, normalizeSshConfig } from './connection-config'
 import { applyConnectionConfigAtomically } from './connection-config-apply'
 import {

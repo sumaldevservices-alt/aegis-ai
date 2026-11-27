@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Transcript lines for the Desktop-side /rollback /agents /config /history /save /export /import
 // /timestamps actions (slash-desktop-commands.ts). Counts arrive as strings, like sessionCommands.
 export interface DesktopCommandNotices {

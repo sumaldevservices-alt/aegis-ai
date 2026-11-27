@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { downloadBlob } from '@/lib/download'
 
 /** Save generated text content to a file via a blob download. */

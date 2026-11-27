@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { randomUuid } from '@aegis/plugin-sdk'
 
 import type { CanonicalGroupBinding } from './canonical-groups'

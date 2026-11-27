@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayRequest } from '@/app/session/hooks/use-prompt-actions/utils'
 import { requestForOwnedSession } from '@/store/session-states'
 

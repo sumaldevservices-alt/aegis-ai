@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `aegis://` deep-link registration. Every launch rewrites the OS handler (on Windows,
  * HKCU\Software\Classes\<protocol>), so a test or dev run of an unpackaged checkout would

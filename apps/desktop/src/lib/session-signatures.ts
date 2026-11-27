@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Cheap signature compares for poll loops — swap the atom (and re-render)
  * only when the rows/transcript actually changed.

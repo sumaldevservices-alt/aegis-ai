@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Owner-routed delivery for desktop preview/plugin file watches (#108189).
  *

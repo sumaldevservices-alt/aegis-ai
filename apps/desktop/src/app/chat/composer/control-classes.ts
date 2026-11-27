@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { cn } from '@/lib/utils'
 
 // Shared class names for the composer's control row, in a module of their own

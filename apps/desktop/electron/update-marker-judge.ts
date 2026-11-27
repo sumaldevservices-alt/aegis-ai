@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Pure parse + judge of the update marker `AEGIS_HOME/.aegis-update-in-progress`
  * (A7 rule 4, contract in `tests/fixtures/update_marker_corpus.json`).

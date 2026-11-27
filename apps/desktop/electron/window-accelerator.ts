@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export type WindowAcceleratorAction =
   'close-tab' | 'reload' | 'zoom-in' | 'zoom-out' | 'zoom-reset' | 'swallow' | 'ignore'
 

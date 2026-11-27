@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import * as React from 'react'
 
 import { Codicon, type CodiconProps } from '@/components/ui/codicon'

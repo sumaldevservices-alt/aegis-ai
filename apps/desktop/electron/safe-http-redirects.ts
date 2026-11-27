@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * One bounded redirect ladder for automatic link-metadata fetches (titles and
  * favicons). Nothing here follows a `Location` by itself: the first URL and

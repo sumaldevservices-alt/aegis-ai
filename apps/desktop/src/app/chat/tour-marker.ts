@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `data-tour` handles for the chat surfaces — on the primary one only.
  *

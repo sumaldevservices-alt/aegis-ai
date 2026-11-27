@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Fun starter ideas for the new-project dialog. Pills prefill IDEA.md; the set
 // shown is a random handful from this pool (reshuffled on open / via the dice),
 // so creating a project always feels a little playful. Pure content — edit

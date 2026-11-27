@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ReactElement } from 'react'
 
 import { useI18n } from '@/i18n'

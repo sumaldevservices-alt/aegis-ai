@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEventName } from '@aegis/shared'
 // A tool event can reach the renderer twice. A background `delegate_task`
 // returns in about a second, and a second copy of its start or completion

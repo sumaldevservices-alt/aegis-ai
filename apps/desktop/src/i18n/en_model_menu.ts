@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Translations } from './types'
 
 export const enModelMenu: Translations['shell']['modelMenu'] = {

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { getActionStatus, installMcpCatalogEntry, type McpCatalogEntry, type ProfileScope } from '@/aegis'
 import { translateNow } from '@/i18n'
 

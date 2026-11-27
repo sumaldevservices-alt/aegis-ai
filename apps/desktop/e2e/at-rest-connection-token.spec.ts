@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * E2E at-rest contract for the remote-gateway session token (issue #77486).
  *

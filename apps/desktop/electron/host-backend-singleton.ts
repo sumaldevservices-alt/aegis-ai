@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Multiplex-only, Desktop half: ONE `aegis serve` per HOST serves every
 // profile, so a local profile never gets a backend process of its own.
 //

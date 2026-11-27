@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { INSTALL_STAMP, installShape, type InstallStamp } from './install-stamp'
 
 export function bootstrapSnapshot<State>(

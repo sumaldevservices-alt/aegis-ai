@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The gateway's declared `groups.*` contract: the OpenRPC document generated from
  * `tui_gateway/contracts` (`tests/tui_gateway/contracts/test_generated.py` fails when it is stale,

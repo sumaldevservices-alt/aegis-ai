@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * TIP HOST — one per window, renders nothing until the app has something to
  * say.

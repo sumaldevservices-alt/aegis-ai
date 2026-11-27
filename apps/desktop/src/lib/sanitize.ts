@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Format enforcers for identifier-style inputs, applied live (per keystroke) via
 // <SanitizedInput>. They're intentionally lenient on a trailing separator so a
 // value stays typeable (e.g. "feat/" then keep going); the final trim happens on

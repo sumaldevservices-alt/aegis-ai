@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The gates' signatures are part of the suite's contract: each must match the
  * exact failing assertion its bug produces and nothing else, or a gate turns

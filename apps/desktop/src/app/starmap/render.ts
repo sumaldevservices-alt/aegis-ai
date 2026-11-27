@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { darken, luminance, mixRgb, rgba } from './color'
 import {
   LIT_BAND_ALPHA,

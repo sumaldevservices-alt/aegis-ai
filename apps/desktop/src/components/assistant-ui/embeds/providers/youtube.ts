@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { bareHost, type EmbedMatcher } from './types'
 
 const YOUTUBE_ID_RE = /^[A-Za-z0-9_-]{11}$/

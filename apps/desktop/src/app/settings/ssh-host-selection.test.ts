@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { enrichSelectedSshHost, selectSshHost } from './ssh-host-selection'

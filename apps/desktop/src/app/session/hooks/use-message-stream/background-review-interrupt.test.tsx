@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { GatewayEvent } from '@aegis/shared'
 // Repro for #119543: user sends a new message while the previous turn's
 // `background_review` fork is still in flight. The fork itself emits nothing

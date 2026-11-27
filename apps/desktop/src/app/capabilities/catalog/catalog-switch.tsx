@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ComponentProps, useId } from 'react'
 
 import { Switch } from '@/components/ui/switch'

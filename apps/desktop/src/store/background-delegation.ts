@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { computed } from 'nanostores'
 
 import { $subagentsBySession, activeSubagentCount } from './subagents'

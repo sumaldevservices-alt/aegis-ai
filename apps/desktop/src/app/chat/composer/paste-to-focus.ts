@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Paste-to-focus: the paste twin of type-to-focus. A ⌘V/Ctrl+V landing on
  * non-editable chrome (the transcript, empty chat, the window body) routes the

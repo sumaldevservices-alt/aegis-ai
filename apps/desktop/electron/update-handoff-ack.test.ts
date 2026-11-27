@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Hand-off acknowledgment (R5, A7 rule 6, SPEC 4a.5 / 4b) against REAL
  * processes: the Desktop counts a hand-off as taken only when the marker's

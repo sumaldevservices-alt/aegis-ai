@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Desktop-only color helpers: the naive light/dark bucketer, the VS Code hex
  * normaliser, and the OKLCH toolkit. The sRGB primitives (parse/mix/measure/

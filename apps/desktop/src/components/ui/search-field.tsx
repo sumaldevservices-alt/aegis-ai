@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type KeyboardEventHandler, type ReactNode, type RefObject, useState } from 'react'
 
 import { Button } from '@/components/ui/button'

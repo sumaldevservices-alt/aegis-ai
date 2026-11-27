@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Git ops backing the coding rail + Codex-style review pane. Built on `simple-git`
 // (a maintained wrapper around the system git binary — same git the rest of the
 // app shells to, no native build) so we read structured status()/diffSummary()

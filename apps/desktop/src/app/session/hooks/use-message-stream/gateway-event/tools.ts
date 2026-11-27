@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ToolCallMessagePart } from '@assistant-ui/react'
 
 import { isPreviewableTarget, toolPreviewOutcome } from '@/components/assistant-ui/tool/fallback-model'

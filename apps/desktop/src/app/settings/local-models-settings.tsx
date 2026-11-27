@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useIsMutating, useQuery } from '@tanstack/react-query'
 import { type ReactElement, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'

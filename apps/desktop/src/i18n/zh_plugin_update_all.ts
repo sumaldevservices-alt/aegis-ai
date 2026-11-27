@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { PluginUpdateAllTranslations } from './types_plugin_update'
 
 /** Plugins tab: "Update all" and the auto-update switch. */

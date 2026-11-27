@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * What a gateway-owned room is doing, derived from the durable room log plus the live
  * `groups.state.driver_status` rows. Pure: the header chips, the typing rows, the cycle

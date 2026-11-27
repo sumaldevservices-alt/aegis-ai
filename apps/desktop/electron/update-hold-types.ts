@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // What the blocked boot screen shows while an update hold keeps the local
 // backend stopped (R8 D3). Shared by the main process (update-hold-wiring.ts)
 // and the renderer (src/global.d.ts), so the wire shape has one definition.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Packaged-build smoke: the artifact users actually run, not the dev tree.
  *

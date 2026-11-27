@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useI18n } from '@aegis/plugin-sdk'
 
 import { useBots } from './i18n'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tell the backend when the user is at this window's session (`client.activity`), so a phone
  * notification plugin can stay quiet for a reply the user is here to see.

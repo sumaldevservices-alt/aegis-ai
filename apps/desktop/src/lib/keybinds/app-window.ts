@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Whether the Webapp runs in a Chromium app window (Install / "Open as
 // window", `--app=`), where the page gets Ctrl+N/T/W/Tab before the browser.
 //

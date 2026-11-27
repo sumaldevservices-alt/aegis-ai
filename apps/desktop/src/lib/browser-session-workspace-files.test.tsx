@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import '@/store/session-states'
 
 import { EditorView } from '@codemirror/view'

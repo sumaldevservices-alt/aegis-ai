@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Reload parity for a steered turn: the durable rows a redirect persists
 // (pre-steer assistant narration + tool rows → interrupted-checkpoint row →
 // the user's correction → post-steer continuation with its own tools) must

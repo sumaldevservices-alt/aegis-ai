@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Any log the shell keeps across launches needs a size bound — desktop.log has
 // been seen at ~326 GB, which exhausts the disk and then breaks update/install
 // (no room for git/venv/npm temp files).

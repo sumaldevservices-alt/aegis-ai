@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The channels the agent acts on a live preview page through, published per
  * tab while the pane's surface is an Electron `<webview>`: the script runner

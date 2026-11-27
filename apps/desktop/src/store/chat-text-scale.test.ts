@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeEach, expect, it, vi } from 'vitest'
 
 const KEY = 'aegis.desktop.chat-text-scale.v1'

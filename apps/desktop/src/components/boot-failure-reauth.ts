@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DesktopAuthProvider, DesktopConnectionConfig } from '@/global'
 import { deriveRemoteAuthProviderShape } from '@/lib/desktop-remote-auth'
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { cn } from '@/lib/utils'
 
 interface StableTextProps {

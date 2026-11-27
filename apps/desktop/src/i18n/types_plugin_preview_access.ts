@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Copy for the `ctx.preview.executeJavaScript` consent: the app-owned prompt a plugin's first
  *  call on a page origin raises, and the per-plugin grant list in Capabilities ▸ Plugins. */
 export interface PluginPreviewAccessTranslations {

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ReactNode, type RefObject, useRef } from 'react'
 
 import { Badge } from '@/components/ui/badge'

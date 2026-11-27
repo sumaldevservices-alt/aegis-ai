@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Button, Codicon, Tip } from '@aegis/plugin-sdk'
 import type { ComponentProps } from 'react'
 

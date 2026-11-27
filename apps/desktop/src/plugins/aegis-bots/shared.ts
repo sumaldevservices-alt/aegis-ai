@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The pieces every Bot Mode module needs and no single module can own: the
  * plugin id, the `PluginContext` `register()` captures, and the open

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Dev-only: drive the credit-notice UX without a backend that can hit real
 // usage bands. Each trigger emits ONE synthetic `notification.show` /
 // `notification.clear` gateway event through the real fan-out

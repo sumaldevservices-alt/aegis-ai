@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Change-only desktop.log trace for multi-connection identity decisions: which
  * socket a (connection, profile) request rides, the rows each connection

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Message-gated gaps for open bugs (the Playwright twin of
  * tests/e2e/core/_pending_fixes.py::known_failure).

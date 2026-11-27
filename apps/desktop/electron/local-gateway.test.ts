@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import path from 'node:path'
 
 import { expect, test, vi } from 'vitest'

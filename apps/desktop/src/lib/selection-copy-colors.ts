@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Chromium's native selection copy (Cmd+C, right-click Copy) serializes the
 // selection as `text/html` with every element's COMPUTED paint inlined as
 // style attributes. Copied from a dark theme, body text lands on the

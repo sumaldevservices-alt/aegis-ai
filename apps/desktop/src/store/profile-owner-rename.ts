@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { normalizeProfileKey } from './profile'
 import type { SessionProfileRoute } from './session-request-router'
 

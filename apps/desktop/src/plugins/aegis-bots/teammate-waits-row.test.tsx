@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The strip renders in the composer's `composer.top` slot, which sits inside the composer's
  * <form>: its Open and Dismiss buttons must never act as Send for whatever draft is typed.

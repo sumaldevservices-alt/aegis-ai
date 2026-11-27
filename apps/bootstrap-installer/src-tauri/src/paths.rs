@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 //! Filesystem paths + logging setup.
 //!
 //! Mirrors `aegis_constants.get_aegis_home()` from the Python CLI:

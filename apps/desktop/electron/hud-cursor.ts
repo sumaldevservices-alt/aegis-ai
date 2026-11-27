@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Cursor→page coordinate math for the HUD's Linux click-through fallback.
  *

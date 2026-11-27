@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Admission for URLs handed up by the preview guest preload
 // (electron/preview-guest-preload.ts, `preview-open-external` channel).
 //

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Dev-only diagnostics entry. Statically imported from `main.tsx` ABOVE the
 // `react-dom` import — that ordering is load-bearing and non-negotiable.
 //

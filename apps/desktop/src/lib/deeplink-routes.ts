@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { PluginInstallLegacyHint } from '@/store/plugin-install-request'
 
 export interface DeepLinkPayload {

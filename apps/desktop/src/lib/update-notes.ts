@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * "What's in this update" for the updates overlay, read from public GitHub.
  *

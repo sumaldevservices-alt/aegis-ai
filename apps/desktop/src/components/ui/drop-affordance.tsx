@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Shared drag-and-drop visual language — ONE dashed accent sheet, used by every
  * drop affordance (the composer file/session overlay, the layout zone targets)

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { group, mirrorTreeHorizontal, split } from '@/components/pane-shell/tree/model'
 import { registerBundledPresets } from '@/components/pane-shell/tree/presets'
 

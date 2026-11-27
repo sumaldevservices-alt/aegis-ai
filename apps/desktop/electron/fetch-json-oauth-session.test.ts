@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Buffer } from 'node:buffer'
 import { EventEmitter } from 'node:events'
 

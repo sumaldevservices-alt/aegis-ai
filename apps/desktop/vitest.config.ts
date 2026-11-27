@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { TestProjectConfiguration } from 'vitest/config'
 import { defineConfig } from 'vitest/config'
 

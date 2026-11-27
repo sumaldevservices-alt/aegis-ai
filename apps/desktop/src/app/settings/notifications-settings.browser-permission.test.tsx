@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Both Settings actions that can ask for browser notification permission must
 // leave the permission row showing the answer, not the snapshot it mounted with.
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'

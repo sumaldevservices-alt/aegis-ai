@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { readFileSync } from 'node:fs'
 
 import { cleanup, render, waitFor } from '@testing-library/react'

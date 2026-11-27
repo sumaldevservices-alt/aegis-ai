@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { $groupChats, updateGroupChat } from './group-chat'
 
 /** Flip a group chat's "Pin to top" flag (aegis-agent#89813). The roster

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export type PaneLifecycle = 'visible' | 'hot-hidden' | 'parked'
 
 export const DEFAULT_HOT_HIDDEN_PANE_CAP = 2

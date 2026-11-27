@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Button, cn, Codicon, GHOST_ICON_BTN, randomUuid, Tip } from '@aegis/plugin-sdk'
 import { type Ref, useImperativeHandle, useLayoutEffect, useRef, useState } from 'react'
 

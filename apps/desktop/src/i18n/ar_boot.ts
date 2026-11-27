@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { arDesktopCommands } from './ar_desktop_commands'
 import { arSessionCommands } from './ar_session_commands'
 import type { TranslationOverrides } from './define-locale'

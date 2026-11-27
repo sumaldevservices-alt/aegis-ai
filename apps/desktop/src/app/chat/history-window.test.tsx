@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useAssistantRuntime } from '@assistant-ui/react'
 import { act, render } from '@testing-library/react'
 import { atom } from 'nanostores'

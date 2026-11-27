@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The app's own tour — what `gui_tour` runs when it starts with no steps.
  *

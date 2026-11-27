@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, computed } from 'nanostores'
 
 import { runFreeTierChallenge } from '@/store/free-tier-challenge'

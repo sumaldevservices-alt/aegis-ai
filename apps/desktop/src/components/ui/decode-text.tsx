@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type ComponentProps, useEffect, useState } from 'react'
 
 import { prefersReducedMotion } from '@/hooks/use-media-query'

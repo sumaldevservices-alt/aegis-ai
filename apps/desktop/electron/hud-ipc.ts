@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // IPC surface for HUD mode (the chrome-free floating chat band). Extracted
 // from main.ts; the HUD window handle and session-id latch stay injected
 // because main.ts owns the window lifecycle and the close broadcast reads the

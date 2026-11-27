@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 const MESSAGE = '[data-message-id]'
 
 interface MountedPrompt {

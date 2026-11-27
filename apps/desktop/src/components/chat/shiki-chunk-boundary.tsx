@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Component, type ReactNode } from 'react'
 
 // Chromium/Electron: "TypeError: Failed to fetch dynamically imported

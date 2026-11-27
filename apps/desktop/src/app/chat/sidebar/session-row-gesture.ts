@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Which action a left-click on a sidebar session row triggers, given the
 // modifier keys held. Kept as a pure resolver (separate from the row
 // component) so the precedence — the part that's easy to get subtly wrong —

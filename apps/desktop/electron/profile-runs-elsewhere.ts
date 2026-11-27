@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Core's host-only marker for a profile a plugin runs somewhere other than this
 // host's backend (for example in a sandbox behind the plugin's launcher). One
 // file per profile: `<aegis root>/profiles_run_elsewhere/<profile>.json`, whose

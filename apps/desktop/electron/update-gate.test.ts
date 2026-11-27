@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Tests for electron/update-gate.ts — the update mutual-exclusion gate that
  * parks local backend spawns while an in-app update is running.

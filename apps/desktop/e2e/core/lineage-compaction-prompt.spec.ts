@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * #121088 — an acknowledged Desktop prompt is appended a second time, after its
  * own reply, when refreshed history carries synthetic user-role rows written by

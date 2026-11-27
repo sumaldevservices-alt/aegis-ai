@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, type WritableAtom } from 'nanostores'
 
 import { readKey, writeKey } from './storage'

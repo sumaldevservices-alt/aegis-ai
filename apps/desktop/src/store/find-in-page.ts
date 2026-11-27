@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom } from 'nanostores'
 
 import { captureFindScope, currentFindScope, performScopedFind, releaseFindScope } from '@/lib/find-in-page-scope'

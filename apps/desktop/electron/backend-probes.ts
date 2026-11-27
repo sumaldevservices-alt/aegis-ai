@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Bounded backend probes. A file on disk is not proof of a usable runtime. */
 
 import { spawn } from 'node:child_process'

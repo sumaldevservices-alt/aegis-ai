@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // updater/app-installer.ts — the win32 out-of-store MSIX strategy.
 //
 // The OS App Installer owns the apply. The package was installed from an

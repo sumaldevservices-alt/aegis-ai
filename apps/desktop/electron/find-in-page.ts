@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Pure helpers for the desktop find-in-page bridge (Ctrl/Cmd+F).
  *

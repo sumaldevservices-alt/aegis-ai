@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Terminal } from '@xterm/xterm'
 import { describe, expect, it } from 'vitest'
 

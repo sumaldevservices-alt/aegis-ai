@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * In-app tips — the app pointing at itself, plus the agent doing the same.
  *

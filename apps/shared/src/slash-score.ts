@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Description-aware fuzzy scoring for the slash-command menu.
  *
  *  Ported from superagent-ai/grok-cli `src/ui/slash-menu.ts`: candidates are

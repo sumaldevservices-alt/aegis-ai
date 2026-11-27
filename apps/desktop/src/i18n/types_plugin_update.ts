@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Plugins tab copy for the folders a plugin may use (`ctx.files`): the app's
  *  picker, the per-plugin grant list and its Revoke action. */
 export interface PluginFolderAccessTranslations {

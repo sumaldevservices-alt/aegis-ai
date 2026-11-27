@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Translations } from './types'
 
 // The boot screen's copy (including the update-hold screen), composed by en.ts.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Git Bash/MSYS rewrite slash-prefixed native flags (`/FI`) into paths.
 // Set these two opt-outs on Windows unless already present.
 export function applyWindowsMsysBashEnvDefaults(

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { LOCALE_ENDONYMS, RTL_LOCALES } from '@aegis/shared/i18n'
 
 import { normalize } from '@/lib/text'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * An explicit preview open (tool or user `openPreview`) must survive a later
  * `follow()` from a zone the user was already in. `follow()` copies that

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // THE compact-number formatter — every user-facing count/token figure goes
 // through here. 999 → "999", 1000 → "1k", 1230 → "1.2k", 10000 → "10k",
 // 1_500_000 → "1.5M". `M` is the top rung by design: token and cost figures

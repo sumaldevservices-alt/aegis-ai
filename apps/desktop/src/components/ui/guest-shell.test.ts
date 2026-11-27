@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment jsdom
 import { once } from 'node:events'
 import { readFileSync } from 'node:fs'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Hyprland (Omarchy, etc.) tiles a new Electron toplevel by default.
  * `alwaysOnTop` is compositor-owned on native Wayland, and `xdg_toplevel.move`

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { TouchEvent as ReactTouchEvent } from 'react'
 
 import { isMacPlatform } from '@/lib/platform'

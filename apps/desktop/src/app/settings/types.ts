@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Dispatch, SetStateAction } from 'react'
 
 import type { Aegis AI Enterprise Autonomous PlatformGateway } from '@/aegis'

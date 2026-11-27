@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, batch } from 'nanostores'
 
 // Rail profile switches (selectProfile / newSessionInProfile) as presentation

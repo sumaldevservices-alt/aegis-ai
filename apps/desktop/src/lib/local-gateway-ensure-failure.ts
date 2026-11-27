@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Main-process refusals from a local `aegis gateway ensure` (electron/local-gateway.ts) that no
 // automatic redial can fix: every redial of the scope re-spawns the same ensure client against the
 // same install and gets the same verdict. They need an update, a profile fix or a path repair.

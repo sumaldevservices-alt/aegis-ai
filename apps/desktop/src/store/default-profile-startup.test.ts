@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { DesktopConnectionsRegistry, DesktopProfileRoute, Aegis AI Enterprise Autonomous PlatformConnection } from '@/global'

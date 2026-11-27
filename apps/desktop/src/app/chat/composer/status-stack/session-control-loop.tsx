@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { memo, useCallback, useState } from 'react'
 
 import { StatusControlRow } from '@/components/chat/status-control-row'

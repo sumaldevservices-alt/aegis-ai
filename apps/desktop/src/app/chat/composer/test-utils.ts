@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Collapse the selection to the end of the editor's contents.
  *
  *  The composer's undo stack, ref rendering, and trigger detection all read the

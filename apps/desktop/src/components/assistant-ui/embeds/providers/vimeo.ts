@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { bareHost, type EmbedMatcher } from './types'
 
 export const vimeo: EmbedMatcher = url => {

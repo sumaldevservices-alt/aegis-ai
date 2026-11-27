@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { setAccentOverride } from './accent-override'
 import { normalizeHex } from './color'
 import { accentBase, accentedTheme, committedTheme } from './context'

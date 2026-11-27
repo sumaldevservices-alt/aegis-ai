@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { DESKTOP_PROFILE_NAME_RE } from './desktop-profile'
 
 /**

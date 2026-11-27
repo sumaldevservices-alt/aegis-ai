@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Regression tests for electron/cloud-boot-cascade.ts.
  *

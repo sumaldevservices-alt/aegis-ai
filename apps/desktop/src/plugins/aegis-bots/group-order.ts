@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 interface OrderRow {
   activity: number
   /** A gateway room: never reads a Desktop room record, which is keyed by name. */

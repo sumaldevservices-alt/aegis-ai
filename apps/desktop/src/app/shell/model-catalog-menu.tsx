@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ModelOptionProvider, ModelOptionsResult, ModelPricing } from '@aegis/shared'
 import {
   DEFAULT_REASONING_EFFORT,

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { WebLinksAddon } from '@xterm/addon-web-links'
 import type { ILinkHandler } from '@xterm/xterm'
 

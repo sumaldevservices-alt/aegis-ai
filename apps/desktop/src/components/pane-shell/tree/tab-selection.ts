@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Multi-tab selection on a zone's tab strip — Chrome's tab-selection grammar:
  *

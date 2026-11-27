@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { coarseElapsed } from '@aegis/plugin-sdk'
 
 import type { SidebarRowLabels } from './types'

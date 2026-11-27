@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface OnboardingTranslations {
   headerTitle: string
   headerDesc: string

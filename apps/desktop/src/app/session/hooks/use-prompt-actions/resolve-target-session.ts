@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { resolveSessionProfile } from '../use-session-actions/utils'
 
 import { singleFlightSessionResume, takeRecoveredRuntime } from './single-flight-resume'

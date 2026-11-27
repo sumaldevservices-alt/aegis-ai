@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * TOUR TARGET COLLECTOR — discovers what a tour can point at.
  *

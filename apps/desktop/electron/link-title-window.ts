@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Hidden BrowserWindow used by tier-2 link-title resolution: when curl can't
 // read a page <title> (bot walls, JS-rendered pages), we briefly load the URL
 // in an offscreen window and read its title. That window loads arbitrary

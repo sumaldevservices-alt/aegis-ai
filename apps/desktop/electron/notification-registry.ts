@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { EventEmitter } from 'node:events'
 
 interface RetainedNotification extends EventEmitter {

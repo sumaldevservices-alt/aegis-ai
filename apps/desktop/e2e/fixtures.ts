@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Shared E2E fixtures for the Aegis AI Enterprise Autonomous Platform desktop Playwright suite.
  *

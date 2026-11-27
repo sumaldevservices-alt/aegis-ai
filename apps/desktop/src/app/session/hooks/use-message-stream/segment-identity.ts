@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Wire identity of a turn's streamed reply (tui_gateway/stream_segments.py).
  *

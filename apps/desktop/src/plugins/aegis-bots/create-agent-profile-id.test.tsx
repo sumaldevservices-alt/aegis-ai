@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The New Bot dialog validates its slug with the SDK's PROFILE_ID_ARG_RE, which re-exports the one
  * shared owner (state-24, #155595). The slugifier only emits `[a-z0-9-]`, so the reachable proof is

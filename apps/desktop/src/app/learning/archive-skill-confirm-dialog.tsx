@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { ConfirmDialog } from '@/components/ui/confirm-dialog'
 import { deleteLearningNode, type ProfileScope } from '@/aegis'
 import { type Translations, useI18n } from '@/i18n'

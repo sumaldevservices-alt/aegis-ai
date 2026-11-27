@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { beforeAll, beforeEach, describe, expect, it } from 'vitest'
 
 import { findGroupOfPane, group, type LayoutNode, split } from '@/components/pane-shell/tree/model'

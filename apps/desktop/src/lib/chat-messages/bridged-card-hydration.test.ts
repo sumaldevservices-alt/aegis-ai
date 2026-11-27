@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it } from 'vitest'
 
 import { projectPendingConnection } from '@/app/session/hooks/use-session-actions/restore-pending-connection'

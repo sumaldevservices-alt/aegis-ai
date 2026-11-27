@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import {
   type CSSProperties,
   type PointerEvent as ReactPointerEvent,

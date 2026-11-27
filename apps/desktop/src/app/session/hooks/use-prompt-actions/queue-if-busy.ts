@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { enqueueQueuedPrompt, serverOwnsComposerQueue } from '@/store/composer-queue'
 import { isReplyPaused } from '@/store/paused-replies'
 import { $sessions, resolveComposerSessionKey } from '@/store/session'

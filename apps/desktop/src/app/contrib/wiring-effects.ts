@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useStore } from '@nanostores/react'
 import { useEffect, useRef } from 'react'
 import type { NavigateFunction } from 'react-router'

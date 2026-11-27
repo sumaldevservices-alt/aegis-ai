@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type McpServerEntry, normalizeEntry } from '@/lib/mcp-servers'
 
 export type AddServerAuth = 'bearer' | 'none' | 'oauth'

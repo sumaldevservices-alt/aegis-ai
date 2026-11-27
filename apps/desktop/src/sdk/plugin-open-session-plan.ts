@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** How `host.openSession` should treat a named profile.
 
 A plugin/Bot Mode open is navigation, not a workspace or chrome API-home

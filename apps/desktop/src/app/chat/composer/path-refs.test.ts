@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { KeyboardEvent } from 'react'
 import { describe, expect, it } from 'vitest'
 

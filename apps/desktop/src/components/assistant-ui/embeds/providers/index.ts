@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { instagram } from './instagram'
 import { maps } from './maps'
 import { pinterest } from './pinterest'

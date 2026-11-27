@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type * as childProcess from 'node:child_process'
 import { type ChildProcess, spawn } from 'node:child_process'
 import fs from 'node:fs'

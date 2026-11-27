@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, cleanup, render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'

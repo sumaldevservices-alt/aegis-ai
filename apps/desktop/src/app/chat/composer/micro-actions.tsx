@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { memo, useState } from 'react'
 
 import { composerFloatingPill } from '@/components/chat/composer-dock'

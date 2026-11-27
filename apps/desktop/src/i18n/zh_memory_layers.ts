@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { MemoryLayersTranslations } from './types_memory_layers'
 
 export const zhMemoryLayers: MemoryLayersTranslations = {

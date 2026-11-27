@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const frUpdateChannel = {
   title: 'Canal de mise à jour',
   description:

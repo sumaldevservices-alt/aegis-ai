@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { computed } from 'nanostores'
 
 import { singleFlightSessionResume } from '@/app/session/hooks/use-prompt-actions/single-flight-resume'

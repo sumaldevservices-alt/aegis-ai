@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * User-installed desktop themes (currently: converted VS Code themes).
  *

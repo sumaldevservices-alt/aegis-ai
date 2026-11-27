@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Dev-only render counter — answers "what actually re-rendered, and why?".
 //
 // Loaded from `main.tsx` BEFORE `react-dom` (see the import-order note there).

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { botMentionTag } from './data'
 import {
   compactGroupChatSyncText,

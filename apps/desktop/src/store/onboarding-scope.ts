@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { getApiRequestConnection, getApiRequestProfile, type ProfileScope } from '@/aegis'
 import { RECONNECT_ATTEMPT_TIMEOUT_MS, withTimeout } from '@/lib/with-timeout'
 import { requestGatewayForAgent } from '@/store/gateway'

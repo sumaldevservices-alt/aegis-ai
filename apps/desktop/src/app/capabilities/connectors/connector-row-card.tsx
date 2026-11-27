@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ConnectorLogo } from '@/components/ui/connector-logo'

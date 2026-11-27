@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * One member's turn: its hidden per-group session, the submit/poll loop that
  * runs it, the pending clarify/approval prompts mirrored out of it, and the

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Shared usePromptActions test harness (index.test.tsx and the topical siblings).
 import { act, render } from '@testing-library/react'
 import type { MutableRefObject } from 'react'

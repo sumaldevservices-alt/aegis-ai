@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A local update hands control to a detached updater that waits for the
  * Desktop window to exit, so every remote update transaction must settle

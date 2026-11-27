@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Gateway Group Chats in the roster derivation. A gateway room is not a
  * Desktop room record: a Desktop room with the same name must not lend it a

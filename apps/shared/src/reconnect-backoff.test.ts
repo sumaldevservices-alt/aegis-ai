@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it, vi } from 'vitest'
 
 import { reconnectBackoffDelayMs } from './reconnect-backoff.js'

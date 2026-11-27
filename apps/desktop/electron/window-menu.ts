@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { MenuItemConstructorOptions } from 'electron'
 
 interface WindowMenuItem extends MenuItemConstructorOptions {

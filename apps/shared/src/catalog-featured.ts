@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** The catalog hero pick, shared by the website and the desktop app so both
  *  feature the same entry at the same time.
  *

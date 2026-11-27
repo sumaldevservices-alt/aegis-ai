@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import './status-stack.css'
 
 import { type ReactNode, useState } from 'react'

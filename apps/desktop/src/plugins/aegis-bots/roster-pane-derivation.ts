@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { type CanonicalRoomLive, canonicalRoomLiveKey } from './canonical-group-details'
 import type { GatewayGroupRoom } from './canonical-group-registry'
 import { botActivitySession } from './data'

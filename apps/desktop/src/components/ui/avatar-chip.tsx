@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ComponentPropsWithoutRef, ComponentType, ReactNode, SVGProps } from 'react'
 import { forwardRef } from 'react'
 

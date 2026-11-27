@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Responsive horizontal gutter for primary content bodies (settings right side,
 // skills, artifacts, command center / sessions). Ratio-based so it scales with
 // the window, but clamped so it never collapses on narrow widths or runs away

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { UpdateChannelCopy } from './types_update_channel'
 
 export const enUpdateChannel: UpdateChannelCopy = {

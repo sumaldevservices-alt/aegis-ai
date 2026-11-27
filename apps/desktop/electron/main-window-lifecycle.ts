@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { extractDeepLink } from './deep-link-protocol'
 import { type MacApplicationsGuardResult, macGuardAllowsWindows } from './mac-applications-guard'
 import { hasClosePreviewFlag } from './preview-guest-escape'

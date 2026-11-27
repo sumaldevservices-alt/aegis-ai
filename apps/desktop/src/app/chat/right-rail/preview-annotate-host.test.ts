@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { describe, expect, it, vi } from 'vitest'
 
 import { ANNOTATE_CROP_PAD, annotateInPage, type AnnotateInPage } from '@/lib/preview-annotate'

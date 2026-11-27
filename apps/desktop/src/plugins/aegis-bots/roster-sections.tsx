@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * How the roster groups and labels what it lists: the gateway filter, the
  * per-connection bucketing, and the foldable headings those buckets render.

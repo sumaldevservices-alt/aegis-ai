@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ExternalOpenFailedCopy } from './types_external_open'
 
 export const enExternalOpenFailed: ExternalOpenFailedCopy = {

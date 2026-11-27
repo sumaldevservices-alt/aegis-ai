@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The `?win=` kinds whose Electron window is `transparent: true` and so paints
 // nothing but its own surface over the user's desktop. `secondary` (a session
 // window) and `browser` are ordinary opaque windows and are deliberately not

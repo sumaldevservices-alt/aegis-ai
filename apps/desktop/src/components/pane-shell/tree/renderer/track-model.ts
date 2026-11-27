@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The TRACK MODEL — how a layout node resolves its size along a split axis.
  *

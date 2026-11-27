@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { DesktopCloudAgentSignInResult } from '@/global'
 
 /**

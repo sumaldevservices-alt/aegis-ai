@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Translations } from '@/i18n/types'
 import {
   type AgentPluginRow,

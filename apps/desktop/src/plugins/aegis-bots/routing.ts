@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Cross-connection routing: resolving a roster row's owning connection, the
  * RPC door that rides that owner, and the alias identity that keeps a

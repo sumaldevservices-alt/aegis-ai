@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { BrowserWindow, IpcMain, WebContents } from 'electron'
 
 interface WakeRequest {

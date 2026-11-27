@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // @vitest-environment node
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** The local campaign tips' reshow clock. */
 
 import { describe, expect, it } from 'vitest'

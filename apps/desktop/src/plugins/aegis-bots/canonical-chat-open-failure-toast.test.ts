@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * notifyBotOpenFailure copy contract (desktop-34): every failed bot open
  * toasts a plain-words title + next step from the plugin bundle, keeps the raw

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * A room holding the default bot and a real (pre-reservation) `aegis`
  * profile: the stored member descriptors must keep the roster's claim, or

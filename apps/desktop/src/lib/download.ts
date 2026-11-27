@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 const MIME_EXTENSIONS: Record<string, string> = {
   'image/bmp': '.bmp',
   'image/gif': '.gif',

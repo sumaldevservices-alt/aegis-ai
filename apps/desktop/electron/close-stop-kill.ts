@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Windows Desktop close/stop after the existing tree-kill.
  *

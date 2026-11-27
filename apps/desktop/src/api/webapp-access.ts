@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { aegisApi, profileScoped } from './client'
 
 // Web access: turn on the Webapp the gateway on THIS machine serves, for other devices, behind Nous

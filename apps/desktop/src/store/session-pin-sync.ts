@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Reconcile the sidebar's pins with the backend "keep" flag, both directions.
  *

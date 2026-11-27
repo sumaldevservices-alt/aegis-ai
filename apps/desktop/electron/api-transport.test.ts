@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Unit + live-transport tests for the Electron main process's Aegis AI Enterprise Autonomous Platform REST
  * retry policy (#92976 / PR #92977 salvage).

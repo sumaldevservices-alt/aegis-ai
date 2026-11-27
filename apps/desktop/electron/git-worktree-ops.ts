@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Git-driven worktree operations for the desktop "Start work" flow: spin up a
 // fresh worktree the lightest way (`git worktree add -b`), list real worktrees,
 // and remove them. Git is the source of truth; the renderer just drives these.

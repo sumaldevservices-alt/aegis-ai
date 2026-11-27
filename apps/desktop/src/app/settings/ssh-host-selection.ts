@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 type SshHostState = {
   sshHost: string
   sshUser: string

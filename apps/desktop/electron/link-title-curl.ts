@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { TitleFetchTarget } from './link-title-guard'
 import { decodeWebText } from './web-text-decoder'
 

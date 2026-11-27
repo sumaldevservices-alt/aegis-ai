@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * REST TAIL-HYDRATION BOOKKEEPING — keyed by STORED session id.
  *

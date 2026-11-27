@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Task modal — the desktop port of the dashboard's task detail, Linear-style:
  * a centered two-column dialog (main: diagnostics, description, result,

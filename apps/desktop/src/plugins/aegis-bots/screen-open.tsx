@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Open a bot's Screen as a main-window workspace tab (host.openWorkspace),
  * one tab per bot; a second open refocuses the existing tab.

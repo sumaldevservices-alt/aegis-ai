@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { ChatMessage } from '@/lib/chat-messages'
 import { chatMessageText } from '@/lib/chat-messages/parts'
 

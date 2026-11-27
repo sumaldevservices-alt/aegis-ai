@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Filename stamping for pasted composer images (composer-images/).
  *

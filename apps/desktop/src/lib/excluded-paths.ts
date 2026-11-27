@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Always hidden across the file tree and review (git) tree, regardless of
 // .gitignore: the VCS internals, heavyweight dep/build/cache dirs, and OS noise.
 // These bloat both trees and are never worth browsing or reviewing — even in

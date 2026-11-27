@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // An OS drop into the message-edit composer that the shell cannot expose as a
 // native path is staged as File bytes (the Webapp bridge uploads it). When that
 // staging is rejected, the reason the server or a proxy gave (an nginx 413, a

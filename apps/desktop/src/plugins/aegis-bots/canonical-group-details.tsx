@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { atom, Button, Codicon, Tip } from '@aegis/plugin-sdk'
 import { type ReactNode, useLayoutEffect, useRef } from 'react'
 

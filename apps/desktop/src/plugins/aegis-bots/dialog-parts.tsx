@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * The presentation leaves every Bot Mode dialog shares: a labelled control, and
  * the frame the embedded Capabilities surface is rendered into.

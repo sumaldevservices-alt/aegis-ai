@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // T11 (#134889): file-writing slash commands (/save) write on the Electron side. The gateway may be
 // remote, so it only returns the rendered content; this module asks the user where the file goes
 // (native save dialog) and writes it from the main process. Never a gateway write to the client's disk.

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useStore } from '@nanostores/react'
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import { atom } from 'nanostores'

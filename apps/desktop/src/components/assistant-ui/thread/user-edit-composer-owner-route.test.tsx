@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The inline message-edit composer is a second `/` palette: it must reach the
 // edited session's OWNER exactly like the main composer does (#141583). Before
 // it passed its sessionId, its catalog went out on the ambient socket with no

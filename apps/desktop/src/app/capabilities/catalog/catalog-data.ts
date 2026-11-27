@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { skillCatalogInstallIdentifier } from '@aegis/shared'
 import { queryOptions, useQuery } from '@tanstack/react-query'
 

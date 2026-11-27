@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Monkey-patch: playwright's test runner never calls tracing.start() on
  * Electron's internal BrowserContext because:

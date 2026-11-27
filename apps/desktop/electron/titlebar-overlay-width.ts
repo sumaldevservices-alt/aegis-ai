@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { BrowserWindow } from 'electron'
 
 export const OVERLAY_FALLBACK_WIDTH = 144

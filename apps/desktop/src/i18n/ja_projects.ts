@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // サイドバーのプロジェクトセクションのコピー。ja.ts が参照します。
 import type { TranslationOverrides } from './define-locale'
 export const jaProjects: NonNullable<TranslationOverrides['sidebar']>['projects'] = {

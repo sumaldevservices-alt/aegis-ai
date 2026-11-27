@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Window translucency — the one place the main process and the renderer agree
  * on what the setting means.

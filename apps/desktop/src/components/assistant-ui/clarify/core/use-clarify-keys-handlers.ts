@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { visibleClarifyCard } from '@/lib/keybinds/composer-focus-keys'
 
 interface ArrowMove {

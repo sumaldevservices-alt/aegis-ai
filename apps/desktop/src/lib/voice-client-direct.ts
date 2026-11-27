@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { aegisApiAs, type OwnerScope, ownerScoped, type ResolvedOwner } from '@/api/client'
 import { getApiRequestConnection, getApiRequestProfile, aegisApi } from '@/aegis'
 

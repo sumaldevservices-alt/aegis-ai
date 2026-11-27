@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { useValue } from '@aegis/plugin-sdk'
 
 import { avatarColor, botAppearance, BotFace } from './avatar'

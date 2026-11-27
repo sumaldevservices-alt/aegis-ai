@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** A checkout with a REAL fake hand-off script that answers marker-helper ops. */
 
 import fs from 'fs'

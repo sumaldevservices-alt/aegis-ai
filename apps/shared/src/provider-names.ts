@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const providerDisplayNames = (providers: readonly { name: string; slug: string }[]): string[] => {
   const counts = new Map<string, number>()
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // #93911: a delivered turn runs on the target gateway, so the client must
 // outlive the backend's own bound. Without this the call fell to the pool's
 // generic 30s deadline and every long turn (Computer Use, deep research) came

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export type QuickEntryAcceptedPromptStatus = 'streaming' | 'queued' | 'steered' | 'redirected'
 
 export interface QuickEntryRequestIdentity {

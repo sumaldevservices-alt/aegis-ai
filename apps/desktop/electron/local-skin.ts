@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Read the local display skin without asking the active gateway. This is used
 // at renderer boot so a Desktop window can still paint its configured local
 // skin when its primary connection is a remote gateway that is offline.

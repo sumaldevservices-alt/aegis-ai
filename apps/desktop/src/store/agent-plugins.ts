@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { jsonRpcErrorReason, JsonRpcGatewayError, type PluginsManageParams } from '@aegis/shared'
 import { atom } from 'nanostores'
 

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // window-below.ts — which OS window sits directly underneath a Aegis AI Enterprise Autonomous Platform window.
 //
 // Backs the desktop-gated `read_window_below` tool: the renderer receives

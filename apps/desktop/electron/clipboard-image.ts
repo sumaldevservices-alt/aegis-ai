@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Electron 44 rearchitected the clipboard onto the W3C async API: readText /
 // writeText return Promises, and image reads no longer have a readImage()
 // shortcut — the bytes arrive through clipboard.read() (ClipboardItem[]) and

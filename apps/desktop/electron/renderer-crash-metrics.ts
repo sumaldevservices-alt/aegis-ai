@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Consent-gated renderer-crash counter for shared metrics. A crash can take the
 // renderer (and its backend socket) down before anything is sent, so the main
 // process persists a bucketed reason per render-process-gone and the renderer

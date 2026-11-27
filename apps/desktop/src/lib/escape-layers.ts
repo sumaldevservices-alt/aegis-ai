@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Ordered Escape ownership for the app's transient window-level layers.
  *

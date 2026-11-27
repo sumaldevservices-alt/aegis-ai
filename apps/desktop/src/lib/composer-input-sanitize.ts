@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Strip terminal bracketed-paste leaks and repeated artifact tails from composer
  * text before it is shown in the UI or sent to the gateway.

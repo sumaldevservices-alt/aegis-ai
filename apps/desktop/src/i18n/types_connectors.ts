@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface ConnectorCardTranslations {
   title: string
   connect: string

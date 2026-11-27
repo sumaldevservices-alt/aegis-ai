@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Bot Mode sessions are ALWAYS hidden from the global Sessions sidebar.
  *

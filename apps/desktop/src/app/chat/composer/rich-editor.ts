@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Helpers for the contenteditable composer surface: serialize refs to chip
  * HTML, walk the DOM back to plain `@kind:value` text, and place the caret.

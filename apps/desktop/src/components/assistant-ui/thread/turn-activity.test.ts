@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // The transcript's activity row has to account for every second the app spends
 // claiming to work. Before this, it ran off a text-length signature and only
 // deferred to the tail part, so it went silent — and stopped counting — in the

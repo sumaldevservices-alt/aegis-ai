@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { JSON_RPC_METHOD_NOT_FOUND } from '@aegis/shared'
 
 /** True when a JSON-RPC call failed because the backend predates the method.

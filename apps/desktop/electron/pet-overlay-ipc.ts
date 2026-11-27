@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // IPC surface for the pop-out pet overlay (mascot window). Extracted from
 // main.ts; window handles stay injected because main.ts owns their lifecycle.
 import { type BrowserWindow, ipcMain, screen } from 'electron'

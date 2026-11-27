@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // ANSI escape stripping shared by every TS surface (TUI, desktop, web).
 // Covers CSI (complete and truncated tails), OSC (hyperlinks, titles), DCS/SOS/PM/APC
 // strings, multi-byte non-CSI ESC sequences, stray ESC bytes and C0 controls — a

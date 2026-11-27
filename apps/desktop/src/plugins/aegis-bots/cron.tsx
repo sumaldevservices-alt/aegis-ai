@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Routines: the Aegis AI Enterprise Autonomous Platform cron jobs scoped to the bot you're chatting with — the
  * list query and its owner resolution, the schedule picker, the create and

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { Button } from '@/components/ui/button'
 import { ExternalLink } from '@/lib/external-link'
 import { PawPrint, Settings2 } from '@/lib/icons'

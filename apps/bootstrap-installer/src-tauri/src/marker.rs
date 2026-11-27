@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 //! The "update in progress" marker: the Desktop launch gate and the
 //! cross-process update lock shared with `aegis_cli/update_lock.py` and the
 //! Electron gate (`apps/desktop/electron/update-marker.ts`).

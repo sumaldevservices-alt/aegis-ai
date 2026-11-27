@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 'use client'
 
 import { USER_BUBBLE_BASE_CLASS } from '@/components/assistant-ui/thread/user-message'

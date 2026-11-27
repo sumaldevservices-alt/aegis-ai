@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { translateNow } from '@/i18n'
 
 export type GatewayReconnectSource = 'manual' | 'restart-followthrough'

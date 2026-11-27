@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { Terminal } from '@xterm/xterm'
 
 // Serialized view of the in-app terminal, handed to the agent's `read_terminal`

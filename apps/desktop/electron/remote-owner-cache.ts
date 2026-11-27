@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Main-process memo: which remote profile owns a session id when the caller gave
  * no profile hint (#85834).

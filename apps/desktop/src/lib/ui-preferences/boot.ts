@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Runs BEFORE the app's module graph (see src/entry.ts): the localStorage cache
 // must match this machine's shared preferences before any store module reads
 // it, or a plain-atom store keeps a stale value and its next write clobbers the

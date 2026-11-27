@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { AssistantRuntimeProvider, type ThreadMessage, useExternalStoreRuntime } from '@assistant-ui/react'
 import type { GatewayEvent } from '@aegis/shared'
 import { QueryClient } from '@tanstack/react-query'

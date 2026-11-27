@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { RECONNECT_STABLE_OPEN_MS } from '@aegis/shared'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 

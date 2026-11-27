@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Synchronous filesystem probes main.ts uses on its boot and update paths.
 
 import fs from 'node:fs'

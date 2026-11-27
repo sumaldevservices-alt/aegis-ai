@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * PARKED PANES — registered contributions that are deliberately OUT of the
  * layout tree. A parked pane keeps its contribution, so a keep-alive body (a

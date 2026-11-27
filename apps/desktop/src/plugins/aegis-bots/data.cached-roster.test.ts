@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * `cachedUnionRoster` is the imperative roster read — the @mention popover
  * must answer per keystroke and the composer middleware runs on submit, so

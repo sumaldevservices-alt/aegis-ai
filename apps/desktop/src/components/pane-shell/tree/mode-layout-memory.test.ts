@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { assert, beforeEach, expect, it, vi } from 'vitest'
 
 import type { LayoutNode } from './model'

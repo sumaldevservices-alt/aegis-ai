@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Regression (#98813): the sidebar's Archived view reuses the row action
 // menu, so its shared archive verb must RESTORE an already-archived row
 // instead of re-archiving it. unarchiveSession is the restore path the

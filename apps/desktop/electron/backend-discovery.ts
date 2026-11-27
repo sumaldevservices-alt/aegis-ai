@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Host-level backend discovery — the Desktop half of multiplex-only.
 //
 // Exactly ONE `aegis serve` runs per HOST and multiplexes every profile, so

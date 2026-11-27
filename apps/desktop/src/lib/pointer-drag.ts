@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /** Run a pointer drag until pointerup, then unbind both listeners.
  *
  *  Capture-phase, on `window`, so the drag keeps tracking when the pointer

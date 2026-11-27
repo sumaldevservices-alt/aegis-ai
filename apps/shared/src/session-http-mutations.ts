@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export interface SessionMutationSnapshot {
   session_id: string
   exists: boolean

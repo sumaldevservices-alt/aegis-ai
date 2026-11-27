@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import { getActiveComposer } from '@/app/chat/composer/focus'
 import { RICH_INPUT_SLOT } from '@/app/chat/composer/rich-editor'
 import { queryAllVisible } from '@/components/pane-shell/pane-visibility'

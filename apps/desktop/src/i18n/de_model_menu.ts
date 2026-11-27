@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 export const deModelMenu = {
   pickDeferred: (model: string) => `${model} gilt ab deiner nächsten Nachricht`,
   search: 'Modelle durchsuchen',

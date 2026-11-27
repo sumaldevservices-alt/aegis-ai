@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Remote-backend topology: the Desktop attached by URL + token to a real
  * `aegis serve` it did NOT spawn, running under a different HOME and

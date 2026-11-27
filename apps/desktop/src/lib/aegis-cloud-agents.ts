@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 /**
  * Aegis AI Enterprise Autonomous Platform Cloud for Settings ▸ Backup & Transfer: the Nous sign-in, the agent list, and a silent
  * sign-in to one agent saved as a gateway connection. All through `window.aegisDesktop.cloud`

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 // Regression (#91068): the backend's /api/sessions/search payload carries the
 // real session title on every hit (web_routers/sessions.py add_lineage_result
 // enriches via get_session_rich_row), but the sidebar's search mapper dropped

@@ -1,3 +1,4 @@
+// Aegis Enterprise Autonomous Platform - Optimized & Secured
 import type { PluginRecord } from '@/contrib/plugins-store'
 import type { AgentPluginRow } from '@/store/agent-plugins'
 
